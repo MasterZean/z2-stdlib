@@ -1,0 +1,57 @@
+namespace sys.core.lang;
+
+class Int {
+	const Zero: Int = 0;
+	const One: Int = 1;
+	const Default: Int = Zero;
+
+	const Min: Int = -2'147'483'648;
+	const Max: Int = 2'147'483'647;
+
+	const IsSigned = true;
+	const IsInteger = true;
+
+	const MaxDigitsLow = 9;
+	const MaxDigitsHigh = 10;
+
+	property Abs: Int {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Int {
+		return this * this;
+	}
+
+	property Sqrt: Int {
+		return Int{Double{this}.Sqrt};
+	}
+
+	property Floor: Int {
+		return this;
+	}
+
+	property Ceil: Int {
+		return this;
+	}
+
+	property Round: Int {
+		return this;
+	}
+
+	def GetMin(min: Int): Int; const {
+		return this >= min ? min : this;
+	}
+
+	def GetMax(max: Int): Int; const {
+		return this <= max ? max : this;
+	}
+
+	def Clamp(min: Int, max: Int): Int; const {
+		if (this <= min)
+			return min;
+		else if (this >= max)
+			return max;
+		else
+			return this;
+	}
+}
