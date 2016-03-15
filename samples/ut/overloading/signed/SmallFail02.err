@@ -1,0 +1,5 @@
+SmallFail02.z2(5, 9): error: class 'org.z2legacy.samples.ut.overloading.SmallFail02': when trying to match overload
+	test(sys.core.numeric.Small)
+got ambiguity between
+	test(sys.core.numeric.Float)
+	test(sys.core.numeric.Double)

@@ -1,0 +1,6 @@
+ByteFail03.z2(5, 9): error: class 'org.z2legacy.samples.ut.overloading.ByteFail03': when trying to match overload
+	test(sys.core.numeric.Byte)
+got ambiguity between
+	test(sys.core.numeric.Float)
+	test(sys.core.numeric.Double)
+
