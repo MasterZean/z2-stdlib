@@ -1,12 +1,12 @@
-IntFail01.z2(5, 9): error: class 'org.z2legacy.samples.ut.overloading.IntFail01' does not have an overload
-	test(sys.core.numeric.Int)
+IntFail01.z2(5, 9): error: class 'IntFail01' does not have an overload
+	test(Int)
 existing overloads
-	test(sys.core.numeric.Byte)
-	test(sys.core.numeric.Word)
-	test(sys.core.numeric.DWord)
-	test(sys.core.numeric.QWord)
-	test(sys.core.numeric.Small)
-	test(sys.core.numeric.Short)
-	test(sys.core.numeric.Float)
-	test(sys.core.numeric.Char)
-	test(sys.core.numeric.PtrSize)
+	test(Byte)
+	test(Word)
+	test(DWord)
+	test(QWord)
+	test(Small)
+	test(Short)
+	test(Float)
+	test(Char)
+	test(PtrSize)

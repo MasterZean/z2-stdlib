@@ -1,5 +1,5 @@
-ByteFail02.z2(5, 9): error: class 'org.z2legacy.samples.ut.overloading.ByteFail02': when trying to match overload
-	test(sys.core.numeric.Byte)
+ByteFail02.z2(5, 9): error: class 'ByteFail02': when trying to match overload
+	test(Byte)
 got ambiguity between
-	test(sys.core.numeric.Short)
-	test(sys.core.numeric.Int)
+	test(Short)
+	test(Int)

@@ -1,6 +1,6 @@
-ByteFail04.z2(5, 9): error: class 'org.z2legacy.samples.ut.overloading.ByteFail04' does not have an overload
-	test(sys.core.numeric.Byte)
+ByteFail04.z2(5, 9): error: class 'ByteFail04' does not have an overload
+	test(Byte)
 existing overloads
-	test(sys.core.numeric.Small)
-	test(sys.core.numeric.Char)
-	test(sys.core.numeric.PtrSize)
+	test(Small)
+	test(Char)
+	test(PtrSize)
