@@ -1,0 +1,1 @@
+Fail01.z2(5, 28): error: matching parameter 1: actual 'Int' to formal 'Byte': no conversion possible

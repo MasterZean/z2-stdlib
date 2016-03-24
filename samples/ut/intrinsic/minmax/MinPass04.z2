@@ -1,0 +1,26 @@
+namespace org.z2legacy.samples.ut.intrinsic.minmax;
+
+class MinPass04 {
+	def @main() {
+		val va = Intrinsic.Min(5, 20);
+		System.Out << va.class << " min is " << va << "\n";
+		
+		val vb = Intrinsic.Min(50u, 200u);
+		System.Out << vb.class << " min is " << vb << "\n";
+		
+		val vc = Intrinsic.Min(500l, 2000l);
+		System.Out << vc.class << " min is " << vc << "\n";
+		
+		val vd = Intrinsic.Min(5000ul, 20000ul);
+		System.Out << vd.class << " min is " << vd << "\n";
+		
+		val vi = Intrinsic.Min(0.4f, 22.1f);
+		System.Out << vi.class << " min is " << vi << "\n";
+		
+		val vj = Intrinsic.Min(0.04000000, 22.01);
+		System.Out << vj.class << " min is " << vj << "\n";
+		
+		val vk = Intrinsic.Min('a', '7');
+		System.Out << vk.class << " min is " << vk << "\n";
+	}
+}
