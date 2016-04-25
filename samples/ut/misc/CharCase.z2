@@ -1,0 +1,28 @@
+using sys.core.i18n.UnicodeCategory;
+
+class TestCharCase {
+	def @main() {
+		val a = 'A';
+		if (a.Category == UnicodeCategory.Uppercase_Letter)
+			System.Out << "'A' is upercase\n";
+		if ('a'.Category == UnicodeCategory.Uppercase_Letter)
+			System.Out << "'a' is upercase\n";
+
+		System.Out << 'T'.IsUpper << ' ' << 'T'.IsLower << ' ' << 'T'.IsTitle << ' ' << 'T'.IsDecimal <<'\n';
+		System.Out << 'c'.IsUpper << ' ' << 'c'.IsLower << ' ' << 'c'.IsTitle << ' ' << 'c'.IsDecimal <<'\n';
+		System.Out << 'ǲ'.IsUpper << ' ' << 'ǲ'.IsLower << ' ' << 'ǲ'.IsTitle << ' ' << 'ǲ'.IsDecimal <<'\n';
+		System.Out << '7'.IsUpper << ' ' << '7'.IsLower << ' ' << '7'.IsTitle << ' ' << '7'.IsDecimal <<'\n';
+
+		System.Out << 'b'.Upper << ' ' << 'B'.Upper << '\n';
+		System.Out << 'b'.Lower << ' ' << 'B'.Lower << '\n';
+		System.Out << 'b'.Title << ' ' << 'B'.Title << '\n';
+
+		System.Out << 'Ş'.Lower << 'ş'.Upper << '猫'.Title << '\n';
+		System.Out << 'ᾈ'.Lower << 'ᾈ'.Upper << 'ᾈ'.Title << '\n';
+		System.Out << 'ᾀ'.Lower << 'ᾀ'.Upper << 'ᾀ'.Title << '\n';
+
+		System.Out << 'ǲ'.Lower << 'ǲ'.Upper << 'ǲ'.Title << '\n';
+		System.Out << 'ǳ'.Lower << 'ǳ'.Upper << 'ǳ'.Title << '\n';
+		System.Out << 'Ǳ'.Lower << 'Ǳ'.Upper << 'Ǳ'.Title << '\n';
+	}
+}

@@ -1,0 +1,12 @@
+using sys.core.StopWatch;
+
+class TestZideMT {
+	def @main() {
+		val ts = StopWatch{};
+		
+		for (val i = 0; i < 100000; i++)
+			System.Out << i << "\n";
+		
+		System.Out << "Task done in: " << ts.Elapsed() / 1000 << " sec.\n";
+	}
+}
