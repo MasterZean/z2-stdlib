@@ -38,20 +38,66 @@ class Int {
 		return this;
 	}
 
-	def GetMin(min: Int): Int; const {
-		return this >= min ? min : this;
+	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
+	
+	def Clamped(min: Int, max: Int): Int; const Intrinsic.Clamped;
+	
+#region Saturation
+
+	this Saturated(value: Small) {
+		this = value;
 	}
 
-	def GetMax(max: Int): Int; const {
-		return this <= max ? max : this;
+	this Saturated(value: Byte) {
+		this = value;
 	}
 
-	def Clamp(min: Int, max: Int): Int; const {
-		if (this <= min)
-			return min;
-		else if (this >= max)
-			return max;
+	this Saturated(value: Short) {
+		this = value;
+	}
+
+	this Saturated(value: Word) {
+		this = value;
+	}
+
+	this Saturated(value: Int) {
+		this = value;
+	}
+
+	this Saturated(value: DWord) {
+		this = value > DWord{Max} ? Max : Int{value};
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
 		else
-			return this;
+			this = Int{value};
 	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Int{value};
+	}
+
+	this Saturated(value: Float) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Int{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Int{value};
+	}
+
+#endregion
 }

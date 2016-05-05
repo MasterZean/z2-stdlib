@@ -1,0 +1,47 @@
+namespace sys.core.lang;
+
+class Double {
+	const Zero: Double = 0;
+	const One: Double = 1;
+	const Default: Double = Zero;
+
+	const Min: Double = -1.79769e+308;
+	const Max: Double = 1.79769e+308;
+	
+	const IsSigned = true;
+	const IsInteger = false;
+
+	const MaxDigitsLow = 15;
+	const MaxDigitsHigh = 17;
+
+	const MinExpBase10 = -307;
+	const MaxExpBase10 = 308;
+
+	property Abs: Double {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Double {
+		return this * this;
+	}
+
+	property Sqrt: Double get const Intrinsic.Sqrt;
+
+	property Floor: Double get const Intrinsic.Floor;
+
+	property Ceil: Double get const Intrinsic.Ceil;
+
+	property Round: Double get const Intrinsic.Round;
+
+	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
+	
+	def Clamped(min: Int, max: Int): Int; const Intrinsic.Clamped;
+
+#region Saturation
+
+	this Saturated(value: Double) {
+		this = value;
+	}
+
+#endregion
+}
