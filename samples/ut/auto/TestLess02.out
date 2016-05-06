@@ -1,0 +1,8 @@
+call Version.@less of class Def
+true
+call Version.@less of class Def
+false
+call Version.@lesseq of class Def
+true
+call Version.@lesseq of class Def
+false

@@ -1,0 +1,13 @@
+namespace usingtest.compa;
+
+class EmptyDummy {
+	def @main() {
+		EmptyDummy;
+		usingtest.compa.EmptyDummy;
+		::usingtest.compa.EmptyDummy;
+		
+		val usingtest = 0;
+		
+		::usingtest.compa.EmptyDummy;
+	}
+}

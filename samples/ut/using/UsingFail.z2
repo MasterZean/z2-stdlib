@@ -1,0 +1,12 @@
+using usingtest.compa.EmptyDummy;
+using usingtest.compa.compb.EmptyDummy;
+
+class EmptyDummy {
+}
+
+class UsingTest {
+	def @main() {
+		val p = EmptyDummy{};
+		System.Out << p.class;
+	}
+}

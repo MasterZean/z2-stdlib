@@ -1,0 +1,6 @@
+namespace usingtest.compa.compb;
+
+class EmptyDummy {
+	def @main() {
+	}
+}

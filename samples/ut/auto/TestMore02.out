@@ -1,0 +1,8 @@
+call Version.@more of class Def
+true
+call Version.@more of class Def
+false
+call Version.@moreeq of class Def
+true
+call Version.@moreeq of class Def
+false
