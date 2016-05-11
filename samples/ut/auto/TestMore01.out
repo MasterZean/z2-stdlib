@@ -6,3 +6,12 @@ call Version.@more of class Def
 true
 call Version.@more of class Def
 false
+call Version.@more of class Def
+Min: 1 2 7000
+call Version.@more of class Def
+Max: 2 0 1
+call Version.@more of class Def
+Clamp: 1 2 7000
+call Version.@more of class Def
+call Version.@more of class Def
+Clamped: 2 0 1

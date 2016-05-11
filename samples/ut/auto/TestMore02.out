@@ -6,3 +6,12 @@ call Version.@moreeq of class Def
 true
 call Version.@moreeq of class Def
 false
+call Version.@moreeq of class Def
+Min: 1 2 7000
+call Version.@moreeq of class Def
+Max: 2 0 1
+call Version.@moreeq of class Def
+Clamp: 1 2 7000
+call Version.@moreeq of class Def
+call Version.@moreeq of class Def
+Clamped: 2 0 1
