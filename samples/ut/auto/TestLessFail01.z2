@@ -1,0 +1,25 @@
+namespace org.z2legacy.samples.ut.testlessfail01;
+
+class Version {
+	val major = 0;
+	val minor = 0;
+	val revision = 0;
+	
+	this(maj: Int, min: Int, rev: Int) {
+		major = maj;
+		minor = min;
+		revision = rev;
+	}
+}
+
+class Test {
+	def @main() {
+		val v1 = Version{1, 2, 7000};
+		val v2 = Version{2, 0, 1};
+		
+		System.Out << (v1 == v2) << "\n";
+		System.Out << (v1 != v2) << "\n";
+		System.Out << (v1 < v2) << "\n";
+	}
+}
+		
