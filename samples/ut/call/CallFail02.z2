@@ -1,0 +1,14 @@
+namespace org.z2legacy.samples.ut;
+
+class CallFail02 {
+	def test(const a: Int) {
+		a = 0;
+		System.Out << "value\n";
+	}
+	
+	def @main() {
+		val a = 0;
+		test(0);
+		test(a);
+	}
+}

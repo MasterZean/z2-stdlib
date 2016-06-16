@@ -1,0 +1,17 @@
+namespace org.z2legacy.samples.ut;
+
+class CallPass08 {
+	def test(const a: Byte) {
+		System.Out << "const " << a.class << " value\n";
+	}
+	
+	def test(ref a: Byte) {
+		System.Out << a.class << " reference\n";
+	}
+	
+	def @main() {
+		val a = Byte{};
+		test(Byte{});
+		test(a);
+	}
+}

@@ -1,0 +1,1 @@
+CallFail06.z2(6, 9): error: function 'test' is ambigous with one of its overloads found at (10, 9)

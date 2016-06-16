@@ -1,0 +1,15 @@
+using org.z2legacy.samples.ut.Foo;
+
+namespace org.z2legacy.samples.ut;
+
+class CallPassFoo02 {
+	def test(const a: Foo) {
+		System.Out << "value\n";
+	}
+	
+	def @main() {
+		val a = Foo{};
+		test(Foo{});
+		test(a);
+	}
+}

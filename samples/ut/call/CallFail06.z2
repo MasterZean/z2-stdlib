@@ -1,0 +1,19 @@
+using org.z2legacy.samples.ut.Foo;
+
+namespace org.z2legacy.samples.ut;
+
+class CallFail06 {
+	def test(a: Foo) {
+		System.Out << "value\n";
+	}
+	
+	def test(ref a: Foo) {
+		System.Out << "reference\n";
+	}
+	
+	def @main() {
+		val a = Foo{};
+		test(Foo{});
+		test(a);
+	}
+}

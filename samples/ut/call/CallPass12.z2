@@ -1,0 +1,17 @@
+namespace org.z2legacy.samples.ut;
+
+class CallPass12 {
+	def test(const a: QWord) {
+		System.Out << "const " << a.class << " value\n";
+	}
+	
+	def test(ref a: QWord) {
+		System.Out << a.class << " reference\n";
+	}
+	
+	def @main() {
+		val a = 0ul;
+		test(0ul);
+		test(a);
+	}
+}

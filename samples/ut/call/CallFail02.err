@@ -1,0 +1,1 @@
+CallFail02.z2(5, 11): error: can't assign to readonly 'Int'

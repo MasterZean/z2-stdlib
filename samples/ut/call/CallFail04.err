@@ -1,0 +1,4 @@
+CallFail04.z2(12, 9): error: class 'CallFail04' does not have an overload
+	test(Foo)
+existing overloads
+	test(ref Foo)

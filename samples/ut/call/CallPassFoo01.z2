@@ -1,0 +1,16 @@
+namespace org.z2legacy.samples.ut;
+
+class CallPassFoo01 {
+	def test(a: Foo) {
+		System.Out << "value\n";
+	}
+	
+	def @main() {
+		val a = Foo{};
+		test(Foo{});
+		test(a);
+	}
+}
+
+class Foo {
+}

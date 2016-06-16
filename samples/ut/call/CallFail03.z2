@@ -1,0 +1,17 @@
+namespace org.z2legacy.samples.ut;
+
+class CallFail03 {
+	def test(a: Int) {
+		System.Out << "value\n";
+	}
+	
+	def test(ref a: Int) {
+		System.Out << "reference\n";
+	}
+	
+	def @main() {
+		val a = 0;
+		test(0);
+		test(a);
+	}
+}
