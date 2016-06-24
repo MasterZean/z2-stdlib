@@ -3,5 +3,6 @@ DWord min is 50
 Long min is 500
 QWord min is 5000
 Float min is 0.40000000
-Double min is 0.03999999
+Double min is 0.04
+Double min is -0.04
 Char min is 7
