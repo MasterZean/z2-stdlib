@@ -3,6 +3,10 @@
 del /q *.cpp
 del /q *.exe
 
+cd call
+call clean.bat
+cd ..
+
 cd overloading
 call clean.bat
 cd ..
@@ -20,5 +24,9 @@ call clean.bat
 cd ..
 
 cd misc
+call clean.bat
+cd ..
+
+cd container
 call clean.bat
 cd ..

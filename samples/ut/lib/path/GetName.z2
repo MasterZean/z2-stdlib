@@ -1,0 +1,109 @@
+using sys.core.Path;
+
+namespace org.z2legacy.samples.ut.lib.path;
+
+class TestGetName {
+	def @main() {
+		System.Out << "GetName " << Path.GetName("") << "\n";
+		System.Out << "GetName " << Path.GetName("C:") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetName " << Path.GetName("C:\\test\\foo\\") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa\\foo.exe\\") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test\\foo/") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa\\foo.exe/") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetName " << Path.GetName("C:\\test") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetName " << Path.GetName("C:/test") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetName " << Path.GetName("C:\\test") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test/foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetName " << Path.GetName("C:/test") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test/foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("C:/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetName " << Path.GetName("\\test") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetName " << Path.GetName("/test") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("/test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("/test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetName " << Path.GetName("\\test") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test/foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetName " << Path.GetName("/test") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("/test/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("/test/foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetName " << Path.GetName("test") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetName " << Path.GetName("test") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("test\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test\\foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa\\foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetName " << Path.GetName("test") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa") << "\n";
+		System.Out << "GetName " << Path.GetName("test/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test/foo.exe") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa/foo") << "\n";
+		System.Out << "GetName " << Path.GetName("test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+	}
+}
