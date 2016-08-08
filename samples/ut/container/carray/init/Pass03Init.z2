@@ -1,0 +1,28 @@
+namespace org.z2legacy.samples.container.carray;
+
+class Pass03Init {
+	def @main() {
+		val a = CArray<Increment, 1>{};
+		System.Out << Counter << "\n";
+		
+		val b: CArray<Increment, 2>;
+		System.Out << Counter << "\n";
+		
+		val c: [c 3]Increment;
+		System.Out << Counter << "\n";
+		
+		val d = [c]{ Increment{}, Increment{}, Increment{}, Increment{} };
+		System.Out << Counter << "\n";
+		
+		System.Out << a.class << "\n";
+		System.Out << a[0].class << "\n";
+	}
+	
+	static val Counter = 0;
+}
+
+class Increment {
+	this() {
+		Pass03Init.Counter++;
+	}
+}

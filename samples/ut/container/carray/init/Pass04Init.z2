@@ -1,0 +1,36 @@
+namespace org.z2legacy.samples.container.carray;
+
+class Pass04Init {
+	def @main() {
+		val temp = BuildLog{};
+		System.Out << "declare a:\n";
+		val a = CArray<BuildLog, 1>{};
+		
+		System.Out << "declare b:\n";
+		val b = CArray<BuildLog, 1>{BuildLog{}};
+		
+		System.Out << "declare c:\n";
+		val c = CArray<BuildLog, 1>{temp};
+	}
+}
+
+class BuildLog {
+	this() {
+		System.Out << "default\n";
+	}
+	
+	this Named() {
+		System.Out << "named\n";
+	}
+
+	this(const obj: BuildLog) {
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(const obj: BuildLog) {
+		System.Out << "assign\n";
+	}
+
+	~this() {
+	}
+}

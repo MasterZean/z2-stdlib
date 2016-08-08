@@ -1,0 +1,17 @@
+namespace org.z2legacy.samples.container.carray;
+
+class Pass11Init {
+	def @main() {
+		System.Out << "declare a:\n";
+		val a = CArray<Int, 5>{7};
+		System.Out << a << "\n";
+		
+		System.Out << "declare b:\n";
+		val b: [c 10]Int = a;
+		System.Out << b << "\n";
+		
+		System.Out << "declare c:\n";
+		val c: [c 3]Int = a;
+		System.Out << c << "\n";
+	}
+}
