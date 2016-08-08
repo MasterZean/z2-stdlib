@@ -1,0 +1,4 @@
+CallFail07.z2(13, 9): error: class 'CallFail07' does not have an overload
+	test(Foo)
+existing overloads
+	test(move Foo)

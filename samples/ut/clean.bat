@@ -30,3 +30,11 @@ cd ..
 cd container
 call clean.bat
 cd ..
+
+cd construct
+call clean.bat
+cd ..
+
+cd lib
+call clean.bat
+cd ..

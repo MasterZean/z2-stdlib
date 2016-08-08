@@ -2,7 +2,7 @@ using org.z2legacy.samples.ut.Foo;
 
 namespace org.z2legacy.samples.ut;
 
-class CallPassFoo03 {
+class CallPassFoo08 {
 	def test(const a: Foo) {
 		System.Out << "const\n";
 		g(a);
@@ -12,6 +12,11 @@ class CallPassFoo03 {
 		System.Out << "reference\n";
 		g(a);
 	}
+	
+	/*def test(move a: Foo) {
+		System.Out << "move\n";
+		g(a);
+	}*/
 	
 	def g(const a: Foo) {
 		System.Out << "g const\n";

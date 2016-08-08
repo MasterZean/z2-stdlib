@@ -3,6 +3,19 @@ namespace org.z2legacy.samples.ut;
 class CallPassFoo01 {
 	def test(a: Foo) {
 		System.Out << "value\n";
+		g(a);
+	}
+	
+	def g(const a: Foo) {
+		System.Out << "g const\n";
+	}
+	
+	def g(ref a: Foo) {
+		System.Out << "g reference\n";
+	}
+	
+	def g(move a: Foo) {
+		System.Out << "g move\n";
 	}
 	
 	def @main() {
