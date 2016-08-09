@@ -1,0 +1,178 @@
+namespace sys.core;
+
+class Point2D<T: Class> {
+	val X: T;
+	val Y: T;
+
+	this(value: T) {
+		X = value;
+		Y = value;
+	}
+
+	this(x: T, y: T) {
+		X = x;
+		Y = y;
+	}
+
+	def Clamp(min: Point2D<T>, max: Point2D<T>) {
+		X.Clamp(min.X, max.X);
+		Y.Clamp(min.Y, max.Y);
+	}
+	
+	def Clamp(min: T, max: T) {
+		X.Clamp(min, max);
+		Y.Clamp(min, max);
+	}
+	
+	def Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T> {
+		val c: Point2D<T> = void;
+
+		c.X = X.Clamped(min.X, max.X);
+		c.Y = Y.Clamped(min.Y, max.Y);
+
+		return c;
+	}
+	
+	def Clamped(min: T, max: T): Point2D<T> {
+		val c: Point2D<T> = void;
+
+		c.X = X.Clamped(min, max);
+		c.Y = Y.Clamped(min, max);
+
+		return c;
+	}
+
+	def GetMin(min: Point2D<T>): Point2D<T> {
+		val c: Point2D<T> = void;
+
+		c.X = X.GetMin(min.X);
+		c.Y = Y.GetMin(min.Y);
+
+		return c;
+	}
+
+	def GetMax(max: Point2D<T>): Point2D<T> {
+		val c: Point2D<T> = void;
+
+		c.X = X.GetMax(max.X);
+		c.Y = Y.GetMax(max.Y);
+
+		return c;
+	}
+
+	def IsNormalized(tolerance: T): Bool {
+		return ((X * X) + (Y * Y) - T{1}).Abs < tolerance;
+	}
+
+	property Length: T
+	get {
+		return ((X * X) + (Y * Y)).Sqrt;
+	}
+
+	property LengthSquared: T
+	get {
+		return (X * X) + (Y * Y);
+	}
+
+	def Normalize(tolerance: T) {
+		val length = Length;
+		if (length > tolerance) {
+			val inv = T{1} / length;
+			X *= inv;
+			Y *= inv;
+		}
+	}
+
+	def Normalized(tolerance: T): Point2D<T> {
+		val t = this;
+		val length = Length;
+		if (length > tolerance) {
+			val inv = T{1} / length;
+			t.X *= inv;
+			t.Y *= inv;
+		}
+		return t;
+	}
+
+#region op
+
+	def @add(second: Point2D<T>): Point2D<T> {
+		return Point2D<T>{X + second.X, Y + second.Y};
+	}
+
+	def @add(second: T): Point2D<T> {
+		return Point2D<T>{X + second, Y + second};
+	}
+
+	static def @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left.X - right.X, left.Y - right.Y};
+	}
+
+	static def @sub(left: Point2D<T>, right: T): Point2D<T> {
+		return Point2D<T>{left.X - right, left.Y - right};
+	}
+
+	static def @sub(left: T, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left - right.X, left - right.Y};
+	}
+
+	def @mul(second: Point2D<T>): Point2D<T> {
+		return Point2D<T>{X * second.X, Y * second.Y};
+	}
+
+	def @mul(second: T): Point2D<T> {
+		return Point2D<T>{X * second, Y * second};
+	}
+
+	static def @div(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left.X / right.X, left.Y / right.Y};
+	}
+
+	static def @div(left: Point2D<T>, right: T): Point2D<T> {
+		return Point2D<T>{left.X / right, left.Y / right};
+	}
+
+	static def @div(left: T, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left / right.X, left / right.Y};
+	}
+
+	static def @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left.X % right.X, left.Y % right.Y};
+	}
+
+	static def @mod(left: Point2D<T>, right: T): Point2D<T> {
+		return Point2D<T>{left.X % right, left.Y % right};
+	}
+
+	static def @mod(left: T, right: Point2D<T>): Point2D<T> {
+		return Point2D<T>{left % right.X, left % right.Y};
+	}
+
+	def @minus(): Point2D<T> {
+		return Point2D<T>{-X, -Y};
+	}
+	
+	def @eq(second: T): Bool {
+		return X == second && Y == second;
+	}
+
+	def @neq(second: T): Bool {
+		return X != second || Y != second;
+	}
+
+#endregion
+
+	def Equals(second: Point2D<T>, tolerance: T): Bool {
+		return (X - second.X).Abs < tolerance && (Y - second.Y).Abs < tolerance;
+	}
+
+	def Equals(second: T, tolerance: T): Bool {
+		return (X - second).Abs < tolerance && (Y - second).Abs < tolerance;
+	}
+
+}
+
+alias Point2Di = Point2D<Int>;
+alias Point2Du = Point2D<DWord>;
+alias Point2Df = Point2D<Float>;
+alias Point2Dd = Point2D<Double>;
