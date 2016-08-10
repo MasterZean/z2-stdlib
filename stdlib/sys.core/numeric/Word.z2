@@ -1,0 +1,127 @@
+using sys.core.ConvertUtf8;
+using sys.core.Stream;
+using sys.core.OutputFormat;
+
+namespace sys.core.lang;
+
+class Word {
+	const Zero: Word = 0;
+	const One: Word = 1;
+
+	const Min: Word = 0;
+	const Max: Word = 65535;
+
+	const IsSigned = false;
+	const IsInteger = true;
+
+	const MaxDigitsLow = 4;
+	const MaxDigitsHigh = 5;
+	
+	property Abs: Word {
+		return this;
+	}
+	
+	property Sqr: Word {
+		return this * this;
+	}
+
+	property Sqrt: Word {
+		return Word{Double{this}.Sqrt};
+	}
+
+	property Floor: Word {
+		return this;
+	}
+
+	property Ceil: Word {
+		return this;
+	}
+
+	property Round: Word {
+		return this;
+	}
+	
+	def Clamp(min: Word, max: Word); Intrinsic.Clamp;
+	
+	def Clamped(min: Word, max: Word): Word; const Intrinsic.Clamped;
+
+#region ToString
+
+	def ToString(): String; const {
+		val buf: [c ConvertUtf8.MaxWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DWordAsText(s, this);
+		return String{s};
+	}
+
+#endregion
+
+#region Saturation
+
+	this Saturated(value: Int) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Word{value};
+	}
+
+	this Saturated(value: DWord) {
+		this = value > DWord{Max} ? Max : Word{value};
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Word{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Word{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Word{value};
+	}
+	
+	this Saturated(const string: String) {
+		val s = Slice<Byte>{string};
+		this.Saturated{ConvertUtf8.ParseUnsSaturated<DWord>(s)};
+	}
+
+#endregion
+
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = Word{ConvertUtf8.ParseUns<DWord>(s)};
+	}
+	
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, const format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutU16(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetU16();
+	}
+
+#endregion
+}
