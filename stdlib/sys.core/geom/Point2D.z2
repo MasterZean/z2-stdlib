@@ -169,7 +169,6 @@ class Point2D<T: Class> {
 	def Equals(second: T, tolerance: T): Bool {
 		return (X - second).Abs < tolerance && (Y - second).Abs < tolerance;
 	}
-
 }
 
 alias Point2Di = Point2D<Int>;
