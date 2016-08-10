@@ -4,51 +4,51 @@ using sys.core.OutputFormat;
 
 namespace sys.core.lang;
 
-class Int {
-	const Zero: Int = 0;
-	const One: Int = 1;
+class Small {
+	const Zero: Small = 0;
+	const One: Small = 1;
 
-	const Min: Int = -2'147'483'648;
-	const Max: Int = 2'147'483'647;
+	const Min: Small = -128;
+	const Max: Small = 127;
 
 	const IsSigned = true;
 	const IsInteger = true;
 
-	const MaxDigitsLow = 9;
-	const MaxDigitsHigh = 10;
+	const MaxDigitsLow = 2;
+	const MaxDigitsHigh = 3;
 
-	property Abs: Int {
+	property Abs: Small {
 		return this > 0 ? this : -this;
 	}
 
-	property Sqr: Int {
+	property Sqr: Small {
 		return this * this;
 	}
 
-	property Sqrt: Int {
-		return Int{Double{this}.Sqrt};
+	property Sqrt: Small {
+		return Small{Double{this}.Sqrt};
 	}
 
-	property Floor: Int {
+	property Floor: Small {
 		return this;
 	}
 
-	property Ceil: Int {
+	property Ceil: Small {
 		return this;
 	}
 
-	property Round: Int {
+	property Round: Small {
 		return this;
 	}
 
-	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
+	def Clamp(min: Small, max: Small); Intrinsic.Clamp;
 	
-	def Clamped(min: Int, max: Int): Int; const Intrinsic.Clamped;
+	def Clamped(min: Small, max: Small): Small; const Intrinsic.Clamped;
 
 #region ToString
 
-	def ToString(): String; const {
-		val buf: [c ConvertUtf8.MaxIntBuffer]Byte = void;
+	def ToString(): String {
+		val buf: [c ConvertUtf8.MaxSmallBuffer]Byte = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.IntAsText(s, this);
 		return String{s};
@@ -59,11 +59,16 @@ class Int {
 #region Saturation
 
 	this Saturated(value: Int) {
-		this = value;
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Small{value};
 	}
 
 	this Saturated(value: DWord) {
-		this = value > DWord{Max} ? Max : Int{value};
+		this = value > DWord{Max} ? Max : Small{value};
 	}
 
 	this Saturated(value: Long) {
@@ -72,11 +77,11 @@ class Int {
 		else if (value < Min)
 			this = Min;
 		else
-			this = Int{value};
+			this = Small{value};
 	}
 
 	this Saturated(value: QWord) {
-		this = value > QWord{Max} ? Max : Int{value};
+		this = value > QWord{Max} ? Max : Small{value};
 	}
 
 	this Saturated(value: Double) {
@@ -85,19 +90,19 @@ class Int {
 		else if (value < Min)
 			this = Min;
 		else
-			this = Int{value};
-	}
-	
-	this Saturated(const string: String) {
-		val s = Slice<Byte>{string};
-		this = ConvertUtf8.ParseSigSaturated<Int>(s);
+			this = Small{value};
 	}
 
+	this Saturated(const string: String) {
+		val s = Slice<Byte>{string};
+		this.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
+	}
+	
 #endregion
 
 	this(const string: String) {
 		val s = Slice<Byte>{string};
-		this = ConvertUtf8.ParseSig<Int>(s);
+		this = Small{ConvertUtf8.ParseSig<Int>(s)};
 	}
 
 #region IO
@@ -105,17 +110,17 @@ class Int {
 	def @write(ref stream: Stream); const {
 		stream.RawWrite(this);
 	}
-	
+
 	def @write(ref stream: Stream, const format: OutputFormat); const {
 		stream.RawWrite(this, format);
 	}
-
+	
 	def @put(ref stream: Stream); const {
-		stream.RawPutS32(this);
+		stream.RawPutS8(this);
 	}
 
 	def @get(ref stream: Stream) {
-		this = stream.RawGetS32();
+		this = stream.RawGetS8();
 	}
 
 #endregion

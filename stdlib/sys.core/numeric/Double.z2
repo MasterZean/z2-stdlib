@@ -1,3 +1,7 @@
+using sys.core.ConvertUtf8;
+using sys.core.Stream;
+using sys.core.OutputFormat;
+
 namespace sys.core.lang;
 
 class Double {
@@ -33,14 +37,51 @@ class Double {
 
 	property Round: Double get const Intrinsic.Round;
 
-	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
+	def Clamp(min: Double, max: Double); Intrinsic.Clamp;
 	
-	def Clamped(min: Int, max: Int): Int; const Intrinsic.Clamped;
+	def Clamped(min: Double, max: Double): Double; const Intrinsic.Clamped;
+
+#region Math
+
+	property Log: Double get const Intrinsic.Log;
+
+	property Log10: Double get const Intrinsic.Log10;
+
+	def Pow(exp: Double): Double; const Intrinsic.Pow;
+
+#endregion
+
+#region ToString
+
+	def ToString(): String; const {
+		val buf: [c 320]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DoubleAsText(s, this);
+		return String{s};
+	}
+	
+#endregion
 
 #region Saturation
 
 	this Saturated(value: Double) {
 		this = value;
+	}
+	
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @put(ref stream: Stream); const {
+		stream.RawPutF64(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetF64();
 	}
 
 #endregion
