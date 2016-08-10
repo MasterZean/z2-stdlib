@@ -1,0 +1,38 @@
+using sys.core.Point3D;
+
+namespace org.z2legacy.samples.ut.lib.geom;
+
+class Point3DPass01 {
+	def @main() {
+		val p1 = Point3D<Int>{};
+		val p2 = Point3D<Int>{0};
+		
+		System.Out << p1 << (p1 == p2 ? " == " : " != ") << p2 << "\n";
+		
+		val p3 = Point3D<Int>{0, 4, 3};
+		System.Out << p1 << (p1 != p3 ? " != " : " == ") << p3 << "\n";
+		
+		val p4 = Point3D<Int>{0, 4, 3} + Point3D<Int>{2, -2, -1};
+		val p5 = (Point3D<Int>{1, 2, 6} - Point3D<Int>{0, 1, 5}) * Point3D<Int>{2};
+		
+		System.Out << p4 << (p4 == p5 ? " == " : " != ") << p5 << "\n";
+		
+		val p6 = Point3D<Int>{56} / 8;
+		System.Out << (p6 == 7) << " " << (p6 == -Point3D<Int>{-7, -7, -7}) << "\n";
+		
+		val p7 = Point3D<Float>{100, -100, 100};
+		System.Out << p7 << " " << p7.IsNormalized(0.000001f) << "\n";
+		p7.Normalize(0.000001f);
+		System.Out << p7 << " " << p7.IsNormalized(0.000001f) << "\n";
+		
+		val p8 = Point3D<Double>{100, -100, 100};
+		System.Out << p8 << " " << p8.IsNormalized(0.000000000001f) << "\n";
+		p8.Normalize(0.000000000001f);
+		System.Out << p8 << " " << p8.IsNormalized(0.000000000001f) << "\n";
+		
+		System.Out << p3.Clamped(p1, p4) << "\n";
+		
+		p8.Clamp(Point3D<Double>{0}, Point3D<Double>{1});
+		System.Out << p8 << "\n";
+	}
+}
