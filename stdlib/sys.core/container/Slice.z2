@@ -11,6 +11,26 @@ class Slice<T: Class> {
 		size = length;
 	}
 	
+	this(ref p: Small) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Short) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Byte) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Word) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
 	this(ref p: Int) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;

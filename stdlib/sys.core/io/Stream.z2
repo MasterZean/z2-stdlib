@@ -1,0 +1,443 @@
+using sys.core.ConvertUtf8;
+using sys.core.OutputFormat;
+
+namespace sys.core;
+
+class Stream {
+	def BinPut(ref data: Slice<Byte>) {
+		if(ptr + data.Length <= wrlim) {
+			Intrinsic.MemCopy(ptr, data.SysDataPointer, data.Length);
+			ptr = ptr + data.Length;
+		}
+		else
+			BinPutImpl(data);
+	}
+
+	def BinGet(ref data: Slice<Byte>) {
+		if(ptr + data.Length <= rdlim) {
+			Intrinsic.MemCopy(data.SysDataPointer, ptr, data.Length);
+			ptr = ptr + data.Length;
+		}
+		else
+			BinGetImpl(data);
+	}
+
+#region RawWrite
+
+	virtual def RawWrite(data: Bool) {
+		if (data == false)
+			RawWrite("false");
+		else
+			RawWrite("true");
+	}
+	
+	virtual def RawWrite(data: Bool, const format: OutputFormat) {
+		if (data == false)
+			RawWrite("false", format);
+		else
+			RawWrite("true", format);
+	}
+
+	virtual def RawWrite(data: Char) {
+		val buf: [c ConvertUtf8.MaxCharBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.CharAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: Char, const format: OutputFormat) {
+		val buf: [c ConvertUtf8.MaxCharBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.CharAsText(s, data);
+		BinPut(s);
+	}
+
+	virtual def RawWrite(data: Int) {
+		val buf: [c ConvertUtf8.MaxIntBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.IntAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: Int, const format: OutputFormat) {
+		val buf: [c ConvertUtf8.MaxBinIntBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.IntAsText(s, data, format.Base);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(data: DWord) {
+		val buf: [c ConvertUtf8.MaxDWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DWordAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: DWord, const format: OutputFormat) {
+		val buf: [c ConvertUtf8.MaxBinDWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DWordAsText(s, data, format.Base);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(data: Long) {
+		val buf: [c ConvertUtf8.MaxLongBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.LongAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: Long, const format: OutputFormat) {
+		val buf: [c ConvertUtf8.MaxBinLongBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.LongAsText(s, data, format.Base);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(data: QWord) {
+		val buf: [c ConvertUtf8.MaxQWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.QWordAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: QWord, const format: OutputFormat) {
+		val buf: [c ConvertUtf8.MaxBinQWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.QWordAsText(s, data, format.Base);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(data: Float) {
+		val buf: [c 45]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.FloatAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: Float, const format: OutputFormat) {
+		val buf: [c 45]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.FloatAsText(s, data);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(data: Double) {
+		val buf: [c 315]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DoubleAsText(s, data);
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(data: Double, const format: OutputFormat) {
+		val buf: [c 315]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DoubleAsText(s, data);
+		FormatBuffer(s, format);
+	}
+
+	virtual def RawWrite(const data: String) {
+		val s = Slice<Byte>{data};
+		BinPut(s);
+	}
+	
+	virtual def RawWrite(const data: String, const format: OutputFormat) {
+		val s = Slice<Byte>{data};
+		FormatBuffer(s, format);
+	}
+
+#endregion
+
+#region RawPut
+
+	def RawPutS8(data: Int) {
+		val s = Slice<Byte>{data, 1p};
+		BinPut(s);
+	}
+	
+	def RawPutS8(data: Long) {
+		val s = Slice<Byte>{data, 1p};
+		BinPut(s);
+	}
+
+	def RawPutU8(data: DWord) {
+		val s = Slice<Byte>{data, 1p};
+		BinPut(s);
+	}
+
+	def RawPutU8(data: QWord) {
+		val s = Slice<Byte>{data, 1p};
+		BinPut(s);
+	}
+
+	def RawPutS16(data: Int) {
+		val s = Slice<Byte>{data, 2p};
+		BinPut(s);
+	}
+	
+	def RawPutS16(data: Long) {
+		val s = Slice<Byte>{data, 2p};
+		BinPut(s);
+	}
+
+	def RawPutU16(data: DWord) {
+		val s = Slice<Byte>{data, 2p};
+		BinPut(s);
+	}
+
+	def RawPutU16(data: QWord) {
+		val s = Slice<Byte>{data, 2p};
+		BinPut(s);
+	}
+
+	def RawPutS32(data: Int) {
+		val s = Slice<Byte>{data, 4p};
+		BinPut(s);
+	}
+	
+	def RawPutS32(data: Long) {
+		val s = Slice<Byte>{data, 4p};
+		BinPut(s);
+	}
+
+	def RawPutU32(data: DWord) {
+		val s = Slice<Byte>{data, 4p};
+		BinPut(s);
+	}
+	
+	def RawPutU32(data: QWord) {
+		val s = Slice<Byte>{data, 4p};
+		BinPut(s);
+	}
+
+	def RawPutS64(data: Long) {
+		val s = Slice<Byte>{data, 8p};
+		BinPut(s);
+	}
+
+	def RawPutU64(data: QWord) {
+		val s = Slice<Byte>{data, 8p};
+		BinPut(s);
+	}
+
+	def RawPutF32(data: Float) {
+		val s = Slice<Byte>{data, 4p};
+		BinPut(s);
+	}
+	
+	def RawPutF64(data: Double) {
+		val s = Slice<Byte>{data, 8p};
+		BinPut(s);
+	}
+
+#endregion
+
+#region RawGet
+
+	def RawGetS8(): Small {
+		val temp: Small = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetU8(): Byte {
+		val temp: Byte = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetS16(): Short {
+		val temp: Short = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetU16(): Word {
+		val temp: Word = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetS32(): Int {
+		val temp: Int = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetU32(): DWord {
+		val temp: DWord = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetF32(): Float {
+		val temp: Float = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetS64(): Long {
+		val temp: Long = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetU64(): QWord {
+		val temp: QWord = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+	def RawGetF64(): Double {
+		val temp: Double = void;
+		val s = Slice<Byte>{temp};
+		BinGet(s);
+		return temp;
+	}
+
+#endregion
+
+#region High
+
+	def Write<T: Class>(const data: T): ref Stream {
+		data.@write(this);
+		return this;
+	}
+	
+	def Write<T: Class>(const data: T, const format: OutputFormat): ref Stream {
+		data.@write(this, format);
+		return this;
+	}
+	
+	def Read<T: Class>(ref data: T): ref Stream {
+		data.@read(this);
+		return this;
+	}
+
+	static def @shl<T: Class>(ref s: Stream, const data: T): ref Stream {
+		data.@write(s);
+		return s;
+	}
+	
+	static def @shr<T: Class>(ref s: Stream, ref data: T): ref Stream {
+		data.@read(s);
+		return s;
+	}
+
+	def Put<T: Class>(const data: T): ref Stream {
+		data.@put(this);
+		return this;
+	}
+	
+	def Get<T: Class>(ref data: T): ref Stream {
+		data.@get(this);
+		return this;
+	}
+
+#endregion
+		
+	def FormatBuffer(s: Slice<Byte>, const format: OutputFormat) {
+		if (format.Width != 0 && format.Width < s.Length) {
+			val s2 = Slice<Byte>{s, s.Length - PtrSize{format.Width}, PtrSize{format.Width}};
+			BinPut(s2);
+		}
+		else if (format.Width > s.Length) {
+			if (format.Align == sys.core.LineAlignment.Right) {
+				val left = format.Width - s.Length;
+				while (left > 0) {
+					val ss = " ";
+					val s2 = Slice<Byte>{ss};
+					BinPut(s2);
+					left--;
+				}
+				BinPut(s);
+			}
+			else if (format.Align == sys.core.LineAlignment.Left) {
+				BinPut(s);
+				val right = format.Width - s.Length;
+				while (right > 0) {
+					val ss = " ";
+					val s2 = Slice<Byte>{ss};
+					BinPut(s2);
+					right--;
+				}
+			}
+			else {
+				val left = (format.Width - s.Length) / 2;
+				val right = format.Width - s.Length - left;
+				
+				while (left > 0) {
+					val ss = " ";
+					val s2 = Slice<Byte>{ss};
+					BinPut(s2);
+					left--;
+				}
+				
+				BinPut(s);
+				
+				while (right > 0) {
+					val ss = " ";
+					val s2 = Slice<Byte>{ss};
+					BinPut(s2);
+					right--;
+				}
+			}
+		}
+		else
+			BinPut(s);
+	}
+
+	def SetError(code: Int) {
+		style = style | STRM_ERROR;
+		errorcode = code;
+	}
+
+	property HasError: Bool {
+		return (style & STRM_ERROR) != 0;
+	}
+
+	property IsLoading: Bool {
+		return (style & STRM_LOADING) != 0;
+	}
+
+	property IsStoring: Bool {
+		return !IsLoading;
+	}
+
+	const STRM_ERROR   =  0x20;
+	const STRM_READ    =  0x10;
+	const STRM_WRITE   =  0x08;
+	const STRM_SEEK    =  0x04;
+	const STRM_LOADING =  0x02;
+	const STRM_THROW   =  0x01;
+
+	const ERROR_NOT_ENOUGH_SPACE = -1;
+	const ERROR_LOADING_FAILED   = -2;
+}
+protected {
+	val pos: PtrSize;
+	val buffer: Ptr<Byte>;
+	val ptr: Ptr<Byte>;
+	val rdlim: Ptr<Byte>;
+	val wrlim: Ptr<Byte>;
+
+	val style = 0;
+	val errorcode = 0;
+
+	virtual def BinPutImpl(ref data: Slice<Byte>) {
+		SetError(ERROR_NOT_ENOUGH_SPACE);
+	}
+
+	virtual def BinGetImpl(ref data: Slice<Byte>): Int {
+		return -1;
+	}
+}

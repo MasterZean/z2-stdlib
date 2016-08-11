@@ -1,0 +1,4 @@
+namespace sys.core.lang;
+
+class Ptr<T: Class> {
+}
