@@ -3,7 +3,7 @@ namespace org.z2legacy.samples.ut.using;
 class NoUsingTest {
 	def @main() {
 		System.Out << sys.core.Stream << '\n';
-		System.Out << sys.core.ColorRGBA << '\n';
+		System.Out << sys.core.Point3D << '\n';
 		System.Out << sys.core.OutputFormat << '\n';
 	}
 }
