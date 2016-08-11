@@ -45,16 +45,17 @@ class DWord {
 	
 	def Clamped(min: DWord, max: DWord): DWord; const Intrinsic.Clamped;
 
-#region ToString
-
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseUns<DWord>(s);
+	}
+	
 	def ToString(): String; const {
 			val buf: [c ConvertUtf8.MaxDWordBuffer]Byte = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DWordAsText(s, this);
 		return String{s};
 	}
-
-#endregion
 
 #region Saturation
 
@@ -99,11 +100,6 @@ class DWord {
 	}
 
 #endregion
-
-	this(const string: String) {
-		val s = Slice<Byte>{string};
-		this = ConvertUtf8.ParseUns<DWord>(s);
-	}
 	
 #region IO
 

@@ -45,7 +45,11 @@ class Short {
 	
 	def Clamped(min: Short, max: Short): Short; const Intrinsic.Clamped;
 
-#region ToString
+
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = Short{ConvertUtf8.ParseSig<Int>(s)};
+	}
 
 	def ToString(): String; const {
 		val buf: [c ConvertUtf8.MaxShortBuffer]Byte = void;
@@ -53,8 +57,6 @@ class Short {
 		ConvertUtf8.IntAsText(s, this);
 		return String{s};
 	}
-
-#endregion
 
 #region Saturation
 
@@ -99,11 +101,6 @@ class Short {
 	}
 
 #endregion
-
-	this(const string: String) {
-		val s = Slice<Byte>{string};
-		this = Short{ConvertUtf8.ParseSig<Int>(s)};
-	}
 	
 #region IO
 

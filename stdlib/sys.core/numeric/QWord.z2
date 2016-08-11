@@ -1,0 +1,96 @@
+using sys.core.ConvertUtf8;
+using sys.core.Stream;
+using sys.core.OutputFormat;
+
+namespace sys.core.lang;
+
+class QWord {
+	const Zero: QWord = 0;
+	const One: QWord = 1;
+
+	const Min: QWord = 0;
+	const Max: QWord = 18'446'744'073'709'551'615ul;
+
+	const IsSigned = false;
+	const IsInteger = true;
+
+	const MaxDigitsLow = 19;
+	const MaxDigitsHigh = 20;
+
+	property Abs: QWord {
+		return this;
+	}
+
+	property Sqr: QWord {
+		return this * this;
+	}
+
+	property Sqrt: QWord {
+		return QWord{Double{this}.Sqrt};
+	}
+
+	property Floor: QWord {
+		return this;
+	}
+
+	property Ceil: QWord {
+		return this;
+	}
+
+	property Round: QWord {
+		return this;
+	}
+
+	def Clamp(min: QWord, max: QWord); Intrinsic.Clamp;
+	
+	def Clamped(min: QWord, max: QWord): QWord; const Intrinsic.Clamped;
+
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseSig<Long>(s);
+	}
+	
+	def ToString(): String; const {
+		val buf: [c ConvertUtf8.MaxQWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.QWordAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Long{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value;
+	}
+	
+#endregion
+	
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, const format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutU64(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetU64();
+	}
+
+#endregion
+}

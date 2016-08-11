@@ -45,7 +45,10 @@ class Word {
 	
 	def Clamped(min: Word, max: Word): Word; const Intrinsic.Clamped;
 
-#region ToString
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = Word{ConvertUtf8.ParseUns<DWord>(s)};
+	}
 
 	def ToString(): String; const {
 		val buf: [c ConvertUtf8.MaxWordBuffer]Byte = void;
@@ -53,8 +56,6 @@ class Word {
 		ConvertUtf8.DWordAsText(s, this);
 		return String{s};
 	}
-
-#endregion
 
 #region Saturation
 
@@ -100,11 +101,6 @@ class Word {
 
 #endregion
 
-	this(const string: String) {
-		val s = Slice<Byte>{string};
-		this = Word{ConvertUtf8.ParseUns<DWord>(s)};
-	}
-	
 #region IO
 
 	def @write(ref stream: Stream); const {

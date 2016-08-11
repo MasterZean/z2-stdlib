@@ -45,7 +45,11 @@ class Small {
 	
 	def Clamped(min: Small, max: Small): Small; const Intrinsic.Clamped;
 
-#region ToString
+
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = Small{ConvertUtf8.ParseSig<Int>(s)};
+	}
 
 	def ToString(): String {
 		val buf: [c ConvertUtf8.MaxSmallBuffer]Byte = void;
@@ -53,8 +57,6 @@ class Small {
 		ConvertUtf8.IntAsText(s, this);
 		return String{s};
 	}
-
-#endregion
 
 #region Saturation
 
@@ -99,11 +101,6 @@ class Small {
 	}
 	
 #endregion
-
-	this(const string: String) {
-		val s = Slice<Byte>{string};
-		this = Small{ConvertUtf8.ParseSig<Int>(s)};
-	}
 
 #region IO
 

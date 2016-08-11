@@ -44,17 +44,18 @@ class Byte {
 	def Clamp(min: Byte, max: Byte); Intrinsic.Clamp;
 	
 	def Clamped(min: Byte, max: Byte): Byte; const Intrinsic.Clamped;
-		
-#region ToString
 
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = Byte{ConvertUtf8.ParseUns<DWord>(s)};
+	}
+	
 	def ToString(): String; const {
 		val buf: [c ConvertUtf8.MaxIntBuffer]Byte = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DWordAsText(s, this);
 		return String{s};
 	}
-
-#endregion
 
 #region Saturation
 
@@ -100,11 +101,6 @@ class Byte {
 
 #endregion
 
-	this(const string: String) {
-		val s = Slice<Byte>{string};
-		this = Byte{ConvertUtf8.ParseUns<DWord>(s)};
-	}
-	
 #region IO
 
 	def @write(ref stream: Stream); const {
