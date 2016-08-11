@@ -47,7 +47,7 @@ class QWord {
 
 	this(const string: String) {
 		val s = Slice<Byte>{string};
-		this = ConvertUtf8.ParseSig<Long>(s);
+		this = ConvertUtf8.ParseUns<QWord>(s);
 	}
 	
 	def ToString(): String; const {
@@ -65,7 +65,7 @@ class QWord {
 		else if (value < Min)
 			this = Min;
 		else
-			this = Long{value};
+			this = QWord{value};
 	}
 
 	this Saturated(value: QWord) {
