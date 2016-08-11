@@ -1,0 +1,115 @@
+namespace sys.core.lang;
+
+class Slice<T: Class> {
+	this(ref p: [c]T) {
+		ptr = p.SysDataPointer;
+		size = p.Length;
+	}
+	
+	this(ref p: [c]T, length: PtrSize) {
+		ptr = p.SysDataPointer;
+		size = length;
+	}
+	
+	this(ref p: Int) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Int, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: Long) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Long, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: DWord) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: DWord, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: QWord) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: QWord, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: Float) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Float, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: Double) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Double, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
+	this(ref p: String) {
+		ptr = p.SysDataPointer;
+		size = p.Length;
+	}
+	
+	this(p: Slice<Byte>, length: PtrSize) {
+		ptr = p.SysDataPointer;
+		size = length;
+	}
+	
+	this(p: Slice<Byte>, offset: PtrSize, length: PtrSize) {
+		ptr = p.SysDataPointer + offset;
+		size = length;
+	}
+	
+	property Length: PtrSize
+	get {
+		return size;
+	}
+	set (value) {
+		size = value;
+	}
+	
+	property @index: Byte
+	get [index: PtrSize] const {
+		System.Debug.Assert(index < size);
+		return ptr[index];
+	}
+	set (byte)[index: PtrSize] {
+		System.Debug.Assert(index < size);
+		ptr[index] = byte;
+	}
+	
+	property SysDataPointer: Ptr<T>
+	get {
+		return ptr;
+	}
+}
+private {
+	val ptr: Ptr<T>;
+	val size: PtrSize;
+}

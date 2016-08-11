@@ -322,6 +322,37 @@ class ConvertUtf8 {
 		return value;
 	}
 	
+	static def ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T; const {
+		val value = T{};
+		val i = 0p;
+		while (i < buffer.Length && buffer[i] <= ' ')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (buffer[i] == '+')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (!Char{buffer[i]}.IsAsciiDigit)
+			throw sys.core.IllegalArgumentException{};
+	
+		while (i < buffer.Length && Char{buffer[i]}.IsAsciiDigit) {
+			val oldValue = value;
+			value = value * 10 + buffer[i] - T{'0'};
+			if (oldValue > value)
+				return T.Max;
+			i++;
+		}
+		
+		buffer.Length = i;
+
+		return value;
+	}
+	
 	static def DWordAsText(ref buffer: Slice<Byte>, value: DWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
@@ -565,7 +596,7 @@ class ConvertUtf8 {
 		}
 
 		if (rn >= tempSlice.Length) {
-			if (Compiler.@DEBUG && buffer.Length < si + n) {
+			if (sys.core.Compiler.@DEBUG && buffer.Length < si + n) {
 				throw sys.core.BufferOverflowException{};
 			}
 			buffer[si + n] = Byte{'0'};
