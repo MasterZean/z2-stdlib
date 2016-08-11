@@ -1,0 +1,15 @@
+using sys.core.Stream;
+
+namespace sys.core;
+
+class Class {
+	property Name: const ref String get const Intrinsic.ClassName;
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(Name);
+	}
+
+#endregion
+}

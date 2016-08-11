@@ -1,0 +1,121 @@
+using sys.core.ConvertUtf8;
+using microsoft.windows.Win32;
+
+namespace sys.core;
+
+class Path {
+	const DirSep = '\\';
+	const DirSepWin = '\\';
+	const DirSepUnix = '/';
+
+	static property CurrentFolder: String
+	get const {
+		val pathu16: [c Win32.MAX_PATH]Word = void;
+		val written = PtrSize{Win32.GetCurrentDirectoryW(Win32.MAX_PATH, pathu16.SysDataPointer)};
+		val source = Slice<Word>{pathu16, written};
+		
+		val pathu8: [c Win32.MAX_PATH * 4 + 1]Byte = void;
+		val dest = Slice<Byte>{pathu8};
+		
+		ConvertUtf8.FromUtf16(dest, source);
+		if (pathu8[dest.Length - 1] != DirSep) {
+			pathu8[dest.Length - 1] = Byte{DirSep};
+			dest.Length = dest.Length + 1;
+			pathu8[dest.Length - 1] = Byte{'\0'};
+		}
+		return String{dest};
+	}
+	set (dir) {
+	}
+
+	static property ExeFileName: String
+	get const {
+		val pathu16: [c Win32.MAX_PATH]Word = void;
+		val written = PtrSize{Win32.GetModuleFileNameW(0, pathu16.SysDataPointer, Win32.MAX_PATH)};
+		val source = Slice<Word>{pathu16, written};
+		
+		val pathu8: [c Win32.MAX_PATH * 4 + 1]Byte = void;
+		val dest = Slice<Byte>{pathu8};
+		
+		ConvertUtf8.FromUtf16(dest, source);
+		
+		return String{dest};
+	}
+
+	static def GetFolder(const path: String): String {
+		val index = path.RFind(Byte{DirSep});
+		if (index == -1)
+			return "";
+		else
+			return String{path, index + 1};
+	}
+
+	static def GetFolderNoSep(const path: String): String {
+		val index = path.RFind(Byte{DirSep});
+		if (index == -1)
+			return "";
+		else
+			return String{path, index};
+	}
+
+	static def GetName(const path: String): String {
+		return String.FromIndex{path, GetNameIndex(path)};
+	}
+
+	static def GetNameIndex(const path: String): PtrSize {
+		val index = path.RFind({Byte{DirSepWin}, Byte{DirSepUnix}});
+		if (index == -1) {
+			if (IsRoot(path))
+				return PtrSize{-1};
+			else
+				return 0;
+		}
+		else
+			return index + 1;
+	}
+	
+	static def GetTitle(const path: String): String {
+		val index = GetTitleIndex(path);
+		if (index != -1) {
+			val pointIndex = path.RFind(Byte{'.'}, index);
+			if (pointIndex == -1)
+				return String.FromIndex{path, index};
+			else
+				return String.FromIndex{path, index, pointIndex - 1};
+		}
+		else
+			return "";
+	}
+
+	static def GetTitleIndex(const path: String): PtrSize {
+		return GetNameIndex(path);
+	}
+	
+	static def GetExtension(const path: String): String {
+		return String.FromIndex{path, GetExtensionIndex(path)};
+	}
+
+	static def GetExtensionIndex(const path: String): PtrSize {
+		val index = GetNameIndex(path);
+		
+		if (index != -1) {
+			index = path.RFind(Byte{'.'}, index);
+			return (index == -1) ? index : index + 1;
+		}
+		
+		return index;
+	}
+	
+	static def GetParent(const path: String): String {
+		if (path[path.Length - 1] == DirSep)
+			return GetFolder(GetFolderNoSep(path));
+		else
+			return GetFolder(path);
+	}
+
+	static def IsRoot(const path: String): Bool {
+		return (path.Length == 1 && (path[0] == DirSepWin || path[0] == DirSepUnix)) ||
+		       (path.Length == 2 && Char{path[0]}.IsAsciiAlpha && path[1] == ':') ||
+		       (path.Length == 3 && Char{path[0]}.IsAsciiAlpha && path[1] == ':' && (path[2] == DirSepWin || path[2] == DirSepUnix));
+	}
+}
