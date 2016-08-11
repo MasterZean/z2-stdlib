@@ -90,15 +90,6 @@ class TestGetTitle {
 		System.Out << "GetTitle " << Path.GetTitle("test.aaa\\foo.exe") << "\n";
 		System.Out << "\n";
 		
-
-		System.Out << "GetTitle " << Path.GetTitle("test") << "\n";
-		System.Out << "GetTitle " << Path.GetTitle("test.aaa") << "\n";
-		System.Out << "GetTitle " << Path.GetTitle("test\\foo") << "\n";
-		System.Out << "GetTitle " << Path.GetTitle("test\\foo.exe") << "\n";
-		System.Out << "GetTitle " << Path.GetTitle("test.aaa\\foo") << "\n";
-		System.Out << "GetTitle " << Path.GetTitle("test.aaa\\foo.exe") << "\n";
-		System.Out << "\n";
-
 		System.Out << "GetTitle " << Path.GetTitle("test") << "\n";
 		System.Out << "GetTitle " << Path.GetTitle("test.aaa") << "\n";
 		System.Out << "GetTitle " << Path.GetTitle("test/foo") << "\n";

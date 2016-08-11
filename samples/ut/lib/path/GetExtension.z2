@@ -1,0 +1,101 @@
+using sys.core.Path;
+
+namespace org.z2legacy.samples.ut.lib.path;
+
+class TestGetExtension {
+	def @main() {
+		System.Out << "GetExtension " << Path.GetExtension("") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test\\foo\\") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa\\foo.exe\\") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test\\foo/") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa\\foo.exe/") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test\\foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetExtension " << Path.GetExtension("C:/test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test\\foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test/foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("C:/test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test/foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("C:/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("\\test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test\\foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetExtension " << Path.GetExtension("/test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test\\foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetExtension " << Path.GetExtension("\\test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test/foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("/test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test/foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test\\foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa\\foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetExtension " << Path.GetExtension("test") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test/foo.exe") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa/foo") << "\n";
+		System.Out << "GetExtension " << Path.GetExtension("test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+	}
+}

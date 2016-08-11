@@ -1,0 +1,62 @@
+namespace org.z2legacy.ut;
+
+class C {
+	const A = 1 << 2;
+	const B = Int{true} << 3;
+	const D = 256 * (257 - 1) >> Int{true};
+}
+
+class D {
+	const A = 1 < 2;
+	const B = 1 < 2 + true < false;
+	const C = (1 < 2) + true < false;
+	const E = (1 < 2) + (true < false);
+	const F = Bool{(1 < 2) + (true < false)};
+}
+
+class B {
+	const A = 1 * 2 + 3;
+	const a = Int.Max;
+	const E = Int{Bool{Bool{Int{Bool{A}.Min.Max}}.Max}};
+	const C = 10 / 4;
+	const D = Bool{20 / (true + true)};
+
+	def @main() {
+		1 + 2;
+		0;
+		(0);
+		true;
+		false;
+		(true);
+		(false);
+		0.Min;
+		3.Max;
+		7.Max.Min;
+		100.Min.Max;
+		Bool{100};
+		Int{true};
+		void;
+		(void);
+		1 + true;
+		true + 1;
+		false + true;
+		A;
+		1 / (6 - 2 * 3 + 1);
+		A + C * (C.Max / C.Max.Min);
+		A + C * (Int.Max / Int.Max.Min);
+		Int{Bool{Bool{Int{Bool{A}.Min.Max}}.Max}};
+		10 / ((1 >> 1) + 1);
+		1 < 5;
+		(true <= 6).Min <= (1 < 5).Max;
+
+		System.Out << E << "\n";
+	}
+}
+
+class A {
+	const B = false + false;
+	const C = Bool{true + true};
+	const D = Bool{false + false};
+	const E = Bool{0};
+	const F = Int{true};
+}

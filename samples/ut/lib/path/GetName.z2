@@ -92,14 +92,6 @@ class TestGetName {
 
 		System.Out << "GetName " << Path.GetName("test") << "\n";
 		System.Out << "GetName " << Path.GetName("test.aaa") << "\n";
-		System.Out << "GetName " << Path.GetName("test\\foo") << "\n";
-		System.Out << "GetName " << Path.GetName("test\\foo.exe") << "\n";
-		System.Out << "GetName " << Path.GetName("test.aaa\\foo") << "\n";
-		System.Out << "GetName " << Path.GetName("test.aaa\\foo.exe") << "\n";
-		System.Out << "\n";
-
-		System.Out << "GetName " << Path.GetName("test") << "\n";
-		System.Out << "GetName " << Path.GetName("test.aaa") << "\n";
 		System.Out << "GetName " << Path.GetName("test/foo") << "\n";
 		System.Out << "GetName " << Path.GetName("test/foo.exe") << "\n";
 		System.Out << "GetName " << Path.GetName("test.aaa/foo") << "\n";
