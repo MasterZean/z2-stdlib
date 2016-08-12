@@ -15,27 +15,27 @@ class PtrSize {
 	const MaxDigitsLow = 9;
 	const MaxDigitsHigh = 10;
 	
-	property Abs: DWord {
+	property Abs: PtrSize {
 		return this;
 	}
 	
-	property Sqr: DWord {
+	property Sqr: PtrSize {
 		return this * this;
 	}
 
-	property Sqrt: DWord {
-		return DWord{Double{this}.Sqrt};
+	property Sqrt: PtrSize {
+		return PtrSize{Double{this}.Sqrt};
 	}
 
-	property Floor: DWord {
+	property Floor: PtrSize {
 		return this;
 	}
 
-	property Ceil: DWord {
+	property Ceil: PtrSize {
 		return this;
 	}
 
-	property Round: DWord {
+	property Round: PtrSize {
 		return this;
 	}
 	
