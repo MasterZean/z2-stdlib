@@ -11,8 +11,11 @@ class PassInit01 {
 		val c: [c 4]Int;
 		System.Out << c << "\n";
 		
-		val d = [c]{ 0, 0, 0, 0 };
+		val d = [c 4]{ 0, 0, 0, 0 };
 		System.Out << d << "\n";
+		
+		val e = [c]{ 0, 0, 0, 0 };
+		System.Out << e << "\n";
 		
 		System.Out << a.class << "\n";
 		System.Out << a[0].class << "\n";

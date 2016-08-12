@@ -1,3 +1,5 @@
+using sys.core.DynamicBlock;
+
 namespace org.z2legacy.samples.container.dynblock;
 
 class TestBlockAssignString {

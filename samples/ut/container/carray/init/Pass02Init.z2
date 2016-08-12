@@ -14,6 +14,9 @@ class Pass02Init {
 		val d = [c]{ 0, 0, 0, 0 };
 		System.Out << d << "\n";
 		
+		val e = [c 5]{ 0, 0, 0, 0, 0};
+		System.Out << e << "\n";
+		
 		System.Out << a.class << "\n";
 		System.Out << a[0].class << "\n";
 	}
