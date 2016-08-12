@@ -128,8 +128,127 @@ class Slice<T: Class> {
 	get {
 		return ptr;
 	}
+	
+	def FindIndex(const item: T): PtrSize {
+		for (val i = 0p; i < size; i++)
+			if (ptr[i] == item)
+				return i;
+			
+		return PtrSize{-1};
+	}
+	
+	def FindIndex(const item: T, start: PtrSize): PtrSize {
+		start = Intrinsic.Min(start, size - 1);
+		
+		for (val i = start; i < size; i++)
+			if (ptr[i] == item)
+				return i;
+			
+		return PtrSize{-1};
+	}
+	
+	def FindIndex(const b: [c]T): PtrSize; const {
+		for (val i = 0p; i < size; i++)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def FindIndex(const b: [c]T, start: PtrSize): PtrSize; const {
+		start = Intrinsic.Min(start, size - 1);
+		
+		for (val i = 0p; i < size; i++)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def RFindIndex(const item: T): PtrSize; const {
+		for (val i = size - 1; i != -1; i--)
+			if (ptr[i] == item)
+				return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def RFindIndex(const item: T, start: PtrSize): PtrSize; const {
+		if (start == 0)
+			start = PtrSize{-1};
+		else if (start >= size)
+			start = size - 1;
+		
+		for (val i = size - 1; i != start; i--)
+			if (ptr[i] == item)
+				return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def RFindIndex(const b: [c]T): PtrSize; const {
+		for (val i = size - 1; i != -1; i--)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def RFindIndex(const b: [c]T, start: PtrSize): PtrSize; const {
+		if (start == 0)
+			start = PtrSize{-1};
+		else if (start >= size)
+			start = size - 1;
+		
+		for (val i = size - 1; i != start; i--)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def BinaryIndex(const item: T): PtrSize {
+		val lowerBound = 0p;
+		val upperBound = size - 1;
+		
+		while(lowerBound <= upperBound) {
+			val midPoint = lowerBound + (upperBound - lowerBound) / 2;
+		
+			if(ptr[midPoint] == item)
+				return midPoint;
+			else if(ptr[midPoint] < item)
+				lowerBound = midPoint + 1;
+			else
+				upperBound = midPoint -1;
+		}
+		
+		return PtrSize{-1};
+	}
+	
+	def Reverse() {
+		val upperBound = size - 1;
+		val mid = upperBound / 2;
+		
+		for (val i = 0p; i <= mid; i++)
+			Swap(ptr[i], ptr[upperBound - i]);
+	}
+	
+	def Fill(const value: T) {
+		for (val i = 0p; i < size; i++)
+			this[i] = value;
+	}
 }
 private {
 	val ptr: Ptr<T>;
 	val size: PtrSize;
+	
+	static def Swap(ref f: T, ref s: T) {
+		val temp = f;
+		f = s;
+		s = temp;
+	}
 }

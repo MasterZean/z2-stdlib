@@ -1,0 +1,40 @@
+using sys.core.Stream;
+
+#if Compiler.Platform == "WIN32"
+using microsoft.windows.Win32;
+#else
+using ieee.posix.Posix;
+#endif
+
+namespace sys.core;
+
+class ConsoleStream: Stream {
+
+#if Compiler.Platform == "WIN32"
+
+	override def BinPutImpl(ref data: Slice<const Byte>) {
+		val dummy = 0u;
+		Win32.WriteFile(handle, data.SysDataPointer, DWord{data.Length}, Ptr{dummy}, null);
+	}
+	
+#else
+
+	override def BinPutImpl(ref data: Slice<const Byte>) {
+		Posix.write(handle, data.SysDataPointer, data.Length);
+	}
+	
+#endif
+}
+private {
+	
+#if Compiler.Platform == "WIN32"
+
+	val handle = Win32.GetStdHandle(Win32.STD_OUTPUT_HANDLE);
+	
+#else
+
+	val handle = Posix.STDOUT;
+	
+#endif
+
+}

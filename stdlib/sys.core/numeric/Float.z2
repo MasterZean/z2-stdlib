@@ -26,17 +26,17 @@ class Float {
 		return this * this;
 	}
 
-	property Sqrt: Double get const Intrinsic.Sqrt;
+	property Sqrt: Float get const Intrinsic.Sqrt;
 
-	property Floor: Double get const Intrinsic.Floor;
+	property Floor: Float get const Intrinsic.Floor;
 
-	property Ceil: Double get const Intrinsic.Ceil;
+	property Ceil: Float get const Intrinsic.Ceil;
 
-	property Round: Double get const Intrinsic.Round;
+	property Round: Float get const Intrinsic.Round;
 
-	def Clamp(min: Double, max: Double); Intrinsic.Clamp;
+	def Clamp(min: Float, max: Float); Intrinsic.Clamp;
 	
-	def Clamped(min: Double, max: Double): Double; const Intrinsic.Clamped;
+	def Clamped(min: Float, max: Float): Float; const Intrinsic.Clamped;
 
 #region Math
 
