@@ -1,0 +1,10 @@
+namespace sys.core;
+
+class Exception {
+}
+
+class BufferOverflowException: Exception {
+}
+
+class IllegalArgumentException: Exception {
+}
