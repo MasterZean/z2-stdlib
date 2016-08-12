@@ -1,0 +1,34 @@
+namespace org.z2legacy.samples.container.dynblock;
+
+class TestBlockAssignString {
+	def @main() {
+		val a = DynamicBlock<String>{5p};
+		a.Fill("miu");
+		System.Out << "a: ";
+		print(a);
+		System.Out << "\n";
+
+		val b = a;
+		b.Fill("mao");
+		b.Append("pfffff");
+		b.Append("mmmmmm");
+		printBoth(a, b);
+
+		b = a;
+		printBoth(a, b);
+	}
+	
+	def print<T: Class>(const a: DynamicBlock<T>) {
+		for (val i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+	
+	def printBoth<T: Class>(const a: DynamicBlock<T>, const b: DynamicBlock<T>) {
+		System.Out << "a: ";
+		print(a);
+		System.Out << "b: ";
+		print(b);
+		System.Out << "\n";
+	}
+}
