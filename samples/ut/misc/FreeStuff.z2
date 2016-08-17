@@ -1,3 +1,5 @@
+namespace org.z2legacy.ut;
+
 class Point {
 	val x = 0;
 	val y = 0;

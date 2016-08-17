@@ -1,5 +1,7 @@
 using sys.core.i18n.UnicodeCategory;
 
+namespace org.z2legacy.ut;
+
 class TestCharCase {
 	def @main() {
 		val a = 'A';

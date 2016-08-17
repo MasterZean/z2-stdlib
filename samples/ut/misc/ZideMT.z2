@@ -1,5 +1,7 @@
 using sys.core.StopWatch;
 
+namespace org.z2legacy.ut;
+
 class TestZideMT {
 	def @main() {
 		val ts = StopWatch{};
