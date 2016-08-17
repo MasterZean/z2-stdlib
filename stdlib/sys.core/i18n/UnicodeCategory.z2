@@ -1,0 +1,100 @@
+namespace sys.core.i18n;
+
+enum UnicodeCategory {
+	Uppercase_Letter,
+	Lowercase_Letter,
+	Titlecase_Letter,
+
+	Modifier_Letter,
+	Other_Letter,
+
+	Nonspacing_Mark,
+	Spacing_Mark,
+	Enclosing_Mark,
+
+	Decimal_Number,
+	Letter_Number,
+	Other_Number,
+
+	Connector_Punctuation,
+	Dash_Punctuation,
+	Open_Punctuation,
+	Close_Punctuation,
+	Initial_Punctuation,
+	Final_Punctuation,
+	Other_Punctuation,
+
+	Math_Symbol,
+	Currency_Symbol,
+	Modifier_Symbol,
+	Other_Symbol,
+
+	Space_Separator,
+	Line_Separator,
+	Paragraph_Separator,
+
+	Control,
+	Format,
+	Surrogate,
+	Private_Use,
+	Unassigned,
+
+	Invalid,
+}
+public {
+	property IsLetter: Bool {
+		return this == Uppercase_Letter || this == Lowercase_Letter || this == Titlecase_Letter ||
+				this == Modifier_Letter || this == Other_Letter;
+	}
+
+	property IsCasesLetter: Bool {
+		return this == Uppercase_Letter || this == Lowercase_Letter || this == Titlecase_Letter;
+	}
+
+	property IsMark: Bool {
+		return this == Nonspacing_Mark || this == Spacing_Mark || this == Enclosing_Mark;
+	}
+
+	property IsNumber: Bool {
+		return this == Decimal_Number || this == Letter_Number || this == Other_Number;
+	}
+
+	property IsPunctuation: Bool {
+		return this == Connector_Punctuation || this == Dash_Punctuation || this == Open_Punctuation ||
+				this == Close_Punctuation || this == Initial_Punctuation || this == Final_Punctuation ||
+				this == Other_Punctuation;
+	}
+
+	property IsSymbol: Bool {
+		return this == Math_Symbol || this == Currency_Symbol || this == Modifier_Symbol ||
+				this == Other_Symbol;
+	}
+
+	property IsSeparator: Bool {
+		return this == Space_Separator || this == Line_Separator || this == Paragraph_Separator;
+	}
+
+	property IsOther: Bool {
+		return this == Control || this == Format || this == Surrogate ||
+				this == Private_Use || this == Unassigned;
+	}
+
+	this FromAbbr(const s: String) {
+		this = Invalid;
+		for (val i = 0; i < abbr.Length; i++)
+			if (abbr[i] == s)
+				this = UnicodeCategory{i};
+	}
+
+	def ToAbbr(): String; const {
+		if (this >= Uppercase_Letter && this <= Unassigned)
+			return abbr[PtrSize{this}];
+		else
+			return "";
+	}
+}
+private {
+	static val abbr = { "Lu", "Ll", "Lt", "Lm", "Lo", "Mn", "Mc", "Me", "Nd", "Nl", "No",
+					"Pc", "Pd", "Ps", "Pe", "Pi", "Pf", "Po", "Sm", "Sc", "Sk", "So",
+					"Zs", "Zl", "Zp", "Cc", "Cf", "Cs", "Co", "Cn" };
+}

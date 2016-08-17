@@ -1,0 +1,59 @@
+namespace sys.core.lang;
+
+class Intrinsic {
+	static def Min<T: Class>(const a: T, const b: T): T {
+		return a >= b ? b : a;
+	}
+
+	static def Max<T: Class>(const a: T, const b: T): T {
+		return a <= b ? b : a;
+	}
+
+	static def Clamped<T: Class>(const a: T, const min: T, const max: T): T {
+		System.Debug.Assert(min <= max);
+
+		if (a <= min)
+			return min;
+		else if (a >= max)
+			return max;
+		else
+			return a;
+	}
+
+	static def Clamp<T: Class>(ref a: T, const min: T, const max: T) {
+		System.Debug.Assert(min <= max);
+
+		if (a <= min)
+			a = min;
+		else if (a >= max)
+			a = max;
+	}
+
+	static def Rol8(value: Int, bits: DWord): Byte; intrinsic;
+	static def Rol8(value: DWord, bits: DWord): Byte; intrinsic;
+
+	static def Ror8(value: Int, bits: DWord): Byte; intrinsic;
+	static def Ror8(value: DWord, bits: DWord): Byte; intrinsic;
+
+	static def Rol16(value: Int, bits: DWord): Word; intrinsic;
+	static def Rol16(value: DWord, bits: DWord): Word; intrinsic;
+
+	static def Ror16(value: Int, bits: DWord): Word; intrinsic;
+	static def Ror16(value: DWord, bits: DWord): Word; intrinsic;
+
+	static def Rol32(value: Int, bits: DWord): DWord; intrinsic;
+	static def Rol32(value: DWord, bits: DWord): DWord; intrinsic;
+
+	static def Ror32(value: Int, bits: DWord): DWord; intrinsic;
+	static def Ror32(value: DWord, bits: DWord): DWord; intrinsic;
+
+	static def Rol64(value: Long, bits: DWord): QWord; intrinsic;
+	static def Rol64(value: QWord, bits: DWord): QWord; intrinsic;
+
+	static def Ror64(value: Long, bits: DWord): QWord; intrinsic;
+	static def Ror64(value: QWord, bits: DWord): QWord; intrinsic;
+
+	static def Pow(base: Double, exponenet: Double): Double; intrinsic;
+
+	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize); intrinsic;
+}

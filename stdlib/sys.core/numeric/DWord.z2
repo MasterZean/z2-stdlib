@@ -1,0 +1,123 @@
+using sys.core.ConvertUtf8;
+using sys.core.Stream;
+using sys.core.OutputFormat;
+
+namespace sys.core.lang;
+
+class DWord {
+	const Zero: DWord = 0;
+	const One: DWord = 1;
+
+	const Min: DWord = 0;
+	const Max: DWord = 4'294'967'295u;
+
+	const IsSigned = false;
+	const IsInteger = true;
+	
+	const MaxDigitsLow = 9;
+	const MaxDigitsHigh = 10;
+
+	property Abs: DWord {
+		return this;
+	}
+	
+	property Sqr: DWord {
+		return this * this;
+	}
+
+	property Sqrt: DWord {
+		return DWord{Double{this}.Sqrt};
+	}
+
+	property Floor: DWord {
+		return this;
+	}
+
+	property Ceil: DWord {
+		return this;
+	}
+
+	property Round: DWord {
+		return this;
+	}
+
+	def Clamp(min: DWord, max: DWord); Intrinsic.Clamp;
+	
+	def Clamped(min: DWord, max: DWord): DWord; const Intrinsic.Clamped;
+
+	this(const string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseUns<DWord>(s);
+	}
+	
+	def ToString(): String; const {
+			val buf: [c ConvertUtf8.MaxDWordBuffer]Byte = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DWordAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Int) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = DWord{value};
+	}
+
+	this Saturated(value: DWord) {
+		this = value;
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = DWord{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : DWord{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = DWord{value};
+	}
+	
+	this Saturated(const string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseUnsSaturated<DWord>(s);
+	}
+
+#endregion
+	
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, const format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutU32(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetU32();
+	}
+
+#endregion
+}

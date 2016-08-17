@@ -1,0 +1,880 @@
+namespace sys.core;
+
+class ConvertUtf8 {
+	const MaxSmallBuffer =  4;
+	const MaxShortBuffer =  6;
+	const MaxIntBuffer   = 11;
+	const MaxLongBuffer  = 20;
+	
+	const MaxByteBuffer  =  4;
+	const MaxWordBuffer  =  5;
+	const MaxDWordBuffer = 10;
+	const MaxQWordBuffer = 20;
+	
+	const MaxBinSmallBuffer =  5;
+	const MaxBinShortBuffer =  9;
+	const MaxBinIntBuffer   = 33;
+	const MaxBinLongBuffer  = 65;
+	
+	const MaxBinByteBuffer  =  8;
+	const MaxBinWordBuffer  = 16;
+	const MaxBinDWordBuffer = 32;
+	const MaxBinQWordBuffer = 64;
+	
+	const MaxCharBuffer  =  4;
+	
+	static def IntAsText(ref buffer: Slice<Byte>, data: Int) {
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+		
+		val start: PtrSize = void;
+		val value: DWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = DWord{-data};
+		}
+		else {
+			start = 0;
+			value = DWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			temp[n] = Byte{value % 10 + '0'};
+			value = value / 10;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord) {
+		if (base == 10) {
+			IntAsText(buffer, data);
+			return;
+		}
+		else if (base == 16) {
+			IntAsHexText(buffer, data);
+			return;
+		}
+		else if (base < 2 || base > 36)
+			throw sys.core.IllegalArgumentException{};
+		
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+
+		val start: PtrSize = void;
+		val value: DWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = DWord{-data};
+		}
+		else {
+			start = 0;
+			value = DWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			val rem = value % base;
+			temp[n] = Byte{bases[rem]};
+			value = value / base;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+				
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def LongAsText(ref buffer: Slice<Byte>, data: Long) {
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 68]Byte = void;
+		
+		val start: PtrSize = void;
+		val value: QWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = QWord{-data};
+		}
+		else {
+			start = 0;
+			value = QWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			temp[n] = Byte{value % 10 + '0'};
+			value = value / 10;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord) {
+		if (base == 10) {
+			LongAsText(buffer, data);
+			return;
+		}
+		else if (base == 16) {
+			LongAsHexText(buffer, data);
+			return;
+		}
+		else if (base < 2 || base > 36)
+			throw sys.core.IllegalArgumentException{};
+		
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 68]Byte = void;
+
+		val start: PtrSize = void;
+		val value: QWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = QWord{-data};
+		}
+		else {
+			start = 0;
+			value = QWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			val rem = value % base;
+			temp[n] = Byte{bases[rem]};
+			value = value / base;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+				
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def ParseSig<T: Class>(ref buffer: Slice<Byte>): T; const {
+		val value = T{};
+		val i = 0p;
+		val sign = 1;
+		while (i < buffer.Length && buffer[i] <= ' ')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (buffer[i] == '+')
+			i++;
+		else if (buffer[i] == '-') {
+			i++;
+			sign = -1;
+		}
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (!Char{buffer[i]}.IsAsciiDigit)
+			throw sys.core.IllegalArgumentException{};
+	
+		while (i < buffer.Length && Char{buffer[i]}.IsAsciiDigit) {
+			value = value * 10 + buffer[i] - T{'0'};
+			i++;
+		}
+		
+		buffer.Length = i;
+
+		return value * sign;
+	}
+	
+	static def ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T; const {
+		val value = T{};
+		val i = 0p;
+		val sign = 1;
+		while (i < buffer.Length && buffer[i] <= ' ')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (buffer[i] == '+')
+			i++;
+		else if (buffer[i] == '-') {
+			i++;
+			sign = -1;
+		}
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (!Char{buffer[i]}.IsAsciiDigit)
+			throw sys.core.IllegalArgumentException{};
+			
+		while (i < buffer.Length && Char{buffer[i]}.IsAsciiDigit) {
+			val oldValue = value;
+			value = value * 10 + buffer[i] - T{'0'};
+			if (oldValue > value) {
+				if (sign == 1)
+					return T.Max;
+				else
+					return T.Min;
+			}
+			i++;
+		}
+
+		return value * sign;
+	}
+	
+	static def ParseUns<T: Class>(ref buffer: Slice<Byte>): T; const {
+		val value = T{};
+		val i = 0p;
+		while (i < buffer.Length && buffer[i] <= ' ')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (buffer[i] == '+')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (!Char{buffer[i]}.IsAsciiDigit)
+			throw sys.core.IllegalArgumentException{};
+	
+		while (i < buffer.Length && Char{buffer[i]}.IsAsciiDigit) {
+			value = value * 10 + buffer[i] - T{'0'};
+			i++;
+		}
+		
+		buffer.Length = i;
+
+		return value;
+	}
+	
+	static def ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T; const {
+		val value = T{};
+		val i = 0p;
+		while (i < buffer.Length && buffer[i] <= ' ')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (buffer[i] == '+')
+			i++;
+		
+		if (i >= buffer.Length)
+			throw sys.core.BufferOverflowException{};
+			
+		if (!Char{buffer[i]}.IsAsciiDigit)
+			throw sys.core.IllegalArgumentException{};
+	
+		while (i < buffer.Length && Char{buffer[i]}.IsAsciiDigit) {
+			val oldValue = value;
+			value = value * 10 + buffer[i] - T{'0'};
+			if (oldValue > value)
+				return T.Max;
+			i++;
+		}
+		
+		buffer.Length = i;
+
+		return value;
+	}
+	
+	static def DWordAsText(ref buffer: Slice<Byte>, value: DWord) {
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+		
+		val n = 0p;
+		while (value != 0) {
+			temp[n] = Byte{value % 10 + '0'};
+			value = value / 10;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def DWordAsText(ref buffer: Slice<Byte>, value: DWord, base: DWord) {
+		if (base == 10) {
+			DWordAsText(buffer, value);
+			return;
+		}
+		else if (base == 16) {
+			DWordAsHexText(buffer, value);
+			return;
+		}
+		else if (base < 2 || base > 36)
+			throw sys.core.IllegalArgumentException{};
+		
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+		
+		val n = 0p;
+		while (value != 0) {
+			val rem = value % base;
+			temp[n] = Byte{bases[rem]};
+			value = value / base;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def QWordAsText(ref buffer: Slice<Byte>, value: QWord) {
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 68]Byte = void;
+		
+		val n = 0p;
+		while (value != 0) {
+			temp[n] = Byte{value % 10 + '0'};
+			value = value / 10;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def QWordAsText(ref buffer: Slice<Byte>, value: QWord, base: DWord) {
+		if (base == 10) {
+			QWordAsText(buffer, value);
+			return;
+		}
+		else if (base == 16) {
+			QWordAsHexText(buffer, value);
+			return;
+		}
+		else if (base < 2 || base > 36)
+			throw sys.core.IllegalArgumentException{};
+		
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 68]Byte = void;
+		
+		val n = 0p;
+		while (value != 0) {
+			val rem = value % base;
+			temp[n] = Byte{bases[rem]};
+			value = value / base;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def FloatAsText(ref buffer: Slice<Byte>, data: Float) {
+		DoubleAsText(buffer, Double{data});
+	}
+
+	static def DoubleAsText(ref buffer: Slice<Byte>, data: Double) {
+		if (data == 0) {
+			if (buffer.Length < 3)
+				return;
+			buffer[0] = Byte{'0'};
+			buffer[1] = Byte{'.'};
+			buffer[2] = Byte{'0'};
+			buffer.Length = 3;
+			return;
+		}
+
+		val si = 0p;
+		if (data < 0) {
+			if (buffer.Length < 1)
+				return;
+			buffer[0] = Byte{'-'};
+			si = 1;
+			data = -data;
+		}
+
+		val exp = -Int{data.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
+		data *= 10.0.Pow(exp);
+		if(data >= 10) {
+			data /= 10;
+			exp--;
+		}
+		else if(data < 1) {
+			data *= 10;
+			exp++;
+		}
+		exp = -exp;
+		
+		val n = 0p;
+		val digits = Int.MaxDigitsLow;
+		val datap = data;
+		val pp = 0;
+		while (digits > 0) {
+			val pp2 = Int{datap};
+			datap *= 10;
+			if (pp2 < pp)
+				break;
+			pp = pp2;
+			digits--;
+		}
+
+		val temp: [c 315]Byte = void;
+		val tempSlice = Slice<Byte>{temp};
+		IntAsText(tempSlice, pp);
+
+		val rn = 0p;
+
+		if (exp < 0) {
+			exp = -exp;
+			val pexp = exp - 1;
+			if (buffer.Length < si + n + 1)
+				return;
+			buffer[si + n] = Byte{'0'};
+			n++;
+			buffer[si + n] = Byte{'.'};
+			n++;
+			while (pexp > 0) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = Byte{'0'};
+				n++;
+				pexp--;
+			}
+		}
+		else {
+			val readLimit = DWord{exp} + 1;
+			val minLimit = Intrinsic.Min(readLimit, DWord{tempSlice.Length});
+			while (n < minLimit) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = temp[rn];
+				n++;
+				rn++;
+			}
+			while (n < readLimit) {
+				buffer[si + n] = Byte{'0'};
+				n++;
+				rn++;
+			}
+			if (buffer.Length < si + n)
+				return;
+			buffer[si + n] = Byte{'.'};
+			n++;
+		}
+
+		val c = tempSlice.Length - 1;
+		while (c > 0) {
+			if (temp[c] == Byte{'0'})
+				tempSlice.Length = tempSlice.Length - 1;
+			else
+				break;
+			c--;
+		}
+
+		if (rn >= tempSlice.Length) {
+			if (sys.core.Compiler.@DEBUG && buffer.Length < si + n) {
+				throw sys.core.BufferOverflowException{};
+			}
+			buffer[si + n] = Byte{'0'};
+			n++;
+		}
+		else
+			while (rn < tempSlice.Length) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = temp[rn];
+				n++;
+				rn++;
+				if (n > Int.MaxDigitsLow) {
+					// round
+					// if (rn < tempSlice.Length && temp[rn] > Byte{'4'})
+					//	buffer[si + n - 1]++;
+					break;
+				}
+			}
+
+		buffer.Length = si + n;
+	}
+	
+	static def CharAsText(ref buffer: Slice<Byte>, data: Char) {
+		val i = 0p;
+		if (data <= Char.MaxUtf8CP1) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[i] = Byte{data};
+			i++;
+		}
+		else if (data <= Char.MaxUtf8CP2) {
+			if (buffer.Length < 2)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[i] = Byte{0xC0 | (data >> 6)};
+			i++;
+			buffer[i] = Byte{0x80 | (data & 0x3F)};
+			i++;
+		}
+		else if (data <= Char.MaxUtf8CP3) {
+			if (buffer.Length < 3)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[i] = Byte{0xE0 | (data >> 12)};
+			i++;
+			buffer[i] = Byte{0x80 | ((data >> 6) & 0x3F)};
+			i++;
+			buffer[i] = Byte{0x80 | (data & 0x3F)};
+			i++;
+		}
+		else if (data <= Char.MaxUtf8CP4) {
+			if (buffer.Length < 4)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[i] = Byte{0xF0 | (data >> 18)};
+			i++;
+			buffer[i] = Byte{0x80 | ((data >> 12) & 0x3F)};
+			i++;
+			buffer[i] = Byte{0x80 | ((data >> 6) & 0x3F)};
+			i++;
+			buffer[i] = Byte{0x80 | (data & 0x3F)};
+			i++;
+		}
+		else
+			return;
+
+		buffer.Length = i;
+	}
+	
+	static def FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>) {
+		val s: Ptr<Word> = src.SysDataPointer;
+		val lim: Ptr<Word> = src.SysDataPointer + src.Length;
+		val d: Ptr<Byte> = dest.SysDataPointer;
+		val length = 0p;
+		while (s < lim) {
+			val code: DWord = s*;
+			if (code >= 0xD800 && code <= 0xDBFF) {
+				s++;
+				val second = s*;
+				if (code < 0xDC00 || code > 0xDFFF)
+					return;
+				code = 0x10000u + ((code & 0x3FFu) << 10) + (second & 0x3FFu);
+			}
+
+			if(code < 0x80) {
+				if (d - dest.SysDataPointer >= dest.Length)
+					return;
+				d* = Byte{code};
+				d++;
+			}
+			else if(code < 0x800) {
+				if (d - dest.SysDataPointer >= dest.Length - 1)
+					return;
+				d* = Byte{0xC0 | (code >> 6)};
+				d++;
+				d* = Byte{0x80 | (code & 0x3F)};
+				d++;
+			}
+			else if(code < 0x10000) {
+				if (d - dest.SysDataPointer >= dest.Length - 2)
+					return;
+				d* = Byte{0xE0 | (code >> 12)};
+				d++;
+				d* = Byte{0x80 | ((code >> 6) & 0x3F)};
+				d++;
+				d* = Byte{0x80 | (code & 0x3F)};
+				d++;
+			}
+			else if (code <= 0x10FFFF) {
+				if (d - dest.SysDataPointer >= dest.Length - 3)
+					return;
+				d* = Byte{0xF0 | (code >> 18)};
+				d++;
+				d* = Byte{0x80 | ((code >> 12) & 0x3F)};
+				d++;
+				d* = Byte{0x80 | ((code >> 6) & 0x3F)};
+				d++;
+				d* = Byte{0x80 | (code & 0x3F)};
+				d++;
+			}
+			s++;
+		}
+
+		dest.Length = d - dest.SysDataPointer;
+	}
+}
+private {
+	static val bases: [c 36]Char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'c', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	
+	static def IntAsHexText(ref buffer: Slice<Byte>, data: Int) {
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+		
+		val start: PtrSize = void;
+		val value: DWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = DWord{-data};
+		}
+		else {
+			start = 0;
+			value = DWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			val rem = value & 0xF;
+			temp[n] = Byte{bases[rem]};
+			value = value >> 4;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def LongAsHexText(ref buffer: Slice<Byte>, data: Long) {
+		if (data == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+		
+		val start: PtrSize = void;
+		val value: QWord = void;
+		
+		if (data < 0) {
+			temp[0] = Byte{'-'};
+			start = 1;
+			value = QWord{-data};
+		}
+		else {
+			start = 0;
+			value = QWord{data};
+		}
+
+		val n = start;
+		while (value != 0) {
+			val rem = value & 0xF;
+			temp[n] = Byte{bases[rem]};
+			value = value >> 4;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		buffer[0] = temp[0];
+		
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[start + i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def DWordAsHexText(ref buffer: Slice<Byte>, value: DWord) {
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+
+		val n = 0p;
+		while (value != 0) {
+			val rem = value & 0xF;
+			temp[n] = Byte{bases[rem]};
+			value = value >> 4;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+	
+	static def QWordAsHexText(ref buffer: Slice<Byte>, value: QWord) {
+		if (value == 0) {
+			if (buffer.Length < 1)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer.Length = 1;
+			return;
+		}
+
+		val temp: [c 40]Byte = void;
+
+		val n = 0p;
+		while (value != 0) {
+			val rem = value & 0xF;
+			temp[n] = Byte{bases[rem]};
+			value = value >> 4;
+			n++;
+		}
+		
+		if (buffer.Length < n)
+			throw sys.core.BufferOverflowException{};
+
+		val end = n - 1;
+		for (val i = 0p; i <= end; i++)
+			buffer[i] = temp[end - i];
+
+		buffer.Length = n;
+	}
+}

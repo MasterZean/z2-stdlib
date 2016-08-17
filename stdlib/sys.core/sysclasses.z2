@@ -1,0 +1,21 @@
+namespace sys.core;
+
+class SystemDebug {
+	def Assert(test: Bool); Intrinsic.DebugAssert;
+
+	//def Assert(test: Bool, const error: String); Intrinsic.DebugAssert;
+
+	def Error(const error: String); Intrinsic.Error;
+}
+
+class SystemTrace {
+	def Assert(test: Bool); Intrinsic.TraceAssert;
+
+	//def Assert(test: Bool, const error: String); Intrinsic.TraceAssert;
+
+	def Error(const error: String); Intrinsic.Error;
+}
+
+/*class SystemCPU {
+	
+}*/

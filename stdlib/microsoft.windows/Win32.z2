@@ -1,0 +1,101 @@
+namespace microsoft.windows;
+
+class Win32 {
+	/*
+	 * Scroll Bar Constants
+	 */
+	const SB_HORZ             = 0;
+	const SB_VERT             = 1;
+	const SB_CTL              = 2;
+	const SB_BOTH             = 3;
+
+	/*
+	 * Scroll Bar Commands
+	 */
+	const SB_LINEUP           = 0;
+	const SB_LINELEFT         = 0;
+	const SB_LINEDOWN         = 1;
+	const SB_LINERIGHT        = 1;
+	const SB_PAGEUP           = 2;
+	const SB_PAGELEFT         = 2;
+	const SB_PAGEDOWN         = 3;
+	const SB_PAGERIGHT        = 3;
+	const SB_THUMBPOSITION    = 4;
+	const SB_THUMBTRACK       = 5;
+	const SB_TOP              = 6;
+	const SB_LEFT             = 6;
+	const SB_BOTTOM           = 7;
+	const SB_RIGHT            = 7;
+	const SB_ENDSCROLL        = 8;
+
+	/*
+	 * ShowWindow() Commands
+	 */
+	const SW_HIDE             = 0;
+	const SW_SHOWNORMAL       = 1;
+	const SW_NORMAL           = 1;
+	const SW_SHOWMINIMIZED    = 2;
+	const SW_SHOWMAXIMIZED    = 3;
+	const SW_MAXIMIZE         = 3;
+	const SW_SHOWNOACTIVATE   = 4;
+	const SW_SHOW             = 5;
+	const SW_MINIMIZE         = 6;
+	const SW_SHOWMINNOACTIVE  = 7;
+	const SW_SHOWNA           = 8;
+	const SW_RESTORE          = 9;
+	const SW_SHOWDEFAULT      = 10;
+	const SW_FORCEMINIMIZE    = 11;
+	const SW_MAX              = 11;
+	
+	
+	/*
+	 * Old ShowWindow() Commands
+	 */
+	const HIDE_WINDOW         = 0;
+	const SHOW_OPENWINDOW     = 1;
+	const SHOW_ICONWINDOW     = 2;
+	const SHOW_FULLSCREEN     = 3;
+	const SHOW_OPENNOACTIVATE = 4;
+	
+	/*
+	 * Identifiers for the WM_SHOWWINDOW message
+	 */
+	const SW_PARENTCLOSING    = 1;
+	const SW_OTHERZOOM        = 2;
+	const SW_PARENTOPENING    = 3;
+	const SW_OTHERUNZOOM      = 4;
+
+	/*
+	 * AnimateWindow() Commands
+	 */
+	const AW_HOR_POSITIVE             = 0x00000001;
+	const AW_HOR_NEGATIVE             = 0x00000002;
+	const AW_VER_POSITIVE             = 0x00000004;
+	const AW_VER_NEGATIVE             = 0x00000008;
+	const AW_CENTER                   = 0x00000010;
+	const AW_HIDE                     = 0x00010000;
+	const AW_ACTIVATE                 = 0x00020000;
+	const AW_SLIDE                    = 0x00040000;
+	const AW_BLEND                    = 0x00080000;
+
+	const STD_OUTPUT_HANDLE = DWord{-11};
+	const CP_UTF8 = 65001u;
+
+	const MAX_PATH = 260u;
+	
+	static def GetStdHandle(nStdHandle: DWord): DWord; dllimport stdcall;
+
+	static def WriteFile(hFile: DWord, Buffer: Ptr<Byte>, nNumberOfBytesToWrite: DWord,
+       lpNumberOfBytesWritten: Ptr<DWord>, lpOverlapped: Ptr<Byte>): Int; dllimport stdcall;
+
+	static def SetConsoleOutputCP(wCodePageID: DWord): Int; dllimport stdcall;
+
+	static def MessageBoxW(hWnd: DWord, lpText: Ptr<Word>, lpCaption: Ptr<Word>, uType: DWord): Int; dllimport stdcall;
+	
+	static def QueryPerformanceCounter(lpPerformanceCount: *Long): Int; dllimport stdcall;
+	static def QueryPerformanceFrequency(lpFrequency: *Long): Int; dllimport stdcall;
+	static def Sleep(dwMilliseconds: DWord); dllimport stdcall;
+	
+	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord; dllimport stdcall;
+	static def GetModuleFileNameW(hModule: Int, lpFilename: Ptr<Word>, nSize: DWord): DWord; dllimport stdcall;
+}
