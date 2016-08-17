@@ -99,3 +99,21 @@ class Win32 {
 	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord; dllimport stdcall;
 	static def GetModuleFileNameW(hModule: Int, lpFilename: Ptr<Word>, nSize: DWord): DWord; dllimport stdcall;
 }
+
+class FILETIME {
+    val dwLowDateTime: DWord;
+    val dwHighDateTime: DWord;
+}
+
+class WIN32_FIND_DATAW {
+    val dwFileAttributes: DWord;
+    val ftCreationTime: FILETIME;
+    val ftLastAccessTime: FILETIME;
+    val ftLastWriteTime: FILETIME;
+    val nFileSizeHigh: DWord;
+    val nFileSizeLow: DWord;
+    val dwReserved0: DWord;
+    val dwReserved1: DWord;
+    val cFileName: [c 260]Word;
+    val cAlternateFileName: [c 14]Word;
+}
