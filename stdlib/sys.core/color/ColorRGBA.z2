@@ -1,0 +1,572 @@
+namespace sys.core;
+
+class ColorRGBA {
+	val R: Byte;
+	val G: Byte;
+	val B: Byte;
+	val A: Byte = 255;
+
+	this(value: Int) {
+		R = Byte{value};
+		G = R;
+		B = R;
+		A = R;
+	}
+
+	this(value: DWord) {
+		R = Byte{value};
+		G = R;
+		B = R;
+		A = R;
+	}
+
+	this(value: Float) {
+		R = ToByte(value);
+		G = R;
+		B = R;
+		A = R;
+	}
+
+	this(value: Double) {
+		R = ToByte(value);
+		G = R;
+		B = R;
+		A = R;
+	}
+
+	this(red: Int, green: Int, blue: Int) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = 255;
+	}
+
+	this(red: DWord, green: DWord, blue: DWord) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = 255;
+	}
+
+	this(red: Float, green: Float, blue: Float) {
+		R = ToByte(red);
+		G = ToByte(green);
+		B = ToByte(blue);
+		A = 255;
+	}
+
+	this(red: Double, green: Double, blue: Double) {
+		R = ToByte(red);
+		G = ToByte(green);
+		B = ToByte(blue);
+		A = 255;
+	}
+
+	this(red: Int, green: Int, blue: Int, alpha: Int) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = Byte{alpha};
+	}
+
+	this(red: DWord, green: DWord, blue: DWord, alpha: DWord) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = Byte{alpha};
+	}
+
+	this(red: Float, green: Float, blue: Float, alpha: Float)  {
+		R = ToByte(red);
+		G = ToByte(green);
+		B = ToByte(blue);
+		A = ToByte(alpha);
+	}
+
+	this(red: Double, green: Double, blue: Double, alpha: Double) {
+		R = ToByte(red);
+		G = ToByte(green);
+		B = ToByte(blue);
+		A = ToByte(alpha);
+	}
+
+	this FromUncapped(red: Int, green: Int, blue: Int, alpha: Int) {
+		R = Byte{red.Clamped(Byte.Min, Byte.Max)};
+		G = Byte{green.Clamped(Byte.Min, Byte.Max)};
+		B = Byte{blue.Clamped(Byte.Min, Byte.Max)};
+		A = Byte{alpha.Clamped(Byte.Min, Byte.Max)};
+	}
+
+	this FromUncapped(red: DWord, green: DWord, blue: DWord, alpha: DWord) {
+		R = Byte{Intrinsic.Min(red, Byte.Max)};
+		G = Byte{Intrinsic.Min(green, Byte.Max)};
+		B = Byte{Intrinsic.Min(blue, Byte.Max)};
+		A = Byte{Intrinsic.Min(alpha, Byte.Max)};
+	}
+
+	this FromUncapped(red: Float, green: Float, blue: Float, alpha: Float) {
+		R = ToByte(red.Clamped(0, Byte.Max));
+		G = ToByte(green.Clamped(0, Byte.Max));
+		B = ToByte(blue.Clamped(0, Byte.Max));
+		A = ToByte(alpha.Clamped(0, Byte.Max));
+	}
+
+	this FromUncapped(red: Double, green: Double, blue: Double, alpha: Double) {
+		R = ToByte(red.Clamped(0, Byte.Max));
+		G = ToByte(green.Clamped(0, Byte.Max));
+		B = ToByte(blue.Clamped(0, Byte.Max));
+		A = ToByte(alpha.Clamped(0, Byte.Max));
+	}
+
+#region Conversion
+
+	this FromRGBA(rgba: DWord) {
+		R = Byte{rgba};
+		G = Byte{rgba >> 8};
+		B = Byte{rgba >> 16};
+		A = Byte{rgba >> 24};
+	}
+
+	this FromBGRA(bgra: DWord) {
+		R = Byte{bgra >> 16};
+		G = Byte{bgra >> 8};
+		B = Byte{bgra};
+		A = Byte{bgra >> 24};
+	}
+
+	this FromARGB(argb: DWord) {
+		R = Byte{argb >> 24};
+		G = Byte{argb >> 16};
+		B = Byte{argb >> 8};
+		A = Byte{argb};
+	}
+
+	this FromABGR(abgr: DWord) {
+		R = Byte{abgr >> 8};
+		G = Byte{abgr >> 16};
+		B = Byte{abgr >> 24};
+		A = Byte{abgr};
+	}
+
+	def ToRGBA(): DWord {
+		return R + (G << 8) + (B << 16) + (A << 24);
+	}
+
+	def ToBGRA(): DWord {
+		return B + (G << 8) + (R << 16) + (A << 24);
+	}
+
+	def ToARGB(): DWord {
+		return A + (R << 8) + (G << 16) + (B << 24);
+	}
+
+	def ToABGR(): DWord {
+		return A + (B << 8) + (G << 16) + (R << 24);
+	}
+
+#endregion
+
+	def Clamp(min: ColorRGBA, max: ColorRGBA) {
+		R.Clamp(min.R, max.R);
+		G.Clamp(min.G, max.G);
+		B.Clamp(min.B, max.B);
+		A.Clamp(min.A, max.A);
+	}
+	
+	def Clamp(min: Byte, max: Byte) {
+		R.Clamp(min, max);
+		G.Clamp(min, max);
+		B.Clamp(min, max);
+		A.Clamp(min, max);
+	}
+	
+	def Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA {
+		val c: ColorRGBA = void;
+
+		c.R = R.Clamped(min.R, max.R);
+		c.G = G.Clamped(min.G, max.G);
+		c.B = B.Clamped(min.B, max.B);
+		c.A = A.Clamped(min.A, max.A);
+
+		return c;
+	}
+	
+	def Clamped(min: Byte, max: Byte): ColorRGBA {
+		val c: ColorRGBA = void;
+
+		c.R = R.Clamped(min, max);
+		c.G = G.Clamped(min, max);
+		c.B = B.Clamped(min, max);
+		c.A = A.Clamped(min, max);
+
+		return c;
+	}
+
+	def GetMin(min: ColorRGBA): ColorRGBA {
+		val c: ColorRGBA = void;
+
+		c.R = Intrinsic.Min(R, min.R);
+		c.G = Intrinsic.Min(G, min.G);
+		c.B = Intrinsic.Min(B, min.B);
+		c.A = Intrinsic.Min(A, min.A);
+
+		return c;
+	}
+
+	def GetMax(max: ColorRGBA): ColorRGBA {
+		val c: ColorRGBA = void;
+
+		c.R = Intrinsic.Min(R, max.R);
+		c.G = Intrinsic.Min(G, max.G);
+		c.B = Intrinsic.Min(B, max.B);
+		c.A = Intrinsic.Min(A, max.A);
+
+		return c;
+	}
+
+#region add
+
+	def @add(second: ColorRGBA): ColorRGBA {
+		return ColorRGBA{R + second.R, G + second.G, B + second.B, A + second.A};
+	}
+
+	def @add(second: Int): ColorRGBA {
+		return ColorRGBA{
+					Byte{R + second},
+					Byte{G + second},
+					Byte{B + second},
+					Byte{A + second}};
+	}
+
+	def @add(second: DWord): ColorRGBA {
+		return ColorRGBA{
+					Byte{R + second},
+					Byte{G + second},
+					Byte{B + second},
+					Byte{A + second}};
+	}
+
+	def @add(second: Float): ColorRGBA {
+		return ColorRGBA{
+					ToByte(Float{R} / Byte.Max + second),
+					ToByte(Float{G} / Byte.Max + second),
+					ToByte(Float{B} / Byte.Max + second),
+					ToByte(Float{A} / Byte.Max + second)};
+	}
+
+	def @add(second: Double): ColorRGBA {
+		return ColorRGBA{
+					ToByte(Double{R} / Byte.Max + second),
+					ToByte(Double{G} / Byte.Max + second),
+					ToByte(Double{B} / Byte.Max + second),
+					ToByte(Double{A} / Byte.Max + second)};
+	}
+
+#endregion
+
+#region sub
+
+	static def @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{left.R - right.R, left.G - right.G, left.B - right.B, left.A - right.A};
+	}
+
+	static def @sub(left: Int, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left - right.R},
+					Byte{left - right.G},
+					Byte{left - right.B},
+					Byte{left - right.A}};
+	}
+
+	static def @sub(left: ColorRGBA, right: Int): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R - right},
+					Byte{left.G - right},
+					Byte{left.B - right},
+					Byte{left.A - right}};
+	}
+
+	static def @sub(left: DWord, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left - right.R},
+					Byte{left - right.G},
+					Byte{left - right.B},
+					Byte{left - right.A}};
+	}
+
+	static def @sub(left: ColorRGBA, right: DWord): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R - right},
+					Byte{left.G - right},
+					Byte{left.B - right},
+					Byte{left.A - right}};
+	}
+
+	static def @sub(left: Float, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left - (Float{right.R} / Byte.Max)),
+					ToByte(left - (Float{right.G} / Byte.Max)),
+					ToByte(left - (Float{right.B} / Byte.Max)),
+					ToByte(left - (Float{right.A} / Byte.Max))};
+	}
+
+	static def @sub(left: ColorRGBA, right: Float): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Float{left.R} / Byte.Max) - right),
+					ToByte((Float{left.G} / Byte.Max) - right),
+					ToByte((Float{left.B} / Byte.Max) - right),
+					ToByte((Float{left.A} / Byte.Max) - right)};
+	}
+
+	static def @sub(left: Double, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left - (Double{right.R} / Byte.Max)),
+					ToByte(left - (Double{right.G} / Byte.Max)),
+					ToByte(left - (Double{right.B} / Byte.Max)),
+					ToByte(left - (Double{right.A} / Byte.Max))};
+	}
+
+	static def @sub(left: ColorRGBA, right: Double): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Double{left.R} / Byte.Max) - right),
+					ToByte((Double{left.G} / Byte.Max) - right),
+					ToByte((Double{left.B} / Byte.Max) - right),
+					ToByte((Double{left.A} / Byte.Max) - right)};
+	}
+
+#endregion
+
+#region mul
+
+	def @mul(second: ColorRGBA): ColorRGBA {
+		return ColorRGBA{R * second.R, G * second.G, B * second.B, A * second.A};
+	}
+
+	def @mul(second: Int): ColorRGBA {
+		return ColorRGBA{
+					Byte{R * second},
+					Byte{G * second},
+					Byte{B * second},
+					Byte{A * second}};
+	}
+
+	def @mul(second: DWord): ColorRGBA {
+		return ColorRGBA{
+					Byte{R * second},
+					Byte{G * second},
+					Byte{B * second},
+					Byte{A * second}};
+	}
+
+	def @mul(second: Float): ColorRGBA {
+		return ColorRGBA{
+					ToByte(Float{R} / Byte.Max * second),
+					ToByte(Float{G} / Byte.Max * second),
+					ToByte(Float{B} / Byte.Max * second),
+					ToByte(Float{A} / Byte.Max * second)};
+	}
+
+	def @mul(second: Double): ColorRGBA {
+		return ColorRGBA{
+					ToByte(Double{R} / Byte.Max * second),
+					ToByte(Double{G} / Byte.Max * second),
+					ToByte(Double{B} / Byte.Max * second),
+					ToByte(Double{A} / Byte.Max * second)};
+	}
+
+#endregion
+
+#region div
+
+	static def @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{left.R / right.R, left.G / right.G, left.B / right.B, left.A / right.A};
+	}
+
+	static def @div(left: Int, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left / right.R},
+					Byte{left / right.G},
+					Byte{left / right.B},
+					Byte{left / right.A}};
+	}
+
+	static def @div(left: ColorRGBA, right: Int): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R / right},
+					Byte{left.G / right},
+					Byte{left.B / right},
+					Byte{left.A / right}};
+	}
+
+	static def @div(left: DWord, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left / right.R},
+					Byte{left / right.G},
+					Byte{left / right.B},
+					Byte{left / right.A}};
+	}
+
+	static def @div(left: ColorRGBA, right: DWord): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R / right},
+					Byte{left.G / right},
+					Byte{left.B / right},
+					Byte{left.A / right}};
+	}
+
+	static def @div(left: Float, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left / (Float{right.R} / Byte.Max)),
+					ToByte(left / (Float{right.G} / Byte.Max)),
+					ToByte(left / (Float{right.B} / Byte.Max)),
+					ToByte(left / (Float{right.A} / Byte.Max))};
+	}
+
+	static def @div(left: ColorRGBA, right: Float): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Float{left.R} / Byte.Max) / right),
+					ToByte((Float{left.G} / Byte.Max) / right),
+					ToByte((Float{left.B} / Byte.Max) / right),
+					ToByte((Float{left.A} / Byte.Max) / right)};
+	}
+
+	static def @div(left: Double, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left / (Double{right.R} / Byte.Max)),
+					ToByte(left / (Double{right.G} / Byte.Max)),
+					ToByte(left / (Double{right.B} / Byte.Max)),
+					ToByte(left / (Double{right.A} / Byte.Max))};
+	}
+
+	static def @div(left: ColorRGBA, right: Double): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Double{left.R} / Byte.Max) / right),
+					ToByte((Double{left.G} / Byte.Max) / right),
+					ToByte((Double{left.B} / Byte.Max) / right),
+					ToByte((Double{left.A} / Byte.Max) / right)};
+	}
+
+#endregion
+
+#region mod
+
+	static def @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{left.R * right.R, left.G * right.G, left.B * right.B, left.A * right.A};
+	}
+
+	static def @mod(left: Int, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left / right.R},
+					Byte{left / right.G},
+					Byte{left / right.B},
+					Byte{left / right.A}};
+	}
+
+	static def @mod(left: ColorRGBA, right: Int): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R / right},
+					Byte{left.G / right},
+					Byte{left.B / right},
+					Byte{left.A / right}};
+	}
+
+	static def @mod(left: DWord, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					Byte{left / right.R},
+					Byte{left / right.G},
+					Byte{left / right.B},
+					Byte{left / right.A}};
+	}
+
+	static def @mod(left: ColorRGBA, right: DWord): ColorRGBA {
+		return ColorRGBA{
+					Byte{left.R / right},
+					Byte{left.G / right},
+					Byte{left.B / right},
+					Byte{left.A / right}};
+	}
+
+	static def @mod(left: Float, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left % (Float{right.R} / Byte.Max)),
+					ToByte(left % (Float{right.G} / Byte.Max)),
+					ToByte(left % (Float{right.B} / Byte.Max)),
+					ToByte(left % (Float{right.A} / Byte.Max))};
+	}
+
+	static def @mod(left: ColorRGBA, right: Float): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Float{left.R} / Byte.Max) % right),
+					ToByte((Float{left.G} / Byte.Max) % right),
+					ToByte((Float{left.B} / Byte.Max) % right),
+					ToByte((Float{left.A} / Byte.Max) % right)};
+	}
+
+	static def @mod(left: Double, right: ColorRGBA): ColorRGBA {
+		return ColorRGBA{
+					ToByte(left % (Double{right.R} / Byte.Max)),
+					ToByte(left % (Double{right.G} / Byte.Max)),
+					ToByte(left % (Double{right.B} / Byte.Max)),
+					ToByte(left % (Double{right.A} / Byte.Max))};
+	}
+
+	static def @mod(left: ColorRGBA, right: Double): ColorRGBA {
+		return ColorRGBA{
+					ToByte((Double{left.R} / Byte.Max) % right),
+					ToByte((Double{left.G} / Byte.Max) % right),
+					ToByte((Double{left.B} / Byte.Max) % right),
+					ToByte((Double{left.A} / Byte.Max) % right)};
+	}
+
+#endregion
+
+#region eq
+
+	def @eq(second: Int): Bool {
+		return R == second && G == second && B == second && A == second;
+	}
+
+	def @eq(second: DWord): Bool {
+		return R == second && G == second && B == second && A == second;
+	}
+
+	def @eq(second: Float): Bool {
+		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
+	}
+
+	def @eq(second: Double): Bool {
+		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
+	}
+
+#endregion
+
+#region neq
+
+	def @neq(second: Int): Bool {
+		return R != second || G != second || B != second || A != second;
+	}
+
+	def @neq(second: DWord): Bool {
+		return R != second || G != second || B != second || A != second;
+	}
+
+	def @neq(second: Float): Bool {
+		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
+	}
+
+	def @neq(second: Double): Bool {
+		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
+	}
+
+#endregion
+
+}
+private {
+	static def ToByte(component: Float): Byte {
+		return Byte{Byte{component * Byte.Max}.Clamped(Byte.Min, Byte.Max)};
+	}
+
+	static def ToByte(component: Double): Byte {
+		return Byte{Byte{component * Byte.Max}.Clamped(Byte.Min, Byte.Max)};
+	}
+}
