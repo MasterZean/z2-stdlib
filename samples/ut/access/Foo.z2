@@ -1,0 +1,10 @@
+namespace org.z2legacy.samples.ut.access;
+
+class Foo {
+}
+private {
+	this() {
+		default();
+	}
+}
+	

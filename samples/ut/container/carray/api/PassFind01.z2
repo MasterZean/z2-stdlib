@@ -12,9 +12,11 @@ class PassFind01 {
 		a.Reverse();
 		System.Out << a << "\n";
 		
-		val b = { 40, 10, 20, 50 };
+		val b = [c]{ 40, 10, 20, 50 };
 		System.Out << b << "\n";
 		b.Reverse();
 		System.Out << b << "\n";
+		
+		System.Out << a.class << "\n";
 	}
 }

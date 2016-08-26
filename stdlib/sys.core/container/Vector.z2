@@ -1,0 +1,128 @@
+using sys.core.Stream;
+using sys.core.DynamicBlock;
+
+namespace sys.core.lang;
+
+class Vector<T: Class> {
+	property Length: PtrSize
+	get {
+		return length;
+	}
+	set (value) {
+		if (value == length)
+			return;
+
+		if (value > data.Length) {
+			data.Length = value;
+		}
+		else if (value < length) {
+			val i = value;
+			
+			while (i < length) {
+				data[i].~{};
+				i++;
+			}
+		}
+		
+		length = value;
+	}
+
+	property Capacity: PtrSize
+	get {
+		return data.Length;
+	}
+	set (value) {
+		System.Trace.Assert(value >= length);
+
+		value = Intrinsic.Max(value, 2);
+		if (value == data.Length)
+			return;
+
+		data.Length = value;
+	}
+
+	property @index: ref T
+	get [index: PtrSize] const {
+		System.Debug.Assert(index < length);
+		return data[index];
+	}
+	
+	def Add(const item: T) {
+		if (length >= data.Length)
+			Grow();
+		data[length++]{item};
+	}
+	
+	def Add(move item: T) {
+		if (length >= data.Length)
+			Grow();
+		data[length++]{item};
+	}
+	
+	static def @shl<T: Class>(ref v: Vector<T>, const data: T): ref Vector<T> {
+		v.Add(data);
+		return v;
+	}
+	
+	def Fill(const value: T) {
+		for (val i = 0p; i < Length; i++)
+			this[i] = value;
+	}
+	
+	def FindIndex(const item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item);
+	}
+	
+	def FindIndex(const item: T, start: PtrSize): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item, start);
+	}
+	
+	def BinaryIndex(const item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.BinaryIndex(item);
+	}
+	
+	def Reverse() {
+		val s = Slice<T>{this};
+		s.Reverse();
+	}
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream << length;
+		
+		if (length > 0) {
+			stream << ' ';
+			for (val i = 0p; i < length - 1; i++)
+				stream << data[i] << ' ';
+			stream << data[length - 1];
+		}
+	}
+	
+#endregion
+	
+	property SysDataPointer: Ptr<T>
+	get {
+		return data.SysDataPointer;
+	}
+}
+private {
+	val data: DynamicBlock<T>;
+	val length: PtrSize;
+	
+	def Grow() {
+		val newCap = Intrinsic.Max(data.Length * 2, 2p);
+		data.SetLengthNoInitAggressive(newCap);
+		data.length = newCap;
+	}
+	
+	this @allocate(len: PtrSize, capacity: PtrSize) {
+		data = void;
+		data.length = capacity;
+		data.data = Ptr<T>.AllocVoid(capacity);
+		length = len;
+	}
+}

@@ -64,11 +64,10 @@ class CArray<T: Class> {
 
 	def @write(ref stream: Stream); const {
 		if (Length > 0) {
-			for (val i = 0p; i < Length - 1; i++) {
-				this[i].@write(stream);
-				stream.RawWrite(' ');
-			}
-			this[Length - 1].@write(stream);
+			for (val i = 0p; i < Length - 1; i++)
+				stream << this[i] << ' ';
+
+			stream << this[Length - 1];
 		}
 	}
 	

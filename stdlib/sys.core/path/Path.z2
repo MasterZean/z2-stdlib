@@ -63,7 +63,7 @@ class Path {
 	}
 
 	static def GetNameIndex(const path: String): PtrSize {
-		val index = path.RFind({Byte{DirSepWin}, Byte{DirSepUnix}});
+		val index = path.RFind([c]{Byte{DirSepWin}, Byte{DirSepUnix}});
 		if (index == -1) {
 			if (IsRoot(path))
 				return PtrSize{-1};

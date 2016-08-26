@@ -11,6 +11,16 @@ class Slice<T: Class> {
 		size = length;
 	}
 	
+	this(ref p: Vector<T>) {
+		ptr = p.SysDataPointer;
+		size = p.Length;
+	}
+	
+	this(ref p: Vector<T>, length: PtrSize) {
+		ptr = p.SysDataPointer;
+		size = length;
+	}
+	
 	this(ref p: Small) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;

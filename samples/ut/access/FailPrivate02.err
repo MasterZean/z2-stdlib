@@ -1,0 +1,2 @@
+FailPrivate02.z2(7, 16): error: can't access non public constructor:
+	Foo()

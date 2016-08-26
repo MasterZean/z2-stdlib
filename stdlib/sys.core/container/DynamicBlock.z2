@@ -17,18 +17,22 @@ class DynamicBlock<T: Class> {
 	this(const copy: DynamicBlock<T>) {
 		length = copy.length;
 		
+		val temp: Ptr<T> = void;
+		
 		if (T.class.IsPOD) {
 			// POD data can just be raw copied by a memory clone
-			data = copy.data.Clone(length);
+			temp = copy.data.Clone(length);
 		}
 		else {
 			// non POD data gets copied by first allocating a new buffer
-			data = Ptr<T>.AllocVoid(length);
+			temp = Ptr<T>.AllocVoid(length);
 			
 			// then copy constructor is called on each member
 			for (val i = 0p; i < length; i++)
-				data[i]{copy.data[i]};
+				temp[i]{copy.data[i]};
 		}
+		
+		data = temp;
 	}
 
 	def @attr(const copy: DynamicBlock<T>) {
@@ -55,17 +59,35 @@ class DynamicBlock<T: Class> {
 
 		length = 0;
 	}
-
+	
+	this(move copy: DynamicBlock<T>) {
+		// exit early if assigning to self
+		if (data == copy.data)
+			return;
+		this.~{};
+		
+		default();
+		copy.length = 0;
+		copy.data = null;
+	}
+	
+	def @attr(move copy: DynamicBlock<T>) {
+		// exit early if assigning to self
+		if (data == copy.data)
+			return;
+		this.~{};
+		
+		default();
+		copy.length = 0;
+		copy.data = null;
+	}
+	
 #endregion
 
-	property @index: T
+	property @index: ref T
 	get [index: PtrSize] const {
 		System.Debug.Assert(index < length);
 		return data[index];
-	}
-	set (value)[index: PtrSize] {
-		System.Debug.Assert(index < length);
-		data[index] = value;
 	}
 
 	property Length: PtrSize {
@@ -91,6 +113,11 @@ class DynamicBlock<T: Class> {
 	
 	property Capacity: PtrSize {
 		return length;
+	}
+	set (value) {
+		System.Trace.Assert(value >= length);
+		
+		Length = capacity;
 	}
 
 	def ExpandTo(value: PtrSize) {
@@ -188,6 +215,10 @@ class DynamicBlock<T: Class> {
 
 #endregion
 
+	property SysDataPointer: Ptr<T>
+	get {
+		return data;
+	}
 }
 private {
 	val length: PtrSize;

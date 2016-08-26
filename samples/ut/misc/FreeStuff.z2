@@ -34,5 +34,7 @@ class FreeStuffTest {
 		System.Out << "first: " << first << "\n";
 		System.Out << "second: " << second << "\n";
 		System.Out << "third: " << third << "\n";
+
+		System.Out << [c]{first, second, third} << "\n";
 	}
 }
