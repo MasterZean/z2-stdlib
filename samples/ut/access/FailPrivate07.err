@@ -1,0 +1,1 @@
+FailPrivate07.z2(7, 27): error: can't access non public function 'test' of class 'Foo'

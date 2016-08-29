@@ -1,0 +1,9 @@
+using org.z2legacy.samples.ut.access.Foo;
+
+namespace org.z2legacy.samples.ut.access;
+
+class FailPrivate05 {
+	def @main() {
+		System.Out << Foo.AA << "\n";
+	}
+}

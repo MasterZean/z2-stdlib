@@ -1,0 +1,1 @@
+FailPrivate05.z2(7, 27): error: can't access non public constant 'AA' of class 'Foo'

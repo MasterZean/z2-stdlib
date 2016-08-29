@@ -1,0 +1,9 @@
+using org.z2legacy.samples.ut.access.Bar;
+
+namespace org.z2legacy.samples.ut.access;
+
+class FailPrivate08 {
+	def @main() {
+		System.Out << Bar{}.test() << "\n";
+	}
+}

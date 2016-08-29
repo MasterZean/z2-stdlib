@@ -1,0 +1,1 @@
+FailPrivate06.z2(7, 29): error: can't access non public constant 'AA' of class 'Bar'

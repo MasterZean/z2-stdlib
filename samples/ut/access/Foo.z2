@@ -3,8 +3,27 @@ namespace org.z2legacy.samples.ut.access;
 class Foo {
 }
 private {
+	static val data = 0;
+	
+	const AA = 0;
+	
 	this() {
 		default();
 	}
+	
+	static def test(): Int {
+		return 0;
+	}
 }
 	
+class Bar {
+}
+private {
+	const AA = 0;
+	
+	val data = 0;
+	
+	def test(): Int {
+		return 0;
+	}
+}
