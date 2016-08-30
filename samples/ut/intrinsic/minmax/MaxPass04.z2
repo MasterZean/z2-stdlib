@@ -20,7 +20,10 @@ class MaxPass04 {
 		val vj = Intrinsic.Max(0.04000000, 22.01);
 		System.Out << vj.class << " max is " << vj << "\n";
 		
-		val vk = Intrinsic.Max('a', '7');
+		val vk = Intrinsic.Max(-0.04000000, -22.01);
 		System.Out << vk.class << " max is " << vk << "\n";
+		
+		val vl = Intrinsic.Max('a', '7');
+		System.Out << vl.class << " max is " << vl << "\n";
 	}
 }

@@ -32,7 +32,10 @@ class MaxPass01 {
 		val vj = Intrinsic.Max(Double{0.04000000}, Double{22.01});
 		System.Out << vj.class << " max is " << vj << "\n";
 		
-		val vk = Intrinsic.Max(Char{'a'}, Char{'7'});
+		val vk = Intrinsic.Max(Double{-0.04000000}, Double{-22.01});
 		System.Out << vk.class << " max is " << vk << "\n";
+		
+		val vl = Intrinsic.Max(Char{'a'}, Char{'7'});
+		System.Out << vl.class << " max is " << vl << "\n";
 	}
 }

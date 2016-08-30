@@ -1,5 +1,6 @@
 using sys.core.SystemDebug;
 using sys.core.SystemTrace;
+using sys.core.SystemCPU;
 using sys.core.ConsoleStream;
 
 namespace sys.core.lang;
@@ -8,5 +9,5 @@ class System {
 	static val Debug: SystemDebug;
 	static val Trace: SystemTrace;
 	static val Out: ConsoleStream;
-	//static val CPU: SystemCPU;
+	static val CPU: SystemCPU;
 }

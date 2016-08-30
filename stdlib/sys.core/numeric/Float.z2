@@ -17,6 +17,17 @@ class Float {
 
 	const MaxDigitsLow = 6;
 	const MaxDigitsHigh = 9;
+	
+	const Nan = Float{1.0e+300 * 1.0e+300} * 0.0f;
+	const Infinite = Float{1.0e+300 * 1.0e+300};
+	
+	property IsNan: Bool {
+		return this != this;
+	}
+	
+	property IsInfinite: Bool {
+		return this == Infinite || this == -Infinite;
+	}
 
 	property Abs: Float {
 		return this > 0 ? this : -this;
