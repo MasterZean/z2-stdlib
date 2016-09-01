@@ -494,132 +494,132 @@ class ConvertUtf8 {
 	}
 	
 	static def FloatAsText(ref buffer: Slice<Byte>, data: Float) {
-		DoubleAsText(buffer, Double{data});
-	}
-
-	static def DoubleAsText(ref buffer: Slice<Byte>, data: Double) {
-		if (data == 0) {
+		if (data.IsNan) {
 			if (buffer.Length < 3)
-				return;
-			buffer[0] = Byte{'0'};
-			buffer[1] = Byte{'.'};
-			buffer[2] = Byte{'0'};
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'N'};
+			buffer[1] = Byte{'a'};
+			buffer[2] = Byte{'N'};
 			buffer.Length = 3;
+			
 			return;
 		}
-
-		val si = 0p;
-		if (data < 0) {
-			if (buffer.Length < 1)
-				return;
-			buffer[0] = Byte{'-'};
-			si = 1;
-			data = -data;
+		else if (data == Double.Infinite) {
+			if (buffer.Length < 3)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'I'};
+			buffer[1] = Byte{'n'};
+			buffer[2] = Byte{'f'};
+			buffer.Length = 3;
+			
+			return;
 		}
-
-		val exp = -Int{data.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
-		data *= 10.0.Pow(exp);
-		if(data >= 10) {
-			data /= 10;
+		else if (data == -Double.Infinite) {
+			if (buffer.Length < 4)
+				throw sys.core.BufferOverflowException{};
+			
+			buffer[0] = Byte{'-'};
+			buffer[1] = Byte{'I'};
+			buffer[2] = Byte{'n'};
+			buffer[3] = Byte{'f'};
+			buffer.Length = 4;
+			
+			return;
+		}
+		
+		if (data == 0) {
+			AsTextFix<Int>(buffer, data, 7);
+			return;
+		}
+		
+		val back = data;
+		if (back < 0)
+			back = -back;
+		
+		val exp = -Int{Double{back}.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
+					
+		back = Float{back * 10.0.Pow(exp)};
+		if (back >= 10) {
+			back /= 10;
 			exp--;
 		}
-		else if(data < 1) {
-			data *= 10;
+		else if(back < 1) {
+			back *= 10;
 			exp++;
 		}
 		exp = -exp;
 		
-		val n = 0p;
-		val digits = Int.MaxDigitsLow;
-		val datap = data;
-		val pp = 0;
-		while (digits > 0) {
-			val pp2 = Int{datap};
-			datap *= 10;
-			if (pp2 < pp)
-				break;
-			pp = pp2;
-			digits--;
-		}
-
-		val temp: [c 315]Byte = void;
-		val tempSlice = Slice<Byte>{temp};
-		IntAsText(tempSlice, pp);
-
-		val rn = 0p;
-
-		if (exp < 0) {
-			exp = -exp;
-			val pexp = exp - 1;
-			if (buffer.Length < si + n + 1)
-				return;
-			buffer[si + n] = Byte{'0'};
-			n++;
-			buffer[si + n] = Byte{'.'};
-			n++;
-			while (pexp > 0) {
-				if (buffer.Length < si + n)
-					return;
-				buffer[si + n] = Byte{'0'};
-				n++;
-				pexp--;
-			}
-		}
-		else {
-			val readLimit = DWord{exp} + 1;
-			val minLimit = Intrinsic.Min(readLimit, DWord{tempSlice.Length});
-			while (n < minLimit) {
-				if (buffer.Length < si + n)
-					return;
-				buffer[si + n] = temp[rn];
-				n++;
-				rn++;
-			}
-			while (n < readLimit) {
-				buffer[si + n] = Byte{'0'};
-				n++;
-				rn++;
-			}
-			if (buffer.Length < si + n)
-				return;
-			buffer[si + n] = Byte{'.'};
-			n++;
-		}
-
-		val c = tempSlice.Length - 1;
-		while (c > 0) {
-			if (temp[c] == Byte{'0'})
-				tempSlice.Length = tempSlice.Length - 1;
-			else
-				break;
-			c--;
-		}
-
-		if (rn >= tempSlice.Length) {
-			if (sys.core.Compiler.@DEBUG && buffer.Length < si + n) {
-				throw sys.core.BufferOverflowException{};
-			}
-			buffer[si + n] = Byte{'0'};
-			n++;
-		}
+		if (exp.Abs < 9)
+			AsTextFix<Int>(buffer, data, 7);
 		else
-			while (rn < tempSlice.Length) {
-				if (buffer.Length < si + n)
-					return;
-				buffer[si + n] = temp[rn];
-				n++;
-				rn++;
-				if (n > Int.MaxDigitsLow) {
-					// round
-					// if (rn < tempSlice.Length && temp[rn] > Byte{'4'})
-					//	buffer[si + n - 1]++;
-					break;
-				}
-			}
-
-		buffer.Length = si + n;
+			AsTextExp<Int>(buffer, data, 7);
 	}
-	
+
+	static def DoubleAsText(ref buffer: Slice<Byte>, data: Double) {
+		if (data.IsNan) {
+			if (buffer.Length < 3)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'N'};
+			buffer[1] = Byte{'a'};
+			buffer[2] = Byte{'N'};
+			buffer.Length = 3;
+			
+			return;
+		}
+		else if (data == Double.Infinite) {
+			if (buffer.Length < 3)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'I'};
+			buffer[1] = Byte{'n'};
+			buffer[2] = Byte{'f'};
+			buffer.Length = 3;
+			
+			return;
+		}
+		else if (data == -Double.Infinite) {
+			if (buffer.Length < 4)
+				throw sys.core.BufferOverflowException{};
+			
+			buffer[0] = Byte{'-'};
+			buffer[1] = Byte{'I'};
+			buffer[2] = Byte{'n'};
+			buffer[3] = Byte{'f'};
+			buffer.Length = 4;
+			
+			return;
+		}
+		
+		if (data == 0) {
+			AsTextFix<Long>(buffer, data, 15);
+			return;
+		}
+		
+		val back = data;
+		if (back < 0)
+			back = -back;
+		
+		val exp = -Int{back.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
+		back *= 10.0.Pow(exp);
+		if (back >= 10) {
+			back /= 10;
+			exp--;
+		}
+		else if(back < 1) {
+			back *= 10;
+			exp++;
+		}
+		exp = -exp;
+		
+		if (exp.Abs < 9)
+			AsTextFix<Long>(buffer, data, 15);
+		else
+			AsTextExp<Long>(buffer, data, 15);
+	}
+		
 	static def CharAsText(ref buffer: Slice<Byte>, data: Char) {
 		val i = 0p;
 		if (data <= Char.MaxUtf8CP1) {
@@ -876,5 +876,236 @@ private {
 			buffer[i] = temp[end - i];
 
 		buffer.Length = n;
+	}
+	
+	static def AsTextFix<B: Class>(ref buffer: Slice<Byte>, data: Double, digitLimit: DWord) {
+		if (data == 0) {
+			if (buffer.Length < 3)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer[1] = Byte{'.'};
+			buffer[2] = Byte{'0'};
+			buffer.Length = 3;
+			
+			return;
+		}
+
+		val si = 0p;
+		if (data < 0) {
+			if (buffer.Length < 1)
+				return;
+			buffer[0] = Byte{'-'};
+			si = 1;
+			data = -data;
+		}
+
+		val exp = -Int{data.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
+		data *= 10.0.Pow(exp);
+		if(data >= 10) {
+			data /= 10;
+			exp--;
+		}
+		else if(data < 1) {
+			data *= 10;
+			exp++;
+		}
+		exp = -exp;
+		
+		val n = 0p;
+		val digits = digitLimit;
+		val datap = data;
+		val pp = B{};
+		while (digits > 0) {
+			val pp2 = B{datap};
+			datap *= 10;
+			if (pp2 < pp)
+				break;
+			pp = pp2;
+			digits--;
+		}
+
+		val temp: [c 315]Byte = void;
+		val tempSlice = Slice<Byte>{temp};
+		if (B.class == Long)
+			LongAsText(tempSlice, pp);
+		else
+			IntAsText(tempSlice, Int{pp});
+
+		val rn = 0p;
+
+		if (exp < 0) {
+			exp = -exp;
+			val pexp = exp - 1;
+			if (buffer.Length < si + n + 1)
+				return;
+			buffer[si + n] = Byte{'0'};
+			n++;
+			buffer[si + n] = Byte{'.'};
+			n++;
+			while (pexp > 0) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = Byte{'0'};
+				n++;
+				pexp--;
+			}
+		}
+		else {
+			val readLimit = DWord{exp} + 1;
+			val minLimit = Intrinsic.Min(readLimit, DWord{tempSlice.Length});
+			while (n < minLimit) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = temp[rn];
+				n++;
+				rn++;
+			}
+			while (n < readLimit) {
+				buffer[si + n] = Byte{'0'};
+				n++;
+				rn++;
+			}
+			if (buffer.Length < si + n)
+				return;
+			buffer[si + n] = Byte{'.'};
+			n++;
+		}
+
+		val c = tempSlice.Length - 1;
+		while (c > 0) {
+			if (temp[c] == Byte{'0'})
+				tempSlice.Length = tempSlice.Length - 1;
+			else
+				break;
+			c--;
+		}
+
+		if (rn >= tempSlice.Length) {
+			if (sys.core.Compiler.@DEBUG && buffer.Length < si + n) {
+				throw sys.core.BufferOverflowException{};
+			}
+			buffer[si + n] = Byte{'0'};
+			n++;
+		}
+		else
+			while (rn < tempSlice.Length) {
+				if (buffer.Length < si + n)
+					return;
+				buffer[si + n] = temp[rn];
+				n++;
+				rn++;
+				if (rn > digitLimit) {
+					// round
+					// if (rn < tempSlice.Length && temp[rn] > Byte{'4'})
+					//	buffer[si + n - 1]++;
+					break;
+				}
+			}
+
+		buffer.Length = si + n;
+	}
+	
+	static def AsTextExp<B: Class>(ref buffer: Slice<Byte>, data: Double, digitLimit: DWord) {
+		if (data == 0) {
+			if (buffer.Length < 5)
+				throw sys.core.BufferOverflowException{};
+				
+			buffer[0] = Byte{'0'};
+			buffer[1] = Byte{'.'};
+			buffer[2] = Byte{'0'};
+			buffer[3] = Byte{'e'};
+			buffer[4] = Byte{'0'};
+			buffer.Length = 5;
+			
+			return;
+		}
+
+		val si = 0p;
+		if (data < 0) {
+			if (buffer.Length < 1)
+				return;
+			buffer[0] = Byte{'-'};
+			si = 1;
+			data = -data;
+		}
+
+		// compute exact exponent
+		val exp = -Int{data.Log10}.Clamped(Double.MinExpBase10, Double.MaxExpBase10);
+		data *= 10.0.Pow(exp);
+		if(data >= 10) {
+			data /= 10;
+			exp--;
+		}
+		else if(data < 1) {
+			data *= 10;
+			exp++;
+		}
+		exp = -exp;
+		
+		val n = 0p;
+		val digits = digitLimit;
+		val datap = data;
+		val pp = B{};
+		while (digits > 0) {
+			val pp2 = B{datap};
+			datap *= 10;
+			if (pp2 < pp)
+				break;
+			pp = pp2;
+			digits--;
+		}
+
+		val temp: [c 315]Byte = void;
+		val tempSlice = Slice<Byte>{temp};
+		if (B.class == Long)
+			LongAsText(tempSlice, pp);
+		else
+			IntAsText(tempSlice, Int{pp});
+
+		val rn = 0p;
+		
+		buffer[si + n] = temp[rn];
+		n++;
+		rn++;
+		buffer[si + n] = Byte{'.'};
+		n++;
+		
+		val c = tempSlice.Length - 1;
+		while (c > 0) {
+			if (temp[c] == Byte{'0'})
+				tempSlice.Length = tempSlice.Length - 1;
+			else
+				break;
+			c--;
+		}
+		
+		val readLimit = DWord{tempSlice.Length};//exp < 0 ? (DWord{-exp} + 1) : (DWord{exp} + 1);
+		val minLimit = Intrinsic.Min(readLimit, DWord{tempSlice.Length});
+		while (rn < minLimit) {
+			if (buffer.Length < si + n)
+				return;
+			buffer[si + n] = temp[rn];
+			n++;
+			rn++;
+		}
+		
+		if (minLimit == 1) {
+			buffer[si + n] = Byte{'0'};
+			n++;
+		}
+		
+		if (buffer.Length < si + n)
+			return;
+		
+		buffer[si + n] = Byte{'e'};
+		n++;
+		
+		val tempSlice2 = Slice<Byte>{buffer, PtrSize{si + n}, 5p};
+		IntAsText(tempSlice2, exp);
+		
+		n += tempSlice2.Length;
+		
+		buffer.Length = si + n;
 	}
 }

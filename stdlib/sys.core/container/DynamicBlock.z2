@@ -82,6 +82,11 @@ class DynamicBlock<T: Class> {
 		copy.data = null;
 	}
 	
+	this @allocate(len: PtrSize, capacity: PtrSize) {
+		length = capacity;
+		data = Ptr<T>.AllocVoid(capacity);
+	}
+	
 #endregion
 
 	property @index: ref T
@@ -218,6 +223,11 @@ class DynamicBlock<T: Class> {
 	property SysDataPointer: Ptr<T>
 	get {
 		return data;
+	}
+	
+	def FriendSetLength(newLength: PtrSize) {
+		SetLengthNoInitAggressive(newLength);
+		length = newLength;
 	}
 }
 private {

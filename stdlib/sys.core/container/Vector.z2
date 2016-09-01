@@ -115,14 +115,12 @@ private {
 	
 	def Grow() {
 		val newCap = Intrinsic.Max(data.Length * 2, 2p);
-		data.SetLengthNoInitAggressive(newCap);
-		data.length = newCap;
+		data.FriendSetLength(newCap);
 	}
 	
 	this @allocate(len: PtrSize, capacity: PtrSize) {
 		data = void;
-		data.length = capacity;
-		data.data = Ptr<T>.AllocVoid(capacity);
+		data.@allocate{length, capacity};
 		length = len;
 	}
 }
