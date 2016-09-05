@@ -1,4 +1,5 @@
 using sys.core.Stream;
+using sys.core.Compiler;
 
 namespace sys.core.lang;
 
@@ -6,14 +7,14 @@ class PtrSize {
 	const Zero: PtrSize = 0;
 	const One: PtrSize = 1;
 	
-	const Min: PtrSize = PtrSize{DWord.Min};
-	const Max: PtrSize = PtrSize{DWord.Max};
+	const Min: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Min} : PtrSize{QWord.Min};
+	const Max: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Max} : PtrSize{QWord.Min};
 
-	const IsSigned = false;
+	const IsSigned  = false;
 	const IsInteger = true;
 	
-	const MaxDigitsLow = 9;
-	const MaxDigitsHigh = 10;
+	const MaxDigitsLow  = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsLow}  : PtrSize{QWord.MaxDigitsLow};
+	const MaxDigitsHigh = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsHigh} : PtrSize{QWord.MaxDigitsHigh};
 	
 	property Abs: PtrSize {
 		return this;
@@ -44,27 +45,27 @@ class PtrSize {
 	def Clamped(min: PtrSize, max: PtrSize): PtrSize; const Intrinsic.Clamped;
 
 	def @write(ref stream: Stream); const {
-		if (sys.core.Compiler.Bits == 32)
+		if (Compiler.Bits == 32)
 			stream.RawWrite(DWord{this});
-		else if (sys.core.Compiler.Bits == 64)
+		else if (Compiler.Bits == 64)
 			stream.RawWrite(QWord{this});
 		else
 			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
 	}
 	
 	def @put(ref stream: Stream); const {
-		if (sys.core.Compiler.Bits == 32)
+		if (Compiler.Bits == 32)
 			stream.RawPutU32(DWord{this});
-		else if (sys.core.Compiler.Bits == 64)
+		else if (Compiler.Bits == 64)
 			stream.RawPutU64(QWord{this});
 		else
 			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
 	}
 
 	def @get(ref stream: Stream) {
-		if (sys.core.Compiler.Bits == 32)
+		if (Compiler.Bits == 32)
 			this = PtrSize{stream.RawGetU32()};
-		else if (sys.core.Compiler.Bits == 64)
+		else if (Compiler.Bits == 64)
 			this = PtrSize{stream.RawGetU64()};
 		else
 			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
