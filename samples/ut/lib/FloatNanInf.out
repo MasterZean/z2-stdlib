@@ -1,0 +1,14 @@
+Float
+NAN NaN
+Infinite Inf
+true
+-Infinite -Inf
+true
+
+Double
+NAN NaN
+Infinite Inf
+true
+-Infinite -Inf
+true
+

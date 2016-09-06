@@ -1,0 +1,139 @@
+using sys.core.StopWatch;
+using sys.core.ConvertUtf8;
+
+/*
+#include <stdlib.h>
+#include <stdio.h>
+*/
+
+namespace org.z2legacy.bench;
+
+class BenchIntToString {
+	const TIMES = 100000000;
+	const TEST_VAL = 123456789;
+	
+	static def test_itoa(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			/*
+			itoa(123456789, (char*)b, 10);
+			*/
+		}
+	}
+	
+	static def test_itoa_hex(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			/*
+			itoa(123456789, (char*)b, 16);
+			*/
+		}
+	}
+	
+	static def test_sprintf(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			/*
+			sprintf((char*)b, "%d", 123456789);
+			*/
+		}
+	}
+	
+	static def test_sprintf_hex(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			/*
+			sprintf((char*)b, "%x", 123456789);
+			*/
+		}
+	}
+	
+	static def test_roundtrip(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			val s = Slice<Byte>{b};
+			ConvertUtf8.IntAsText(s, TEST_VAL);
+			
+			val z = Slice<Byte>{b};
+			val d = ConvertUtf8.ParseSig<Int>(z);
+			
+			System.Trace.Assert(d == TEST_VAL);
+			System.Trace.Assert(s.Length == z.Length);
+		}
+	}
+		
+	static def test_ToArray(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			val s = Slice<Byte>{b};
+			sys.core.ConvertUtf8.IntAsText(s, TEST_VAL);
+		}
+	}
+	
+	static def test_ToArrayDec(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			val s = Slice<Byte>{b};
+			ConvertUtf8.IntAsText(s, TEST_VAL, 10);
+		}
+	}
+	
+	static def test_ToArrayHex(ref b: [c]Byte) {
+		for (val i = 0; i < TIMES; i++) {
+			val s = Slice<Byte>{b};
+			ConvertUtf8.IntAsText(s, TEST_VAL, 16);
+		}
+	}
+	
+	static def runTests() {
+		{
+			val sw = StopWatch{};
+			test_itoa(buffa);
+			System.Out << test_itoa.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_itoa_hex(buffb);
+			System.Out << test_itoa_hex.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_sprintf(buffc);
+			System.Out << test_sprintf.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_sprintf_hex(buffd);
+			System.Out << test_sprintf_hex.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_roundtrip(buffe);
+			System.Out << test_roundtrip.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_ToArray(bufff);
+			System.Out << test_ToArray.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_ToArrayDec(buffg);
+			System.Out << test_ToArrayDec.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_ToArrayHex(buffh);
+			System.Out << test_ToArrayHex.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+	}
+	
+	// atoi
+	static val buffa: [c 32]Byte;
+	static val buffb: [c 32]Byte;
+	// sprintf
+	static val buffc: [c 32]Byte;
+	static val buffd: [c 32]Byte;
+	// ToArray
+	static val buffe: [c 32]Byte;
+	static val bufff: [c 32]Byte;
+	static val buffg: [c 32]Byte;
+	static val buffh: [c 32]Byte;
+	
+	def @main() {
+		runTests();
+	}
+}
