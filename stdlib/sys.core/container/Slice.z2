@@ -124,7 +124,7 @@ class Slice<T: Class> {
 		size = value;
 	}
 	
-	property @index: Byte
+	property @index: T
 	get [index: PtrSize] const {
 		System.Debug.Assert(index < size);
 		return ptr[index];

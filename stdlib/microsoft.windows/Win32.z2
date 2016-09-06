@@ -97,6 +97,7 @@ class Win32 {
 	static def Sleep(dwMilliseconds: DWord); dllimport stdcall;
 	
 	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord; dllimport stdcall;
+	static def SetCurrentDirectoryW(lpPathName: Ptr<Word>): Int; dllimport stdcall;
 	static def GetModuleFileNameW(hModule: Int, lpFilename: Ptr<Word>, nSize: DWord): DWord; dllimport stdcall;
 }
 

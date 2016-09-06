@@ -1,4 +1,5 @@
 using sys.core.ConvertUtf8;
+using sys.core.ConvertUtf16;
 using microsoft.windows.Win32;
 
 namespace sys.core;
@@ -19,13 +20,21 @@ class Path {
 		
 		ConvertUtf8.FromUtf16(dest, source);
 		if (pathu8[dest.Length - 1] != DirSep) {
-			pathu8[dest.Length - 1] = Byte{DirSep};
+			pathu8[dest.Length] = Byte{DirSep};
 			dest.Length = dest.Length + 1;
-			pathu8[dest.Length - 1] = Byte{'\0'};
+			pathu8[dest.Length + 1] = Byte{'\0'};
 		}
 		return String{dest};
 	}
 	set (dir) {
+		val source = Slice<Byte>{dir};
+		
+		val pathu16: [c Win32.MAX_PATH]Word = void;
+		val dest = Slice<Word>{pathu16};
+		
+		ConvertUtf16.FromUtf8(dest, source);
+		pathu16[dest.Length] = Word{'\0'};
+		val result = Win32.SetCurrentDirectoryW(pathu16.SysDataPointer);
 	}
 
 	static property ExeFileName: String
