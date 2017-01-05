@@ -1,1 +1,2 @@
-FailPrivate08.z2(7, 29): error: can't access non public function 'test' of class 'Bar'
+FailPrivate08.z2(7, 29): error: can't access non public function:
+	org.z2legacy.ut.access.Bar.test()

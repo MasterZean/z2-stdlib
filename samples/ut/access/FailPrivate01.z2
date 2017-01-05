@@ -1,6 +1,6 @@
-using org.z2legacy.samples.ut.access.Foo;
+namespace org.z2legacy.ut.access;
 
-namespace org.z2legacy.samples.ut.access;
+using Foo;
 
 class FailPrivate01 {
 	def @main() {
