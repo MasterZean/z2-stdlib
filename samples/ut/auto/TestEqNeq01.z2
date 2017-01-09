@@ -1,4 +1,4 @@
-namespace org.z2legacy.samples.ut.eq01;
+namespace org.z2legacy.ut.auto.eqneq01;
 
 class TestAutoEqAutoNq {
 	def @main() {
@@ -10,6 +10,10 @@ class TestAutoEqAutoNq {
 		System.Out << (a == c) << "\n";
 		System.Out << (a != b) << "\n";
 		System.Out << (a != c) << "\n";
+		
+		b.B = 20;
+		System.Out << (a == b) << "\n";
+		System.Out << (a != b) << "\n";
 	}
 }
 
@@ -18,6 +22,8 @@ class Foo {
 		a = t;
 		b = t;
 	}
+	
+	property B = b;
 }
 private {
 	val a: Int;

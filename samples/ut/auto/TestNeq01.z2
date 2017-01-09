@@ -1,6 +1,6 @@
-namespace org.z2legacy.samples.ut.eq02;
+namespace org.z2legacy.ut.auto.neq01;
 
-class TestAutoEq {
+class TestAutoNeq {
 	def @main() {
 		val a = Foo{4};
 		val b = Foo{4};
@@ -19,10 +19,10 @@ class Foo {
 		b = t;
 	}
 
-	def @neq(const obj: Foo): Bool {
-		System.Out << "call " << this.class << '.' << @neq.Name << " of class " << @neq.class << "\n";
+	def @eq(const obj: Foo): Bool; const {
+		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
 		
-		return a != obj.a || b != obj.b;
+		return a == obj.a && b == obj.b;
 	}
 }
 private {

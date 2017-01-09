@@ -1,0 +1,8 @@
+call Foo.@neq of class Def
+true
+call Foo.@neq of class Def
+false
+call Foo.@neq of class Def
+false
+call Foo.@neq of class Def
+true

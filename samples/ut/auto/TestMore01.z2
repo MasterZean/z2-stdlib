@@ -1,4 +1,4 @@
-namespace org.z2legacy.samples.ut.testmore01;
+namespace org.z2legacy.ut.auto.more01;
 
 class Version {
 	val major = 0;
