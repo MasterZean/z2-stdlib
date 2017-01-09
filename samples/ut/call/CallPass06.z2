@@ -1,4 +1,4 @@
-namespace org.z2legacy.samples.ut;
+namespace org.z2legacy.ut.call;
 
 class CallPass06 {
 	def test(const a: Word) {

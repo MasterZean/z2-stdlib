@@ -1,6 +1,6 @@
-using org.z2legacy.samples.ut.Foo;
+namespace org.z2legacy.ut.call;
 
-namespace org.z2legacy.samples.ut;
+using Foo;
 
 class CallFail05 {
 	def test(const a: Foo) {
