@@ -19,13 +19,13 @@ class Foo {
 		b = t;
 	}
 
-	def @neq(const obj: Foo): Bool {
-		System.Out << "call " << this.class << '.' << @neq.Name << " of class " << @neq.class << "\n";
+	def @neq(obj: Foo): Bool {
+		System.Out << "call " << this.class << '.' << @neq.Name << "() of class " << @neq.class << "\n";
 		
 		return a != obj.a || b != obj.b;
 	}
 }
 private {
-	val a: String;
-	val b: String;
+	val a = "";
+	val b = "";
 }

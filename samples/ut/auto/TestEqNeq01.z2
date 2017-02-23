@@ -26,6 +26,6 @@ class Foo {
 	property B = b;
 }
 private {
-	val a: Int;
-	val b: Int;
+	val a = 0;
+	val b = 0;
 }

@@ -69,7 +69,6 @@ class Test {
 		System.Out << (v1 > v2) << "\n";
 		System.Out << (v1 <= v2) << "\n";
 		System.Out << (v1 >= v2) << "\n";
-		
 				
 		System.Out << "Min: " << Intrinsic.Min(v1, v2) << "\n";
 		System.Out << "Max: " << Intrinsic.Max(v1, v2) << "\n";

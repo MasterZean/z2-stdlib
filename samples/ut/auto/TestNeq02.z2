@@ -20,12 +20,12 @@ class Foo {
 	}
 
 	def @eq(const obj: Foo): Bool; const {
-		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
+		System.Out << "call " << class << '.' << def.Name << "() of class " << @neq.class << "\n";
 		
 		return a == obj.a && b == obj.b;
 	}
 }
 private {
-	val a: String;
-	val b: String;
+	val a = "";
+	val b = "";
 }
