@@ -1,12 +1,12 @@
 namespace org.z2legacy.ut.call;
 
 class CallPass08 {
-	def test(const a: Byte) {
-		System.Out << "const " << a.class << " value\n";
+	def test(a: Byte) {
+		System.Out << "const " << a.class << "\n";
 	}
 	
 	def test(ref a: Byte) {
-		System.Out << a.class << " reference\n";
+		System.Out << "ref " << a.class << "\n";
 	}
 	
 	def @main() {

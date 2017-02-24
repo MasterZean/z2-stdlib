@@ -1,2 +1,2 @@
-const QWord value
-QWord reference
+const sys.core.lang.QWord
+ref sys.core.lang.QWord

@@ -1,2 +1,2 @@
-const Short value
-Short reference
+const sys.core.lang.Short
+ref sys.core.lang.Short

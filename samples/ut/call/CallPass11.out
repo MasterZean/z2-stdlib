@@ -1,2 +1,2 @@
-const Long value
-Long reference
+const sys.core.lang.Long
+ref sys.core.lang.Long

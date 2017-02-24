@@ -2,7 +2,7 @@ namespace org.z2legacy.ut.call;
 
 class CallPass01 {
 	def test(a: Int) {
-		System.Out << a.class << " value\n";
+		System.Out << "const " << a.class << "\n";
 	}
 	
 	def @main() {

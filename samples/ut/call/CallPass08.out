@@ -1,2 +1,2 @@
-const Byte value
-Byte reference
+const sys.core.lang.Byte
+ref sys.core.lang.Byte

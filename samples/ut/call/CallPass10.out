@@ -1,2 +1,2 @@
-const Double value
-Double reference
+const sys.core.lang.Double
+ref sys.core.lang.Double

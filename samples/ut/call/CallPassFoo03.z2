@@ -3,7 +3,7 @@ namespace org.z2legacy.ut.call;
 using Foo;
 
 class CallPassFoo03 {
-	def test(const a: Foo) {
+	def test(a: Foo) {
 		System.Out << "const\n";
 		g(a);
 	}
@@ -13,7 +13,7 @@ class CallPassFoo03 {
 		g(a);
 	}
 	
-	def g(const a: Foo) {
+	def g(a: Foo) {
 		System.Out << "g const\n";
 	}
 	

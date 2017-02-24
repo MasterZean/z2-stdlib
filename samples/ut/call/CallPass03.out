@@ -1,2 +1,2 @@
-const Int value
-Int reference
+const sys.core.lang.Int
+ref sys.core.lang.Int

@@ -1,2 +1,2 @@
-const Float value
-Float reference
+const sys.core.lang.Float
+ref sys.core.lang.Float

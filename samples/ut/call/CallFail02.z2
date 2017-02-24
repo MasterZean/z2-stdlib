@@ -1,7 +1,7 @@
 namespace org.z2legacy.ut.call;
 
 class CallFail02 {
-	def test(const a: Int) {
+	def test(a: Int) {
 		a = 0;
 		System.Out << "value\n";
 	}

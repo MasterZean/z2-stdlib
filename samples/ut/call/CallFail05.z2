@@ -3,9 +3,9 @@ namespace org.z2legacy.ut.call;
 using Foo;
 
 class CallFail05 {
-	def test(const a: Foo) {
+	def test(a: Foo) {
 		a = 0;
-		System.Out << "value\n";
+		System.Out << "const\n";
 	}
 	
 	def @main() {

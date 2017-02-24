@@ -1,2 +1,2 @@
-const DWord value
-DWord reference
+const sys.core.lang.DWord
+ref sys.core.lang.DWord

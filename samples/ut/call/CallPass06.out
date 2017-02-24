@@ -1,2 +1,2 @@
-const Word value
-Word reference
+const sys.core.lang.Word
+ref sys.core.lang.Word
