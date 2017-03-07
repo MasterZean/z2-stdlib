@@ -1,0 +1,11 @@
+namespace org.z2legacy.ut.container.carray;
+
+using sys.core.Stream;
+using WithPrivateConstructor;
+
+class FailInit10 {
+	def @main() {
+		val v = CArray<WithPrivateConstructor, 4>{};
+		System.Out << v << "\n";
+	}
+}

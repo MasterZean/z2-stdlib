@@ -11,7 +11,7 @@ class Version {
 		revision = rev;
 	}
 	
-	def @less(const v: Version): Bool; const {
+	def @less(v: Version): Bool; const {
 		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
 		if (major < v.major)
 			return true;
@@ -27,7 +27,7 @@ class Version {
 		}
 	}
 	
-	def @lesseq(const v: Version): Bool; const {
+	def @lesseq(v: Version): Bool; const {
 		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
 		if (major < v.major)
 			return true;

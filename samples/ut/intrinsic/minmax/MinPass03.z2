@@ -1,41 +1,41 @@
-namespace org.z2legacy.samples.ut.intrinsic.minmax;
+namespace org.z2legacy.ut.intrinsic.minmax;
 
 class MinPass03 {
 	def @main() {
 		val va = Intrinsic.Min<Byte>(5, 20);
-		System.Out << va.class << " min is " << va << "\n";
+		System.Out << va.class.ShortName << " min is " << va << "\n";
 		
 		val vb = Intrinsic.Min<Word>(50, 200);
-		System.Out << vb.class << " min is " << vb << "\n";
+		System.Out << vb.class.ShortName << " min is " << vb << "\n";
 		
 		val vc = Intrinsic.Min<DWord>(500, 2000);
-		System.Out << vc.class << " min is " << vc << "\n";
+		System.Out << vc.class.ShortName << " min is " << vc << "\n";
 		
 		val vd = Intrinsic.Min<QWord>(5000, 20000);
-		System.Out << vd.class << " min is " << vd << "\n";
+		System.Out << vd.class.ShortName << " min is " << vd << "\n";
 		
 		val ve = Intrinsic.Min<Small>(-5, 20);
-		System.Out << ve.class << " min is " << ve << "\n";
+		System.Out << ve.class.ShortName << " min is " << ve << "\n";
 		
 		val vf = Intrinsic.Min<Short>(-50, 200);
-		System.Out << vf.class << " min is " << vf << "\n";
+		System.Out << vf.class.ShortName << " min is " << vf << "\n";
 		
 		val vg = Intrinsic.Min<Int>(-500, 2000);
-		System.Out << vg.class << " min is " << vg << "\n";
+		System.Out << vg.class.ShortName << " min is " << vg << "\n";
 		
 		val vh = Intrinsic.Min<Long>(-5000, 20000);
-		System.Out << vh.class << " min is " << vh << "\n";
+		System.Out << vh.class.ShortName << " min is " << vh << "\n";
 		
 		val vi = Intrinsic.Min<Float>(0.4f, 22.1f);
-		System.Out << vi.class << " min is " << vi << "\n";
+		System.Out << vi.class.ShortName << " min is " << vi << "\n";
 		
 		val vj = Intrinsic.Min<Double>(0.04000000, 22.01);
-		System.Out << vj.class << " min is " << vj << "\n";
+		System.Out << vj.class.ShortName << " min is " << vj << "\n";
 		
 		val vk = Intrinsic.Min<Double>(-0.04000000, 22.01);
-		System.Out << vk.class << " min is " << vk << "\n";
+		System.Out << vk.class.ShortName << " min is " << vk << "\n";
 		
 		val vl = Intrinsic.Min<Char>('a', '7');
-		System.Out << vl.class << " min is " << vl << "\n";
+		System.Out << vl.class.ShortName << " min is " << vl << "\n";
 	}
 }

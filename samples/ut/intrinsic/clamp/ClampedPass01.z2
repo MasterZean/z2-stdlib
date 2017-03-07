@@ -1,4 +1,4 @@
-namespace org.z2legacy.samples.ut.intrinsic.clamp;
+namespace org.z2legacy.ut.intrinsic.clamp;
 
 class ClampedPass01 {
 	def @main() {

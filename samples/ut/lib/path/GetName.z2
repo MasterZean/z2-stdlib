@@ -1,6 +1,6 @@
-using sys.core.Path;
+namespace org.z2legacy.ut;
 
-namespace org.z2legacy.samples.ut.lib.path;
+using sys.core.Path;
 
 class TestGetName {
 	def @main() {

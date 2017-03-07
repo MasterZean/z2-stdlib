@@ -1,13 +1,13 @@
-namespace usingtest.compa;
+namespace org.z2legacy.ut.compa;
 
 class EmptyDummy {
 	def @main() {
 		EmptyDummy;
-		usingtest.compa.EmptyDummy;
-		::usingtest.compa.EmptyDummy;
+		org.z2legacy.ut.compa.EmptyDummy;
+		::org.z2legacy.ut.compa.EmptyDummy;
 		
-		val usingtest = 0;
+		val org = 0;
 		
-		::usingtest.compa.EmptyDummy;
+		::org.z2legacy.ut.compa.EmptyDummy;
 	}
 }

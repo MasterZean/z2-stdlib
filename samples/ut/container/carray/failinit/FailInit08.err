@@ -1,0 +1,1 @@
+FailInit08.z2(5, 24): error: literal 'CArray<Int>' declared with element count of '8' intilized with '7' (less) elements. Use ellipsis or adjust item count.

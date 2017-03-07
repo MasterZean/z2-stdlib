@@ -1,4 +1,4 @@
-namespace usingtest.compa.compb;
+namespace org.z2legacy.ut.compa.compb;
 
 class EmptyDummy {
 	def @main() {

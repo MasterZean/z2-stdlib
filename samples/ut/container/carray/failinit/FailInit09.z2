@@ -1,0 +1,20 @@
+namespace org.z2legacy.ut.container.carray;
+
+using sys.core.Stream;
+
+class FailInit09 {
+	def @main() {
+		val v = CArray[WithPrivateConstructor{}, WithPrivateConstructor{}];
+		System.Out << v << "\n";
+	}
+}
+
+class WithPrivateConstructor {
+	def @write(ref s: Stream); const {
+		s << "should not be here!";
+	}
+}
+private {
+	this() {
+	}
+}

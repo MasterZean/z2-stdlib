@@ -1,4 +1,4 @@
-namespace org.z2legacy.samples.ut.overloading;
+namespace org.z2legacy.ut.overloading;
 
 class QWordPass01 {
 	def @main() {

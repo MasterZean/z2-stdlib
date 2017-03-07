@@ -14,12 +14,12 @@ class TestAutoNeq {
 }
 
 class Foo {
-	this(const t: String) {
+	this(t: String) {
 		a = t;
 		b = t;
 	}
 
-	def @eq(const obj: Foo): Bool; const {
+	def @eq(obj: Foo): Bool; const {
 		System.Out << "call " << class << '.' << def.Name << "() of class " << @neq.class << "\n";
 		
 		return a == obj.a && b == obj.b;

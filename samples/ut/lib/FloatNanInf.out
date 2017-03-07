@@ -1,11 +1,11 @@
-Float
+sys.core.lang.Float
 NAN NaN
 Infinite Inf
 true
 -Infinite -Inf
 true
 
-Double
+sys.core.lang.Double
 NAN NaN
 Infinite Inf
 true
