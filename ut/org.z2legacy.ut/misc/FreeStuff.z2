@@ -1,4 +1,4 @@
-namespace org.z2legacy.ut;
+namespace org.z2legacy.ut.misc;
 
 class Point {
 	val x = 0;
@@ -35,6 +35,6 @@ class FreeStuffTest {
 		System.Out << "second: " << second << "\n";
 		System.Out << "third: " << third << "\n";
 
-		System.Out << [c]{first, second, third} << "\n";
+		System.Out << CArray[first, second, third] << "\n";
 	}
 }

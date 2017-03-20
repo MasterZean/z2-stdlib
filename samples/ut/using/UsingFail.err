@@ -1,5 +1,0 @@
-UsingFail.z2(9, 17): error: class 'EmptyDummy' is ambigous. Could be:
-	usingtest.compa.EmptyDummy
-	usingtest.compa.compb.EmptyDummy
-	EmptyDummy
-

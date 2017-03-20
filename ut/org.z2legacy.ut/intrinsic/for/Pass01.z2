@@ -1,0 +1,54 @@
+namespace org.z2legacy.ut.for;
+
+class PassFor01 {
+	def print(a: CArray<Int>) {
+		val i = 0p;
+		while (i < a.Length) {
+			System.Out << '[' << i << "]=" << a[i] << " ";
+			i++;
+		}
+		System.Out << '\n';
+	}
+
+	def print2(a: CArray<Int>) {
+		val i = 0p;
+		for (; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def print3(a: CArray<Int>) {
+		val i: PtrSize = void;
+		for (i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def print4(a: CArray<Int>) {
+		for (val i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+	
+	def print5(a: CArray<Int>) {
+		foreach (v in a)
+			System.Out << v << " ";
+		System.Out << '\n';
+	}
+	
+	def print6(a: CArray<Int>) {
+		foreach (v, i in a)
+			System.Out << '[' << i << "]=" << v << " ";
+		System.Out << '\n';
+	}
+
+	def @main() {
+		val a = CArray[7: 0, ...];
+		print(a);
+		print2(a);
+		print3(a);
+		print4(a);
+		print5(a);
+		print6(a);
+	}
+}

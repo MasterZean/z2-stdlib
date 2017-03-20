@@ -1,6 +1,6 @@
-using sys.core.i18n.UnicodeCategory;
+namespace org.z2legacy.ut.misc;
 
-namespace org.z2legacy.ut;
+using sys.core.i18n.UnicodeCategory;
 
 class TestCharCase {
 	def @main() {
