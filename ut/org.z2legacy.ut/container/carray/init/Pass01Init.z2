@@ -1,0 +1,26 @@
+namespace org.z2legacy.ut.container.carray;
+
+class PassInit01 {
+	def @main() {
+		val a = CArray<Int, 4>{};
+		System.Out << a << "\n";
+		
+		val b: CArray<Int, 4>;
+		System.Out << b << "\n";
+		
+		val c = CArray<Int>[0, 0, 0, 0];
+		System.Out << c << "\n";
+		
+		val d = CArray<Int>[4: 0, ...];
+		System.Out << d << "\n";
+		
+		val e = CArray[0, 0, 0, 0];
+		System.Out << e << "\n";
+		
+		val f = CArray[4: 0, ...];
+		System.Out << f << "\n";
+
+		System.Out << a.class << "\n";
+		System.Out << a[0].class << "\n";
+	}
+}

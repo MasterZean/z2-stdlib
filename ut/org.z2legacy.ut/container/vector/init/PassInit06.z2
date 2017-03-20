@@ -1,0 +1,17 @@
+namespace org.z2legacy.ut.container.vector;
+
+class PassInit01 {
+	def @main() {
+		val a = [1, 2, 3];
+		System.Out << a << "\n";
+		
+		val b = [1, Byte{6}, 7u, 2'147'483'647u, 1l];
+		System.Out << b << "\n";
+		
+		val c: Vector<Int>;
+		System.Out << c << "\n";
+		
+		val d: Vector<Int> = [3, 2, 1];
+		System.Out << d << "\n";
+	}
+}

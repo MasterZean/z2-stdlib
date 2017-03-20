@@ -1,0 +1,8 @@
+namespace org.z2legacy.ut.container.vector;
+
+class FailInit02 {
+	def @main() {
+		val a = [1, 7, 2'147'483'648u];
+		System.Out << a << "\n";
+	}
+}

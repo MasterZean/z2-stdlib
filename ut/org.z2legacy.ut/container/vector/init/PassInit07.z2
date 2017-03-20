@@ -1,0 +1,28 @@
+namespace org.z2legacy.ut.container.vector;
+
+class PassInit02 {
+	def @main() {
+		val a = [0, 0, 0, 0];
+		System.Out << a << "\n";
+		
+		val b = [4: 0, ...];
+		System.Out << b << "\n";
+		
+		val i = 7;
+		val d = [7: i, ...];
+		System.Out << d << "\n";
+		
+		val e = [7: func(), ...];
+		System.Out << e << "\n";
+		
+		val f = [7: i++, ...];
+		System.Out << f << "\n";
+	}
+	
+	val index = 0;
+	
+	def func(): Int {
+		index++;
+		return index;
+	}
+}

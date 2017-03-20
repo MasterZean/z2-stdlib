@@ -1,0 +1,21 @@
+namespace org.z2legacy.ut.container.vector.init;
+
+class PassInit01 {
+	def @main() {
+		// vector literal with explicit subclass
+		val v1 = <Int>[];
+		System.Out << v1.class << ": " << v1 << "\n";
+		
+		// vector literal with explicit class and subclass
+		val v2 = Vector<Int>[];
+		System.Out << v2.class << ": " << v2 << "\n";
+		
+		// explicit construcotr call
+		val v3 = Vector<Int>{};
+		System.Out << v3.class << ": " << v3 << "\n";
+		
+		// explicit type, no exlicit intilization or constructor, implicit default constructor called
+		val v4: Vector<Int>;
+		System.Out << v4.class << ": " << v4 << "\n";
+	}
+}

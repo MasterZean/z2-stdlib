@@ -1,0 +1,25 @@
+namespace org.z2legacy.ut.container.carray;
+
+class PassFill01 {
+	def print(a: CArray<Int>) {
+		for (val i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def @main() {
+		val a = CArray[0, 0, 0, 0, 0, 0, 0];
+		print(a);
+		val b = CArray[7: 7, ... ];
+		print(b);
+		b.Fill(9);
+		print(b);
+		b = a;
+		print(b);
+		a.Fill(-1);
+		val c = CArray<Int, 3>{a};
+		print(c);
+		val d = CArray<Int, 14>{a};
+		print(d);
+	}
+}

@@ -1,0 +1,23 @@
+namespace org.z2legacy.ut.container.vector;
+
+using sys.core.Stream;
+
+class WithPrivateConstructor02 {
+	this(a: Int) {
+	}
+	
+	def @write(ref s: Stream); const {
+		s << "7000";
+	}
+}
+private {
+	this() {
+	}
+}
+
+class FailInit07 {
+	def @main() {
+		val a = [WithPrivateConstructor02{6}, WithPrivateConstructor02{}];
+		System.Out << a << "\n";
+	}
+}

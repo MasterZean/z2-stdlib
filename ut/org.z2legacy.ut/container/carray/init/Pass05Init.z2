@@ -1,0 +1,36 @@
+namespace org.z2legacy.ut.container.carray;
+
+using BuildLog;
+
+class Pass05Init {
+	def @main() {
+		val temp = BuildLog{};
+		
+		System.Out << "declare a:\n";
+		val a = CArray<BuildLog, 2>{};
+		
+		System.Out << "declare b:\n";
+		val b = CArray<BuildLog>[BuildLog{}, BuildLog{}];
+		
+		System.Out << "declare c:\n";
+		val c = CArray<BuildLog>[2: BuildLog{}, ...];
+		
+		System.Out << "declare d:\n";
+		val d = CArray[BuildLog{}, BuildLog{}];
+		
+		System.Out << "declare e:\n";
+		val e = CArray[2: BuildLog{}, ...];
+		
+		System.Out << "declare f:\n";
+		val f = CArray<BuildLog>[temp, temp];
+		
+		System.Out << "declare g:\n";
+		val g = CArray<BuildLog>[2: temp, ...];
+		
+		System.Out << "declare h:\n";
+		val h = CArray[temp, temp];
+		
+		System.Out << "declare i:\n";
+		val i = CArray[2: temp, ...];
+	}
+}

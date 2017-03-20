@@ -1,0 +1,15 @@
+namespace org.z2legacy.ut.container.vector;
+
+class WithPrivateConstructor01 {
+}
+private {
+	this() {
+	}
+}
+
+class FailInit06 {
+	def @main() {
+		val a = [WithPrivateConstructor01{}];
+		System.Out << a << "\n";
+	}
+}
