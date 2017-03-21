@@ -12,7 +12,7 @@ class BenchIntToString {
 	const TIMES = 100000000;
 	const TEST_VAL = 123456789;
 	
-	static def test_itoa(ref b: [c]Byte) {
+	static def test_itoa(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			/*
 			itoa(123456789, (char*)b, 10);
@@ -20,7 +20,7 @@ class BenchIntToString {
 		}
 	}
 	
-	static def test_itoa_hex(ref b: [c]Byte) {
+	static def test_itoa_hex(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			/*
 			itoa(123456789, (char*)b, 16);
@@ -28,7 +28,7 @@ class BenchIntToString {
 		}
 	}
 	
-	static def test_sprintf(ref b: [c]Byte) {
+	static def test_sprintf(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			/*
 			sprintf((char*)b, "%d", 123456789);
@@ -36,7 +36,7 @@ class BenchIntToString {
 		}
 	}
 	
-	static def test_sprintf_hex(ref b: [c]Byte) {
+	static def test_sprintf_hex(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			/*
 			sprintf((char*)b, "%x", 123456789);
@@ -44,7 +44,7 @@ class BenchIntToString {
 		}
 	}
 	
-	static def test_roundtrip(ref b: [c]Byte) {
+	static def test_roundtrip(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			val s = Slice<Byte>{b};
 			ConvertUtf8.IntAsText(s, TEST_VAL);
@@ -57,21 +57,21 @@ class BenchIntToString {
 		}
 	}
 		
-	static def test_ToArray(ref b: [c]Byte) {
+	static def test_ToArray(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			val s = Slice<Byte>{b};
 			sys.core.ConvertUtf8.IntAsText(s, TEST_VAL);
 		}
 	}
 	
-	static def test_ToArrayDec(ref b: [c]Byte) {
+	static def test_ToArrayDec(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			val s = Slice<Byte>{b};
 			ConvertUtf8.IntAsText(s, TEST_VAL, 10);
 		}
 	}
 	
-	static def test_ToArrayHex(ref b: [c]Byte) {
+	static def test_ToArrayHex(ref b: CArray<Byte>) {
 		for (val i = 0; i < TIMES; i++) {
 			val s = Slice<Byte>{b};
 			ConvertUtf8.IntAsText(s, TEST_VAL, 16);
@@ -122,16 +122,16 @@ class BenchIntToString {
 	}
 	
 	// atoi
-	static val buffa: [c 32]Byte;
-	static val buffb: [c 32]Byte;
+	static val buffa = CArray<Byte, 32>{};
+	static val buffb = CArray<Byte, 32>{};
 	// sprintf
-	static val buffc: [c 32]Byte;
-	static val buffd: [c 32]Byte;
+	static val buffc = CArray<Byte, 32>{};
+	static val buffd = CArray<Byte, 32>{};
 	// ToArray
-	static val buffe: [c 32]Byte;
-	static val bufff: [c 32]Byte;
-	static val buffg: [c 32]Byte;
-	static val buffh: [c 32]Byte;
+	static val buffe = CArray<Byte, 32>{};
+	static val bufff = CArray<Byte, 32>{};
+	static val buffg = CArray<Byte, 32>{};
+	static val buffh = CArray<Byte, 32>{};
 	
 	def @main() {
 		runTests();
