@@ -1,4 +1,4 @@
-UsingFail.z2(9, 17): error: undeclared identifier: 'EmptyDummy'. The following matching classes are avaible in the assembly: 
+UsingFail.z2(9, 17): error: class 'EmptyDummy' is ambigous. The following matching classes are avaible in the assembly: 
 	org.z2legacy.ut.compa.EmptyDummy
 	org.z2legacy.ut.compa.compb.EmptyDummy
 	EmptyDummy
