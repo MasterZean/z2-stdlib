@@ -1,4 +1,4 @@
-namespace org.z2legacy.ut;
+namespace org.z2legacy.ut.misc;
 
 class C {
 	const A = 1 << 2;

@@ -9,15 +9,15 @@ class PassInit04 {
 		System.Out << v1.class << ": " << v1 << "\n";
 		
 		// vector literal with explicit subclass
-		val v2 = <Int>[Foo{}];
+		val v2 = <Foo>[Foo{}];
 		System.Out << v2.class << ": " << v2 << "\n";
 		
 		// vector literal with explicit class and subclass
-		val v3 = Vector<Int>[Foo{}];
+		val v3 = Vector<Foo>[Foo{}];
 		System.Out << v3.class << ": " << v3 << "\n";
 		
 		// explicit construcotr call
-		val v4 = Vector<Int>{[Foo{}]};
+		val v4 = Vector<Foo>{[Foo{}]};
 		System.Out << v4.class << ": " << v4 << "\n";
 	}
 }

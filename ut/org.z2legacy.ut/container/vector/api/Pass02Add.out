@@ -1,32 +1,18 @@
-namespace org.z2legacy.ut.container.vector.api;
-
-using Foo;
-
-class Pass02Add {
-	def @main() {
-		val temp = Foo{};
-		val vec = Vector<Foo>{};
-		
-		System.Out << "Test F\n";
-		vec.Add(getFoo());
-		
-		System.Out << "Test A\n";
-		vec.Add(temp);
-		
-		System.Out << "Test B\n";
-		vec.Add(Foo{});
-		
-		System.Out << "Test C\n";
-		vec.Add(Foo.Named{});
-		
-		System.Out << "Test D\n";
-		vec.Add(Foo{7});
-		
-		System.Out << "Test E\n";
-		vec.Add(Foo.Named{7});
-	}
-	
-	def getFoo(): Foo {
-		return Foo{};
-	}
-}
+default
+Test A
+copy construct
+Test B
+default
+move construct
+Test C
+named
+move construct
+Test D
+default Int
+move construct
+Test E
+named Int
+move construct
+Test F
+default
+move construct

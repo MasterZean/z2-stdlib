@@ -1,23 +1,8 @@
-namespace org.z2legacy.ut.container.vector.init;
-
-using org.z2legacy.samples.container.vector.Foo;
-
-class PassInit04 {
-	def @main() {
-		// vector literal
-		val v1 = [Foo{}];
-		System.Out << v1.class << ": " << v1 << "\n";
-		
-		// vector literal with explicit subclass
-		val v2 = <Int>[Foo{}];
-		System.Out << v2.class << ": " << v2 << "\n";
-		
-		// vector literal with explicit class and subclass
-		val v3 = Vector<Int>[Foo{}];
-		System.Out << v3.class << ": " << v3 << "\n";
-		
-		// explicit construcotr call
-		val v4 = Vector<Int>{[Foo{}]};
-		System.Out << v4.class << ": " << v4 << "\n";
-	}
-}
+default
+sys.core.lang.Vector<Foo>: 1 
+default
+sys.core.lang.Vector<Foo>: 1 
+default
+sys.core.lang.Vector<Foo>: 1 
+default
+sys.core.lang.Vector<Foo>: 1 

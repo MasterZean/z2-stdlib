@@ -1,4 +1,5 @@
 CallFail07.z2(13, 9): error: class 'CallFail07' does not have an overload
-	test(Foo)
+	test(org.z2legacy.ut.call.Foo)
 existing overloads
-	test(move Foo)
+	test(move org.z2legacy.ut.call.Foo)
+

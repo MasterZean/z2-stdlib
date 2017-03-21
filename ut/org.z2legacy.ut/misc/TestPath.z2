@@ -1,6 +1,6 @@
-using sys.core.Path;
+namespace org.z2legacy.ut.misc;
 
-namespace org.z2legacy.samples.ut;
+using sys.core.Path;
 
 class TestPath {
 	def @main() {
