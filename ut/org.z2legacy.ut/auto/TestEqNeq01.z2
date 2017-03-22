@@ -1,0 +1,31 @@
+namespace org.z2legacy.ut.auto.eqneq01;
+
+class TestAutoEqAutoNq {
+	def @main() {
+		val a = Foo{4};
+		val b = Foo{4};
+		val c = Foo{6};
+
+		System.Out << (a == b) << "\n";
+		System.Out << (a == c) << "\n";
+		System.Out << (a != b) << "\n";
+		System.Out << (a != c) << "\n";
+		
+		b.B = 20;
+		System.Out << (a == b) << "\n";
+		System.Out << (a != b) << "\n";
+	}
+}
+
+class Foo {
+	this(t: Int) {
+		a = t;
+		b = t;
+	}
+	
+	property B = b;
+}
+private {
+	val a = 0;
+	val b = 0;
+}

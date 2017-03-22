@@ -1,0 +1,41 @@
+namespace org.z2legacy.ut.intrinsic.minmax;
+
+class MinPass02 {
+	def @main() {
+		val va = Intrinsic.Min<Byte>(Byte{5}, Byte{20});
+		System.Out << va.class.ShortName << " min is " << va << "\n";
+		
+		val vb = Intrinsic.Min<Word>(Word{50}, Word{200});
+		System.Out << vb.class.ShortName << " min is " << vb << "\n";
+		
+		val vc = Intrinsic.Min<DWord>(DWord{500}, DWord{2000});
+		System.Out << vc.class.ShortName << " min is " << vc << "\n";
+		
+		val vd = Intrinsic.Min<QWord>(QWord{5000}, QWord{20000});
+		System.Out << vd.class.ShortName << " min is " << vd << "\n";
+		
+		val ve = Intrinsic.Min<Small>(Small{-5}, Small{20});
+		System.Out << ve.class.ShortName << " min is " << ve << "\n";
+		
+		val vf = Intrinsic.Min<Short>(Short{-50}, Short{200});
+		System.Out << vf.class.ShortName << " min is " << vf << "\n";
+		
+		val vg = Intrinsic.Min<Int>(Int{-500}, Int{2000});
+		System.Out << vg.class.ShortName << " min is " << vg << "\n";
+		
+		val vh = Intrinsic.Min<Long>(Long{-5000}, Long{20000});
+		System.Out << vh.class.ShortName << " min is " << vh << "\n";
+		
+		val vi = Intrinsic.Min<Float>(Float{0.4f}, Float{22.1f});
+		System.Out << vi.class.ShortName << " min is " << vi << "\n";
+		
+		val vj = Intrinsic.Min<Double>(Double{0.04000000}, Double{22.01});
+		System.Out << vj.class.ShortName << " min is " << vj << "\n";
+		
+		val vk = Intrinsic.Min<Double>(Double{-0.04000000}, Double{22.01});
+		System.Out << vk.class.ShortName << " min is " << vk << "\n";
+		
+		val vl = Intrinsic.Min<Char>(Char{'a'}, Char{'7'});
+		System.Out << vl.class.ShortName << " min is " << vl << "\n";
+	}
+}

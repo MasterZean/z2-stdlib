@@ -1,0 +1,101 @@
+namespace org.z2legacy.ut;
+
+using sys.core.Path;
+
+class TestGetTitle {
+	def @main() {
+		System.Out << "GetTitle " << Path.GetTitle("") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test\\foo\\") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa\\foo.exe\\") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test\\foo/") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa\\foo.exe/") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test\\foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetTitle " << Path.GetTitle("C:/test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test\\foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test/foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("C:/test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test/foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("C:/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("\\test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test\\foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+
+		System.Out << "GetTitle " << Path.GetTitle("/test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test\\foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+
+		System.Out << "GetTitle " << Path.GetTitle("\\test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test/foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("\\test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("/test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test/foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("/test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test\\foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa\\foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa\\foo.exe") << "\n";
+		System.Out << "\n";
+		
+		System.Out << "GetTitle " << Path.GetTitle("test") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test/foo.exe") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa/foo") << "\n";
+		System.Out << "GetTitle " << Path.GetTitle("test.aaa/foo.exe") << "\n";
+		System.Out << "\n";
+	}
+}

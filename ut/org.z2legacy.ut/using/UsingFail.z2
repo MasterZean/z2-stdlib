@@ -1,0 +1,12 @@
+using org.z2legacy.ut.compa.EmptyDummy;
+using org.z2legacy.ut.compa.compb.EmptyDummy;
+
+class EmptyDummy {
+}
+
+class UsingTest {
+	def @main() {
+		val p = EmptyDummy{};
+		System.Out << p.class;
+	}
+}

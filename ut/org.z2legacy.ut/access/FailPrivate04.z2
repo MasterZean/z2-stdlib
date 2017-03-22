@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.access;
+
+using Bar;
+
+class FailPrivate04 {
+	def @main() {
+		System.Out << Bar{}.data << "\n";
+	}
+}

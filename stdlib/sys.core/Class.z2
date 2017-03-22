@@ -1,0 +1,17 @@
+namespace sys.core;
+
+using Stream;
+
+class Class {
+	property Name: const ref String get const Intrinsic.ClassFullName;
+	property ShortName: const ref String get const Intrinsic.ClassShortName;
+	property Namespace: const ref String get const Intrinsic.ClassNamespace;
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(Name);
+	}
+
+#endregion
+}

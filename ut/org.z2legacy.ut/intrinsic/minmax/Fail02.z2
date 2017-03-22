@@ -1,0 +1,7 @@
+namespace org.z2legacy.ut.intrinsic.minmax;
+
+class Fail02 {
+	def @main() {
+		Intrinsic.Max<Byte>(5, 2000);
+	}
+}

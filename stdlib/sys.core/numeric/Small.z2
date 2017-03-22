@@ -1,0 +1,124 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Small {
+	const Zero: Small = 0;
+	const One: Small = 1;
+
+	const Min: Small = -128;
+	const Max: Small = 127;
+
+	const IsSigned = true;
+	const IsInteger = true;
+
+	const MaxDigitsLow = 2;
+	const MaxDigitsHigh = 3;
+
+	property Abs: Small {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Small {
+		return this * this;
+	}
+
+	property Sqrt: Small {
+		return Small{Double{this}.Sqrt};
+	}
+
+	property Floor: Small {
+		return this;
+	}
+
+	property Ceil: Small {
+		return this;
+	}
+
+	property Round: Small {
+		return this;
+	}
+
+	def Clamp(min: Small, max: Small); Intrinsic.Clamp;
+	
+	def Clamped(min: Small, max: Small): Small; const Intrinsic.Clamped;
+
+
+	this(string: String) {
+		val s = Slice<Byte>{string};
+		this = Small{ConvertUtf8.ParseSig<Int>(s)};
+	}
+
+	def ToString(): String {
+		val buf: CArray<Byte, ConvertUtf8.MaxSmallBuffer> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.IntAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Int) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Small{value};
+	}
+
+	this Saturated(value: DWord) {
+		this = value > DWord{Max} ? Max : Small{value};
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Small{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Small{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Small{value};
+	}
+
+	this Saturated(string: String) {
+		val s = Slice<Byte>{string};
+		this.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
+	}
+	
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutS8(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetS8();
+	}
+
+#endregion
+}

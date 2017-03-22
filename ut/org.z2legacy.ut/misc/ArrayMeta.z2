@@ -1,0 +1,19 @@
+namespace org.z2legacy.ut.misc;
+
+class TestArrayMeta {
+	def @main() {
+		val p = CArray[40: 1 + Int{for.Index < for.Count / 2 ? for.Index : for.Count - 1 - for.Index}, ...];
+		System.Out << p << "\n";
+		
+		val sum = 0;
+		foreach (v in p)
+			sum += v;
+		System.Out << sum << "\n";
+		
+		p.Reverse(0p, p.Length / 2 - 1);
+		p.Reverse(p.Length / 2, p.Length - 1);
+		System.Out << p << "\n";
+		
+		System.Out << p.Sum() << "\n";
+	}
+}

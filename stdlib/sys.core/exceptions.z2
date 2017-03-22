@@ -1,0 +1,22 @@
+namespace sys.core;
+
+class Exception {
+}
+
+class BufferOverflowException: Exception {
+}
+
+class IllegalArgumentException: Exception {
+}
+
+class IllegalConversionException: Exception {
+}
+
+class NullReferenceException: Exception {
+}
+
+class AlignmentException: Exception {
+}
+
+class OutOfMemoryException: Exception {
+}

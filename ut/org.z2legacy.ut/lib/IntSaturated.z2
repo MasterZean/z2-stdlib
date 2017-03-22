@@ -1,0 +1,53 @@
+namespace org.z2legacy.ut;
+
+class TestIntStaturated {
+	def @main() {
+		val a = 0.0;
+		for (val i = 0; i < 10; i++) {
+			System.Out << Int.Saturated{a} << "\n";
+			a += 500000000;
+		}
+		
+		System.Out << "\n";
+		
+		val b = 0.0f;
+		for (val i = 0; i < 10; i++) {
+			System.Out << Int.Saturated{b} << "\n";
+			b += 500000000;
+		}
+		System.Out << "\n";
+		
+		b = 2'000'000'000.0f;
+		
+		for (val i = 0; i < 10; i++) {
+			System.Out << Int.Saturated{b} << "\n";
+			b += 10000000;
+		}
+		
+		System.Out << "\n";
+		
+		
+		System.Out << Int.Saturated{2'140'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'141'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'142'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'143'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'144'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'145'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'146'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'147'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'147'100'000.0f} << "\n";
+		System.Out << Int.Saturated{2'147'200'000.0f} << "\n";
+		System.Out << Int.Saturated{2'147'300'000.0f} << "\n";
+		System.Out << Int.Saturated{2'148'000'000.0f} << "\n";
+		System.Out << Int.Saturated{2'150'000'000.0f} << "\n";
+			
+		System.Out << "\n";
+		
+		b = 2'147'483'583.0f;
+
+		for (val i = 0; i < 10; i++) {
+			System.Out << Int.Saturated{b} << "\n";
+			b += 10.0f;
+		}
+	}
+}

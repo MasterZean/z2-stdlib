@@ -1,0 +1,82 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.Compiler;
+
+class PtrSize {
+	const Zero: PtrSize = 0;
+	const One: PtrSize = 1;
+	
+	const Min: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Min} : PtrSize{QWord.Min};
+	const Max: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Max - 1} : PtrSize{QWord.Max - 1};
+	
+	const Invalid: PtrSize = Max + 1;
+
+	const IsSigned  = false;
+	const IsInteger = true;
+	
+	const MaxDigitsLow = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsLow}  : PtrSize{QWord.MaxDigitsLow};
+	const MaxDigitsHigh = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsHigh} : PtrSize{QWord.MaxDigitsHigh};
+	
+	property Abs: PtrSize {
+		return this;
+	}
+	
+	property Sqr: PtrSize {
+		return this * this;
+	}
+
+	property Sqrt: PtrSize {
+		return PtrSize{Double{this}.Sqrt};
+	}
+
+	property Floor: PtrSize {
+		return this;
+	}
+
+	property Ceil: PtrSize {
+		return this;
+	}
+
+	property Round: PtrSize {
+		return this;
+	}
+	
+	def Clamp(min: PtrSize, max: PtrSize); Intrinsic.Clamp;
+	
+	def Clamped(min: PtrSize, max: PtrSize): PtrSize; const Intrinsic.Clamped;
+
+	def @write(ref stream: Stream); const {
+		if (Compiler.Bits == 32) {
+			if (this == Invalid)
+				stream.RawWrite(-1);
+			else
+				stream.RawWrite(DWord{this});
+		}
+		else if (Compiler.Bits == 64)
+			if (this == Invalid)
+				stream.RawWrite(-1);
+			else
+				stream.RawWrite(QWord{this});
+		else
+			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
+	}
+	
+	def @put(ref stream: Stream); const {
+		if (Compiler.Bits == 32)
+			stream.RawPutU32(DWord{this});
+		else if (Compiler.Bits == 64)
+			stream.RawPutU64(QWord{this});
+		else
+			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
+	}
+
+	def @get(ref stream: Stream) {
+		if (Compiler.Bits == 32)
+			this = PtrSize{stream.RawGetU32()};
+		else if (Compiler.Bits == 64)
+			this = PtrSize{stream.RawGetU64()};
+		else
+			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
+	}
+}

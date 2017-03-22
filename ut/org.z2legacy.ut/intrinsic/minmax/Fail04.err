@@ -1,0 +1,1 @@
+Fail04.z2(5, 29): error: matching parameter 1: actual 'Double' to formal 'Float': no conversion possible

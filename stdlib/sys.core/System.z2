@@ -1,0 +1,8 @@
+namespace sys.core.lang;
+
+class System {
+	static val Debug = sys.core.SystemDebug{};
+	static val Trace = sys.core.SystemTrace{};
+	static val Out = sys.core.ConsoleStream{};
+	static val CPU = sys.core.SystemCPU{};
+}

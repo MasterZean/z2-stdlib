@@ -1,0 +1,23 @@
+namespace org.z2legacy.ut.intrinsic.clamp;
+
+class ClampedPass02 {
+	def @main() {
+		val vb1 = Intrinsic.Clamped<Byte>(Byte{7}, Byte{5}, Byte{10});
+		System.Out << vb1.class << " clamped is " << vb1 << "\n";
+		
+		val vb2 = Intrinsic.Clamped<Byte>(Byte{0}, Byte{5}, Byte{10});
+		System.Out << vb2.class << " clamped is " << vb2 << "\n";
+		
+		val vb3 = Intrinsic.Clamped<Byte>(Byte{20}, Byte{5}, Byte{10});
+		System.Out << vb3.class << " clamped is " << vb3 << "\n";
+		
+		val vw1 = Intrinsic.Clamped<Word>(Word{700}, Word{500}, Word{1000});
+		System.Out << vw1.class << " clamped is " << vw1 << "\n";
+		
+		val vw2 = Intrinsic.Clamped<Word>(Word{0}, Word{500}, Word{1000});
+		System.Out << vw2.class << " clamped is " << vw2 << "\n";
+		
+		val vw3 = Intrinsic.Clamped<Word>(Word{2000}, Word{500}, Word{1000});
+		System.Out << vw3.class << " clamped is " << vw3 << "\n";
+	}
+}

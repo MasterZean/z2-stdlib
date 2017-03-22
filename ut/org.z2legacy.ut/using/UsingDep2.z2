@@ -1,0 +1,6 @@
+namespace org.z2legacy.ut.compa.compb;
+
+class EmptyDummy {
+	def @main() {
+	}
+}

@@ -1,0 +1,6 @@
+first is NOT equal to second
+second is equal to third
+first: 0 0 0
+second: 1 10 100
+third: 1 10 100
+0 0 0 1 10 100 1 10 100

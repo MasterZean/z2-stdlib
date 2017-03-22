@@ -1,0 +1,6 @@
+SmallFail03.z2(5, 9): error: class 'SmallFail03' does not have an overload
+	test(Small)
+existing overloads
+	test(Byte)
+	test(Char)
+	test(PtrSize)

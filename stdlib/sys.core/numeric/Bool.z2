@@ -1,0 +1,47 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+
+class Bool {
+	const Min = false;
+	const Max = true;
+
+	const IsSigned = false;
+	const IsInteger = false;
+
+	def Clamp(min: Bool, max: Bool); Intrinsic.Clamp;
+	
+	def Clamped(min: Bool, max: Bool): Int; const Intrinsic.Clamped;
+	
+#region ToString
+
+	def ToString(): String; const {
+		if (this == true)
+			return "true";
+		else
+			return "false";
+	}
+
+#endregion
+
+#region Serialize
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutU8(Byte{this});
+	}
+
+	def @get(ref stream: Stream) {
+		this = Bool{stream.RawGetU8()};
+	}
+
+#endregion
+}

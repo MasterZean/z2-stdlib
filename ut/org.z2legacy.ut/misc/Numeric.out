@@ -1,0 +1,170 @@
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Small
+////////////////////////////////////////////////////
+
+sys.core.lang.Small::Zero = 0
+sys.core.lang.Small::One = 1
+sys.core.lang.Small::IsInteger = true
+sys.core.lang.Small::IsSigned = true
+sys.core.lang.Small::MaxDigitsLow = 2
+sys.core.lang.Small::MaxDigitsHigh = 3
+sys.core.lang.Small::Min = -128
+sys.core.lang.Small::Max = 127
+sys.core.lang.Small{-7}.Abs = 7
+sys.core.lang.Small{-7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Byte
+////////////////////////////////////////////////////
+
+sys.core.lang.Byte::Zero = 0
+sys.core.lang.Byte::One = 1
+sys.core.lang.Byte::IsInteger = true
+sys.core.lang.Byte::IsSigned = false
+sys.core.lang.Byte::MaxDigitsLow = 2
+sys.core.lang.Byte::MaxDigitsHigh = 3
+sys.core.lang.Byte::Min = 0
+sys.core.lang.Byte::Max = 255
+sys.core.lang.Byte{7}.Abs = 7
+sys.core.lang.Byte{7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Short
+////////////////////////////////////////////////////
+
+sys.core.lang.Short::Zero = 0
+sys.core.lang.Short::One = 1
+sys.core.lang.Short::IsInteger = true
+sys.core.lang.Short::IsSigned = true
+sys.core.lang.Short::MaxDigitsLow = 4
+sys.core.lang.Short::MaxDigitsHigh = 5
+sys.core.lang.Short::Min = -32768
+sys.core.lang.Short::Max = 32767
+sys.core.lang.Short{-7}.Abs = 7
+sys.core.lang.Short{-7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Word
+////////////////////////////////////////////////////
+
+sys.core.lang.Word::Zero = 0
+sys.core.lang.Word::One = 1
+sys.core.lang.Word::IsInteger = true
+sys.core.lang.Word::IsSigned = false
+sys.core.lang.Word::MaxDigitsLow = 4
+sys.core.lang.Word::MaxDigitsHigh = 5
+sys.core.lang.Word::Min = 0
+sys.core.lang.Word::Max = 65535
+sys.core.lang.Word{7}.Abs = 7
+sys.core.lang.Word{7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Int
+////////////////////////////////////////////////////
+
+sys.core.lang.Int::Zero = 0
+sys.core.lang.Int::One = 1
+sys.core.lang.Int::IsInteger = true
+sys.core.lang.Int::IsSigned = true
+sys.core.lang.Int::MaxDigitsLow = 9
+sys.core.lang.Int::MaxDigitsHigh = 10
+sys.core.lang.Int::Min = -2147483648
+sys.core.lang.Int::Max = 2147483647
+sys.core.lang.Int{-7}.Abs = 7
+sys.core.lang.Int{-7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.DWord
+////////////////////////////////////////////////////
+
+sys.core.lang.DWord::Zero = 0
+sys.core.lang.DWord::One = 1
+sys.core.lang.DWord::IsInteger = true
+sys.core.lang.DWord::IsSigned = false
+sys.core.lang.DWord::MaxDigitsLow = 9
+sys.core.lang.DWord::MaxDigitsHigh = 10
+sys.core.lang.DWord::Min = 0
+sys.core.lang.DWord::Max = 4294967295
+sys.core.lang.DWord{7}.Abs = 7
+sys.core.lang.DWord{7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Long
+////////////////////////////////////////////////////
+
+sys.core.lang.Long::Zero = 0
+sys.core.lang.Long::One = 1
+sys.core.lang.Long::IsInteger = true
+sys.core.lang.Long::IsSigned = true
+sys.core.lang.Long::MaxDigitsLow = 19
+sys.core.lang.Long::MaxDigitsHigh = 19
+sys.core.lang.Long::Min = -9223372036854775808
+sys.core.lang.Long::Max = 9223372036854775807
+sys.core.lang.Long{-7}.Abs = 7
+sys.core.lang.Long{-7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.QWord
+////////////////////////////////////////////////////
+
+sys.core.lang.QWord::Zero = 0
+sys.core.lang.QWord::One = 1
+sys.core.lang.QWord::IsInteger = true
+sys.core.lang.QWord::IsSigned = false
+sys.core.lang.QWord::MaxDigitsLow = 19
+sys.core.lang.QWord::MaxDigitsHigh = 20
+sys.core.lang.QWord::Min = 0
+sys.core.lang.QWord::Max = 18446744073709551615
+sys.core.lang.QWord{7}.Abs = 7
+sys.core.lang.QWord{7}.Sqr = 49
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Float
+////////////////////////////////////////////////////
+
+sys.core.lang.Float::Zero = 0.0
+sys.core.lang.Float::One = 1.0
+sys.core.lang.Float::IsInteger = false
+sys.core.lang.Float::IsSigned = true
+sys.core.lang.Float::MaxDigitsLow = 6
+sys.core.lang.Float::MaxDigitsHigh = 9
+sys.core.lang.Float::Min = -3.40282e38
+sys.core.lang.Float::Max = 3.40282e38
+sys.core.lang.Float{-7.0}.Abs = 7.0
+sys.core.lang.Float{-7.0}.Sqr = 49.0
+
+
+
+////////////////////////////////////////////////////
+// Testing sys.core.lang.Double
+////////////////////////////////////////////////////
+
+sys.core.lang.Double::Zero = 0.0
+sys.core.lang.Double::One = 1.0
+sys.core.lang.Double::IsInteger = false
+sys.core.lang.Double::IsSigned = true
+sys.core.lang.Double::MaxDigitsLow = 15
+sys.core.lang.Double::MaxDigitsHigh = 17
+sys.core.lang.Double::Min = -1.79769e308
+sys.core.lang.Double::Max = 1.79769e308
+sys.core.lang.Double{-7.0}.Abs = 7.0
+sys.core.lang.Double{-7.0}.Sqr = 49.0
+
+
+

@@ -1,0 +1,89 @@
+using sys.core.Stream;
+
+namespace sys.core.lang;
+
+class CArray<T: Class> {
+	this() {
+		for (val i = 0p; i < Length; i++)
+			this[i]{};
+	}
+	
+	this(item: T) {
+		for (val i = 0p; i < Length; i++)
+			this[i]{item};
+	}
+	
+	property IsEmpty: Bool {
+		return false;
+	}
+	
+	def Fill(value: T) {
+		for (val i = 0p; i < Length; i++)
+			this[i] = value;
+	}
+	
+	def Insert(pos: PtrSize, item: T) {
+		System.Debug.Assert(pos < Length);
+		
+		for (val i = Length - 1; i >= pos + 1; i--)
+			this[i] = this[i - 1];
+		
+		this[pos] = item;
+	}
+	
+	def Delete(pos: PtrSize) {
+		System.Debug.Assert(pos < Length);
+		
+		for (val i = pos; i < Length - 1; i++)
+			this[i] = this[i + 1];
+		
+		this[Length - 1]{};
+	}
+	
+	def FindIndex(item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item);
+	}
+	
+	def FindIndex(item: T, start: PtrSize): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item, start);
+	}
+	
+	def BinaryIndex(item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.BinaryIndex(item);
+	}
+	
+	def Reverse() {
+		val s = Slice<T>{this};
+		s.Reverse();
+	}
+	
+	def Reverse(start: PtrSize, end: PtrSize) {
+		val s = Slice<T>{this, start, end};
+		s.Reverse();
+	}
+	
+	def Sum(): T {
+		val sum: T = this[0];
+		
+		for (val i = 1p; i < Length; i++)
+			sum += this[i];
+		
+		return sum;
+	}
+	
+#region IO
+
+	def @write(ref stream: Stream); const {
+		if (Length > 0) {
+			for (val i = 0p; i < Length - 1; i++)
+				stream << this[i] << ' ';
+
+			stream << this[Length - 1];
+		}
+	}
+	
+#endregion
+}

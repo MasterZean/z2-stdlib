@@ -1,0 +1,34 @@
+namespace org.z2legacy.ut.container.vector.init;
+
+class Foo {
+	this() {
+		System.Out << "default\n";
+	}
+	
+	this(a: Int) {
+		System.Out << "default Int\n";
+	}
+	
+	this Named() {
+		System.Out << "named\n";
+	}
+	
+	this Named(a: Int) {
+		System.Out << "named Int\n";
+	}
+
+	this(obj: Foo) {
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Foo) {
+		System.Out << "assign\n";
+	}
+
+	~this() {
+	}
+	
+	this(move obj: Foo) {
+		System.Out << "move construct\n";
+	}
+}

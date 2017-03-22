@@ -1,0 +1,8 @@
+call org.z2legacy.ut.auto.eq02.Foo.@neq() of class sys.core.lang.Def
+true
+call org.z2legacy.ut.auto.eq02.Foo.@neq() of class sys.core.lang.Def
+false
+call org.z2legacy.ut.auto.eq02.Foo.@neq() of class sys.core.lang.Def
+false
+call org.z2legacy.ut.auto.eq02.Foo.@neq() of class sys.core.lang.Def
+true

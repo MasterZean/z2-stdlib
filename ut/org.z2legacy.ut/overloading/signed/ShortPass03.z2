@@ -1,0 +1,47 @@
+namespace org.z2legacy.ut.overloading;
+
+class ShortPass03 {
+	def @main() {
+		test(Short.Min);
+	}
+	
+	def test(b: Byte) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Word) {
+		System.Out << b.class;
+	}
+	
+	def test(b: DWord) {
+		System.Out << b.class;
+	}
+	
+	def test(b: QWord) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Small) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Long) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Float) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Double) {
+		System.Out << b.class;
+	}
+	
+	def test(b: Char) {
+		System.Out << b.class;
+	}
+	
+	def test(b: PtrSize) {
+		System.Out << b.class;
+	}
+}

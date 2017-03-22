@@ -1,0 +1,11 @@
+DWordFail01.z2(5, 9): error: class 'DWordFail01' does not have an overload
+	test(DWord)
+existing overloads
+	test(Byte)
+	test(Word)
+	test(Small)
+	test(Short)
+	test(Int)
+	test(Float)
+	test(Char)
+	test(PtrSize)

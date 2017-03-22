@@ -1,0 +1,42 @@
+namespace org.z2legacy.ut.container.dynblock;
+
+using sys.core.DynamicBlock;
+
+class TestBlockAssignResize {
+	def print<T: Class>(a: DynamicBlock<T>) {
+		System.Out << "block: ";
+		for (val i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def @main() {
+		val block = DynamicBlock<Int>{};
+
+		System.Out << "block: length = " << block.Length << "\n";
+
+		block.Append(6);
+		print(block);
+
+		block.Append(7000, 4p);
+		print(block);
+
+		block.ExpandBy(3p);
+		print(block);
+
+		block.ExpandTo(block.Length + 2);
+		print(block);
+
+		block.ShrinkTo(500p);
+		print(block);
+
+		block.ShrinkTo(9p);
+		print(block);
+
+		block.ShrinkBy(4p);
+		print(block);
+
+		block.Fill(-1);
+		print(block);
+	}
+}

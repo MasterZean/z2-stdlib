@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.using;
+
+class NoUsingTest {
+	def @main() {
+		System.Out << sys.core.Stream << '\n';
+		System.Out << sys.core.Point3D << '\n';
+		System.Out << sys.core.OutputFormat << '\n';
+	}
+}

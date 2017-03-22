@@ -1,0 +1,357 @@
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+namespace sys.core.lang;
+
+class String {
+	static val GrowthSpacing = 4p;
+
+	property Length: PtrSize {
+		return length;
+	}
+	set (len) {
+		if (len > Capacity)
+			Capacity = len;
+		length = len;
+		data[len - 1] = 0;
+	}
+
+	property Capacity: PtrSize {
+		return capacity;
+	}
+	set (cap) {
+		if (cap > capacity) {
+			capacity = cap;
+			data.Realloc(capacity + 1);
+		}
+		else if (cap < capacity)
+			throw sys.core.IllegalArgumentException{};
+	}
+
+	property @index: Byte
+	get [index: PtrSize] const {
+		System.Debug.Assert(index < length);
+		return data[index];
+	}
+	set (byte)[index: PtrSize] {
+		System.Debug.Assert(index < length);
+		data[index] = byte;
+	}
+
+	this(chars: Slice<Byte>) {
+		length = chars.Length;
+		data = chars.SysDataPointer.Clone(length + 1, length);
+		capacity = length;
+		data[length] = 0;
+	}
+		
+	this(chars: Ptr<Byte>, len: PtrSize) {
+		data = chars.Clone(len + 1, len);
+		length = len;
+		capacity = len;
+		data[length] = 0;
+	}
+
+	this(chars: String, len: PtrSize) {
+		data = chars.SysDataPointer.Clone(len + 1, len);
+		length = len;
+		capacity = len;
+		data[length] = 0;
+	}
+
+	this FromIndex(chars: String, start: PtrSize) {
+		if (start < chars.Length) {
+			length = chars.Length - start;
+			data = Ptr<Byte>.AllocVoid(length + 1);
+			Intrinsic.MemCopy(data, chars.SysDataPointer + start, length);
+			capacity = length;
+			data[length] = 0;
+		}
+		else
+			this{};
+	}
+	
+	this FromIndex(chars: String, start: PtrSize, end: PtrSize) {
+		if (start < chars.Length) {
+			length = end - start + 1;
+			data = Ptr<Byte>.AllocVoid(length + 1);
+			Intrinsic.MemCopy(data, chars.SysDataPointer + start, length);
+			capacity = length;
+			data[length] = 0;
+		}
+		else
+			this{};
+	}
+
+	this(chars: Ptr<Byte>, len: PtrSize, cap: PtrSize) {
+		System.Debug.Assert(cap >= len);
+		data = chars.Clone(cap + 1, len);
+		length = len;
+		capacity = cap;
+		data[length] = 0;
+	}
+
+	this(chars: CArray<Byte>) {
+		data = chars.SysDataPointer.Clone(chars.Length + 1, chars.Length);
+		length = chars.Length;
+		capacity = chars.Length;
+		data[length] = 0;
+	}
+
+	this(chars: CArray<Byte>, len: PtrSize) {
+		data = chars.SysDataPointer.Clone(len + 1, len);
+		length = len;
+		capacity = len;
+		data[length] = 0;
+	}
+
+	this TakeOwnership(chars: Ptr<Byte>, len: PtrSize) {
+		data = chars;
+		length = len;
+		capacity = len;
+		data[length] = 0;
+	}
+
+	property IsEmpty: Bool {
+		return Length == 0;
+	}
+
+#region manager
+
+	this(obj: String) {
+		length = obj.Length;
+		capacity = obj.Capacity;
+		data = obj.SysDataPointer.Clone(capacity + 1, length + 1);
+	}
+
+	def @attr(obj: String) {
+		if (obj.IsEmpty)
+			Clear();
+		else {
+			length = obj.Length;
+			capacity = obj.Capacity;
+			val temp = data;
+			data = obj.SysDataPointer.Clone(capacity + 1, length + 1);
+			temp.Free();
+		}
+	}
+	
+	this(move obj: String) {
+		length = obj.Length;
+		capacity = obj.Capacity;
+		data = obj.data;
+		obj.data = null;
+	}
+	
+	def @attr(move obj: String) {
+		length = obj.Length;
+		capacity = obj.Capacity;
+		data.Free();
+		data = obj.data;
+		obj.data = null;
+	}
+		
+	~this() {
+		data.Free();
+	}
+
+#endregion
+
+	def Clear() {
+		data.Free();
+		length = 0;
+		capacity = 0;
+	}
+
+	def @eq(second: String): Bool; const {
+		if (length != second.Length)
+			return false;
+
+		for (val i = 0p; i < length; i++)
+			if (data[i] != second[i])
+				return false;
+
+		return true;
+	}
+
+	def @neq(second: String): Bool; const {
+		if (length != second.Length)
+			return true;
+
+		for (val i = 0p; i < length; i++)
+			if (data[i] != second[i])
+				return true;
+
+		return false;
+	}
+
+	def @shl(ch: Char) {
+		val i: PtrSize;
+		if (ch <= Char.MaxUtf8CP1) {
+			if (length >= capacity)
+				Capacity = Capacity + GrowthSpacing;
+			data[length] = Byte{ch};
+			length++;
+		}
+		else if (ch <= Char.MaxUtf8CP2) {
+			if (length + 1 >= capacity)
+				Capacity = Capacity + GrowthSpacing + 1;
+			data[length] = Byte{0xC0 | (ch >> 6)};
+			length++;
+			data[length] = Byte{0x80 | (ch & 0x3F)};
+			length++;
+		}
+		else if (ch <= Char.MaxUtf8CP3) {
+			if (length + 2 >= capacity)
+				Capacity = Capacity + GrowthSpacing + 2;
+			data[length] = Byte{0xE0 | (ch >> 12)};
+			length++;
+			data[length] = Byte{0x80 | ((ch >> 6) & 0x3F)};
+			length++;
+			data[length] = Byte{0x80 | (ch & 0x3F)};
+			length++;
+		}
+		else if (ch <= Char.MaxUtf8CP4) {
+			if (length + 3 >= capacity)
+				Capacity = Capacity + GrowthSpacing + 3;
+			data[length] = Byte{0xF0 | (ch >> 18)};
+			length++;
+			data[length] = Byte{0x80 | ((ch >> 12) & 0x3F)};
+			length++;
+			data[length] = Byte{0x80 | ((ch >> 6) & 0x3F)};
+			length++;
+			data[length] = Byte{0x80 | (ch & 0x3F)};
+			length++;
+		}
+		data[length] = 0;
+	}
+
+	property SysDataPointer: Ptr<Byte>
+	get {
+		return data;
+	}
+
+	def Insert(pos: PtrSize, string: String) {
+		val newLen = length + string.Length;
+		val temp = Byte.new(newLen + 1);
+
+		val dest = temp;
+		Intrinsic.MemCopy(dest, data, pos);
+		dest += pos;
+		Intrinsic.MemCopy(dest, string.SysDataPointer, string.Length);
+		dest += string.Length;
+		Intrinsic.MemCopy(dest, data + pos, length - pos);
+		temp[newLen] = 0;
+
+		data.Free();
+		data = temp;
+		length = newLen;
+		capacity = newLen;
+	}
+
+	def Inserted(pos: PtrSize, string: String): String; const {
+		val newLen = length + string.Length;
+		val temp = Byte.new(newLen + 1);
+
+		val dest = temp;
+		Intrinsic.MemCopy(dest, data, pos);
+		dest += pos;
+		Intrinsic.MemCopy(dest, string.SysDataPointer, string.Length);
+		dest += string.Length;
+		Intrinsic.MemCopy(dest, data + pos, length - pos);
+		temp[newLen] = 0;
+
+		return String.TakeOwnership{temp, newLen};
+	}
+
+	def Find(b: Byte): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.FindIndex(b);
+	}
+
+	def RFind(b: Byte): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.RFindIndex(b);
+	}
+	
+	def RFind(b: Byte, start: PtrSize): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.RFindIndex(b, start);
+	}
+	
+	def RFind(b: CArray<Byte>): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.RFindIndex(b);
+	}
+
+	def Parse<T: Class>(): T; const {
+		val value = T{};
+		val i = 0p;
+		val sign = 1;
+		while (i < length && data[i] <= ' ')
+			i++;
+		if (data[i] == '+')
+			i++;
+		else if (data[i] == '-') {
+			i++;
+			sign = -1;
+		}
+		while (i < length && Char{data[i]}.IsAsciiDigit) {
+			value = value * 10 + data[i] - T{'0'};
+			i++;
+		}
+
+		return value * sign;
+	}
+
+	def ParseSaturated<T: Class>(): T; const {
+		val value = T{};
+		val i = 0p;
+		val sign = 1;
+		while (i < length && data[i] <= ' ')
+			i++;
+		if (data[i] == '+')
+			i++;
+		else if (data[i] == '-') {
+			i++;
+			sign = -1;
+		}
+		while (i < length && Char{data[i]}.IsAsciiDigit) {
+			val oldValue = value;
+			value = value * 10 + data[i] - T{'0'};
+			if (oldValue > value) {
+				if (sign == 1)
+					return T.Max;
+				else
+					return T.Min;
+			}
+			i++;
+		}
+
+		return value * sign;
+	}
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+	
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+
+	def @put(ref stream: Stream); const {
+		length.@put(stream);
+		val s = Slice<Byte>{this};
+		stream.BinPutImpl(s);
+	}
+
+	def @get(ref stream: Stream) {
+		//this = stream.RawGetS32();
+	}
+}
+private {
+	val data: Ptr<Byte>;
+	val length: PtrSize;
+	val capacity: PtrSize;
+}

@@ -1,0 +1,1 @@
+FailInit12.z2(5, 27): error: vector literal 'CArray<Int>' has ellipsis but no explicit item count

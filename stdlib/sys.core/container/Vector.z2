@@ -1,0 +1,154 @@
+using sys.core.Stream;
+using sys.core.DynamicBlock;
+
+namespace sys.core.lang;
+
+class Vector<T: Class> {
+	this(copy: Vector<T>) {
+		default();
+	}
+	
+	def @attr(copy: Vector<T>) {
+		default();
+	}
+		
+	~this() {
+		data.FreeUnsafe(length);
+
+		length = 0;
+	}
+	
+	property Length: PtrSize
+	get {
+		return length;
+	}
+	set (value) {
+		if (value == length)
+			return;
+
+		if (value > data.Length) {
+			data.Length = value;
+		}
+		else if (value < length) {
+			val i = value;
+			
+			while (i < length) {
+				data[i].~{};
+				i++;
+			}
+		}
+		
+		length = value;
+	}
+
+	property Capacity: PtrSize
+	get {
+		return data.Length;
+	}
+	set (value) {
+		System.Trace.Assert(value >= length);
+
+		val temp = Intrinsic.Max(value, 2);
+		if (temp == data.Length)
+			return;
+
+		data.Length = temp;
+	}
+
+	property @index: ref T
+	get [index: PtrSize] const {
+		System.Debug.Assert(index < length);
+		return data[index];
+	}
+	
+	def Add(item: T) {
+		if (length >= data.Length)
+			Grow();
+		data[length++]{item};
+	}
+	
+	def Add(move item: T) {
+		if (length >= data.Length)
+			Grow();
+		data[length++]{item};
+	}
+	
+	static def @shl<T: Class>(ref v: Vector<T>, data: T): ref Vector<T> {
+		v.Add(data);
+		return v;
+	}
+	
+	def Fill(value: T) {
+		for (val i = 0p; i < Length; i++)
+			this[i] = value;
+	}
+	
+	def FindIndex(item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item);
+	}
+	
+	def FindIndex(item: T, start: PtrSize): PtrSize {
+		val s = Slice<T>{this};
+		return s.FindIndex(item, start);
+	}
+	
+	def BinaryIndex(item: T): PtrSize {
+		val s = Slice<T>{this};
+		return s.BinaryIndex(item);
+	}
+	
+	def Reverse() {
+		val s = Slice<T>{this};
+		s.Reverse();
+	}
+	
+	def Delete(item: T): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.Delete(item);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteAll(item: T): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteAll(item);
+		length = s.Length;
+		return r;
+	}
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream << length;
+		
+		if (length > 0) {
+			stream << ' ';
+			for (val i = 0p; i < length - 1; i++)
+				stream << data[i] << ' ';
+			stream << data[length - 1];
+		}
+	}
+	
+#endregion
+	
+	property SysDataPointer: Ptr<T>
+	get {
+		return data.SysDataPointer;
+	}
+}
+private {
+	val data: DynamicBlock<T>;
+	val length: PtrSize;
+	
+	def Grow() {
+		val newCap = Intrinsic.Max(data.Length * 2, 2p);
+		data.FriendSetLength(newCap);
+	}
+	
+	this @allocate(len: PtrSize, capacity: PtrSize) {
+		data = void;
+		data.@allocate{length, capacity};
+		length = len;
+	}
+}

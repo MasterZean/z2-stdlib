@@ -1,0 +1,29 @@
+namespace sys.core;
+
+class SystemDebug {
+	def Assert(test: Bool); Intrinsic.DebugAssert;
+
+	//def Assert(test: Bool, error: String); Intrinsic.DebugAssert;
+
+	def Error(error: String); Intrinsic.Error;
+}
+
+class SystemTrace {
+	def Assert(test: Bool); Intrinsic.TraceAssert;
+
+	//def Assert(test: Bool, error: String); Intrinsic.TraceAssert;
+
+	def Error(error: String); Intrinsic.Error;
+}
+
+class SystemCPU {
+	val Vendor = "";
+	
+	val MMX = false;
+	val SSE = false;
+	val SSE2 = false;
+	val SSE3 = false;
+	val SSSE3 = false;
+	val SSE41 = false;
+	val SSE42 = false;
+}

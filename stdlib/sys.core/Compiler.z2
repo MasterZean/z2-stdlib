@@ -1,0 +1,4 @@
+namespace sys.core;
+
+class Compiler {
+}

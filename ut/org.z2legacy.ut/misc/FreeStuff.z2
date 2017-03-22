@@ -1,0 +1,40 @@
+namespace org.z2legacy.ut.misc;
+
+class Point {
+	val x = 0;
+	val y = 0;
+	val z = 0;
+}
+
+class FreeStuffTest {
+	def @main() {
+		val first = Point{};
+		
+		val second = Point{};
+		second.x = 1;
+		second.y = 10;
+		second.z = 100;
+		
+		val third = Point{} {
+			x = 1;
+			y = 10;
+			z = 100;
+		};
+		
+		if (first == second)
+			System.Out << "first is equal to second\n";
+		else
+			System.Out << "first is NOT equal to second\n";
+		
+		if (second != third)
+			System.Out << "second is NOT equal to third\n";
+		else
+			System.Out << "second is equal to third\n";
+		
+		System.Out << "first: " << first << "\n";
+		System.Out << "second: " << second << "\n";
+		System.Out << "third: " << third << "\n";
+
+		System.Out << CArray[first, second, third] << "\n";
+	}
+}

@@ -1,0 +1,31 @@
+namespace org.z2legacy.ut.auto.eq02;
+
+class TestAutoEq {
+	def @main() {
+		val a = Foo{"cat"};
+		val b = Foo{"cat"};
+		val c = Foo{"dog"};
+
+		System.Out << (a == b) << "\n";
+		System.Out << (a == c) << "\n";
+		System.Out << (a != b) << "\n";
+		System.Out << (a != c) << "\n";
+	}
+}
+
+class Foo {
+	this(t: String) {
+		a = t;
+		b = t;
+	}
+
+	def @neq(obj: Foo): Bool {
+		System.Out << "call " << this.class << '.' << @neq.Name << "() of class " << @neq.class << "\n";
+		
+		return a != obj.a || b != obj.b;
+	}
+}
+private {
+	val a = "";
+	val b = "";
+}

@@ -1,0 +1,92 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Float {
+	const Zero: Float = 0;
+	const One: Float = 1;
+	const Default: Float = Zero;
+
+	const Min: Float = -3.40282e+38f;
+	const Max: Float = 3.40282e+38f;
+
+	const IsSigned = true;
+	const IsInteger = false;
+
+	const MaxDigitsLow = 6;
+	const MaxDigitsHigh = 9;
+	
+	const Nan = Float{1.0e+300 * 1.0e+300} * 0.0f;
+	const Infinite = Float{1.0e+300 * 1.0e+300};
+	
+	property IsNan: Bool {
+		return this != this;
+	}
+	
+	property IsInfinite: Bool {
+		return this == Infinite || this == -Infinite;
+	}
+
+	property Abs: Float {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Float {
+		return this * this;
+	}
+
+	property Sqrt: Float get const Intrinsic.Sqrt;
+
+	property Floor: Float get const Intrinsic.Floor;
+
+	property Ceil: Float get const Intrinsic.Ceil;
+
+	property Round: Float get const Intrinsic.Round;
+
+	def Clamp(min: Float, max: Float); Intrinsic.Clamp;
+	
+	def Clamped(min: Float, max: Float): Float; const Intrinsic.Clamped;
+
+#region Math
+
+	property Log: Float get const Intrinsic.Log;
+
+	property Log10: Float get const Intrinsic.Log10;
+
+	def Pow(exp: Float): Float; const Intrinsic.Pow;
+
+#endregion
+
+#region ToString
+
+	def ToString(): String; const {
+		val buf: CArray<Byte, 320> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DoubleAsText(s, this);
+		return String{s};
+	}
+
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
+	def @put(ref stream: Stream); const {
+		stream.RawPutF32(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetF32();
+	}
+	
+#endregion
+}

@@ -1,0 +1,36 @@
+namespace org.z2legacy.ut.misc;
+
+using sys.core.Path;
+
+class TestPath {
+	def @main() {
+		System.Out << "Current folder: " << Path.CurrentFolder << "\n";
+		Path.CurrentFolder = "C:\\Windows";
+		Path.CurrentFolder = "Temp";
+		System.Out << "Current folder: " << Path.CurrentFolder << "\n";
+		
+		System.Out << "Executable file full name: " << Path.ExeFileName << "\n";
+		System.Out << "Executable file folder: " << Path.GetFolder(Path.ExeFileName) << "\n";
+		System.Out << "Executable file name: " << Path.GetName(Path.ExeFileName) << "\n";
+		System.Out << "Executable file title: " << Path.GetTitle(Path.ExeFileName) << "\n";
+		System.Out << "Executable file extension: " << Path.GetExtension(Path.ExeFileName) << "\n";
+		
+		val temp = Path.GetFolderNoSep(Path.ExeFileName);
+		while (temp.Length > 0) {
+			System.Out << "Parent folder: " << temp << "\\" << "\n";
+			temp = Path.GetFolderNoSep(temp);
+		}
+		
+		temp = Path.GetParent(Path.ExeFileName);
+		while (temp.Length > 0) {
+			System.Out << "Parent folder: " << temp << "\n";
+			temp = Path.GetParent(temp);
+		}
+		
+		temp = Path.GetParent(Path.ExeFileName);
+		while (!Path.IsRoot(temp)) {
+			System.Out << "Parent folder: " << temp << "\n";
+			temp = Path.GetParent(temp);
+		}
+	}
+}

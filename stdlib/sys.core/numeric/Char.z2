@@ -1,0 +1,188 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.ConvertUtf8;
+using sys.core.i18n.UnicodeCategory;
+using sys.core.i18n.UnicodeData;
+
+class Char {
+	const Zero: Char = 0;
+	const Default: Char = Zero;
+
+	const Min: Char = 0;
+	const Max: Char = 0x10FFFF;
+
+	const MaxUtf8CP1: Char = 0x7F;
+	const MaxUtf8CP2: Char = 0x07FF;
+	const MaxUtf8CP3: Char = 0xFFFF;
+	const MaxUtf8CP4: Char = Max;
+
+	const Invalid: Char = -1;
+	
+	def Clamp(min: Char, max: Char); Intrinsic.Clamp;
+	
+	def Clamped(min: Char, max: Char): Char; const Intrinsic.Clamped;
+
+	property UnicodePlane: Byte {
+		return Byte{this >> 16};
+	}
+
+	property IsAsciiDigit: Bool {
+		return this >= '0' && this <= '9';
+	}
+
+	property IsAsciiAlpha: Bool {
+		return this >= 'A' && this <= 'Z' || this >= 'a' && this <= 'z';
+	}
+
+	property IsAsciiAlphaNum: Bool {
+		return IsAsciiDigit || IsAsciiAlpha;
+	}
+
+	property IsAsciiControl: Bool {
+		return this >= 0x00 && this <= 0x1F || this == 0x7F;
+	}
+
+	property IsAsciiGraph: Bool {
+		return this >= 0x21 && this <= 0x7E;
+	}
+
+	property IsAsciiPrintable: Bool {
+		return this >= 0x20 && this <= 0x7E;
+	}
+
+	property IsAsciiPunct: Bool {
+		return !IsAsciiAlphaNum && IsAsciiGraph;
+	}
+
+	property IsAsciiUpper: Bool {
+		return this >= 'A' && this <= 'Z';
+	}
+
+	property IsAsciiLower: Bool {
+		return this >= 'a' && this <= 'z';
+	}
+
+	property IsAsciiSpace: Bool {
+		return this == ' ' || this == '\t' || this == '\r' || this == '\n' || this == '\v' || this == '\f';
+	}
+
+	property Category: UnicodeCategory {
+		val plane = DWord{UnicodePlane};
+		if (plane < UnicodeData.Planes) {
+			val group = DWord{this / UnicodeData.GroupSize};
+			val gdata = UnicodeData.CatGroups[group];
+			if ((gdata & 0x8000) != 0) {
+				gdata = Word{gdata & 0x7FFF};
+				val offs = DWord{this % UnicodeData.GroupSize};
+				val cat = DWord{UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> (64 - 8)};
+				return UnicodeCategory{cat};
+			}
+			else
+				return UnicodeCategory{gdata};
+		}
+		else
+			return UnicodeCategory.Unassigned;
+	}
+
+	property Upper: Char {
+		val plane = DWord{UnicodePlane};
+		if (plane < UnicodeData.Planes) {
+			val group = DWord{this / UnicodeData.GroupSize};
+			val gdata = UnicodeData.CatGroups[group];
+			if ((gdata & 0x8000) != 0) {
+				gdata = Word{gdata & 0x7FFF};
+				val offs = DWord{this % UnicodeData.GroupSize};
+				val cat = DWord{UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] & 0x3FFFF};
+				return Char{cat};
+			}
+			else
+				return this;
+		}
+		else
+			return this;
+	}
+
+	property Lower: Char {
+		val plane = DWord{UnicodePlane};
+		if (plane < UnicodeData.Planes) {
+			val group = DWord{this / UnicodeData.GroupSize};
+			val gdata = UnicodeData.CatGroups[group];
+			if ((gdata & 0x8000) != 0) {
+				gdata = Word{gdata & 0x7FFF};
+				val offs = DWord{this % UnicodeData.GroupSize};
+				val cat = DWord{(UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> 18) & 0x3FFFF};
+				return Char{cat};
+			}
+			else
+				return this;
+		}
+		else
+			return this;
+	}
+
+	property Title: Char {
+		val plane = DWord{UnicodePlane};
+		if (plane < UnicodeData.Planes) {
+			val group = DWord{this / UnicodeData.GroupSize};
+			val gdata = UnicodeData.CatGroups[group];
+			if ((gdata & 0x8000) != 0) {
+				gdata = Word{gdata & 0x7FFF};
+				val offs = DWord{this % UnicodeData.GroupSize};
+				val cat = DWord{(UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> 36) & 0x3FFFF};
+				return Char{cat};
+			}
+			else
+				return this;
+		}
+		else
+			return this;
+	}
+
+	property IsUpper: Bool
+	get {
+		return Category == UnicodeCategory.Uppercase_Letter;
+	}
+
+	property IsLower: Bool
+	get {
+		return Category == UnicodeCategory.Lowercase_Letter;
+	}
+
+	property IsTitle: Bool
+	get {
+		return Category == UnicodeCategory.Titlecase_Letter;
+	}
+
+	property IsDecimal: Bool
+	get {
+		return Category == UnicodeCategory.Decimal_Number;
+	}
+
+#region ToString
+
+	def ToString(): String {
+		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.CharAsText(s, this);
+		return String{s};
+	}
+
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+
+	def @put(ref stream: Stream); const {
+		stream.RawPutU32(DWord{this});
+	}
+
+	def @get(ref stream: Stream) {
+		this = Char{stream.RawGetU32()};
+	}
+
+#endregion
+}

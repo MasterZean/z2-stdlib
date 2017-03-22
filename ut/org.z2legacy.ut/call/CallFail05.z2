@@ -1,0 +1,16 @@
+namespace org.z2legacy.ut.call;
+
+using Foo;
+
+class CallFail05 {
+	def test(a: Foo) {
+		a = 0;
+		System.Out << "const\n";
+	}
+	
+	def @main() {
+		val a = Foo{};
+		test(Foo{});
+		test(a);
+	}
+}

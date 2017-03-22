@@ -1,0 +1,17 @@
+namespace org.z2legacy.ut.call;
+
+class CallPass09 {
+	def test(a: Float) {
+		System.Out << "const " << a.class << "\n";
+	}
+	
+	def test(ref a: Float) {
+		System.Out << "ref " << a.class << "\n";
+	}
+	
+	def @main() {
+		val a = 0.0f;
+		test(0.0f);
+		test(a);
+	}
+}

@@ -1,0 +1,21 @@
+namespace org.z2legacy.ut.container.vector;
+
+class PassInit03 {
+	def @main() {
+		val a = [1, 2, 3];
+		print(a);
+			
+		a.Add(4);
+		print(a);
+		
+		a << 5 << 6 << 7;
+		print(a);
+	}
+	
+	def print<T: Class>(a: Vector<T>) {
+		foreach (v in a)
+			System.Out << v << ' ';
+			
+		System.Out << '\n';
+	}
+}

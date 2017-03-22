@@ -1,0 +1,17 @@
+namespace org.z2legacy.ut.call;
+
+class CallPass11 {
+	def test(a: Long) {
+		System.Out << "const " << a.class << "\n";
+	}
+	
+	def test(ref a: Long) {
+		System.Out << "ref " << a.class << "\n";
+	}
+	
+	def @main() {
+		val a = 0l;
+		test(0l);
+		test(a);
+	}
+}

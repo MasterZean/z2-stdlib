@@ -1,0 +1,8 @@
+namespace org.z2legacy.ut.container.vector;
+
+class FailInit05 {
+	def @main() {
+		val a = [1, ...];
+		System.Out << a << "\n";
+	}
+}

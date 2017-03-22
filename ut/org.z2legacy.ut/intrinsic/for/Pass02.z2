@@ -1,0 +1,54 @@
+namespace org.z2legacy.ut.for;
+
+class PassFor02 {
+	def print(a: Vector<Int>) {
+		val i = 0p;
+		while (i < a.Length) {
+			System.Out << '[' << i << "]=" << a[i] << " ";
+			i++;
+		}
+		System.Out << '\n';
+	}
+
+	def print2(a: Vector<Int>) {
+		val i = 0p;
+		for (; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def print3(a: Vector<Int>) {
+		val i: PtrSize = void;
+		for (i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+
+	def print4(a: Vector<Int>) {
+		for (val i = 0p; i < a.Length; i++)
+			System.Out << '[' << i << "]=" << a[i] << " ";
+		System.Out << '\n';
+	}
+	
+	def print5(a: Vector<Int>) {
+		foreach (v in a)
+			System.Out << v << " ";
+		System.Out << '\n';
+	}
+	
+	def print6(a: Vector<Int>) {
+		foreach (v, bugli in a)
+			System.Out << '[' << bugli << "]=" << v << " ";
+		System.Out << '\n';
+	}
+
+	def @main() {
+		val a = [7: 0, ...];
+		print(a);
+		print2(a);
+		print3(a);
+		print4(a);
+		print5(a);
+		print6(a);
+	}
+}

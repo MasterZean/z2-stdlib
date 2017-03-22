@@ -1,0 +1,223 @@
+using sys.core.Point2D;
+using sys.core.Point3D;
+
+namespace sys.core;
+
+class Point4D<T: Class> {
+	val X: T;
+	val Y: T;
+	val Z: T;
+	val W: T;
+
+	this(value: T) {
+		X = value;
+		Y = value;
+		Z = value;
+		W = value;
+	}
+
+	this(x: T, y: T, z: T, w: T) {
+		X = x;
+		Y = y;
+		Z = z;
+		W = w;
+	}
+
+	this(p2d: Point2D<T>, z: T, w: T) {
+		X = p2d.X;
+		Y = p2d.Y;
+		Z = z;
+		W = w;
+	}
+
+	this(p2d: Point2D<T>, s2d: Point2D<T>) {
+		X = p2d.X;
+		Y = p2d.Y;
+		Z = s2d.X;
+		W = s2d.Y;
+	}
+
+	this(p3d: Point3D<T>, w: T) {
+		X = p3d.X;
+		Y = p3d.Y;
+		Z = p3d.Z;
+		W = w;
+	}
+
+	def Clamp(min: Point4D<T>, max: Point4D<T>) {
+		X.Clamp(min.X, max.X);
+		Y.Clamp(min.Y, max.Y);
+		Z.Clamp(min.Z, max.Z);
+		W.Clamp(min.W, max.W);
+	}
+	
+	def Clamp(min: T, max: T) {
+		X.Clamp(min, max);
+		Y.Clamp(min, max);
+		Z.Clamp(min, max);
+		W.Clamp(min, max);
+	}
+	
+	def Clamped(min: Point4D<T>, max: Point4D<T>): Point4D<T> {
+		val c: Point4D<T> = void;
+
+		c.X = X.Clamped(min.X, max.X);
+		c.Y = Y.Clamped(min.Y, max.Y);
+		c.Z = Z.Clamped(min.Z, max.Z);
+		c.W = W.Clamped(min.W, max.W);
+
+		return c;
+	}
+	
+	def Clamped(min: T, max: T): Point4D<T> {
+		val c: Point4D<T> = void;
+
+		c.X = X.Clamped(min, max);
+		c.Y = Y.Clamped(min, max);
+		c.Z = Z.Clamped(min, max);
+		c.W = W.Clamped(min, max);
+
+		return c;
+	}
+
+	def GetMin(min: Point4D<T>): Point4D<T> {
+		val c: Point4D<T> = void;
+
+		c.X = X.GetMin(min.X);
+		c.Y = Y.GetMin(min.Y);
+		c.Z = Z.GetMin(min.Z);
+		c.W = W.GetMin(min.W);
+
+		return c;
+	}
+
+	def GetMax(max: Point4D<T>): Point4D<T> {
+		val c: Point4D<T> = void;
+
+		c.X = X.GetMax(max.X);
+		c.Y = Y.GetMax(max.Y);
+		c.Z = Z.GetMax(max.Z);
+		c.W = W.GetMax(max.W);
+
+		return c;
+	}
+
+	def IsNormalized(tolerance: T): Bool {
+		return ((X * X) + (Y * Y) + (Z * Z) + (W * W) - T{1}).Abs < tolerance;
+	}
+
+	property Length: T
+	get {
+		return ((X * X) + (Y * Y) + (Z * Z) + (W * W)).Sqrt;
+	}
+
+	property LengthSquared: T
+	get {
+		return (X * X) + (Y * Y) + (Z * Z) + (W * W);
+	}
+
+	def Normalize(tolerance: T) {
+		val length = Length;
+		if (length > tolerance) {
+			val inv = T{1} / length;
+			X *= inv;
+			Y *= inv;
+			Z *= inv;
+			W *= inv;
+		}
+	}
+
+	def Normalized(tolerance: T): Point4D<T> {
+		val t = this;
+		val length = Length;
+		if (length > tolerance) {
+			val inv = T{1} / length;
+			t.X *= inv;
+			t.Y *= inv;
+			t.Z *= inv;
+			t.Z *= inv;
+		}
+		return t;
+	}
+
+#region op
+
+	def @add(second: Point4D<T>): Point4D<T> {
+		return Point4D<T>{X + second.X, Y + second.Y, Z + second.Z, W + second.W};
+	}
+
+	def @add(second: T): Point4D<T> {
+		return Point4D<T>{X + second, Y + second, Z + second, W + second};
+	}
+
+	static def @sub(left: Point4D<T>, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W};
+	}
+
+	static def @sub(left: Point4D<T>, right: T): Point4D<T> {
+		return Point4D<T>{left.X - right, left.Y - right, left.Z - right, left.W - right};
+	}
+
+	static def @sub(left: T, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left - right.X, left - right.Y, left - right.Z, left - right.W};
+	}
+
+	def @mul(second: Point4D<T>): Point4D<T> {
+		return Point4D<T>{X * second.X, Y * second.Y, Z * second.Z, W * second.W};
+	}
+
+	def @mul(second: T): Point4D<T> {
+		return Point4D<T>{X * second, Y * second, Z * second, W * second};
+	}
+
+	static def @div(left: Point4D<T>, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W};
+	}
+
+	static def @div(left: Point4D<T>, right: T): Point4D<T> {
+		return Point4D<T>{left.X / right, left.Y / right, left.Z / right, left.W / right};
+	}
+
+	static def @div(left: T, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left / right.X, left / right.Y, left / right.Z, left / right.W};
+	}
+
+	static def @mod(left: Point4D<T>, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left.X % right.X, left.Y % right.Y, left.Z % right.Z, left.W % right.W};
+	}
+
+	static def @mod(left: Point4D<T>, right: T): Point4D<T> {
+		return Point4D<T>{left.X % right, left.Y % right, left.Z % right, left.W % right};
+	}
+
+	static def @mod(left: T, right: Point4D<T>): Point4D<T> {
+		return Point4D<T>{left % right.X, left % right.Y, left % right.Z, left % right.W};
+	}
+
+	def @minus(): Point4D<T> {
+		return Point4D<T>{-X, -Y, -Z, -W};
+	}
+
+	def @eq(second: T): Bool {
+		return X == second && Y == second && Z == second && W == second;
+	}
+
+	def @neq(second: T): Bool {
+		return X != second || Y != second || Z != second || W != second;
+	}
+
+#endregion
+
+	def Equals(second: Point4D<T>, tolerance: T): Bool {
+		return (X - second.X).Abs < tolerance && (Y - second.Y).Abs < tolerance && (Z - second.Z).Abs < tolerance && (W - second.W).Abs < tolerance;
+	}
+
+	def Equals(second: T, tolerance: T): Bool {
+		return (X - second).Abs < tolerance && (Y - second).Abs < tolerance && (Z - second).Abs < tolerance && (W - second).Abs < tolerance;
+	}
+}
+
+alias Point4Di = Point4D<Int>;
+alias Point4Du = Point4D<DWord>;
+alias Point4Df = Point4D<Float>;
+alias Point4Dd = Point4D<Double>;

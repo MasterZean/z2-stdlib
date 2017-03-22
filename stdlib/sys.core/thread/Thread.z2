@@ -1,0 +1,9 @@
+using microsoft.windows.Win32;
+
+namespace sys.core;
+
+class Thread {
+	static def Sleep(msec: DWord) {
+		Win32.Sleep(msec);
+	}
+}

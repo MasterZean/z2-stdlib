@@ -1,0 +1,5 @@
+ByteFail01.z2(5, 9): error: class 'ByteFail01': when trying to match overload
+	test(Byte)
+got ambiguity between
+	test(Word)
+	test(DWord)

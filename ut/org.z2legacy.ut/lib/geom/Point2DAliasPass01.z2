@@ -1,0 +1,40 @@
+namespace org.z2legacy.ut.lib.geom;
+
+using sys.core.Point2Di;
+using sys.core.Point2Df;
+using sys.core.Point2Dd;
+
+class Point2DAliasPass01 {
+	def @main() {
+		val p1 = Point2Di{};
+		val p2 = Point2Di{0};
+		
+		System.Out << p1 << (p1 == p2 ? " == " : " != ") << p2 << "\n";
+		
+		val p3 = Point2Di{0, 4};
+		System.Out << p1 << (p1 != p3 ? " != " : " == ") << p3 << "\n";
+		
+		val p4 = Point2Di{0, 4} + Point2Di{2, -2};
+		val p5 = (Point2Di{1, 2} - Point2Di{0, 1}) * Point2Di{2};
+		
+		System.Out << p4 << (p4 == p5 ? " == " : " != ") << p5 << "\n";
+		
+		val p6 = Point2Di{56} / 8;
+		System.Out << (p6 == 7) << " " << (p6 == -Point2Di{-7, -7}) << "\n";
+		
+		val p7 = Point2Df{100, -100};
+		System.Out << p7 << " " << p7.IsNormalized(0.000001f) << "\n";
+		p7.Normalize(0.000001f);
+		System.Out << p7 << " " << p7.IsNormalized(0.000001f) << "\n";
+		
+		val p8 = Point2Dd{100, -100};
+		System.Out << p8 << " " << p8.IsNormalized(0.000000000001f) << "\n";
+		p8.Normalize(0.000000000001f);
+		System.Out << p8 << " " << p8.IsNormalized(0.000000000001f) << "\n";
+		
+		System.Out << p3.Clamped(p1, p4) << "\n";
+		
+		p8.Clamp(Point2Dd{0}, Point2Dd{1});
+		System.Out << p8 << "\n";
+	}
+}

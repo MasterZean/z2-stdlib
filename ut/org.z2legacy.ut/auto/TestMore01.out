@@ -1,0 +1,17 @@
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+true
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+false
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+true
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+false
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+Min: 1 2 7000
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+Max: 2 0 1
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+Clamp: 1 2 7000
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+call org.z2legacy.ut.auto.more01.Version.@more of class sys.core.lang.Def
+Clamped: 2 0 1

@@ -1,0 +1,31 @@
+using microsoft.windows.Win32;
+
+namespace sys.core;
+
+class StopWatch {
+	this() {
+		Reset();
+	}
+	
+	this Stopped() {
+	}
+
+	def Reset() {
+		Win32.QueryPerformanceFrequency(Ptr{freq});
+		Win32.QueryPerformanceCounter(Ptr{start});
+	}
+
+	def Elapsed(): Double {
+		Win32.QueryPerformanceCounter(Ptr{stop});
+		return (stop - start) * 1000.0 / freq;
+	}
+	
+	property IsHighResolution: Bool {
+		return true;
+	}
+}
+private {
+	val start: Long;
+	val stop: Long;
+	val freq: Long;
+ }

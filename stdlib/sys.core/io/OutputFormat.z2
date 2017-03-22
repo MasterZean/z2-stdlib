@@ -1,0 +1,13 @@
+namespace sys.core;
+
+enum LineAlignment {
+	Left,
+	Center,
+	Right
+}
+
+class OutputFormat {
+	val Base = 10u;
+	val Width = 0u;
+	val Align = LineAlignment.Right;
+}

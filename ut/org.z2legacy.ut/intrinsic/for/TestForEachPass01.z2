@@ -1,0 +1,37 @@
+namespace org.z2legacy.ut.foreach;
+
+class TestForEachPass01 {
+	def @main() {
+		val f = Foo{};
+		
+		foreach (v in f)
+			System.Out << v << ' ';
+		System.Out << "\n";
+		
+		foreach (ref v in f)
+			v = "cat";
+		
+		foreach (v in f)
+			System.Out << v << ' ';
+		System.Out << "\n";
+		
+		foreach (v in Foo{})
+			System.Out << v << ' ';
+		System.Out << "\n";
+	}
+}
+
+class Foo {
+	property Length: PtrSize {
+		return animals.Length;
+	}
+	
+	property @index: ref String
+	get [index: PtrSize] {
+		System.Debug.Assert(index < Length);
+		return animals[index];
+	}
+}
+private {
+	val animals = CArray["cat", "dog", "chicken", "wolf"];
+}

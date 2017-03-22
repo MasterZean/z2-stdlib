@@ -1,0 +1,34 @@
+namespace org.z2legacy.ut.intrinsic;
+
+using sys.core.OutputFormat;
+
+class RolRor08Test {
+	def @main() {
+		val f = OutputFormat{} {
+			Base = 2;
+			Width = 16;
+		};
+		
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b00000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b01000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b10000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b11000010, 1), f) << '\n';
+		
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b01010101'00001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b01010101'01001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b01010101'10001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Rol8(0b01010101'11001010, 1), f) << '\n';
+		
+		System.Out << '\n';
+		
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b00000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b01000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b10000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b11000010, 1), f) << '\n';
+		
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b01010101'00001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b01010101'01001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b01010101'10001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Intrinsic.Ror8(0b01010101'11001010, 1), f) << '\n';
+	}
+}

@@ -1,0 +1,13 @@
+namespace org.z2legacy.ut.compa;
+
+class EmptyDummy {
+	def @main() {
+		EmptyDummy;
+		org.z2legacy.ut.compa.EmptyDummy;
+		::org.z2legacy.ut.compa.EmptyDummy;
+		
+		val org = 0;
+		
+		::org.z2legacy.ut.compa.EmptyDummy;
+	}
+}

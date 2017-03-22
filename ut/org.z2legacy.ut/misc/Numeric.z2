@@ -1,0 +1,87 @@
+namespace org.z2legacy.ut.misc;
+
+class NumericUT {
+	def TestBase<T: Class>() {
+		val t: T = void;
+		val b: Bool = void;
+
+		t = T.Zero;
+		System.Trace.Assert(t == 0);
+		System.Out << T.class.Name << "::" << "Zero = " << t << "\n";
+		t = T.One;
+		System.Trace.Assert(t == 1);
+		System.Out << T.class.Name << "::" << "One = " << t << "\n";
+		
+		b = T.IsInteger;
+		System.Out << T.class.Name << "::" << "IsInteger = " << b << "\n";
+		b = T.IsSigned;
+		System.Out << T.class.Name << "::" << "IsSigned = " << b << "\n";
+
+		val d = 0;
+		d = T.MaxDigitsLow;
+		System.Out << T.class.Name << "::" << "MaxDigitsLow = " << d << "\n";
+		d = T.MaxDigitsHigh;
+		System.Out << T.class.Name << "::" << "MaxDigitsHigh = " << d << "\n";
+		
+		t = T.Min;
+		System.Out << T.class.Name << "::" << "Min = " << t << "\n";
+		t = T.Max;
+		System.Out << T.class.Name << "::" << "Max = " << t << "\n";
+	}
+
+	def TestInteger<T: Class>() {
+		val t: T = void;
+		val t2: T = void;
+
+		t = T.IsSigned ? -7 : 7;
+		t2 = t.Abs;
+		System.Trace.Assert(t2 == 7);
+		System.Out << T.class.Name << "{" << t << "}.Abs = " << t2 << "\n";
+		
+		t2 = t.Sqr;
+		System.Trace.Assert(t2 == 49);
+		System.Out << T.class.Name << "{" << t << "}.Sqr = " << t2 << "\n";
+	}
+
+	def TestNumericInt<T: Class>() {
+		System.Out << "////////////////////////////////////////////////////" << "\n";
+		System.Out << "// Testing " << T.class.Name <<"\n";
+		System.Out << "////////////////////////////////////////////////////" << "\n";
+		System.Out << "\n";
+
+		TestBase<T>();
+		TestInteger<T>();
+
+		System.Out << "\n";
+		System.Out << "\n";
+		System.Out << "\n";
+	}
+
+	def TestNumericFloat<T: Class>() {
+		System.Out << "////////////////////////////////////////////////////" << "\n";
+		System.Out << "// Testing " << T.class.Name <<"\n";
+		System.Out << "////////////////////////////////////////////////////" << "\n";
+		System.Out << "\n";
+
+		TestBase<T>();
+		TestInteger<T>();
+
+		System.Out << "\n";
+		System.Out << "\n";
+		System.Out << "\n";
+	}
+
+	def @main() {
+		TestNumericInt<Small>();
+		TestNumericInt<Byte>();
+		TestNumericInt<Short>();
+		TestNumericInt<Word>();
+		TestNumericInt<Int>();
+		TestNumericInt<DWord>();
+		TestNumericInt<Long>();
+		TestNumericInt<QWord>();
+
+		TestNumericFloat<Float>();
+		TestNumericFloat<Double>();
+	}
+}

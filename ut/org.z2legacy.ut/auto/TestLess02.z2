@@ -1,0 +1,67 @@
+namespace org.z2legacy.ut.auto.less02;
+
+class Version {
+	val major = 0;
+	val minor = 0;
+	val revision = 0;
+	
+	this(maj: Int, min: Int, rev: Int) {
+		major = maj;
+		minor = min;
+		revision = rev;
+	}
+	
+	def @less(v: Version): Bool; const {
+		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
+		if (major < v.major)
+			return true;
+		else if (major > v.major)
+			return false;
+		else  {
+			if (minor < v.minor)
+				return true;
+			else if (minor > v.minor)
+				return false;
+			else
+				return revision < v.revision;
+		}
+	}
+	
+	def @lesseq(v: Version): Bool; const {
+		System.Out << "call " << class << '.' << def.Name << " of class " << @neq.class << "\n";
+		if (major < v.major)
+			return true;
+		else if (major > v.major)
+			return false;
+		else  {
+			if (minor < v.minor)
+				return true;
+			else if (minor > v.minor)
+				return false;
+			else
+				return revision <= v.revision;
+		}
+	}
+}
+
+class Test {
+	def @main() {
+		val v1 = Version{1, 2, 7000};
+		val v2 = Version{2, 0, 1};
+		
+		System.Out << (v1 < v2) << "\n";
+		System.Out << (v1 > v2) << "\n";
+		System.Out << (v1 <= v2) << "\n";
+		System.Out << (v1 >= v2) << "\n";
+				
+		System.Out << "Min: " << Intrinsic.Min(v1, v2) << "\n";
+		System.Out << "Max: " <<  Intrinsic.Max(v1, v2) << "\n";
+		
+		val v3 = Version{1, 0, 0};
+		Intrinsic.Clamp(v3, v1, v2);
+		System.Out << "Clamp: " << v3 << "\n";
+		
+		val v4 = Intrinsic.Clamped(Version{7, 5, 6}, v1, v2);
+		System.Out << "Clamped: " << v4 << "\n";
+	}
+}

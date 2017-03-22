@@ -1,0 +1,118 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Int {
+	const Zero: Int = 0;
+	const One: Int = 1;
+
+	const Min: Int = -2'147'483'648;
+	const Max: Int = 2'147'483'647;
+
+	const IsSigned = true;
+	const IsInteger = true;
+
+	const MaxDigitsLow = 9;
+	const MaxDigitsHigh = 10;
+
+	property Abs: Int {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Int {
+		return this * this;
+	}
+
+	property Sqrt: Int {
+		return Int{Double{this}.Sqrt};
+	}
+
+	property Floor: Int {
+		return this;
+	}
+
+	property Ceil: Int {
+		return this;
+	}
+
+	property Round: Int {
+		return this;
+	}
+
+	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
+	
+	def Clamped(min: Int, max: Int): Int; const Intrinsic.Clamped;
+
+	this(string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseSig<Int>(s);
+	}
+	
+	def ToString(): String; const {
+		val buf: CArray<Byte, ConvertUtf8.MaxIntBuffer> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.IntAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Int) {
+		this = value;
+	}
+
+	this Saturated(value: DWord) {
+		this = value > DWord{Max} ? Max : Int{value};
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Int{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Int{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Int{value};
+	}
+	
+	this Saturated(string: String) {
+		val s = Slice<Byte>{string};
+		this = ConvertUtf8.ParseSigSaturated<Int>(s);
+	}
+
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+	
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+
+	def @put(ref stream: Stream); const {
+		stream.RawPutS32(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetS32();
+	}
+
+#endregion
+}

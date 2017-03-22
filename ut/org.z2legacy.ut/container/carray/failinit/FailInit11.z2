@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.container.carray;
+
+class FailInit11 {
+	def @main() {
+		val count = 7;
+		val v = CArray<Int, count>{};
+		System.Out << v << "\n";
+	}
+}

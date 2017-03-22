@@ -1,0 +1,1 @@
+FailInit01.z2(5, 28): error: 'CArray<Int>' can't be instantiated without an item count

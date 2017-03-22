@@ -1,0 +1,2 @@
+FailPrivate01.z2(7, 20): error: can't access non public constructor:
+	org.z2legacy.ut.access.Foo{}

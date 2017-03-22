@@ -1,0 +1,35 @@
+namespace org.z2legacy.ut.container.vector.api;
+
+class Pass01Add {
+	def @main() {
+		val a = Vector<Int>{};
+		System.Out << "a: " << a.class << " = " << a << "   [" << a.Length << ", " << a.Capacity << "]\n";
+		
+		a.Add(7);
+		System.Out << "a: " << a.class << " = " << a << "   [" << a.Length << ", " << a.Capacity << "]\n";
+		
+		a.Add(45);
+		System.Out << "a: " << a.class << " = " << a << "   [" << a.Length << ", " << a.Capacity << "]\n";
+		
+		a.Add(100);
+		System.Out << "a: " << a.class << " = " << a << "   [" << a.Length << ", " << a.Capacity << "]\n";
+		
+		val b = <Int>[];
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+		
+		b.Add(32);
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+		
+		b.Add(77);
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+		
+		b.Add(-5);
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+		
+		b.Add(-1200);
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+		
+		b = a;
+		System.Out << "b: " << b.class << " = " << b << "   [" << b.Length << ", " << b.Capacity << "]\n";
+	}
+}

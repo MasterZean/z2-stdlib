@@ -1,0 +1,29 @@
+namespace org.z2legacy.ut.intrinsic.minmax;
+
+class MaxPass04 {
+	def @main() {
+		val va = Intrinsic.Max(5, 20);
+		System.Out << va.class.ShortName << " max is " << va << "\n";
+		
+		val vb = Intrinsic.Max(50u, 200u);
+		System.Out << vb.class.ShortName << " max is " << vb << "\n";
+		
+		val vc = Intrinsic.Max(500l, 2000l);
+		System.Out << vc.class.ShortName << " max is " << vc << "\n";
+		
+		val vd = Intrinsic.Max(5000ul, 20000ul);
+		System.Out << vd.class.ShortName << " max is " << vd << "\n";
+		
+		val vi = Intrinsic.Max(0.4f, 22.1f);
+		System.Out << vi.class.ShortName << " max is " << vi << "\n";
+		
+		val vj = Intrinsic.Max(0.04000000, 22.01);
+		System.Out << vj.class.ShortName << " max is " << vj << "\n";
+		
+		val vk = Intrinsic.Max(-0.04000000, -22.01);
+		System.Out << vk.class.ShortName << " max is " << vk << "\n";
+		
+		val vl = Intrinsic.Max('a', '7');
+		System.Out << vl.class.ShortName << " max is " << vl << "\n";
+	}
+}

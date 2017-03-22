@@ -1,0 +1,7 @@
+namespace org.z2legacy.ut;
+
+class HelloWorld {
+	def @main() {
+		System.Out << "Hello World!\n";
+	}
+}

@@ -1,0 +1,14 @@
+namespace org.z2legacy.ut.misc;
+
+class CpuID {
+	def @main() {
+		System.Out << "CPU Vendor: " << System.CPU.Vendor << "\n";
+		System.Out << "MMX: " << System.CPU.MMX << "\n";
+		System.Out << "SSE: " << System.CPU.SSE << "\n";
+		System.Out << "SSE2: " << System.CPU.SSE2 << "\n";
+		System.Out << "SSE3: " << System.CPU.SSE3 << "\n";
+		System.Out << "SSSE3: " << System.CPU.SSSE3 << "\n";
+		System.Out << "SSE41: " << System.CPU.SSE41 << "\n";
+		System.Out << "SSE42: " << System.CPU.SSE42 << "\n";
+	}
+}

@@ -1,0 +1,34 @@
+namespace org.z2legacy.ut;
+
+class FloatNanInf {
+	def test<T: Class>() {
+		System.Out << T.class << "\n";
+		
+		val f = T.Nan;
+		if (f.IsNan)
+			System.Out << "NAN " << f << "\n";
+		else
+			System.Out << "finite " << f << "\n";
+		
+		val t = T{0.0};
+		f = 1 / t;
+		if (f == T.Infinite)
+			System.Out << "Infinite " << f << "\n";
+		else
+			System.Out << "finite " << f << "\n";
+		System.Out << f.IsInfinite << "\n";
+		
+		f = -1 / t;
+		if (f == -T.Infinite)
+			System.Out << "-Infinite " << f << "\n";
+		else
+			System.Out << "finite " << f << "\n";
+		System.Out << f.IsInfinite << "\n";
+		System.Out << "\n";
+	}
+	
+	def @main() {
+		test<Float>();
+		test<Double>();
+	}
+}

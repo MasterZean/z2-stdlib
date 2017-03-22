@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.access;
+
+using Foo;
+
+class FailPrivate07 {
+	def @main() {
+		System.Out << Foo.test() << "\n";
+	}
+}

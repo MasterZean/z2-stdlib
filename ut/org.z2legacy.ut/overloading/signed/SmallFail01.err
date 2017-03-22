@@ -1,0 +1,5 @@
+SmallFail01.z2(5, 9): error: class 'SmallFail01': when trying to match overload
+	test(Small)
+got ambiguity between
+	test(Short)
+	test(Int)

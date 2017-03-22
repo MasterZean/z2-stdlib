@@ -1,0 +1,103 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Double {
+	const Zero: Double = 0;
+	const One: Double = 1;
+	const Default: Double = Zero;
+
+	const Min: Double = -1.79769e+308;
+	const Max: Double = 1.79769e+308;
+	
+	const IsSigned = true;
+	const IsInteger = false;
+
+	const MaxDigitsLow = 15;
+	const MaxDigitsHigh = 17;
+
+	const MinExpBase10 = -307;
+	const MaxExpBase10 = 308;
+	
+	const Nan = Double{Float{1.0e+300 * 1.0e+300} * 0.0f};
+	const Infinite = Double{Float{1.0e+300 * 1.0e+300}};
+	
+	property IsNan: Bool {
+		return this != this;
+	}
+
+	property IsInfinite: Bool {
+		return this == Infinite || this == -Infinite;
+	}
+	
+	property Abs: Double {
+		return this > 0 ? this : -this;
+	}
+
+	property Sqr: Double {
+		return this * this;
+	}
+
+	property Sqrt: Double get const Intrinsic.Sqrt;
+
+	property Floor: Double get const Intrinsic.Floor;
+
+	property Ceil: Double get const Intrinsic.Ceil;
+
+	property Round: Double get const Intrinsic.Round;
+
+	def Clamp(min: Double, max: Double); Intrinsic.Clamp;
+	
+	def Clamped(min: Double, max: Double): Double; const Intrinsic.Clamped;
+
+#region Math
+
+	property Log: Double get const Intrinsic.Log;
+
+	property Log10: Double get const Intrinsic.Log10;
+
+	def Pow(exp: Double): Double; const Intrinsic.Pow;
+
+#endregion
+
+#region ToString
+
+	def ToString(): String; const {
+		val buf: CArray<Byte, 320> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DoubleAsText(s, this);
+		return String{s};
+	}
+	
+#endregion
+
+#region Saturation
+
+	this Saturated(value: Double) {
+		this = value;
+	}
+	
+#endregion
+
+#region IO
+
+	def @write(ref stream: Stream); const {
+		stream.RawWrite(this);
+	}
+	
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+
+	def @put(ref stream: Stream); const {
+		stream.RawPutF64(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetF64();
+	}
+
+#endregion
+}

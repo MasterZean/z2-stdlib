@@ -1,0 +1,28 @@
+namespace org.z2legacy.ut.call;
+
+using Foo;
+
+class CallPassFoo02 {
+	def test(val a: Foo) {
+		System.Out << "val\n";
+		g(a);
+	}
+	
+	def g(a: Foo) {
+		System.Out << "g const\n";
+	}
+	
+	def g(ref a: Foo) {
+		System.Out << "g reference\n";
+	}
+	
+	def g(move a: Foo) {
+		System.Out << "g move\n";
+	}
+	
+	def @main() {
+		val a = Foo{};
+		test(Foo{});
+		test(a);
+	}
+}
