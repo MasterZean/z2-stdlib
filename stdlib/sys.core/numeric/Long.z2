@@ -1,8 +1,8 @@
-using sys.core.ConvertUtf8;
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
-
-namespace sys.core.lang;
+using sys.core.ConvertUtf8;
 
 class Long {
 	const Zero: Long = 0;
@@ -45,13 +45,13 @@ class Long {
 	
 	def Clamped(min: Long, max: Long): Long; const Intrinsic.Clamped;
 
-	this(const string: String) {
+	this(string: String) {
 		val s = Slice<Byte>{string};
 		this = ConvertUtf8.ParseSig<Long>(s);
 	}
 	
 	def ToString(): String; const {
-		val buf: [c ConvertUtf8.MaxLongBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxLongBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.LongAsText(s, this);
 		return String{s};
@@ -76,7 +76,7 @@ class Long {
 			this = Long{value};
 	}
 	
-	this Saturated(const string: String) {
+	this Saturated(string: String) {
 		val s = Slice<Byte>{string};
 		this = ConvertUtf8.ParseSigSaturated<Long>(s);
 	}
@@ -89,7 +89,7 @@ class Long {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, const format: OutputFormat); const {
+	def @write(ref stream: Stream, format: OutputFormat); const {
 		stream.RawWrite(this, format);
 	}
 	

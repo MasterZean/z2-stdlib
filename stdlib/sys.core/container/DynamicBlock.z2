@@ -14,7 +14,7 @@ class DynamicBlock<T: Class> {
 
 #region manager
 
-	this(const copy: DynamicBlock<T>) {
+	this(copy: DynamicBlock<T>) {
 		length = copy.length;
 		
 		val temp: Ptr<T> = void;
@@ -35,7 +35,7 @@ class DynamicBlock<T: Class> {
 		data = temp;
 	}
 
-	def @attr(const copy: DynamicBlock<T>) {
+	def @attr(copy: DynamicBlock<T>) {
 		// exit early if assigning to self
 		if (data == copy.data)
 			return;
@@ -62,24 +62,24 @@ class DynamicBlock<T: Class> {
 	
 	this(move copy: DynamicBlock<T>) {
 		// exit early if assigning to self
-		if (data == copy.data)
-			return;
-		this.~{};
+		if (data != copy.data) {
+			this.~{};
 		
-		default();
-		copy.length = 0;
-		copy.data = null;
+			default();
+			copy.length = 0;
+			copy.data = null;
+		}
 	}
 	
 	def @attr(move copy: DynamicBlock<T>) {
 		// exit early if assigning to self
-		if (data == copy.data)
-			return;
-		this.~{};
+		if (data != copy.data) {
+			this.~{};
 		
-		default();
-		copy.length = 0;
-		copy.data = null;
+			default();
+			copy.length = 0;
+			copy.data = null;
+		}
 	}
 	
 	this @allocate(len: PtrSize, capacity: PtrSize) {
@@ -130,7 +130,7 @@ class DynamicBlock<T: Class> {
 			Length = value;
 	}
 	
-	def ExpandTo(newLength: PtrSize, const init: T) {
+	def ExpandTo(newLength: PtrSize, init: T) {
 		if (newLength > length) {
 			SetLengthNoInitAggressive(newLength);
 
@@ -146,7 +146,7 @@ class DynamicBlock<T: Class> {
 		Length = length + delta;
 	}
 	
-	def ExpandBy(delta: PtrSize, const init: T) {
+	def ExpandBy(delta: PtrSize, init: T) {
 		val newLength = length + delta;
 		SetLengthNoInitAggressive(newLength);
 
@@ -163,13 +163,13 @@ class DynamicBlock<T: Class> {
 	}
 
 	def ShrinkBy(delta: PtrSize) {
-		if (length - delta < delta)
+		if (length - delta >= 0)
 			Length = length - delta;
 		else
 			Length = 0;
 	}
 	
-	def Fill(const value: T) {
+	def Fill(value: T) {
 		for (val i = 0p; i < length; i++)
 			data[i] = value;
 	}
@@ -178,14 +178,14 @@ class DynamicBlock<T: Class> {
 		~this();
 	}
 		
-	def Append(const item: T) {
+	def Append(item: T) {
 		val newLength = length + 1;
 		SetLengthNoInitAggressive(newLength);
 		data[length]{item};
 		length = newLength;
 	}
 
-	def Append(const item: T, count: PtrSize) {
+	def Append(item: T, count: PtrSize) {
 		val newLength = length + count;
 		SetLengthNoInitAggressive(newLength);
 		for (val i = length; i < newLength; i++)
@@ -218,6 +218,10 @@ class DynamicBlock<T: Class> {
 			SetLengthUnsafe(value);
 	}
 
+	def FreeUnsafe(len: PtrSize) {
+		length = len;
+	}
+	
 #endregion
 
 	property SysDataPointer: Ptr<T>

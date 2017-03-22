@@ -1,15 +1,15 @@
 namespace sys.core.lang;
 
 class Intrinsic {
-	static def Min<T: Class>(const a: T, const b: T): T {
+	static def Min<T: Class>(a: T, b: T): T {
 		return a >= b ? b : a;
 	}
 
-	static def Max<T: Class>(const a: T, const b: T): T {
+	static def Max<T: Class>(a: T, b: T): T {
 		return a <= b ? b : a;
 	}
 
-	static def Clamped<T: Class>(const a: T, const min: T, const max: T): T {
+	static def Clamped<T: Class>(a: T, min: T, max: T): T {
 		System.Debug.Assert(min <= max);
 
 		if (a <= min)
@@ -20,7 +20,7 @@ class Intrinsic {
 			return a;
 	}
 
-	static def Clamp<T: Class>(ref a: T, const min: T, const max: T) {
+	static def Clamp<T: Class>(ref a: T, min: T, max: T) {
 		System.Debug.Assert(min <= max);
 
 		if (a <= min)

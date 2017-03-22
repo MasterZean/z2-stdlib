@@ -4,6 +4,20 @@ using sys.core.DynamicBlock;
 namespace sys.core.lang;
 
 class Vector<T: Class> {
+	this(copy: Vector<T>) {
+		default();
+	}
+	
+	def @attr(copy: Vector<T>) {
+		default();
+	}
+		
+	~this() {
+		data.FreeUnsafe(length);
+
+		length = 0;
+	}
+	
 	property Length: PtrSize
 	get {
 		return length;
@@ -34,11 +48,11 @@ class Vector<T: Class> {
 	set (value) {
 		System.Trace.Assert(value >= length);
 
-		value = Intrinsic.Max(value, 2);
-		if (value == data.Length)
+		val temp = Intrinsic.Max(value, 2);
+		if (temp == data.Length)
 			return;
 
-		data.Length = value;
+		data.Length = temp;
 	}
 
 	property @index: ref T
@@ -47,7 +61,7 @@ class Vector<T: Class> {
 		return data[index];
 	}
 	
-	def Add(const item: T) {
+	def Add(item: T) {
 		if (length >= data.Length)
 			Grow();
 		data[length++]{item};
@@ -59,27 +73,27 @@ class Vector<T: Class> {
 		data[length++]{item};
 	}
 	
-	static def @shl<T: Class>(ref v: Vector<T>, const data: T): ref Vector<T> {
+	static def @shl<T: Class>(ref v: Vector<T>, data: T): ref Vector<T> {
 		v.Add(data);
 		return v;
 	}
 	
-	def Fill(const value: T) {
+	def Fill(value: T) {
 		for (val i = 0p; i < Length; i++)
 			this[i] = value;
 	}
 	
-	def FindIndex(const item: T): PtrSize {
+	def FindIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item);
 	}
 	
-	def FindIndex(const item: T, start: PtrSize): PtrSize {
+	def FindIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item, start);
 	}
 	
-	def BinaryIndex(const item: T): PtrSize {
+	def BinaryIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item);
 	}
@@ -87,6 +101,20 @@ class Vector<T: Class> {
 	def Reverse() {
 		val s = Slice<T>{this};
 		s.Reverse();
+	}
+	
+	def Delete(item: T): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.Delete(item);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteAll(item: T): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteAll(item);
+		length = s.Length;
+		return r;
 	}
 
 #region IO

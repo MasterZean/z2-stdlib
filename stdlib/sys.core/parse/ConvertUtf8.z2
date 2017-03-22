@@ -33,7 +33,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 		
 		val start: PtrSize = void;
 		val value: DWord = void;
@@ -61,8 +61,11 @@ class ConvertUtf8 {
 		buffer[0] = temp[0];
 		
 		val end = n - 1;
-		for (val i = 0p; i <= end; i++)
-			buffer[start + i] = temp[end - i];
+		while (start < n) {
+			buffer[start] = temp[end];
+			start++;
+			end--;
+		}
 
 		buffer.Length = n;
 	}
@@ -88,7 +91,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 
 		val start: PtrSize = void;
 		val value: DWord = void;
@@ -117,8 +120,11 @@ class ConvertUtf8 {
 		buffer[0] = temp[0];
 				
 		val end = n - 1;
-		for (val i = 0p; i <= end; i++)
-			buffer[start + i] = temp[end - i];
+		while (start < n) {
+			buffer[start] = temp[end];
+			start++;
+			end--;
+		}
 
 		buffer.Length = n;
 	}
@@ -133,7 +139,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 68]Byte = void;
+		val temp: CArray<Byte, 32> = void;
 		
 		val start: PtrSize = void;
 		val value: QWord = void;
@@ -161,9 +167,12 @@ class ConvertUtf8 {
 		buffer[0] = temp[0];
 		
 		val end = n - 1;
-		for (val i = 0p; i <= end; i++)
-			buffer[start + i] = temp[end - i];
-
+		while (start < n) {
+			buffer[start] = temp[end];
+			start++;
+			end--;
+		}
+		
 		buffer.Length = n;
 	}
 	
@@ -188,7 +197,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 68]Byte = void;
+		val temp: CArray<Byte, 68> = void;
 
 		val start: PtrSize = void;
 		val value: QWord = void;
@@ -217,13 +226,16 @@ class ConvertUtf8 {
 		buffer[0] = temp[0];
 				
 		val end = n - 1;
-		for (val i = 0p; i <= end; i++)
-			buffer[start + i] = temp[end - i];
+		while (start < n) {
+			buffer[start] = temp[end];
+			start++;
+			end--;
+		}
 
 		buffer.Length = n;
 	}
 	
-	static def ParseSig<T: Class>(ref buffer: Slice<Byte>): T; const {
+	static def ParseSig<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -256,7 +268,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static def ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T; const {
+	static def ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -294,7 +306,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static def ParseUns<T: Class>(ref buffer: Slice<Byte>): T; const {
+	static def ParseUns<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')
@@ -322,7 +334,7 @@ class ConvertUtf8 {
 		return value;
 	}
 	
-	static def ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T; const {
+	static def ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')
@@ -353,7 +365,7 @@ class ConvertUtf8 {
 		return value;
 	}
 	
-	static def DWordAsText(ref buffer: Slice<Byte>, value: DWord) {
+	static def DWordAsText(ref buffer: Slice<Byte>, val value: DWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -363,7 +375,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 		
 		val n = 0p;
 		while (value != 0) {
@@ -382,7 +394,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def DWordAsText(ref buffer: Slice<Byte>, value: DWord, base: DWord) {
+	static def DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord) {
 		if (base == 10) {
 			DWordAsText(buffer, value);
 			return;
@@ -403,7 +415,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 		
 		val n = 0p;
 		while (value != 0) {
@@ -423,7 +435,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsText(ref buffer: Slice<Byte>, value: QWord) {
+	static def QWordAsText(ref buffer: Slice<Byte>, val value: QWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -433,7 +445,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 68]Byte = void;
+		val temp: CArray<Byte, 68> = void;
 		
 		val n = 0p;
 		while (value != 0) {
@@ -452,7 +464,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsText(ref buffer: Slice<Byte>, value: QWord, base: DWord) {
+	static def QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord) {
 		if (base == 10) {
 			QWordAsText(buffer, value);
 			return;
@@ -473,7 +485,7 @@ class ConvertUtf8 {
 			return;
 		}
 
-		val temp: [c 68]Byte = void;
+		val temp: CArray<Byte, 68> = void;
 		
 		val n = 0p;
 		while (value != 0) {
@@ -778,7 +790,7 @@ class ConvertUtf8 {
 	}
 }
 private {
-	static val bases: [c 36]Char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'c', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	static val bases = CArray[36: '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'c', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 	
 	static def IntAsHexText(ref buffer: Slice<Byte>, data: Int) {
 		if (data == 0) {
@@ -790,7 +802,7 @@ private {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 		
 		val start: PtrSize = void;
 		val value: DWord = void;
@@ -835,7 +847,7 @@ private {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 		
 		val start: PtrSize = void;
 		val value: QWord = void;
@@ -870,7 +882,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def DWordAsHexText(ref buffer: Slice<Byte>, value: DWord) {
+	static def DWordAsHexText(ref buffer: Slice<Byte>, val value: DWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -880,7 +892,7 @@ private {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 
 		val n = 0p;
 		while (value != 0) {
@@ -900,7 +912,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsHexText(ref buffer: Slice<Byte>, value: QWord) {
+	static def QWordAsHexText(ref buffer: Slice<Byte>, val value: QWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -910,7 +922,7 @@ private {
 			return;
 		}
 
-		val temp: [c 40]Byte = void;
+		val temp: CArray<Byte, 40> = void;
 
 		val n = 0p;
 		while (value != 0) {
@@ -930,7 +942,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def AsTextFix<B: Class>(ref buffer: Slice<Byte>, data: Double, digitLimit: DWord) {
+	static def AsTextFix<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
 		if (data == 0) {
 			if (buffer.Length < 3)
 				throw sys.core.BufferOverflowException{};
@@ -977,7 +989,7 @@ private {
 			digits--;
 		}
 
-		val temp: [c 315]Byte = void;
+		val temp: CArray<Byte, 315> = void;
 		val tempSlice = Slice<Byte>{temp};
 		if (B.class == Long)
 			LongAsText(tempSlice, pp);
@@ -1058,7 +1070,7 @@ private {
 		buffer.Length = si + n;
 	}
 	
-	static def AsTextExp<B: Class>(ref buffer: Slice<Byte>, data: Double, digitLimit: DWord) {
+	static def AsTextExp<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
 		if (data == 0) {
 			if (buffer.Length < 5)
 				throw sys.core.BufferOverflowException{};
@@ -1108,7 +1120,7 @@ private {
 			digits--;
 		}
 
-		val temp: [c 315]Byte = void;
+		val temp: CArray<Byte, 315> = void;
 		val tempSlice = Slice<Byte>{temp};
 		if (B.class == Long)
 			LongAsText(tempSlice, pp);

@@ -1,8 +1,8 @@
-using sys.core.ConvertUtf8;
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
-
-namespace sys.core.lang;
+using sys.core.ConvertUtf8;
 
 class Float {
 	const Zero: Float = 0;
@@ -62,7 +62,7 @@ class Float {
 #region ToString
 
 	def ToString(): String; const {
-		val buf: [c 320]Byte = void;
+		val buf: CArray<Byte, 320> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DoubleAsText(s, this);
 		return String{s};
@@ -76,6 +76,10 @@ class Float {
 		stream.RawWrite(this);
 	}
 
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
+	}
+	
 	def @put(ref stream: Stream); const {
 		stream.RawPutF32(this);
 	}

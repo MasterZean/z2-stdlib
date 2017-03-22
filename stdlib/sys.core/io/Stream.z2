@@ -5,7 +5,7 @@ namespace sys.core;
 
 class Stream {
 	def BinPut(ref data: Slice<Byte>) {
-		if(ptr + data.Length <= wrlim) {
+		if (ptr + data.Length <= wrlim) {
 			Intrinsic.MemCopy(ptr, data.SysDataPointer, data.Length);
 			ptr = ptr + data.Length;
 		}
@@ -14,7 +14,7 @@ class Stream {
 	}
 
 	def BinGet(ref data: Slice<Byte>) {
-		if(ptr + data.Length <= rdlim) {
+		if (ptr + data.Length <= rdlim) {
 			Intrinsic.MemCopy(data.SysDataPointer, ptr, data.Length);
 			ptr = ptr + data.Length;
 		}
@@ -31,7 +31,7 @@ class Stream {
 			RawWrite("true");
 	}
 	
-	virtual def RawWrite(data: Bool, const format: OutputFormat) {
+	virtual def RawWrite(data: Bool, format: OutputFormat) {
 		if (data == false)
 			RawWrite("false", format);
 		else
@@ -39,109 +39,109 @@ class Stream {
 	}
 
 	virtual def RawWrite(data: Char) {
-		val buf: [c ConvertUtf8.MaxCharBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.CharAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: Char, const format: OutputFormat) {
-		val buf: [c ConvertUtf8.MaxCharBuffer]Byte = void;
+	virtual def RawWrite(data: Char, format: OutputFormat) {
+		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.CharAsText(s, data);
 		BinPut(s);
 	}
 
 	virtual def RawWrite(data: Int) {
-		val buf: [c ConvertUtf8.MaxIntBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxIntBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.IntAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: Int, const format: OutputFormat) {
-		val buf: [c ConvertUtf8.MaxBinIntBuffer]Byte = void;
+	virtual def RawWrite(data: Int, format: OutputFormat) {
+		val buf: CArray<Byte, ConvertUtf8.MaxBinIntBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.IntAsText(s, data, format.Base);
 		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: DWord) {
-		val buf: [c ConvertUtf8.MaxDWordBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxDWordBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DWordAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: DWord, const format: OutputFormat) {
-		val buf: [c ConvertUtf8.MaxBinDWordBuffer]Byte = void;
+	virtual def RawWrite(data: DWord, format: OutputFormat) {
+		val buf: CArray<Byte, ConvertUtf8.MaxBinDWordBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DWordAsText(s, data, format.Base);
 		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: Long) {
-		val buf: [c ConvertUtf8.MaxLongBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxLongBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.LongAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: Long, const format: OutputFormat) {
-		val buf: [c ConvertUtf8.MaxBinLongBuffer]Byte = void;
+	virtual def RawWrite(data: Long, format: OutputFormat) {
+		val buf: CArray<Byte, ConvertUtf8.MaxBinLongBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.LongAsText(s, data, format.Base);
 		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: QWord) {
-		val buf: [c ConvertUtf8.MaxQWordBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxQWordBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.QWordAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: QWord, const format: OutputFormat) {
-		val buf: [c ConvertUtf8.MaxBinQWordBuffer]Byte = void;
+	virtual def RawWrite(data: QWord, format: OutputFormat) {
+		val buf: CArray<Byte, ConvertUtf8.MaxBinQWordBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.QWordAsText(s, data, format.Base);
 		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: Float) {
-		val buf: [c 45]Byte = void;
+		val buf: CArray<Byte, 45> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.FloatAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: Float, const format: OutputFormat) {
-		val buf: [c 45]Byte = void;
+	virtual def RawWrite(data: Float, format: OutputFormat) {
+		val buf: CArray<Byte, 45> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.FloatAsText(s, data);
 		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: Double) {
-		val buf: [c 315]Byte = void;
+		val buf: CArray<Byte, 315> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DoubleAsText(s, data);
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(data: Double, const format: OutputFormat) {
-		val buf: [c 315]Byte = void;
+	virtual def RawWrite(data: Double, format: OutputFormat) {
+		val buf: CArray<Byte, 315> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DoubleAsText(s, data);
 		FormatBuffer(s, format);
 	}
 
-	virtual def RawWrite(const data: String) {
+	virtual def RawWrite(data: String) {
 		val s = Slice<Byte>{data};
 		BinPut(s);
 	}
 	
-	virtual def RawWrite(const data: String, const format: OutputFormat) {
+	virtual def RawWrite(data: String, format: OutputFormat) {
 		val s = Slice<Byte>{data};
 		FormatBuffer(s, format);
 	}
@@ -308,12 +308,12 @@ class Stream {
 
 #region High
 
-	def Write<T: Class>(const data: T): ref Stream {
+	def Write<T: Class>(data: T): ref Stream {
 		data.@write(this);
 		return this;
 	}
 	
-	def Write<T: Class>(const data: T, const format: OutputFormat): ref Stream {
+	def Write<T: Class>(data: T, format: OutputFormat): ref Stream {
 		data.@write(this, format);
 		return this;
 	}
@@ -323,7 +323,7 @@ class Stream {
 		return this;
 	}
 
-	static def @shl<T: Class>(ref s: Stream, const data: T): ref Stream {
+	static def @shl<T: Class>(ref s: Stream, data: T): ref Stream {
 		data.@write(s);
 		return s;
 	}
@@ -333,7 +333,7 @@ class Stream {
 		return s;
 	}
 
-	def Put<T: Class>(const data: T): ref Stream {
+	def Put<T: Class>(data: T): ref Stream {
 		data.@put(this);
 		return this;
 	}
@@ -345,7 +345,7 @@ class Stream {
 
 #endregion
 		
-	def FormatBuffer(s: Slice<Byte>, const format: OutputFormat) {
+	def FormatBuffer(s: Slice<Byte>, format: OutputFormat) {
 		if (format.Width != 0 && format.Width < s.Length) {
 			val s2 = Slice<Byte>{s, s.Length - PtrSize{format.Width}, PtrSize{format.Width}};
 			BinPut(s2);

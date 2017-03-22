@@ -1,14 +1,19 @@
 namespace sys.core.lang;
 
 class Slice<T: Class> {
-	this(ref p: [c]T) {
-		ptr = p.SysDataPointer;
-		size = p.Length;
+	this(ref ppp: CArray<T>) {
+		ptr = ppp.SysDataPointer;
+		size = ppp.Length;
 	}
 	
-	this(ref p: [c]T, length: PtrSize) {
+	this(ref p: CArray<T>, length: PtrSize) {
 		ptr = p.SysDataPointer;
 		size = length;
+	}
+	
+	this(ref p: CArray<T>, start: PtrSize, end: PtrSize) {
+		ptr = p.SysDataPointer + start;
+		size = end - start + 1;
 	}
 	
 	this(ref p: Vector<T>) {
@@ -139,7 +144,7 @@ class Slice<T: Class> {
 		return ptr;
 	}
 	
-	def FindIndex(const item: T): PtrSize {
+	def FindIndex(item: T): PtrSize {
 		for (val i = 0p; i < size; i++)
 			if (ptr[i] == item)
 				return i;
@@ -147,17 +152,17 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def FindIndex(const item: T, start: PtrSize): PtrSize {
-		start = Intrinsic.Min(start, size - 1);
+	def FindIndex(item: T, start: PtrSize): PtrSize {
+		val s = Intrinsic.Min(start, size - 1);
 		
-		for (val i = start; i < size; i++)
+		for (val i = s; i < size; i++)
 			if (ptr[i] == item)
 				return i;
 			
 		return PtrSize{-1};
 	}
 	
-	def FindIndex(const b: [c]T): PtrSize; const {
+	def FindIndex(b: CArray<T>): PtrSize; const {
 		for (val i = 0p; i < size; i++)
 			for (val j = 0p; j < b.Length; j++)
 				if (ptr[i] == b[j])
@@ -166,10 +171,10 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def FindIndex(const b: [c]T, start: PtrSize): PtrSize; const {
-		start = Intrinsic.Min(start, size - 1);
+	def FindIndex(b: CArray<T>, start: PtrSize): PtrSize; const {
+		val s = Intrinsic.Min(start, size - 1);
 		
-		for (val i = 0p; i < size; i++)
+		for (val i = s; i < size; i++)
 			for (val j = 0p; j < b.Length; j++)
 				if (ptr[i] == b[j])
 					return i;
@@ -177,7 +182,7 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def RFindIndex(const item: T): PtrSize; const {
+	def RFindIndex(item: T): PtrSize; const {
 		for (val i = size - 1; i != -1; i--)
 			if (ptr[i] == item)
 				return i;
@@ -185,7 +190,7 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def RFindIndex(const item: T, start: PtrSize): PtrSize; const {
+	def RFindIndex(item: T, val start: PtrSize): PtrSize; const {
 		if (start == 0)
 			start = PtrSize{-1};
 		else if (start >= size)
@@ -198,7 +203,7 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def RFindIndex(const b: [c]T): PtrSize; const {
+	def RFindIndex(b: CArray<T>): PtrSize; const {
 		for (val i = size - 1; i != -1; i--)
 			for (val j = 0p; j < b.Length; j++)
 				if (ptr[i] == b[j])
@@ -207,7 +212,7 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def RFindIndex(const b: [c]T, start: PtrSize): PtrSize; const {
+	def RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize; const {
 		if (start == 0)
 			start = PtrSize{-1};
 		else if (start >= size)
@@ -221,7 +226,7 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
-	def BinaryIndex(const item: T): PtrSize {
+	def BinaryIndex(item: T): PtrSize {
 		val lowerBound = 0p;
 		val upperBound = size - 1;
 		
@@ -247,9 +252,44 @@ class Slice<T: Class> {
 			Swap(ptr[i], ptr[upperBound - i]);
 	}
 	
-	def Fill(const value: T) {
+	def Fill(value: T) {
 		for (val i = 0p; i < size; i++)
 			this[i] = value;
+	}
+	
+	def Delete(item: T): PtrSize {
+		val index = FindIndex(item);
+		
+		if (index == -1)
+			return 0;
+		
+		ptr[index].~{};
+		
+		for (val i = index; i < size - 1; i++)
+			ptr[i]{move(ptr[i+ 1])};
+		
+		size--;
+		return 1p;
+	}
+	
+	def DeleteAll(item: T): PtrSize {
+		val count = 0p;
+		while (true) {
+			val index = FindIndex(item);
+			
+			if (index == -1)
+				return count;
+			
+			ptr[index].~{};
+			
+			for (val i = index; i < size - 1; i++)
+				ptr[i]{move(ptr[i+ 1])};
+			
+			size--;
+			count++;
+		}
+		
+		return count;
 	}
 }
 private {

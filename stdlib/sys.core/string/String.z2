@@ -1,5 +1,6 @@
-using sys.core.ConvertUtf8;
 using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
 
 namespace sys.core.lang;
 
@@ -20,13 +21,12 @@ class String {
 		return capacity;
 	}
 	set (cap) {
-		System.Trace.Assert(cap >= length);
 		if (cap > capacity) {
 			capacity = cap;
-			val temp = data;
-			data = data.Clone(capacity + 1, length + 1);
-			temp.Free();
+			data.Realloc(capacity + 1);
 		}
+		else if (cap < capacity)
+			throw sys.core.IllegalArgumentException{};
 	}
 
 	property @index: Byte
@@ -53,14 +53,14 @@ class String {
 		data[length] = 0;
 	}
 
-	this(const chars: String, len: PtrSize) {
+	this(chars: String, len: PtrSize) {
 		data = chars.SysDataPointer.Clone(len + 1, len);
 		length = len;
 		capacity = len;
 		data[length] = 0;
 	}
 
-	this FromIndex(const chars: String, start: PtrSize) {
+	this FromIndex(chars: String, start: PtrSize) {
 		if (start < chars.Length) {
 			length = chars.Length - start;
 			data = Ptr<Byte>.AllocVoid(length + 1);
@@ -72,7 +72,7 @@ class String {
 			this{};
 	}
 	
-	this FromIndex(const chars: String, start: PtrSize, end: PtrSize) {
+	this FromIndex(chars: String, start: PtrSize, end: PtrSize) {
 		if (start < chars.Length) {
 			length = end - start + 1;
 			data = Ptr<Byte>.AllocVoid(length + 1);
@@ -92,14 +92,14 @@ class String {
 		data[length] = 0;
 	}
 
-	this(const chars: [c]Byte) {
+	this(chars: CArray<Byte>) {
 		data = chars.SysDataPointer.Clone(chars.Length + 1, chars.Length);
 		length = chars.Length;
 		capacity = chars.Length;
 		data[length] = 0;
 	}
 
-	this(const chars: [c]Byte, len: PtrSize) {
+	this(chars: CArray<Byte>, len: PtrSize) {
 		data = chars.SysDataPointer.Clone(len + 1, len);
 		length = len;
 		capacity = len;
@@ -119,13 +119,13 @@ class String {
 
 #region manager
 
-	this(const obj: String) {
+	this(obj: String) {
 		length = obj.Length;
 		capacity = obj.Capacity;
 		data = obj.SysDataPointer.Clone(capacity + 1, length + 1);
 	}
 
-	def @attr(const obj: String) {
+	def @attr(obj: String) {
 		if (obj.IsEmpty)
 			Clear();
 		else {
@@ -135,11 +135,6 @@ class String {
 			data = obj.SysDataPointer.Clone(capacity + 1, length + 1);
 			temp.Free();
 		}
-	}
-	
-	~this() {
-		//System.Out << 'D' << '\n';
-		data.Free();
 	}
 	
 	this(move obj: String) {
@@ -156,6 +151,10 @@ class String {
 		data = obj.data;
 		obj.data = null;
 	}
+		
+	~this() {
+		data.Free();
+	}
 
 #endregion
 
@@ -165,7 +164,7 @@ class String {
 		capacity = 0;
 	}
 
-	def @eq(const second: String): Bool; const {
+	def @eq(second: String): Bool; const {
 		if (length != second.Length)
 			return false;
 
@@ -176,7 +175,7 @@ class String {
 		return true;
 	}
 
-	def @neq(const second: String): Bool; const {
+	def @neq(second: String): Bool; const {
 		if (length != second.Length)
 			return true;
 
@@ -233,7 +232,7 @@ class String {
 		return data;
 	}
 
-	def Insert(pos: PtrSize, const string: String) {
+	def Insert(pos: PtrSize, string: String) {
 		val newLen = length + string.Length;
 		val temp = Byte.new(newLen + 1);
 
@@ -251,7 +250,7 @@ class String {
 		capacity = newLen;
 	}
 
-	def Inserted(pos: PtrSize, const string: String): String; const {
+	def Inserted(pos: PtrSize, string: String): String; const {
 		val newLen = length + string.Length;
 		val temp = Byte.new(newLen + 1);
 
@@ -281,7 +280,7 @@ class String {
 		return s.RFindIndex(b, start);
 	}
 	
-	def RFind(const b: [c]Byte): PtrSize; const {
+	def RFind(b: CArray<Byte>): PtrSize; const {
 		val s = Slice<Byte>{this};
 		return s.RFindIndex(b);
 	}
@@ -335,6 +334,10 @@ class String {
 
 	def @write(ref stream: Stream); const {
 		stream.RawWrite(this);
+	}
+	
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
 	}
 
 	def @put(ref stream: Stream); const {

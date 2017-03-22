@@ -1,9 +1,9 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
 using sys.core.ConvertUtf8;
 using sys.core.i18n.UnicodeCategory;
 using sys.core.i18n.UnicodeData;
-using sys.core.Stream;
-
-namespace sys.core.lang;
 
 class Char {
 	const Zero: Char = 0;
@@ -162,7 +162,7 @@ class Char {
 #region ToString
 
 	def ToString(): String {
-		val buf: [c ConvertUtf8.MaxCharBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.CharAsText(s, this);
 		return String{s};

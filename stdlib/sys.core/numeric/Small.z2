@@ -1,8 +1,8 @@
-using sys.core.ConvertUtf8;
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
-
-namespace sys.core.lang;
+using sys.core.ConvertUtf8;
 
 class Small {
 	const Zero: Small = 0;
@@ -46,13 +46,13 @@ class Small {
 	def Clamped(min: Small, max: Small): Small; const Intrinsic.Clamped;
 
 
-	this(const string: String) {
+	this(string: String) {
 		val s = Slice<Byte>{string};
 		this = Small{ConvertUtf8.ParseSig<Int>(s)};
 	}
 
 	def ToString(): String {
-		val buf: [c ConvertUtf8.MaxSmallBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxSmallBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.IntAsText(s, this);
 		return String{s};
@@ -95,7 +95,7 @@ class Small {
 			this = Small{value};
 	}
 
-	this Saturated(const string: String) {
+	this Saturated(string: String) {
 		val s = Slice<Byte>{string};
 		this.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
 	}
@@ -108,7 +108,7 @@ class Small {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, const format: OutputFormat); const {
+	def @write(ref stream: Stream, format: OutputFormat); const {
 		stream.RawWrite(this, format);
 	}
 	

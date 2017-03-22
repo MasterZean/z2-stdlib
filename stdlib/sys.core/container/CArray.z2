@@ -8,7 +8,7 @@ class CArray<T: Class> {
 			this[i]{};
 	}
 	
-	this(const item: T) {
+	this(item: T) {
 		for (val i = 0p; i < Length; i++)
 			this[i]{item};
 	}
@@ -17,12 +17,12 @@ class CArray<T: Class> {
 		return false;
 	}
 	
-	def Fill(const value: T) {
+	def Fill(value: T) {
 		for (val i = 0p; i < Length; i++)
 			this[i] = value;
 	}
 	
-	def Insert(pos: PtrSize, const item: T) {
+	def Insert(pos: PtrSize, item: T) {
 		System.Debug.Assert(pos < Length);
 		
 		for (val i = Length - 1; i >= pos + 1; i--)
@@ -40,17 +40,17 @@ class CArray<T: Class> {
 		this[Length - 1]{};
 	}
 	
-	def FindIndex(const item: T): PtrSize {
+	def FindIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item);
 	}
 	
-	def FindIndex(const item: T, start: PtrSize): PtrSize {
+	def FindIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item, start);
 	}
 	
-	def BinaryIndex(const item: T): PtrSize {
+	def BinaryIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item);
 	}
@@ -58,6 +58,20 @@ class CArray<T: Class> {
 	def Reverse() {
 		val s = Slice<T>{this};
 		s.Reverse();
+	}
+	
+	def Reverse(start: PtrSize, end: PtrSize) {
+		val s = Slice<T>{this, start, end};
+		s.Reverse();
+	}
+	
+	def Sum(): T {
+		val sum: T = this[0];
+		
+		for (val i = 1p; i < Length; i++)
+			sum += this[i];
+		
+		return sum;
 	}
 	
 #region IO

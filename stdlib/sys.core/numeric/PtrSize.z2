@@ -1,19 +1,21 @@
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.Compiler;
-
-namespace sys.core.lang;
 
 class PtrSize {
 	const Zero: PtrSize = 0;
 	const One: PtrSize = 1;
 	
 	const Min: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Min} : PtrSize{QWord.Min};
-	const Max: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Max} : PtrSize{QWord.Min};
+	const Max: PtrSize = Compiler.Bits == 32 ? PtrSize{DWord.Max - 1} : PtrSize{QWord.Max - 1};
+	
+	const Invalid: PtrSize = Max + 1;
 
 	const IsSigned  = false;
 	const IsInteger = true;
 	
-	const MaxDigitsLow  = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsLow}  : PtrSize{QWord.MaxDigitsLow};
+	const MaxDigitsLow = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsLow}  : PtrSize{QWord.MaxDigitsLow};
 	const MaxDigitsHigh = Compiler.Bits == 32 ? PtrSize{DWord.MaxDigitsHigh} : PtrSize{QWord.MaxDigitsHigh};
 	
 	property Abs: PtrSize {
@@ -45,10 +47,17 @@ class PtrSize {
 	def Clamped(min: PtrSize, max: PtrSize): PtrSize; const Intrinsic.Clamped;
 
 	def @write(ref stream: Stream); const {
-		if (Compiler.Bits == 32)
-			stream.RawWrite(DWord{this});
+		if (Compiler.Bits == 32) {
+			if (this == Invalid)
+				stream.RawWrite(-1);
+			else
+				stream.RawWrite(DWord{this});
+		}
 		else if (Compiler.Bits == 64)
-			stream.RawWrite(QWord{this});
+			if (this == Invalid)
+				stream.RawWrite(-1);
+			else
+				stream.RawWrite(QWord{this});
 		else
 			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
 	}

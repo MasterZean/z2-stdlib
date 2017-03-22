@@ -17,3 +17,6 @@ class NullReferenceException: Exception {
 
 class AlignmentException: Exception {
 }
+
+class OutOfMemoryException: Exception {
+}

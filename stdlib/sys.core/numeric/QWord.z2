@@ -1,8 +1,8 @@
-using sys.core.ConvertUtf8;
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
-
-namespace sys.core.lang;
+using sys.core.ConvertUtf8;
 
 class QWord {
 	const Zero: QWord = 0;
@@ -45,13 +45,13 @@ class QWord {
 	
 	def Clamped(min: QWord, max: QWord): QWord; const Intrinsic.Clamped;
 
-	this(const string: String) {
+	this(string: String) {
 		val s = Slice<Byte>{string};
 		this = ConvertUtf8.ParseUns<QWord>(s);
 	}
 	
 	def ToString(): String; const {
-		val buf: [c ConvertUtf8.MaxQWordBuffer]Byte = void;
+		val buf: CArray<Byte, ConvertUtf8.MaxQWordBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.QWordAsText(s, this);
 		return String{s};
@@ -80,7 +80,7 @@ class QWord {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, const format: OutputFormat); const {
+	def @write(ref stream: Stream, format: OutputFormat); const {
 		stream.RawWrite(this, format);
 	}
 	

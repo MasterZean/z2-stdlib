@@ -115,6 +115,6 @@ class WIN32_FIND_DATAW {
     val nFileSizeLow: DWord;
     val dwReserved0: DWord;
     val dwReserved1: DWord;
-    val cFileName: [c 260]Word;
-    val cAlternateFileName: [c 14]Word;
+    val cFileName = CArray<Word, 260>{};
+    val cAlternateFileName = CArray<Word, 14>{};
 }

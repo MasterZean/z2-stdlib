@@ -1,7 +1,7 @@
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
-
-namespace sys.core.lang;
 
 class Bool {
 	const Min = false;
@@ -31,7 +31,7 @@ class Bool {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, const format: OutputFormat); const {
+	def @write(ref stream: Stream, format: OutputFormat); const {
 		stream.RawWrite(this, format);
 	}
 	
