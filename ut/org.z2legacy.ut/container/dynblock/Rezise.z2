@@ -24,7 +24,7 @@ class TestBlockAssignResize {
 		block.ExpandBy(3p);
 		print(block);
 
-		block.ExpandUnsafe(block.Length + 2);    // UNSAFE
+		block.ExpandTo(block.Length + 2);
 		print(block);
 
 		block.ShrinkTo(500p);
@@ -33,7 +33,7 @@ class TestBlockAssignResize {
 		block.ShrinkTo(9p);
 		print(block);
 
-		block.ShrinkUnsafe(5p);                   // UNSAFE
+		block.ShrinkBy(4p);
 		print(block);
 
 		block.Fill(-1);
