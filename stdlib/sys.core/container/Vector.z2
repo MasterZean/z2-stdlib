@@ -73,9 +73,32 @@ class Vector<T: Class> {
 		data[length++]{item};
 	}
 	
+	def Add(items: Vector<T>) {
+		if (length + items.Length >= data.Length)
+			Grow(length + items.Length);
+		
+		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
+			data[length++]{items[iIndex]};
+	}
+	
+	def Add(items: CArray<T>) {
+		if (length + items.Length >= data.Length)
+			Grow(length + items.Length);
+		
+		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
+			data[length++]{items[iIndex]};
+	}
+	
 	static def @shl<T: Class>(ref v: Vector<T>, data: T): ref Vector<T> {
 		v.Add(data);
 		return v;
+	}
+	
+	property At: ref T
+	get [index: PtrSize] {
+		if (index >= length)
+			Length = index + 1;
+		return data[index];
 	}
 	
 	def Fill(value: T) {
@@ -83,6 +106,16 @@ class Vector<T: Class> {
 			this[i] = value;
 	}
 	
+	def Fill(items: Vector<T>) {
+		val s = Slice<T>{this};
+		s.Fill(items);
+	}
+	
+	def Fill(items: CArray<T>) {
+		val s = Slice<T>{this};
+		s.Fill(items);
+	}
+		
 	def FindIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item);
@@ -106,6 +139,34 @@ class Vector<T: Class> {
 	def Delete(item: T): PtrSize {
 		val s = Slice<T>{this};
 		val r = s.Delete(item);
+		length = s.Length;
+		return r;
+	}
+	
+	def Delete(items: CArray<T>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.Delete(items);
+		length = s.Length;
+		return r;
+	}
+	
+	def Delete(items: Vector<T>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.Delete(items);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteAll(item: CArray<T>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteAll(item);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteAll(item: Vector<T>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteAll(item);
 		length = s.Length;
 		return r;
 	}
@@ -143,6 +204,13 @@ private {
 	
 	def Grow() {
 		val newCap = Intrinsic.Max(data.Length * 2, 2p);
+		data.FriendSetLength(newCap);
+	}
+	
+	def Grow(newLen: PtrSize) {
+		val newCap = Intrinsic.Max(data.Length * 2, 2p);
+		if (newCap < newLen)
+			newCap = newLen;
 		data.FriendSetLength(newCap);
 	}
 	

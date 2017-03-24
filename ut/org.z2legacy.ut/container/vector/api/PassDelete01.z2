@@ -1,0 +1,33 @@
+namespace org.z2legacy.ut.container.vector.api;
+
+class PassAt01 {
+	def @main() {
+		val p = [1, 2, 3];
+		val t = p;
+		
+		p.At[19] = 7000;
+		System.Out << p << "\n";
+		
+		p.Fill(56);
+		System.Out << p << "\n";
+		
+		p.Fill(t);
+		System.Out << p << "\n";
+		
+		val i = 1;
+		p.Fill([5: i++, ...]);
+		System.Out << p << "\n";
+		
+		p.Fill(CArray[4: i++, ...]);
+		System.Out << p << "\n";
+		
+		p.DeleteAll(7);
+		System.Out << p << "\n";
+		
+		p.Delete([6, 9]);
+		System.Out << p << "\n";
+		
+		p.DeleteAll(CArray[8, 9]);
+		System.Out << p << "\n";
+	}
+}
