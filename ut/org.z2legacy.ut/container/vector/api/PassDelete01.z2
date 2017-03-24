@@ -1,6 +1,6 @@
 namespace org.z2legacy.ut.container.vector.api;
 
-class PassAt01 {
+class PassDelete01 {
 	def @main() {
 		val p = [1, 2, 3];
 		val t = p;

@@ -388,6 +388,80 @@ class Slice<T: Class> {
 			
 		return count;
 	}
+	
+	def Insert(pos: PtrSize, item: T) {
+		for (val i = size; i >= pos + 1; i--)
+			ptr[i]{move(ptr[i - 1])};
+		
+		ptr[pos] = item;
+		
+		size++;
+	}
+	
+	def Insert(pos: PtrSize, items: CArray<T>) {
+		foreach (v, i in items)
+			Insert(pos + i, v);
+	}
+	
+	def Insert(pos: PtrSize, items: Vector<T>) {
+		foreach (v, i in items)
+			Insert(pos + i, v);
+	}
+	
+	def Sort(val low: PtrSize, val high: PtrSize) {
+		while (true) {
+			val count = Int{high - low};
+			if(count < 2)
+				return;
+			
+			val pass = 4;
+			
+			while (true) {
+				val middle = low + (count >> 1);
+				
+				Order(low, middle);
+				Order(middle, high - 1);
+				Order(low, middle);
+
+				IterSwap(low + 1, middle);
+				
+				val ii = low + 1;
+				for (val i = low + 2; i < high - 1; i++)
+					if(ptr[i] < ptr[low + 1]) {
+						ii++;
+						IterSwap(ii, i);
+					}
+				
+				IterSwap(ii, low + 1);
+				
+				val iih = ii;
+				while (iih + 1 != high && ptr[ii] >= ptr[iih + 1])
+					iih++;
+				
+				if (pass > 5 || Intrinsic.Min(ii - low, high - iih) > (Intrinsic.Max(ii - low, high - iih) >> pass)) {
+					if (ii - low < high - iih - 1) {
+						Sort(low, ii);
+						low = iih + 1;
+					}
+					else {
+						Sort(iih + 1, high);
+						high = ii;
+					}
+					break;
+				}
+				
+				IterSwap(low, low + (count >> 1));
+				IterSwap(middle, low + (count >> 1));
+				IterSwap(high - 1, low + (count >> 1));
+				
+				pass++;
+			}
+		}
+	}
+	
+	def Sort() {
+		Sort(0p, size);
+	}
 }
 private {
 	val ptr: Ptr<T>;
@@ -397,5 +471,15 @@ private {
 		val temp = f;
 		f = s;
 		s = temp;
+	}
+	
+	def IterSwap(l: PtrSize, h: PtrSize) {
+		if (l != h)
+			Swap(ptr[l], ptr[h]);
+	}
+	
+	def Order(l: PtrSize, h: PtrSize) {
+		if (ptr[h] < ptr[l])
+			Swap(ptr[l], ptr[h]);
 	}
 }

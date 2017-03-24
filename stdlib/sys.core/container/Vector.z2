@@ -70,6 +70,7 @@ class Vector<T: Class> {
 	def Add(move item: T) {
 		if (length >= data.Length)
 			Grow();
+		
 		data[length++]{item};
 	}
 	
@@ -157,6 +158,13 @@ class Vector<T: Class> {
 		return r;
 	}
 	
+	def DeleteAll(item: T): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteAll(item);
+		length = s.Length;
+		return r;
+	}
+	
 	def DeleteAll(item: CArray<T>): PtrSize {
 		val s = Slice<T>{this};
 		val r = s.DeleteAll(item);
@@ -171,11 +179,41 @@ class Vector<T: Class> {
 		return r;
 	}
 	
-	def DeleteAll(item: T): PtrSize {
+	def Insert(pos: PtrSize, item: T) {
+		if (length >= data.Length)
+			Grow();
+		
 		val s = Slice<T>{this};
-		val r = s.DeleteAll(item);
+		s.Insert(pos, item);
 		length = s.Length;
-		return r;
+	}
+	
+	def Insert(pos: PtrSize, items: CArray<T>) {
+		if (length + items.Length >= data.Length)
+			Grow(length + items.Length);
+		
+		val s = Slice<T>{this};
+		s.Insert(pos, items);
+		length = s.Length;
+	}
+	
+	def Insert(pos: PtrSize, items: Vector<T>) {
+		if (length + items.Length >= data.Length)
+			Grow(length + items.Length);
+		
+		val s = Slice<T>{this};
+		s.Insert(pos, items);
+		length = s.Length;
+	}
+	
+	def Sort() {
+		val s = Slice<T>{this};
+		s.Sort();
+	}
+	
+	def Sort(low: PtrSize, high: PtrSize) {
+		val s = Slice<T>{this};
+		s.Sort(low, high + 1);
 	}
 
 #region IO
