@@ -1,0 +1,25 @@
+namespace org.z2legacy.ut.foreach;
+
+using Foo;
+
+class TestForEachFail01 {
+	def @main() {
+		val f = Foo{};
+		
+		foreach (v in f)
+			System.Out << v << ' ';
+		System.Out << "\n";
+		
+		foreach (v in f)
+			v = "cat";
+		
+		foreach (v in f)
+			System.Out << v << ' ';
+
+		System.Out << "\n";
+		
+		foreach (v in Foo{})
+			System.Out << v << ' ';
+		System.Out << "\n";
+	}
+}

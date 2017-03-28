@@ -211,9 +211,19 @@ class Vector<T: Class> {
 		s.Sort();
 	}
 	
-	def Sort(low: PtrSize, high: PtrSize) {
+	def Sort(low: Int, high: Int) {
 		val s = Slice<T>{this};
-		s.Sort(low, high + 1);
+		s.Sort(low, high);
+	}
+	
+	def SortDec() {
+		val s = Slice<T>{this};
+		s.SortDec();
+	}
+	
+	def SortDec(low: Int, high: Int) {
+		val s = Slice<T>{this};
+		s.SortDec(low, high);
 	}
 
 #region IO

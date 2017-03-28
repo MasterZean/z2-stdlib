@@ -408,59 +408,104 @@ class Slice<T: Class> {
 			Insert(pos + i, v);
 	}
 	
-	def Sort(val low: PtrSize, val high: PtrSize) {
-		while (true) {
-			val count = Int{high - low};
-			if(count < 2)
-				return;
-			
-			val pass = 4;
-			
-			while (true) {
-				val middle = low + (count >> 1);
+	def Sort(low: Int, high: Int) {
+		if (low >= high)
+			return;
+	
+		val count = high - low;
+	
+		if (count <= 7) {
+			val temp: T = void;
+			for (val i = low + 1; i <= high; i++) {
+				temp = ptr[i];
 				
-				Order(low, middle);
-				Order(middle, high - 1);
-				Order(low, middle);
-
-				IterSwap(low + 1, middle);
-				
-				val ii = low + 1;
-				for (val i = low + 2; i < high - 1; i++)
-					if(ptr[i] < ptr[low + 1]) {
-						ii++;
-						IterSwap(ii, i);
-					}
-				
-				IterSwap(ii, low + 1);
-				
-				val iih = ii;
-				while (iih + 1 != high && ptr[ii] >= ptr[iih + 1])
-					iih++;
-				
-				if (pass > 5 || Intrinsic.Min(ii - low, high - iih) > (Intrinsic.Max(ii - low, high - iih) >> pass)) {
-					if (ii - low < high - iih - 1) {
-						Sort(low, ii);
-						low = iih + 1;
-					}
-					else {
-						Sort(iih + 1, high);
-						high = ii;
-					}
-					break;
+				val j = i - 1;
+				while (temp < ptr[j] && j >= low) {
+					ptr[j + 1] = ptr[j];
+					j--;
 				}
 				
-				IterSwap(low, low + (count >> 1));
-				IterSwap(middle, low + (count >> 1));
-				IterSwap(high - 1, low + (count >> 1));
-				
-				pass++;
+				ptr[j + 1] = temp;
 			}
+			
+			return;
 		}
+		
+		val mid = low + count / 2;
+		
+		Swap(ptr[mid], ptr[low]);
+		val i = low + 1;
+		val j = high;
+		
+		while (i <= j) {
+			while(i <= j && ptr[i] <= ptr[low])
+				i++;
+	
+			while(i <= j && ptr[j] > ptr[low])
+				j--;
+	
+			if (i < j)
+				Swap(ptr[i], ptr[j]);
+		}
+		
+		Swap(ptr[i - 1], ptr[low]);
+	
+		Sort(low, i - 2);
+		Sort(i, high);
 	}
 	
 	def Sort() {
-		Sort(0p, size);
+		Sort(0, Int{size - 1});
+	}
+	
+	def SortDec(low: Int, high: Int) {
+		if (low >= high)
+			return;
+	
+		val count = high - low;
+	
+		if (count <= 7) {
+			val temp: T = void;
+			for (val i = low + 1; i <= high; i++) {
+				temp = ptr[i];
+				
+				val j = i - 1;
+				while (temp > ptr[j] && j >= low) {
+					ptr[j + 1] = ptr[j];
+					j--;
+				}
+				
+				ptr[j + 1] = temp;
+			}
+			
+			return;
+		}
+		
+		val mid = low + count / 2;
+		
+		Swap(ptr[mid], ptr[low]);
+		val i = low + 1;
+		val j = high;
+		
+		while (i <= j) {
+			while(i <= j && ptr[i] >= ptr[low])
+				i++;
+	
+			while(i <= j && ptr[j] < ptr[low])
+				j--;
+	
+			if (i < j)
+				Swap(ptr[i], ptr[j]);
+		}
+		
+		Swap(ptr[i - 1], ptr[low]);
+	
+		SortDec(low, i - 2);
+		SortDec(i, high);
+	}
+	
+	def SortDec() {
+		SortDec(0, Int{size - 1});
 	}
 }
 private {
@@ -471,15 +516,5 @@ private {
 		val temp = f;
 		f = s;
 		s = temp;
-	}
-	
-	def IterSwap(l: PtrSize, h: PtrSize) {
-		if (l != h)
-			Swap(ptr[l], ptr[h]);
-	}
-	
-	def Order(l: PtrSize, h: PtrSize) {
-		if (ptr[h] < ptr[l])
-			Swap(ptr[l], ptr[h]);
 	}
 }
