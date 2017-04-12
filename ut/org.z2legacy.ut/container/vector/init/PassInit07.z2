@@ -1,6 +1,6 @@
-namespace org.z2legacy.ut.container.vector;
+namespace org.z2legacy.ut.container.vector.init;
 
-class PassInit02 {
+class PassInit07 {
 	def @main() {
 		val a = [0, 0, 0, 0];
 		System.Out << a << "\n";

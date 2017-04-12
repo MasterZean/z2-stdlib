@@ -144,6 +144,29 @@ class Slice<T: Class> {
 		return ptr;
 	}
 	
+	def Fill(value: T) {
+		for (val i = 0p; i < size; i++)
+			ptr[i] = value;
+	}
+	
+	def Fill(items: Vector<T>) {
+		val subIndex = 0p;
+		for (val i = 0p; i < size; i++) {
+			ptr[i] = items[subIndex++];
+			if (subIndex >= items.Length)
+				subIndex = 0p;
+		}
+	}
+	
+	def Fill(items: CArray<T>) {
+		val subIndex = 0p;
+		for (val i = 0p; i < size; i++) {
+			ptr[i] = items[subIndex++];
+			if (subIndex >= items.Length)
+				subIndex = 0p;
+		}
+	}
+	
 	def FindIndex(item: T): PtrSize {
 		for (val i = 0p; i < size; i++)
 			if (ptr[i] == item)
@@ -171,7 +194,27 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
+	def FindIndex(b: Vector<T>): PtrSize; const {
+		for (val i = 0p; i < size; i++)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
 	def FindIndex(b: CArray<T>, start: PtrSize): PtrSize; const {
+		val s = Intrinsic.Min(start, size - 1);
+		
+		for (val i = s; i < size; i++)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def FindIndex(b: Vector<T>, start: PtrSize): PtrSize; const {
 		val s = Intrinsic.Min(start, size - 1);
 		
 		for (val i = s; i < size; i++)
@@ -212,7 +255,30 @@ class Slice<T: Class> {
 		return PtrSize{-1};
 	}
 	
+	def RFindIndex(b: Vector<T>): PtrSize; const {
+		for (val i = size - 1; i != -1; i--)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
 	def RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize; const {
+		if (start == 0)
+			start = PtrSize{-1};
+		else if (start >= size)
+			start = size - 1;
+		
+		for (val i = size - 1; i != start; i--)
+			for (val j = 0p; j < b.Length; j++)
+				if (ptr[i] == b[j])
+					return i;
+		
+		return PtrSize{-1};
+	}
+	
+	def RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize; const {
 		if (start == 0)
 			start = PtrSize{-1};
 		else if (start >= size)
@@ -252,11 +318,6 @@ class Slice<T: Class> {
 			Swap(ptr[i], ptr[upperBound - i]);
 	}
 	
-	def Fill(value: T) {
-		for (val i = 0p; i < size; i++)
-			this[i] = value;
-	}
-	
 	def Delete(item: T): PtrSize {
 		val index = FindIndex(item);
 		
@@ -272,6 +333,24 @@ class Slice<T: Class> {
 		return 1p;
 	}
 	
+	def Delete(items: CArray<T>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += Delete(v);
+			
+		return count;
+	}
+	
+	def Delete(items: Vector<T>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += Delete(v);
+			
+		return count;
+	}
+		
 	def DeleteAll(item: T): PtrSize {
 		val count = 0p;
 		while (true) {
@@ -290,6 +369,175 @@ class Slice<T: Class> {
 		}
 		
 		return count;
+	}
+	
+	def DeleteAll(items: CArray<T>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += DeleteAll(v);
+		
+		return count;
+	}
+	
+	def DeleteAll(items: Vector<T>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += DeleteAll(v);
+			
+		return count;
+	}
+	
+	def DeleteIndex(index: PtrSize): PtrSize {
+		if (index == -1 || index >= size)
+			return 0;
+		
+		ptr[index].~{};
+		
+		for (val i = index; i < size - 1; i++)
+			ptr[i]{move(ptr[i+ 1])};
+		
+		size--;
+		return 1p;
+	}
+	
+	def DeleteIndex(items: CArray<PtrSize>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += DeleteIndex(v - count);
+		
+		return count;
+	}
+	
+	def DeleteIndex(items: Vector<PtrSize>): PtrSize {
+		val count = 0p;
+		
+		foreach (v, i in items)
+			count += DeleteIndex(v - count);
+			
+			
+		return count;
+	}
+	
+	def Insert(pos: PtrSize, item: T) {
+		for (val i = size; i >= pos + 1; i--)
+			ptr[i]{move(ptr[i - 1])};
+		
+		ptr[pos] = item;
+		
+		size++;
+	}
+	
+	def Insert(pos: PtrSize, items: CArray<T>) {
+		foreach (v, i in items)
+			Insert(pos + i, v);
+	}
+	
+	def Insert(pos: PtrSize, items: Vector<T>) {
+		foreach (v, i in items)
+			Insert(pos + i, v);
+	}
+	
+	def Sort(low: Int, high: Int) {
+		if (low >= high)
+			return;
+	
+		val count = high - low;
+	
+		if (count <= 7) {
+			val temp: T = void;
+			for (val i = low + 1; i <= high; i++) {
+				temp = ptr[i];
+				
+				val j = i - 1;
+				while (temp < ptr[j] && j >= low) {
+					ptr[j + 1] = ptr[j];
+					j--;
+				}
+				
+				ptr[j + 1] = temp;
+			}
+			
+			return;
+		}
+		
+		val mid = low + count / 2;
+		
+		Swap(ptr[mid], ptr[low]);
+		val i = low + 1;
+		val j = high;
+		
+		while (i <= j) {
+			while(i <= j && ptr[i] <= ptr[low])
+				i++;
+	
+			while(i <= j && ptr[j] > ptr[low])
+				j--;
+	
+			if (i < j)
+				Swap(ptr[i], ptr[j]);
+		}
+		
+		Swap(ptr[i - 1], ptr[low]);
+	
+		Sort(low, i - 2);
+		Sort(i, high);
+	}
+	
+	def Sort() {
+		Sort(0, Int{size - 1});
+	}
+	
+	def SortDec(low: Int, high: Int) {
+		if (low >= high)
+			return;
+	
+		val count = high - low;
+	
+		if (count <= 7) {
+			val temp: T = void;
+			for (val i = low + 1; i <= high; i++) {
+				temp = ptr[i];
+				
+				val j = i - 1;
+				while (temp > ptr[j] && j >= low) {
+					ptr[j + 1] = ptr[j];
+					j--;
+				}
+				
+				ptr[j + 1] = temp;
+			}
+			
+			return;
+		}
+		
+		val mid = low + count / 2;
+		
+		Swap(ptr[mid], ptr[low]);
+		val i = low + 1;
+		val j = high;
+		
+		while (i <= j) {
+			while(i <= j && ptr[i] >= ptr[low])
+				i++;
+	
+			while(i <= j && ptr[j] < ptr[low])
+				j--;
+	
+			if (i < j)
+				Swap(ptr[i], ptr[j]);
+		}
+		
+		Swap(ptr[i - 1], ptr[low]);
+	
+		SortDec(low, i - 2);
+		SortDec(i, high);
+	}
+	
+	def SortDec() {
+		SortDec(0, Int{size - 1});
 	}
 }
 private {

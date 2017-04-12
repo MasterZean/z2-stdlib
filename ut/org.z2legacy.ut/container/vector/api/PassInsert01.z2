@@ -1,0 +1,45 @@
+namespace org.z2legacy.ut.container.vector.api;
+
+class PassInsert01 {
+	def @main() {
+		val p = [2, 4];
+		p.Insert(0p, 1);
+		System.Out << p << "\n";
+		p.Insert(2p, 3);
+		System.Out << p << "\n";
+		
+		p.Insert(4p, 5);
+		System.Out << p << "\n";
+		
+		p.Reverse();
+		System.Out << p << "\n";
+		
+		p.Insert(1p, 0);
+		p.Insert(3p, 0);
+		p.Insert(5p, 0);
+		p.Insert(7p, 0);
+		System.Out << p << "\n";
+		
+		p.Insert(0p, [10, 11, 12]);
+		System.Out << p << "\n";
+		
+		p.Insert(p.FindIndex(3) + 1, CArray[8, 8, 8, 3]);
+		System.Out << p << "\n";
+		
+		p.Sort();
+		System.Out << p << "\n";
+		
+		p.Reverse();
+		p << -56;
+		System.Out << p << "\n";
+		
+		p.Sort(6p, 11p);
+		System.Out << p << "\n";
+		
+		p.Sort(0p, 4p);
+		System.Out << p << "\n";
+		
+		p.Sort();
+		System.Out << p << "\n";
+	}
+}

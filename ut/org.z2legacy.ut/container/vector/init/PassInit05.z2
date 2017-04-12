@@ -1,4 +1,4 @@
-namespace org.z2legacy.ut.container.vector;
+namespace org.z2legacy.ut.container.vector.init;
 
 using sys.core.Stream;
 
@@ -15,7 +15,7 @@ private {
 	}
 }
 
-class PassInit04 {
+class PassInit05 {
 	def @main() {
 		val a = [WithPrivateConstructor03{6}];
 		System.Out << a << "\n";
