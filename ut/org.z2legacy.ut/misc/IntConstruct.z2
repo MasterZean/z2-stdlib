@@ -1,0 +1,38 @@
+namespace org.z2legacy.ut.misc;
+
+class TestIntConstruct {
+	def @main() {
+		val a: Int;
+
+		a = Int{};
+		a = Int{false};
+		a = Int{56.0};
+		a = Int{"0000"};
+			
+		a{};
+		a{false};
+		a{58.0};
+		a{"-50"};
+
+		a = Int.Saturated{"5678"};
+
+		a.Saturated{"567890"};
+
+		System.Out << "a = " << a << "\n";
+
+		a = this.a;
+
+		System.Out << "a = " << a << "\n";
+
+		a.~{};
+		this.a.~{};
+
+		System.Out << "a = " << a << "\n";
+	}
+
+	val a = Int{70};
+	val b = Int{false};
+	val c = Int{56.0};
+	val d = Int{"0000"};
+	val e = Int.Saturated{"5678"};
+}

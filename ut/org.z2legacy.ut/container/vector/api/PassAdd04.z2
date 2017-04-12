@@ -1,0 +1,35 @@
+namespace org.z2legacy.ut.container.vector.api;
+
+class Pass04Add {
+	def @main() {
+		val p = [1, 2, 3];
+		System.Out << p << "\n";
+		
+		p.Add(4);
+		System.Out << p << "\n";
+		
+		val t = [5, 6];
+		p.Add(t);
+		System.Out << p << "\n";
+		
+		val t2 = [20: 0, ...];
+		p.Add(t2);
+		System.Out << p << "\n";
+		
+		val t3 = CArray[6, 5, 4];
+		p.Add(t3);
+		System.Out << p << "\n";
+		
+		p.Add(CArray[3, 2, 1]);
+		System.Out << p << "\n";
+		
+		p.Add([7, 7]);
+		System.Out << p << "\n";
+		
+		p << [2, 7] << CArray[1, 8];
+		System.Out << p << "\n";
+		
+		p.SortDec();
+		System.Out << p << "\n";
+	}
+}

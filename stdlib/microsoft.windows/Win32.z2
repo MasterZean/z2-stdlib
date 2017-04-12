@@ -92,8 +92,8 @@ class Win32 {
 
 	static def MessageBoxW(hWnd: DWord, lpText: Ptr<Word>, lpCaption: Ptr<Word>, uType: DWord): Int; dllimport stdcall;
 	
-	static def QueryPerformanceCounter(lpPerformanceCount: *Long): Int; dllimport stdcall;
-	static def QueryPerformanceFrequency(lpFrequency: *Long): Int; dllimport stdcall;
+	static def QueryPerformanceCounter(lpPerformanceCount: Ptr<Long>): Int; dllimport stdcall;
+	static def QueryPerformanceFrequency(lpFrequency: Ptr<Long>): Int; dllimport stdcall;
 	static def Sleep(dwMilliseconds: DWord); dllimport stdcall;
 	
 	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord; dllimport stdcall;

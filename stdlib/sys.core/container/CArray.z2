@@ -74,6 +74,26 @@ class CArray<T: Class> {
 		return sum;
 	}
 	
+	def Sort() {
+		val s = Slice<T>{this};
+		s.Sort();
+	}
+	
+	def Sort(low: Int, high: Int) {
+		val s = Slice<T>{this};
+		s.Sort(low, high);
+	}
+	
+	def SortDescending() {
+		val s = Slice<T>{this};
+		s.SortDescending();
+	}
+	
+	def SortDescending(low: Int, high: Int) {
+		val s = Slice<T>{this};
+		s.SortDescending(low, high);
+	}
+	
 #region IO
 
 	def @write(ref stream: Stream); const {
