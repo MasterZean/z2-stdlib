@@ -1,0 +1,40 @@
+namespace org.z2legacy.bench;
+
+using sys.core.StopWatch;
+
+//#include <algorithm>
+
+class BenchVectorSort {
+	const TIMES = 10000000;
+	
+	static val a = CArray[12, 11, 10, 8, 8, 8, 5, 4, 3, 3, 2, 1, 0, 0, 0, 0, -56];
+	
+	static def test_init_z2() {
+		for (val i = 0; i < TIMES; i++) {
+			val b = a;
+			b.Sort();
+		}
+	}
+	
+	static def test_init_cpp() {
+		for (val i = 0; i < TIMES; i++) {
+			val b = a;
+			b.Sort();
+			//std::sort(b, b + 17);
+		}
+	}
+	
+	def @main() {
+		{
+			val sw = StopWatch{};
+			test_init_z2();
+			System.Out << test_init_z2.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		
+		{
+			val sw = StopWatch{};
+			test_init_cpp();
+			System.Out << test_init_cpp.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+	}
+}

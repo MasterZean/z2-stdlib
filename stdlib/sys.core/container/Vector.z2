@@ -179,6 +179,27 @@ class Vector<T: Class> {
 		return r;
 	}
 	
+	def DeleteIndex(item: PtrSize): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteIndex(item);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteIndex(items: CArray<PtrSize>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteIndex(items);
+		length = s.Length;
+		return r;
+	}
+	
+	def DeleteIndex(items: Vector<PtrSize>): PtrSize {
+		val s = Slice<T>{this};
+		val r = s.DeleteIndex(items);
+		length = s.Length;
+		return r;
+	}
+	
 	def Insert(pos: PtrSize, item: T) {
 		if (length >= data.Length)
 			Grow();

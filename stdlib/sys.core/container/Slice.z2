@@ -389,6 +389,38 @@ class Slice<T: Class> {
 		return count;
 	}
 	
+	def DeleteIndex(index: PtrSize): PtrSize {
+		if (index == -1 || index >= size)
+			return 0;
+		
+		ptr[index].~{};
+		
+		for (val i = index; i < size - 1; i++)
+			ptr[i]{move(ptr[i+ 1])};
+		
+		size--;
+		return 1p;
+	}
+	
+	def DeleteIndex(items: CArray<PtrSize>): PtrSize {
+		val count = 0p;
+		
+		foreach (v in items)
+			count += DeleteIndex(v - count);
+		
+		return count;
+	}
+	
+	def DeleteIndex(items: Vector<PtrSize>): PtrSize {
+		val count = 0p;
+		
+		foreach (v, i in items)
+			count += DeleteIndex(v - count);
+			
+			
+		return count;
+	}
+	
 	def Insert(pos: PtrSize, item: T) {
 		for (val i = size; i >= pos + 1; i--)
 			ptr[i]{move(ptr[i - 1])};
