@@ -66,12 +66,8 @@ class CArray<T: Class> {
 	}
 	
 	def Sum(): T {
-		val sum: T = this[0];
-		
-		for (val i = 1p; i < Length; i++)
-			sum += this[i];
-		
-		return sum;
+		val s = Slice<T>{this};
+		return s.Sum();
 	}
 	
 	def Sort() {

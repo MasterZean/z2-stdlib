@@ -26,6 +26,11 @@ class Slice<T: Class> {
 		size = length;
 	}
 	
+	this(ref p: Vector<T>, start: PtrSize, end: PtrSize) {
+		ptr = p.SysDataPointer + start;
+		size = end - start + 1;
+	}
+	
 	this(ref p: Small) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;
@@ -538,6 +543,15 @@ class Slice<T: Class> {
 	
 	def SortDec() {
 		SortDec(0, Int{size - 1});
+	}
+	
+	def Sum(): T {
+		val sum: T = ptr[0];
+		
+		for (val i = 1p; i < Length; i++)
+			sum += ptr[i];
+		
+		return sum;
 	}
 }
 private {

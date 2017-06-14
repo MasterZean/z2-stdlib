@@ -1,21 +1,72 @@
-using sys.core.Stream;
-using sys.core.DynamicBlock;
-
 namespace sys.core.lang;
+
+using sys.core.Stream;
 
 class Vector<T: Class> {
 	this(copy: Vector<T>) {
-		default();
+		length = copy.length;
+		capacity = copy.capacity;
+		
+		val temp: Ptr<T> = void;
+		
+		if (T.class.IsPOD) {
+			// POD data can just be raw copied by a memory clone
+			temp = copy.data.Clone(length);
+		}
+		else {
+			// non POD data gets copied by first allocating a new buffer
+			temp = Ptr<T>.AllocVoid(length);
+			
+			// then copy constructor is called on each member
+			for (val i = 0p; i < length; i++)
+				temp[i]{copy.data[i]};
+		}
+		
+		data = temp;
 	}
 	
 	def @attr(copy: Vector<T>) {
-		default();
+		// exit early if assigning to self
+		if (data == copy.data)
+			return;
+
+		// call destructor on non POD elements
+		if (!T.class.IsPOD)
+			for (val i = 0p; i < length; i++)
+				data[i].~{};
+		data.Free();
+
+		// forward to copy constructor
+		this{copy};
 	}
 		
 	~this() {
-		data.FreeUnsafe(length);
+		// call destructor on non POD elements
+		if (!T.class.IsPOD)
+			for (val i = 0p; i < length; i++)
+				data[i].~{};
+		data.Free();
 
 		length = 0;
+		capacity = 0;
+	}
+	
+	this(move copy: Vector<T>) {
+		// exit early if assigning to self
+		default();
+		copy.length = 0;
+		copy.data = null;
+	}
+	
+	def @attr(move copy: Vector<T>) {
+		// exit early if assigning to self
+		if (data != copy.data) {
+			this.~{};
+		
+			default();
+			copy.length = 0;
+			copy.data = null;
+		}
 	}
 	
 	property Length: PtrSize
@@ -26,8 +77,8 @@ class Vector<T: Class> {
 		if (value == length)
 			return;
 
-		if (value > data.Length) {
-			data.Length = value;
+		if (value > capacity) {
+			Capacity = value;
 		}
 		else if (value < length) {
 			val i = value;
@@ -43,39 +94,45 @@ class Vector<T: Class> {
 
 	property Capacity: PtrSize
 	get {
-		return data.Length;
+		return capacity;
 	}
 	set (value) {
 		System.Trace.Assert(value >= length);
 
-		val temp = Intrinsic.Max(value, 2);
-		if (temp == data.Length)
+		val temp = Intrinsic.Max(value, 2p);
+		if (temp == capacity)
 			return;
 
-		data.Length = temp;
+        capacity = value;
+        
+        val back = data;
+        
+		data = data.Clone(capacity, length);
+		
+		back.Free();
 	}
 
 	property @index: ref T
-	get [index: PtrSize] const {
+	get [index: PtrSize] {
 		System.Debug.Assert(index < length);
 		return data[index];
 	}
 	
 	def Add(item: T) {
-		if (length >= data.Length)
+		if (length >= capacity)
 			Grow();
 		data[length++]{item};
 	}
 	
 	def Add(move item: T) {
-		if (length >= data.Length)
+		if (length >= capacity)
 			Grow();
 		
 		data[length++]{item};
 	}
 	
 	def Add(items: Vector<T>) {
-		if (length + items.Length >= data.Length)
+		if (length + items.Length >= capacity)
 			Grow(length + items.Length);
 		
 		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
@@ -83,7 +140,7 @@ class Vector<T: Class> {
 	}
 	
 	def Add(items: CArray<T>) {
-		if (length + items.Length >= data.Length)
+		if (length + items.Length >= capacity)
 			Grow(length + items.Length);
 		
 		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
@@ -134,6 +191,11 @@ class Vector<T: Class> {
 	
 	def Reverse() {
 		val s = Slice<T>{this};
+		s.Reverse();
+	}
+	
+	def Reverse(start: PtrSize, end: PtrSize) {
+		val s = Slice<T>{this, start, end};
 		s.Reverse();
 	}
 	
@@ -201,7 +263,7 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, item: T) {
-		if (length >= data.Length)
+		if (length >= capacity)
 			Grow();
 		
 		val s = Slice<T>{this};
@@ -210,7 +272,7 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, items: CArray<T>) {
-		if (length + items.Length >= data.Length)
+		if (length + items.Length >= capacity)
 			Grow(length + items.Length);
 		
 		val s = Slice<T>{this};
@@ -219,12 +281,17 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, items: Vector<T>) {
-		if (length + items.Length >= data.Length)
+		if (length + items.Length >= capacity)
 			Grow(length + items.Length);
 		
 		val s = Slice<T>{this};
 		s.Insert(pos, items);
 		length = s.Length;
+	}
+	
+	def Sum(): T {
+		val s = Slice<T>{this};
+		return s.Sum();
 	}
 	
 	def Sort() {
@@ -246,7 +313,7 @@ class Vector<T: Class> {
 		val s = Slice<T>{this};
 		s.SortDec(low, high);
 	}
-
+	
 #region IO
 
 	def @write(ref stream: Stream); const {
@@ -264,28 +331,29 @@ class Vector<T: Class> {
 	
 	property SysDataPointer: Ptr<T>
 	get {
-		return data.SysDataPointer;
+		return data;
 	}
 }
 private {
-	val data: DynamicBlock<T>;
+	val data: Ptr<T>;
 	val length: PtrSize;
+	val capacity: PtrSize;
 	
 	def Grow() {
-		val newCap = Intrinsic.Max(data.Length * 2, 2p);
-		data.FriendSetLength(newCap);
+		val newCap = Intrinsic.Max(capacity * 2, 2p);
+		Capacity = newCap;
 	}
 	
 	def Grow(newLen: PtrSize) {
-		val newCap = Intrinsic.Max(data.Length * 2, 2p);
+		val newCap = Intrinsic.Max(capacity * 2, 2p);
 		if (newCap < newLen)
 			newCap = newLen;
-		data.FriendSetLength(newCap);
+		Capacity = newCap;
 	}
 	
-	this @allocate(len: PtrSize, capacity: PtrSize) {
-		data = void;
-		data.@allocate{length, capacity};
+	this @allocate(len: PtrSize, cap: PtrSize) {
+		data = Ptr<T>.AllocVoid(cap);
 		length = len;
+		capacity = cap;
 	}
 }

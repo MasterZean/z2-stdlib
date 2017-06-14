@@ -26,4 +26,7 @@ class SystemCPU {
 	val SSSE3 = false;
 	val SSE41 = false;
 	val SSE42 = false;
+	
+	val Bits = 0;
+	val Cores = 0;
 }

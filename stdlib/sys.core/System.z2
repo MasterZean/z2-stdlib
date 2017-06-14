@@ -1,8 +1,97 @@
 namespace sys.core.lang;
 
+#if Compiler.Platform == "WIN32"
+using microsoft.windows.Win32;
+#else
+using ieee.posix.Posix;
+#endif
+
 class System {
 	static val Debug = sys.core.SystemDebug{};
 	static val Trace = sys.core.SystemTrace{};
 	static val Out = sys.core.ConsoleStream{};
 	static val CPU = sys.core.SystemCPU{};
+	
+	static def @setup() {
+		SetConsoleCodePage();
+		
+		val cpudata = CArray[0, 0, 0, 0];
+		Intrinsic.CpuID(cpudata, 0);
+		
+		val vendor = CArray[0, 0, 0, 0];
+		vendor[0] = cpudata[1];
+		vendor[1] = cpudata[3];
+		vendor[2] = cpudata[2];
+		
+		val p = Ptr<Byte>{vendor.SysDataPointer};
+		CPU.Vendor = String{p, Intrinsic.CStrLen(p)};
+		
+		Intrinsic.CpuID(cpudata, 1);
+		CPU.MMX   = ((cpudata[3] >> 23) & 0x1) != 0;
+		CPU.SSE   = ((cpudata[3] >> 25) & 0x1) != 0;
+		CPU.SSE2  = ((cpudata[3] >> 26) & 0x1) != 0;
+		CPU.SSE3  = ((cpudata[2]) & 0x1) != 0;
+		CPU.SSSE3 = ((cpudata[2] >> 9) & 0x1) != 0;
+		CPU.SSE41 = ((cpudata[2] >> 19) & 0x1) != 0;
+		CPU.SSE42 = ((cpudata[2] >> 20) & 0x1) != 0;
+		
+		CPU.Bits = 32;
+		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
+		if (envArch == "x86") {
+			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
+			if (envArchEx == "AMD64" || envArchEx == "IA64")
+				CPU.Bits = 64;
+		}
+		else if (envArch == "AMD64" || envArch == "IA64")
+			CPU.Bits = 64;
+		
+		
+		CPU.Cores = 1;
+		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
+		if (cores.Length != 0)
+		    CPU.Cores = cores.Parse<Int>();
+	}
+	
+	static def GetEnvVariable(val var: String): String {
+		val sourceVar = Slice<Byte>{var};
+		val varu16: CArray<Word, 32767> = void;
+		val destVar = Slice<Word>{varu16};
+		
+		sys.core.ConvertUtf16.FromUtf8(destVar, sourceVar);
+		varu16[destVar.Length] = 0;
+		
+		val buffu16: CArray<Word, 32767> = void;
+		val count = 0u;
+		
+		count = Win32.GetEnvironmentVariableW(varu16.SysDataPointer, buffu16.SysDataPointer, 32767);
+		
+		val buffu8: CArray<Byte, 131068> = void;
+		
+		val source = Slice<Word>{buffu16, PtrSize{count}};
+		val dest = Slice<Byte>{buffu8};
+		
+		sys.core.ConvertUtf8.FromUtf16(dest, source);
+		
+		if (count > 0)
+			return String{buffu8, dest.Length};
+		else {
+			return String{};
+		}
+	}
+}
+private {
+	
+#if Compiler.Platform == "WIN32"
+
+	static def SetConsoleCodePage() {
+		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
+	}
+	
+#else
+
+	static def SetConsoleCodePage() {
+	}
+	
+#endif
+
 }

@@ -5,7 +5,15 @@ using microsoft.windows.Win32;
 namespace sys.core;
 
 class Path {
-	const DirSep = '\\';
+    
+#if Compiler.Platform == "WIN32"
+	const DirSep = DirSepWin;
+	const IgnoreCase = true;
+#else
+    const DirSep = DirSepUnix;
+	const IgnoreCase = false;
+#endif
+
 	const DirSepWin = '\\';
 	const DirSepUnix = '/';
 

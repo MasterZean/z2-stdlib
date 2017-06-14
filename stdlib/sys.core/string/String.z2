@@ -29,14 +29,10 @@ class String {
 			throw sys.core.IllegalArgumentException{};
 	}
 
-	property @index: Byte
-	get [index: PtrSize] const {
+	property @index: ref Byte
+	get [index: PtrSize] {
 		System.Debug.Assert(index < length);
 		return data[index];
-	}
-	set (byte)[index: PtrSize] {
-		System.Debug.Assert(index < length);
-		data[index] = byte;
 	}
 
 	this(chars: Slice<Byte>) {
@@ -332,6 +328,23 @@ class String {
 		return value * sign;
 	}
 
+    func Split(b: Byte): Vector<String> {
+        val v = Vector<String>[];
+        
+        val s = Slice<Byte>{this};
+        
+        val i = s.FindIndex(b);
+        val last = 0p;
+        
+        while (i != -1) {
+            v.Add(String.FromIndex{this, last, i - 1});
+            last = i + 1;
+            i = s.FindIndex(b, last);
+        }
+        
+        return v;
+    }
+    
 	def @write(ref stream: Stream); const {
 		stream.RawWrite(this);
 	}

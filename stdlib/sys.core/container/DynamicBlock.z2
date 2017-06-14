@@ -62,13 +62,9 @@ class DynamicBlock<T: Class> {
 	
 	this(move copy: DynamicBlock<T>) {
 		// exit early if assigning to self
-		if (data != copy.data) {
-			this.~{};
-		
-			default();
-			copy.length = 0;
-			copy.data = null;
-		}
+		default();
+		copy.length = 0;
+		copy.data = null;
 	}
 	
 	def @attr(move copy: DynamicBlock<T>) {
@@ -229,10 +225,6 @@ class DynamicBlock<T: Class> {
 		return data;
 	}
 	
-	def FriendSetLength(newLength: PtrSize) {
-		SetLengthNoInitAggressive(newLength);
-		length = newLength;
-	}
 }
 private {
 	val length: PtrSize;
