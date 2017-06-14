@@ -69,74 +69,70 @@ class Char {
 
 	property Category: UnicodeCategory {
 		val plane = DWord{UnicodePlane};
-		if (plane < UnicodeData.Planes) {
-			val group = DWord{this / UnicodeData.GroupSize};
-			val gdata = UnicodeData.CatGroups[group];
-			if ((gdata & 0x8000) != 0) {
-				gdata = Word{gdata & 0x7FFF};
-				val offs = DWord{this % UnicodeData.GroupSize};
-				val cat = DWord{UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> (64 - 8)};
-				return UnicodeCategory{cat};
-			}
-			else
-				return UnicodeCategory{gdata};
-		}
-		else
+		if (plane >= UnicodeData.PlanesType)
 			return UnicodeCategory.Unassigned;
+		
+		val group = DWord{this / UnicodeData.GroupSizeType};
+		val gdata = UnicodeData.TypeGroups[group];
+		if (gdata >= 32) {
+			gdata -= Byte{32};
+			val offs = DWord{this % UnicodeData.GroupSizeType};
+			val cat = DWord{UnicodeData.TypeSpec[gdata * UnicodeData.GroupSizeType + offs]};
+			return UnicodeCategory{cat};
+		}
+		
+		return UnicodeCategory{gdata};
 	}
 
 	property Upper: Char {
 		val plane = DWord{UnicodePlane};
-		if (plane < UnicodeData.Planes) {
-			val group = DWord{this / UnicodeData.GroupSize};
-			val gdata = UnicodeData.CatGroups[group];
-			if ((gdata & 0x8000) != 0) {
-				gdata = Word{gdata & 0x7FFF};
-				val offs = DWord{this % UnicodeData.GroupSize};
-				val cat = DWord{UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] & 0x3FFFF};
-				return Char{cat};
-			}
-			else
-				return this;
-		}
-		else
+		if (plane >= UnicodeData.PlanesCase)
 			return this;
+		
+		val group = DWord{this / UnicodeData.GroupSizeCase};
+		val gdata = UnicodeData.CaseGroups[group];
+		if (gdata != 0) {
+			gdata--;
+			val offs = DWord{this % UnicodeData.GroupSizeCase};
+			val cat = DWord{UnicodeData.CaseSpec[gdata * UnicodeData.GroupSizeCase + offs] & 0x3FFFF};
+			return Char{cat};
+		}
+		
+		return this;
 	}
 
 	property Lower: Char {
 		val plane = DWord{UnicodePlane};
-		if (plane < UnicodeData.Planes) {
-			val group = DWord{this / UnicodeData.GroupSize};
-			val gdata = UnicodeData.CatGroups[group];
-			if ((gdata & 0x8000) != 0) {
-				gdata = Word{gdata & 0x7FFF};
-				val offs = DWord{this % UnicodeData.GroupSize};
-				val cat = DWord{(UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> 18) & 0x3FFFF};
-				return Char{cat};
-			}
-			else
-				return this;
-		}
-		else
+		if (plane >= UnicodeData.PlanesCase)
 			return this;
+		
+		val group = DWord{this / UnicodeData.GroupSizeCase};
+		val gdata = UnicodeData.CaseGroups[group];
+		if (gdata != 0) {
+			gdata--;
+			val offs = DWord{this % UnicodeData.GroupSizeCase};
+			val cat = DWord{(UnicodeData.CaseSpec[gdata * UnicodeData.GroupSizeCase + offs] >> 18) & 0x3FFFF};
+			return Char{cat};
+		}
+		
+		return this;
 	}
 
 	property Title: Char {
 		val plane = DWord{UnicodePlane};
-		if (plane < UnicodeData.Planes) {
-			val group = DWord{this / UnicodeData.GroupSize};
-			val gdata = UnicodeData.CatGroups[group];
-			if ((gdata & 0x8000) != 0) {
-				gdata = Word{gdata & 0x7FFF};
-				val offs = DWord{this % UnicodeData.GroupSize};
-				val cat = DWord{(UnicodeData.CatSpecs[gdata * UnicodeData.GroupSize + offs] >> 36) & 0x3FFFF};
-				return Char{cat};
-			}
-			else
-				return this;
-		}
-		else
+		if (plane >= UnicodeData.PlanesCase)
 			return this;
+		
+		val group = DWord{this / UnicodeData.GroupSizeCase};
+		val gdata = UnicodeData.CaseGroups[group];
+		if (gdata != 0) {
+			gdata--;
+			val offs = DWord{this % UnicodeData.GroupSizeCase};
+			val cat = DWord{(UnicodeData.CaseSpec[gdata * UnicodeData.GroupSizeCase + offs] >> 36) & 0x3FFFF};
+			return Char{cat};
+		}
+		
+		return this;
 	}
 
 	property IsUpper: Bool
