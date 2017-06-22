@@ -41,6 +41,7 @@ sys.core.lang.Int MaxDigitsLow
 # Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.  
+  
 Should not be used for buffer sizes.
 
 ***
@@ -50,5 +51,6 @@ sys.core.lang.Int MaxDigitsHigh
 # Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, MaxDigitsHigh - MaxDigitsLow most significant digits can't go though values 0-9 because they do not fit the binary representation.  
+
 Should not be used for buffer sizes.
 ***
