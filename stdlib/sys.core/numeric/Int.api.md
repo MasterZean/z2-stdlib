@@ -25,7 +25,4 @@ Parameters | Description
 --- | --- 
 value | The value that you pass in to cat
 miau | Such cat wow.
-return | Bad cat.
-
-return | Bad cat.
---- | --- |
+*return* | Bad cat.
