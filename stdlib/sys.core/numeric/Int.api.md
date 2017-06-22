@@ -21,9 +21,11 @@ Long description.
 
 Parameters 
 
+Error Code | Description
 --- | --- 
 value | The value that you pass in to cat
 miau | Such cat wow.
 
+Error Code | Description
 --- | --- |
 return | Bad cat.
