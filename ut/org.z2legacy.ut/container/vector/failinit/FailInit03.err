@@ -1,1 +1,2 @@
-FailInit03.z2(5, 18): error: literal 'Vector<Int>' declared with element count of '1' intilized with '3' (more) elements
+FailInit03.z2(5, 18): error:
+	Literal 'Vector<Int>' declared with an element count of '1' initialized with '3' (more) elements.

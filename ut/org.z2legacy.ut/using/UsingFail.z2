@@ -1,6 +1,8 @@
 using org.z2legacy.ut.compa.EmptyDummy;
 using org.z2legacy.ut.compa.compb.EmptyDummy;
 
+namespace org.z2legacy.ut.using;
+
 class EmptyDummy {
 }
 

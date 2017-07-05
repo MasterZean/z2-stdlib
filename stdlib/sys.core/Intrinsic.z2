@@ -54,6 +54,7 @@ class Intrinsic {
 	static def Ror64(value: QWord, bits: DWord): QWord; intrinsic;
 
 	static def Pow(base: Double, exponenet: Double): Double; intrinsic;
+	static def Log(base: Double): Double; intrinsic;
 
 	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize); intrinsic;
 	static def CStrLen(source: Ptr<Byte>): PtrSize; intrinsic;

@@ -1,2 +1,2 @@
-FailInit05.z2(5, 24): error: fully qualified class 'CArray<Int, 4>' used as a vector literal. Remove the numeric qualifier:
-		CArray<Int>
+FailInit05.z2(5, 24): error:
+	Fully qualified class 'CArray<Int, 4>' used as a vector literal. Remove the numeric qualifier: 'CArray<Int>'.

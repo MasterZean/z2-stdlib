@@ -265,7 +265,17 @@ class String {
 		val s = Slice<Byte>{this};
 		return s.FindIndex(b);
 	}
+	
+	def Find(b: Byte, start: PtrSize): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.FindIndex(b, start);
+	}
 
+    def Find(b: CArray<Byte>): PtrSize; const {
+		val s = Slice<Byte>{this};
+		return s.FindIndex(b);
+	}
+	
 	def RFind(b: Byte): PtrSize; const {
 		val s = Slice<Byte>{this};
 		return s.RFindIndex(b);

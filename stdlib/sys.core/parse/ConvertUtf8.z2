@@ -696,13 +696,13 @@ class ConvertUtf8 {
 				code = 0x10000u + ((code & 0x3FFu) << 10) + (second & 0x3FFu);
 			}
 
-			if(code < 0x80) {
+			if(code <= Char.MaxUtf8CP1) {
 				if (d - dest.SysDataPointer >= dest.Length)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{code};
 				d++;
 			}
-			else if(code < 0x800) {
+			else if(code <= Char.MaxUtf8CP2) {
 				if (d - dest.SysDataPointer >= dest.Length - 1)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{0xC0 | (code >> 6)};
@@ -710,7 +710,7 @@ class ConvertUtf8 {
 				d* = Byte{0x80 | (code & 0x3F)};
 				d++;
 			}
-			else if(code < 0x10000) {
+			else if(code <= Char.MaxUtf8CP3) {
 				if (d - dest.SysDataPointer >= dest.Length - 2)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{0xE0 | (code >> 12)};
@@ -720,7 +720,7 @@ class ConvertUtf8 {
 				d* = Byte{0x80 | (code & 0x3F)};
 				d++;
 			}
-			else if (code <= 0x10FFFF) {
+			else if (code <= Char.MaxUtf8CP4) {
 				if (d - dest.SysDataPointer >= dest.Length - 3)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{0xF0 | (code >> 18)};
@@ -747,13 +747,13 @@ class ConvertUtf8 {
 		while (s < lim) {
 			val code: DWord = s*;
 			
-			if(code < 0x80) {
+			if(code <= Char.MaxUtf8CP1) {
 				if (d - dest.SysDataPointer >= dest.Length)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{code};
 				d++;
 			}
-			else if(code < 0x800) {
+			else if(code <= Char.MaxUtf8CP2) {
 				if (d - dest.SysDataPointer >= dest.Length - 1)
 					return;
 				d* = Byte{0xC0 | (code >> 6)};
@@ -761,7 +761,7 @@ class ConvertUtf8 {
 				d* = Byte{0x80 | (code & 0x3F)};
 				d++;
 			}
-			else if(code < 0x10000) {
+			else if(code <= Char.MaxUtf8CP3) {
 				if (d - dest.SysDataPointer >= dest.Length - 2)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{0xE0 | (code >> 12)};
@@ -771,7 +771,7 @@ class ConvertUtf8 {
 				d* = Byte{0x80 | (code & 0x3F)};
 				d++;
 			}
-			else if (code <= 0x10FFFF) {
+			else if (code <= Char.MaxUtf8CP4) {
 				if (d - dest.SysDataPointer >= dest.Length - 3)
 					throw sys.core.BufferOverflowException{};
 				d* = Byte{0xF0 | (code >> 18)};

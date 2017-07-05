@@ -1,4 +1,6 @@
-CallFail01.z2(10, 9): error: class 'CallFail01' does not have an overload
-	test(Int)
-existing overloads
-	test(ref Int)
+CallFail01.z2(10, 9): error:
+	Class 'CallFail01' does not have an overload
+		test(Int)
+	existing overloads
+		test(ref Int)
+

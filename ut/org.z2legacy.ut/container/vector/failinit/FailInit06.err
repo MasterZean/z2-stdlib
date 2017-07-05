@@ -1,3 +1,4 @@
-FailInit06.z2(12, 42): error: can't access non public constructor:
-	org.z2legacy.ut.container.vector.WithPrivateConstructor01{}
+FailInit06.z2(12, 42): error:
+	Can't access non public constructor:
+		WithPrivateConstructor01{}
 

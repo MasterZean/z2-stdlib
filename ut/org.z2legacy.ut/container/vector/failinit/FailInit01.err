@@ -1,2 +1,3 @@
-FailInit01.z2(5, 21): error: can't intilize 'Vector<Int>' index '1' with type:
+FailInit01.z2(5, 21): error:
+	can't intilize 'Vector<Int>' index '1' with type:
 	Float

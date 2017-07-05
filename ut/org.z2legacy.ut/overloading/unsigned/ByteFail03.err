@@ -1,5 +1,7 @@
-ByteFail03.z2(5, 9): error: class 'ByteFail03': when trying to match overload
-	test(Byte)
-got ambiguity between
-	test(Float)
-	test(Double)
+ByteFail03.z2(5, 9): error:
+	class 'ByteFail03': when trying to match overload
+		test(Byte)
+	got ambiguity between
+		test(Float)
+		test(Double)
+

@@ -63,9 +63,9 @@ class System {
 		val buffu16: CArray<Word, 32767> = void;
 		val count = 0u;
 		
-		count = Win32.GetEnvironmentVariableW(varu16.SysDataPointer, buffu16.SysDataPointer, 32767);
+		count = Win32.GetEnvironmentVariableW(varu16.SysDataPointer, buffu16.SysDataPointer, buffu16.Length);
 		
-		val buffu8: CArray<Byte, 131068> = void;
+		val buffu8: CArray<Byte, buffu16.Length * 4> = void;
 		
 		val source = Slice<Word>{buffu16, PtrSize{count}};
 		val dest = Slice<Byte>{buffu8};

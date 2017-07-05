@@ -1,2 +1,3 @@
-FailInit02.z2(5, 24): error: can't intilize 'Vector<Int>' index '2' with type:
+FailInit02.z2(5, 24): error:
+	can't intilize 'Vector<Int>' index '2' with type:
 	DWord

@@ -1,14 +1,16 @@
-QWordFail01.z2(5, 9): error: class 'QWordFail01' does not have an overload
-	test(QWord)
-existing overloads
-	test(Byte)
-	test(Word)
-	test(DWord)
-	test(Small)
-	test(Short)
-	test(Int)
-	test(Long)
-	test(Float)
-	test(Double)
-	test(Char)
-	test(PtrSize)
+QWordFail01.z2(5, 9): error:
+	Class 'QWordFail01' does not have an overload
+		test(QWord)
+	existing overloads
+		test(Byte)
+		test(Word)
+		test(DWord)
+		test(Small)
+		test(Short)
+		test(Int)
+		test(Long)
+		test(Float)
+		test(Double)
+		test(Char)
+		test(PtrSize)
+

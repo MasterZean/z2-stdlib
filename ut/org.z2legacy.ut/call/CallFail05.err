@@ -1,1 +1,2 @@
-CallFail05.z2(7, 11): error: left side of assignment is not a L-value
+CallFail05.z2(7, 11): error:
+	left side of assignment is not a L-value

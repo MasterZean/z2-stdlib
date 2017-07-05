@@ -1,12 +1,14 @@
-IntFail01.z2(5, 9): error: class 'IntFail01' does not have an overload
-	test(Int)
-existing overloads
-	test(Byte)
-	test(Word)
-	test(DWord)
-	test(QWord)
-	test(Small)
-	test(Short)
-	test(Float)
-	test(Char)
-	test(PtrSize)
+IntFail01.z2(5, 9): error:
+	Class 'IntFail01' does not have an overload
+		test(Int)
+	existing overloads
+		test(Byte)
+		test(Word)
+		test(DWord)
+		test(QWord)
+		test(Small)
+		test(Short)
+		test(Float)
+		test(Char)
+		test(PtrSize)
+

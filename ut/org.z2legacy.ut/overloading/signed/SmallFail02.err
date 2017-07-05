@@ -1,5 +1,7 @@
-SmallFail02.z2(5, 9): error: class 'SmallFail02': when trying to match overload
-	test(Small)
-got ambiguity between
-	test(Float)
-	test(Double)
+SmallFail02.z2(5, 9): error:
+	class 'SmallFail02': when trying to match overload
+		test(Small)
+	got ambiguity between
+		test(Float)
+		test(Double)
+

@@ -1,3 +1,4 @@
-TestLessFail01.z2(22, 27): error: can't apply operator '<' on types: 
-	'org.z2legacy.ut.auto.failless01.Version' and 
-	'org.z2legacy.ut.auto.failless01.Version'
+TestLessFail01.z2(22, 27): error:
+	Can't apply operator '<' on types: 
+		'org.z2legacy.ut.auto.failless01.Version' and 
+		'org.z2legacy.ut.auto.failless01.Version'

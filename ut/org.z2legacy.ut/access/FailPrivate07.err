@@ -1,2 +1,4 @@
-FailPrivate07.z2(7, 27): error: can't access non public static function:
-	org.z2legacy.ut.access.Foo::test()
+FailPrivate07.z2(7, 27): error:
+	Can't access non public static function:
+		org.z2legacy.ut.access.Foo::test()
+

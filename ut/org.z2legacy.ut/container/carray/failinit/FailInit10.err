@@ -1,3 +1,4 @@
-FailInit10.z2(8, 50): error: can't access non public constructor:
-	org.z2legacy.ut.container.carray.WithPrivateConstructor{}
+FailInit10.z2(8, 50): error:
+	Can't access non public constructor:
+		WithPrivateConstructor{}
 

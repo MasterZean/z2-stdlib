@@ -1,6 +1,8 @@
-ByteFail04.z2(5, 9): error: class 'ByteFail04' does not have an overload
-	test(Byte)
-existing overloads
-	test(Small)
-	test(Char)
-	test(PtrSize)
+ByteFail04.z2(5, 9): error:
+	Class 'ByteFail04' does not have an overload
+		test(Byte)
+	existing overloads
+		test(Small)
+		test(Char)
+		test(PtrSize)
+

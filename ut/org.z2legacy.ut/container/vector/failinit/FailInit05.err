@@ -1,1 +1,2 @@
-FailInit05.z2(5, 21): error: vector literal 'Vector<Int>' has ellipsis but no explicit item count
+FailInit05.z2(5, 21): error:
+	Vector literal 'Vector<Int>' has ellipsis but no explicit item count.

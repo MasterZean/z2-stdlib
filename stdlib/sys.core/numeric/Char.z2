@@ -4,6 +4,7 @@ using sys.core.Stream;
 using sys.core.ConvertUtf8;
 using sys.core.i18n.UnicodeCategory;
 using sys.core.i18n.UnicodeData;
+using sys.core.OutputFormat;
 
 class Char {
 	const Zero: Char = 0;
@@ -75,7 +76,7 @@ class Char {
 		val group = DWord{this / UnicodeData.GroupSizeType};
 		val gdata = UnicodeData.TypeGroups[group];
 		if (gdata >= 32) {
-			gdata -= Byte{32};
+			gdata -= 32;
 			val offs = DWord{this % UnicodeData.GroupSizeType};
 			val cat = DWord{UnicodeData.TypeSpec[gdata * UnicodeData.GroupSizeType + offs]};
 			return UnicodeCategory{cat};
@@ -170,6 +171,10 @@ class Char {
 
 	def @write(ref stream: Stream); const {
 		stream.RawWrite(this);
+	}
+	
+	def @write(ref stream: Stream, format: OutputFormat); const {
+		stream.RawWrite(this, format);
 	}
 
 	def @put(ref stream: Stream); const {

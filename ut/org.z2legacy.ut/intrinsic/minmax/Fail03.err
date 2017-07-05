@@ -1,1 +1,2 @@
-Fail03.z2(5, 27): error: matching parameter 2: actual 'Long' to formal 'Int': no conversion possible
+Fail03.z2(5, 27): error:
+	matching parameter 2: actual 'Long' to formal 'Int': no conversion possible

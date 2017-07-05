@@ -1,2 +1,3 @@
-FailPrivate03.z2(7, 27): error: can't access non public static variable:
-	data   =>   found in class org.z2legacy.ut.access.Foo
+FailPrivate03.z2(7, 27): error:
+	Can't access non public static variable:
+		data   =>   found in class org.z2legacy.ut.access.Foo

@@ -1,14 +1,16 @@
-LongFail01.z2(5, 9): error: class 'LongFail01' does not have an overload
-	test(Long)
-existing overloads
-	test(Byte)
-	test(Word)
-	test(DWord)
-	test(QWord)
-	test(Small)
-	test(Short)
-	test(Int)
-	test(Float)
-	test(Double)
-	test(Char)
-	test(PtrSize)
+LongFail01.z2(5, 9): error:
+	Class 'LongFail01' does not have an overload
+		test(Long)
+	existing overloads
+		test(Byte)
+		test(Word)
+		test(DWord)
+		test(QWord)
+		test(Small)
+		test(Short)
+		test(Int)
+		test(Float)
+		test(Double)
+		test(Char)
+		test(PtrSize)
+

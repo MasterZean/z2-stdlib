@@ -1,1 +1,2 @@
-FailInit02.z2(5, 29): error: 'CArray' can only be instantited with a greater than 0 item count
+FailInit02.z2(5, 29): error:
+	'CArray<Int>' can only be instantiated with a greater than 0 item count.
