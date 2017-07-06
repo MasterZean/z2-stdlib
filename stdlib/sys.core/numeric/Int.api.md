@@ -111,11 +111,67 @@ sys.core.lang.Int Clamped
 ## Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min: `sys.core.lang.Int`
+### param min: sys.core.lang.Int
 the minimum value
-### param max: `sys.core.lang.Int`
+### param max: sys.core.lang.Int
 the maximum value
-### return
+### returns
 the clamped value
 ### seealso `sys.core.lang.Intrinsic Clamped`  
+***
+
+sys.core.lang.Int ToString
+=
+## Brief
+Converts the value to a Utf8 string.
+***
+
+sys.core.lang.Int @write
+=
+## Brief
+Writes the value to an Utf8 text stream.
+***
+
+### param ref stream: sys.core.Stream
+the output stream
+### param format: sys.core.OutputFormat
+formatting information 
+***
+
+sys.core.lang.Int @put
+=
+## Brief
+Writes the value to a binary stream as a 32 bit signed integer.
+***
+
+### param ref stream: sys.core.Stream
+the output stream
+***
+
+sys.core.lang.Int @get
+=
+## Brief
+Reads a 32 bit signed integer from a binary stream.
+***
+
+### param ref stream: sys.core.Stream
+the input stream
+***
+
+sys.core.lang.Int this
+=
+## Brief
+Parses a string an constructs an `sys.core.lang.Int` based on it.
+
+### param string: sys.core.lang.String
+string to parse
+***
+
+sys.core.lang.Int Saturated
+=
+## Brief
+Constructs a saturated `sys.core.lang.Int` based on the input value.
+
+### param value
+the input value. Can be numeric or a string.
 ***
