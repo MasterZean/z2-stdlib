@@ -11,7 +11,7 @@ class PassIns01 {
 		val a = CArray[5: 1, ...];
 		System.Out << a.IsEmpty << "\n";
 		print(a);
-		a = 2;
+		a.Fill(2);
 		print(a);
 		a.Fill(9);
 		print(a);
