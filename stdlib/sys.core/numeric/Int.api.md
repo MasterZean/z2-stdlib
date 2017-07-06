@@ -130,7 +130,6 @@ sys.core.lang.Int @write
 =
 ## Brief
 Writes the value to an Utf8 text stream.
-***
 
 ### param ref stream: sys.core.Stream
 the output stream
@@ -142,7 +141,6 @@ sys.core.lang.Int @put
 =
 ## Brief
 Writes the value to a binary stream as a 32 bit signed integer.
-***
 
 ### param ref stream: sys.core.Stream
 the output stream
@@ -152,7 +150,6 @@ sys.core.lang.Int @get
 =
 ## Brief
 Reads a 32 bit signed integer from a binary stream.
-***
 
 ### param ref stream: sys.core.Stream
 the input stream
