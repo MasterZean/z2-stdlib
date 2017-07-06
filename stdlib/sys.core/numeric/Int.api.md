@@ -93,3 +93,29 @@ Returns of the rounded value of a floating point.
 
 In the case of `sys.core.lang.Int` it returns the value itself and is included only for API compatibility when using templates.
 ***
+
+sys.core.lang.Int Clamp
+=
+## Brief
+Clamps the current mutable instance between `min` and `max`.
+
+### param min: `sys.core.lang.Int`
+the minimum value
+### param max: `sys.core.lang.Int`
+the maximum value
+### seealso `sys.core.lang.Intrinsic Clamp`  
+***
+
+sys.core.lang.Int Clamped
+=
+## Brief
+Returns the current instance clamped between `min` and `max`.
+
+### param min: `sys.core.lang.Int`
+the minimum value
+### param max: `sys.core.lang.Int`
+the maximum value
+### return
+the clamped value
+### seealso `sys.core.lang.Intrinsic Clamped`  
+***
