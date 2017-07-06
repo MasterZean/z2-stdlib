@@ -1,0 +1,19 @@
+namespace org.z2legacy.ut.misc;
+
+class TestGetEnv {
+    def @main() {
+	    System.Out << System.GetEnvVariable("PATH") << "\n";
+	    System.Out << "\n";
+	    
+	    val paths = System.GetEnvVariable("PATH").Split(';');
+		foreach (p in paths) {
+		    System.Out << p << "\n";
+		}
+		System.Out << "\n";
+		
+		foreach (p in System.GetEnvVariable("PATH").Split(';'))
+		    System.Out << p << "\n";
+
+		System.Out << "\n";
+	}
+}

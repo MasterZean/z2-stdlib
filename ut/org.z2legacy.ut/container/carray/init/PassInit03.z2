@@ -1,6 +1,6 @@
 namespace org.z2legacy.ut.container.carray;
 
-class Pass03Init {
+class PassInit03 {
 	def @main() {
 		val a = CArray<Increment, 1>{};
 		System.Out << Counter << "\n";
@@ -23,6 +23,6 @@ class Pass03Init {
 
 class Increment {
 	this() {
-		Pass03Init.Counter++;
+		PassInit03.Counter++;
 	}
 }

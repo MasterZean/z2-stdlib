@@ -2,17 +2,17 @@ namespace org.z2legacy.ut.container.carray;
 
 using BuildLog;
 
-class Pass06Init {
+class PassInit08 {
 	def @main() {
 		val temp = BuildLog{};
 		
 		System.Out << "declare a:\n";
-		val a = CArray<BuildLog, 5>{};
+		val a = CArray[3: BuildLog{}, ...];
 		
 		System.Out << "declare b:\n";
-		val b = CArray[5: BuildLog{}, ...];
+		val b = CArray[3: BuildLog.Named{0}, ...];
 		
 		System.Out << "declare c:\n";
-		val c = CArray[5: temp, ...];
+		val c = CArray[3: temp, ...];
 	}
 }

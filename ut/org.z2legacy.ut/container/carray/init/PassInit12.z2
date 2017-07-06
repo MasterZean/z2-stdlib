@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.container.carray;
+
+class PassInit12 {
+	def @main() {
+	    val i = 8;
+		val v: CArray<Int> = [7: i++, ...];
+		System.Out << v << "\n";
+	}
+}

@@ -2,7 +2,7 @@ namespace org.z2legacy.ut.container.carray;
 
 using BuildLog;
 
-class Pass05Init {
+class PassInit05 {
 	def @main() {
 		val temp = BuildLog{};
 		

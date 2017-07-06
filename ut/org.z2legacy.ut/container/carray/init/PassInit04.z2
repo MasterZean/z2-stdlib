@@ -1,6 +1,6 @@
 namespace org.z2legacy.ut.container.carray;
 
-class Pass04Init {
+class PassInit04 {
 	def @main() {
 		val temp = BuildLog{};
 		

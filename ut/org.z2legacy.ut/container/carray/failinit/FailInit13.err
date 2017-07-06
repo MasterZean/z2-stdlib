@@ -1,0 +1,2 @@
+FailInit13.z2(5, 16): error:
+	Explicitly specified type of 'CArray<Int>' must include an item count.
