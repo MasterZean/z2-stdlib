@@ -47,7 +47,7 @@ class Float {
 
 	def Clamp(min: Float, max: Float); Intrinsic.Clamp;
 	
-	def Clamped(min: Float, max: Float): Float; const Intrinsic.Clamped;
+	func Clamped(min: Float, max: Float): Float; Intrinsic.Clamped;
 
 #region Math
 
@@ -55,13 +55,13 @@ class Float {
 
 	property Log10: Float get const Intrinsic.Log10;
 
-	def Pow(exp: Float): Float; const Intrinsic.Pow;
+	func Pow(exp: Float): Float; Intrinsic.Pow;
 
 #endregion
 
 #region ToString
 
-	def ToString(): String; const {
+	func ToString(): String {
 		val buf: CArray<Byte, 320> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DoubleAsText(s, this);
@@ -72,15 +72,15 @@ class Float {
 
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 	
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutF32(this);
 	}
 

@@ -160,7 +160,7 @@ class String {
 		capacity = 0;
 	}
 
-	def @eq(second: String): Bool; const {
+	func @eq(second: String): Bool {
 		if (length != second.Length)
 			return false;
 
@@ -171,7 +171,7 @@ class String {
 		return true;
 	}
 
-	def @neq(second: String): Bool; const {
+	func @neq(second: String): Bool {
 		if (length != second.Length)
 			return true;
 
@@ -182,8 +182,9 @@ class String {
 		return false;
 	}
 
-	def @shl(ch: Char) {
+	def @shl(ch: Char): ref String {
 		val i: PtrSize;
+		
 		if (ch <= Char.MaxUtf8CP1) {
 			if (length >= capacity)
 				Capacity = Capacity + GrowthSpacing;
@@ -220,9 +221,26 @@ class String {
 			data[length] = Byte{0x80 | (ch & 0x3F)};
 			length++;
 		}
+		
 		data[length] = 0;
+		
+		return this;
 	}
-
+	
+	def @shl(str: String): ref String {
+	    if (length + str.Length >= capacity)
+				Capacity = Capacity + str.Length + 3;
+	    
+	    for (val i = 0p; i < str.Length; i++) {
+	        data[length] = str[i];
+	        length++;
+	    }
+	    
+	    data[length] = 0;
+	    
+	    return this;
+	}
+    
 	property SysDataPointer: Ptr<Byte>
 	get {
 		return data;
@@ -246,7 +264,7 @@ class String {
 		capacity = newLen;
 	}
 
-	def Inserted(pos: PtrSize, string: String): String; const {
+	func Inserted(pos: PtrSize, string: String): String {
 		val newLen = length + string.Length;
 		val temp = Byte.new(newLen + 1);
 
@@ -261,37 +279,37 @@ class String {
 		return String.TakeOwnership{temp, newLen};
 	}
 
-	def Find(b: Byte): PtrSize; const {
+	func Find(b: Byte): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.FindIndex(b);
 	}
 	
-	def Find(b: Byte, start: PtrSize): PtrSize; const {
+	func Find(b: Byte, start: PtrSize): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.FindIndex(b, start);
 	}
 
-    def Find(b: CArray<Byte>): PtrSize; const {
+    func Find(b: CArray<Byte>): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.FindIndex(b);
 	}
 	
-	def RFind(b: Byte): PtrSize; const {
+	func RFind(b: Byte): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.RFindIndex(b);
 	}
 	
-	def RFind(b: Byte, start: PtrSize): PtrSize; const {
+	func RFind(b: Byte, start: PtrSize): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.RFindIndex(b, start);
 	}
 	
-	def RFind(b: CArray<Byte>): PtrSize; const {
+	func RFind(b: CArray<Byte>): PtrSize {
 		val s = Slice<Byte>{this};
 		return s.RFindIndex(b);
 	}
 
-	def Parse<T: Class>(): T; const {
+	func Parse<T: Class>(): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -311,7 +329,7 @@ class String {
 		return value * sign;
 	}
 
-	def ParseSaturated<T: Class>(): T; const {
+	func ParseSaturated<T: Class>(): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -355,15 +373,15 @@ class String {
         return v;
     }
     
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 	
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		length.@put(stream);
 		val s = Slice<Byte>{this};
 		stream.BinPutImpl(s);

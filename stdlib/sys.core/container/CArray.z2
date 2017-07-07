@@ -92,7 +92,7 @@ class CArray<T: Class> {
 	
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		if (Length > 0) {
 			for (val i = 0p; i < Length - 1; i++)
 				stream << this[i] << ' ';

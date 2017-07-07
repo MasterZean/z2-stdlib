@@ -19,7 +19,7 @@ class Foo {
 		b = t;
 	}
 
-	def @eq(obj: Foo): Bool; const {
+	func @eq(obj: Foo): Bool {
 		System.Out << "call " << class << '.' << def.Name << "() of class " << @neq.class << "\n";
 		
 		return a == obj.a && b == obj.b;

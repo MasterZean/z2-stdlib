@@ -2,6 +2,7 @@ namespace sys.core.lang;
 
 using sys.core.Stream;
 using sys.core.Compiler;
+using sys.core.OutputFormat;
 
 class PtrSize {
 	const Zero: PtrSize = 0;
@@ -44,9 +45,9 @@ class PtrSize {
 	
 	def Clamp(min: PtrSize, max: PtrSize); Intrinsic.Clamp;
 	
-	def Clamped(min: PtrSize, max: PtrSize): PtrSize; const Intrinsic.Clamped;
+	func Clamped(min: PtrSize, max: PtrSize): PtrSize; Intrinsic.Clamped;
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		if (Compiler.Bits == 32) {
 			if (this == Invalid)
 				stream.RawWrite(-1);
@@ -62,7 +63,23 @@ class PtrSize {
 			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
 	}
 	
-	def @put(ref stream: Stream); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
+		if (Compiler.Bits == 32) {
+			if (this == Invalid)
+				stream.RawWrite(-1, format);
+			else
+				stream.RawWrite(DWord{this}, format);
+		}
+		else if (Compiler.Bits == 64)
+			if (this == Invalid)
+				stream.RawWrite(-1, format);
+			else
+				stream.RawWrite(QWord{this}, format);
+		else
+			System.Trace.Error("Only 32 or 64 bit systems are supported right now!");
+	}
+	
+	func @put(ref stream: Stream) {
 		if (Compiler.Bits == 32)
 			stream.RawPutU32(DWord{this});
 		else if (Compiler.Bits == 64)

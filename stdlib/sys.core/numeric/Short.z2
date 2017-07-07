@@ -43,7 +43,7 @@ class Short {
 
 	def Clamp(min: Short, max: Short); Intrinsic.Clamp;
 	
-	def Clamped(min: Short, max: Short): Short; const Intrinsic.Clamped;
+	func Clamped(min: Short, max: Short): Short; Intrinsic.Clamped;
 
 
 	this(string: String) {
@@ -51,7 +51,7 @@ class Short {
 		this = Short{ConvertUtf8.ParseSig<Int>(s)};
 	}
 
-	def ToString(): String; const {
+	func ToString(): String {
 		val buf: CArray<Byte, ConvertUtf8.MaxShortBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.IntAsText(s, this);
@@ -104,15 +104,15 @@ class Short {
 	
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 	
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutS16(this);
 	}
 

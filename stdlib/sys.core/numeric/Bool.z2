@@ -12,11 +12,11 @@ class Bool {
 
 	def Clamp(min: Bool, max: Bool); Intrinsic.Clamp;
 	
-	def Clamped(min: Bool, max: Bool): Int; const Intrinsic.Clamped;
+	func Clamped(min: Bool, max: Bool): Int; Intrinsic.Clamped;
 	
 #region ToString
 
-	def ToString(): String; const {
+	func ToString(): String {
 		if (this == true)
 			return "true";
 		else
@@ -27,15 +27,15 @@ class Bool {
 
 #region Serialize
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 	
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutU8(Byte{this});
 	}
 

@@ -22,7 +22,7 @@ class Char {
 	
 	def Clamp(min: Char, max: Char); Intrinsic.Clamp;
 	
-	def Clamped(min: Char, max: Char): Char; const Intrinsic.Clamped;
+	func Clamped(min: Char, max: Char): Char; Intrinsic.Clamped;
 
 	property UnicodePlane: Byte {
 		return Byte{this >> 16};
@@ -158,7 +158,7 @@ class Char {
 
 #region ToString
 
-	def ToString(): String {
+	func ToString(): String {
 		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.CharAsText(s, this);
@@ -169,15 +169,15 @@ class Char {
 
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 	
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutU32(DWord{this});
 	}
 

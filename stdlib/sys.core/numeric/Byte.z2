@@ -43,14 +43,14 @@ class Byte {
 	
 	def Clamp(min: Byte, max: Byte); Intrinsic.Clamp;
 	
-	def Clamped(min: Byte, max: Byte): Byte; const Intrinsic.Clamped;
+	func Clamped(min: Byte, max: Byte): Byte; Intrinsic.Clamped;
 
 	this(string: String) {
 		val s = Slice<Byte>{string};
 		this = Byte{ConvertUtf8.ParseUns<DWord>(s)};
 	}
 	
-	def ToString(): String; const {
+	func ToString(): String {
 		val buf: CArray<Byte, ConvertUtf8.MaxByteBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.DWordAsText(s, this);
@@ -103,15 +103,15 @@ class Byte {
 
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 	
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutU8(this);
 	}
 

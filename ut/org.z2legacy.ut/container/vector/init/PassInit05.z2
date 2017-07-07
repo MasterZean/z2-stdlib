@@ -6,7 +6,7 @@ class WithPrivateConstructor03 {
 	this(a: Int) {
 	}
 	
-	def @write(ref s: Stream); const {
+	func @write(ref s: Stream) {
 		s << "7000";
 	}
 }

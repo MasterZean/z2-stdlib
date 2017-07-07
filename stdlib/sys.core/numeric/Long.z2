@@ -43,14 +43,14 @@ class Long {
 	
 	def Clamp(min: Long, max: Long); Intrinsic.Clamp;
 	
-	def Clamped(min: Long, max: Long): Long; const Intrinsic.Clamped;
+	func Clamped(min: Long, max: Long): Long; Intrinsic.Clamped;
 
 	this(string: String) {
 		val s = Slice<Byte>{string};
 		this = ConvertUtf8.ParseSig<Long>(s);
 	}
 	
-	def ToString(): String; const {
+	func ToString(): String {
 		val buf: CArray<Byte, ConvertUtf8.MaxLongBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.LongAsText(s, this);
@@ -85,15 +85,15 @@ class Long {
 
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
 
-	def @write(ref stream: Stream, format: OutputFormat); const {
+	func @write(ref stream: Stream, format: OutputFormat) {
 		stream.RawWrite(this, format);
 	}
 	
-	def @put(ref stream: Stream); const {
+	func @put(ref stream: Stream) {
 		stream.RawPutS64(this);
 	}
 

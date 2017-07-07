@@ -9,7 +9,7 @@ class Class {
 
 #region IO
 
-	def @write(ref stream: Stream); const {
+	func @write(ref stream: Stream) {
 		stream.RawWrite(Name);
 	}
 

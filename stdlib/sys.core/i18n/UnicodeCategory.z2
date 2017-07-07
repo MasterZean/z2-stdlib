@@ -86,7 +86,7 @@ public {
 				this = UnicodeCategory{i};
 	}
 
-	def ToAbbr(): String; const {
+	func ToAbbr(): String {
 		if (this >= Uppercase_Letter && this <= Unassigned)
 			return abbr[PtrSize{this}];
 		else

@@ -10,7 +10,7 @@ class FailInit09 {
 }
 
 class WithPrivateConstructor {
-	def @write(ref s: Stream); const {
+	func @write(ref s: Stream) {
 		s << "should not be here!";
 	}
 }

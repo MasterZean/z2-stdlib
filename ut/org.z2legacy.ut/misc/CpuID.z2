@@ -10,5 +10,9 @@ class CpuID {
 		System.Out << "SSSE3: " << System.CPU.SSSE3 << "\n";
 		System.Out << "SSE41: " << System.CPU.SSE41 << "\n";
 		System.Out << "SSE42: " << System.CPU.SSE42 << "\n";
+				
+		System.Out << System.CPU.Bits << "\n";
+		System.Out << sys.core.Compiler.Bits << "\n";
+		System.Out << System.CPU.Cores << "\n";
 	}
 }
