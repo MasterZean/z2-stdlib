@@ -95,8 +95,8 @@ class Small {
 			this = Small{value};
 	}
 
-	this Saturated(string: String) {
-		val s = Slice<Byte>{string};
+	this Saturated(value: String) {
+		val s = Slice<Byte>{value};
 		this.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
 	}
 	

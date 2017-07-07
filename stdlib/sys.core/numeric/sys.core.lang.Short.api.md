@@ -14,8 +14,6 @@ Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
 ### param value
 the input value. Can be numeric or a string.
-### param string
-the input value. Can be numeric or a string.
 ***
 
 sys.core.lang.Short Clamp
@@ -38,6 +36,8 @@ Returns the current instance clamped between `min` and `max`.
 the minimum value
 ### param max
 the maximum value
+### returns
+the clamped value
 ***
 
 sys.core.lang.Short ToString
@@ -45,6 +45,8 @@ sys.core.lang.Short ToString
 ## Brief
 Converts the value to a Utf8 string.
 
+### returns
+the resulting string
 ***
 
 sys.core.lang.Short @write

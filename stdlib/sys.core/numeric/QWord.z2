@@ -72,6 +72,11 @@ class QWord {
 		this = value;
 	}
 	
+	this Saturated(value: String) {
+		val s = Slice<Byte>{value};
+		this = ConvertUtf8.ParseUnsSaturated<QWord>(s);
+	}
+	
 #endregion
 	
 #region IO

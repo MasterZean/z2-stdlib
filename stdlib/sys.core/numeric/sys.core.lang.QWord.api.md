@@ -36,6 +36,8 @@ Returns the current instance clamped between `min` and `max`.
 the minimum value
 ### param max
 the maximum value
+### returns
+the clamped value
 ***
 
 sys.core.lang.QWord ToString
@@ -43,6 +45,8 @@ sys.core.lang.QWord ToString
 ## Brief
 Converts the value to a Utf8 string.
 
+### returns
+the resulting string
 ***
 
 sys.core.lang.QWord @write

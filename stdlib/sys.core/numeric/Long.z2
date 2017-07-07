@@ -76,8 +76,8 @@ class Long {
 			this = Long{value};
 	}
 	
-	this Saturated(string: String) {
-		val s = Slice<Byte>{string};
+	this Saturated(value: String) {
+		val s = Slice<Byte>{value};
 		this = ConvertUtf8.ParseSigSaturated<Long>(s);
 	}
 
