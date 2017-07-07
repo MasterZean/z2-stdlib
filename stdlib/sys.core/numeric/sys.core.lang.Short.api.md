@@ -3,6 +3,8 @@ sys.core.lang.Short this
 ## Brief
 Parses a string an constructs an `sys.core.lang.Short` based on it.
 
+### param string
+string to parse
 ***
 
 sys.core.lang.Short Saturated
@@ -10,6 +12,10 @@ sys.core.lang.Short Saturated
 ## Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
+### param value
+the input value. Can be numeric or a string.
+### param string
+the input value. Can be numeric or a string.
 ***
 
 sys.core.lang.Short Clamp
@@ -17,6 +23,10 @@ sys.core.lang.Short Clamp
 ## Brief
 Clamps the current mutable instance between `min` and `max`.
 
+### param min
+the minimum value
+### param max
+the maximum value
 ***
 
 sys.core.lang.Short Clamped
@@ -24,6 +34,10 @@ sys.core.lang.Short Clamped
 ## Brief
 Returns the current instance clamped between `min` and `max`.
 
+### param min
+the minimum value
+### param max
+the maximum value
 ***
 
 sys.core.lang.Short ToString
@@ -38,6 +52,10 @@ sys.core.lang.Short @write
 ## Brief
 Writes the value to an Utf8 text stream.
 
+### param stream
+the output stream
+### param format
+formatting information
 ***
 
 sys.core.lang.Short @put
@@ -45,6 +63,8 @@ sys.core.lang.Short @put
 ## Brief
 Writes the value to a binary stream as a 16 bit signed integer.
 
+### param stream
+the output stream
 ***
 
 sys.core.lang.Short @get
@@ -52,6 +72,8 @@ sys.core.lang.Short @get
 ## Brief
 Reads a 16 bit signed integer from a binary stream.
 
+### param stream
+the input stream
 ***
 
 sys.core.lang.Short Abs
