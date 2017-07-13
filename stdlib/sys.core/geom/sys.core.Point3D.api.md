@@ -161,6 +161,7 @@ sys.core.Point3D @minus
 =
 ## Brief
 Returns the member-wise negative of the current instance.
+
 ### returns
 
 ***
@@ -204,29 +205,34 @@ sys.core.Point3D Length
 =
 ## Brief
 The length of the instance interpreted as a 3 dimensional vector.
+
 ***
 
 sys.core.Point3D LengthSquared
 =
 ## Brief
 The squred length of the instance interpreted as a 3 dimensional vector.
+
 ***
 
 sys.core.Point3D X
 =
 ## Brief
 The first dimension of the point.
+
 ***
 
 sys.core.Point3D Y
 =
 ## Brief
 The second dimension of the point.
+
 ***
 
 sys.core.Point3D Z
 =
 ## Brief
 The third dimension of the point.
+
 ***
 

@@ -157,6 +157,7 @@ sys.core.Point2D @minus
 =
 ## Brief
 Returns the member-wise negative of the current instance.
+
 ### returns
 
 ***
@@ -200,23 +201,27 @@ sys.core.Point2D Length
 =
 ## Brief
 The length of the instance interpreted as a 2 dimensional vector.
+
 ***
 
 sys.core.Point2D LengthSquared
 =
 ## Brief
 The squared length of the instance interpreted as a 2 dimensional vector.
+
 ***
 
 sys.core.Point2D X
 =
 ## Brief
 The first dimension of the point.
+
 ***
 
 sys.core.Point2D Y
 =
 ## Brief
 The second dimension of the point.
+
 ***
 

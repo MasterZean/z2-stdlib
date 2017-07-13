@@ -1,6 +1,8 @@
-
+sys.core.lang.Vector this
 =
 ## Brief
+
+### param copy
 
 ***
 

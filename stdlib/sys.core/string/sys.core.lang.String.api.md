@@ -1,6 +1,14 @@
-
+sys.core.lang.String this
 =
 ## Brief
+
+### param chars
+
+### param len
+
+### param cap
+
+### param obj
 
 ***
 
@@ -191,6 +199,12 @@ sys.core.lang.String IsEmpty
 ***
 
 sys.core.lang.String SysDataPointer
+=
+## Brief
+
+***
+
+sys.core.lang.String GrowthSpacing
 =
 ## Brief
 

@@ -167,6 +167,7 @@ sys.core.Point4D @minus
 =
 ## Brief
 Returns the member-wise negative of the current instance.
+
 ### returns
 
 ***
@@ -210,35 +211,41 @@ sys.core.Point4D Length
 =
 ## Brief
 The length of the instance interpreted as a 4 dimensional vector.
+
 ***
 
 sys.core.Point4D LengthSquared
 =
 ## Brief
 The squared length of the instance interpreted as a 4 dimensional vector.
+
 ***
 
 sys.core.Point4D X
 =
 ## Brief
 The first dimension of the point.
+
 ***
 
 sys.core.Point4D Y
 =
 ## Brief
 The second dimension of the point.
+
 ***
 
 sys.core.Point4D Z
 =
 ## Brief
 The third dimension of the point.
+
 ***
 
 sys.core.Point4D W
 =
 ## Brief
 The fourth dimension of the point.
+
 ***
 

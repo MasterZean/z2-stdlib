@@ -15,7 +15,8 @@ class StopWatch {
 		Win32.QueryPerformanceCounter(Ptr{start});
 	}
 
-	def Elapsed(): Double {
+	func Elapsed(): Double {
+	    val stop: Long;
 		Win32.QueryPerformanceCounter(Ptr{stop});
 		return (stop - start) * 1000.0 / freq;
 	}
@@ -26,6 +27,5 @@ class StopWatch {
 }
 private {
 	val start: Long;
-	val stop: Long;
 	val freq: Long;
  }

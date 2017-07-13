@@ -1,6 +1,18 @@
-
+sys.core.lang.Slice this
 =
 ## Brief
+
+### param ppp
+
+### param p
+
+### param length
+
+### param start
+
+### param end
+
+### param offset
 
 ***
 

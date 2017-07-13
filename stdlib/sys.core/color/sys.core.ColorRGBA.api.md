@@ -241,23 +241,27 @@ sys.core.ColorRGBA R
 =
 ## Brief
 The red component.
+
 ***
 
 sys.core.ColorRGBA G
 =
 ## Brief
 The green component.
+
 ***
 
 sys.core.ColorRGBA B
 =
 ## Brief
 The blue component.
+
 ***
 
 sys.core.ColorRGBA A
 =
 ## Brief
 The alpha component.
+
 ***
 

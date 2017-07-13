@@ -2,6 +2,7 @@ sys.core.lang.Bool this
 =
 ## Brief
 Parses a string an constructs an `sys.core.lang.Bool` based on it.
+
 ### param string
 string to parse
 ***
@@ -36,6 +37,7 @@ sys.core.lang.Bool ToString
 =
 ## Brief
 Converts the value to a Utf8 string.
+
 ### returns
 the resulting string
 ***
@@ -44,6 +46,7 @@ sys.core.lang.Bool @write
 =
 ## Brief
 Writes the value to an Utf8 text stream.
+
 ### param stream
 the output stream
 ### param format
@@ -72,23 +75,27 @@ sys.core.lang.Bool Min
 =
 ## Brief
 The minimum value for an `sys.core.lang.Bool` (boolean) instance.
+
 ***
 
 sys.core.lang.Bool Max
 =
 ## Brief
 The maximum value for an `sys.core.lang.Bool` (boolean) instance.
+
 ***
 
 sys.core.lang.Bool IsSigned
 =
 ## Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
+
 ***
 
 sys.core.lang.Bool IsInteger
 =
 ## Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
+
 ***
 
