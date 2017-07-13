@@ -1,9 +1,9 @@
-using microsoft.windows.Win32;
-
 namespace sys.core;
 
+using microsoft.windows.Win32;
+
 class Thread {
-	static def Sleep(msec: DWord) {
+	static func Sleep(msec: DWord) {
 		Win32.Sleep(msec);
 	}
 }

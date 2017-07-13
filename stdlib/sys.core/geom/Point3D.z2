@@ -1,6 +1,7 @@
-using sys.core.Point2D;
-
 namespace sys.core;
+
+using Point2D;
+
 
 class Point3D<T: Class> {
 	val X: T;
