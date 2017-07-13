@@ -25,7 +25,7 @@ Clamps the current mutable instance between `min` and `max`.
 the minimum value
 ### param max
 the maximum value
-### seealso `sys.core.lang.Intrinsic Clamp`  
+### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
 sys.core.lang.Int Clamped
@@ -39,7 +39,7 @@ the minimum value
 the maximum value
 ### returns
 the clamped value
-### seealso `sys.core.lang.Intrinsic Clamped`  
+### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
 sys.core.lang.Int ToString
@@ -59,7 +59,7 @@ Writes the value to an Utf8 text stream.
 ### param stream
 the output stream
 ### param format
-formatting information 
+formatting information
 ***
 
 sys.core.lang.Int @put

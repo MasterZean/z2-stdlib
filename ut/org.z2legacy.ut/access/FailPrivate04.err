@@ -1,3 +1,3 @@
-C:\z2c\source\ut\org.z2legacy.ut\access\FailPrivate04.z2(7, 29): error:
+FailPrivate04.z2(7, 29): error:
 	Can't access non public variable:
 		data   =>   found in class org.z2legacy.ut.access.Bar

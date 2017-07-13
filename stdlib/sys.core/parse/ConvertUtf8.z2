@@ -11,8 +11,8 @@ class ConvertUtf8 {
 	const MaxDWordBuffer = 10;
 	const MaxQWordBuffer = 20;
 	
-	const MaxBinSmallBuffer =  5;
-	const MaxBinShortBuffer =  9;
+	const MaxBinSmallBuffer =  9;
+	const MaxBinShortBuffer = 17;
 	const MaxBinIntBuffer   = 33;
 	const MaxBinLongBuffer  = 65;
 	
@@ -23,7 +23,7 @@ class ConvertUtf8 {
 	
 	const MaxCharBuffer  =  4;
 	
-	static def IntAsText(ref buffer: Slice<Byte>, data: Int) {
+	static func IntAsText(ref buffer: Slice<Byte>, data: Int) {
 		if (data == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -70,7 +70,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord) {
+	static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord) {
 		if (base == 10) {
 			IntAsText(buffer, data);
 			return;
@@ -129,7 +129,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def LongAsText(ref buffer: Slice<Byte>, data: Long) {
+	static func LongAsText(ref buffer: Slice<Byte>, data: Long) {
 		if (data == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -176,7 +176,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord) {
+	static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord) {
 		if (base == 10) {
 			LongAsText(buffer, data);
 			return;
@@ -235,7 +235,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def ParseSig<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseSig<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -268,7 +268,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static def ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -306,7 +306,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static def ParseUns<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseUns<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')
@@ -334,7 +334,7 @@ class ConvertUtf8 {
 		return value;
 	}
 	
-	static def ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')
@@ -365,7 +365,7 @@ class ConvertUtf8 {
 		return value;
 	}
 	
-	static def DWordAsText(ref buffer: Slice<Byte>, val value: DWord) {
+	static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -394,7 +394,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord) {
+	static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord) {
 		if (base == 10) {
 			DWordAsText(buffer, value);
 			return;
@@ -435,7 +435,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsText(ref buffer: Slice<Byte>, val value: QWord) {
+	static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -464,7 +464,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord) {
+	static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord) {
 		if (base == 10) {
 			QWordAsText(buffer, value);
 			return;
@@ -505,7 +505,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static def FloatAsText(ref buffer: Slice<Byte>, data: Float) {
+	static func FloatAsText(ref buffer: Slice<Byte>, data: Float) {
 		if (data.IsNan) {
 			if (buffer.Length < 3)
 				throw sys.core.BufferOverflowException{};
@@ -569,7 +569,7 @@ class ConvertUtf8 {
 			AsTextExp<Int>(buffer, data, 7);
 	}
 
-	static def DoubleAsText(ref buffer: Slice<Byte>, data: Double) {
+	static func DoubleAsText(ref buffer: Slice<Byte>, data: Double) {
 		if (data.IsNan) {
 			if (buffer.Length < 3)
 				throw sys.core.BufferOverflowException{};
@@ -632,7 +632,7 @@ class ConvertUtf8 {
 			AsTextExp<Long>(buffer, data, 15);
 	}
 		
-	static def CharAsText(ref buffer: Slice<Byte>, data: Char) {
+	static func CharAsText(ref buffer: Slice<Byte>, data: Char) {
 		val i = 0p;
 		if (data <= Char.MaxUtf8CP1) {
 			if (buffer.Length < 1)
@@ -680,7 +680,7 @@ class ConvertUtf8 {
 		buffer.Length = i;
 	}
 	
-	static def FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>) {
+	static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>) {
 		val s = src.SysDataPointer;
 		val lim = s + src.Length;
 		val d = dest.SysDataPointer;
@@ -738,7 +738,7 @@ class ConvertUtf8 {
 		dest.Length = d - dest.SysDataPointer;
 	}
 	
-	static def FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>) {
+	static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>) {
 		val s = src.SysDataPointer;
 		val lim = s + src.Length;
 		val d = dest.SysDataPointer;
@@ -792,7 +792,7 @@ class ConvertUtf8 {
 private {
 	static val bases = CArray[36: '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'c', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 	
-	static def IntAsHexText(ref buffer: Slice<Byte>, data: Int) {
+	static func IntAsHexText(ref buffer: Slice<Byte>, data: Int) {
 		if (data == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -837,7 +837,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def LongAsHexText(ref buffer: Slice<Byte>, data: Long) {
+	static func LongAsHexText(ref buffer: Slice<Byte>, data: Long) {
 		if (data == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -882,7 +882,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def DWordAsHexText(ref buffer: Slice<Byte>, val value: DWord) {
+	static func DWordAsHexText(ref buffer: Slice<Byte>, val value: DWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -912,7 +912,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def QWordAsHexText(ref buffer: Slice<Byte>, val value: QWord) {
+	static func QWordAsHexText(ref buffer: Slice<Byte>, val value: QWord) {
 		if (value == 0) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
@@ -942,7 +942,7 @@ private {
 		buffer.Length = n;
 	}
 	
-	static def AsTextFix<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
+	static func AsTextFix<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
 		if (data == 0) {
 			if (buffer.Length < 3)
 				throw sys.core.BufferOverflowException{};
@@ -1070,7 +1070,7 @@ private {
 		buffer.Length = si + n;
 	}
 	
-	static def AsTextExp<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
+	static func AsTextExp<B: Class>(ref buffer: Slice<Byte>, val data: Double, digitLimit: DWord) {
 		if (data == 0) {
 			if (buffer.Length < 5)
 				throw sys.core.BufferOverflowException{};

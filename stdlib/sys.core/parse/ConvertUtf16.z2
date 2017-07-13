@@ -1,7 +1,6 @@
 namespace sys.core;
 
 class ConvertUtf16 {
-	// TODO: update to latest Unicode 9.0
 	static def FromUtf8(ref dest: Slice<Word>, ref src: Slice<Byte>) {
 		val s: Ptr<Byte> = src.SysDataPointer;
 		val lim: Ptr<Byte> = src.SysDataPointer + src.Length;
@@ -9,12 +8,20 @@ class ConvertUtf16 {
 		
 		while (s < lim) {
 			val code: Word = s*;
+			
 			if(code < 0x80)
 				d* = code;
 			else if(code < 0xE0)
-				d* = Word{((code - 0xC0) << 6) + s[0] - 0x80};
+				d* = Word{((code - 0xC0) << 6) + (s[0] - 0x80)};
 			else if(code < 0xF0)
-				d* = Word{((code - 0xE0) << 12) + ((s[0] - 0x80) << 6) + s[1] - 0x80};
+				d* = Word{((code - 0xE0) << 12) + ((s[0] - 0x80) << 6) + (s[1] - 0x80)};
+			else if(code < 0xF8) {
+				val cp = DWord{((code - 0xF0) << 18) + ((s[0] - 0x80) << 12) + ((s[1] - 0x80) << 6) + (s[2] - 0x80)};
+				cp -= 0x10000;
+				d* = Word{0xD800 + (0x3ff & (cp >> 10))};
+				d++;
+				d* = Word{0xDC00 + (0x3ff & cp)};
+			}
 			d++;
 			
 			s++;

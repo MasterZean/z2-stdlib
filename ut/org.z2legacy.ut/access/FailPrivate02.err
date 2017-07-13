@@ -1,4 +1,4 @@
-C:\z2c\source\ut\org.z2legacy.ut\access\FailPrivate02.z2(7, 16): error:
+FailPrivate02.z2(7, 16): error:
 	Can't access non public constructor:
 		org.z2legacy.ut.access.Foo{}
 

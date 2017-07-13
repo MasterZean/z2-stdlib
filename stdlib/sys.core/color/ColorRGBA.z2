@@ -148,19 +148,19 @@ class ColorRGBA {
 		A = Byte{abgr};
 	}
 
-	def ToRGBA(): DWord {
+	func ToRGBA(): DWord {
 		return R + (G << 8) + (B << 16) + (A << 24);
 	}
 
-	def ToBGRA(): DWord {
+	func ToBGRA(): DWord {
 		return B + (G << 8) + (R << 16) + (A << 24);
 	}
 
-	def ToARGB(): DWord {
+	func ToARGB(): DWord {
 		return A + (R << 8) + (G << 16) + (B << 24);
 	}
 
-	def ToABGR(): DWord {
+	func ToABGR(): DWord {
 		return A + (B << 8) + (G << 16) + (R << 24);
 	}
 
@@ -180,7 +180,7 @@ class ColorRGBA {
 		A.Clamp(min, max);
 	}
 	
-	def Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA {
+	func Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA {
 		val c: ColorRGBA = void;
 
 		c.R = R.Clamped(min.R, max.R);
@@ -191,7 +191,7 @@ class ColorRGBA {
 		return c;
 	}
 	
-	def Clamped(min: Byte, max: Byte): ColorRGBA {
+	func Clamped(min: Byte, max: Byte): ColorRGBA {
 		val c: ColorRGBA = void;
 
 		c.R = R.Clamped(min, max);
@@ -202,7 +202,7 @@ class ColorRGBA {
 		return c;
 	}
 
-	def GetMin(min: ColorRGBA): ColorRGBA {
+	func GetMin(min: ColorRGBA): ColorRGBA {
 		val c: ColorRGBA = void;
 
 		c.R = Intrinsic.Min(R, min.R);
@@ -213,7 +213,7 @@ class ColorRGBA {
 		return c;
 	}
 
-	def GetMax(max: ColorRGBA): ColorRGBA {
+	func GetMax(max: ColorRGBA): ColorRGBA {
 		val c: ColorRGBA = void;
 
 		c.R = Intrinsic.Min(R, max.R);
@@ -226,11 +226,11 @@ class ColorRGBA {
 
 #region add
 
-	def @add(second: ColorRGBA): ColorRGBA {
+	func @add(second: ColorRGBA): ColorRGBA {
 		return ColorRGBA{R + second.R, G + second.G, B + second.B, A + second.A};
 	}
 
-	def @add(second: Int): ColorRGBA {
+	func @add(second: Int): ColorRGBA {
 		return ColorRGBA{
 					Byte{R + second},
 					Byte{G + second},
@@ -238,7 +238,7 @@ class ColorRGBA {
 					Byte{A + second}};
 	}
 
-	def @add(second: DWord): ColorRGBA {
+	func @add(second: DWord): ColorRGBA {
 		return ColorRGBA{
 					Byte{R + second},
 					Byte{G + second},
@@ -246,7 +246,7 @@ class ColorRGBA {
 					Byte{A + second}};
 	}
 
-	def @add(second: Float): ColorRGBA {
+	func @add(second: Float): ColorRGBA {
 		return ColorRGBA{
 					ToByte(Float{R} / Byte.Max + second),
 					ToByte(Float{G} / Byte.Max + second),
@@ -254,7 +254,7 @@ class ColorRGBA {
 					ToByte(Float{A} / Byte.Max + second)};
 	}
 
-	def @add(second: Double): ColorRGBA {
+	func @add(second: Double): ColorRGBA {
 		return ColorRGBA{
 					ToByte(Double{R} / Byte.Max + second),
 					ToByte(Double{G} / Byte.Max + second),
@@ -266,11 +266,11 @@ class ColorRGBA {
 
 #region sub
 
-	static def @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+	static func @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{left.R - right.R, left.G - right.G, left.B - right.B, left.A - right.A};
 	}
 
-	static def @sub(left: Int, right: ColorRGBA): ColorRGBA {
+	static func @sub(left: Int, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left - right.R},
 					Byte{left - right.G},
@@ -278,7 +278,7 @@ class ColorRGBA {
 					Byte{left - right.A}};
 	}
 
-	static def @sub(left: ColorRGBA, right: Int): ColorRGBA {
+	static func @sub(left: ColorRGBA, right: Int): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R - right},
 					Byte{left.G - right},
@@ -286,7 +286,7 @@ class ColorRGBA {
 					Byte{left.A - right}};
 	}
 
-	static def @sub(left: DWord, right: ColorRGBA): ColorRGBA {
+	static func @sub(left: DWord, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left - right.R},
 					Byte{left - right.G},
@@ -294,7 +294,7 @@ class ColorRGBA {
 					Byte{left - right.A}};
 	}
 
-	static def @sub(left: ColorRGBA, right: DWord): ColorRGBA {
+	static func @sub(left: ColorRGBA, right: DWord): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R - right},
 					Byte{left.G - right},
@@ -302,7 +302,7 @@ class ColorRGBA {
 					Byte{left.A - right}};
 	}
 
-	static def @sub(left: Float, right: ColorRGBA): ColorRGBA {
+	static func @sub(left: Float, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left - (Float{right.R} / Byte.Max)),
 					ToByte(left - (Float{right.G} / Byte.Max)),
@@ -310,7 +310,7 @@ class ColorRGBA {
 					ToByte(left - (Float{right.A} / Byte.Max))};
 	}
 
-	static def @sub(left: ColorRGBA, right: Float): ColorRGBA {
+	static func @sub(left: ColorRGBA, right: Float): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Float{left.R} / Byte.Max) - right),
 					ToByte((Float{left.G} / Byte.Max) - right),
@@ -318,7 +318,7 @@ class ColorRGBA {
 					ToByte((Float{left.A} / Byte.Max) - right)};
 	}
 
-	static def @sub(left: Double, right: ColorRGBA): ColorRGBA {
+	static func @sub(left: Double, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left - (Double{right.R} / Byte.Max)),
 					ToByte(left - (Double{right.G} / Byte.Max)),
@@ -326,7 +326,7 @@ class ColorRGBA {
 					ToByte(left - (Double{right.A} / Byte.Max))};
 	}
 
-	static def @sub(left: ColorRGBA, right: Double): ColorRGBA {
+	static func @sub(left: ColorRGBA, right: Double): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Double{left.R} / Byte.Max) - right),
 					ToByte((Double{left.G} / Byte.Max) - right),
@@ -338,11 +338,11 @@ class ColorRGBA {
 
 #region mul
 
-	def @mul(second: ColorRGBA): ColorRGBA {
+	func @mul(second: ColorRGBA): ColorRGBA {
 		return ColorRGBA{R * second.R, G * second.G, B * second.B, A * second.A};
 	}
 
-	def @mul(second: Int): ColorRGBA {
+	func @mul(second: Int): ColorRGBA {
 		return ColorRGBA{
 					Byte{R * second},
 					Byte{G * second},
@@ -350,7 +350,7 @@ class ColorRGBA {
 					Byte{A * second}};
 	}
 
-	def @mul(second: DWord): ColorRGBA {
+	func @mul(second: DWord): ColorRGBA {
 		return ColorRGBA{
 					Byte{R * second},
 					Byte{G * second},
@@ -358,7 +358,7 @@ class ColorRGBA {
 					Byte{A * second}};
 	}
 
-	def @mul(second: Float): ColorRGBA {
+	func @mul(second: Float): ColorRGBA {
 		return ColorRGBA{
 					ToByte(Float{R} / Byte.Max * second),
 					ToByte(Float{G} / Byte.Max * second),
@@ -366,7 +366,7 @@ class ColorRGBA {
 					ToByte(Float{A} / Byte.Max * second)};
 	}
 
-	def @mul(second: Double): ColorRGBA {
+	func @mul(second: Double): ColorRGBA {
 		return ColorRGBA{
 					ToByte(Double{R} / Byte.Max * second),
 					ToByte(Double{G} / Byte.Max * second),
@@ -378,11 +378,11 @@ class ColorRGBA {
 
 #region div
 
-	static def @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+	static func @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{left.R / right.R, left.G / right.G, left.B / right.B, left.A / right.A};
 	}
 
-	static def @div(left: Int, right: ColorRGBA): ColorRGBA {
+	static func @div(left: Int, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left / right.R},
 					Byte{left / right.G},
@@ -390,7 +390,7 @@ class ColorRGBA {
 					Byte{left / right.A}};
 	}
 
-	static def @div(left: ColorRGBA, right: Int): ColorRGBA {
+	static func @div(left: ColorRGBA, right: Int): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R / right},
 					Byte{left.G / right},
@@ -398,7 +398,7 @@ class ColorRGBA {
 					Byte{left.A / right}};
 	}
 
-	static def @div(left: DWord, right: ColorRGBA): ColorRGBA {
+	static func @div(left: DWord, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left / right.R},
 					Byte{left / right.G},
@@ -406,7 +406,7 @@ class ColorRGBA {
 					Byte{left / right.A}};
 	}
 
-	static def @div(left: ColorRGBA, right: DWord): ColorRGBA {
+	static func @div(left: ColorRGBA, right: DWord): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R / right},
 					Byte{left.G / right},
@@ -414,7 +414,7 @@ class ColorRGBA {
 					Byte{left.A / right}};
 	}
 
-	static def @div(left: Float, right: ColorRGBA): ColorRGBA {
+	static func @div(left: Float, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left / (Float{right.R} / Byte.Max)),
 					ToByte(left / (Float{right.G} / Byte.Max)),
@@ -422,7 +422,7 @@ class ColorRGBA {
 					ToByte(left / (Float{right.A} / Byte.Max))};
 	}
 
-	static def @div(left: ColorRGBA, right: Float): ColorRGBA {
+	static func @div(left: ColorRGBA, right: Float): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Float{left.R} / Byte.Max) / right),
 					ToByte((Float{left.G} / Byte.Max) / right),
@@ -430,7 +430,7 @@ class ColorRGBA {
 					ToByte((Float{left.A} / Byte.Max) / right)};
 	}
 
-	static def @div(left: Double, right: ColorRGBA): ColorRGBA {
+	static func @div(left: Double, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left / (Double{right.R} / Byte.Max)),
 					ToByte(left / (Double{right.G} / Byte.Max)),
@@ -438,7 +438,7 @@ class ColorRGBA {
 					ToByte(left / (Double{right.A} / Byte.Max))};
 	}
 
-	static def @div(left: ColorRGBA, right: Double): ColorRGBA {
+	static func @div(left: ColorRGBA, right: Double): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Double{left.R} / Byte.Max) / right),
 					ToByte((Double{left.G} / Byte.Max) / right),
@@ -450,11 +450,11 @@ class ColorRGBA {
 
 #region mod
 
-	static def @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
+	static func @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{left.R * right.R, left.G * right.G, left.B * right.B, left.A * right.A};
 	}
 
-	static def @mod(left: Int, right: ColorRGBA): ColorRGBA {
+	static func @mod(left: Int, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left / right.R},
 					Byte{left / right.G},
@@ -462,7 +462,7 @@ class ColorRGBA {
 					Byte{left / right.A}};
 	}
 
-	static def @mod(left: ColorRGBA, right: Int): ColorRGBA {
+	static func @mod(left: ColorRGBA, right: Int): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R / right},
 					Byte{left.G / right},
@@ -470,7 +470,7 @@ class ColorRGBA {
 					Byte{left.A / right}};
 	}
 
-	static def @mod(left: DWord, right: ColorRGBA): ColorRGBA {
+	static func @mod(left: DWord, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					Byte{left / right.R},
 					Byte{left / right.G},
@@ -478,7 +478,7 @@ class ColorRGBA {
 					Byte{left / right.A}};
 	}
 
-	static def @mod(left: ColorRGBA, right: DWord): ColorRGBA {
+	static func @mod(left: ColorRGBA, right: DWord): ColorRGBA {
 		return ColorRGBA{
 					Byte{left.R / right},
 					Byte{left.G / right},
@@ -486,7 +486,7 @@ class ColorRGBA {
 					Byte{left.A / right}};
 	}
 
-	static def @mod(left: Float, right: ColorRGBA): ColorRGBA {
+	static func @mod(left: Float, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left % (Float{right.R} / Byte.Max)),
 					ToByte(left % (Float{right.G} / Byte.Max)),
@@ -494,7 +494,7 @@ class ColorRGBA {
 					ToByte(left % (Float{right.A} / Byte.Max))};
 	}
 
-	static def @mod(left: ColorRGBA, right: Float): ColorRGBA {
+	static func @mod(left: ColorRGBA, right: Float): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Float{left.R} / Byte.Max) % right),
 					ToByte((Float{left.G} / Byte.Max) % right),
@@ -502,7 +502,7 @@ class ColorRGBA {
 					ToByte((Float{left.A} / Byte.Max) % right)};
 	}
 
-	static def @mod(left: Double, right: ColorRGBA): ColorRGBA {
+	static func @mod(left: Double, right: ColorRGBA): ColorRGBA {
 		return ColorRGBA{
 					ToByte(left % (Double{right.R} / Byte.Max)),
 					ToByte(left % (Double{right.G} / Byte.Max)),
@@ -510,7 +510,7 @@ class ColorRGBA {
 					ToByte(left % (Double{right.A} / Byte.Max))};
 	}
 
-	static def @mod(left: ColorRGBA, right: Double): ColorRGBA {
+	static func @mod(left: ColorRGBA, right: Double): ColorRGBA {
 		return ColorRGBA{
 					ToByte((Double{left.R} / Byte.Max) % right),
 					ToByte((Double{left.G} / Byte.Max) % right),
@@ -522,19 +522,19 @@ class ColorRGBA {
 
 #region eq
 
-	def @eq(second: Int): Bool {
+	func @eq(second: Int): Bool {
 		return R == second && G == second && B == second && A == second;
 	}
 
-	def @eq(second: DWord): Bool {
+	func @eq(second: DWord): Bool {
 		return R == second && G == second && B == second && A == second;
 	}
 
-	def @eq(second: Float): Bool {
+	func @eq(second: Float): Bool {
 		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
 	}
 
-	def @eq(second: Double): Bool {
+	func @eq(second: Double): Bool {
 		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
 	}
 
@@ -542,19 +542,19 @@ class ColorRGBA {
 
 #region neq
 
-	def @neq(second: Int): Bool {
+	func @neq(second: Int): Bool {
 		return R != second || G != second || B != second || A != second;
 	}
 
-	def @neq(second: DWord): Bool {
+	func @neq(second: DWord): Bool {
 		return R != second || G != second || B != second || A != second;
 	}
 
-	def @neq(second: Float): Bool {
+	func @neq(second: Float): Bool {
 		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
 	}
 
-	def @neq(second: Double): Bool {
+	func @neq(second: Double): Bool {
 		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
 	}
 
@@ -562,11 +562,11 @@ class ColorRGBA {
 
 }
 private {
-	static def ToByte(component: Float): Byte {
+	static func ToByte(component: Float): Byte {
 		return Byte{Byte{component * Byte.Max}.Clamped(Byte.Min, Byte.Max)};
 	}
 
-	static def ToByte(component: Double): Byte {
+	static func ToByte(component: Double): Byte {
 		return Byte{Byte{component * Byte.Max}.Clamped(Byte.Min, Byte.Max)};
 	}
 }

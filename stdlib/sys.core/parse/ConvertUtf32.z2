@@ -1,0 +1,27 @@
+namespace sys.core;
+
+class ConvertUtf32 {
+	static def FromUtf8(ref dest: Slice<DWord>, ref src: Slice<Byte>) {
+		val s: Ptr<Byte> = src.SysDataPointer;
+		val lim: Ptr<Byte> = src.SysDataPointer + src.Length;
+		val d: Ptr<DWord> = dest.SysDataPointer;
+		
+		while (s < lim) {
+			val code: Word = s*;
+			
+			if(code < 0x80)
+				d* = code;
+			else if(code < 0xE0)
+				d* = DWord{((code - 0xC0) <<  6) +  (s[0] - 0x80)};
+			else if(code < 0xF0)
+				d* = DWord{((code - 0xE0) << 12) + ((s[0] - 0x80) << 6) +   (s[1] - 0x80)};
+			else if(code < 0xF8)
+				d* = DWord{((code - 0xF0) << 18) + ((s[0] - 0x80) << 12) + ((s[1] - 0x80) << 6) + (s[2] - 0x80)};
+			d++;
+			
+			s++;
+		}
+		
+		dest.Length = d - dest.SysDataPointer;
+	}
+}

@@ -16,6 +16,9 @@ class Bool {
 	
 #region ToString
 
+    this(string: String) {
+    }
+    
 	func ToString(): String {
 		if (this == true)
 			return "true";
