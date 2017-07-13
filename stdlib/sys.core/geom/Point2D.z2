@@ -24,7 +24,7 @@ class Point2D<T: Class> {
 		Y.Clamp(min, max);
 	}
 	
-	def Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T> {
+	func Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T> {
 		val c: Point2D<T> = void;
 
 		c.X = X.Clamped(min.X, max.X);
@@ -33,7 +33,7 @@ class Point2D<T: Class> {
 		return c;
 	}
 	
-	def Clamped(min: T, max: T): Point2D<T> {
+	func Clamped(min: T, max: T): Point2D<T> {
 		val c: Point2D<T> = void;
 
 		c.X = X.Clamped(min, max);
@@ -42,7 +42,7 @@ class Point2D<T: Class> {
 		return c;
 	}
 
-	def GetMin(min: Point2D<T>): Point2D<T> {
+	func GetMin(min: Point2D<T>): Point2D<T> {
 		val c: Point2D<T> = void;
 
 		c.X = X.GetMin(min.X);
@@ -51,7 +51,7 @@ class Point2D<T: Class> {
 		return c;
 	}
 
-	def GetMax(max: Point2D<T>): Point2D<T> {
+	func GetMax(max: Point2D<T>): Point2D<T> {
 		val c: Point2D<T> = void;
 
 		c.X = X.GetMax(max.X);
@@ -60,7 +60,7 @@ class Point2D<T: Class> {
 		return c;
 	}
 
-	def IsNormalized(tolerance: T): Bool {
+	func IsNormalized(tolerance: T): Bool {
 		return ((X * X) + (Y * Y) - T{1}).Abs < tolerance;
 	}
 
@@ -83,7 +83,7 @@ class Point2D<T: Class> {
 		}
 	}
 
-	def Normalized(tolerance: T): Point2D<T> {
+	func Normalized(tolerance: T): Point2D<T> {
 		val t = this;
 		val length = Length;
 		if (length > tolerance) {
@@ -96,77 +96,77 @@ class Point2D<T: Class> {
 
 #region op
 
-	def @add(second: Point2D<T>): Point2D<T> {
+	func @add(second: Point2D<T>): Point2D<T> {
 		return Point2D<T>{X + second.X, Y + second.Y};
 	}
 
-	def @add(second: T): Point2D<T> {
+	func @add(second: T): Point2D<T> {
 		return Point2D<T>{X + second, Y + second};
 	}
 
-	static def @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+	static func @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left.X - right.X, left.Y - right.Y};
 	}
 
-	static def @sub(left: Point2D<T>, right: T): Point2D<T> {
+	static func @sub(left: Point2D<T>, right: T): Point2D<T> {
 		return Point2D<T>{left.X - right, left.Y - right};
 	}
 
-	static def @sub(left: T, right: Point2D<T>): Point2D<T> {
+	static func @sub(left: T, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left - right.X, left - right.Y};
 	}
 
-	def @mul(second: Point2D<T>): Point2D<T> {
+	func @mul(second: Point2D<T>): Point2D<T> {
 		return Point2D<T>{X * second.X, Y * second.Y};
 	}
 
-	def @mul(second: T): Point2D<T> {
+	func @mul(second: T): Point2D<T> {
 		return Point2D<T>{X * second, Y * second};
 	}
 
-	static def @div(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+	static func @div(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left.X / right.X, left.Y / right.Y};
 	}
 
-	static def @div(left: Point2D<T>, right: T): Point2D<T> {
+	static func @div(left: Point2D<T>, right: T): Point2D<T> {
 		return Point2D<T>{left.X / right, left.Y / right};
 	}
 
-	static def @div(left: T, right: Point2D<T>): Point2D<T> {
+	static func @div(left: T, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left / right.X, left / right.Y};
 	}
 
-	static def @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
+	static func @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left.X % right.X, left.Y % right.Y};
 	}
 
-	static def @mod(left: Point2D<T>, right: T): Point2D<T> {
+	static func @mod(left: Point2D<T>, right: T): Point2D<T> {
 		return Point2D<T>{left.X % right, left.Y % right};
 	}
 
-	static def @mod(left: T, right: Point2D<T>): Point2D<T> {
+	static func @mod(left: T, right: Point2D<T>): Point2D<T> {
 		return Point2D<T>{left % right.X, left % right.Y};
 	}
 
-	def @minus(): Point2D<T> {
+	func @minus(): Point2D<T> {
 		return Point2D<T>{-X, -Y};
 	}
 	
-	def @eq(second: T): Bool {
+	func @eq(second: T): Bool {
 		return X == second && Y == second;
 	}
 
-	def @neq(second: T): Bool {
+	func @neq(second: T): Bool {
 		return X != second || Y != second;
 	}
 
 #endregion
 
-	def Equals(second: Point2D<T>, tolerance: T): Bool {
+	func Equals(second: Point2D<T>, tolerance: T): Bool {
 		return (X - second.X).Abs < tolerance && (Y - second.Y).Abs < tolerance;
 	}
 
-	def Equals(second: T, tolerance: T): Bool {
+	func Equals(second: T, tolerance: T): Bool {
 		return (X - second).Abs < tolerance && (Y - second).Abs < tolerance;
 	}
 }
