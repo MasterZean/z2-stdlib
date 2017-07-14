@@ -1,0 +1,146 @@
+namespace org.z2legacy.samples.con.p05;
+
+class TestCon02 {
+	def @main() {
+		System.Out << "* 1" << '\n';
+		val a = Foo{};
+		System.Out << "* 2" << '\n';
+		a = Foo{};
+		System.Out << "END" << '\n';
+	}
+}
+
+class Foo {
+	static val Count = 0;
+	val Data = -1;
+	
+	this() {
+		Data = Count;
+		Count++;
+		System.Out << class << "{}\n";
+	}
+	
+	this(obj: Foo) {
+		default();
+		Data = Count;
+		Count++;
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Foo) {
+		default();
+		Data = Count;
+		Count++;
+		System.Out << "copy " << class << "\n";
+	}
+	
+	this(move obj: Foo) {
+		default();
+		obj.Data = -1;
+		System.Out << "move construct " << class << "\n";
+	}
+	
+	def @attr(move obj: Foo) {
+		default();
+		obj.Data = -1;
+		System.Out << "move " << class << "\n";
+	}
+
+	~this() {
+		if (Data == -1)
+			System.Out << "fast ~" << class << "{}\n";
+		else
+			System.Out << "slow ~" << class << "{}\n";
+	}
+	
+	val bar = Bar{};
+	val baz = Baz{};
+}
+
+class Bar {
+	static val Count = 0;
+	val Data = -1;
+	
+	this() {
+		Data = Count;
+		Count++;
+		System.Out << class << "{}\n";
+	}
+	
+	this(obj: Bar) {
+		default();
+		Data = Count;
+		Count++;
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Bar) {
+		default();
+		System.Out << "copy " << class << "\n";
+	}
+	
+	this(move obj: Bar) {
+		default();
+		obj.Data = -1;
+		System.Out << "move construct " << class << "\n";
+	}
+	
+	def @attr(move obj: Bar) {
+		default();
+		obj.Data = -1;
+		System.Out << "move " << class << "\n";
+	}
+
+	~this() {
+		if (Data == -1)
+			System.Out << "fast ~" << class << "{}\n";
+		else
+			System.Out << "slow ~" << class << "{}\n";
+	}
+	
+	val baz = Baz{};
+}
+
+class Baz {
+	static val Count = 0;
+	val Data = -1;
+	
+	this() {
+		Data = Count;
+		Count++;
+		System.Out << class << "{}\n";
+	}
+	
+	this(obj: Baz) {
+		Data = Count;
+		Count++;
+		default();
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Baz) {
+		default();
+		Count++;
+		Data = Count;
+		System.Out << "copy " << class << "\n";
+	}
+	
+	this(move obj: Baz) {
+		default();
+		obj.Data = -1;
+		System.Out << "move construct " << class << "\n";
+	}
+	
+	def @attr(move obj: Baz) {
+		default();
+		obj.Data = -1;
+		System.Out << "move " << class << "\n";
+	}
+
+	~this() {
+		if (Data == -1)
+			System.Out << "fast ~" << class << "{}\n";
+		else
+			System.Out << "slow ~" << class << "{}\n";
+	}
+}

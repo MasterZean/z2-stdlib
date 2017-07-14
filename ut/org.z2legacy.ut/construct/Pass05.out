@@ -1,0 +1,35 @@
+* 1
+default Int
+4 4
+* 2
+default Int
+7 7
+* 3
+assign
+7 7
+* 4
+default Int
+move
+destruct
+67 67
+* 5
+copy construct
+move
+destruct
+67 67
+* 6
+default Int
+move
+destruct
+2 2
+* 7
+default Int
+move construct
+move construct param one
+move
+destruct
+destruct
+2 2
+* end
+destruct
+destruct

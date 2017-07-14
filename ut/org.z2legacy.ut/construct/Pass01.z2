@@ -1,0 +1,19 @@
+namespace org.z2legacy.ut.con01;
+
+class TestCon {
+	def @main() {
+		System.Out << "* 1" << '\n';
+		val a = Foo{};
+		System.Out << "* 2" << '\n';
+		val b = func();
+		
+		System.Out << "* end" << '\n';
+	}
+	
+	def func(): Foo {
+		return Foo{};
+	}
+}
+		
+class Foo {
+}

@@ -1,0 +1,94 @@
+namespace org.z2legacy.ut.con03;
+
+class TestCon {
+	def @main() {
+		System.Out << "* 1" << '\n';
+		val a = Foo{};
+		System.Out << a << '\n';
+		
+		System.Out << "* 2" << '\n';
+		val b = func();
+		System.Out << b << '\n';
+		
+		System.Out << "* 3" << '\n';
+		val c = Foo{6};
+		System.Out << c << '\n';
+		
+		System.Out << "* 4" << '\n';
+		val d = Foo.Named{};
+		System.Out << d << '\n';
+		
+		System.Out << "* 5" << '\n';
+		val e = Foo.Named{20};
+		System.Out << e << '\n';
+
+		System.Out << "* 6" << '\n';
+		val tt = CArray[0, 1, 2, 8];
+		val f = func(tt);
+		System.Out << f << '\n';
+		
+		System.Out << "* end" << '\n';
+	}
+	
+	def func(): Foo {
+		return Foo{};
+	}
+	
+	def func(a: CArray<Int>): Foo {
+		for (val i = 0p; i < a.Length; i++)
+			if (a[i] == 7)
+				return Foo{56};
+			else if (a[i] == 8)
+				return Foo{23};
+		return Foo{42};
+	}
+}
+		
+class Foo {
+	this() {
+		System.Out << "default\n";
+	}
+	
+	this(a: Int) {
+		this.a = a.ToString();
+		b = a.ToString();
+		System.Out << "default Int\n";
+	}
+	
+	this Named() {
+		System.Out << "named\n";
+	}
+	
+	this Named(a: Int) {
+		this.a = "c";
+		b = "d";
+		System.Out << "named Int\n";
+	}
+
+	this(obj: Foo) {
+		default();
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Foo) {
+		default();
+		System.Out << "assign\n";
+	}
+	
+	this(move obj: Foo) {
+		default();
+		System.Out << "move construct\n";
+	}
+	
+	def @attr(move obj: Foo) {
+		default();
+		System.Out << "move\n";
+	}
+
+	~this() {
+		System.Out << "destruct\n";
+	}
+	
+	val a = "";
+	val b = String{};
+}

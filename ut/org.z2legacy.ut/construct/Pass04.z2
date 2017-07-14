@@ -1,0 +1,73 @@
+namespace org.z2legacy.ut.con04;
+
+class TestCon {
+	def @main() {
+		System.Out << "* 1" << '\n';
+		val a = Foo{45};
+		System.Out << a << '\n';
+		
+		System.Out << "* 2" << '\n';
+		val b = func();
+		System.Out << b << '\n';
+		
+		System.Out << "* 3" << '\n';
+		val c = a;
+		System.Out << c << '\n';
+		
+		System.Out << "* 4" << '\n';
+		val d = b;
+		System.Out << d << '\n';
+		
+		System.Out << "* end" << '\n';
+	}
+	
+	def func(): Foo {
+		return Foo{2};
+	}
+}
+		
+class Foo {
+	this() {
+		System.Out << "default\n";
+	}
+	
+	this(a: Int) {
+		this.a = a.ToString();
+		b = a.ToString();
+		System.Out << "default Int\n";
+	}
+	
+	this Named() {
+		System.Out << "named\n";
+	}
+	
+	this Named(a: Int) {
+		this.a = "c";
+		b = "d";
+		System.Out << "named Int\n";
+	}
+
+	this(obj: Foo) {
+		default();
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Foo) {
+		System.Out << "assign\n";
+	}
+	
+	this(move obj: Foo) {
+		System.Out << "move construct\n";
+	}
+	
+	def @attr(move obj: Foo) {
+		System.Out << "move\n";
+	}
+
+	~this() {
+		System.Out << "destruct\n";
+	}
+	
+	val a = "";
+	val b = String{};
+}

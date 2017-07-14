@@ -1,0 +1,17 @@
+* 1
+default Int
+45 45
+* 2
+default Int
+2 2
+* 3
+copy construct
+45 45
+* 4
+copy construct
+2 2
+* end
+destruct
+destruct
+destruct
+destruct

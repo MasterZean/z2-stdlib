@@ -1,0 +1,93 @@
+namespace org.z2legacy.ut.con05;
+
+class TestCon {
+	def @main() {
+		System.Out << "* 1" << '\n';
+		val a = Foo{4};
+		System.Out << a << '\n';
+		
+		System.Out << "* 2" << '\n';
+		val b = Foo{7};
+		System.Out << b << '\n';
+		
+		System.Out << "* 3" << '\n';
+		a = b;
+		System.Out << a << '\n';
+		
+		System.Out << "* 4" << '\n';
+		a = Foo{67};
+		System.Out << a << '\n';
+		
+		System.Out << "* 5" << '\n';
+		a = Foo{a};
+		System.Out << a << '\n';
+		
+		System.Out << "* 6" << '\n';
+		a = func();
+		System.Out << a << '\n';
+		
+		System.Out << "* 7" << '\n';
+		a = Foo{func(), 8};
+		System.Out << a << '\n';
+		
+		System.Out << "* end" << '\n';
+	}
+	
+	def func(): Foo {
+		return Foo{2};
+	}
+}
+		
+class Foo {
+	this() {
+		System.Out << "default\n";
+	}
+	
+	this(a: Int) {
+		this.a = a.ToString();
+		b = a.ToString();
+		System.Out << "default Int\n";
+	}
+	
+	this Named() {
+		System.Out << "named\n";
+	}
+	
+	this Named(a: Int) {
+		this.a = "c";
+		b = "d";
+		System.Out << "named Int\n";
+	}
+
+	this(obj: Foo) {
+		default();
+		System.Out << "copy construct\n";
+	}
+
+	def @attr(obj: Foo) {
+		default();
+		System.Out << "assign\n";
+	}
+	
+	this(move obj: Foo) {
+		default();
+		System.Out << "move construct\n";
+	}
+	
+	this(move obj: Foo, b: Int) {
+		this{obj};
+		System.Out << "move construct param one\n";
+	}
+	
+	def @attr(move obj: Foo) {
+		default();
+		System.Out << "move\n";
+	}
+
+	~this() {
+		System.Out << "destruct\n";
+	}
+	
+	val a = "";
+	val b = String{};
+}

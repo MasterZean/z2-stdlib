@@ -1,0 +1,33 @@
+* 1
+default
+* 2
+default
+* 3
+default Int
+* 4
+named
+* 5
+named Int
+* 6
+default
+destruct
+* 7
+default Int
+* 8
+named
+* 9
+named Int
+*10
+default Int
+78
+destruct
+*11
+named Int
+44
+destruct
+* end
+destruct
+destruct
+destruct
+destruct
+destruct

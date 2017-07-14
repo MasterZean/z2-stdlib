@@ -1,0 +1,29 @@
+* 1
+default
+0 0
+* 2
+default
+0 0
+* 3
+default Int
+6 6
+* 4
+named
+0 0
+* 5
+named Int
+20 20
+* 6
+default Int
+42 42
+* 7
+default Int
+7 7
+* end
+destruct
+destruct
+destruct
+destruct
+destruct
+destruct
+destruct
