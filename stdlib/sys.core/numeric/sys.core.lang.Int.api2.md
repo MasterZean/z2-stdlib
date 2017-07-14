@@ -6,7 +6,7 @@ Namespace: [sys.core.lang](../sys.core.lang.ns.md)
 class Int
 ```
 
-The [Int](sys.core.lang.Int.api.md "sys.core.lang.Int") class is a 32 bit signed integer on all supported platforms.
+The [Int](sys.core.lang.Int.api2.md "sys.core.lang.Int") class is a 32 bit signed integer on all supported platforms.
 
 It is a *core* class, meaning the compiler and CPU have special understandings of it, allowing the full range of optimizations available on the hardware. In consequence, methods can't be virtual and you are not allowed to a add new non-static variables to it.
 
@@ -23,7 +23,7 @@ this(string: String)
 ```
 
 ##### Brief
-Parses a string an constructs an [Int](sys.core.lang.Int.api.md "sys.core.lang.Int") based on it.
+Parses a string an constructs an [Int](sys.core.lang.Int.api2.md "sys.core.lang.Int") based on it.
 
 ###### param string
 string to parse
@@ -42,7 +42,7 @@ this Saturated(value: String)
 ```
 
 ##### Brief
-Constructs a saturated [Int](sys.core.lang.Int.api.md "sys.core.lang.Int") based on the input value.
+Constructs a saturated [Int](sys.core.lang.Int.api2.md "sys.core.lang.Int") based on the input value.
 
 ###### param value
 the input value. Can be numeric or a string.
