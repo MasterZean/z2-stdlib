@@ -50,3 +50,4 @@ the input value. Can be numeric or a string.
 ***
 
 [Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]:
