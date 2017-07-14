@@ -8,7 +8,6 @@ using sys.core.OutputFormat;
 
 class Char {
 	const Zero: Char = 0;
-	const Default: Char = Zero;
 
 	const Min: Char = 0;
 	const Max: Char = 0x10FFFF;

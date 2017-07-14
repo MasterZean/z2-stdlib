@@ -7,7 +7,6 @@ using sys.core.ConvertUtf8;
 class Double {
 	const Zero: Double = 0;
 	const One: Double = 1;
-	const Default: Double = Zero;
 
 	const Min: Double = -1.79769e+308;
 	const Max: Double = 1.79769e+308;

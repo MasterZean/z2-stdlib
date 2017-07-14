@@ -7,7 +7,6 @@ using sys.core.ConvertUtf8;
 class Float {
 	const Zero: Float = 0;
 	const One: Float = 1;
-	const Default: Float = Zero;
 
 	const Min: Float = -3.40282e+38f;
 	const Max: Float = 3.40282e+38f;

@@ -104,7 +104,7 @@ Returns the square root of the value, rounded down.
 sys.core.lang.Int Floor
 =
 ## Brief
-Returns of the floor of a floating point value.
+Returns the floor of a floating point value.
 
 In the case of `sys.core.lang.Int` it returns the value itself and is included only for API compatibility when using templates.
 
@@ -113,7 +113,7 @@ In the case of `sys.core.lang.Int` it returns the value itself and is included o
 sys.core.lang.Int Ceil
 =
 ## Brief
-Returns of the ceiling of a floating point value.
+Returns the ceiling of a floating point value.
 
 In the case of `sys.core.lang.Int` it returns the value itself and is included only for API compatibility when using templates.
 
@@ -122,7 +122,7 @@ In the case of `sys.core.lang.Int` it returns the value itself and is included o
 sys.core.lang.Int Round
 =
 ## Brief
-Returns of the rounded value of a floating point.
+Returns the rounded value of a floating point.
 
 In the case of `sys.core.lang.Int` it returns the value itself and is included only for API compatibility when using templates.
 
