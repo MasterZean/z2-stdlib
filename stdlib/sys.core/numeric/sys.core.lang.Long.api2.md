@@ -1,4 +1,4 @@
-#### sys.core.lang.Long this
+#### this
 
 ```C#
 this{string: String}
@@ -11,7 +11,15 @@ Parses a string an constructs an `sys.core.lang.Long` based on it.
 string to parse
 ***
 
-#### sys.core.lang.Long Saturated
+#### Saturated
+
+```C#
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: Double}
+this Saturated{value: String}
+```
+
 ##### Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
@@ -19,7 +27,12 @@ Constructs a saturated `sys.core.lang.Lang` based on the input value.
 the input value. Can be numeric or a string.
 ***
 
-#### sys.core.lang.Long Clamp
+#### Clamp
+
+```C#
+def Clamp(min: Long, max: Long)
+```
+
 ##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
@@ -29,7 +42,12 @@ the minimum value
 the maximum value
 ***
 
-#### sys.core.lang.Long Clamped
+#### Clamped
+
+```C#
+func Clamped(min: Long, max: Long)
+```
+
 ##### Brief
 Returns the current instance clamped between `min` and `max`.
 
@@ -41,7 +59,12 @@ the maximum value
 the clamped value
 ***
 
-#### sys.core.lang.Long ToString
+#### ToString
+
+```C#
+func ToString()
+```
+
 ##### Brief
 Converts the value to a Utf8 string.
 
@@ -49,7 +72,13 @@ Converts the value to a Utf8 string.
 the resulting string
 ***
 
-#### sys.core.lang.Long @write
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
 ##### Brief
 Writes the value to an Utf8 text stream.
 
@@ -59,7 +88,12 @@ the output stream
 formatting information
 ***
 
-#### sys.core.lang.Long @put
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
 ##### Brief
 Writes the value to a binary stream as a 64 bit signed integer.
 
@@ -67,7 +101,12 @@ Writes the value to a binary stream as a 64 bit signed integer.
 the output stream
 ***
 
-#### sys.core.lang.Long @get
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
 ##### Brief
 Reads a 64 bit signed integer from a binary stream.
 
@@ -75,25 +114,25 @@ Reads a 64 bit signed integer from a binary stream.
 the input stream
 ***
 
-#### sys.core.lang.Long Abs
+#### Abs
 ##### Brief
 Returns the absolute value.
 
 ***
 
-#### sys.core.lang.Long Sqr
+#### Sqr
 ##### Brief
 Returns the square of the value value.
 
 ***
 
-#### sys.core.lang.Long Sqrt
+#### Sqrt
 ##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-#### sys.core.lang.Long Floor
+#### Floor
 ##### Brief
 Returns of the floor of a floating point value.
 
@@ -101,7 +140,7 @@ In the case of `sys.core.lang.Long` it returns the value itself and is included 
 
 ***
 
-#### sys.core.lang.Long Ceil
+#### Ceil
 ##### Brief
 Returns of the ceiling of a floating point value.
 
@@ -109,7 +148,7 @@ In the case of `sys.core.lang.Long` it returns the value itself and is included 
 
 ***
 
-#### sys.core.lang.Long Round
+#### Round
 ##### Brief
 Returns of the rounded value of a floating point.
 
@@ -117,43 +156,43 @@ In the case of `sys.core.lang.Long` it returns the value itself and is included 
 
 ***
 
-#### sys.core.lang.Long Zero
+#### Zero
 ##### Brief
 An `sys.core.lang.Long` instance representing a logical "0" value.
 
 ***
 
-#### sys.core.lang.Long One
+#### One
 ##### Brief
 An `sys.core.lang.Long` instance representing a logical "1" value.
 
 ***
 
-#### sys.core.lang.Long Min
+#### Min
 ##### Brief
 The minimum value for an `sys.core.lang.Long` (64 bit signed integer) instance.
 
 ***
 
-#### sys.core.lang.Long Max
+#### Max
 ##### Brief
 The maximum value for an `sys.core.lang.Long` (64 bit signed integer) instance.
 
 ***
 
-#### sys.core.lang.Long IsSigned
+#### IsSigned
 ##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-#### sys.core.lang.Long IsInteger
+#### IsInteger
 ##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
-#### sys.core.lang.Long MaxDigitsLow
+#### MaxDigitsLow
 ##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
@@ -162,7 +201,7 @@ Should not be used for buffer sizes.
 
 ***
 
-#### sys.core.lang.Long MaxDigitsHigh
+#### MaxDigitsHigh
 ##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
