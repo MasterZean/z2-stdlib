@@ -1,178 +1,277 @@
-sys.core.lang.QWord this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
 Parses a string an constructs an `sys.core.lang.QWord` based on it.
 
-### param string
+###### param string
 string to parse
 ***
 
-sys.core.lang.QWord Saturated
-=
-## Brief
+#### Saturated
+
+```C#
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: String}
+```
+
+##### Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
-### param value
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.QWord Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: QWord, max: QWord)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
 ***
 
-sys.core.lang.QWord Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: QWord, max: QWord)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
 ***
 
-sys.core.lang.QWord ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.QWord @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.QWord @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 64 bit unsigned integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.QWord @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 64 bit unsigned integer from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.QWord Abs
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: QWord; get;
+```
+
+##### Brief
 Returns the absolute value.
 
 In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.QWord Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: QWord; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.QWord Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: QWord; get;
+```
+
+##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.QWord Floor
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: QWord; get;
+```
+
+##### Brief
 Returns of the floor of a floating point value.
 
 In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.QWord Ceil
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: QWord; get;
+```
+
+##### Brief
 Returns of the ceiling of a floating point value.
 
 In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.QWord Round
-=
-## Brief
+#### Round
+
+```C#
+property Round: QWord; get;
+```
+
+##### Brief
 Returns of the rounded value of a floating point.
 
 In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.QWord Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: QWord
+```
+
+##### Brief
 An `sys.core.lang.QWord` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.QWord One
-=
-## Brief
+#### One
+
+```C#
+const One: QWord
+```
+
+##### Brief
 An `sys.core.lang.QWord` instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.QWord Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: QWord
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.QWord` (64 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.QWord Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: QWord
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.QWord` (64 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.QWord IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-sys.core.lang.QWord IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
-sys.core.lang.QWord MaxDigitsLow
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -180,9 +279,13 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.QWord MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
 
@@ -190,3 +293,5 @@ Should not be used for buffer sizes.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

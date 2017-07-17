@@ -1,176 +1,278 @@
-sys.core.lang.Small this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
 Parses a string an constructs an `sys.core.lang.Small` based on it.
 
-### param string
+###### param string
 string to parse
 ***
 
-sys.core.lang.Small Saturated
-=
-## Brief
+#### Saturated
+
+```C#
+this Saturated{value: Int}
+this Saturated{value: DWord}
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: Double}
+this Saturated{value: String}
+```
+
+##### Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
-### param value
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.Small Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Small, max: Small)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
 ***
 
-sys.core.lang.Small Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Small, max: Small)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
 ***
 
-sys.core.lang.Small ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Small @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Small @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 8 bit signed integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Small @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 8 bit signed integer from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Small Abs
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: Small; get;
+```
+
+##### Brief
 Returns the absolute value.
 
 ***
 
-sys.core.lang.Small Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: Small; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.Small Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: Small; get;
+```
+
+##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.Small Floor
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: Small; get;
+```
+
+##### Brief
 Returns of the floor of a floating point value.
 
 In the case of `sys.core.lang.Small` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Small Ceil
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: Small; get;
+```
+
+##### Brief
 Returns of the ceiling of a floating point value.
 
 In the case of `sys.core.lang.Small` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Small Round
-=
-## Brief
+#### Round
+
+```C#
+property Round: Small; get;
+```
+
+##### Brief
 Returns of the rounded value of a floating point.
 
 In the case of `sys.core.lang.Small` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Small Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: Small
+```
+
+##### Brief
 An `sys.core.lang.Small` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.Small One
-=
-## Brief
+#### One
+
+```C#
+const One: Small
+```
+
+##### Brief
 An `sys.core.lang.Small` instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.Small Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: Small
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.Small` (8 bit signed integer) instance.
 
 ***
 
-sys.core.lang.Small Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: Small
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.Small` (8 bit signed integer) instance.
 
 ***
 
-sys.core.lang.Small IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-sys.core.lang.Small IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
-sys.core.lang.Small MaxDigitsLow
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -178,9 +280,13 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.Small MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
 
@@ -188,3 +294,5 @@ Should not be used for buffer sizes.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

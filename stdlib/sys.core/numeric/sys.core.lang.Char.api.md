@@ -1,253 +1,397 @@
-sys.core.lang.Char Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Char, max: Char)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### seealso `sys.core.lang.Intrinsic Clamp`
+###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-sys.core.lang.Char Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Char, max: Char)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
-### seealso `sys.core.lang.Intrinsic Clamped`
+###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-sys.core.lang.Char ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Char @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Char @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the code unit to a binary stream as a 32 bit unsigned integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Char @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads the code unit a 32 bit signed uninteger from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Char UnicodePlane
-=
-## Brief
+Properties
+---
+
+#### UnicodePlane
+
+```C#
+property UnicodePlane: Byte; get;
+```
+
+##### Brief
 REturns the Unicode plane of the code point, between 0 and 16.
 
 ***
 
-sys.core.lang.Char IsAsciiDigit
-=
-## Brief
+#### IsAsciiDigit
+
+```C#
+property IsAsciiDigit: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII digit.
 
 ***
 
-sys.core.lang.Char IsAsciiAlpha
-=
-## Brief
+#### IsAsciiAlpha
+
+```C#
+property IsAsciiAlpha: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII alphabetic character.
 
 ***
 
-sys.core.lang.Char IsAsciiAlphaNum
-=
-## Brief
+#### IsAsciiAlphaNum
+
+```C#
+property IsAsciiAlphaNum: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII alphanumeric character.
 
 ***
 
-sys.core.lang.Char IsAsciiControl
-=
-## Brief
+#### IsAsciiControl
+
+```C#
+property IsAsciiControl: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII control character.
 
 ***
 
-sys.core.lang.Char IsAsciiGraph
-=
-## Brief
+#### IsAsciiGraph
+
+```C#
+property IsAsciiGraph: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII graphical character.
 
 ***
 
-sys.core.lang.Char IsAsciiPrintable
-=
-## Brief
+#### IsAsciiPrintable
+
+```C#
+property IsAsciiPrintable: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII printable character.
 
 ***
 
-sys.core.lang.Char IsAsciiPunct
-=
-## Brief
+#### IsAsciiPunct
+
+```C#
+property IsAsciiPunct: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII punctuation character.
 
 ***
 
-sys.core.lang.Char IsAsciiUpper
-=
-## Brief
+#### IsAsciiUpper
+
+```C#
+property IsAsciiUpper: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII upper case character.
 
 ***
 
-sys.core.lang.Char IsAsciiLower
-=
-## Brief
+#### IsAsciiLower
+
+```C#
+property IsAsciiLower: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII lower case character.
 
 ***
 
-sys.core.lang.Char IsAsciiSpace
-=
-## Brief
+#### IsAsciiSpace
+
+```C#
+property IsAsciiSpace: Bool; get;
+```
+
+##### Brief
 Returns true if the code point is an ASCII whitespace character.
 
 ***
 
-sys.core.lang.Char Category
-=
-## Brief
+#### Category
+
+```C#
+property Category: UnicodeCategory; get;
+```
+
+##### Brief
 Returns the Unicode category of the code point.
 
 ***
 
-sys.core.lang.Char Upper
-=
-## Brief
+#### Upper
+
+```C#
+property Upper: Char; get;
+```
+
+##### Brief
 Returns the upper case of the character.
 
 ***
 
-sys.core.lang.Char Lower
-=
-## Brief
+#### Lower
+
+```C#
+property Lower: Char; get;
+```
+
+##### Brief
 Returns the lower case of the character.
 
 ***
 
-sys.core.lang.Char Title
-=
-## Brief
+#### Title
+
+```C#
+property Title: Char; get;
+```
+
+##### Brief
 Returns the title case of the character.
 
 ***
 
-sys.core.lang.Char IsUpper
-=
-## Brief
+#### IsUpper
+
+```C#
+property IsUpper: Bool; get;
+```
+
+##### Brief
 Returns true if the character is upper case.
 
 ***
 
-sys.core.lang.Char IsLower
-=
-## Brief
+#### IsLower
+
+```C#
+property IsLower: Bool; get;
+```
+
+##### Brief
 Returns true if the character is lower case.
 
 ***
 
-sys.core.lang.Char IsTitle
-=
-## Brief
+#### IsTitle
+
+```C#
+property IsTitle: Bool; get;
+```
+
+##### Brief
 Returns true if the character is title case.
 
 ***
 
-sys.core.lang.Char IsDecimal
-=
-## Brief
+#### IsDecimal
+
+```C#
+property IsDecimal: Bool; get;
+```
+
+##### Brief
 Returns true if the character is an Unicode decimal.
 
 ***
 
-sys.core.lang.Char Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: Char
+```
+
+##### Brief
 An `sys.core.lang.Char` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.Char Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: Char
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.Char` (Unicode code point) instance.
 
 ***
 
-sys.core.lang.Char Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: Char
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.Char` (Unicode code point) instance.
 
 ***
 
-sys.core.lang.Char MaxUtf8CP1
-=
-## Brief
+#### MaxUtf8CP1
+
+```C#
+const MaxUtf8CP1: Char
+```
+
+##### Brief
 The highest code point that can be represented by 1 code unit.
 
 ***
 
-sys.core.lang.Char MaxUtf8CP2
-=
-## Brief
+#### MaxUtf8CP2
+
+```C#
+const MaxUtf8CP2: Char
+```
+
+##### Brief
 The highest code point that can be represented by 2 code units.
 
 ***
 
-sys.core.lang.Char MaxUtf8CP3
-=
-## Brief
+#### MaxUtf8CP3
+
+```C#
+const MaxUtf8CP3: Char
+```
+
+##### Brief
 The highest code point that can be represented by 3 code units.
 
 ***
 
-sys.core.lang.Char MaxUtf8CP4
-=
-## Brief
+#### MaxUtf8CP4
+
+```C#
+const MaxUtf8CP4: Char
+```
+
+##### Brief
 The highest code point that can be represented by 4 code units.
 
 ***
 
-sys.core.lang.Char Invalid
-=
-## Brief
+#### Invalid
+
+```C#
+const Invalid: Char
+```
+
+##### Brief
 A constant describing an "invalid" code point.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

@@ -1,288 +1,469 @@
-sys.core.i18n.UnicodeCategory FromAbbr
-=
-## Brief
+Constructors
+---
+
+#### FromAbbr
+
+```C#
+this FromAbbr{s: String}
+```
+
+##### Brief
 Constructs a new instance from a string abbreviation.
 
-### param s
+###### param s
 an abbreviation
 ***
 
-sys.core.i18n.UnicodeCategory ToAbbr
-=
-## Brief
+Methods
+---
+
+#### ToAbbr
+
+```C#
+func ToAbbr()
+```
+
+##### Brief
 Converts the current instance to a string abbreviation.
 
-### returns
+###### returns
 the abbreviation
 ***
 
-sys.core.i18n.UnicodeCategory IsLetter
-=
-## Brief
+Properties
+---
+
+#### IsLetter
+
+```C#
+property IsLetter: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a letter.
 
 ***
 
-sys.core.i18n.UnicodeCategory IsCasesLetter
-=
-## Brief
+#### IsCasesLetter
+
+```C#
+property IsCasesLetter: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a lower/upper/title-case letter.
+
 ***
 
-sys.core.i18n.UnicodeCategory IsMark
-=
-## Brief
+#### IsMark
+
+```C#
+property IsMark: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a mark.
 
 ***
 
-sys.core.i18n.UnicodeCategory IsNumber
-=
-## Brief
+#### IsNumber
+
+```C#
+property IsNumber: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a number.
 
 ***
 
-sys.core.i18n.UnicodeCategory IsPunctuation
-=
-## Brief
+#### IsPunctuation
+
+```C#
+property IsPunctuation: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents punctuation.
 
 ***
 
-sys.core.i18n.UnicodeCategory IsSymbol
-=
-## Brief
+#### IsSymbol
+
+```C#
+property IsSymbol: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a symbol.
 
 ***
 
-sys.core.i18n.UnicodeCategory IsSeparator
-=
-## Brief
+#### IsSeparator
+
+```C#
+property IsSeparator: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents a separator.
+
 ***
 
-sys.core.i18n.UnicodeCategory IsOther
-=
-## Brief
+#### IsOther
+
+```C#
+property IsOther: Bool; get;
+```
+
+##### Brief
 Returns true if the the current instance represents an "other" type of character.
+
 ***
 
-sys.core.i18n.UnicodeCategory Uppercase_Letter
-=
-## Brief
+Constants
+---
+
+#### Uppercase_Letter
+
+```C#
+const Uppercase_Letter,
+```
+
+##### Brief
 Enum entry for "Uppercase_Letter Unicode" category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Lowercase_Letter
-=
-## Brief
+#### Lowercase_Letter
+
+```C#
+const Lowercase_Letter,
+```
+
+##### Brief
 Enum entry for "Lowercase_Letter" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Titlecase_Letter
-=
-## Brief
+#### Titlecase_Letter
+
+```C#
+const Titlecase_Letter,
+```
+
+##### Brief
 Enum entry for "Titlecase_Letter" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Modifier_Letter
-=
-## Brief
+#### Modifier_Letter
+
+```C#
+const Modifier_Letter,
+```
+
+##### Brief
 Enum entry for "Modifier_Letter" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Other_Letter
-=
-## Brief
+#### Other_Letter
+
+```C#
+const Other_Letter,
+```
+
+##### Brief
 Enum entry for "Other_Letter" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Nonspacing_Mark
-=
-## Brief
+#### Nonspacing_Mark
+
+```C#
+const Nonspacing_Mark,
+```
+
+##### Brief
 Enum entry for "Nonspacing_Mark" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Spacing_Mark
-=
-## Brief
+#### Spacing_Mark
+
+```C#
+const Spacing_Mark,
+```
+
+##### Brief
 Enum entry for "Spacing_Mark" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Enclosing_Mark
-=
-## Brief
+#### Enclosing_Mark
+
+```C#
+const Enclosing_Mark,
+```
+
+##### Brief
 Enum entry for "Enclosing_Mark" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Decimal_Number
-=
-## Brief
+#### Decimal_Number
+
+```C#
+const Decimal_Number,
+```
+
+##### Brief
 Enum entry for "Decimal_Number" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Letter_Number
-=
-## Brief
+#### Letter_Number
+
+```C#
+const Letter_Number,
+```
+
+##### Brief
 Enum entry for "Letter_Number" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Other_Number
-=
-## Brief
+#### Other_Number
+
+```C#
+const Other_Number,
+```
+
+##### Brief
 Enum entry for "Other_Number" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Connector_Punctuation
-=
-## Brief
+#### Connector_Punctuation
+
+```C#
+const Connector_Punctuation,
+```
+
+##### Brief
 Enum entry for "Connector_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Dash_Punctuation
-=
-## Brief
+#### Dash_Punctuation
+
+```C#
+const Dash_Punctuation,
+```
+
+##### Brief
 Enum entry for "Dash_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Open_Punctuation
-=
-## Brief
+#### Open_Punctuation
+
+```C#
+const Open_Punctuation,
+```
+
+##### Brief
 Enum entry for "Open_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Close_Punctuation
-=
-## Brief
+#### Close_Punctuation
+
+```C#
+const Close_Punctuation,
+```
+
+##### Brief
 Enum entry for "Close_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Initial_Punctuation
-=
-## Brief
+#### Initial_Punctuation
+
+```C#
+const Initial_Punctuation,
+```
+
+##### Brief
 Enum entry for "Initial_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Final_Punctuation
-=
-## Brief
+#### Final_Punctuation
+
+```C#
+const Final_Punctuation,
+```
+
+##### Brief
 Enum entry for "Final_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Other_Punctuation
-=
-## Brief
+#### Other_Punctuation
+
+```C#
+const Other_Punctuation,
+```
+
+##### Brief
 Enum entry for "Other_Punctuation" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Math_Symbol
-=
-## Brief
+#### Math_Symbol
+
+```C#
+const Math_Symbol,
+```
+
+##### Brief
 Enum entry for "Math_Symbol" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Currency_Symbol
-=
-## Brief
+#### Currency_Symbol
+
+```C#
+const Currency_Symbol,
+```
+
+##### Brief
 Enum entry for "Currency_Symbol" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Modifier_Symbol
-=
-## Brief
+#### Modifier_Symbol
+
+```C#
+const Modifier_Symbol,
+```
+
+##### Brief
 Enum entry for "Modifier_Symbol" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Other_Symbol
-=
-## Brief
+#### Other_Symbol
+
+```C#
+const Other_Symbol,
+```
+
+##### Brief
 Enum entry for "Other_Symbol" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Space_Separator
-=
-## Brief
+#### Space_Separator
+
+```C#
+const Space_Separator,
+```
+
+##### Brief
 Enum entry for "Space_Separator" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Line_Separator
-=
-## Brief
+#### Line_Separator
+
+```C#
+const Line_Separator,
+```
+
+##### Brief
 Enum entry for "Line_Separator" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Paragraph_Separator
-=
-## Brief
+#### Paragraph_Separator
+
+```C#
+const Paragraph_Separator,
+```
+
+##### Brief
 Enum entry for "Paragraph_Separator" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Control
-=
-## Brief
+#### Control
+
+```C#
+const Control,
+```
+
+##### Brief
 Enum entry for "Control" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Format
-=
-## Brief
+#### Format
+
+```C#
+const Format,
+```
+
+##### Brief
 Enum entry for "Format" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Surrogate
-=
-## Brief
+#### Surrogate
+
+```C#
+const Surrogate,
+```
+
+##### Brief
 Enum entry for "Surrogate" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Private_Use
-=
-## Brief
+#### Private_Use
+
+```C#
+const Private_Use,
+```
+
+##### Brief
 Enum entry for "Private_Use" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Unassigned
-=
-## Brief
+#### Unassigned
+
+```C#
+const Unassigned,
+```
+
+##### Brief
 Enum entry for "Unassigned" Unicode category.
 
 ***
 
-sys.core.i18n.UnicodeCategory Invalid
-=
-## Brief
+#### Invalid
+
+```C#
+const Invalid,
+```
+
+##### Brief
 Enum entry for an invalid Unicode category.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

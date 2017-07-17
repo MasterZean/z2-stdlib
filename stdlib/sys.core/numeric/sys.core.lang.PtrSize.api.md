@@ -1,138 +1,230 @@
-sys.core.lang.PtrSize Clamp
-=
-## Brief
+Methods
+---
 
-### param min
+#### Clamp
 
-### param max
+```C#
+def Clamp(min: PtrSize, max: PtrSize)
+```
 
-***
+##### Brief
 
-sys.core.lang.PtrSize Clamped
-=
-## Brief
+###### param min
 
-### param min
-
-### param max
-
-### returns
+###### param max
 
 ***
 
-sys.core.lang.PtrSize @write
-=
-## Brief
+#### Clamped
 
-### param stream
+```C#
+func Clamped(min: PtrSize, max: PtrSize)
+```
 
-### param format
+##### Brief
 
-***
+###### param min
 
-sys.core.lang.PtrSize @put
-=
-## Brief
+###### param max
 
-### param stream
+###### returns
 
 ***
 
-sys.core.lang.PtrSize @get
-=
-## Brief
+#### @write
 
-### param stream
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
 
-***
+##### Brief
 
-sys.core.lang.PtrSize Abs
-=
-## Brief
+###### param stream
 
-***
-
-sys.core.lang.PtrSize Sqr
-=
-## Brief
+###### param format
 
 ***
 
-sys.core.lang.PtrSize Sqrt
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
+
+###### param stream
 
 ***
 
-sys.core.lang.PtrSize Floor
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
+
+###### param stream
 
 ***
 
-sys.core.lang.PtrSize Ceil
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize Round
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize Zero
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize One
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize Min
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize Max
-=
-## Brief
+#### Round
+
+```C#
+property Round: PtrSize; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize Invalid
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: PtrSize
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize IsSigned
-=
-## Brief
+#### One
+
+```C#
+const One: PtrSize
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize IsInteger
-=
-## Brief
+#### Min
+
+```C#
+const Min: PtrSize
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize MaxDigitsLow
-=
-## Brief
+#### Max
+
+```C#
+const Max: PtrSize
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.PtrSize MaxDigitsHigh
-=
-## Brief
+#### Invalid
+
+```C#
+const Invalid: PtrSize
+```
+
+##### Brief
 
 ***
 
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
+
+***
+
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
+
+***
+
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
+
+***
+
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
+
+***
+
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

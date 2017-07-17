@@ -1,201 +1,314 @@
-sys.core.lang.Double Saturated
-=
-## Brief
+Constructors
+---
+
+#### Saturated
+
+```C#
+this Saturated{value: Double}
+```
+
+##### Brief
 Constructs a saturated `sys.core.lang.Double` based on the input value.
 
-### param value
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.Double Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Double, max: Double)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### seealso `sys.core.lang.Intrinsic Clamp`
+###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-sys.core.lang.Double Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Double, max: Double)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
-### seealso `sys.core.lang.Intrinsic Clamped`
+###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-sys.core.lang.Double Pow
-=
-## Brief
+#### Pow
+
+```C#
+func Pow(exp: Double)
+```
+
+##### Brief
 Raises the instance to an exponent.
 
-### param exp
+###### param exp
 the exponent
-### returns
+###### returns
 the exponential
 ***
 
-sys.core.lang.Double ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Double @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Double @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 64 bit floating point.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Double @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 64 bit floating point from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Double IsNan
-=
-## Brief
+Properties
+---
+
+#### IsNan
+
+```C#
+property IsNan: Bool; get;
+```
+
+##### Brief
 Return true if the instance is not a number.
 
 ***
 
-sys.core.lang.Double IsInfinite
-=
-## Brief
+#### IsInfinite
+
+```C#
+property IsInfinite: Bool; get;
+```
+
+##### Brief
 Return true if the infinite.
 
 ***
 
-sys.core.lang.Double Abs
-=
-## Brief
+#### Abs
+
+```C#
+property Abs: Double; get;
+```
+
+##### Brief
 Returns the absolute value.
 
 ***
 
-sys.core.lang.Double Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: Double; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.Double Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: Double get const Intrinsic.Sqrt;; get;
+```
+
+##### Brief
 Returns the square root of the value.
 
 ***
 
-sys.core.lang.Double Floor
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: Double get const Intrinsic.Floor;; get;
+```
+
+##### Brief
 Returns of the floor of a floating point value.
 
 ***
 
-sys.core.lang.Double Ceil
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: Double get const Intrinsic.Ceil;; get;
+```
+
+##### Brief
 Returns of the ceiling of a floating point value.
 
 ***
 
-sys.core.lang.Double Round
-=
-## Brief
+#### Round
+
+```C#
+property Round: Double get const Intrinsic.Round;; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.Double Log
-=
-## Brief
+#### Log
+
+```C#
+property Log: Double get const Intrinsic.Log;; get;
+```
+
+##### Brief
 Returns the natural logarithm of a value.
 
 ***
 
-sys.core.lang.Double Log10
-=
-## Brief
+#### Log10
+
+```C#
+property Log10: Double get const Intrinsic.Log10;; get;
+```
+
+##### Brief
 Returns the base 10 logarithm of a value.
 
 ***
 
-sys.core.lang.Double Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: Double
+```
+
+##### Brief
 A `sys.core.lang.Double` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.Double One
-=
-## Brief
+#### One
+
+```C#
+const One: Double
+```
+
+##### Brief
 A `sys.core.lang.Double` instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.Double Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: Double
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.Double` (64 bit floating point) instance.
 
 ***
 
-sys.core.lang.Double Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: Double
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.Double` (64 bit floating point) instance.
 
 ***
 
-sys.core.lang.Double IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 Returns true if the floating point representation is signed.
 
 ***
 
-sys.core.lang.Double IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 Returns `false`.
 
 ***
 
-sys.core.lang.Double MaxDigitsLow
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -203,9 +316,13 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.Double MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
@@ -213,31 +330,49 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.Double MinExpBase10
-=
-## Brief
+#### MinExpBase10
+
+```C#
+const MinExpBase10
+```
+
+##### Brief
 The minimum base 10 exponent.
 
 ***
 
-sys.core.lang.Double MaxExpBase10
-=
-## Brief
+#### MaxExpBase10
+
+```C#
+const MaxExpBase10
+```
+
+##### Brief
 The maximum base 10 exponent.
 
 ***
 
-sys.core.lang.Double Nan
-=
-## Brief
+#### Nan
+
+```C#
+const Nan
+```
+
+##### Brief
 The not a number value.
 
 ***
 
-sys.core.lang.Double Infinite
-=
-## Brief
+#### Infinite
+
+```C#
+const Infinite
+```
+
+##### Brief
 Positive infinite.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

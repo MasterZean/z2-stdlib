@@ -1,178 +1,280 @@
-sys.core.lang.Word this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
 Parses a string an constructs an `sys.core.lang.Word` based on it.
 
-### param string
+###### param string
 string to parse
 ***
 
-sys.core.lang.Word Saturated
-=
-## Brief
+#### Saturated
+
+```C#
+this Saturated{value: Int}
+this Saturated{value: DWord}
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: Double}
+this Saturated{value: String}
+```
+
+##### Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
-### param value
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.Word Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Word, max: Word)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
 ***
 
-sys.core.lang.Word Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Word, max: Word)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
 ***
 
-sys.core.lang.Word ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Word @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Word @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 16 bit unsigned integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Word @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 16 bit unsigned integer from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Word Abs
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: Word; get;
+```
+
+##### Brief
 Returns the absolute value.
 
 In the case of `sys.core.lang.Word` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Word Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: Word; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.Word Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: Word; get;
+```
+
+##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.Word Floor
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: Word; get;
+```
+
+##### Brief
 Returns of the floor of a floating point value.
 
 In the case of `sys.core.lang.Word` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Word Ceil
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: Word; get;
+```
+
+##### Brief
 Returns of the ceiling of a floating point value.
 
 In the case of `sys.core.lang.Word` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Word Round
-=
-## Brief
+#### Round
+
+```C#
+property Round: Word; get;
+```
+
+##### Brief
 Returns of the rounded value of a floating point.
 
 In the case of `sys.core.lang.Word` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Word Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: Word
+```
+
+##### Brief
 An `sys.core.lang.Word` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.Word One
-=
-## Brief
+#### One
+
+```C#
+const One: Word
+```
+
+##### Brief
 An `sys.core.lang.Word` instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.Word Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: Word
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.Word` (16 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.Word Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: Word
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.Word` (16 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.Word IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-sys.core.lang.Word IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
-sys.core.lang.Word MaxDigitsLow
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -180,9 +282,13 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.Word MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
 
@@ -190,3 +296,5 @@ Should not be used for buffer sizes.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

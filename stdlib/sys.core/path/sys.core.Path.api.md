@@ -1,136 +1,211 @@
-sys.core.Path GetFolder
-=
-## Brief
+Methods
+---
 
-### param path
+#### GetFolder
 
-### returns
+```C#
+static def GetFolder(path: String)
+```
 
-***
+##### Brief
 
-sys.core.Path GetFolderNoSep
-=
-## Brief
+###### param path
 
-### param path
-
-### returns
+###### returns
 
 ***
 
-sys.core.Path GetName
-=
-## Brief
+#### GetFolderNoSep
 
-### param path
+```C#
+static def GetFolderNoSep(path: String)
+```
 
-### returns
+##### Brief
 
-***
+###### param path
 
-sys.core.Path GetNameIndex
-=
-## Brief
-
-### param path
-
-### returns
+###### returns
 
 ***
 
-sys.core.Path GetTitle
-=
-## Brief
+#### GetName
 
-### param path
+```C#
+static def GetName(path: String)
+```
 
-### returns
+##### Brief
 
-***
+###### param path
 
-sys.core.Path GetTitleIndex
-=
-## Brief
-
-### param path
-
-### returns
+###### returns
 
 ***
 
-sys.core.Path GetExtension
-=
-## Brief
+#### GetNameIndex
 
-### param path
+```C#
+static def GetNameIndex(path: String)
+```
 
-### returns
+##### Brief
 
-***
+###### param path
 
-sys.core.Path GetExtensionIndex
-=
-## Brief
-
-### param path
-
-### returns
+###### returns
 
 ***
 
-sys.core.Path GetParent
-=
-## Brief
+#### GetTitle
 
-### param path
+```C#
+static def GetTitle(path: String)
+```
 
-### returns
+##### Brief
 
-***
+###### param path
 
-sys.core.Path IsRoot
-=
-## Brief
-
-### param path
-
-### returns
+###### returns
 
 ***
 
-sys.core.Path CurrentFolder
-=
-## Brief
+#### GetTitleIndex
+
+```C#
+static def GetTitleIndex(path: String)
+```
+
+##### Brief
+
+###### param path
+
+###### returns
 
 ***
 
-sys.core.Path ExeFileName
-=
-## Brief
+#### GetExtension
+
+```C#
+static def GetExtension(path: String)
+```
+
+##### Brief
+
+###### param path
+
+###### returns
 
 ***
 
-sys.core.Path DirSep
-=
-## Brief
+#### GetExtensionIndex
+
+```C#
+static def GetExtensionIndex(path: String)
+```
+
+##### Brief
+
+###### param path
+
+###### returns
 
 ***
 
-sys.core.Path IgnoreCase
-=
-## Brief
+#### GetParent
+
+```C#
+static def GetParent(path: String)
+```
+
+##### Brief
+
+###### param path
+
+###### returns
 
 ***
 
-sys.core.Path DirSepWin
-=
-## Brief
+#### IsRoot
+
+```C#
+static def IsRoot(path: String)
+```
+
+##### Brief
+
+###### param path
+
+###### returns
 
 ***
 
-sys.core.Path DirSepUnix
-=
-## Brief
+Properties
+---
+
+#### CurrentFolder
+
+```C#
+property CurrentFolder: String
+```
+
+##### Brief
 
 ***
 
+#### ExeFileName
+
+```C#
+property ExeFileName: String; get;
+```
+
+##### Brief
+
+***
+
+Constants
+---
+
+#### DirSep
+
+```C#
+const DirSep
+```
+
+##### Brief
+
+***
+
+#### IgnoreCase
+
+```C#
+const IgnoreCase
+```
+
+##### Brief
+
+***
+
+#### DirSepWin
+
+```C#
+const DirSepWin
+```
+
+##### Brief
+
+***
+
+#### DirSepUnix
+
+```C#
+const DirSepUnix
+```
+
+##### Brief
+
+***
+
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

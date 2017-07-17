@@ -1,24 +1,37 @@
-sys.core.SystemDebug Assert
-=
-## Brief
+Methods
+---
+
+#### Assert
+
+```C#
+def Assert(test: Bool)
+```
+
+##### Brief
 Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.
 
 "Debug" builds have the "Trace" flag set.
 
 Should be used for often for run-time assertion in "Debug" builds, to test conditions which should not fail.
 
-### param test
+###### param test
 
 ***
 
-sys.core.SystemDebug Error
-=
-## Brief
+#### Error
+
+```C#
+def Error(error: String)
+```
+
+##### Brief
 Throws an exception with a string message, but only if the "Trace" flag is set for compilation.
 
 "Release" builds have the "Trace" flag set.
 
-### param error
+###### param error
 the error message to throw
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

@@ -1,60 +1,105 @@
-sys.core.SystemCPU Vendor
-=
-## Brief
+Variables
+---
+
+#### Vendor
+
+```C#
+val Vendor
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU MMX
-=
-## Brief
+#### MMX
+
+```C#
+val MMX
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSE
-=
-## Brief
+#### SSE
+
+```C#
+val SSE
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSE2
-=
-## Brief
+#### SSE2
+
+```C#
+val SSE2
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSE3
-=
-## Brief
+#### SSE3
+
+```C#
+val SSE3
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSSE3
-=
-## Brief
+#### SSSE3
+
+```C#
+val SSSE3
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSE41
-=
-## Brief
+#### SSE41
+
+```C#
+val SSE41
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU SSE42
-=
-## Brief
+#### SSE42
+
+```C#
+val SSE42
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU Bits
-=
-## Brief
+#### Bits
+
+```C#
+val Bits
+```
+
+##### Brief
 
 ***
 
-sys.core.SystemCPU Cores
-=
-## Brief
+#### Cores
+
+```C#
+val Cores
+```
+
+##### Brief
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

@@ -1,186 +1,295 @@
-sys.core.lang.Vector this
-=
-## Brief
+Constructors
+---
 
-### param copy
+#### this
 
-***
+```C#
+this{copy: Vector<T>}
+this{move copy: Vector<T>}
+```
 
-sys.core.lang.Vector @attr
-=
-## Brief
+##### Brief
 
-### param copy
-
-***
-
-sys.core.lang.Vector Add
-=
-## Brief
-
-### param item
-
-### param items
+###### param copy
 
 ***
 
-sys.core.lang.Vector @shl
-=
-## Brief
+Methods
+---
+
+#### @attr
+
+```C#
+def @attr(copy: Vector<T>)
+def @attr(move copy: Vector<T>)
+```
+
+##### Brief
+
+###### param copy
 
 ***
 
-sys.core.lang.Vector Fill
-=
-## Brief
+#### Add
 
-### param value
+```C#
+def Add(item: T)
+def Add(move item: T)
+def Add(items: Vector<T>)
+def Add(items: CArray<T>)
+```
 
-### param items
+##### Brief
 
-***
+###### param item
 
-sys.core.lang.Vector FindIndex
-=
-## Brief
-
-### param item
-
-### param start
-
-### returns
+###### param items
 
 ***
 
-sys.core.lang.Vector BinaryIndex
-=
-## Brief
-
-### param item
-
-### returns
+#### @shl
+##### Brief
 
 ***
 
-sys.core.lang.Vector Reverse
-=
-## Brief
+#### Fill
 
-### param start
+```C#
+def Fill(value: T)
+def Fill(items: Vector<T>)
+def Fill(items: CArray<T>)
+```
 
-### param end
+##### Brief
 
-***
+###### param value
 
-sys.core.lang.Vector Delete
-=
-## Brief
-
-### param item
-
-### param items
-
-### returns
+###### param items
 
 ***
 
-sys.core.lang.Vector DeleteAll
-=
-## Brief
+#### FindIndex
 
-### param item
+```C#
+func FindIndex(item: T)
+func FindIndex(item: T, start: PtrSize)
+```
 
-### returns
+##### Brief
 
-***
+###### param item
 
-sys.core.lang.Vector DeleteIndex
-=
-## Brief
+###### param start
 
-### param item
-
-### param items
-
-### returns
+###### returns
 
 ***
 
-sys.core.lang.Vector Insert
-=
-## Brief
+#### BinaryIndex
 
-### param pos
+```C#
+func BinaryIndex(item: T)
+```
 
-### param item
+##### Brief
 
-### param items
+###### param item
 
-***
-
-sys.core.lang.Vector Sum
-=
-## Brief
-
-### returns
+###### returns
 
 ***
 
-sys.core.lang.Vector Sort
-=
-## Brief
+#### Reverse
 
-### param low
+```C#
+def Reverse()
+def Reverse(start: PtrSize, end: PtrSize)
+```
 
-### param high
+##### Brief
 
-***
+###### param start
 
-sys.core.lang.Vector SortDec
-=
-## Brief
-
-### param low
-
-### param high
+###### param end
 
 ***
 
-sys.core.lang.Vector @write
-=
-## Brief
+#### Delete
 
-### param stream
+```C#
+def Delete(item: T)
+def Delete(items: CArray<T>)
+def Delete(items: Vector<T>)
+```
 
-***
+##### Brief
 
-sys.core.lang.Vector Length
-=
-## Brief
+###### param item
 
-***
+###### param items
 
-sys.core.lang.Vector Capacity
-=
-## Brief
+###### returns
 
 ***
 
-sys.core.lang.Vector @index
-=
-## Brief
+#### DeleteAll
+
+```C#
+def DeleteAll(item: T)
+def DeleteAll(item: CArray<T>)
+def DeleteAll(item: Vector<T>)
+```
+
+##### Brief
+
+###### param item
+
+###### returns
 
 ***
 
-sys.core.lang.Vector At
-=
-## Brief
+#### DeleteIndex
+
+```C#
+def DeleteIndex(item: PtrSize)
+def DeleteIndex(items: CArray<PtrSize>)
+def DeleteIndex(items: Vector<PtrSize>)
+```
+
+##### Brief
+
+###### param item
+
+###### param items
+
+###### returns
 
 ***
 
-sys.core.lang.Vector SysDataPointer
-=
-## Brief
+#### Insert
+
+```C#
+def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, items: CArray<T>)
+def Insert(pos: PtrSize, items: Vector<T>)
+```
+
+##### Brief
+
+###### param pos
+
+###### param item
+
+###### param items
 
 ***
 
+#### Sum
+
+```C#
+func Sum()
+```
+
+##### Brief
+
+###### returns
+
+***
+
+#### Sort
+
+```C#
+def Sort()
+def Sort(low: Int, high: Int)
+```
+
+##### Brief
+
+###### param low
+
+###### param high
+
+***
+
+#### SortDec
+
+```C#
+def SortDec()
+def SortDec(low: Int, high: Int)
+```
+
+##### Brief
+
+###### param low
+
+###### param high
+
+***
+
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+```
+
+##### Brief
+
+###### param stream
+
+***
+
+Properties
+---
+
+#### Length
+
+```C#
+property Length: PtrSize
+```
+
+##### Brief
+
+***
+
+#### Capacity
+
+```C#
+property Capacity: PtrSize
+```
+
+##### Brief
+
+***
+
+#### @index
+
+```C#
+property @index: ref T; get;
+```
+
+##### Brief
+
+***
+
+#### At
+
+```C#
+property At: ref T; get;
+```
+
+##### Brief
+
+***
+
+#### SysDataPointer
+
+```C#
+property SysDataPointer: Ptr<T>; get;
+```
+
+##### Brief
+
+***
+
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

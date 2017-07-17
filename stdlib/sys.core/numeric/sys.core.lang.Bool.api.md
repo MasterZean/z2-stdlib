@@ -1,101 +1,157 @@
-sys.core.lang.Bool this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
 Parses a string an constructs an `sys.core.lang.Bool` based on it.
 
-### param string
+###### param string
 string to parse
 ***
 
-sys.core.lang.Bool Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Bool, max: Bool)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### seealso `sys.core.lang.Intrinsic Clamp`
+###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-sys.core.lang.Bool Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Bool, max: Bool)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
-### seealso `sys.core.lang.Intrinsic Clamped`
+###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-sys.core.lang.Bool ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Bool @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Bool @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Bool @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Bool Min
-=
-## Brief
+Constants
+---
+
+#### Min
+
+```C#
+const Min
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.Bool` (boolean) instance.
 
 ***
 
-sys.core.lang.Bool Max
-=
-## Brief
+#### Max
+
+```C#
+const Max
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.Bool` (boolean) instance.
 
 ***
 
-sys.core.lang.Bool IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-sys.core.lang.Bool IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

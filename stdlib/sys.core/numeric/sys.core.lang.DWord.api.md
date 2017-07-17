@@ -1,178 +1,280 @@
-sys.core.lang.DWord this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
 Parses a string an constructs an `sys.core.lang.DWord` based on it.
 
-### param string
+###### param string
 string to parse
 ***
 
-sys.core.lang.DWord Saturated
-=
-## Brief
+#### Saturated
+
+```C#
+this Saturated{value: Int}
+this Saturated{value: DWord}
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: Double}
+this Saturated{value: String}
+```
+
+##### Brief
 Constructs a saturated `sys.core.lang.Lang` based on the input value.
 
-### param value
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.DWord Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: DWord, max: DWord)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
 ***
 
-sys.core.lang.DWord Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: DWord, max: DWord)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
 ***
 
-sys.core.lang.DWord ToString
-=
-## Brief
+#### ToString
+
+```C#
+func ToString()
+```
+
+##### Brief
 Converts the value to a Utf8 string.
 
-### returns
+###### returns
 the resulting string
 ***
 
-sys.core.lang.DWord @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.DWord @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 32 bit unsigned integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.DWord @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 32 bit unsigned integer from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.DWord Abs
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: DWord; get;
+```
+
+##### Brief
 Returns the absolute value.
 
 In the case of `sys.core.lang.DWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.DWord Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: DWord; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.DWord Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: DWord; get;
+```
+
+##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.DWord Floor
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: DWord; get;
+```
+
+##### Brief
 Returns of the floor of a floating point value.
 
 In the case of `sys.core.lang.DWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.DWord Ceil
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: DWord; get;
+```
+
+##### Brief
 Returns of the ceiling of a floating point value.
 
 In the case of `sys.core.lang.DWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.DWord Round
-=
-## Brief
+#### Round
+
+```C#
+property Round: DWord; get;
+```
+
+##### Brief
 Returns of the rounded value of a floating point.
 
 In the case of `sys.core.lang.DWord` it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.DWord Zero
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: DWord
+```
+
+##### Brief
 An `sys.core.lang.DWord` instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.DWord One
-=
-## Brief
+#### One
+
+```C#
+const One: DWord
+```
+
+##### Brief
 An `sys.core.lang.DWord` instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.DWord Min
-=
-## Brief
+#### Min
+
+```C#
+const Min: DWord
+```
+
+##### Brief
 The minimum value for an `sys.core.lang.DWord` (32 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.DWord Max
-=
-## Brief
+#### Max
+
+```C#
+const Max: DWord
+```
+
+##### Brief
 The maximum value for an `sys.core.lang.DWord` (32 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.DWord IsSigned
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-sys.core.lang.DWord IsInteger
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***
 
-sys.core.lang.DWord MaxDigitsLow
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -180,9 +282,13 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.DWord MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
 
@@ -190,3 +296,5 @@ Should not be used for buffer sizes.
 
 ***
 
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"

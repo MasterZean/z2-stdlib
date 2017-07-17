@@ -1,108 +1,172 @@
-sys.core.lang.CArray this
-=
-## Brief
+Constructors
+---
 
-### param item
+#### this
 
-***
+```C#
+this{}
+this{item: T}
+```
 
-sys.core.lang.CArray Fill
-=
-## Brief
+##### Brief
 
-### param value
-
-***
-
-sys.core.lang.CArray Insert
-=
-## Brief
-
-### param pos
-
-### param item
+###### param item
 
 ***
 
-sys.core.lang.CArray Delete
-=
-## Brief
+Methods
+---
 
-### param pos
+#### Fill
 
-***
+```C#
+def Fill(value: T)
+```
 
-sys.core.lang.CArray FindIndex
-=
-## Brief
+##### Brief
 
-### param item
-
-### param start
-
-### returns
+###### param value
 
 ***
 
-sys.core.lang.CArray BinaryIndex
-=
-## Brief
+#### Insert
 
-### param item
+```C#
+def Insert(pos: PtrSize, item: T)
+```
 
-### returns
+##### Brief
 
-***
+###### param pos
 
-sys.core.lang.CArray Reverse
-=
-## Brief
-
-### param start
-
-### param end
+###### param item
 
 ***
 
-sys.core.lang.CArray Sum
-=
-## Brief
+#### Delete
 
-### returns
+```C#
+def Delete(pos: PtrSize)
+```
 
-***
+##### Brief
 
-sys.core.lang.CArray Sort
-=
-## Brief
-
-### param low
-
-### param high
+###### param pos
 
 ***
 
-sys.core.lang.CArray SortDescending
-=
-## Brief
+#### FindIndex
 
-### param low
+```C#
+def FindIndex(item: T)
+def FindIndex(item: T, start: PtrSize)
+```
 
-### param high
+##### Brief
 
-***
+###### param item
 
-sys.core.lang.CArray @write
-=
-## Brief
+###### param start
 
-### param stream
-
-***
-
-sys.core.lang.CArray IsEmpty
-=
-## Brief
+###### returns
 
 ***
 
+#### BinaryIndex
+
+```C#
+def BinaryIndex(item: T)
+```
+
+##### Brief
+
+###### param item
+
+###### returns
+
+***
+
+#### Reverse
+
+```C#
+def Reverse()
+def Reverse(start: PtrSize, end: PtrSize)
+```
+
+##### Brief
+
+###### param start
+
+###### param end
+
+***
+
+#### Sum
+
+```C#
+def Sum()
+```
+
+##### Brief
+
+###### returns
+
+***
+
+#### Sort
+
+```C#
+def Sort()
+def Sort(low: Int, high: Int)
+```
+
+##### Brief
+
+###### param low
+
+###### param high
+
+***
+
+#### SortDescending
+
+```C#
+def SortDescending()
+def SortDescending(low: Int, high: Int)
+```
+
+##### Brief
+
+###### param low
+
+###### param high
+
+***
+
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+```
+
+##### Brief
+
+###### param stream
+
+***
+
+Properties
+---
+
+#### IsEmpty
+
+```C#
+property IsEmpty: Bool; get;
+```
+
+##### Brief
+
+***
+
+[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
+[Value]: . "Value"
