@@ -4,10 +4,13 @@ class PassFind01 {
 	def @main() {
 		val a = CArray[1, 2, 3, 5, 7, 11, 56, 57, 58, 69, 78, 167, 200];
 		System.Out << a.FindIndex(69) << "\n";
+		System.Out << a.FindIndex(69, 7p) << "\n";
 		System.Out << a.BinaryIndex(69) << "\n";
+		System.Out << a.BinaryIndex(69, 7p) << "\n";
 		System.Out << a.FindIndex(70) << "\n";
 		System.Out << a.BinaryIndex(70) << "\n";
 		System.Out << a.FindIndex(3, 5p) << "\n";
+		System.Out << a.BinaryIndex(3, 5p) << "\n";
 
 		a.Reverse();
 		System.Out << a << "\n";
