@@ -301,10 +301,10 @@ class Slice<T: Class> {
 		val lowerBound = 0p;
 		val upperBound = size - 1;
 		
-		while(lowerBound <= upperBound) {
+		while (lowerBound <= upperBound) {
 			val midPoint = lowerBound + (upperBound - lowerBound) / 2;
 		
-			if(ptr[midPoint] == item)
+			if (ptr[midPoint] == item)
 				return midPoint;
 			else if(ptr[midPoint] < item)
 				lowerBound = midPoint + 1;
@@ -313,6 +313,27 @@ class Slice<T: Class> {
 		}
 		
 		return PtrSize{-1};
+	}
+	
+	func BinaryIndex(item: T, start: PtrSize): PtrSize {
+	    if (ptr[start] > item)
+	        return -1;
+	    
+		val lowerBound = start;
+		val upperBound = size - 1;
+		
+		while (lowerBound <= upperBound) {
+			val midPoint = lowerBound + (upperBound - lowerBound) / 2;
+		
+			if (ptr[midPoint] == item)
+				return midPoint;
+			else if (ptr[midPoint] < item)
+				lowerBound = midPoint + 1;
+			else
+				upperBound = midPoint -1;
+		}
+		
+		return -1;
 	}
 	
 	def Reverse() {
@@ -358,6 +379,7 @@ class Slice<T: Class> {
 		
 	def DeleteAll(item: T): PtrSize {
 		val count = 0p;
+		
 		while (true) {
 			val index = FindIndex(item);
 			

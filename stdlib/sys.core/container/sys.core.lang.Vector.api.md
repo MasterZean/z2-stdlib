@@ -89,28 +89,34 @@ func FindIndex(item: T, start: PtrSize)
 
 ```C#
 func BinaryIndex(item: T)
+def BinaryIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
 
 ###### param item
 
+###### param start
+
 ###### returns
 
 ***
 
-#### Reverse
+#### Insert
 
 ```C#
-def Reverse()
-def Reverse(start: PtrSize, end: PtrSize)
+def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, items: CArray<T>)
+def Insert(pos: PtrSize, items: Vector<T>)
 ```
 
 ##### Brief
 
-###### param start
+###### param pos
 
-###### param end
+###### param item
+
+###### param items
 
 ***
 
@@ -166,21 +172,18 @@ def DeleteIndex(items: Vector<PtrSize>)
 
 ***
 
-#### Insert
+#### Reverse
 
 ```C#
-def Insert(pos: PtrSize, item: T)
-def Insert(pos: PtrSize, items: CArray<T>)
-def Insert(pos: PtrSize, items: Vector<T>)
+def Reverse()
+def Reverse(start: PtrSize, end: PtrSize)
 ```
 
 ##### Brief
 
-###### param pos
+###### param start
 
-###### param item
-
-###### param items
+###### param end
 
 ***
 

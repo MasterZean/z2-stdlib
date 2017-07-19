@@ -93,17 +93,6 @@ the input stream
 Properties
 ---
 
-#### UnicodePlane
-
-```C#
-property UnicodePlane: Byte; get;
-```
-
-##### Brief
-REturns the Unicode plane of the code point, between 0 and 16.
-
-***
-
 #### IsAsciiDigit
 
 ```C#
@@ -211,6 +200,39 @@ property IsAsciiSpace: Bool; get;
 
 ##### Brief
 Returns true if the code point is an ASCII whitespace character.
+
+***
+
+#### AsciiUpper
+
+```C#
+property AsciiUpper: Char; get;
+```
+
+##### Brief
+Returns the ASCII upper case of the ASCII character.
+
+***
+
+#### AsciiLower
+
+```C#
+property AsciiLower: Char; get;
+```
+
+##### Brief
+Returns the ASCII lower case of the ASCII character.
+
+***
+
+#### UnicodePlane
+
+```C#
+property UnicodePlane: Byte; get;
+```
+
+##### Brief
+REturns the Unicode plane of the code point, between 0 and 16.
 
 ***
 

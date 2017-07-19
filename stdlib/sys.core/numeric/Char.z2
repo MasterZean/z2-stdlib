@@ -23,10 +23,6 @@ class Char {
 	
 	func Clamped(min: Char, max: Char): Char; Intrinsic.Clamped;
 
-	property UnicodePlane: Byte {
-		return Byte{this >> 16};
-	}
-
 	property IsAsciiDigit: Bool {
 		return this >= '0' && this <= '9';
 	}
@@ -67,6 +63,24 @@ class Char {
 		return this == ' ' || this == '\t' || this == '\r' || this == '\n' || this == '\v' || this == '\f';
 	}
 
+    property AsciiUpper: Char {
+        if (this.IsAsciiLower)
+            return this - 'a' + 'A';
+        else
+            return this;
+    }
+    
+    property AsciiLower: Char {
+        if (this.IsAsciiUpper)
+            return this - 'A' + 'a';
+        else
+            return this;
+    }
+        
+    property UnicodePlane: Byte {
+		return Byte{this >> 16};
+	}
+	
 	property Category: UnicodeCategory {
 		val plane = DWord{UnicodePlane};
 		if (plane >= UnicodeData.PlanesType)

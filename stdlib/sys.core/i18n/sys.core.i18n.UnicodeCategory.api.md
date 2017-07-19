@@ -127,7 +127,7 @@ Constants
 #### Uppercase_Letter
 
 ```C#
-const Uppercase_Letter,
+const Uppercase_Letter
 ```
 
 ##### Brief
@@ -138,7 +138,7 @@ Enum entry for "Uppercase_Letter Unicode" category.
 #### Lowercase_Letter
 
 ```C#
-const Lowercase_Letter,
+const Lowercase_Letter
 ```
 
 ##### Brief
@@ -149,7 +149,7 @@ Enum entry for "Lowercase_Letter" Unicode category.
 #### Titlecase_Letter
 
 ```C#
-const Titlecase_Letter,
+const Titlecase_Letter
 ```
 
 ##### Brief
@@ -160,7 +160,7 @@ Enum entry for "Titlecase_Letter" Unicode category.
 #### Modifier_Letter
 
 ```C#
-const Modifier_Letter,
+const Modifier_Letter
 ```
 
 ##### Brief
@@ -171,7 +171,7 @@ Enum entry for "Modifier_Letter" Unicode category.
 #### Other_Letter
 
 ```C#
-const Other_Letter,
+const Other_Letter
 ```
 
 ##### Brief
@@ -182,7 +182,7 @@ Enum entry for "Other_Letter" Unicode category.
 #### Nonspacing_Mark
 
 ```C#
-const Nonspacing_Mark,
+const Nonspacing_Mark
 ```
 
 ##### Brief
@@ -193,7 +193,7 @@ Enum entry for "Nonspacing_Mark" Unicode category.
 #### Spacing_Mark
 
 ```C#
-const Spacing_Mark,
+const Spacing_Mark
 ```
 
 ##### Brief
@@ -204,7 +204,7 @@ Enum entry for "Spacing_Mark" Unicode category.
 #### Enclosing_Mark
 
 ```C#
-const Enclosing_Mark,
+const Enclosing_Mark
 ```
 
 ##### Brief
@@ -215,7 +215,7 @@ Enum entry for "Enclosing_Mark" Unicode category.
 #### Decimal_Number
 
 ```C#
-const Decimal_Number,
+const Decimal_Number
 ```
 
 ##### Brief
@@ -226,7 +226,7 @@ Enum entry for "Decimal_Number" Unicode category.
 #### Letter_Number
 
 ```C#
-const Letter_Number,
+const Letter_Number
 ```
 
 ##### Brief
@@ -237,7 +237,7 @@ Enum entry for "Letter_Number" Unicode category.
 #### Other_Number
 
 ```C#
-const Other_Number,
+const Other_Number
 ```
 
 ##### Brief
@@ -248,7 +248,7 @@ Enum entry for "Other_Number" Unicode category.
 #### Connector_Punctuation
 
 ```C#
-const Connector_Punctuation,
+const Connector_Punctuation
 ```
 
 ##### Brief
@@ -259,7 +259,7 @@ Enum entry for "Connector_Punctuation" Unicode category.
 #### Dash_Punctuation
 
 ```C#
-const Dash_Punctuation,
+const Dash_Punctuation
 ```
 
 ##### Brief
@@ -270,7 +270,7 @@ Enum entry for "Dash_Punctuation" Unicode category.
 #### Open_Punctuation
 
 ```C#
-const Open_Punctuation,
+const Open_Punctuation
 ```
 
 ##### Brief
@@ -281,7 +281,7 @@ Enum entry for "Open_Punctuation" Unicode category.
 #### Close_Punctuation
 
 ```C#
-const Close_Punctuation,
+const Close_Punctuation
 ```
 
 ##### Brief
@@ -292,7 +292,7 @@ Enum entry for "Close_Punctuation" Unicode category.
 #### Initial_Punctuation
 
 ```C#
-const Initial_Punctuation,
+const Initial_Punctuation
 ```
 
 ##### Brief
@@ -303,7 +303,7 @@ Enum entry for "Initial_Punctuation" Unicode category.
 #### Final_Punctuation
 
 ```C#
-const Final_Punctuation,
+const Final_Punctuation
 ```
 
 ##### Brief
@@ -314,7 +314,7 @@ Enum entry for "Final_Punctuation" Unicode category.
 #### Other_Punctuation
 
 ```C#
-const Other_Punctuation,
+const Other_Punctuation
 ```
 
 ##### Brief
@@ -325,7 +325,7 @@ Enum entry for "Other_Punctuation" Unicode category.
 #### Math_Symbol
 
 ```C#
-const Math_Symbol,
+const Math_Symbol
 ```
 
 ##### Brief
@@ -336,7 +336,7 @@ Enum entry for "Math_Symbol" Unicode category.
 #### Currency_Symbol
 
 ```C#
-const Currency_Symbol,
+const Currency_Symbol
 ```
 
 ##### Brief
@@ -347,7 +347,7 @@ Enum entry for "Currency_Symbol" Unicode category.
 #### Modifier_Symbol
 
 ```C#
-const Modifier_Symbol,
+const Modifier_Symbol
 ```
 
 ##### Brief
@@ -358,7 +358,7 @@ Enum entry for "Modifier_Symbol" Unicode category.
 #### Other_Symbol
 
 ```C#
-const Other_Symbol,
+const Other_Symbol
 ```
 
 ##### Brief
@@ -369,7 +369,7 @@ Enum entry for "Other_Symbol" Unicode category.
 #### Space_Separator
 
 ```C#
-const Space_Separator,
+const Space_Separator
 ```
 
 ##### Brief
@@ -380,7 +380,7 @@ Enum entry for "Space_Separator" Unicode category.
 #### Line_Separator
 
 ```C#
-const Line_Separator,
+const Line_Separator
 ```
 
 ##### Brief
@@ -391,7 +391,7 @@ Enum entry for "Line_Separator" Unicode category.
 #### Paragraph_Separator
 
 ```C#
-const Paragraph_Separator,
+const Paragraph_Separator
 ```
 
 ##### Brief
@@ -402,7 +402,7 @@ Enum entry for "Paragraph_Separator" Unicode category.
 #### Control
 
 ```C#
-const Control,
+const Control
 ```
 
 ##### Brief
@@ -413,7 +413,7 @@ Enum entry for "Control" Unicode category.
 #### Format
 
 ```C#
-const Format,
+const Format
 ```
 
 ##### Brief
@@ -424,7 +424,7 @@ Enum entry for "Format" Unicode category.
 #### Surrogate
 
 ```C#
-const Surrogate,
+const Surrogate
 ```
 
 ##### Brief
@@ -435,7 +435,7 @@ Enum entry for "Surrogate" Unicode category.
 #### Private_Use
 
 ```C#
-const Private_Use,
+const Private_Use
 ```
 
 ##### Brief
@@ -446,7 +446,7 @@ Enum entry for "Private_Use" Unicode category.
 #### Unassigned
 
 ```C#
-const Unassigned,
+const Unassigned
 ```
 
 ##### Brief
@@ -457,7 +457,7 @@ Enum entry for "Unassigned" Unicode category.
 #### Invalid
 
 ```C#
-const Invalid,
+const Invalid
 ```
 
 ##### Brief

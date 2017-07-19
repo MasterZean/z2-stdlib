@@ -189,14 +189,36 @@ class Vector<T: Class> {
 		return s.BinaryIndex(item);
 	}
 	
-	def Reverse() {
+	def BinaryIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
-		s.Reverse();
+		return s.BinaryIndex(item, start);
 	}
 	
-	def Reverse(start: PtrSize, end: PtrSize) {
-		val s = Slice<T>{this, start, end};
-		s.Reverse();
+	def Insert(pos: PtrSize, item: T) {
+		while (Inrinsic.Max(pos, lengh) + 1 >= capacity)
+			Grow();
+		
+		val s = Slice<T>{this};
+		s.Insert(pos, item);
+		length = s.Length;
+	}
+	
+	def Insert(pos: PtrSize, items: CArray<T>) {
+		while (Inrinsic.Max(pos, lengh) + items.Length >= capacity)
+			Grow();
+		
+		val s = Slice<T>{this};
+		s.Insert(pos, items);
+		length = s.Length;
+	}
+	
+	def Insert(pos: PtrSize, items: Vector<T>) {
+		while (Inrinsic.Max(pos, lengh) + items.Length >= capacity)
+			Grow();
+		
+		val s = Slice<T>{this};
+		s.Insert(pos, items);
+		length = s.Length;
 	}
 	
 	def Delete(item: T): PtrSize {
@@ -262,31 +284,14 @@ class Vector<T: Class> {
 		return r;
 	}
 	
-	def Insert(pos: PtrSize, item: T) {
-		if (length >= capacity)
-			Grow();
-		
+	def Reverse() {
 		val s = Slice<T>{this};
-		s.Insert(pos, item);
-		length = s.Length;
+		s.Reverse();
 	}
 	
-	def Insert(pos: PtrSize, items: CArray<T>) {
-		if (length + items.Length >= capacity)
-			Grow(length + items.Length);
-		
-		val s = Slice<T>{this};
-		s.Insert(pos, items);
-		length = s.Length;
-	}
-	
-	def Insert(pos: PtrSize, items: Vector<T>) {
-		if (length + items.Length >= capacity)
-			Grow(length + items.Length);
-		
-		val s = Slice<T>{this};
-		s.Insert(pos, items);
-		length = s.Length;
+	def Reverse(start: PtrSize, end: PtrSize) {
+		val s = Slice<T>{this, start, end};
+		s.Reverse();
 	}
 	
 	func Sum(): T {

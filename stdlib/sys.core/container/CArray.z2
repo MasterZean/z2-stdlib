@@ -22,22 +22,14 @@ class CArray<T: Class> {
 			this[i] = value;
 	}
 	
-	def Insert(pos: PtrSize, item: T) {
-		System.Debug.Assert(pos < Length);
-		
-		for (val i = Length - 1; i >= pos + 1; i--)
-			this[i] = this[i - 1];
-		
-		this[pos] = item;
+	def Fill(items: Vector<T>) {
+		val s = Slice<T>{this};
+		s.Fill(items);
 	}
 	
-	def Delete(pos: PtrSize) {
-		System.Debug.Assert(pos < Length);
-		
-		for (val i = pos; i < Length - 1; i++)
-			this[i] = this[i + 1];
-		
-		this[Length - 1]{};
+	def Fill(items: CArray<T>) {
+		val s = Slice<T>{this};
+		s.Fill(items);
 	}
 	
 	def FindIndex(item: T): PtrSize {
@@ -53,6 +45,57 @@ class CArray<T: Class> {
 	def BinaryIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item);
+	}
+	
+	def BinaryIndex(item: T, start: PtrSize): PtrSize {
+		val s = Slice<T>{this};
+		return s.BinaryIndex(item, start);
+	}
+	
+	def Insert(pos: PtrSize, item: T) {
+		System.Debug.Assert(pos < Length);
+		
+		for (val i = Length - 1; i >= pos + 1; i--)
+			this[i] = this[i - 1];
+		
+		this[pos] = item;
+	}
+	
+	def Delete(item: T): PtrSize {
+	    val index = FindIndex(item);
+		
+		if (index == -1)
+			return 0;
+		
+		return DeleteIndex(index);
+	}
+	
+	def DeleteAll(item: T): PtrSize {
+	    val count = 0p;
+		
+		while (true) {
+			val index = FindIndex(item);
+			
+			if (index == -1)
+				return count;
+			
+			DeleteIndex(index);
+			
+			count++;
+		}
+		
+		return count;
+	}
+	
+	def DeleteIndex(pos: PtrSize): PtrSize {
+		System.Debug.Assert(pos < Length);
+		
+		for (val i = pos; i < Length - 1; i++)
+			this[i] = this[i + 1];
+		
+		this[Length - 1]{};
+		
+		return 1;
 	}
 	
 	def Reverse() {

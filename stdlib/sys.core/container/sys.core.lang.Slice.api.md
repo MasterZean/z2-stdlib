@@ -116,11 +116,14 @@ func RFindIndex(b: Vector<T>, val start: PtrSize)
 
 ```C#
 func BinaryIndex(item: T)
+func BinaryIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
 
 ###### param item
+
+###### param start
 
 ###### returns
 
