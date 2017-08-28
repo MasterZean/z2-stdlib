@@ -1,25 +1,49 @@
 .jumbotron {
-    background-color: #f4511e;
-    color: #fff;
-    padding-top: 60px;
-    padding-right: 25px;
-    padding-bottom: 40px;
-    padding-left: 25px;
-}
-
-.container-fluid {
-    padding: 60px 50px;
+	background-color: #f4511e;
+	color: #fff;
+	padding-top: 60px;
+	padding-right: 25px;
+	padding-bottom: 40px;
+	padding-left: 25px;
 }
 
 .well {
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    border-color: darkgray;
-    background-color: lightgray;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	border-color: darkgray;
+	background-color: lightgray;
 }
 
 .hljs {
 	border: 1px solid transparent;
-    border-radius: .25rem;
-    border-color: lightgray;    
+	border-radius: .25rem;
+	border-color: lightgray;    
+}
+
+.page {
+	padding: 20px;
+
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    
+    border: 1px solid transparent;
+    border-top: 0;
+    border-color: lightgray;
+}
+
+@media (max-width: 978px) {
+	.page {
+		margin: 0;		
+		border: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.jumbotron {
+		padding-top: 20px;
+		padding-right: 10px;
+		padding-bottom: 14px;
+		padding-left: 10px;
+	}
 }
