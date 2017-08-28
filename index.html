@@ -8,7 +8,13 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
 <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
@@ -52,9 +58,9 @@
 	    <a class="btn btn-info" href="about.html">About</a>
 	</div>
 	<div class="col-lg-6">
-		<div class="well">
-			<p>
+		<p>
 			<pre>
+			<code class="cs">
 namespace org.z2legacy.ut;
 
 class HelloWorld {
@@ -62,23 +68,22 @@ class HelloWorld {
 		System.Out &lt;&lt; &quot;Hello World!\n&quot;;
 	}
 }			
+			</code>
 			</pre>
-			</p>
-		</div>
+		</p>
 	</div>
 </div>
 </div>
 
-<div class="well">
-<p>
-aaaaa
-</p>
-</div>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
