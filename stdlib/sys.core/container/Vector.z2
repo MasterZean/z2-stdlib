@@ -195,7 +195,7 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, item: T) {
-		while (Inrinsic.Max(pos, lengh) + 1 >= capacity)
+		while (Intrinsic.Max(pos, length) + 1 >= capacity)
 			Grow();
 		
 		val s = Slice<T>{this};
@@ -204,7 +204,7 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, items: CArray<T>) {
-		while (Inrinsic.Max(pos, lengh) + items.Length >= capacity)
+		while (Intrinsic.Max(pos, length) + items.Length >= capacity)
 			Grow();
 		
 		val s = Slice<T>{this};
@@ -213,7 +213,7 @@ class Vector<T: Class> {
 	}
 	
 	def Insert(pos: PtrSize, items: Vector<T>) {
-		while (Inrinsic.Max(pos, lengh) + items.Length >= capacity)
+		while (Intrinsic.Max(pos, length) + items.Length >= capacity)
 			Grow();
 		
 		val s = Slice<T>{this};

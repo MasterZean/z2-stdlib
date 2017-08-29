@@ -8,7 +8,7 @@ this{string: String}
 ```
 
 ##### Brief
-Parses a string an constructs an `sys.core.lang.Int` based on it.
+Parses a string an constructs an [Int][sys.core.lang.Int] based on it.
 
 ###### param string
 string to parse
@@ -26,7 +26,7 @@ this Saturated{value: String}
 ```
 
 ##### Brief
-Constructs a saturated [Int][Int] based on the input value.
+Constructs a saturated [Int][sys.core.lang.Int] based on the input value.
 
 ###### param value
 the input value. Can be numeric or a string.
@@ -76,7 +76,7 @@ func ToString()
 ```
 
 ##### Brief
-Converts the value to a Utf8 string.
+Converts the value to a Utf8 [string][sys.core.lang.String].
 
 ###### returns
 the resulting string
@@ -91,6 +91,8 @@ func @write(ref stream: Stream, format: OutputFormat)
 
 ##### Brief
 Writes the value to an Utf8 text stream.
+
+Can use an optional [output format][sys.core.OutputFormat] specifier.
 
 ###### param stream
 the output stream
@@ -169,7 +171,7 @@ property Floor: Int; get;
 ##### Brief
 Returns the floor of a floating point value.
 
-In the case of [Int][Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -182,7 +184,7 @@ property Ceil: Int; get;
 ##### Brief
 Returns the ceiling of a floating point value.
 
-In the case of [Int][Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -195,7 +197,7 @@ property Round: Int; get;
 ##### Brief
 Returns the rounded value of a floating point.
 
-In the case of [Int][Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -209,7 +211,7 @@ const Zero: Int
 ```
 
 ##### Brief
-An [Int][Int] instance representing a logical "0" value.
+An [Int][sys.core.lang.Int] instance representing a logical "0" value.
 
 ***
 
@@ -220,7 +222,7 @@ const One: Int
 ```
 
 ##### Brief
-An [Int][Int] instance representing a logical "1" value.
+An [Int][sys.core.lang.Int] instance representing a logical "1" value.
 
 ***
 
@@ -231,7 +233,7 @@ const Min: Int
 ```
 
 ##### Brief
-The minimum value for an [Int][Int] (32 bit signed integer) instance.
+The minimum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
 
 ***
 
@@ -242,7 +244,7 @@ const Max: Int
 ```
 
 ##### Brief
-The maximum value for an [Int][Int] (32 bit signed integer) instance.
+The maximum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
 
 ***
 
@@ -253,7 +255,7 @@ const IsSigned
 ```
 
 ##### Brief
-`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
@@ -264,7 +266,7 @@ const IsInteger
 ```
 
 ##### Brief
-`true` if the numeric representation is an integer, `false` if it is a floating point.
+[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 
 ***
 
@@ -296,5 +298,7 @@ Should not be used for buffer sizes.
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"
+[sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

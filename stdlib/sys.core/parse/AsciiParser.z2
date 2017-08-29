@@ -156,31 +156,31 @@ class AsciiParser {
 	}
 	
 	def ReadNumber(base: Int): DWord {
-        val n = 0u;
-        val q = ctoi(term[0]);
-        
-        if (q < 0 || q >= base)
-	        throw sys.core.IllegalConversionException{};
-        
-        for (;;) {
-            val c = ctoi(term[0]);
-            
-            if (c < 0 || c >= base)
-                break;
-            
-            val n1 = n;
-            n = base * n + c;
-            
-            if (n1 > n)
-                throw sys.core.IllegalConversionException{};
-            
-            term++;
-        }
-        
-        EatSpaces();
-        
-        return n;
-    }
+		val n = 0u;
+		val q = ctoi(term[0]);
+		
+		if (q < 0 || q >= base)
+			throw sys.core.IllegalConversionException{};
+		
+		for (;;) {
+			val c = ctoi(term[0]);
+			
+			if (c < 0 || c >= base)
+				break;
+			
+			val n1 = n;
+			n = base * n + c;
+			
+			if (n1 > n)
+				throw sys.core.IllegalConversionException{};
+			
+			term++;
+		}
+		
+		EatSpaces();
+		
+		return n;
+	}
 }
 protected {
 	val term: Ptr<Byte>;
@@ -190,8 +190,8 @@ protected {
 	
 	def eatSpaces(): Bool {
 		if (  term[0] > ' '  &&
-		    !(term[0] == '/' && term[1] == '/') &&
-		    !(term[0] == '/' && term[1] == '*'))
+			!(term[0] == '/' && term[1] == '/') &&
+			!(term[0] == '/' && term[1] == '*'))
 			return false;
 		
 		for(;;) {
@@ -287,13 +287,13 @@ protected {
 	}
 	
 	static func ctoi(c: Int): Int {
-        if(c >= '0' && c <= '9')
-            return c - Int{'0'};
-        if(c >= 'A' && c <= 'Z')
-            return c - Int{'A'} + 10;
-        if(c >= 'a' && c <= 'z')
-            return c - Int{'a'} + 10;
-        
-        return -1;
-    }
+		if(c >= '0' && c <= '9')
+			return c - Int{'0'};
+		if(c >= 'A' && c <= 'Z')
+			return c - Int{'A'} + 10;
+		if(c >= 'a' && c <= 'z')
+			return c - Int{'a'} + 10;
+		
+		return -1;
+	}
 }

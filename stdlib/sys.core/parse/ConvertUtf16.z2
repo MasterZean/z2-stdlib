@@ -10,17 +10,17 @@ class ConvertUtf16 {
 			val code: Word = s*;
 			s++;
 			
-			if(code < 0x80)
+			if (code < 0x80)
 				d* = code;
-			else if(code < 0xE0) {
+			else if (code < 0xE0) {
 				d* = Word{((code - 0xC0) << 6) + (s[0] - 0x80)};
 				s++;
 			}
-			else if(code < 0xF0) {
+			else if (code < 0xF0) {
 				d* = Word{((code - 0xE0) << 12) + ((s[0] - 0x80) << 6) + (s[1] - 0x80)};
 				s += 2;
 			}
-			else if(code < 0xF8) {
+			else if (code < 0xF8) {
 				val cp = DWord{((code - 0xF0) << 18) + ((s[0] - 0x80) << 12) + ((s[1] - 0x80) << 6) + (s[2] - 0x80)};
 				cp -= 0x10000;
 				d* = Word{0xD800 + (0x3ff & (cp >> 10))};

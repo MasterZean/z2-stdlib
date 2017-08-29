@@ -1,6 +1,6 @@
-using sys.core.Stream;
-
 namespace sys.core.lang;
+
+using sys.core.Stream;
 
 class CArray<T: Class> {
 	this() {
