@@ -8,7 +8,7 @@ this{string: String}
 ```
 
 ##### Brief
-Parses a string an constructs an `sys.core.lang.QWord` based on it.
+Parses a string an constructs a [QWord][sys.core.lang.QWord] based on it.
 
 ###### param string
 string to parse
@@ -23,7 +23,7 @@ this Saturated{value: String}
 ```
 
 ##### Brief
-Constructs a saturated `sys.core.lang.Lang` based on the input value.
+Constructs a saturated [QWord][sys.core.lang.QWord] based on the input value.
 
 ###### param value
 the input value. Can be numeric or a string.
@@ -62,6 +62,7 @@ the minimum value
 the maximum value
 ###### returns
 the clamped value
+###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
 #### ToString
@@ -71,7 +72,7 @@ func ToString()
 ```
 
 ##### Brief
-Converts the value to a Utf8 string.
+Converts the value to a Utf8 [string][sys.core.lang.String].
 
 ###### returns
 the resulting string
@@ -86,6 +87,8 @@ func @write(ref stream: Stream, format: OutputFormat)
 
 ##### Brief
 Writes the value to an Utf8 text stream.
+
+Can use an optional [output format][sys.core.OutputFormat] specifier.
 
 ###### param stream
 the output stream
@@ -131,7 +134,7 @@ property Abs: QWord; get;
 ##### Brief
 Returns the absolute value.
 
-In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -164,9 +167,9 @@ property Floor: QWord; get;
 ```
 
 ##### Brief
-Returns of the floor of a floating point value.
+Returns the floor of a floating point value.
 
-In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -177,9 +180,9 @@ property Ceil: QWord; get;
 ```
 
 ##### Brief
-Returns of the ceiling of a floating point value.
+Returns the ceiling of a floating point value.
 
-In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -190,9 +193,9 @@ property Round: QWord; get;
 ```
 
 ##### Brief
-Returns of the rounded value of a floating point.
+Returns the rounded value of a floating point.
 
-In the case of `sys.core.lang.QWord` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
@@ -206,7 +209,7 @@ const Zero: QWord
 ```
 
 ##### Brief
-An `sys.core.lang.QWord` instance representing a logical "0" value.
+A [QWord][sys.core.lang.QWord] instance representing a logical "0" value.
 
 ***
 
@@ -217,7 +220,7 @@ const One: QWord
 ```
 
 ##### Brief
-An `sys.core.lang.QWord` instance representing a logical "1" value.
+A [QWord][sys.core.lang.QWord] instance representing a logical "1" value.
 
 ***
 
@@ -228,7 +231,7 @@ const Min: QWord
 ```
 
 ##### Brief
-The minimum value for an `sys.core.lang.QWord` (64 bit unsigned integer) instance.
+The minimum value for a [QWord][sys.core.lang.QWord] (64 bit unsigned integer) instance.
 
 ***
 
@@ -239,7 +242,7 @@ const Max: QWord
 ```
 
 ##### Brief
-The maximum value for an `sys.core.lang.QWord` (64 bit unsigned integer) instance.
+The maximum value for a [QWord][sys.core.lang.QWord] (64 bit unsigned integer) instance.
 
 ***
 
@@ -250,7 +253,7 @@ const IsSigned
 ```
 
 ##### Brief
-`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
@@ -261,7 +264,7 @@ const IsInteger
 ```
 
 ##### Brief
-`true` if the numeric representation is an integer, `false` if it is a floating point.
+[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 
 ***
 
@@ -288,7 +291,7 @@ const MaxDigitsHigh
 ##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
-
+  
 Should not be used for buffer sizes.
 
 ***
