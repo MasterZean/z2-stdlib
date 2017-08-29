@@ -300,5 +300,7 @@ Should not be used for buffer sizes.
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"
+[sys.core.lang.DWord]: sys.core.lang.DWord.api.md "sys.core.lang.DWord"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"
