@@ -33,23 +33,64 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
 
-<div class="container-fluid"><div class="page">
+<div class="container-fluid">
+<div class="page">
 
 <h1>Introduction</h1>
+<p>
+Z2 pre-compiled packages focus on giving you an out of the box configuration-free working setup. Ideally, you would unpack a single archive and have a fully functioning development environment.
+</p>
+
+<p>
+In order to facilitate this, all packages come with the frontend Z2 compiler, an integrated development environment (ZIDE), standard library sources, benchmarks and the full test suite, compiled and ready to run. The Z2 frontend compiler compiles Z2 source code into an intermediate form that must be transformed into native host platform binaries. A backend compiler is needed for this task.
+</p>
+
+<p>
+Ideally, packages would also come with included backend compilers, but this is fairly complicated. There are many supported backend compilers on various operating systems and many possible combinations. Plus, there are legal issues, with several third party back-end compilers not being able to be packaged. So it is not possible to supply you with a single package that you unpack once and are set to produce arbitrarily complex natively compiled applications, both for legal and practical reasons. Even if it were possible, the download size would be very large.
+</p>
+
+<p>
+Instead the distributions focus on auto-detecting available backend compilers that you have installed on your system and automatically configuring support for them. What can be auto-detected depends on the operating system you are using.
+</p>
 
 <h1>Windows</h1>
 
+<p>
+On Windows you have two main choices of backend: you can go with one of the available GCC ports (it must include G++ and tools) or you can use Microsoft tools: Visual C++, Visual C++ Express, Visual C++ Build Tools or even older Visual C++ SDK (packages that only included command line tools). Some of these come in Visual Studio bundles, some are standalone. The Express versions and often the command line only tools are free.
+</p>
+
+<h2>GCC</h2>
+<p>
+There are several options if you want to use GCC under windows. They all have subtle differences in what and where is included in the package, so auto-detecting them is not easy. To help with this, there is the "gcc" folder in your installation path, where you can drop an existing GCC installation.
+</p>
+
+<p>
+Older distributions have a lower chance of being auto-detected, so if want an up to date and working free C++ compiler you can use <a href="http://tdm-gcc.tdragon.net/" target="_new">TDM</a>.
+</p>
+
+<p>
+The packages from the official site should work, but 32-bit and 64-bit versions are separate downloads. The two packages have a bit of an overlap and getting the files in the right place is a bit of a hassle, so we provide a prepackaged ready to unpack and work version that combines both the 32-bit and the 64-bit compiler in one package and is guaranteed to auto-detect with no issues and is even a smaller download:<br/>
+<a href="downloads/tdm-for-pt9.zip" target="_new">Prepackaged 32/64 bit TDM</a>
+</p>
+
+<p>
+As always, if you encounter some problems with auto-detection or would like to set up links to an existing external C++ compiler, you can edit the "buildMethods.xml" file that describes all the available back-end compilers.
+</p>
+
+<h2>Microsoft</h2>
+
 <h1>Linux</h1>
 
-</div></div>
+</div>
+</div>
 
 <footer class="footer">
-  <div class="container">
+  <div class="container-flex">
     <span class="text-muted">Place sticky footer content here.</span>
   </div>
 </footer>

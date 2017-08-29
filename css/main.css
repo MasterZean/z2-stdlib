@@ -46,6 +46,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	padding-left: 50px;
 	/* Set the fixed height of the footer here */
 	height: 30px;
 	line-height: 30px; /* Vertically center the text there */
@@ -65,5 +66,9 @@ body {
 		padding-right: 10px;
 		padding-bottom: 14px;
 		padding-left: 10px;
+	}
+
+	.footer {	
+		padding-left: 15px;
 	}
 }
