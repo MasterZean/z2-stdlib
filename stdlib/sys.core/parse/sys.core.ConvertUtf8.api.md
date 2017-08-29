@@ -392,5 +392,3 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"

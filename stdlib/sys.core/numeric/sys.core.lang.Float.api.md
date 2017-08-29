@@ -57,7 +57,7 @@ func ToString()
 ```
 
 ##### Brief
-Converts the value to a Utf8 string.
+Converts the value to a Utf8 [string][sys.core.lang.String].
 
 ###### returns
 the resulting string
@@ -72,6 +72,8 @@ func @write(ref stream: Stream, format: OutputFormat)
 
 ##### Brief
 Writes the value to an Utf8 text stream.
+
+Can use an optional [output format][sys.core.OutputFormat] specifier.
 
 ###### param stream
 the output stream
@@ -228,7 +230,7 @@ const Zero: Float
 ```
 
 ##### Brief
-A `sys.core.lang.Float` instance representing a logical "0" value.
+A [Float][sys.core.lang.Float] instance representing a logical "0" value.
 
 ***
 
@@ -239,7 +241,7 @@ const One: Float
 ```
 
 ##### Brief
-A `sys.core.lang.Float` instance representing a logical "1" value.
+A [Float][sys.core.lang.Float] instance representing a logical "1" value.
 
 ***
 
@@ -250,7 +252,7 @@ const Min: Float
 ```
 
 ##### Brief
-The minimum value for an `sys.core.lang.Float` (32 bit floating point) instance.
+The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
 
 ***
 
@@ -261,7 +263,7 @@ const Max: Float
 ```
 
 ##### Brief
-The maximum value for an `sys.core.lang.Float` (32 bit floating point) instance.
+The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
 
 ***
 
@@ -272,7 +274,7 @@ const IsSigned
 ```
 
 ##### Brief
-Returns true if the floating point representation is signed.
+Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 
 ***
 
@@ -283,7 +285,7 @@ const IsInteger
 ```
 
 ##### Brief
-Returns `false`.
+Returns [false][sys.core.lang.Bool].
 
 ***
 
@@ -337,5 +339,7 @@ Positive infinite.
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

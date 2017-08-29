@@ -73,7 +73,7 @@ func ToString()
 ```
 
 ##### Brief
-Converts the value to a Utf8 string.
+Converts the value to a Utf8 [string][sys.core.lang.String].
 
 ###### returns
 the resulting string
@@ -88,6 +88,8 @@ func @write(ref stream: Stream, format: OutputFormat)
 
 ##### Brief
 Writes the value to an Utf8 text stream.
+
+Can use an optional [output format][sys.core.OutputFormat] specifier.
 
 ###### param stream
 the output stream
@@ -186,7 +188,7 @@ property Floor: Double get const Intrinsic.Floor;; get;
 ```
 
 ##### Brief
-Returns of the floor of a floating point value.
+Returns the floor of a floating point value.
 
 ***
 
@@ -197,7 +199,7 @@ property Ceil: Double get const Intrinsic.Ceil;; get;
 ```
 
 ##### Brief
-Returns of the ceiling of a floating point value.
+Returns the ceiling of a floating point value.
 
 ***
 
@@ -208,6 +210,7 @@ property Round: Double get const Intrinsic.Round;; get;
 ```
 
 ##### Brief
+Returns the rounded value of a floating point.
 
 ***
 
@@ -243,7 +246,7 @@ const Zero: Double
 ```
 
 ##### Brief
-A `sys.core.lang.Double` instance representing a logical "0" value.
+A [Double][sys.core.lang.Double] instance representing a logical "0" value.
 
 ***
 
@@ -254,7 +257,7 @@ const One: Double
 ```
 
 ##### Brief
-A `sys.core.lang.Double` instance representing a logical "1" value.
+A [Double][sys.core.lang.Double] instance representing a logical "1" value.
 
 ***
 
@@ -265,7 +268,7 @@ const Min: Double
 ```
 
 ##### Brief
-The minimum value for an `sys.core.lang.Double` (64 bit floating point) instance.
+The minimum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
@@ -276,7 +279,7 @@ const Max: Double
 ```
 
 ##### Brief
-The maximum value for an `sys.core.lang.Double` (64 bit floating point) instance.
+The maximum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
@@ -287,7 +290,7 @@ const IsSigned
 ```
 
 ##### Brief
-Returns true if the floating point representation is signed.
+Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 
 ***
 
@@ -298,7 +301,7 @@ const IsInteger
 ```
 
 ##### Brief
-Returns `false`.
+Returns [false][sys.core.lang.Bool].
 
 ***
 
@@ -374,5 +377,7 @@ Positive infinite.
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.Double]: sys.core.lang.Double.api.md "sys.core.lang.Double"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

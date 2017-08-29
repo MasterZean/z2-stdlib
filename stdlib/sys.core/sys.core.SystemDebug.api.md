@@ -33,5 +33,3 @@ Throws an exception with a string message, but only if the "Trace" flag is set f
 the error message to throw
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"

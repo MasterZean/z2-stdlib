@@ -238,7 +238,6 @@ property IsEmpty: Bool; get;
 
 ##### Brief
 Returns `false` because the array is static and always has a non-zero length.
+
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"

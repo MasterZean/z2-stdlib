@@ -368,5 +368,3 @@ The fourth dimension of the point.
 
 ***
 
-[Int]: sys.core.lang.Int.api2.md "sys.core.lang.Int"
-[Value]: . "Value"
