@@ -1,0 +1,27 @@
+namespace org.z2legacy.ut.container.carray;
+
+class PassInit13 {
+    static def test_insert(ref b: CArray<String>) {
+        b.Insert(0p, "miu");
+    }
+    
+    def @main() {
+        val i = 0;
+        val a = CArray[5: (++i).ToString(), ...];
+        System.Out << a << "\n";
+        
+        a.Insert(0p, "miu");
+        System.Out << a << "\n";
+        
+        val b = CArray[1.ToString(), 2.ToString()];
+        i = 2;
+        val c = CArray[5: 1.ToString(), 2.ToString(), (++i).ToString(), ...];
+        val d = CArray[String{}, String{}];
+        val e = CArray[String.FromIndex{"marian", 0p, 2p}, String{}];
+        
+        System.Out << b << "\n";
+        System.Out << c << "\n";
+        System.Out << d << "\n";
+        System.Out << e << "\n";
+    }
+}

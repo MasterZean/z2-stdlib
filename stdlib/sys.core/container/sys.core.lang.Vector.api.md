@@ -1,186 +1,322 @@
-sys.core.lang.Vector this
-=
-## Brief
+Constructors
+---
 
-### param copy
+#### this
+
+```C#
+this{copy: Vector<T>}
+this{move copy: Vector<T>}
+```
+
+##### Brief
+Copy/move constructor.
+
+Creates a new instance containing a copy of the input parameter, or moves the data if the input parameter is an expiring value.
+###### param copy
+the vector to copy/move from
+***
+
+Methods
+---
+
+#### @attr
+
+```C#
+def @attr(copy: Vector<T>)
+def @attr(move copy: Vector<T>)
+```
+
+##### Brief
+Assignment/move operator.
+
+Assign the current instance with a copy or a move of the input data.
+
+###### param copy
+the vector to copy/move from
+***
+
+#### Add
+
+```C#
+def Add(item: T)
+def Add(move item: T)
+def Add(items: Vector<T>)
+def Add(items: CArray<T>)
+```
+
+##### Brief
+Append a single item or a collection to the end of the vector.
+
+###### param item
+the item to append
+###### param items
+the item collection to append
+***
+
+#### @shl
+##### Brief
+Append a single item or a collection to the end of the vector.
+
+It calls `Add` to do the appending operation.
+***
+
+#### Fill
+
+```C#
+def Fill(value: T)
+def Fill(items: Vector<T>)
+def Fill(items: CArray<T>)
+```
+
+##### Brief
+Copies over all the elements in the static array.
+
+If a single value is provided, all elements will be initialized with it.
+
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
+
+###### param value
+the value to fill with
+###### param items
+the array to use
+***
+
+#### FindIndex
+
+```C#
+func FindIndex(item: T)
+func FindIndex(item: T, start: PtrSize)
+```
+
+##### Brief
+Searches for an item in the array and returns the first index at which it was found.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+
+###### param item
+the item to search for
+###### param start
+the start index for the search
+###### returns
+the index where the item was found
+***
+
+#### BinaryIndex
+
+```C#
+func BinaryIndex(item: T)
+def BinaryIndex(item: T, start: PtrSize)
+```
+
+##### Brief
+Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+
+###### param item
+the item to search for
+###### param start
+the start index for the search
+###### returns
+the index where the item was found
+***
+
+#### Insert
+
+```C#
+def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, items: CArray<T>)
+def Insert(pos: PtrSize, items: Vector<T>)
+```
+
+##### Brief
+Inserts an item or a collection of items into the array at a given position.
+
+THe array will grow to accommodate the inserted items.
+
+###### param pos
+the position to insert to
+###### param item
+the item to insert
+###### param items
+the items to insert
+***
+
+#### Delete
+
+```C#
+def Delete(item: T)
+def Delete(items: CArray<T>)
+def Delete(items: Vector<T>)
+```
+
+##### Brief
+
+###### param item
+
+###### param items
+
+###### returns
 
 ***
 
-sys.core.lang.Vector @attr
-=
-## Brief
+#### DeleteAll
 
-### param copy
+```C#
+def DeleteAll(item: T)
+def DeleteAll(item: CArray<T>)
+def DeleteAll(item: Vector<T>)
+```
 
-***
+##### Brief
 
-sys.core.lang.Vector Add
-=
-## Brief
+###### param item
 
-### param item
-
-### param items
+###### returns
 
 ***
 
-sys.core.lang.Vector @shl
-=
-## Brief
+#### DeleteIndex
+
+```C#
+def DeleteIndex(item: PtrSize)
+def DeleteIndex(items: CArray<PtrSize>)
+def DeleteIndex(items: Vector<PtrSize>)
+```
+
+##### Brief
+
+###### param item
+
+###### param items
+
+###### returns
 
 ***
 
-sys.core.lang.Vector Fill
-=
-## Brief
+#### Reverse
 
-### param value
+```C#
+def Reverse()
+def Reverse(start: PtrSize, end: PtrSize)
+```
 
-### param items
+##### Brief
 
-***
+###### param start
 
-sys.core.lang.Vector FindIndex
-=
-## Brief
-
-### param item
-
-### param start
-
-### returns
+###### param end
 
 ***
 
-sys.core.lang.Vector BinaryIndex
-=
-## Brief
+#### Sum
 
-### param item
+```C#
+func Sum()
+```
 
-### returns
+##### Brief
 
-***
-
-sys.core.lang.Vector Reverse
-=
-## Brief
-
-### param start
-
-### param end
+###### returns
 
 ***
 
-sys.core.lang.Vector Delete
-=
-## Brief
+#### Sort
 
-### param item
+```C#
+def Sort()
+def Sort(low: Int, high: Int)
+```
 
-### param items
+##### Brief
 
-### returns
+###### param low
 
-***
-
-sys.core.lang.Vector DeleteAll
-=
-## Brief
-
-### param item
-
-### returns
+###### param high
 
 ***
 
-sys.core.lang.Vector DeleteIndex
-=
-## Brief
+#### SortDec
 
-### param item
+```C#
+def SortDec()
+def SortDec(low: Int, high: Int)
+```
 
-### param items
+##### Brief
 
-### returns
+###### param low
 
-***
-
-sys.core.lang.Vector Insert
-=
-## Brief
-
-### param pos
-
-### param item
-
-### param items
+###### param high
 
 ***
 
-sys.core.lang.Vector Sum
-=
-## Brief
+#### @write
 
-### returns
+```C#
+func @write(ref stream: Stream)
+```
 
-***
+##### Brief
 
-sys.core.lang.Vector Sort
-=
-## Brief
-
-### param low
-
-### param high
+###### param stream
 
 ***
 
-sys.core.lang.Vector SortDec
-=
-## Brief
+Properties
+---
 
-### param low
+#### Length
 
-### param high
+```C#
+property Length: PtrSize
+```
 
-***
-
-sys.core.lang.Vector @write
-=
-## Brief
-
-### param stream
+##### Brief
 
 ***
 
-sys.core.lang.Vector Length
-=
-## Brief
+#### Capacity
+
+```C#
+property Capacity: PtrSize
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.Vector Capacity
-=
-## Brief
+#### @index
+
+```C#
+property @index: ref T; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.Vector @index
-=
-## Brief
+#### At
+
+```C#
+property At: ref T; get;
+```
+
+##### Brief
 
 ***
 
-sys.core.lang.Vector At
-=
-## Brief
+#### SysDataPointer
 
-***
+```C#
+property SysDataPointer: Ptr<T>; get;
+```
 
-sys.core.lang.Vector SysDataPointer
-=
-## Brief
+##### Brief
 
 ***
 

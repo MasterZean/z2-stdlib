@@ -1,138 +1,268 @@
-sys.core.lang.PtrSize Clamp
-=
-## Brief
+Methods
+---
 
-### param min
+#### Clamp
 
-### param max
+```C#
+def Clamp(min: PtrSize, max: PtrSize)
+```
+
+##### Brief
+Clamps the current mutable instance between `min` and `max`.
+
+###### param min
+the minimum value
+###### param max
+the maximum value
+###### seealso `sys.core.lang.Intrinsic Clamp`
+***
+
+#### Clamped
+
+```C#
+func Clamped(min: PtrSize, max: PtrSize)
+```
+
+##### Brief
+Returns the current instance clamped between `min` and `max`.
+
+###### param min
+the minimum value
+###### param max
+the maximum value
+###### returns
+the clamped value
+###### seealso `sys.core.lang.Intrinsic Clamped`
+***
+
+
+
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
+Writes the value to an Utf8 text stream.
+
+Can use an optional [output format][sys.core.OutputFormat] specifier.
+
+###### param stream
+the output stream
+###### param format
+formatting information
+***
+
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
+Writes the value to a binary stream as a 32/64 bit unsigned integer.
+
+###### param stream
+the output stream
+***
+
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
+Reads a 32/64 bit unsigned integer from a binary stream.
+
+###### param stream
+the input stream
+***
+
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: PtrSize; get;
+```
+
+##### Brief
+Returns the absolute value.
+
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.PtrSize Clamped
-=
-## Brief
+#### Sqr
 
-### param min
+```C#
+property Sqr: PtrSize; get;
+```
 
-### param max
-
-### returns
-
-***
-
-sys.core.lang.PtrSize @write
-=
-## Brief
-
-### param stream
-
-### param format
+##### Brief
+Returns the square of the value value.
 
 ***
 
-sys.core.lang.PtrSize @put
-=
-## Brief
+#### Sqrt
 
-### param stream
+```C#
+property Sqrt: PtrSize; get;
+```
 
-***
-
-sys.core.lang.PtrSize @get
-=
-## Brief
-
-### param stream
+##### Brief
+Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.PtrSize Abs
-=
-## Brief
+#### Floor
+
+```C#
+property Floor: PtrSize; get;
+```
+
+##### Brief
+Returns the floor of a floating point value.
+
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.PtrSize Sqr
-=
-## Brief
+#### Ceil
+
+```C#
+property Ceil: PtrSize; get;
+```
+
+##### Brief
+Returns the ceiling of a floating point value.
+
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.PtrSize Sqrt
-=
-## Brief
+#### Round
+
+```C#
+property Round: PtrSize; get;
+```
+
+##### Brief
+Returns the rounded value of a floating point.
+
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.PtrSize Floor
-=
-## Brief
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: PtrSize
+```
+
+##### Brief
+A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.PtrSize Ceil
-=
-## Brief
+#### One
+
+```C#
+const One: PtrSize
+```
+
+##### Brief
+A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.PtrSize Round
-=
-## Brief
+#### Min
+
+```C#
+const Min: PtrSize
+```
+
+##### Brief
+The minimum value for a [PtrSize][sys.core.lang.PtrSize] (32/64 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.PtrSize Zero
-=
-## Brief
+#### Max
+
+```C#
+const Max: PtrSize
+```
+
+##### Brief
+The minimum value for a [PtrSize][sys.core.lang.PtrSize] (64 bit signed integer) instance.
 
 ***
 
-sys.core.lang.PtrSize One
-=
-## Brief
+#### Invalid
+
+```C#
+const Invalid: PtrSize
+```
+
+##### Brief
+The value signaling invalid/out of bounds.
 
 ***
 
-sys.core.lang.PtrSize Min
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
+[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
-sys.core.lang.PtrSize Max
-=
-## Brief
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
+[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 
 ***
 
-sys.core.lang.PtrSize Invalid
-=
-## Brief
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
+The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+In base 10, you can have MaxDigitsLow digits that go though values 0-9.
+
+Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.PtrSize IsSigned
-=
-## Brief
+#### MaxDigitsHigh
 
-***
+```C#
+const MaxDigitsHigh
+```
 
-sys.core.lang.PtrSize IsInteger
-=
-## Brief
-
-***
-
-sys.core.lang.PtrSize MaxDigitsLow
-=
-## Brief
-
-***
-
-sys.core.lang.PtrSize MaxDigitsHigh
-=
-## Brief
+##### Brief
+The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
+  
+Should not be used for buffer sizes.
 
 ***
 

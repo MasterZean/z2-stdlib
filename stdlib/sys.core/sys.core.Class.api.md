@@ -1,29 +1,51 @@
-sys.core.Class @write
-=
-## Brief
+Methods
+---
+
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+```
+
+##### Brief
 Writes the name of the class to an output stream.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.Class Name
-=
-## Brief
+Properties
+---
+
+#### Name
+
+```C#
+property Name: const ref String get const Intrinsic.ClassFullName;; get;
+```
+
+##### Brief
 Returns the fully qualified class name.
 
 ***
 
-sys.core.Class ShortName
-=
-## Brief
+#### ShortName
+
+```C#
+property ShortName: const ref String get const Intrinsic.ClassShortName;; get;
+```
+
+##### Brief
 Returns only the class name, without the namespace.
 
 ***
 
-sys.core.Class Namespace
-=
-## Brief
+#### Namespace
+
+```C#
+property Namespace: const ref String get const Intrinsic.ClassNamespace;; get;
+```
+
+##### Brief
 Returns the namespace of the class.
 
 ***

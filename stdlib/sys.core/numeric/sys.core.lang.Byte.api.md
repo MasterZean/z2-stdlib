@@ -1,178 +1,284 @@
-sys.core.lang.Byte this
-=
-## Brief
-Parses a string an constructs an `sys.core.lang.Byte` based on it.
+Constructors
+---
 
-### param string
+#### this
+
+```C#
+this{string: String}
+```
+
+##### Brief
+Parses a string an constructs a [Byte][sys.core.lang.Byte] based on it.
+
+###### param string
 string to parse
 ***
 
-sys.core.lang.Byte Saturated
-=
-## Brief
-Constructs a saturated `sys.core.lang.Lang` based on the input value.
+#### Saturated
 
-### param value
+```C#
+this Saturated{value: Int}
+this Saturated{value: DWord}
+this Saturated{value: Long}
+this Saturated{value: QWord}
+this Saturated{value: Double}
+this Saturated{value: String}
+```
+
+##### Brief
+Constructs a saturated [Byte][sys.core.lang.Byte] based on the input value.
+
+###### param value
 the input value. Can be numeric or a string.
 ***
 
-sys.core.lang.Byte Clamp
-=
-## Brief
+Methods
+---
+
+#### Clamp
+
+```C#
+def Clamp(min: Byte, max: Byte)
+```
+
+##### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
+###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-sys.core.lang.Byte Clamped
-=
-## Brief
+#### Clamped
+
+```C#
+func Clamped(min: Byte, max: Byte)
+```
+
+##### Brief
 Returns the current instance clamped between `min` and `max`.
 
-### param min
+###### param min
 the minimum value
-### param max
+###### param max
 the maximum value
-### returns
+###### returns
 the clamped value
+###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-sys.core.lang.Byte ToString
-=
-## Brief
-Converts the value to a Utf8 string.
+#### ToString
 
-### returns
+```C#
+func ToString()
+```
+
+##### Brief
+Converts the value to a Utf8 [string][sys.core.lang.String].
+
+###### returns
 the resulting string
 ***
 
-sys.core.lang.Byte @write
-=
-## Brief
+#### @write
+
+```C#
+func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)
+```
+
+##### Brief
 Writes the value to an Utf8 text stream.
 
-### param stream
+Can use an optional [output format][sys.core.OutputFormat] specifier.
+
+###### param stream
 the output stream
-### param format
+###### param format
 formatting information
 ***
 
-sys.core.lang.Byte @put
-=
-## Brief
+#### @put
+
+```C#
+func @put(ref stream: Stream)
+```
+
+##### Brief
 Writes the value to a binary stream as a 8 bit unsigned integer.
 
-### param stream
+###### param stream
 the output stream
 ***
 
-sys.core.lang.Byte @get
-=
-## Brief
+#### @get
+
+```C#
+def @get(ref stream: Stream)
+```
+
+##### Brief
 Reads a 8 bit unsigned integer from a binary stream.
 
-### param stream
+###### param stream
 the input stream
 ***
 
-sys.core.lang.Byte Abs
-=
-## Brief
+Properties
+---
+
+#### Abs
+
+```C#
+property Abs: Byte; get;
+```
+
+##### Brief
 Returns the absolute value.
 
-In the case of `sys.core.lang.Byte` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Byte Sqr
-=
-## Brief
+#### Sqr
+
+```C#
+property Sqr: Byte; get;
+```
+
+##### Brief
 Returns the square of the value value.
 
 ***
 
-sys.core.lang.Byte Sqrt
-=
-## Brief
+#### Sqrt
+
+```C#
+property Sqrt: Byte; get;
+```
+
+##### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-sys.core.lang.Byte Floor
-=
-## Brief
-Returns of the floor of a floating point value.
+#### Floor
 
-In the case of `sys.core.lang.Byte` it returns the value itself and is included only for API compatibility when using templates.
+```C#
+property Floor: Byte; get;
+```
 
-***
+##### Brief
+Returns the floor of a floating point value.
 
-sys.core.lang.Byte Ceil
-=
-## Brief
-Returns of the ceiling of a floating point value.
-
-In the case of `sys.core.lang.Byte` it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Byte Round
-=
-## Brief
-Returns of the rounded value of a floating point.
+#### Ceil
 
-In the case of `sys.core.lang.Byte` it returns the value itself and is included only for API compatibility when using templates.
+```C#
+property Ceil: Byte; get;
+```
 
-***
+##### Brief
+Returns the ceiling of a floating point value.
 
-sys.core.lang.Byte Zero
-=
-## Brief
-An `sys.core.lang.Byte` instance representing a logical "0" value.
+In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Byte One
-=
-## Brief
-An `sys.core.lang.Byte` instance representing a logical "1" value.
+#### Round
+
+```C#
+property Round: Byte; get;
+```
+
+##### Brief
+Returns the rounded value of a floating point.
+
+In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-sys.core.lang.Byte Min
-=
-## Brief
-The minimum value for an `sys.core.lang.Byte` (8 bit unsigned integer) instance.
+Constants
+---
+
+#### Zero
+
+```C#
+const Zero: Byte
+```
+
+##### Brief
+A [Byte][sys.core.lang.Byte] instance representing a logical "0" value.
 
 ***
 
-sys.core.lang.Byte Max
-=
-## Brief
-The maximum value for an `sys.core.lang.Byte` (8 bit unsigned integer) instance.
+#### One
+
+```C#
+const One: Byte
+```
+
+##### Brief
+A [Byte][sys.core.lang.Byte] instance representing a logical "1" value.
 
 ***
 
-sys.core.lang.Byte IsSigned
-=
-## Brief
-`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+#### Min
+
+```C#
+const Min: Byte
+```
+
+##### Brief
+The minimum value for a [Byte][sys.core.lang.Byte] (8 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.Byte IsInteger
-=
-## Brief
-`true` if the numeric representation is an integer, `false` if it is a floating point.
+#### Max
+
+```C#
+const Max: Byte
+```
+
+##### Brief
+The maximum value for a [Byte][sys.core.lang.Byte] (8 bit unsigned integer) instance.
 
 ***
 
-sys.core.lang.Byte MaxDigitsLow
-=
-## Brief
+#### IsSigned
+
+```C#
+const IsSigned
+```
+
+##### Brief
+[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
+
+***
+
+#### IsInteger
+
+```C#
+const IsInteger
+```
+
+##### Brief
+[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
+
+***
+
+#### MaxDigitsLow
+
+```C#
+const MaxDigitsLow
+```
+
+##### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -180,13 +286,21 @@ Should not be used for buffer sizes.
 
 ***
 
-sys.core.lang.Byte MaxDigitsHigh
-=
-## Brief
+#### MaxDigitsHigh
+
+```C#
+const MaxDigitsHigh
+```
+
+##### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
-
+  
 Should not be used for buffer sizes.
 
 ***
 
+[sys.core.lang.Byte]: sys.core.lang.Byte.api.md "sys.core.lang.Byte"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

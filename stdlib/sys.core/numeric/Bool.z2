@@ -17,6 +17,18 @@ class Bool {
 #region ToString
 
     this(string: String) {
+        val i = 0p;
+        while (i < string.Length && string[i] <= ' ')
+			i++;
+        
+        val temp = string.SysDataPointer + i;
+        
+        if (temp[0] == 't' && temp[1] == 'r' && temp[2] == 'u' && temp[3] == 'e' && temp[4] <= ' ')
+            this = true;
+        else if (temp[0] == 'f' && temp[1] == 'a' && temp[2] == 'l' && temp[3] == 's' && temp[4] == 'e' && temp[5] <= ' ')
+            this = false;
+        else
+            throw sys.core.IllegalArgumentException{};
     }
     
 	func ToString(): String {

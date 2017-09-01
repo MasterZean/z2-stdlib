@@ -1,8 +1,8 @@
+namespace sys.core;
+
 using sys.core.ConvertUtf8;
 using sys.core.ConvertUtf16;
 using microsoft.windows.Win32;
-
-namespace sys.core;
 
 class Path {
     
