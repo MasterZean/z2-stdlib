@@ -33,7 +33,7 @@ Copies over all the elements in the static array.
 
 If a single value is provided, all elements will be initialized with it.
 
-If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the index will be reset to 0 and copying resumed.
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
 
 ###### param value
 the value to fill with
@@ -49,16 +49,18 @@ def FindIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
-Searches for an item in the array and returns the index at which it was found.
+Searches for an item in the array and returns the first index at which it was found.
 
-Returns `-1` if the item was not found.
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 
 ###### param item
 the item to search for
 ###### param start
-the start idnex for the search
+the start index for the search
 ###### returns
-the index of the search element
+the index where the item was found
 ***
 
 #### BinaryIndex
@@ -69,18 +71,18 @@ def BinaryIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
-Searches for an item in the array sorted in ascending order and returns the index at which it was found.
+Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
 
-Does not verify if the array is sorted and if it is not, the result is unpredictable.
+The search starts with index `0`/the `start` parameter.
 
-Returns `-1` if the item was not found.
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 
 ###### param item
 the item to search for
 ###### param start
-the start idnex for the search
+the start index for the search
 ###### returns
-the index of the search element
+the index where the item was found
 ***
 
 #### Insert
@@ -90,12 +92,12 @@ def Insert(pos: PtrSize, item: T)
 ```
 
 ##### Brief
-Insert and item into the array at a given postion.
+Inserts an item into the array at a given position.
 
 Since the array is static, it can not grow in size. Instead elements are pushed out of the array and destroyed.
 
 ###### param pos
-the postion to insert to
+the position to insert to
 ###### param item
 the item to insert
 ***

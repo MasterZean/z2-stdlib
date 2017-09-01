@@ -55,6 +55,22 @@ class CArray<T: Class> {
 	def Insert(pos: PtrSize, item: T) {
 		System.Debug.Assert(pos < Length);
 		
+		if (false) { // T.class.HasTrait("stdlibmove")
+		    this[Length - 1].~{};
+		    Intrinsic.MemCopy(Ptr<Byte>{this.SysDataPointer + pos + 1}, Ptr<Byte>{this.SysDataPointer + pos}, (Length - pos - 1) * T.@size);
+		}
+		else {
+		    for (val i = Length - 1; i >= pos + 1; i--)
+		        this[i] = move(this[i - 1]);
+		}
+		
+		this[pos]{};
+		this[pos] = item;
+	}
+	
+	def InsertDumb(pos: PtrSize, item: T); test deprecated {
+		System.Debug.Assert(pos < Length);
+		
 		for (val i = Length - 1; i >= pos + 1; i--)
 			this[i] = this[i - 1];
 		

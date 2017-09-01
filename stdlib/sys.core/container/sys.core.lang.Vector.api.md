@@ -9,9 +9,11 @@ this{move copy: Vector<T>}
 ```
 
 ##### Brief
+Copy/move constructor.
 
+Creates a new instance containing a copy of the input parameter, or moves the data if the input parameter is an expiring value.
 ###### param copy
-
+the vector to copy/move from
 ***
 
 Methods
@@ -25,9 +27,12 @@ def @attr(move copy: Vector<T>)
 ```
 
 ##### Brief
+Assignment/move operator.
+
+Assign the current instance with a copy or a move of the input data.
 
 ###### param copy
-
+the vector to copy/move from
 ***
 
 #### Add
@@ -40,16 +45,19 @@ def Add(items: CArray<T>)
 ```
 
 ##### Brief
+Append a single item or a collection to the end of the vector.
 
 ###### param item
-
+the item to append
 ###### param items
-
+the item collection to append
 ***
 
 #### @shl
 ##### Brief
+Append a single item or a collection to the end of the vector.
 
+It calls `Add` to do the appending operation.
 ***
 
 #### Fill
@@ -61,11 +69,16 @@ def Fill(items: CArray<T>)
 ```
 
 ##### Brief
+Copies over all the elements in the static array.
+
+If a single value is provided, all elements will be initialized with it.
+
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
 
 ###### param value
-
+the value to fill with
 ###### param items
-
+the array to use
 ***
 
 #### FindIndex
@@ -76,13 +89,18 @@ func FindIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
+Searches for an item in the array and returns the first index at which it was found.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 
 ###### param item
-
+the item to search for
 ###### param start
-
+the start index for the search
 ###### returns
-
+the index where the item was found
 ***
 
 #### BinaryIndex
@@ -93,13 +111,18 @@ def BinaryIndex(item: T, start: PtrSize)
 ```
 
 ##### Brief
+Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 
 ###### param item
-
+the item to search for
 ###### param start
-
+the start index for the search
 ###### returns
-
+the index where the item was found
 ***
 
 #### Insert
@@ -111,13 +134,16 @@ def Insert(pos: PtrSize, items: Vector<T>)
 ```
 
 ##### Brief
+Inserts an item or a collection of items into the array at a given position.
+
+THe array will grow to accommodate the inserted items.
 
 ###### param pos
-
+the position to insert to
 ###### param item
-
+the item to insert
 ###### param items
-
+the items to insert
 ***
 
 #### Delete
