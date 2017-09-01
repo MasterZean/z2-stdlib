@@ -21,7 +21,7 @@ class PassIns01 {
 		print(a);
 		a.Insert(0p, 0);
 		print(a);
-		a.Delete(1p);
+		a.DeleteIndex(1p);
 		print(a);
 	}
 }
