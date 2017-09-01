@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">Vector</li>
+</ol>
+
+<h1>class Vector</h1>
+<pre><code class="cs">namespace sys.core.lang
+class Vector
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{copy: Vector<T>}
+this{move copy: Vector<T>}</code></pre>
+<p>Copy/move constructor.
+
+Creates a new instance containing a copy of the input parameter, or moves the data if the input parameter is an expiring value.
+</p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>@attr</h3>
+<pre><code class="cs">def @attr(copy: Vector<T>)
+def @attr(move copy: Vector<T>)</code></pre>
+<p>Assignment/move operator.
+
+Assign the current instance with a copy or a move of the input data.
+</p><hr/><h3>Add</h3>
+<pre><code class="cs">def Add(item: T)
+def Add(move item: T)
+def Add(items: Vector<T>)
+def Add(items: CArray<T>)</code></pre>
+<p>Append a single item or a collection to the end of the vector.
+</p><hr/><h3>@shl</h3>
+<p>Append a single item or a collection to the end of the vector.
+
+It calls `Add` to do the appending operation.
+</p><hr/><h3>Fill</h3>
+<pre><code class="cs">def Fill(value: T)
+def Fill(items: Vector<T>)
+def Fill(items: CArray<T>)</code></pre>
+<p>Copies over all the elements in the static array.
+
+If a single value is provided, all elements will be initialized with it.
+
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
+</p><hr/><h3>FindIndex</h3>
+<pre><code class="cs">func FindIndex(item: T)
+func FindIndex(item: T, start: PtrSize)</code></pre>
+<p>Searches for an item in the array and returns the first index at which it was found.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+</p><hr/><h3>BinaryIndex</h3>
+<pre><code class="cs">func BinaryIndex(item: T)
+def BinaryIndex(item: T, start: PtrSize)</code></pre>
+<p>Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+
+The search starts with index `0`/the `start` parameter.
+
+Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+</p><hr/><h3>Insert</h3>
+<pre><code class="cs">def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, items: CArray<T>)
+def Insert(pos: PtrSize, items: Vector<T>)</code></pre>
+<p>Inserts an item or a collection of items into the array at a given position.
+
+THe array will grow to accommodate the inserted items.
+</p><hr/><h3>Delete</h3>
+<pre><code class="cs">def Delete(item: T)
+def Delete(items: CArray<T>)
+def Delete(items: Vector<T>)</code></pre>
+<p></p><hr/><h3>DeleteAll</h3>
+<pre><code class="cs">def DeleteAll(item: T)
+def DeleteAll(item: CArray<T>)
+def DeleteAll(item: Vector<T>)</code></pre>
+<p></p><hr/><h3>DeleteIndex</h3>
+<pre><code class="cs">def DeleteIndex(item: PtrSize)
+def DeleteIndex(items: CArray<PtrSize>)
+def DeleteIndex(items: Vector<PtrSize>)</code></pre>
+<p></p><hr/><h3>Reverse</h3>
+<pre><code class="cs">def Reverse()
+def Reverse(start: PtrSize, end: PtrSize)</code></pre>
+<p></p><hr/><h3>Sum</h3>
+<pre><code class="cs">func Sum()</code></pre>
+<p></p><hr/><h3>Sort</h3>
+<pre><code class="cs">def Sort()
+def Sort(low: Int, high: Int)</code></pre>
+<p></p><hr/><h3>SortDec</h3>
+<pre><code class="cs">def SortDec()
+def SortDec(low: Int, high: Int)</code></pre>
+<p></p><hr/><h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream)</code></pre>
+<p></p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>Length</h3>
+<pre><code class="cs">property Length: PtrSize</code></pre>
+<p></p><hr/><h3>Capacity</h3>
+<pre><code class="cs">property Capacity: PtrSize</code></pre>
+<p></p><hr/><h3>@index</h3>
+<pre><code class="cs">property @index: ref T; get;</code></pre>
+<p></p><hr/><h3>At</h3>
+<pre><code class="cs">property At: ref T; get;</code></pre>
+<p></p><hr/><h3>SysDataPointer</h3>
+<pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
+<p></p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

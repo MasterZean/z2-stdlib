@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">Bool</li>
+</ol>
+
+<h1>class Bool</h1>
+<pre><code class="cs">namespace sys.core.lang
+class Bool
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{string: String}</code></pre>
+<p>Parses a string an constructs an `sys.core.lang.Bool` based on it.
+</p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>Clamp</h3>
+<pre><code class="cs">def Clamp(min: Bool, max: Bool)</code></pre>
+<p>Clamps the current mutable instance between `min` and `max`.
+</p><hr/><h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Bool, max: Bool)</code></pre>
+<p>Returns the current instance clamped between `min` and `max`.
+</p><hr/><h3>ToString</h3>
+<pre><code class="cs">func ToString()</code></pre>
+<p>Converts the value to a Utf8 string.
+</p><hr/><h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)</code></pre>
+<p>Writes the value to an Utf8 text stream.
+</p><hr/><h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
+<p>Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
+</p><hr/><h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
+<p>Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
+</p></div><h2>Constants</h2>
+<div class="codesection">
+<h3>Min</h3>
+<pre><code class="cs">const Min</code></pre>
+<p>The minimum value for an `sys.core.lang.Bool` (boolean) instance.
+</p><hr/><h3>Max</h3>
+<pre><code class="cs">const Max</code></pre>
+<p>The maximum value for an `sys.core.lang.Bool` (boolean) instance.
+</p><hr/><h3>IsSigned</h3>
+<pre><code class="cs">const IsSigned</code></pre>
+<p>`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+</p><hr/><h3>IsInteger</h3>
+<pre><code class="cs">const IsInteger</code></pre>
+<p>`true` if the numeric representation is an integer, `false` if it is a floating point.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

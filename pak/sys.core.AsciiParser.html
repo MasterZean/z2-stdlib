@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core</li>
+<li class="breadcrumb-item active">AsciiParser</li>
+</ol>
+
+<h1>class AsciiParser</h1>
+<pre><code class="cs">namespace sys.core
+class AsciiParser
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{ref data: Slice<Byte>}
+this{ref data: String}</code></pre>
+<p>Constructs a new parser based on n input buffer.
+
+The buffer is not copied over so its lifespan must exceed the lifespan of the parser instance.
+</p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>EatSpaces</h3>
+<pre><code class="cs">def EatSpaces()</code></pre>
+<p>Attempts to consume whitespace and comments.
+
+If there was nothing to consume, the state of the parser is not changed.
+</p><hr/><h3>IsId</h3>
+<pre><code class="cs">func IsId()
+func IsId(id: String)</code></pre>
+<p>Checks if the parser sees an identifier.
+
+Identifiers use "C" rules.
+</p><hr/><h3>EatId</h3>
+<pre><code class="cs">def EatId(id: String)</code></pre>
+<p>Attempts to consume a given identifier. If the identifier was not found, the state of the parser is not changed.
+</p><hr/><h3>ReadId</h3>
+<pre><code class="cs">def ReadId()</code></pre>
+<p>Attempt to read and consume an identifier.
+
+Should be used ideally after `IsId`.
+</p><hr/><h3>Peek</h3>
+<pre><code class="cs">func Peek()</code></pre>
+<p>Peeks into the buffer and returns the next byte without changing the state of the parser.
+</p><hr/><h3>IsChar</h3>
+<pre><code class="cs">func IsChar(c: Char)
+func IsChar(c1: Char, c2: Char)
+func IsChar(c1: Char, c2: Char, c3: Char)</code></pre>
+<p>Checks if the next 1-3 bytes in the parser are the input ones.
+
+Does not alter the state of the parser.
+</p><hr/><h3>EatChar</h3>
+<pre><code class="cs">def EatChar(c: Char)
+def EatChar(c1: Char, c2: Char)
+def EatChar(c1: Char, c2: Char, c3: Char)</code></pre>
+<p>Attempts to consume 1-3 input bytes.
+</p><hr/><h3>IsInt</h3>
+<pre><code class="cs">func IsInt()</code></pre>
+<p>Checks if the parser contains an integer, including sign.
+</p><hr/><h3>Sign</h3>
+<pre><code class="cs">def Sign()</code></pre>
+<p>Atempts to interpret the next character as a numeric sign and return the sign converted to an amount to multiply with.
+
+If not sign or '+' is encountered, it returns '1'.
+
+If '-' is found, it returns '-1'.
+</p><hr/><h3>IsNumber</h3>
+<pre><code class="cs">func IsNumber(base: Int)</code></pre>
+<p>Returns true if the parser sees a number in a given base.
+</p><hr/><h3>ReadInt</h3>
+<pre><code class="cs">def ReadInt()</code></pre>
+<p>Attempts to read and consume an integer in a base 10.
+</p><hr/><h3>ReadNumber</h3>
+<pre><code class="cs">def ReadNumber(base: Int)</code></pre>
+<p>Attempts to read and consume an number in a given base.
+</p></div><h2>Variables</h2>
+<div class="codesection">
+<h3>SkipWhitespace</h3>
+<pre><code class="cs">val SkipWhitespace</code></pre>
+<p>If set to `true`, every time an entity is consumed, whitespace following said entity is also consumed.
+
+If set to `false`, whitespace is not consumed and. It can manually be consumed with `EatSpaces`.
+</p><hr/><h3>SkipComments</h3>
+<pre><code class="cs">val SkipComments</code></pre>
+<p>If set to true, every time whitespace is consumed, comments are also consumed.
+</p><hr/><h3>NestComments</h3>
+<pre><code class="cs">val NestComments</code></pre>
+<p>If set to true, every time comments are consumed, they can nest.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

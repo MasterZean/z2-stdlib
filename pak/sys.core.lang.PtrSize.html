@@ -49,37 +49,21 @@
 
 <ol class="breadcrumb">
 <li class="breadcrumb-item">sys.core.lang</li>
-<li class="breadcrumb-item active">Int</li>
+<li class="breadcrumb-item active">PtrSize</li>
 </ol>
 
-<h1>class Int</h1>
+<h1>class PtrSize</h1>
 <pre><code class="cs">namespace sys.core.lang
-class Int
+class PtrSize
 </code></pre><hr>
-<h2>Constructors</h2>
-<div class="codesection">
-<h3>this</h3>
-<pre><code class="cs">this{string: String}</code></pre>
-<p>Parses a string an constructs an [Int][sys.core.lang.Int] based on it.
-</p><hr/><h3>Saturated</h3>
-<pre><code class="cs">this Saturated{value: Int}
-this Saturated{value: DWord}
-this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: Double}
-this Saturated{value: String}</code></pre>
-<p>Constructs a saturated [Int][sys.core.lang.Int] based on the input value.
-</p></div><h2>Methods</h2>
+<h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: Int, max: Int)</code></pre>
+<pre><code class="cs">def Clamp(min: PtrSize, max: PtrSize)</code></pre>
 <p>Clamps the current mutable instance between `min` and `max`.
 </p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: Int, max: Int)</code></pre>
+<pre><code class="cs">func Clamped(min: PtrSize, max: PtrSize)</code></pre>
 <p>Returns the current instance clamped between `min` and `max`.
-</p><hr/><h3>ToString</h3>
-<pre><code class="cs">func ToString()</code></pre>
-<p>Converts the value to a Utf8 [string][sys.core.lang.String].
 </p><hr/><h3>@write</h3>
 <pre><code class="cs">func @write(ref stream: Stream)
 func @write(ref stream: Stream, format: OutputFormat)</code></pre>
@@ -88,50 +72,55 @@ func @write(ref stream: Stream, format: OutputFormat)</code></pre>
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 </p><hr/><h3>@put</h3>
 <pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p>Writes the value to a binary stream as a 32 bit signed integer.
+<p>Writes the value to a binary stream as a 32/64 bit unsigned integer.
 </p><hr/><h3>@get</h3>
 <pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p>Reads a 32 bit signed integer from a binary stream.
+<p>Reads a 32/64 bit unsigned integer from a binary stream.
 </p></div><h2>Properties</h2>
 <div class="codesection">
 <h3>Abs</h3>
-<pre><code class="cs">property Abs: Int; get;</code></pre>
+<pre><code class="cs">property Abs: PtrSize; get;</code></pre>
 <p>Returns the absolute value.
+
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 </p><hr/><h3>Sqr</h3>
-<pre><code class="cs">property Sqr: Int; get;</code></pre>
+<pre><code class="cs">property Sqr: PtrSize; get;</code></pre>
 <p>Returns the square of the value value.
 </p><hr/><h3>Sqrt</h3>
-<pre><code class="cs">property Sqrt: Int; get;</code></pre>
+<pre><code class="cs">property Sqrt: PtrSize; get;</code></pre>
 <p>Returns the square root of the value, rounded down.
 </p><hr/><h3>Floor</h3>
-<pre><code class="cs">property Floor: Int; get;</code></pre>
+<pre><code class="cs">property Floor: PtrSize; get;</code></pre>
 <p>Returns the floor of a floating point value.
 
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 </p><hr/><h3>Ceil</h3>
-<pre><code class="cs">property Ceil: Int; get;</code></pre>
+<pre><code class="cs">property Ceil: PtrSize; get;</code></pre>
 <p>Returns the ceiling of a floating point value.
 
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 </p><hr/><h3>Round</h3>
-<pre><code class="cs">property Round: Int; get;</code></pre>
+<pre><code class="cs">property Round: PtrSize; get;</code></pre>
 <p>Returns the rounded value of a floating point.
 
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
-<pre><code class="cs">const Zero: Int</code></pre>
-<p>An [Int][sys.core.lang.Int] instance representing a logical "0" value.
+<pre><code class="cs">const Zero: PtrSize</code></pre>
+<p>A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "0" value.
 </p><hr/><h3>One</h3>
-<pre><code class="cs">const One: Int</code></pre>
-<p>An [Int][sys.core.lang.Int] instance representing a logical "1" value.
+<pre><code class="cs">const One: PtrSize</code></pre>
+<p>A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "1" value.
 </p><hr/><h3>Min</h3>
-<pre><code class="cs">const Min: Int</code></pre>
-<p>The minimum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
+<pre><code class="cs">const Min: PtrSize</code></pre>
+<p>The minimum value for a [PtrSize][sys.core.lang.PtrSize] (32/64 bit unsigned integer) instance.
 </p><hr/><h3>Max</h3>
-<pre><code class="cs">const Max: Int</code></pre>
-<p>The maximum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
+<pre><code class="cs">const Max: PtrSize</code></pre>
+<p>The minimum value for a [PtrSize][sys.core.lang.PtrSize] (64 bit signed integer) instance.
+</p><hr/><h3>Invalid</h3>
+<pre><code class="cs">const Invalid: PtrSize</code></pre>
+<p>The value signaling invalid/out of bounds.
 </p><hr/><h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned</code></pre>
 <p>[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.

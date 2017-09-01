@@ -49,34 +49,29 @@
 
 <ol class="breadcrumb">
 <li class="breadcrumb-item">sys.core.lang</li>
-<li class="breadcrumb-item active">Int</li>
+<li class="breadcrumb-item active">Double</li>
 </ol>
 
-<h1>class Int</h1>
+<h1>class Double</h1>
 <pre><code class="cs">namespace sys.core.lang
-class Int
+class Double
 </code></pre><hr>
 <h2>Constructors</h2>
 <div class="codesection">
-<h3>this</h3>
-<pre><code class="cs">this{string: String}</code></pre>
-<p>Parses a string an constructs an [Int][sys.core.lang.Int] based on it.
-</p><hr/><h3>Saturated</h3>
-<pre><code class="cs">this Saturated{value: Int}
-this Saturated{value: DWord}
-this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: Double}
-this Saturated{value: String}</code></pre>
-<p>Constructs a saturated [Int][sys.core.lang.Int] based on the input value.
+<h3>Saturated</h3>
+<pre><code class="cs">this Saturated{value: Double}</code></pre>
+<p>Constructs a saturated `sys.core.lang.Double` based on the input value.
 </p></div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: Int, max: Int)</code></pre>
+<pre><code class="cs">def Clamp(min: Double, max: Double)</code></pre>
 <p>Clamps the current mutable instance between `min` and `max`.
 </p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: Int, max: Int)</code></pre>
+<pre><code class="cs">func Clamped(min: Double, max: Double)</code></pre>
 <p>Returns the current instance clamped between `min` and `max`.
+</p><hr/><h3>Pow</h3>
+<pre><code class="cs">func Pow(exp: Double)</code></pre>
+<p>Raises the instance to an exponent.
 </p><hr/><h3>ToString</h3>
 <pre><code class="cs">func ToString()</code></pre>
 <p>Converts the value to a Utf8 [string][sys.core.lang.String].
@@ -88,56 +83,62 @@ func @write(ref stream: Stream, format: OutputFormat)</code></pre>
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 </p><hr/><h3>@put</h3>
 <pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p>Writes the value to a binary stream as a 32 bit signed integer.
+<p>Writes the value to a binary stream as a 64 bit floating point.
 </p><hr/><h3>@get</h3>
 <pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p>Reads a 32 bit signed integer from a binary stream.
+<p>Reads a 64 bit floating point from a binary stream.
 </p></div><h2>Properties</h2>
 <div class="codesection">
-<h3>Abs</h3>
-<pre><code class="cs">property Abs: Int; get;</code></pre>
+<h3>IsNan</h3>
+<pre><code class="cs">property IsNan: Bool; get;</code></pre>
+<p>Return true if the instance is not a number.
+</p><hr/><h3>IsInfinite</h3>
+<pre><code class="cs">property IsInfinite: Bool; get;</code></pre>
+<p>Return true if the infinite.
+</p><hr/><h3>Abs</h3>
+<pre><code class="cs">property Abs: Double; get;</code></pre>
 <p>Returns the absolute value.
 </p><hr/><h3>Sqr</h3>
-<pre><code class="cs">property Sqr: Int; get;</code></pre>
+<pre><code class="cs">property Sqr: Double; get;</code></pre>
 <p>Returns the square of the value value.
 </p><hr/><h3>Sqrt</h3>
-<pre><code class="cs">property Sqrt: Int; get;</code></pre>
-<p>Returns the square root of the value, rounded down.
+<pre><code class="cs">property Sqrt: Double get const Intrinsic.Sqrt;; get;</code></pre>
+<p>Returns the square root of the value.
 </p><hr/><h3>Floor</h3>
-<pre><code class="cs">property Floor: Int; get;</code></pre>
+<pre><code class="cs">property Floor: Double get const Intrinsic.Floor;; get;</code></pre>
 <p>Returns the floor of a floating point value.
-
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 </p><hr/><h3>Ceil</h3>
-<pre><code class="cs">property Ceil: Int; get;</code></pre>
+<pre><code class="cs">property Ceil: Double get const Intrinsic.Ceil;; get;</code></pre>
 <p>Returns the ceiling of a floating point value.
-
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 </p><hr/><h3>Round</h3>
-<pre><code class="cs">property Round: Int; get;</code></pre>
+<pre><code class="cs">property Round: Double get const Intrinsic.Round;; get;</code></pre>
 <p>Returns the rounded value of a floating point.
-
-In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
+</p><hr/><h3>Log</h3>
+<pre><code class="cs">property Log: Double get const Intrinsic.Log;; get;</code></pre>
+<p>Returns the natural logarithm of a value.
+</p><hr/><h3>Log10</h3>
+<pre><code class="cs">property Log10: Double get const Intrinsic.Log10;; get;</code></pre>
+<p>Returns the base 10 logarithm of a value.
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
-<pre><code class="cs">const Zero: Int</code></pre>
-<p>An [Int][sys.core.lang.Int] instance representing a logical "0" value.
+<pre><code class="cs">const Zero: Double</code></pre>
+<p>A [Double][sys.core.lang.Double] instance representing a logical "0" value.
 </p><hr/><h3>One</h3>
-<pre><code class="cs">const One: Int</code></pre>
-<p>An [Int][sys.core.lang.Int] instance representing a logical "1" value.
+<pre><code class="cs">const One: Double</code></pre>
+<p>A [Double][sys.core.lang.Double] instance representing a logical "1" value.
 </p><hr/><h3>Min</h3>
-<pre><code class="cs">const Min: Int</code></pre>
-<p>The minimum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
+<pre><code class="cs">const Min: Double</code></pre>
+<p>The minimum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 </p><hr/><h3>Max</h3>
-<pre><code class="cs">const Max: Int</code></pre>
-<p>The maximum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
+<pre><code class="cs">const Max: Double</code></pre>
+<p>The maximum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 </p><hr/><h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned</code></pre>
-<p>[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
+<p>Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 </p><hr/><h3>IsInteger</h3>
 <pre><code class="cs">const IsInteger</code></pre>
-<p>[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
+<p>Returns [false][sys.core.lang.Bool].
 </p><hr/><h3>MaxDigitsLow</h3>
 <pre><code class="cs">const MaxDigitsLow</code></pre>
 <p>The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
@@ -150,6 +151,18 @@ Should not be used for buffer sizes.
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
+</p><hr/><h3>MinExpBase10</h3>
+<pre><code class="cs">const MinExpBase10</code></pre>
+<p>The minimum base 10 exponent.
+</p><hr/><h3>MaxExpBase10</h3>
+<pre><code class="cs">const MaxExpBase10</code></pre>
+<p>The maximum base 10 exponent.
+</p><hr/><h3>Nan</h3>
+<pre><code class="cs">const Nan</code></pre>
+<p>The not a number value.
+</p><hr/><h3>Infinite</h3>
+<pre><code class="cs">const Infinite</code></pre>
+<p>Positive infinite.
 </p></div></div>
 </div>
 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">Intrinsic</li>
+</ol>
+
+<h1>class Intrinsic</h1>
+<pre><code class="cs">namespace sys.core.lang
+class Intrinsic
+</code></pre><hr>
+<h2>Methods</h2>
+<div class="codesection">
+<h3>Min</h3>
+<p>Returns the minimum of the input arguments.
+</p><hr/><h3>Max</h3>
+<p>Returns the minimum of the maximum arguments.
+</p><hr/><h3>Clamped</h3>
+<p>Returns the `a` argument clamped between `min` and `max`.
+</p><hr/><h3>Clamp</h3>
+<p>Clamps the output argument `a` between `min` and `max`.
+</p><hr/><h3>Rol8</h3>
+<pre><code class="cs">static def Rol8(value: Int, bits: DWord)
+static def Rol8(value: DWord, bits: DWord)</code></pre>
+<p>Does an 8 bit binary rotate to the left.
+</p><hr/><h3>Ror8</h3>
+<pre><code class="cs">static def Ror8(value: Int, bits: DWord)
+static def Ror8(value: DWord, bits: DWord)</code></pre>
+<p>Does a 8 bit binary rotate to the right.
+</p><hr/><h3>Rol16</h3>
+<pre><code class="cs">static def Rol16(value: Int, bits: DWord)
+static def Rol16(value: DWord, bits: DWord)</code></pre>
+<p>Does a 16 bit binary rotate to the left.
+</p><hr/><h3>Ror16</h3>
+<pre><code class="cs">static def Ror16(value: Int, bits: DWord)
+static def Ror16(value: DWord, bits: DWord)</code></pre>
+<p>Does a 16 bit binary rotate to the right.
+</p><hr/><h3>Rol32</h3>
+<pre><code class="cs">static def Rol32(value: Int, bits: DWord)
+static def Rol32(value: DWord, bits: DWord)</code></pre>
+<p>Does a 32 bit binary rotate to the left.
+</p><hr/><h3>Ror32</h3>
+<pre><code class="cs">static def Ror32(value: Int, bits: DWord)
+static def Ror32(value: DWord, bits: DWord)</code></pre>
+<p>Does a 32 bit binary rotate to the right.
+</p><hr/><h3>Rol64</h3>
+<pre><code class="cs">static def Rol64(value: Long, bits: DWord)
+static def Rol64(value: QWord, bits: DWord)</code></pre>
+<p>Does a 64 bit binary rotate to the left.
+</p><hr/><h3>Ror64</h3>
+<pre><code class="cs">static def Ror64(value: Long, bits: DWord)
+static def Ror64(value: QWord, bits: DWord)</code></pre>
+<p>Does a 64 bit binary rotate to the right.
+</p><hr/><h3>Pow</h3>
+<pre><code class="cs">static def Pow(base: Double, exponenet: Double)</code></pre>
+<p>Returns a base raised to an exponent.
+</p><hr/><h3>Log</h3>
+<pre><code class="cs">static def Log(value: Double)</code></pre>
+<p>Returns the natural logarithm (base `e`) of the argument.
+</p><hr/><h3>Sqrt</h3>
+<pre><code class="cs">static def Sqrt(value: Double)</code></pre>
+<p>Returns square root of a value.
+</p><hr/><h3>MemCopy</h3>
+<pre><code class="cs">static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize)</code></pre>
+<p>Does a C standard library `memcpy` operation, copying a number of bytes from a source to a destination.
+</p><hr/><h3>CStrLen</h3>
+<pre><code class="cs">static def CStrLen(source: Ptr<Byte>)</code></pre>
+<p>Does a C standard library `strlen` operation, retuning the length of a null terminated C string.
+
+Should not be used on `sys.core.lang.String` since it can contain valid null characters.
+</p><hr/><h3>CpuID</h3>
+<pre><code class="cs">static def CpuID(ref cpu: CArray<Int>, val level: Int)</code></pre>
+<p>Executes a CPU identifying set of instructions.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

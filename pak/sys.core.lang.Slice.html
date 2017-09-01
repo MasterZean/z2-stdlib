@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">Slice</li>
+</ol>
+
+<h1>class Slice</h1>
+<pre><code class="cs">namespace sys.core.lang
+class Slice
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{ref ppp: CArray<T>}
+this{ref p: CArray<T>, length: PtrSize}
+this{ref p: CArray<T>, start: PtrSize, end: PtrSize}
+this{ref p: Vector<T>}
+this{ref p: Vector<T>, length: PtrSize}
+this{ref p: Vector<T>, start: PtrSize, end: PtrSize}
+this{ref p: Small}
+this{ref p: Short}
+this{ref p: Byte}
+this{ref p: Word}
+this{ref p: Int}
+this{ref p: Int, length: PtrSize}
+this{ref p: Long}
+this{ref p: Long, length: PtrSize}
+this{ref p: DWord}
+this{ref p: DWord, length: PtrSize}
+this{ref p: QWord}
+this{ref p: QWord, length: PtrSize}
+this{ref p: Float}
+this{ref p: Float, length: PtrSize}
+this{ref p: Double}
+this{ref p: Double, length: PtrSize}
+this{ref p: String}
+this{p: Slice<Byte>, length: PtrSize}
+this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}</code></pre>
+<p></p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>Fill</h3>
+<pre><code class="cs">def Fill(value: T)
+def Fill(items: Vector<T>)
+def Fill(items: CArray<T>)</code></pre>
+<p></p><hr/><h3>FindIndex</h3>
+<pre><code class="cs">func FindIndex(item: T)
+func FindIndex(item: T, start: PtrSize)
+func FindIndex(b: CArray<T>)
+func FindIndex(b: Vector<T>)
+func FindIndex(b: CArray<T>, start: PtrSize)
+func FindIndex(b: Vector<T>, start: PtrSize)</code></pre>
+<p></p><hr/><h3>RFindIndex</h3>
+<pre><code class="cs">func RFindIndex(item: T)
+func RFindIndex(item: T, val start: PtrSize)
+func RFindIndex(b: CArray<T>)
+func RFindIndex(b: Vector<T>)
+func RFindIndex(b: CArray<T>, val start: PtrSize)
+func RFindIndex(b: Vector<T>, val start: PtrSize)</code></pre>
+<p></p><hr/><h3>BinaryIndex</h3>
+<pre><code class="cs">func BinaryIndex(item: T)
+func BinaryIndex(item: T, start: PtrSize)</code></pre>
+<p></p><hr/><h3>Reverse</h3>
+<pre><code class="cs">def Reverse()</code></pre>
+<p></p><hr/><h3>Delete</h3>
+<pre><code class="cs">def Delete(item: T)
+def Delete(items: CArray<T>)
+def Delete(items: Vector<T>)</code></pre>
+<p></p><hr/><h3>DeleteAll</h3>
+<pre><code class="cs">def DeleteAll(item: T)
+def DeleteAll(items: CArray<T>)
+def DeleteAll(items: Vector<T>)</code></pre>
+<p></p><hr/><h3>DeleteIndex</h3>
+<pre><code class="cs">def DeleteIndex(index: PtrSize)
+def DeleteIndex(items: CArray<PtrSize>)
+def DeleteIndex(items: Vector<PtrSize>)</code></pre>
+<p></p><hr/><h3>Insert</h3>
+<pre><code class="cs">def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, items: CArray<T>)
+def Insert(pos: PtrSize, items: Vector<T>)</code></pre>
+<p></p><hr/><h3>Sort</h3>
+<pre><code class="cs">def Sort(low: Int, high: Int)
+def Sort()</code></pre>
+<p></p><hr/><h3>SortDec</h3>
+<pre><code class="cs">def SortDec(low: Int, high: Int)
+def SortDec()</code></pre>
+<p></p><hr/><h3>Sum</h3>
+<pre><code class="cs">func Sum()</code></pre>
+<p></p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>Length</h3>
+<pre><code class="cs">property Length: PtrSize</code></pre>
+<p></p><hr/><h3>@index</h3>
+<pre><code class="cs">property @index: T</code></pre>
+<p></p><hr/><h3>SysDataPointer</h3>
+<pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
+<p></p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

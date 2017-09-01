@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core</li>
+<li class="breadcrumb-item active">Point3D</li>
+</ol>
+
+<h1>class Point3D</h1>
+<pre><code class="cs">namespace sys.core
+class Point3D
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{value: T}
+this{x: T, y: T, z: T}
+this{p2d: Point2D<T>, z: T}</code></pre>
+<p>Creates a new instance initializing each component of the point.
+</p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>Clamp</h3>
+<pre><code class="cs">def Clamp(min: Point3D<T>, max: Point3D<T>)
+def Clamp(min: T, max: T)</code></pre>
+<p>Clamps each component of the current mutable instance between `min` and `max`.
+</p><hr/><h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Point3D<T>, max: Point3D<T>)
+func Clamped(min: T, max: T)</code></pre>
+<p>Returns a copy of the color with each component clamped between `min` and `max`.
+</p><hr/><h3>GetMin</h3>
+<pre><code class="cs">func GetMin(min: Point3D<T>)</code></pre>
+<p>Returns the member-wise minimum between the current instance and the input.
+</p><hr/><h3>GetMax</h3>
+<pre><code class="cs">func GetMax(max: Point3D<T>)</code></pre>
+<p>Returns the member-wise maximum between the current instance and the input.
+</p><hr/><h3>IsNormalized</h3>
+<pre><code class="cs">func IsNormalized(tolerance: T)</code></pre>
+<p>Tests if the current instance is a 3 dimensional normalized vector, within a tolerance.
+</p><hr/><h3>Normalize</h3>
+<pre><code class="cs">def Normalize(tolerance: T)</code></pre>
+<p>Normalizes the 3 dimensional vector if its length falls within the tolerance limits.
+
+Otherwise, the value remains unchanged.
+</p><hr/><h3>Normalized</h3>
+<pre><code class="cs">func Normalized(tolerance: T)</code></pre>
+<p>Returns a 3 dimensional normalized copy of the vector if its length falls within the tolerance limits.
+
+Otherwise, returns the value as is.
+</p><hr/><h3>@add</h3>
+<pre><code class="cs">func @add(second: Point3D<T>)
+func @add(second: T)</code></pre>
+<p>Member-wise addition operator. Commutative.
+</p><hr/><h3>@sub</h3>
+<pre><code class="cs">static func @sub(left: Point3D<T>, right: Point3D<T>)
+static func @sub(left: Point3D<T>, right: T)
+static func @sub(left: T, right: Point3D<T>)</code></pre>
+<p>Member-wise subtraction operator.
+</p><hr/><h3>@mul</h3>
+<pre><code class="cs">func @mul(second: Point3D<T>)
+func @mul(second: T)</code></pre>
+<p>Member-wise multiplication operator. Commutative.
+</p><hr/><h3>@div</h3>
+<pre><code class="cs">static func @div(left: Point3D<T>, right: Point3D<T>)
+static func @div(left: Point3D<T>, right: T)
+static func @div(left: T, right: Point3D<T>)</code></pre>
+<p>Member-wise division operator.
+</p><hr/><h3>@mod</h3>
+<pre><code class="cs">static func @mod(left: Point3D<T>, right: Point3D<T>)
+static func @mod(left: Point3D<T>, right: T)
+static func @mod(left: T, right: Point3D<T>)</code></pre>
+<p>Member-wise modulo operator.
+</p><hr/><h3>@minus</h3>
+<pre><code class="cs">func @minus()</code></pre>
+<p>Returns the member-wise negative of the current instance.
+</p><hr/><h3>@eq</h3>
+<pre><code class="cs">func @eq(second: T)</code></pre>
+<p>Member-wise equality operator.
+</p><hr/><h3>@neq</h3>
+<pre><code class="cs">func @neq(second: T)</code></pre>
+<p>Member-wise inequality operator.
+</p><hr/><h3>Equals</h3>
+<pre><code class="cs">func Equals(second: Point3D<T>, tolerance: T)
+func Equals(second: T, tolerance: T)</code></pre>
+<p>Member-wise equality operator within a given tolerance.
+</p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>Length</h3>
+<pre><code class="cs">property Length: T; get;</code></pre>
+<p>The length of the instance interpreted as a 3 dimensional vector.
+</p><hr/><h3>LengthSquared</h3>
+<pre><code class="cs">property LengthSquared: T; get;</code></pre>
+<p>The squred length of the instance interpreted as a 3 dimensional vector.
+</p></div><h2>Variables</h2>
+<div class="codesection">
+<h3>X</h3>
+<pre><code class="cs">val X: T</code></pre>
+<p>The first dimension of the point.
+</p><hr/><h3>Y</h3>
+<pre><code class="cs">val Y: T</code></pre>
+<p>The second dimension of the point.
+</p><hr/><h3>Z</h3>
+<pre><code class="cs">val Z: T</code></pre>
+<p>The third dimension of the point.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">Char</li>
+</ol>
+
+<h1>class Char</h1>
+<pre><code class="cs">namespace sys.core.lang
+class Char
+</code></pre><hr>
+<h2>Methods</h2>
+<div class="codesection">
+<h3>Clamp</h3>
+<pre><code class="cs">def Clamp(min: Char, max: Char)</code></pre>
+<p>Clamps the current mutable instance between `min` and `max`.
+</p><hr/><h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Char, max: Char)</code></pre>
+<p>Returns the current instance clamped between `min` and `max`.
+</p><hr/><h3>ToString</h3>
+<pre><code class="cs">func ToString()</code></pre>
+<p>Converts the value to a Utf8 string.
+</p><hr/><h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream)
+func @write(ref stream: Stream, format: OutputFormat)</code></pre>
+<p>Writes the value to an Utf8 text stream.
+</p><hr/><h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
+<p>Writes the code unit to a binary stream as a 32 bit unsigned integer.
+</p><hr/><h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
+<p>Reads the code unit a 32 bit signed uninteger from a binary stream.
+</p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>IsAsciiDigit</h3>
+<pre><code class="cs">property IsAsciiDigit: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII digit.
+</p><hr/><h3>IsAsciiAlpha</h3>
+<pre><code class="cs">property IsAsciiAlpha: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII alphabetic character.
+</p><hr/><h3>IsAsciiAlphaNum</h3>
+<pre><code class="cs">property IsAsciiAlphaNum: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII alphanumeric character.
+</p><hr/><h3>IsAsciiControl</h3>
+<pre><code class="cs">property IsAsciiControl: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII control character.
+</p><hr/><h3>IsAsciiGraph</h3>
+<pre><code class="cs">property IsAsciiGraph: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII graphical character.
+</p><hr/><h3>IsAsciiPrintable</h3>
+<pre><code class="cs">property IsAsciiPrintable: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII printable character.
+</p><hr/><h3>IsAsciiPunct</h3>
+<pre><code class="cs">property IsAsciiPunct: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII punctuation character.
+</p><hr/><h3>IsAsciiUpper</h3>
+<pre><code class="cs">property IsAsciiUpper: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII upper case character.
+</p><hr/><h3>IsAsciiLower</h3>
+<pre><code class="cs">property IsAsciiLower: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII lower case character.
+</p><hr/><h3>IsAsciiSpace</h3>
+<pre><code class="cs">property IsAsciiSpace: Bool; get;</code></pre>
+<p>Returns true if the code point is an ASCII whitespace character.
+</p><hr/><h3>AsciiUpper</h3>
+<pre><code class="cs">property AsciiUpper: Char; get;</code></pre>
+<p>Returns the ASCII upper case of the ASCII character.
+</p><hr/><h3>AsciiLower</h3>
+<pre><code class="cs">property AsciiLower: Char; get;</code></pre>
+<p>Returns the ASCII lower case of the ASCII character.
+</p><hr/><h3>UnicodePlane</h3>
+<pre><code class="cs">property UnicodePlane: Byte; get;</code></pre>
+<p>REturns the Unicode plane of the code point, between 0 and 16.
+</p><hr/><h3>Category</h3>
+<pre><code class="cs">property Category: UnicodeCategory; get;</code></pre>
+<p>Returns the Unicode category of the code point.
+</p><hr/><h3>Upper</h3>
+<pre><code class="cs">property Upper: Char; get;</code></pre>
+<p>Returns the upper case of the character.
+</p><hr/><h3>Lower</h3>
+<pre><code class="cs">property Lower: Char; get;</code></pre>
+<p>Returns the lower case of the character.
+</p><hr/><h3>Title</h3>
+<pre><code class="cs">property Title: Char; get;</code></pre>
+<p>Returns the title case of the character.
+</p><hr/><h3>IsUpper</h3>
+<pre><code class="cs">property IsUpper: Bool; get;</code></pre>
+<p>Returns true if the character is upper case.
+</p><hr/><h3>IsLower</h3>
+<pre><code class="cs">property IsLower: Bool; get;</code></pre>
+<p>Returns true if the character is lower case.
+</p><hr/><h3>IsTitle</h3>
+<pre><code class="cs">property IsTitle: Bool; get;</code></pre>
+<p>Returns true if the character is title case.
+</p><hr/><h3>IsDecimal</h3>
+<pre><code class="cs">property IsDecimal: Bool; get;</code></pre>
+<p>Returns true if the character is an Unicode decimal.
+</p></div><h2>Constants</h2>
+<div class="codesection">
+<h3>Zero</h3>
+<pre><code class="cs">const Zero: Char</code></pre>
+<p>An `sys.core.lang.Char` instance representing a logical "0" value.
+</p><hr/><h3>Min</h3>
+<pre><code class="cs">const Min: Char</code></pre>
+<p>The minimum value for an `sys.core.lang.Char` (Unicode code point) instance.
+</p><hr/><h3>Max</h3>
+<pre><code class="cs">const Max: Char</code></pre>
+<p>The maximum value for an `sys.core.lang.Char` (Unicode code point) instance.
+</p><hr/><h3>MaxUtf8CP1</h3>
+<pre><code class="cs">const MaxUtf8CP1: Char</code></pre>
+<p>The highest code point that can be represented by 1 code unit.
+</p><hr/><h3>MaxUtf8CP2</h3>
+<pre><code class="cs">const MaxUtf8CP2: Char</code></pre>
+<p>The highest code point that can be represented by 2 code units.
+</p><hr/><h3>MaxUtf8CP3</h3>
+<pre><code class="cs">const MaxUtf8CP3: Char</code></pre>
+<p>The highest code point that can be represented by 3 code units.
+</p><hr/><h3>MaxUtf8CP4</h3>
+<pre><code class="cs">const MaxUtf8CP4: Char</code></pre>
+<p>The highest code point that can be represented by 4 code units.
+</p><hr/><h3>Invalid</h3>
+<pre><code class="cs">const Invalid: Char</code></pre>
+<p>A constant describing an "invalid" code point.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

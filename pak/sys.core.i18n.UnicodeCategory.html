@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.i18n</li>
+<li class="breadcrumb-item active">UnicodeCategory</li>
+</ol>
+
+<h1>enum UnicodeCategory</h1>
+<pre><code class="cs">namespace sys.core.i18n
+enum UnicodeCategory
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>FromAbbr</h3>
+<pre><code class="cs">this FromAbbr{s: String}</code></pre>
+<p>Constructs a new instance from a string abbreviation.
+</p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>ToAbbr</h3>
+<pre><code class="cs">func ToAbbr()</code></pre>
+<p>Converts the current instance to a string abbreviation.
+</p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>IsLetter</h3>
+<pre><code class="cs">property IsLetter: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a letter.
+</p><hr/><h3>IsCasesLetter</h3>
+<pre><code class="cs">property IsCasesLetter: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a lower/upper/title-case letter.
+</p><hr/><h3>IsMark</h3>
+<pre><code class="cs">property IsMark: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a mark.
+</p><hr/><h3>IsNumber</h3>
+<pre><code class="cs">property IsNumber: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a number.
+</p><hr/><h3>IsPunctuation</h3>
+<pre><code class="cs">property IsPunctuation: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents punctuation.
+</p><hr/><h3>IsSymbol</h3>
+<pre><code class="cs">property IsSymbol: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a symbol.
+</p><hr/><h3>IsSeparator</h3>
+<pre><code class="cs">property IsSeparator: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents a separator.
+</p><hr/><h3>IsOther</h3>
+<pre><code class="cs">property IsOther: Bool; get;</code></pre>
+<p>Returns true if the the current instance represents an "other" type of character.
+</p></div><h2>Constants</h2>
+<div class="codesection">
+<h3>Uppercase_Letter</h3>
+<pre><code class="cs">const Uppercase_Letter</code></pre>
+<p>Enum entry for "Uppercase_Letter Unicode" category.
+</p><hr/><h3>Lowercase_Letter</h3>
+<pre><code class="cs">const Lowercase_Letter</code></pre>
+<p>Enum entry for "Lowercase_Letter" Unicode category.
+</p><hr/><h3>Titlecase_Letter</h3>
+<pre><code class="cs">const Titlecase_Letter</code></pre>
+<p>Enum entry for "Titlecase_Letter" Unicode category.
+</p><hr/><h3>Modifier_Letter</h3>
+<pre><code class="cs">const Modifier_Letter</code></pre>
+<p>Enum entry for "Modifier_Letter" Unicode category.
+</p><hr/><h3>Other_Letter</h3>
+<pre><code class="cs">const Other_Letter</code></pre>
+<p>Enum entry for "Other_Letter" Unicode category.
+</p><hr/><h3>Nonspacing_Mark</h3>
+<pre><code class="cs">const Nonspacing_Mark</code></pre>
+<p>Enum entry for "Nonspacing_Mark" Unicode category.
+</p><hr/><h3>Spacing_Mark</h3>
+<pre><code class="cs">const Spacing_Mark</code></pre>
+<p>Enum entry for "Spacing_Mark" Unicode category.
+</p><hr/><h3>Enclosing_Mark</h3>
+<pre><code class="cs">const Enclosing_Mark</code></pre>
+<p>Enum entry for "Enclosing_Mark" Unicode category.
+</p><hr/><h3>Decimal_Number</h3>
+<pre><code class="cs">const Decimal_Number</code></pre>
+<p>Enum entry for "Decimal_Number" Unicode category.
+</p><hr/><h3>Letter_Number</h3>
+<pre><code class="cs">const Letter_Number</code></pre>
+<p>Enum entry for "Letter_Number" Unicode category.
+</p><hr/><h3>Other_Number</h3>
+<pre><code class="cs">const Other_Number</code></pre>
+<p>Enum entry for "Other_Number" Unicode category.
+</p><hr/><h3>Connector_Punctuation</h3>
+<pre><code class="cs">const Connector_Punctuation</code></pre>
+<p>Enum entry for "Connector_Punctuation" Unicode category.
+</p><hr/><h3>Dash_Punctuation</h3>
+<pre><code class="cs">const Dash_Punctuation</code></pre>
+<p>Enum entry for "Dash_Punctuation" Unicode category.
+</p><hr/><h3>Open_Punctuation</h3>
+<pre><code class="cs">const Open_Punctuation</code></pre>
+<p>Enum entry for "Open_Punctuation" Unicode category.
+</p><hr/><h3>Close_Punctuation</h3>
+<pre><code class="cs">const Close_Punctuation</code></pre>
+<p>Enum entry for "Close_Punctuation" Unicode category.
+</p><hr/><h3>Initial_Punctuation</h3>
+<pre><code class="cs">const Initial_Punctuation</code></pre>
+<p>Enum entry for "Initial_Punctuation" Unicode category.
+</p><hr/><h3>Final_Punctuation</h3>
+<pre><code class="cs">const Final_Punctuation</code></pre>
+<p>Enum entry for "Final_Punctuation" Unicode category.
+</p><hr/><h3>Other_Punctuation</h3>
+<pre><code class="cs">const Other_Punctuation</code></pre>
+<p>Enum entry for "Other_Punctuation" Unicode category.
+</p><hr/><h3>Math_Symbol</h3>
+<pre><code class="cs">const Math_Symbol</code></pre>
+<p>Enum entry for "Math_Symbol" Unicode category.
+</p><hr/><h3>Currency_Symbol</h3>
+<pre><code class="cs">const Currency_Symbol</code></pre>
+<p>Enum entry for "Currency_Symbol" Unicode category.
+</p><hr/><h3>Modifier_Symbol</h3>
+<pre><code class="cs">const Modifier_Symbol</code></pre>
+<p>Enum entry for "Modifier_Symbol" Unicode category.
+</p><hr/><h3>Other_Symbol</h3>
+<pre><code class="cs">const Other_Symbol</code></pre>
+<p>Enum entry for "Other_Symbol" Unicode category.
+</p><hr/><h3>Space_Separator</h3>
+<pre><code class="cs">const Space_Separator</code></pre>
+<p>Enum entry for "Space_Separator" Unicode category.
+</p><hr/><h3>Line_Separator</h3>
+<pre><code class="cs">const Line_Separator</code></pre>
+<p>Enum entry for "Line_Separator" Unicode category.
+</p><hr/><h3>Paragraph_Separator</h3>
+<pre><code class="cs">const Paragraph_Separator</code></pre>
+<p>Enum entry for "Paragraph_Separator" Unicode category.
+</p><hr/><h3>Control</h3>
+<pre><code class="cs">const Control</code></pre>
+<p>Enum entry for "Control" Unicode category.
+</p><hr/><h3>Format</h3>
+<pre><code class="cs">const Format</code></pre>
+<p>Enum entry for "Format" Unicode category.
+</p><hr/><h3>Surrogate</h3>
+<pre><code class="cs">const Surrogate</code></pre>
+<p>Enum entry for "Surrogate" Unicode category.
+</p><hr/><h3>Private_Use</h3>
+<pre><code class="cs">const Private_Use</code></pre>
+<p>Enum entry for "Private_Use" Unicode category.
+</p><hr/><h3>Unassigned</h3>
+<pre><code class="cs">const Unassigned</code></pre>
+<p>Enum entry for "Unassigned" Unicode category.
+</p><hr/><h3>Invalid</h3>
+<pre><code class="cs">const Invalid</code></pre>
+<p>Enum entry for an invalid Unicode category.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core</li>
+<li class="breadcrumb-item active">DynamicBlock</li>
+</ol>
+
+<h1>class DynamicBlock</h1>
+<pre><code class="cs">namespace sys.core
+class DynamicBlock
+</code></pre><hr>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{a: PtrSize}
+this{copy: DynamicBlock<T>}
+this{move copy: DynamicBlock<T>}</code></pre>
+<p></p><hr/><h3>@allocate</h3>
+<pre><code class="cs">this @allocate{len: PtrSize, capacity: PtrSize}</code></pre>
+<p></p></div><h2>Methods</h2>
+<div class="codesection">
+<h3>@attr</h3>
+<pre><code class="cs">def @attr(copy: DynamicBlock<T>)
+def @attr(move copy: DynamicBlock<T>)</code></pre>
+<p></p><hr/><h3>ExpandTo</h3>
+<pre><code class="cs">def ExpandTo(value: PtrSize)
+def ExpandTo(newLength: PtrSize, init: T)</code></pre>
+<p></p><hr/><h3>ExpandBy</h3>
+<pre><code class="cs">def ExpandBy(delta: PtrSize)
+def ExpandBy(delta: PtrSize, init: T)</code></pre>
+<p></p><hr/><h3>ShrinkTo</h3>
+<pre><code class="cs">def ShrinkTo(newLength: PtrSize)</code></pre>
+<p></p><hr/><h3>ShrinkBy</h3>
+<pre><code class="cs">def ShrinkBy(delta: PtrSize)</code></pre>
+<p></p><hr/><h3>Fill</h3>
+<pre><code class="cs">def Fill(value: T)</code></pre>
+<p></p><hr/><h3>Clear</h3>
+<pre><code class="cs">def Clear()</code></pre>
+<p></p><hr/><h3>Append</h3>
+<pre><code class="cs">def Append(item: T)
+def Append(item: T, count: PtrSize)</code></pre>
+<p></p><hr/><h3>SetLengthUnsafe</h3>
+<pre><code class="cs">def SetLengthUnsafe(value: PtrSize)</code></pre>
+<p></p><hr/><h3>ExpandUnsafe</h3>
+<pre><code class="cs">def ExpandUnsafe(value: PtrSize)</code></pre>
+<p></p><hr/><h3>ShrinkUnsafe</h3>
+<pre><code class="cs">def ShrinkUnsafe(value: PtrSize)</code></pre>
+<p></p><hr/><h3>FreeUnsafe</h3>
+<pre><code class="cs">def FreeUnsafe(len: PtrSize)</code></pre>
+<p></p></div><h2>Properties</h2>
+<div class="codesection">
+<h3>@index</h3>
+<pre><code class="cs">property @index: ref T; get;</code></pre>
+<p></p><hr/><h3>Length</h3>
+<pre><code class="cs">property Length: PtrSize</code></pre>
+<p></p><hr/><h3>IsEmpty</h3>
+<pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
+<p></p><hr/><h3>Capacity</h3>
+<pre><code class="cs">property Capacity: PtrSize</code></pre>
+<p></p><hr/><h3>SysDataPointer</h3>
+<pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
+<p></p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
