@@ -53,6 +53,14 @@ body {
 	background-color: #f5f5f5;
 }
 
+.codesection {
+	border: 1px solid transparent;
+	border-color: lightgray;
+	background-color: lavender;
+	padding: 20px;
+	margin-bottom: 60px;
+}
+
 @media (max-width: 978px) {
 	.page {
 		margin: 0;		
