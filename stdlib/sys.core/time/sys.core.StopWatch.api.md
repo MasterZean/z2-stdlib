@@ -1,41 +1,70 @@
-sys.core.StopWatch this
-=
-## Brief
+Constructors
+---
+
+#### this
+
+```C#
+this{}
+```
+
+##### Brief
 Creates a new instance and start keeping track of time.
 
 Calling `Elapsed` after is a valid operation.
 
 ***
 
-sys.core.StopWatch Stopped
-=
-## Brief
+#### Stopped
+
+```C#
+this Stopped{}
+```
+
+##### Brief
 Creates a new instance but does not start tracking time.
 
 Calling `Elapsed` after is a not valid operation and you must manually start keeping track of time by calling `Reset`.
 
 ***
 
-sys.core.StopWatch Reset
-=
-## Brief
+Methods
+---
+
+#### Reset
+
+```C#
+def Reset()
+```
+
+##### Brief
 Resets the internal statistics and starts tracking time from the point in time of the call.
 
 ***
 
-sys.core.StopWatch Elapsed
-=
-## Brief
-Returns the elapsed time from the last time the tracking of time started in milliseconds.
+#### Elapsed
 
-### returns
+```C#
+func Elapsed()
+```
+
+##### Brief
+Returns the elapsed time from the last time the tracking of time started, in milliseconds.
+
+###### returns
 elapsed milliseconds
 ***
 
-sys.core.StopWatch IsHighResolution
-=
-## Brief
-Returns `true` is the times is a high resolution timer, with improved granularity.
+Properties
+---
+
+#### IsHighResolution
+
+```C#
+property IsHighResolution: Bool; get;
+```
+
+##### Brief
+Returns `true` if the timer is a high resolution timer, with improved granularity.
 
 ***
 

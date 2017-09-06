@@ -1,152 +1,243 @@
-sys.core.DynamicBlock this
-=
-## Brief
+Constructors
+---
 
-### param a
+#### this
 
-### param copy
+```C#
+this{a: PtrSize}
+this{copy: DynamicBlock<T>}
+this{move copy: DynamicBlock<T>}
+```
 
-***
+##### Brief
 
-sys.core.DynamicBlock @allocate
-=
-## Brief
+###### param a
 
-### param len
-
-### param capacity
-
-***
-
-sys.core.DynamicBlock @attr
-=
-## Brief
-
-### param copy
+###### param copy
 
 ***
 
-sys.core.DynamicBlock ExpandTo
-=
-## Brief
+#### @allocate
 
-### param value
+```C#
+this @allocate{len: PtrSize, capacity: PtrSize}
+```
 
-### param newLength
+##### Brief
 
-### param init
+###### param len
 
-***
-
-sys.core.DynamicBlock ExpandBy
-=
-## Brief
-
-### param delta
-
-### param init
+###### param capacity
 
 ***
 
-sys.core.DynamicBlock ShrinkTo
-=
-## Brief
+Methods
+---
 
-### param newLength
+#### @attr
 
-***
+```C#
+def @attr(copy: DynamicBlock<T>)
+def @attr(move copy: DynamicBlock<T>)
+```
 
-sys.core.DynamicBlock ShrinkBy
-=
-## Brief
+##### Brief
 
-### param delta
-
-***
-
-sys.core.DynamicBlock Fill
-=
-## Brief
-
-### param value
+###### param copy
 
 ***
 
-sys.core.DynamicBlock Clear
-=
-## Brief
+#### ExpandTo
+
+```C#
+def ExpandTo(value: PtrSize)
+def ExpandTo(newLength: PtrSize, init: T)
+```
+
+##### Brief
+
+###### param value
+
+###### param newLength
+
+###### param init
 
 ***
 
-sys.core.DynamicBlock Append
-=
-## Brief
+#### ExpandBy
 
-### param item
+```C#
+def ExpandBy(delta: PtrSize)
+def ExpandBy(delta: PtrSize, init: T)
+```
 
-### param count
+##### Brief
 
-***
+###### param delta
 
-sys.core.DynamicBlock SetLengthUnsafe
-=
-## Brief
-
-### param value
+###### param init
 
 ***
 
-sys.core.DynamicBlock ExpandUnsafe
-=
-## Brief
+#### ShrinkTo
 
-### param value
+```C#
+def ShrinkTo(newLength: PtrSize)
+```
 
-***
+##### Brief
 
-sys.core.DynamicBlock ShrinkUnsafe
-=
-## Brief
-
-### param value
+###### param newLength
 
 ***
 
-sys.core.DynamicBlock FreeUnsafe
-=
-## Brief
+#### ShrinkBy
 
-### param len
+```C#
+def ShrinkBy(delta: PtrSize)
+```
 
-***
+##### Brief
 
-sys.core.DynamicBlock @index
-=
-## Brief
+###### param delta
 
 ***
 
-sys.core.DynamicBlock Length
-=
-## Brief
+#### Fill
+
+```C#
+def Fill(value: T)
+```
+
+##### Brief
+
+###### param value
 
 ***
 
-sys.core.DynamicBlock IsEmpty
-=
-## Brief
+#### Clear
+
+```C#
+def Clear()
+```
+
+##### Brief
 
 ***
 
-sys.core.DynamicBlock Capacity
-=
-## Brief
+#### Append
+
+```C#
+def Append(item: T)
+def Append(item: T, count: PtrSize)
+```
+
+##### Brief
+
+###### param item
+
+###### param count
 
 ***
 
-sys.core.DynamicBlock SysDataPointer
-=
-## Brief
+#### SetLengthUnsafe
+
+```C#
+def SetLengthUnsafe(value: PtrSize)
+```
+
+##### Brief
+
+###### param value
+
+***
+
+#### ExpandUnsafe
+
+```C#
+def ExpandUnsafe(value: PtrSize)
+```
+
+##### Brief
+
+###### param value
+
+***
+
+#### ShrinkUnsafe
+
+```C#
+def ShrinkUnsafe(value: PtrSize)
+```
+
+##### Brief
+
+###### param value
+
+***
+
+#### FreeUnsafe
+
+```C#
+def FreeUnsafe(len: PtrSize)
+```
+
+##### Brief
+
+###### param len
+
+***
+
+Properties
+---
+
+#### @index
+
+```C#
+property @index: ref T; get;
+```
+
+##### Brief
+
+***
+
+#### Length
+
+```C#
+property Length: PtrSize
+```
+
+##### Brief
+
+***
+
+#### IsEmpty
+
+```C#
+property IsEmpty: Bool; get;
+```
+
+##### Brief
+
+***
+
+#### Capacity
+
+```C#
+property Capacity: PtrSize
+```
+
+##### Brief
+
+***
+
+#### SysDataPointer
+
+```C#
+property SysDataPointer: Ptr<T>; get;
+```
+
+##### Brief
 
 ***
 

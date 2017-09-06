@@ -1,0 +1,299 @@
+namespace sys.core;
+
+class AsciiParser {
+	this(ref data: Slice<Byte>) {
+		term = data.SysDataPointer;
+		wspc = term;
+		lineptr = term;
+		EatSpaces();
+	}
+	
+	this(ref data: String) {
+		term = data.SysDataPointer;
+		wspc = term;
+		lineptr = term;
+		EatSpaces();
+	}
+	
+	val SkipWhitespace = true;
+	val SkipComments = true;
+	val NestComments = false;
+	
+	def EatSpaces(): Bool {
+		wspc = term;
+		return (term[0] <= ' ' || term[0] == '/') && eatSpaces();
+	}
+	
+	func IsId(): Bool {
+		return isCidStart(term[0]);
+	}
+	
+	func IsId(id: String): Bool {
+		return term[0] == id[0] && isId(id) != null;
+	}
+	
+	def EatId(id: String): Bool{
+		return term[0] == id[0] && eatId(id);
+	}
+	
+	def ReadId(): String {
+		val b = term;
+		val p = b;
+		
+		while (isCid(p[0]))
+			p++;
+		
+		term = p;
+		if (SkipWhitespace)
+			EatSpaces();
+		
+		return String{b, p - b};
+	}
+	
+	func Peek(): Char {
+		return term[0];
+	}
+	
+	func IsChar(c: Char): Bool {
+		return term[0] == c;
+	}
+	
+	func IsChar(c1: Char, c2: Char): Bool {
+		return term[0] == c1 && term[1] == c2;
+	}
+	
+	func IsChar(c1: Char, c2: Char, c3: Char): Bool {
+		return term[0] == c1 && term[1] == c2 && term[2] == c3;
+	}
+	
+	def EatChar(c: Char): Bool {
+		if (IsChar(c)) {
+			term++;
+			
+			if (SkipWhitespace)
+				EatSpaces();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	def EatChar(c1: Char, c2: Char): Bool {
+		if (IsChar(c1, c2)) {
+			term += 2;
+			
+			if (SkipWhitespace)
+				EatSpaces();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	def EatChar(c1: Char, c2: Char, c3: Char): Bool {
+		if (IsChar(c1, c2, c3)) {
+			term += 3;
+			
+			if (SkipWhitespace)
+				EatSpaces();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	func IsInt(): Bool {
+		val t = term;
+		
+		if (t[0] == '-' || t[0] == '+') {
+			t++;
+			while (t[0] <= ' ')
+				t++;
+		}
+		
+		return Char{t[0]}.IsAsciiDigit;
+	}
+	
+	def Sign(): Int {
+		val sign = 1;
+		
+		if (term[0] == '-') {
+			sign = -1;
+			term++;
+		}
+		else if (term[0] == '+')
+			term++;
+		
+		EatSpaces();
+		
+		return sign;
+	}
+	
+	func IsNumber(base: Int): Bool {
+		val ch = Char{term[0]};
+		
+		if (ch.IsAsciiDigit) {
+			val offs = Int{ch - '0'};
+			return offs >= 0 && offs < base;
+		}
+		else {
+			val offs = Int{ch.AsciiUpper - 'A'};
+			return offs >= 0 && offs < base - 10;
+		}
+	}
+	
+	def ReadInt(): Int {
+		val sign = Sign();
+		val n = ReadNumber(10);
+		
+		if (sign > 0 ? n > Int.Max : n > DWord{Int.Max} + 1)
+			throw sys.core.IllegalConversionException{};
+			
+		return sign * Int{n};
+	}
+	
+	def ReadNumber(base: Int): DWord {
+		val n = 0u;
+		val q = ctoi(term[0]);
+		
+		if (q < 0 || q >= base)
+			throw sys.core.IllegalConversionException{};
+		
+		for (;;) {
+			val c = ctoi(term[0]);
+			
+			if (c < 0 || c >= base)
+				break;
+			
+			val n1 = n;
+			n = base * n + c;
+			
+			if (n1 > n)
+				throw sys.core.IllegalConversionException{};
+			
+			term++;
+		}
+		
+		EatSpaces();
+		
+		return n;
+	}
+}
+protected {
+	val term: Ptr<Byte>;
+	val wspc: Ptr<Byte>;
+	val lineptr: Ptr<Byte>;
+	val line = 1p;
+	
+	def eatSpaces(): Bool {
+		if (  term[0] > ' '  &&
+			!(term[0] == '/' && term[1] == '/') &&
+			!(term[0] == '/' && term[1] == '*'))
+			return false;
+		
+		for(;;) {
+			if (term[0] == '/' && term[1] == '/' && SkipComments) {
+				term += 2;
+				while (term[0] != 0 && term[0] != '\n')
+					term++;
+			}
+			else if (term[0] == '/' && term[1] == '*' && SkipComments) {
+				if (NestComments == false) {
+					term += 2;
+					while (term[0] != 0) {
+						if (term[0] == '*' && term[1] == '/') {
+							term += 2;
+							break;
+						}
+						if (term[0] == '\n') {
+							line++;
+							term++;
+						}
+					}
+				}
+				else {
+					val count = 1;
+					term += 2;
+					while (term[0] != 0) {
+						if (term[0] == '*' && term[1] == '/') {
+							term += 2;
+							count--;
+							if (count == 0)
+								break;
+						}
+						else if (term[0] == '/' && term[1] == '*')
+							count++;
+						
+						if (term[0] == '\n') {
+							line++;
+							term++;
+						}
+					}
+				}
+			}
+			
+			if (term[0] == 0 || term[0] > ' ')
+				break;
+			if (term[0] == '\n') {
+				line++;
+				lineptr = term + 1;
+			}
+			
+			term++;
+		}
+		
+		return true;
+	}
+	
+	func isId(id: String): Ptr<Byte> {
+		val t = term + 1;
+		val s = id.SysDataPointer;
+		
+		s++;
+		while (s[0] != 0) {
+			if (t[0] != s[0])
+				return null;
+			t++;
+			s++;
+		}
+		
+		if (Char{t[0]}.IsAsciiAlphaNum || t[0] == '_')
+			return null;
+		else
+			return t;
+	}
+	
+	def eatId(id: String): Bool {
+		val t = isId(id);
+		if (t == null)
+			return false;
+		
+		term = t;
+		if (SkipWhitespace)
+			EatSpaces();
+		
+		return true;
+	}
+	
+	static func isCidStart(c: Byte): Bool {
+		return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '_';
+	}
+	
+	static func isCid(c: Byte): Bool {
+		return isCidStart(c) || c >= '0' && c <= '9';
+	}
+	
+	static func ctoi(c: Int): Int {
+		if(c >= '0' && c <= '9')
+			return c - Int{'0'};
+		if(c >= 'A' && c <= 'Z')
+			return c - Int{'A'} + 10;
+		if(c >= 'a' && c <= 'z')
+			return c - Int{'a'} + 10;
+		
+		return -1;
+	}
+}

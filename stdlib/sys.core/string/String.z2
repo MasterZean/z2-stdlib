@@ -1,8 +1,8 @@
+namespace sys.core.lang;
+
 using sys.core.Stream;
 using sys.core.OutputFormat;
 using sys.core.ConvertUtf8;
-
-namespace sys.core.lang;
 
 class String {
 	static val GrowthSpacing = 4p;

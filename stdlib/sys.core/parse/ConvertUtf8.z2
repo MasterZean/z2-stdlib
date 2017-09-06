@@ -634,6 +634,7 @@ class ConvertUtf8 {
 		
 	static func CharAsText(ref buffer: Slice<Byte>, data: Char) {
 		val i = 0p;
+		
 		if (data <= Char.MaxUtf8CP1) {
 			if (buffer.Length < 1)
 				throw sys.core.BufferOverflowException{};
