@@ -12,9 +12,31 @@ class ConsoleStream: Stream {
 
 #if Compiler.Platform == "WIN32"
 
+    this(h: DWord) {
+        handle = h;
+    }
+    
 	override def BinPutImpl(ref data: Slice<const Byte>) {
 		val dummy = 0u;
 		Win32.WriteFile(handle, data.SysDataPointer, DWord{data.Length}, Ptr{dummy}, null);
+	}
+	
+	def ReadLine(): String {
+		val line = "";
+		
+		while (true) {
+			val c = ConsoleStream.getchar();
+			
+			if(c < 0)
+				return line;
+			
+			if(c == '\n')
+				return line;
+			
+			line << Char{Byte{c}};
+		}
+		
+		return line;
 	}
 	
 #else
@@ -29,7 +51,10 @@ private {
 	
 #if Compiler.Platform == "WIN32"
 
-	val handle = Win32.GetStdHandle(Win32.STD_OUTPUT_HANDLE);
+	val handle = 0u;
+	
+	@[bindc]
+	static def getchar(): Int;
 	
 #else
 

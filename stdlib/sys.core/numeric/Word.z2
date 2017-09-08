@@ -41,9 +41,9 @@ class Word {
 		return this;
 	}
 	
-	def Clamp(min: Word, max: Word); Intrinsic.Clamp;
+	def Clamp(min: Word, max: Word) = Intrinsic.Clamp;
 	
-	func Clamped(min: Word, max: Word): Word; Intrinsic.Clamped;
+	func Clamped(min: Word, max: Word): Word = Intrinsic.Clamped;
 
 	this(string: String) {
 		val s = Slice<Byte>{string};

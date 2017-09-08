@@ -243,3 +243,4 @@ Returns `false` because the array is static and always has a non-zero length.
 
 ***
 
+[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

@@ -40,10 +40,14 @@ class Int {
 	property Round: Int {
 		return this;
 	}
-
-	def Clamp(min: Int, max: Int); Intrinsic.Clamp;
 	
-	func Clamped(min: Int, max: Int): Int; Intrinsic.Clamped;
+	property Trunc: Int {
+		return this;
+	}
+
+	def Clamp(min: Int, max: Int) = Intrinsic.Clamp;
+	
+	func Clamped(min: Int, max: Int): Int = Intrinsic.Clamped;
 
 	this(string: String) {
 		val s = Slice<Byte>{string};

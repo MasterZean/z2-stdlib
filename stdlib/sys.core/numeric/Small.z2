@@ -41,9 +41,9 @@ class Small {
 		return this;
 	}
 
-	def Clamp(min: Small, max: Small); Intrinsic.Clamp;
+	def Clamp(min: Small, max: Small) = Intrinsic.Clamp;
 	
-	func Clamped(min: Small, max: Small): Small; Intrinsic.Clamped;
+	func Clamped(min: Small, max: Small): Small = Intrinsic.Clamped;
 
 
 	this(string: String) {

@@ -1,0 +1,136 @@
+namespace sys.core;
+
+static class Math {
+#region trigonometry
+
+	def Sin(value: Double): Double = bind.c.math.sin;
+	def Sin(value: Float) : Float  = bind.c.math.sin;
+	
+	def Cos(value: Double): Double = bind.c.math.cos;
+	def Cos(value: Float) : Float  = bind.c.math.cos;
+	
+	def Tan(value: Double): Double = bind.c.math.tan;
+	def Tan(value: Float) : Float  = bind.c.math.tan;
+	
+	def Asin(value: Double): Double = bind.c.math.asin;
+	def Asin(value: Float) : Float  = bind.c.math.asin;
+	
+	def Acos(value: Double): Double = bind.c.math.acos;
+	def Acos(value: Float) : Float  = bind.c.math.acos;
+	
+	def Atan(value: Double): Double = bind.c.math.atan;
+	def Atan(value: Float) : Float  = bind.c.math.atan;
+	
+	def Sinh(value: Double): Double = bind.c.math.sinh;
+	def Sinh(value: Float) : Float  = bind.c.math.sinh;
+	
+	def Cosh(value: Double): Double = bind.c.math.cosh;
+	def Cosh(value: Float) : Float  = bind.c.math.cosh;
+	
+	def Tanh(value: Double): Double = bind.c.math.tanh;
+	def Tanh(value: Float) : Float  = bind.c.math.tanh;
+	
+	def Asinh(value: Double): Double = bind.c.math.asinh;
+	def Asinh(value: Float) : Float  = bind.c.math.asinh;
+	
+	def Acosh(value: Double): Double = bind.c.math.acosh;
+	def Acosh(value: Float) : Float  = bind.c.math.acosh;
+	
+	def Atanh(value: Double): Double = bind.c.math.atanh;
+	def Atanh(value: Float) : Float  = bind.c.math.atanh;
+	
+#endregion
+	
+#region powers
+
+	def Log(value: Double): Double = bind.c.math.log;
+	def Log(value: Float) : Float  = bind.c.math.log;
+	
+	def Log2(value: Double): Double = bind.c.math.log2;
+	def Log2(value: Float) : Float  = bind.c.math.log2;
+	
+	def Log10(value: Double): Double = bind.c.math.log10;
+	def Log10(value: Float) : Float  = bind.c.math.log10;
+	
+#endregion
+
+#region bitrotate
+	
+	def Rol8(value: Int, bits: DWord): Byte = _rotl8;
+	def Rol8(value: DWord, bits: DWord): Byte = _rotl8;
+
+	def Ror8(value: Int, bits: DWord): Byte = _rotr8;
+	def Ror8(value: DWord, bits: DWord): Byte = _rotr8;
+
+	def Rol16(value: Int, bits: DWord): Word = _rotl16;
+	def Rol16(value: DWord, bits: DWord): Word = _rotl16;
+
+	def Ror16(value: Int, bits: DWord): Word = _rotr16;
+	def Ror16(value: DWord, bits: DWord): Word = _rotr16;
+
+	def Rol32(value: Int, bits: DWord): DWord = _rotl;
+	def Rol32(value: DWord, bits: DWord): DWord = _rotl;
+
+	def Ror32(value: Int, bits: DWord): DWord = _rotr;
+	def Ror32(value: DWord, bits: DWord): DWord = _rotr;
+
+	def Rol64(value: Long, bits: DWord): QWord = _rotl64;
+	def Rol64(value: QWord, bits: DWord): QWord = _rotl64;
+
+	def Ror64(value: Long, bits: DWord): QWord = _rotr64;
+	def Ror64(value: QWord, bits: DWord): QWord = _rotr64;
+	
+#endregion
+
+}
+private {
+    
+#if Compiler.Platform == "WIN32"
+
+    @[bindc] def _rotr8 (value: Byte, shift: Byte): Byte;
+	@[bindc] def _rotr16(value: Word, shift: Byte): Word;
+	@[bindc] def _rotl8 (value: Byte, shift: Byte): Byte;
+	@[bindc] def _rotl16(value: Word, shift: Byte): Word;
+	
+	@[bindc, cdecl] def _rotl  (_Val: DWord, _Shift: Int): DWord;
+	@[bindc, cdecl] def _rotl64(_Val: QWord, _Shift: Int): QWord;
+	@[bindc, cdecl] def _rotr  (_Val: DWord, _Shift: Int): DWord;
+	@[bindc, cdecl] def _rotr64(_Val: QWord, _Shift: Int): QWord;
+	
+#else
+
+    def _rotl8(Byte x, Byte r): Byte {
+        return (x << r) | (x >> (8 - r));
+    }
+    
+    def _rotr8(x: Byte, r: Byte): Byte {
+        return (x >> r) | (x << (8 - r));
+    }
+    
+    def _rotl16(x: Word, r: Byte): Word {
+        return (x << r) | (x >> (16 - r));
+    }
+    
+    def _rotr16(x: Word, r: Byte): Word{
+        return (x >> r) | (x << (16 - r));
+    }
+    
+    def _rotl(x: DWord, r:Byte): DWord {
+        return (x << r) | (x >> (32 - r));
+    }
+    
+    def _rotr(DWord x, r: Byte): DWord {
+        return (x >> r) | (x << (32 - r));
+    }
+    
+    def _rotl64 (x: QWord, r: Small): QWord {
+        return (x << r) | (x >> (64 - r));
+    }
+    
+    def _rotr64 (x: QWord, r: Small): QWord {
+        return (x >> r) | (x << (64 - r));
+    }
+
+#endif
+
+}

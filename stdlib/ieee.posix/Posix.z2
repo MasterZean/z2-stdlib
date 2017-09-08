@@ -1,9 +1,9 @@
 namespace ieee.posix;
 
-class Posix {
+static class Posix {
 	const STDIN = 0;
 	const STDOUT = 1;
 	const STDERR = 2;
 	
-	static def write(fd: Int, buf: Ptr<Byte>, nbytes: PtrSize): PtrSize; extern;
+	@[bindc] def write(fd: Int, buf: Ptr<Byte>, nbytes: PtrSize): PtrSize;
 }

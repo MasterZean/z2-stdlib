@@ -19,9 +19,9 @@ class Char {
 
 	const Invalid: Char = -1;
 	
-	def Clamp(min: Char, max: Char); Intrinsic.Clamp;
+	def Clamp(min: Char, max: Char) = Intrinsic.Clamp;
 	
-	func Clamped(min: Char, max: Char): Char; Intrinsic.Clamped;
+	func Clamped(min: Char, max: Char): Char = Intrinsic.Clamped;
 
 	property IsAsciiDigit: Bool {
 		return this >= '0' && this <= '9';

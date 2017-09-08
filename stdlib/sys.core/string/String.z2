@@ -35,6 +35,15 @@ class String {
 		return data[index];
 	}
 
+    this(data: Char) {
+        val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+        val ch = data;
+		val s = Slice<Byte>{ch};
+		ConvertUtf8.CharAsText(s, data);
+		
+		this{s};
+    }
+    
 	this(chars: Slice<Byte>) {
 		length = chars.Length;
 		data = chars.SysDataPointer.Clone(length + 1, length);
@@ -53,6 +62,13 @@ class String {
 		data = chars.SysDataPointer.Clone(len + 1, len);
 		length = len;
 		capacity = len;
+		data[length] = 0;
+	}
+	
+	this(chars: String, start: PtrSize, end: PtrSize) {
+		data = (chars.SysDataPointer + start).Clone(end - start + 2, end - start + 1);
+		length = end - start + 1;
+		capacity = end - start;
 		data[length] = 0;
 	}
 
@@ -371,6 +387,18 @@ class String {
         }
         
         return v;
+    }
+    
+    func Trimmed(): String {
+        val start = 0p;
+        while (start < Length && this[start] <= ' ')
+            start++;
+        
+        val end = Length - 1;
+        while (end != -1 && this[end] <= ' ')
+            end--;
+        
+        return String{this, start, end};
     }
     
 	func @write(ref stream: Stream) {

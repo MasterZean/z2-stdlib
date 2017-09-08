@@ -35,8 +35,6 @@ the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-
-
 #### @write
 
 ```C#
@@ -266,3 +264,6 @@ Should not be used for buffer sizes.
 
 ***
 
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
+[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

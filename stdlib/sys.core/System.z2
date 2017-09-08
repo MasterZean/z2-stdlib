@@ -9,9 +9,14 @@ using ieee.posix.Posix;
 class System {
 	static val Debug = sys.core.SystemDebug{};
 	static val Trace = sys.core.SystemTrace{};
-	static val Out = sys.core.ConsoleStream{};
-	static val CPU = sys.core.SystemCPU{};
 	
+	static val CPU = sys.core.SystemCPU{};
+
+#if Compiler.Platfrom == "WIN32"
+
+    static val Out = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_OUTPUT_HANDLE)};
+    static val In = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_INPUT_HANDLE)};
+    
 	static def @setup() {
 		SetConsoleCodePage();
 		
@@ -78,6 +83,20 @@ class System {
 			return String{};
 		}
 	}
+	
+#else
+
+    static val Out = sys.core.ConsoleStream{};
+    
+	static def @setup() {
+	}
+	
+	static def GetEnvVariable(val var: String): String {
+		return "";
+	}
+	
+#endif
+
 }
 private {
 	
@@ -86,7 +105,7 @@ private {
 	static def SetConsoleCodePage() {
 		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
 	}
-	
+
 #else
 
 	static def SetConsoleCodePage() {

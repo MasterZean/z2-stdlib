@@ -49,7 +49,7 @@ class Stream {
 		val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 		val s = Slice<Byte>{buf};
 		ConvertUtf8.CharAsText(s, data);
-		BinPut(s);
+		FormatBuffer(s, format);
 	}
 
 	virtual def RawWrite(data: Int) {
@@ -353,21 +353,49 @@ class Stream {
 		else if (format.Width > s.Length) {
 			if (format.Align == sys.core.LineAlignment.Right) {
 				val left = format.Width - s.Length;
+				
+				val reduce = format.ForceSign && s[0] != '+' && s[0] != '-';
+				
+				if (reduce)
+					left--;
+				
 				while (left > 0) {
-					val ss = " ";
-					val s2 = Slice<Byte>{ss};
-					BinPut(s2);
+					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+					val slice = Slice<Byte>{buf};
+					ConvertUtf8.CharAsText(slice, format.FillBefore);
+					BinPut(slice);
 					left--;
 				}
+				
+				if (reduce) {
+					val buf = CArray[Byte{'+'}];
+					val slice = Slice<Byte>{buf};
+					BinPut(slice);
+				}
+				
 				BinPut(s);
 			}
 			else if (format.Align == sys.core.LineAlignment.Left) {
+			    val right = format.Width - s.Length;
+				val reduce = format.ForceSign && s[0] != '+' && s[0] != '-';
+				
+				if (reduce) {
+					right--;
+					
+					if (reduce) {
+					val buf = CArray[Byte{'+'}];
+						val slice = Slice<Byte>{buf};
+						BinPut(slice);
+					}
+				}
+				
 				BinPut(s);
-				val right = format.Width - s.Length;
+				
 				while (right > 0) {
-					val ss = " ";
-					val s2 = Slice<Byte>{ss};
-					BinPut(s2);
+					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+					val slice = Slice<Byte>{buf};
+					ConvertUtf8.CharAsText(slice, format.FillAfter);
+					BinPut(slice);
 					right--;
 				}
 			}
@@ -375,19 +403,32 @@ class Stream {
 				val left = (format.Width - s.Length) / 2;
 				val right = format.Width - s.Length - left;
 				
-				while (left > 0) {
-					val ss = " ";
-					val s2 = Slice<Byte>{ss};
-					BinPut(s2);
+				val reduce = format.ForceSign && s[0] != '+' && s[0] != '-';
+				
+				if (reduce)
 					left--;
+				
+				while (left > 0) {
+					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+					val slice = Slice<Byte>{buf};
+					ConvertUtf8.CharAsText(slice, format.FillBefore);
+					BinPut(slice);
+					left--;
+				}
+				
+				if (reduce) {
+					val buf = CArray[Byte{'+'}];
+					val slice = Slice<Byte>{buf};
+					BinPut(slice);
 				}
 				
 				BinPut(s);
 				
 				while (right > 0) {
-					val ss = " ";
-					val s2 = Slice<Byte>{ss};
-					BinPut(s2);
+					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
+					val slice = Slice<Byte>{buf};
+					ConvertUtf8.CharAsText(slice, format.FillAfter);
+					BinPut(slice);
 					right--;
 				}
 			}

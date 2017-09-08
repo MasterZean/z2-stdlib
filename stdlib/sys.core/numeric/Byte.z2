@@ -41,9 +41,9 @@ class Byte {
 		return this;
 	}
 	
-	def Clamp(min: Byte, max: Byte); Intrinsic.Clamp;
+	def Clamp(min: Byte, max: Byte) = Intrinsic.Clamp;
 	
-	func Clamped(min: Byte, max: Byte): Byte; Intrinsic.Clamped;
+	func Clamped(min: Byte, max: Byte): Byte = Intrinsic.Clamped;
 
 	this(string: String) {
 		val s = Slice<Byte>{string};

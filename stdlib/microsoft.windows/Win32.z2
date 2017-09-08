@@ -78,33 +78,48 @@ class Win32 {
 	const AW_SLIDE                    = 0x00040000;
 	const AW_BLEND                    = 0x00080000;
 
+    const STD_INPUT_HANDLE = DWord{-10};
 	const STD_OUTPUT_HANDLE = DWord{-11};
+	const STD_ERROR_HANDLE = DWord{-10};
 	const CP_UTF8 = 65001u;
 
 	const MAX_PATH = 260u;
 	
-	static def GetStdHandle(nStdHandle: DWord): DWord; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def GetStdHandle(nStdHandle: DWord): DWord;
 
+	@[dllimport, stdcall]
 	static def WriteFile(hFile: DWord, Buffer: Ptr<Byte>, nNumberOfBytesToWrite: DWord,
-       lpNumberOfBytesWritten: Ptr<DWord>, lpOverlapped: Ptr<Byte>): Int; dllimport stdcall;
+       lpNumberOfBytesWritten: Ptr<DWord>, lpOverlapped: Ptr<Byte>): Int;
 
-	static def SetConsoleOutputCP(wCodePageID: DWord): Int; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def SetConsoleOutputCP(wCodePageID: DWord): Int;
 
-	static def MessageBoxW(hWnd: DWord, lpText: Ptr<Word>, lpCaption: Ptr<Word>, uType: DWord): Int; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def MessageBoxW(hWnd: DWord, lpText: Ptr<Word>, lpCaption: Ptr<Word>, uType: DWord): Int;
 	
-	static def QueryPerformanceCounter(lpPerformanceCount: Ptr<Long>): Int; dllimport stdcall;
-	static def QueryPerformanceFrequency(lpFrequency: Ptr<Long>): Int; dllimport stdcall;
-	static def Sleep(dwMilliseconds: DWord); dllimport stdcall;
+	@[dllimport, stdcall]
+	static def QueryPerformanceCounter(lpPerformanceCount: Ptr<Long>): Int;
+	@[dllimport, stdcall]
+	static def QueryPerformanceFrequency(lpFrequency: Ptr<Long>): Int;
+	@[dllimport, stdcall]
+	static def Sleep(dwMilliseconds: DWord);
 	
-	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord; dllimport stdcall;
-	static def SetCurrentDirectoryW(lpPathName: Ptr<Word>): Int; dllimport stdcall;
-	static def GetModuleFileNameW(hModule: Int, lpFilename: Ptr<Word>, nSize: DWord): DWord; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def GetCurrentDirectoryW(nBufferLength: DWord, lpBuffer: Ptr<Word>): DWord;
+	@[dllimport, stdcall]
+	static def SetCurrentDirectoryW(lpPathName: Ptr<Word>): Int;
+	@[dllimport, stdcall]
+	static def GetModuleFileNameW(hModule: Int, lpFilename: Ptr<Word>, nSize: DWord): DWord;
 	
-	static def GetEnvironmentVariableW(lpName: Ptr<Word>, lpBuffer: Ptr<Word>, nSize: DWord): DWord; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def GetEnvironmentVariableW(lpName: Ptr<Word>, lpBuffer: Ptr<Word>, nSize: DWord): DWord;
 	
-	static def GetLastError(): DWord; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def GetLastError(): DWord;
 	
-	static def GetCurrentProcess(): DWord; dllimport stdcall;
+	@[dllimport, stdcall]
+	static def GetCurrentProcess(): DWord;
 }
 
 class FILETIME {

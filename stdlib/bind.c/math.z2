@@ -1,0 +1,93 @@
+namespace bind.c;
+
+static class math {
+	@[bindc] def log(d: Double): Double;
+	
+	def log(value: Float): Float {
+		return Float{log(Double{value})};
+	}
+	
+	@[bindc] def log10(d: Double): Double;
+	
+	def log10(value: Float): Float {
+		return Float{log10(Double{value})};
+	}
+	
+	@[bindc] def log2(d: Double): Double;
+	
+	def log2(value: Float): Float {
+		return Float{log2(Double{value})};
+	}
+	
+	@[bindc] def sin(d: Double): Double;
+	
+	def sin(value: Float): Float {
+		return Float{sin(Double{value})};
+	}
+	
+	@[bindc] def cos(d: Double): Double;
+	
+	def cos(value: Float): Float {
+		return Float{cos(Double{value})};
+	}
+	
+	@[bindc] def tan(d: Double): Double;
+	
+	def tan(value: Float): Float {
+		return Float{tan(Double{value})};
+	}
+	
+	@[bindc] def asin(d: Double): Double;
+	
+	def asin(value: Float): Float {
+		return Float{asin(Double{value})};
+	}
+	
+	@[bindc] def acos(d: Double): Double;
+	
+	def acos(value: Float): Float {
+		return Float{acos(Double{value})};
+	}
+	
+	@[bindc] def atan(d: Double): Double;
+	
+	def atan(value: Float): Float {
+		return Float{atan(Double{value})};
+	}
+	
+	@[bindc] def sinh(d: Double): Double;
+	
+	def sinh(value: Float): Float {
+		return Float{sinh(Double{value})};
+	}
+	
+	@[bindc] def cosh(d: Double): Double;
+	
+	def cosh(value: Float): Float {
+		return Float{cosh(Double{value})};
+	}
+	
+	@[bindc] def tanh(d: Double): Double;
+	
+	def tanh(value: Float): Float {
+		return Float{tanh(Double{value})};
+	}
+	
+	@[bindc] def asinh(d: Double): Double;
+	
+	def asinh(value: Float): Float {
+		return Float{asinh(Double{value})};
+	}
+	
+	@[bindc] def acosh(d: Double): Double;
+	
+	def acosh(value: Float): Float {
+		return Float{acosh(Double{value})};
+	}
+	
+	@[bindc] def atanh(d: Double): Double;
+	
+	def atanh(value: Float): Float {
+		return Float{atanh(Double{value})};
+	}
+}

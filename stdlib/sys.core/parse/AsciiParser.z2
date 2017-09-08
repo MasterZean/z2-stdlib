@@ -15,6 +15,13 @@ class AsciiParser {
 		EatSpaces();
 	}
 	
+	this(data: String, skipSpaces: Bool) {
+	    SkipWhitespace = skipSpaces;
+		term = data.SysDataPointer;
+		wspc = term;
+		lineptr = term;
+	}
+	
 	val SkipWhitespace = true;
 	val SkipComments = true;
 	val NestComments = false;
@@ -22,6 +29,11 @@ class AsciiParser {
 	def EatSpaces(): Bool {
 		wspc = term;
 		return (term[0] <= ' ' || term[0] == '/') && eatSpaces();
+	}
+	
+	def EatSpacesNoLineSkip(): Bool {
+	    wspc = term;
+		return (term[0] <= ' ' || term[0] == '/') && eatSpacesNoLineSkip();
 	}
 	
 	func IsId(): Bool {
@@ -241,6 +253,20 @@ protected {
 				line++;
 				lineptr = term + 1;
 			}
+			
+			term++;
+		}
+		
+		return true;
+	}
+	
+	def eatSpacesNoLineSkip(): Bool {
+		if (term[0] > ' ')
+			return false;
+		
+		for(;;) {
+			if (term[0] == 0 || term[0] > ' ' || term[0] == '\n')
+				break;
 			
 			term++;
 		}

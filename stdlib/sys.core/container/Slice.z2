@@ -36,9 +36,19 @@ class Slice<T: Class> {
 		size = p.@size / T.@size;
 	}
 	
+	this(ref p: Small, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: Short) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Short, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
 	this(ref p: Byte) {
@@ -46,9 +56,19 @@ class Slice<T: Class> {
 		size = p.@size / T.@size;
 	}
 	
+	this(ref p: Byte, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: Word) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Word, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
 	this(ref p: Int) {
@@ -111,6 +131,16 @@ class Slice<T: Class> {
 		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
+	this(ref p: Char) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Char, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: String) {
 		ptr = p.SysDataPointer;
 		size = p.Length;
@@ -135,7 +165,7 @@ class Slice<T: Class> {
 	}
 	
 	property @index: T
-	get [index: PtrSize] const {
+	get const [index: PtrSize] {
 		System.Debug.Assert(index < size);
 		return ptr[index];
 	}

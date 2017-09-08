@@ -12,6 +12,7 @@ this{move copy: Vector<T>}
 Copy/move constructor.
 
 Creates a new instance containing a copy of the input parameter, or moves the data if the input parameter is an expiring value.
+
 ###### param copy
 the vector to copy/move from
 ***
@@ -58,6 +59,7 @@ the item collection to append
 Append a single item or a collection to the end of the vector.
 
 It calls `Add` to do the appending operation.
+
 ***
 
 #### Fill
@@ -320,3 +322,4 @@ property SysDataPointer: Ptr<T>; get;
 
 ***
 
+[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

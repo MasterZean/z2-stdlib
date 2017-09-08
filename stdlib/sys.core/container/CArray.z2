@@ -68,7 +68,8 @@ class CArray<T: Class> {
 		this[pos] = item;
 	}
 	
-	def InsertDumb(pos: PtrSize, item: T); test deprecated {
+	@[test, deprecated, nodoc]
+	def InsertDumb(pos: PtrSize, item: T) {
 		System.Debug.Assert(pos < Length);
 		
 		for (val i = Length - 1; i >= pos + 1; i--)
