@@ -26,8 +26,8 @@ The elements of the array are either default constructed or copied over from the
 def Fill(value: T)
 ```
 ```C#
-```
 def Fill(items: Vector<T>)
+```
 ```C#
 def Fill(items: CArray<T>)
 ```
