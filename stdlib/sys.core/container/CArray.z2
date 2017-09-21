@@ -140,14 +140,14 @@ class CArray<T: Class> {
 		s.Sort(low, high);
 	}
 	
-	def SortDescending() {
+	def SortDesc() {
 		val s = Slice<T>{this};
-		s.SortDescending();
+		s.SortDesc();
 	}
 	
-	def SortDescending(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		val s = Slice<T>{this};
-		s.SortDescending(low, high);
+		s.SortDesc(low, high);
 	}
 	
 #region IO

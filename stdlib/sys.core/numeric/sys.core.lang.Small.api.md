@@ -204,7 +204,7 @@ property Trunc: Int; get;
 #### Brief
 Returns the value truncated to the nearest integer value.
 
-In the case of [Short][sys.core.lang.Short] it returns the value itself and is included only for API compatibility when using templates.
+In the case of [Small][sys.core.lang.Small] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 

@@ -309,14 +309,14 @@ class Vector<T: Class> {
 		s.Sort(low, high);
 	}
 	
-	def SortDec() {
+	def SortDesc() {
 		val s = Slice<T>{this};
-		s.SortDec();
+		s.SortDesc();
 	}
 	
-	def SortDec(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		val s = Slice<T>{this};
-		s.SortDec(low, high);
+		s.SortDesc(low, high);
 	}
 	
 #region IO

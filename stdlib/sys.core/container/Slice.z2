@@ -547,7 +547,7 @@ class Slice<T: Class> {
 		Sort(0, Int{size - 1});
 	}
 	
-	def SortDec(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		if (low >= high)
 			return;
 	
@@ -593,8 +593,8 @@ class Slice<T: Class> {
 		SortDec(i, high);
 	}
 	
-	def SortDec() {
-		SortDec(0, Int{size - 1});
+	def SortDesc() {
+		SortDesc(0, Int{size - 1});
 	}
 	
 	func Sum(): T {

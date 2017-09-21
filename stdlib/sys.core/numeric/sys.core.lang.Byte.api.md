@@ -209,6 +209,7 @@ property Trunc: Byte; get;
 Returns the value truncated to the nearest integer value.
 
 In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
+
 ***
 
 ## Constants

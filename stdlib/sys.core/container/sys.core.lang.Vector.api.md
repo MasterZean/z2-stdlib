@@ -81,11 +81,9 @@ func FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
-Searches for an item in the array and returns the first index at which it was found.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
 
-The search starts with index `0`/the `start` parameter.
-
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
 > *item* => the item to search for  
@@ -102,11 +100,9 @@ def BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
-Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
 
-The search starts with index `0`/the `start` parameter.
-
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
 > *item* => the item to search for  
@@ -143,12 +139,13 @@ def Delete(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
+Searches for the first occurrence of an item within the array and if found it removes it.
 
 #### Parameters
-> *item* =>   
-> *items* =>   
+> *item* => the item to delete  
+> *items* => the items to delete  
 #### Returns
-> 
+> the number of deleted items
 ***
 
 ### DeleteAll
@@ -160,11 +157,12 @@ def DeleteAll(item: Vector<T>): PtrSize;
 ```
 
 #### Brief
+Searches for all the occurrences of an item within the array and if found removes them all.
 
 #### Parameters
-> *item* =>   
+> *item* => the item to remove  
 #### Returns
-> 
+> the number of deleted items
 ***
 
 ### DeleteIndex
@@ -176,12 +174,13 @@ def DeleteIndex(items: Vector<PtrSize>): PtrSize;
 ```
 
 #### Brief
+Deletes an item at a given index from the array.
 
 #### Parameters
-> *item* =>   
-> *items* =>   
+> *item* => the index to delete  
+> *items* => an array of indices to delete  
 #### Returns
-> 
+> the number of deleted items
 ***
 
 ### Reverse
@@ -192,10 +191,11 @@ def Reverse(start: PtrSize, end: PtrSize);
 ```
 
 #### Brief
+Reverses the contents of the array, from beginning to end or between two input indices.
 
 #### Parameters
-> *start* =>   
-> *end* =>   
+> *start* => the start index  
+> *end* => the end index  
 ***
 
 ### Sum
@@ -205,9 +205,10 @@ func Sum(): T;
 ```
 
 #### Brief
+Returns the sum of all the items in the array.
 
 #### Returns
-> 
+> the sum
 ***
 
 ### Sort
@@ -218,24 +219,26 @@ def Sort(low: Int, high: Int);
 ```
 
 #### Brief
+Sorts the content of the array in ascending order, from beginning to end or between two input indices.
 
 #### Parameters
-> *low* =>   
-> *high* =>   
+> *low* => the start index  
+> *high* => the end index  
 ***
 
-### SortDec
+### SortDesc
 
 ```C#
-def SortDec();
-def SortDec(low: Int, high: Int);
+def SortDesc();
+def SortDesc(low: Int, high: Int);
 ```
 
 #### Brief
+Sorts the content of the array in descending order, from beginning to end or between two input indices.
 
 #### Parameters
-> *low* =>   
-> *high* =>   
+> *low* => the start index  
+> *high* => the end index  
 ***
 
 ### @write
@@ -245,9 +248,12 @@ func @write(ref stream: Stream);
 ```
 
 #### Brief
+Writes each element of the array to a stream as an Utf8 text.
+
+The item count is included.
 
 #### Parameters
-> *stream* =>   
+> *stream* => the output stream  
 ***
 
 ## Properties
@@ -259,6 +265,7 @@ property Length: PtrSize
 ```
 
 #### Brief
+Read and writes the length of the vector.
 
 ***
 
@@ -269,6 +276,9 @@ property Capacity: PtrSize
 ```
 
 #### Brief
+Read and writes the capacity of the vector.
+
+Capacity can't be set lower than the Length.
 
 ***
 
@@ -279,6 +289,9 @@ property @index: ref T; get;
 ```
 
 #### Brief
+Reads and writes a given index from the vector.
+
+Accessing an invalid index is an error.
 
 ***
 
@@ -289,6 +302,9 @@ property At: ref T; get;
 ```
 
 #### Brief
+Reads and writes a given index from the vector.
+
+Accessing an index greater than Length will cause all the missing values to be default constructed.
 
 ***
 
@@ -299,6 +315,7 @@ property SysDataPointer: Ptr<T>; get;
 ```
 
 #### Brief
+Returns a pointer to the data.
 
 ***
 

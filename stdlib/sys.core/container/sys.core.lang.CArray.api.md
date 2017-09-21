@@ -108,7 +108,7 @@ Since the array is static, it can not shrink in size. Instead elements are copie
 #### Parameters
 > *item* => the item to delete  
 #### Returns
-> the number of items deleted
+> the number of deleted items
 ***
 
 ### DeleteAll
@@ -118,14 +118,14 @@ def DeleteAll(item: T): PtrSize;
 ```
 
 #### Brief
-Searches for all the occurrences of an item within the array and if found removes the all.
+Searches for all the occurrences of an item within the array and if found removes them all.
 
 Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
 #### Parameters
 > *item* => the item to delete  
 #### Returns
-> the number of items deleted
+> the number of deleted items
 ***
 
 ### DeleteIndex
@@ -142,7 +142,7 @@ Since the array is static, it can not shrink in size. Instead elements are copie
 #### Parameters
 > *pos* => the index to delete  
 #### Returns
-> the number of items deleted
+> the number of deleted items
 ***
 
 ### Reverse
@@ -188,11 +188,11 @@ Sorts the content of the array in ascending order, from beginning to end or betw
 > *high* => the end index  
 ***
 
-### SortDescending
+### SortDesc
 
 ```C#
-def SortDescending();
-def SortDescending(low: Int, high: Int);
+def SortDesc();
+def SortDesc(low: Int, high: Int);
 ```
 
 #### Brief
