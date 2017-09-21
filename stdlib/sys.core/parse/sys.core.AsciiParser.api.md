@@ -1,4 +1,4 @@
-# class AsciiParser from *sys.core*
+# class *AsciiParser* from sys.core
 
 ## Constructors
 
@@ -17,7 +17,7 @@ The buffer is not copied over so its lifespan must exceed the lifespan of the pa
 
 #### Parameters
 > *data* => the data to parse  
-> *skipSpaces* => 
+> *skipSpaces* =>   
 ***
 
 ## Methods
@@ -25,7 +25,7 @@ The buffer is not copied over so its lifespan must exceed the lifespan of the pa
 ### EatSpaces
 
 ```C#
-def EatSpaces()
+def EatSpaces(): Bool
 ```
 
 #### Brief
@@ -40,21 +40,20 @@ If there was nothing to consume, the state of the parser is not changed.
 ### EatSpacesNoLineSkip
 
 ```C#
-def EatSpacesNoLineSkip()
+def EatSpacesNoLineSkip(): Bool
 ```
 
 #### Brief
 
-
 #### Returns
-
+> 
 ***
 
 ### IsId
 
 ```C#
-func IsId()
-func IsId(id: String)
+func IsId(): Bool
+func IsId(id: String): Bool
 ```
 
 #### Brief
@@ -71,7 +70,7 @@ Identifiers use "C" rules.
 ### EatId
 
 ```C#
-def EatId(id: String)
+def EatId(id: String): Bool
 ```
 
 #### Brief
@@ -86,7 +85,7 @@ Attempts to consume a given identifier. If the identifier was not found, the sta
 ### ReadId
 
 ```C#
-def ReadId()
+def ReadId(): String
 ```
 
 #### Brief
@@ -101,7 +100,7 @@ Should be used ideally after `IsId`.
 ### Peek
 
 ```C#
-func Peek()
+func Peek(): Char
 ```
 
 #### Brief
@@ -114,9 +113,9 @@ Peeks into the buffer and returns the next byte without changing the state of th
 ### IsChar
 
 ```C#
-func IsChar(c: Char)
-func IsChar(c1: Char, c2: Char)
-func IsChar(c1: Char, c2: Char, c3: Char)
+func IsChar(c: Char): Bool
+func IsChar(c1: Char, c2: Char): Bool
+func IsChar(c1: Char, c2: Char, c3: Char): Bool
 ```
 
 #### Brief
@@ -136,9 +135,9 @@ Does not alter the state of the parser.
 ### EatChar
 
 ```C#
-def EatChar(c: Char)
-def EatChar(c1: Char, c2: Char)
-def EatChar(c1: Char, c2: Char, c3: Char)
+def EatChar(c: Char): Bool
+def EatChar(c1: Char, c2: Char): Bool
+def EatChar(c1: Char, c2: Char, c3: Char): Bool
 ```
 
 #### Brief
@@ -156,7 +155,7 @@ Attempts to consume 1-3 input bytes.
 ### IsInt
 
 ```C#
-func IsInt()
+func IsInt(): Bool
 ```
 
 #### Brief
@@ -169,7 +168,7 @@ Checks if the parser contains an integer, including sign.
 ### Sign
 
 ```C#
-def Sign()
+def Sign(): Int
 ```
 
 #### Brief
@@ -186,7 +185,7 @@ If '-' is found, it returns '-1'.
 ### IsNumber
 
 ```C#
-func IsNumber(base: Int)
+func IsNumber(base: Int): Bool
 ```
 
 #### Brief
@@ -201,7 +200,7 @@ Returns true if the parser sees a number in a given base.
 ### ReadInt
 
 ```C#
-def ReadInt()
+def ReadInt(): Int
 ```
 
 #### Brief
@@ -214,7 +213,7 @@ Attempts to read and consume an integer in a base 10.
 ### ReadNumber
 
 ```C#
-def ReadNumber(base: Int)
+def ReadNumber(base: Int): DWord
 ```
 
 #### Brief

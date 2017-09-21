@@ -1,4 +1,4 @@
-# enum UnicodeCategory from *sys.core.i18n*
+# enum *UnicodeCategory* from sys.core.i18n
 
 ## Constructors
 
@@ -20,7 +20,7 @@ Constructs a new instance from a string abbreviation.
 ### ToAbbr
 
 ```C#
-func ToAbbr()
+func ToAbbr(): String
 ```
 
 #### Brief

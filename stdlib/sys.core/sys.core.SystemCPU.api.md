@@ -1,4 +1,4 @@
-# class SystemCPU from *sys.core*
+# class *SystemCPU* from sys.core
 
 ## Variables
 

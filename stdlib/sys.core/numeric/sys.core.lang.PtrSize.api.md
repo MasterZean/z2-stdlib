@@ -1,4 +1,4 @@
-# class PtrSize from *sys.core.lang*
+# class *PtrSize* from sys.core.lang
 
 ## Methods
 
@@ -20,7 +20,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: PtrSize, max: PtrSize)
+func Clamped(min: PtrSize, max: PtrSize): PtrSize
 ```
 
 #### Brief

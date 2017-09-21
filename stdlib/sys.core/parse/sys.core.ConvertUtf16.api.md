@@ -1,4 +1,4 @@
-# class ConvertUtf16 from *sys.core*
+# class *ConvertUtf16* from sys.core
 
 ## Methods
 

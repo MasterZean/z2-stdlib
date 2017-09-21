@@ -1,4 +1,4 @@
-# class StopWatch from *sys.core*
+# class *StopWatch* from sys.core
 
 ## Constructors
 
@@ -44,7 +44,7 @@ Resets the internal statistics and starts tracking time from the point in time o
 ### Elapsed
 
 ```C#
-func Elapsed()
+func Elapsed(): Double
 ```
 
 #### Brief

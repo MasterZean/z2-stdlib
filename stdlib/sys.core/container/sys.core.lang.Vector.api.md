@@ -1,4 +1,4 @@
-# class Vector from *sys.core.lang*
+# class *Vector* from sys.core.lang
 
 ## Constructors
 
@@ -76,8 +76,8 @@ If an array is provided, elements will be copied over in sequence. If the source
 ### FindIndex
 
 ```C#
-func FindIndex(item: T)
-func FindIndex(item: T, start: PtrSize)
+func FindIndex(item: T): PtrSize
+func FindIndex(item: T, start: PtrSize): PtrSize
 ```
 
 #### Brief
@@ -97,8 +97,8 @@ Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 ### BinaryIndex
 
 ```C#
-func BinaryIndex(item: T)
-def BinaryIndex(item: T, start: PtrSize)
+func BinaryIndex(item: T): PtrSize
+def BinaryIndex(item: T, start: PtrSize): PtrSize
 ```
 
 #### Brief
@@ -137,16 +137,16 @@ THe array will grow to accommodate the inserted items.
 ### Delete
 
 ```C#
-def Delete(item: T)
-def Delete(items: CArray<T>)
-def Delete(items: Vector<T>)
+def Delete(item: T): PtrSize
+def Delete(items: CArray<T>): PtrSize
+def Delete(items: Vector<T>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *items* => 
+> *item* =>   
+> *items* =>   
 #### Returns
 > 
 ***
@@ -154,15 +154,15 @@ def Delete(items: Vector<T>)
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T)
-def DeleteAll(item: CArray<T>)
-def DeleteAll(item: Vector<T>)
+def DeleteAll(item: T): PtrSize
+def DeleteAll(item: CArray<T>): PtrSize
+def DeleteAll(item: Vector<T>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
+> *item* =>   
 #### Returns
 > 
 ***
@@ -170,16 +170,16 @@ def DeleteAll(item: Vector<T>)
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(item: PtrSize)
-def DeleteIndex(items: CArray<PtrSize>)
-def DeleteIndex(items: Vector<PtrSize>)
+def DeleteIndex(item: PtrSize): PtrSize
+def DeleteIndex(items: CArray<PtrSize>): PtrSize
+def DeleteIndex(items: Vector<PtrSize>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *items* => 
+> *item* =>   
+> *items* =>   
 #### Returns
 > 
 ***
@@ -194,14 +194,14 @@ def Reverse(start: PtrSize, end: PtrSize)
 #### Brief
 
 #### Parameters
-> *start* => 
-> *end* => 
+> *start* =>   
+> *end* =>   
 ***
 
 ### Sum
 
 ```C#
-func Sum()
+func Sum(): T
 ```
 
 #### Brief
@@ -220,8 +220,8 @@ def Sort(low: Int, high: Int)
 #### Brief
 
 #### Parameters
-> *low* => 
-> *high* => 
+> *low* =>   
+> *high* =>   
 ***
 
 ### SortDec
@@ -234,8 +234,8 @@ def SortDec(low: Int, high: Int)
 #### Brief
 
 #### Parameters
-> *low* => 
-> *high* => 
+> *low* =>   
+> *high* =>   
 ***
 
 ### @write
@@ -247,7 +247,7 @@ func @write(ref stream: Stream)
 #### Brief
 
 #### Parameters
-> *stream* => 
+> *stream* =>   
 ***
 
 ## Properties

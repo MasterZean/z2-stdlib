@@ -1,4 +1,4 @@
-# class Long from *sys.core.lang*
+# class *Long* from sys.core.lang
 
 ## Constructors
 
@@ -51,7 +51,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Long, max: Long)
+func Clamped(min: Long, max: Long): Long
 ```
 
 #### Brief
@@ -68,7 +68,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

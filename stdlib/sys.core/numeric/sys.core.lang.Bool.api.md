@@ -1,4 +1,4 @@
-# class Bool from *sys.core.lang*
+# class *Bool* from sys.core.lang
 
 ## Constructors
 
@@ -35,7 +35,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Bool, max: Bool)
+func Clamped(min: Bool, max: Bool): Int
 ```
 
 #### Brief
@@ -52,7 +52,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

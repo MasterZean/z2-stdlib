@@ -1,4 +1,4 @@
-# class ColorRGBA from *sys.core*
+# class *ColorRGBA* from sys.core
 
 ## Constructors
 
@@ -112,7 +112,7 @@ Creates a new color from an integer encoded in the ABGR memory layout.
 ### ToRGBA
 
 ```C#
-func ToRGBA()
+func ToRGBA(): DWord
 ```
 
 #### Brief
@@ -125,7 +125,7 @@ Encodes the color to an integer using the RGBA memory layout.
 ### ToBGRA
 
 ```C#
-func ToBGRA()
+func ToBGRA(): DWord
 ```
 
 #### Brief
@@ -138,7 +138,7 @@ Encodes the color to an integer using the BGRA memory layout.
 ### ToARGB
 
 ```C#
-func ToARGB()
+func ToARGB(): DWord
 ```
 
 #### Brief
@@ -151,7 +151,7 @@ Encodes the color to an integer using the ARGB memory layout.
 ### ToABGR
 
 ```C#
-func ToABGR()
+func ToABGR(): DWord
 ```
 
 #### Brief
@@ -179,8 +179,8 @@ Clamps each component of the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: ColorRGBA, max: ColorRGBA)
-func Clamped(min: Byte, max: Byte)
+func Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA
+func Clamped(min: Byte, max: Byte): ColorRGBA
 ```
 
 #### Brief
@@ -196,7 +196,7 @@ Returns a copy of the color with each component clamped between `min` and `max`.
 ### GetMin
 
 ```C#
-func GetMin(min: ColorRGBA)
+func GetMin(min: ColorRGBA): ColorRGBA
 ```
 
 #### Brief
@@ -211,7 +211,7 @@ Returns the member-wise minimum between the current instance and the input.
 ### GetMax
 
 ```C#
-func GetMax(max: ColorRGBA)
+func GetMax(max: ColorRGBA): ColorRGBA
 ```
 
 #### Brief
@@ -226,11 +226,11 @@ Returns the member-wise maximum between the current instance and the input.
 ### @add
 
 ```C#
-func @add(second: ColorRGBA)
-func @add(second: Int)
-func @add(second: DWord)
-func @add(second: Float)
-func @add(second: Double)
+func @add(second: ColorRGBA): ColorRGBA
+func @add(second: Int): ColorRGBA
+func @add(second: DWord): ColorRGBA
+func @add(second: Float): ColorRGBA
+func @add(second: Double): ColorRGBA
 ```
 
 #### Brief
@@ -239,21 +239,21 @@ Member-wise addition operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the member-wise sum
 ***
 
 ### @sub
 
 ```C#
-static func @sub(left: ColorRGBA, right: ColorRGBA)
-static func @sub(left: Int, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Int)
-static func @sub(left: DWord, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: DWord)
-static func @sub(left: Float, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Float)
-static func @sub(left: Double, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Double)
+static func @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA
+static func @sub(left: Int, right: ColorRGBA): ColorRGBA
+static func @sub(left: ColorRGBA, right: Int): ColorRGBA
+static func @sub(left: DWord, right: ColorRGBA): ColorRGBA
+static func @sub(left: ColorRGBA, right: DWord): ColorRGBA
+static func @sub(left: Float, right: ColorRGBA): ColorRGBA
+static func @sub(left: ColorRGBA, right: Float): ColorRGBA
+static func @sub(left: Double, right: ColorRGBA): ColorRGBA
+static func @sub(left: ColorRGBA, right: Double): ColorRGBA
 ```
 
 #### Brief
@@ -263,17 +263,17 @@ Member-wise subtraction operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the member-wise substraction
 ***
 
 ### @mul
 
 ```C#
-func @mul(second: ColorRGBA)
-func @mul(second: Int)
-func @mul(second: DWord)
-func @mul(second: Float)
-func @mul(second: Double)
+func @mul(second: ColorRGBA): ColorRGBA
+func @mul(second: Int): ColorRGBA
+func @mul(second: DWord): ColorRGBA
+func @mul(second: Float): ColorRGBA
+func @mul(second: Double): ColorRGBA
 ```
 
 #### Brief
@@ -282,21 +282,21 @@ Member-wise multiplication operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the member-wise multiplication
 ***
 
 ### @div
 
 ```C#
-static func @div(left: ColorRGBA, right: ColorRGBA)
-static func @div(left: Int, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Int)
-static func @div(left: DWord, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: DWord)
-static func @div(left: Float, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Float)
-static func @div(left: Double, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Double)
+static func @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA
+static func @div(left: Int, right: ColorRGBA): ColorRGBA
+static func @div(left: ColorRGBA, right: Int): ColorRGBA
+static func @div(left: DWord, right: ColorRGBA): ColorRGBA
+static func @div(left: ColorRGBA, right: DWord): ColorRGBA
+static func @div(left: Float, right: ColorRGBA): ColorRGBA
+static func @div(left: ColorRGBA, right: Float): ColorRGBA
+static func @div(left: Double, right: ColorRGBA): ColorRGBA
+static func @div(left: ColorRGBA, right: Double): ColorRGBA
 ```
 
 #### Brief
@@ -306,21 +306,21 @@ Member-wise division operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the member-wise division
 ***
 
 ### @mod
 
 ```C#
-static func @mod(left: ColorRGBA, right: ColorRGBA)
-static func @mod(left: Int, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Int)
-static func @mod(left: DWord, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: DWord)
-static func @mod(left: Float, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Float)
-static func @mod(left: Double, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Double)
+static func @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA
+static func @mod(left: Int, right: ColorRGBA): ColorRGBA
+static func @mod(left: ColorRGBA, right: Int): ColorRGBA
+static func @mod(left: DWord, right: ColorRGBA): ColorRGBA
+static func @mod(left: ColorRGBA, right: DWord): ColorRGBA
+static func @mod(left: Float, right: ColorRGBA): ColorRGBA
+static func @mod(left: ColorRGBA, right: Float): ColorRGBA
+static func @mod(left: Double, right: ColorRGBA): ColorRGBA
+static func @mod(left: ColorRGBA, right: Double): ColorRGBA
 ```
 
 #### Brief
@@ -330,16 +330,16 @@ Member-wise modulo operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the member-wise modulo
 ***
 
 ### @eq
 
 ```C#
-func @eq(second: Int)
-func @eq(second: DWord)
-func @eq(second: Float)
-func @eq(second: Double)
+func @eq(second: Int): Bool
+func @eq(second: DWord): Bool
+func @eq(second: Float): Bool
+func @eq(second: Double): Bool
 ```
 
 #### Brief
@@ -348,16 +348,16 @@ Member-wise equality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> true on equality
 ***
 
 ### @neq
 
 ```C#
-func @neq(second: Int)
-func @neq(second: DWord)
-func @neq(second: Float)
-func @neq(second: Double)
+func @neq(second: Int): Bool
+func @neq(second: DWord): Bool
+func @neq(second: Float): Bool
+func @neq(second: Double): Bool
 ```
 
 #### Brief
@@ -366,7 +366,7 @@ Member-wise inequality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> true on inequality
 ***
 
 ## Variables

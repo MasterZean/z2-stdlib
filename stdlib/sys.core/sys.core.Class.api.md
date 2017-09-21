@@ -1,4 +1,4 @@
-# class Class from *sys.core*
+# class *Class* from sys.core
 
 ## Methods
 

@@ -1,4 +1,4 @@
-# class DWord from *sys.core.lang*
+# class *DWord* from sys.core.lang
 
 ## Constructors
 
@@ -53,7 +53,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: DWord, max: DWord)
+func Clamped(min: DWord, max: DWord): DWord
 ```
 
 #### Brief
@@ -70,7 +70,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

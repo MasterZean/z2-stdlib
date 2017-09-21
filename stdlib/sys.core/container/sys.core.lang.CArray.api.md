@@ -1,4 +1,4 @@
-# class CArray from *sys.core.lang*
+# class *CArray* from sys.core.lang
 
 ## Constructors
 
@@ -43,16 +43,14 @@ If an array is provided, elements will be copied over in sequence. If the source
 ### FindIndex
 
 ```C#
-def FindIndex(item: T)
-def FindIndex(item: T, start: PtrSize)
+def FindIndex(item: T): PtrSize
+def FindIndex(item: T, start: PtrSize): PtrSize
 ```
 
 #### Brief
-Searches for an item in the array and returns the first index at which it was found.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
 
-The search starts with index `0`/the `start` parameter.
-
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
 > *item* => the item to search for  
@@ -64,16 +62,14 @@ Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 ### BinaryIndex
 
 ```C#
-def BinaryIndex(item: T)
-def BinaryIndex(item: T, start: PtrSize)
+def BinaryIndex(item: T): PtrSize
+def BinaryIndex(item: T, start: PtrSize): PtrSize
 ```
 
 #### Brief
-Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
 
-The search starts with index `0`/the `start` parameter.
-
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
 > *item* => the item to search for  
@@ -101,13 +97,13 @@ Since the array is static, it can not grow in size. Instead elements are pushed 
 ### Delete
 
 ```C#
-def Delete(item: T)
+def Delete(item: T): PtrSize
 ```
 
 #### Brief
 Searches for the first occurrence of an item within the array and if found it removes it.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
 #### Parameters
 > *item* => the item to delete  
@@ -118,13 +114,13 @@ Since the array is static, it can not shrink in size. Instead elements copied ar
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T)
+def DeleteAll(item: T): PtrSize
 ```
 
 #### Brief
 Searches for all the occurrences of an item within the array and if found removes the all.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
 #### Parameters
 > *item* => the item to delete  
@@ -135,13 +131,13 @@ Since the array is static, it can not shrink in size. Instead elements copied ar
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(pos: PtrSize)
+def DeleteIndex(pos: PtrSize): PtrSize
 ```
 
 #### Brief
 Deletes an item at a given index from the array.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
 #### Parameters
 > *pos* => the index to delete  
@@ -157,7 +153,7 @@ def Reverse(start: PtrSize, end: PtrSize)
 ```
 
 #### Brief
-Reverses the content of the array, from beginning to end or between two input indices.
+Reverses the contents of the array, from beginning to end or between two input indices.
 
 #### Parameters
 > *start* => the start index  
@@ -167,14 +163,14 @@ Reverses the content of the array, from beginning to end or between two input in
 ### Sum
 
 ```C#
-def Sum()
+def Sum(): T
 ```
 
 #### Brief
 Returns the sum of all the items in the array.
 
 #### Returns
-> 
+> the sum
 ***
 
 ### Sort

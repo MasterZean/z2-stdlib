@@ -1,4 +1,4 @@
-# class Double from *sys.core.lang*
+# class *Double* from sys.core.lang
 
 ## Constructors
 
@@ -35,7 +35,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Double, max: Double)
+func Clamped(min: Double, max: Double): Double
 ```
 
 #### Brief
@@ -52,7 +52,7 @@ Returns the current instance clamped between `min` and `max`.
 ### Pow
 
 ```C#
-func Pow(exp: Double)
+func Pow(exp: Double): Double
 ```
 
 #### Brief
@@ -67,7 +67,7 @@ Raises the instance to an exponent.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

@@ -1,4 +1,4 @@
-# class Char from *sys.core.lang*
+# class *Char* from sys.core.lang
 
 ## Methods
 
@@ -20,7 +20,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Char, max: Char)
+func Clamped(min: Char, max: Char): Char
 ```
 
 #### Brief
@@ -37,7 +37,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

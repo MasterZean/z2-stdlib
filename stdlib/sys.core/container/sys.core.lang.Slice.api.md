@@ -1,4 +1,4 @@
-# class Slice from *sys.core.lang*
+# class *Slice* from sys.core.lang
 
 ## Constructors
 
@@ -41,12 +41,12 @@ this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}
 #### Brief
 
 #### Parameters
-> *ppp* => 
-> *p* => 
-> *length* => 
-> *start* => 
-> *end* => 
-> *offset* => 
+> *ppp* =>   
+> *p* =>   
+> *length* =>   
+> *start* =>   
+> *end* =>   
+> *offset* =>   
 ***
 
 ## Methods
@@ -62,27 +62,27 @@ def Fill(items: CArray<T>)
 #### Brief
 
 #### Parameters
-> *value* => 
-> *items* => 
+> *value* =>   
+> *items* =>   
 ***
 
 ### FindIndex
 
 ```C#
-func FindIndex(item: T)
-func FindIndex(item: T, start: PtrSize)
-func FindIndex(b: CArray<T>)
-func FindIndex(b: Vector<T>)
-func FindIndex(b: CArray<T>, start: PtrSize)
-func FindIndex(b: Vector<T>, start: PtrSize)
+func FindIndex(item: T): PtrSize
+func FindIndex(item: T, start: PtrSize): PtrSize
+func FindIndex(b: CArray<T>): PtrSize
+func FindIndex(b: Vector<T>): PtrSize
+func FindIndex(b: CArray<T>, start: PtrSize): PtrSize
+func FindIndex(b: Vector<T>, start: PtrSize): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *start* => 
-> *b* => 
+> *item* =>   
+> *start* =>   
+> *b* =>   
 #### Returns
 > 
 ***
@@ -90,20 +90,20 @@ func FindIndex(b: Vector<T>, start: PtrSize)
 ### RFindIndex
 
 ```C#
-func RFindIndex(item: T)
-func RFindIndex(item: T, val start: PtrSize)
-func RFindIndex(b: CArray<T>)
-func RFindIndex(b: Vector<T>)
-func RFindIndex(b: CArray<T>, val start: PtrSize)
-func RFindIndex(b: Vector<T>, val start: PtrSize)
+func RFindIndex(item: T): PtrSize
+func RFindIndex(item: T, val start: PtrSize): PtrSize
+func RFindIndex(b: CArray<T>): PtrSize
+func RFindIndex(b: Vector<T>): PtrSize
+func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize
+func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *start* => 
-> *b* => 
+> *item* =>   
+> *start* =>   
+> *b* =>   
 #### Returns
 > 
 ***
@@ -111,15 +111,15 @@ func RFindIndex(b: Vector<T>, val start: PtrSize)
 ### BinaryIndex
 
 ```C#
-func BinaryIndex(item: T)
-func BinaryIndex(item: T, start: PtrSize)
+func BinaryIndex(item: T): PtrSize
+func BinaryIndex(item: T, start: PtrSize): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *start* => 
+> *item* =>   
+> *start* =>   
 #### Returns
 > 
 ***
@@ -137,16 +137,16 @@ def Reverse()
 ### Delete
 
 ```C#
-def Delete(item: T)
-def Delete(items: CArray<T>)
-def Delete(items: Vector<T>)
+def Delete(item: T): PtrSize
+def Delete(items: CArray<T>): PtrSize
+def Delete(items: Vector<T>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *items* => 
+> *item* =>   
+> *items* =>   
 #### Returns
 > 
 ***
@@ -154,16 +154,16 @@ def Delete(items: Vector<T>)
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T)
-def DeleteAll(items: CArray<T>)
-def DeleteAll(items: Vector<T>)
+def DeleteAll(item: T): PtrSize
+def DeleteAll(items: CArray<T>): PtrSize
+def DeleteAll(items: Vector<T>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *item* => 
-> *items* => 
+> *item* =>   
+> *items* =>   
 #### Returns
 > 
 ***
@@ -171,16 +171,16 @@ def DeleteAll(items: Vector<T>)
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(index: PtrSize)
-def DeleteIndex(items: CArray<PtrSize>)
-def DeleteIndex(items: Vector<PtrSize>)
+def DeleteIndex(index: PtrSize): PtrSize
+def DeleteIndex(items: CArray<PtrSize>): PtrSize
+def DeleteIndex(items: Vector<PtrSize>): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *index* => 
-> *items* => 
+> *index* =>   
+> *items* =>   
 #### Returns
 > 
 ***
@@ -196,9 +196,9 @@ def Insert(pos: PtrSize, items: Vector<T>)
 #### Brief
 
 #### Parameters
-> *pos* => 
-> *item* => 
-> *items* => 
+> *pos* =>   
+> *item* =>   
+> *items* =>   
 ***
 
 ### Sort
@@ -211,8 +211,8 @@ def Sort()
 #### Brief
 
 #### Parameters
-> *low* => 
-> *high* => 
+> *low* =>   
+> *high* =>   
 ***
 
 ### SortDec
@@ -225,14 +225,14 @@ def SortDec()
 #### Brief
 
 #### Parameters
-> *low* => 
-> *high* => 
+> *low* =>   
+> *high* =>   
 ***
 
 ### Sum
 
 ```C#
-func Sum()
+func Sum(): T
 ```
 
 #### Brief

@@ -1,4 +1,4 @@
-# class ConvertUtf8 from *sys.core*
+# class *ConvertUtf8* from sys.core
 
 ## Methods
 

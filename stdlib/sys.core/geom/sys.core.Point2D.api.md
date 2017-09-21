@@ -1,4 +1,4 @@
-# class Point2D from *sys.core*
+# class *Point2D* from sys.core
 
 ## Constructors
 
@@ -15,7 +15,7 @@ Creates a new instance initializing each component of the point.
 #### Parameters
 > *value* => the value to use for each component  
 > *x* => the first dimension of the point  
-> *y* => 
+> *y* =>   
 ***
 
 ## Methods
@@ -38,8 +38,8 @@ Clamps each component of the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Point2D<T>, max: Point2D<T>)
-func Clamped(min: T, max: T)
+func Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T>
+func Clamped(min: T, max: T): Point2D<T>
 ```
 
 #### Brief
@@ -55,7 +55,7 @@ Returns a copy of the color with each component clamped between `min` and `max`.
 ### GetMin
 
 ```C#
-func GetMin(min: Point2D<T>)
+func GetMin(min: Point2D<T>): Point2D<T>
 ```
 
 #### Brief
@@ -70,7 +70,7 @@ Returns the member-wise minimum between the current instance and the input.
 ### GetMax
 
 ```C#
-func GetMax(max: Point2D<T>)
+func GetMax(max: Point2D<T>): Point2D<T>
 ```
 
 #### Brief
@@ -85,7 +85,7 @@ Returns the member-wise maximum between the current instance and the input.
 ### IsNormalized
 
 ```C#
-func IsNormalized(tolerance: T)
+func IsNormalized(tolerance: T): Bool
 ```
 
 #### Brief
@@ -115,7 +115,7 @@ Otherwise, the value remains unchanged.
 ### Normalized
 
 ```C#
-func Normalized(tolerance: T)
+func Normalized(tolerance: T): Point2D<T>
 ```
 
 #### Brief
@@ -132,8 +132,8 @@ Otherwise, returns the value as is.
 ### @add
 
 ```C#
-func @add(second: Point2D<T>)
-func @add(second: T)
+func @add(second: Point2D<T>): Point2D<T>
+func @add(second: T): Point2D<T>
 ```
 
 #### Brief
@@ -148,9 +148,9 @@ Member-wise addition operator. Commutative.
 ### @sub
 
 ```C#
-static func @sub(left: Point2D<T>, right: Point2D<T>)
-static func @sub(left: Point2D<T>, right: T)
-static func @sub(left: T, right: Point2D<T>)
+static func @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T>
+static func @sub(left: Point2D<T>, right: T): Point2D<T>
+static func @sub(left: T, right: Point2D<T>): Point2D<T>
 ```
 
 #### Brief
@@ -166,8 +166,8 @@ Member-wise subtraction operator.
 ### @mul
 
 ```C#
-func @mul(second: Point2D<T>)
-func @mul(second: T)
+func @mul(second: Point2D<T>): Point2D<T>
+func @mul(second: T): Point2D<T>
 ```
 
 #### Brief
@@ -182,9 +182,9 @@ Member-wise multiplication operator. Commutative.
 ### @div
 
 ```C#
-static func @div(left: Point2D<T>, right: Point2D<T>)
-static func @div(left: Point2D<T>, right: T)
-static func @div(left: T, right: Point2D<T>)
+static func @div(left: Point2D<T>, right: Point2D<T>): Point2D<T>
+static func @div(left: Point2D<T>, right: T): Point2D<T>
+static func @div(left: T, right: Point2D<T>): Point2D<T>
 ```
 
 #### Brief
@@ -200,9 +200,9 @@ Member-wise division operator.
 ### @mod
 
 ```C#
-static func @mod(left: Point2D<T>, right: Point2D<T>)
-static func @mod(left: Point2D<T>, right: T)
-static func @mod(left: T, right: Point2D<T>)
+static func @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T>
+static func @mod(left: Point2D<T>, right: T): Point2D<T>
+static func @mod(left: T, right: Point2D<T>): Point2D<T>
 ```
 
 #### Brief
@@ -218,7 +218,7 @@ Member-wise modulo operator.
 ### @minus
 
 ```C#
-func @minus()
+func @minus(): Point2D<T>
 ```
 
 #### Brief
@@ -231,7 +231,7 @@ Returns the member-wise negative of the current instance.
 ### @eq
 
 ```C#
-func @eq(second: T)
+func @eq(second: T): Bool
 ```
 
 #### Brief
@@ -246,7 +246,7 @@ Member-wise equality operator.
 ### @neq
 
 ```C#
-func @neq(second: T)
+func @neq(second: T): Bool
 ```
 
 #### Brief
@@ -261,8 +261,8 @@ Member-wise inequality operator.
 ### Equals
 
 ```C#
-func Equals(second: Point2D<T>, tolerance: T)
-func Equals(second: T, tolerance: T)
+func Equals(second: Point2D<T>, tolerance: T): Bool
+func Equals(second: T, tolerance: T): Bool
 ```
 
 #### Brief

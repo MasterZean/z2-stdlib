@@ -1,4 +1,4 @@
-# class Thread from *sys.core*
+# class *Thread* from sys.core
 
 ## Methods
 

@@ -1,4 +1,4 @@
-# class Float from *sys.core.lang*
+# class *Float* from sys.core.lang
 
 ## Constructors
 
@@ -12,8 +12,7 @@ this Saturated{value: Double}
 #### Brief
 
 #### Parameters
-
-> *value* => 
+> *value* =>   
 ***
 
 ## Methods
@@ -36,7 +35,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Float, max: Float)
+func Clamped(min: Float, max: Float): Float
 ```
 
 #### Brief
@@ -53,7 +52,7 @@ Returns the current instance clamped between `min` and `max`.
 ### Pow
 
 ```C#
-func Pow(exp: Float)
+func Pow(exp: Float): Float
 ```
 
 #### Brief
@@ -68,7 +67,7 @@ Raises the instance to an exponent.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief

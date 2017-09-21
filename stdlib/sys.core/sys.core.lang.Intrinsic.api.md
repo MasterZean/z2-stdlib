@@ -1,11 +1,11 @@
-# class Intrinsic from *sys.core.lang*
+# class *Intrinsic* from sys.core.lang
 
 ## Methods
 
 ### Pow
 
 ```C#
-static def Pow(base: Double, exponenet: Double)
+static def Pow(base: Double, exponenet: Double): Double
 ```
 
 #### Brief
@@ -21,7 +21,7 @@ Returns a base raised to an exponent.
 ### Sqrt
 
 ```C#
-static def Sqrt(value: Double)
+static def Sqrt(value: Double): Double
 ```
 
 #### Brief
@@ -51,7 +51,7 @@ Does a C standard library `memcpy` operation, copying a number of bytes from a s
 ### CStrLen
 
 ```C#
-static def CStrLen(source: Ptr<Byte>)
+static def CStrLen(source: Ptr<Byte>): PtrSize
 ```
 
 #### Brief

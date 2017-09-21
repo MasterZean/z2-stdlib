@@ -1,17 +1,17 @@
-# class Path from *sys.core*
+# class *Path* from sys.core
 
 ## Methods
 
 ### GetFolder
 
 ```C#
-static def GetFolder(path: String)
+static def GetFolder(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -19,13 +19,13 @@ static def GetFolder(path: String)
 ### GetFolderNoSep
 
 ```C#
-static def GetFolderNoSep(path: String)
+static def GetFolderNoSep(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -33,13 +33,13 @@ static def GetFolderNoSep(path: String)
 ### GetName
 
 ```C#
-static def GetName(path: String)
+static def GetName(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -47,13 +47,13 @@ static def GetName(path: String)
 ### GetNameIndex
 
 ```C#
-static def GetNameIndex(path: String)
+static def GetNameIndex(path: String): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -61,13 +61,13 @@ static def GetNameIndex(path: String)
 ### GetTitle
 
 ```C#
-static def GetTitle(path: String)
+static def GetTitle(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -75,13 +75,13 @@ static def GetTitle(path: String)
 ### GetTitleIndex
 
 ```C#
-static def GetTitleIndex(path: String)
+static def GetTitleIndex(path: String): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -89,13 +89,13 @@ static def GetTitleIndex(path: String)
 ### GetExtension
 
 ```C#
-static def GetExtension(path: String)
+static def GetExtension(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -103,13 +103,13 @@ static def GetExtension(path: String)
 ### GetExtensionIndex
 
 ```C#
-static def GetExtensionIndex(path: String)
+static def GetExtensionIndex(path: String): PtrSize
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -117,13 +117,13 @@ static def GetExtensionIndex(path: String)
 ### GetParent
 
 ```C#
-static def GetParent(path: String)
+static def GetParent(path: String): String
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***
@@ -131,13 +131,13 @@ static def GetParent(path: String)
 ### IsRoot
 
 ```C#
-static def IsRoot(path: String)
+static def IsRoot(path: String): Bool
 ```
 
 #### Brief
 
 #### Parameters
-> *path* => 
+> *path* =>   
 #### Returns
 > 
 ***

@@ -1,4 +1,4 @@
-# class SystemTrace from *sys.core*
+# class *SystemTrace* from sys.core
 
 ## Methods
 
@@ -18,7 +18,7 @@ Should be used for critical run-time assertion in "Release" builds.
 
 #### Parameters
 > *test* => the assert condition  
-> *error* => 
+> *error* =>   
 ***
 
 ### Error

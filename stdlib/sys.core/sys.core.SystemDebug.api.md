@@ -1,4 +1,4 @@
-# class SystemDebug from *sys.core*
+# class *SystemDebug* from sys.core
 
 ## Methods
 
@@ -17,8 +17,8 @@ Throws an exception if the condition is false, but only if the "Debug" flag is s
 Should be used for often for run-time assertion in "Debug" builds, to test conditions which should not fail.
 
 #### Parameters
-> *test* => 
-> *error* => 
+> *test* =>   
+> *error* =>   
 ***
 
 ### Error

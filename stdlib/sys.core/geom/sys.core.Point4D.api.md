@@ -1,4 +1,4 @@
-# class Point4D from *sys.core*
+# class *Point4D* from sys.core
 
 ## Constructors
 
@@ -46,8 +46,8 @@ Clamps each component of the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Point4D<T>, max: Point4D<T>)
-func Clamped(min: T, max: T)
+func Clamped(min: Point4D<T>, max: Point4D<T>): Point4D<T>
+func Clamped(min: T, max: T): Point4D<T>
 ```
 
 #### Brief
@@ -63,7 +63,7 @@ Returns a copy of the color with each component clamped between `min` and `max`.
 ### GetMin
 
 ```C#
-func GetMin(min: Point4D<T>)
+func GetMin(min: Point4D<T>): Point4D<T>
 ```
 
 #### Brief
@@ -78,7 +78,7 @@ Returns the member-wise minimum between the current instance and the input.
 ### GetMax
 
 ```C#
-func GetMax(max: Point4D<T>)
+func GetMax(max: Point4D<T>): Point4D<T>
 ```
 
 #### Brief
@@ -93,7 +93,7 @@ Returns the member-wise maximum between the current instance and the input.
 ### IsNormalized
 
 ```C#
-func IsNormalized(tolerance: T)
+func IsNormalized(tolerance: T): Bool
 ```
 
 #### Brief
@@ -123,7 +123,7 @@ Otherwise, the value remains unchanged.
 ### Normalized
 
 ```C#
-func Normalized(tolerance: T)
+func Normalized(tolerance: T): Point4D<T>
 ```
 
 #### Brief
@@ -140,8 +140,8 @@ Otherwise, returns the value as is.
 ### @add
 
 ```C#
-func @add(second: Point4D<T>)
-func @add(second: T)
+func @add(second: Point4D<T>): Point4D<T>
+func @add(second: T): Point4D<T>
 ```
 
 #### Brief
@@ -156,9 +156,9 @@ Member-wise addition operator. Commutative.
 ### @sub
 
 ```C#
-static func @sub(left: Point4D<T>, right: Point4D<T>)
-static func @sub(left: Point4D<T>, right: T)
-static func @sub(left: T, right: Point4D<T>)
+static func @sub(left: Point4D<T>, right: Point4D<T>): Point4D<T>
+static func @sub(left: Point4D<T>, right: T): Point4D<T>
+static func @sub(left: T, right: Point4D<T>): Point4D<T>
 ```
 
 #### Brief
@@ -174,8 +174,8 @@ Member-wise subtraction operator.
 ### @mul
 
 ```C#
-func @mul(second: Point4D<T>)
-func @mul(second: T)
+func @mul(second: Point4D<T>): Point4D<T>
+func @mul(second: T): Point4D<T>
 ```
 
 #### Brief
@@ -190,9 +190,9 @@ Member-wise multiplication operator. Commutative.
 ### @div
 
 ```C#
-static func @div(left: Point4D<T>, right: Point4D<T>)
-static func @div(left: Point4D<T>, right: T)
-static func @div(left: T, right: Point4D<T>)
+static func @div(left: Point4D<T>, right: Point4D<T>): Point4D<T>
+static func @div(left: Point4D<T>, right: T): Point4D<T>
+static func @div(left: T, right: Point4D<T>): Point4D<T>
 ```
 
 #### Brief
@@ -208,9 +208,9 @@ Member-wise division operator.
 ### @mod
 
 ```C#
-static func @mod(left: Point4D<T>, right: Point4D<T>)
-static func @mod(left: Point4D<T>, right: T)
-static func @mod(left: T, right: Point4D<T>)
+static func @mod(left: Point4D<T>, right: Point4D<T>): Point4D<T>
+static func @mod(left: Point4D<T>, right: T): Point4D<T>
+static func @mod(left: T, right: Point4D<T>): Point4D<T>
 ```
 
 #### Brief
@@ -226,7 +226,7 @@ Member-wise modulo operator.
 ### @minus
 
 ```C#
-func @minus()
+func @minus(): Point4D<T>
 ```
 
 #### Brief
@@ -239,7 +239,7 @@ Returns the member-wise negative of the current instance.
 ### @eq
 
 ```C#
-func @eq(second: T)
+func @eq(second: T): Bool
 ```
 
 #### Brief
@@ -254,7 +254,7 @@ Member-wise equality operator.
 ### @neq
 
 ```C#
-func @neq(second: T)
+func @neq(second: T): Bool
 ```
 
 #### Brief
@@ -269,8 +269,8 @@ Member-wise inequality operator.
 ### Equals
 
 ```C#
-func Equals(second: Point4D<T>, tolerance: T)
-func Equals(second: T, tolerance: T)
+func Equals(second: Point4D<T>, tolerance: T): Bool
+func Equals(second: T, tolerance: T): Bool
 ```
 
 #### Brief

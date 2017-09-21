@@ -1,4 +1,4 @@
-# class DynamicBlock from *sys.core*
+# class *DynamicBlock* from sys.core
 
 ## Constructors
 
@@ -13,8 +13,8 @@ this{move copy: DynamicBlock<T>}
 #### Brief
 
 #### Parameters
-> *a* => 
-> *copy* => 
+> *a* =>   
+> *copy* =>   
 ***
 
 ### @allocate
@@ -26,8 +26,8 @@ this @allocate{len: PtrSize, capacity: PtrSize}
 #### Brief
 
 #### Parameters
-> *len* => 
-> *capacity* => 
+> *len* =>   
+> *capacity* =>   
 ***
 
 ## Methods
@@ -42,7 +42,7 @@ def @attr(move copy: DynamicBlock<T>)
 #### Brief
 
 #### Parameters
-> *copy* => 
+> *copy* =>   
 ***
 
 ### ExpandTo
@@ -55,9 +55,9 @@ def ExpandTo(newLength: PtrSize, init: T)
 #### Brief
 
 #### Parameters
-> *value* => 
-> *newLength* => 
-> *init* => 
+> *value* =>   
+> *newLength* =>   
+> *init* =>   
 ***
 
 ### ExpandBy
@@ -70,8 +70,8 @@ def ExpandBy(delta: PtrSize, init: T)
 #### Brief
 
 #### Parameters
-> *delta* => 
-> *init* => 
+> *delta* =>   
+> *init* =>   
 ***
 
 ### ShrinkTo
@@ -83,7 +83,7 @@ def ShrinkTo(newLength: PtrSize)
 #### Brief
 
 #### Parameters
-> *newLength* => 
+> *newLength* =>   
 ***
 
 ### ShrinkBy
@@ -95,7 +95,7 @@ def ShrinkBy(delta: PtrSize)
 #### Brief
 
 #### Parameters
-> *delta* => 
+> *delta* =>   
 ***
 
 ### Fill
@@ -107,7 +107,7 @@ def Fill(value: T)
 #### Brief
 
 #### Parameters
-> *value* => 
+> *value* =>   
 ***
 
 ### Clear
@@ -130,8 +130,8 @@ def Append(item: T, count: PtrSize)
 #### Brief
 
 #### Parameters
-> *item* => 
-> *count* => 
+> *item* =>   
+> *count* =>   
 ***
 
 ### SetLengthUnsafe
@@ -143,7 +143,7 @@ def SetLengthUnsafe(value: PtrSize)
 #### Brief
 
 #### Parameters
-> *value* => 
+> *value* =>   
 ***
 
 ### ExpandUnsafe
@@ -155,7 +155,7 @@ def ExpandUnsafe(value: PtrSize)
 #### Brief
 
 #### Parameters
-> *value* => 
+> *value* =>   
 ***
 
 ### ShrinkUnsafe
@@ -167,7 +167,7 @@ def ShrinkUnsafe(value: PtrSize)
 #### Brief
 
 #### Parameters
-> *value* => 
+> *value* =>   
 ***
 
 ### FreeUnsafe
@@ -179,7 +179,7 @@ def FreeUnsafe(len: PtrSize)
 #### Brief
 
 #### Parameters
-> *len* => 
+> *len* =>   
 ***
 
 ## Properties

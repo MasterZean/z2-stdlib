@@ -1,4 +1,4 @@
-# class ConvertUtf32 from *sys.core*
+# class *ConvertUtf32* from sys.core
 
 ## Methods
 

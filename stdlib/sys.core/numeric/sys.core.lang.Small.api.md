@@ -1,4 +1,4 @@
-# class Small from *sys.core.lang*
+# class *Small* from sys.core.lang
 
 ## Constructors
 
@@ -52,7 +52,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Small, max: Small)
+func Clamped(min: Small, max: Small): Small
 ```
 
 #### Brief
@@ -68,7 +68,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString()
+func ToString(): String
 ```
 
 #### Brief
