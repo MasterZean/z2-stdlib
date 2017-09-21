@@ -5,7 +5,7 @@
 ### this
 
 ```C#
-this{ref ppp: CArray<T>};
+this{ref p: CArray<T>};
 this{ref p: CArray<T>, length: PtrSize};
 this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
 this{ref p: Vector<T>};
@@ -42,7 +42,6 @@ this{p: Slice<Byte>, offset: PtrSize, length: PtrSize};
 Constructs a new slice based on a persistent memory location and an optional size. The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
 
 #### Parameters
-> *ppp* =>   
 > *p* => a vector of items  
 > *length* => the length of the slice  
 > *start* => the start index  

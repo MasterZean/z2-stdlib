@@ -1,9 +1,9 @@
 namespace sys.core.lang;
 
 class Slice<T: Class> {
-	this(ref ppp: CArray<T>) {
-		ptr = ppp.SysDataPointer;
-		size = ppp.Length;
+	this(ref p: CArray<T>) {
+		ptr = p.SysDataPointer;
+		size = p.Length;
 	}
 	
 	this(ref p: CArray<T>, length: PtrSize) {
