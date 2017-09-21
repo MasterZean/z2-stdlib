@@ -15,7 +15,7 @@ Creates a new static array, filling each element of the array.
 The elements of the array are either default constructed or copied over from the provided parameter.
 
 #### Parameters
-*_item_*
+**_item_**
 
 > items will be copied from this value
 
