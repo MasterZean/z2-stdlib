@@ -15,21 +15,12 @@ Creates a new static array, filling each element of the array.
 The elements of the array are either default constructed or copied over from the provided parameter.
 
 #### Parameters
-<span style="font-family: monospace;">item   => </span>items will be copied from this value
+``*item*      => `` items will be copied from this value
 
 #### Returns
 >the index where the item was found
 
 ***
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
 
 Constructors
 ---
