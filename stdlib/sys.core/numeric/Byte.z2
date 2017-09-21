@@ -41,6 +41,10 @@ class Byte {
 		return this;
 	}
 	
+	property Trunc: Byte {
+		return this;
+	}
+	
 	def Clamp(min: Byte, max: Byte) = Intrinsic.Clamp;
 	
 	func Clamped(min: Byte, max: Byte): Byte = Intrinsic.Clamped;

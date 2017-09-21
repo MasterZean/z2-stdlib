@@ -195,6 +195,19 @@ In the case of [Small][sys.core.lang.Small] it returns the value itself and is i
 
 ***
 
+### Trunc
+
+```C#
+property Trunc: Int; get;
+```
+
+#### Brief
+Returns the value truncated to the nearest integer value.
+
+In the case of [Short][sys.core.lang.Short] it returns the value itself and is included only for API compatibility when using templates.
+
+***
+
 ## Constants
 
 ### Zero
@@ -271,7 +284,7 @@ const MaxDigitsLow;
 
 #### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, you can have MaxDigitsLow digits that go though values 0-9.
+In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
 
@@ -285,7 +298,7 @@ const MaxDigitsHigh;
 
 #### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
 

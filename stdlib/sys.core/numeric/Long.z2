@@ -41,6 +41,10 @@ class Long {
 		return this;
 	}
 	
+	property Trunc: Long {
+		return this;
+	}
+	
 	def Clamp(min: Long, max: Long) = Intrinsic.Clamp;
 	
 	func Clamped(min: Long, max: Long): Long = Intrinsic.Clamped;

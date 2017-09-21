@@ -41,6 +41,10 @@ class QWord {
 		return this;
 	}
 
+	property Trunc: QWord {
+		return this;
+	}
+	
 	def Clamp(min: QWord, max: QWord) = Intrinsic.Clamp;
 	
 	func Clamped(min: QWord, max: QWord): QWord = Intrinsic.Clamped;

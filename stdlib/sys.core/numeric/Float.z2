@@ -44,6 +44,8 @@ class Float {
 	property Ceil: Float get = Intrinsic.Ceil;
 
 	property Round: Float get = Intrinsic.Round;
+	
+	property Trunc: Float get = Intrinsic.Trunc;
 
 	def Clamp(min: Float, max: Float) = Intrinsic.Clamp;
 	

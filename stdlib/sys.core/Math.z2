@@ -43,6 +43,10 @@ static class Math {
 	
 #region powers
 
+	def Pow(base: Double, exponenet: Double): Double = bind.c.math.pow;
+	
+	def Sqrt(value: Double): Double = bind.c.math.sqrt;
+	
 	def Log(value: Double): Double = bind.c.math.log;
 	def Log(value: Float) : Float  = bind.c.math.log;
 	

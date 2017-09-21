@@ -43,13 +43,14 @@ class Double {
 	property Sqrt: Double get = Intrinsic.Sqrt;
 
 	property Floor: Double get = Intrinsic.Floor;
-
+	
 	property Ceil: Double get = Intrinsic.Ceil;
-
+	
 	property Round: Double get = Intrinsic.Round;
+	
+	property Trunc: Double get = Intrinsic.Trunc;
 
 	def Clamp(min: Double, max: Double) = Intrinsic.Clamp;
-	
 	func Clamped(min: Double, max: Double): Double = Intrinsic.Clamped;
 
 #region Math

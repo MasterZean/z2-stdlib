@@ -41,6 +41,10 @@ class DWord {
 		return this;
 	}
 
+	property Trunc: DWord {
+		return this;
+	}
+	
 	def Clamp(min: DWord, max: DWord) = Intrinsic.Clamp;
 	
 	func Clamped(min: DWord, max: DWord): DWord = Intrinsic.Clamped;

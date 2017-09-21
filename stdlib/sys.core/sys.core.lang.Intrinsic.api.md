@@ -2,37 +2,6 @@
 
 ## Methods
 
-### Pow
-
-```C#
-static def Pow(base: Double, exponenet: Double): Double;
-```
-
-#### Brief
-Returns a base raised to an exponent.
-
-#### Parameters
-> *base* => the base  
-> *exponenet* => the exponent  
-#### Returns
-> 
-***
-
-### Sqrt
-
-```C#
-static def Sqrt(value: Double): Double;
-```
-
-#### Brief
-Returns square root of a value.
-
-#### Parameters
-> *value* => the value  
-#### Returns
-> 
-***
-
 ### MemCopy
 
 ```C#

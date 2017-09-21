@@ -40,6 +40,10 @@ class Small {
 	property Round: Small {
 		return this;
 	}
+	
+	property Trunc: Int {
+		return this;
+	}
 
 	def Clamp(min: Small, max: Small) = Intrinsic.Clamp;
 	

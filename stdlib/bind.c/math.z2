@@ -1,6 +1,24 @@
 namespace bind.c;
 
 static class math {
+	@[bindc] def trunc(d: Double): Double;
+	
+	def trunc(value: Float): Float {
+		return Float{trunc(Double{value})};
+	}
+	
+	@[bindc] def sqrt(d: Double): Double;
+	
+	def sqrt(value: Float): Float {
+		return Float{sqrt(Double{value})};
+	}
+	
+	@[bindc] def pow(base: Double, exponenet: Double): Double;
+	
+	def pow(base: Double, exponenet: Double): Float {
+		return Float{pow(Double{base}, Double{exponenet})};
+	}
+	
 	@[bindc] def log(d: Double): Double;
 	
 	def log(value: Float): Float {

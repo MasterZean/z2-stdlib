@@ -41,6 +41,10 @@ class Word {
 		return this;
 	}
 	
+	property Trunc: Word {
+		return this;
+	}
+	
 	def Clamp(min: Word, max: Word) = Intrinsic.Clamp;
 	
 	func Clamped(min: Word, max: Word): Word = Intrinsic.Clamped;

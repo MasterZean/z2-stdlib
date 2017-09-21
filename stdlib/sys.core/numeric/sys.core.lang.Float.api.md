@@ -210,6 +210,17 @@ Returns the rounded value of a floating point.
 
 ***
 
+### Trunc
+
+```C#
+property Trunc: Float get = Intrinsic.Trunc;; get;
+```
+
+#### Brief
+Returns the value truncated to the nearest integer value.
+
+***
+
 ### Sin
 
 ```C#
