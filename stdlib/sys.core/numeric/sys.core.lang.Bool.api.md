@@ -1,154 +1,150 @@
-Constructors
----
+# class Bool from *sys.core.lang*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{string: String}
 ```
 
-##### Brief
+#### Brief
 Parses a string an constructs an `sys.core.lang.Bool` based on it.
 
-###### param string
-string to parse
+#### Parameters
+> *string* => string to parse  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
 def Clamp(min: Bool, max: Bool)
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
 func Clamped(min: Bool, max: Bool)
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### ToString
+### ToString
 
 ```C#
 func ToString()
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 string.
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
 func @write(ref stream: Stream)
 func @write(ref stream: Stream, format: OutputFormat)
 ```
 
-##### Brief
+#### Brief
 Writes the value to an Utf8 text stream.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
 func @put(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
 def @get(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Constants
----
+## Constants
 
-#### Min
+### Min
 
 ```C#
 const Min
 ```
 
-##### Brief
+#### Brief
 The minimum value for an `sys.core.lang.Bool` (boolean) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
 const Max
 ```
 
-##### Brief
+#### Brief
 The maximum value for an `sys.core.lang.Bool` (boolean) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
 const IsSigned
 ```
 
-##### Brief
+#### Brief
 `true` if the numeric representation uses two's complement signed values, `false` otherwise.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
 const IsInteger
 ```
 
-##### Brief
+#### Brief
 `true` if the numeric representation is an integer, `false` if it is a floating point.
 
 ***

@@ -1,7 +1,8 @@
-Constructors
----
+# class DynamicBlock from *sys.core*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{a: PtrSize}
@@ -9,235 +10,227 @@ this{copy: DynamicBlock<T>}
 this{move copy: DynamicBlock<T>}
 ```
 
-##### Brief
+#### Brief
 
-###### param a
-
-###### param copy
-
+#### Parameters
+> *a* => 
+> *copy* => 
 ***
 
-#### @allocate
+### @allocate
 
 ```C#
 this @allocate{len: PtrSize, capacity: PtrSize}
 ```
 
-##### Brief
+#### Brief
 
-###### param len
-
-###### param capacity
-
+#### Parameters
+> *len* => 
+> *capacity* => 
 ***
 
-Methods
----
+## Methods
 
-#### @attr
+### @attr
 
 ```C#
 def @attr(copy: DynamicBlock<T>)
 def @attr(move copy: DynamicBlock<T>)
 ```
 
-##### Brief
+#### Brief
 
-###### param copy
-
+#### Parameters
+> *copy* => 
 ***
 
-#### ExpandTo
+### ExpandTo
 
 ```C#
 def ExpandTo(value: PtrSize)
 def ExpandTo(newLength: PtrSize, init: T)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
-###### param newLength
-
-###### param init
-
+#### Parameters
+> *value* => 
+> *newLength* => 
+> *init* => 
 ***
 
-#### ExpandBy
+### ExpandBy
 
 ```C#
 def ExpandBy(delta: PtrSize)
 def ExpandBy(delta: PtrSize, init: T)
 ```
 
-##### Brief
+#### Brief
 
-###### param delta
-
-###### param init
-
+#### Parameters
+> *delta* => 
+> *init* => 
 ***
 
-#### ShrinkTo
+### ShrinkTo
 
 ```C#
 def ShrinkTo(newLength: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param newLength
-
+#### Parameters
+> *newLength* => 
 ***
 
-#### ShrinkBy
+### ShrinkBy
 
 ```C#
 def ShrinkBy(delta: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param delta
-
+#### Parameters
+> *delta* => 
 ***
 
-#### Fill
+### Fill
 
 ```C#
 def Fill(value: T)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
+#### Parameters
+> *value* => 
 ***
 
-#### Clear
+### Clear
 
 ```C#
 def Clear()
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Append
+### Append
 
 ```C#
 def Append(item: T)
 def Append(item: T, count: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param count
-
+#### Parameters
+> *item* => 
+> *count* => 
 ***
 
-#### SetLengthUnsafe
+### SetLengthUnsafe
 
 ```C#
 def SetLengthUnsafe(value: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
+#### Parameters
+> *value* => 
 ***
 
-#### ExpandUnsafe
+### ExpandUnsafe
 
 ```C#
 def ExpandUnsafe(value: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
+#### Parameters
+> *value* => 
 ***
 
-#### ShrinkUnsafe
+### ShrinkUnsafe
 
 ```C#
 def ShrinkUnsafe(value: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
+#### Parameters
+> *value* => 
 ***
 
-#### FreeUnsafe
+### FreeUnsafe
 
 ```C#
 def FreeUnsafe(len: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param len
-
+#### Parameters
+> *len* => 
 ***
 
-Properties
----
+## Properties
 
-#### @index
+### @index
 
 ```C#
 property @index: ref T; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Length
+### Length
 
 ```C#
 property Length: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### IsEmpty
+### IsEmpty
 
 ```C#
 property IsEmpty: Bool; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Capacity
+### Capacity
 
 ```C#
 property Capacity: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SysDataPointer
+### SysDataPointer
 
 ```C#
 property SysDataPointer: Ptr<T>; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 

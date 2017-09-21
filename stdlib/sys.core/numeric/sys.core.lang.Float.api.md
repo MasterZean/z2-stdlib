@@ -1,301 +1,443 @@
-Methods
----
+# class Float from *sys.core.lang*
 
-#### Clamp
+## Constructors
+
+### Saturated
+
+```C#
+this Saturated{value: Float}
+this Saturated{value: Double}
+```
+
+#### Brief
+
+#### Parameters
+
+> *value* => 
+***
+
+## Methods
+
+### Clamp
 
 ```C#
 def Clamp(min: Float, max: Float)
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
 func Clamped(min: Float, max: Float)
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### Pow
+### Pow
 
 ```C#
 func Pow(exp: Float)
 ```
 
-##### Brief
+#### Brief
 Raises the instance to an exponent.
 
-###### param exp
-the exponent
-###### returns
-the exponential
+#### Parameters
+> *exp* => the exponent  
+#### Returns
+> the exponential
 ***
 
-#### ToString
+### ToString
 
 ```C#
 func ToString()
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
 func @write(ref stream: Stream)
 func @write(ref stream: Stream, format: OutputFormat)
 ```
 
-##### Brief
+#### Brief
 Writes the value to an Utf8 text stream.
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
 func @put(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 32 bit floating point.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
 def @get(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Reads a 32 bit floating point from a binary stream.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Properties
----
+## Properties
 
-#### IsNan
+### IsNan
 
 ```C#
 property IsNan: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the instance is not a number.
 
 ***
 
-#### IsInfinite
+### IsInfinite
 
 ```C#
 property IsInfinite: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the infinite.
 
 ***
 
-#### Abs
+### Abs
 
 ```C#
 property Abs: Float; get;
 ```
 
-##### Brief
+#### Brief
 Returns the absolute value.
 
 ***
 
-#### Sqr
+### Sqr
 
 ```C#
 property Sqr: Float; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square of the value value.
 
 ***
 
-#### Sqrt
+### Sqrt
 
 ```C#
-property Sqrt: Float get const Intrinsic.Sqrt;; get;
+property Sqrt: Float get = Intrinsic.Sqrt;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square root of the value.
 
 ***
 
-#### Floor
+### Floor
 
 ```C#
-property Floor: Float get const Intrinsic.Floor;; get;
+property Floor: Float get = Intrinsic.Floor;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the floor of a floating point value.
 
 ***
 
-#### Ceil
+### Ceil
 
 ```C#
-property Ceil: Float get const Intrinsic.Ceil;; get;
+property Ceil: Float get = Intrinsic.Ceil;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the ceiling of a floating point value.
 
 ***
 
-#### Round
+### Round
 
 ```C#
-property Round: Float get const Intrinsic.Round;; get;
+property Round: Float get = Intrinsic.Round;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the rounded value of a floating point.
 
 ***
 
-#### Log
+### Sin
 
 ```C#
-property Log: Float get const Intrinsic.Log;; get;
+property Sin: Float get = Math.Sin;; get;
 ```
 
-##### Brief
+#### Brief
+
+***
+
+### Cos
+
+```C#
+property Cos: Float get = Math.Cos;; get;
+```
+
+#### Brief
+
+***
+
+### Tan
+
+```C#
+property Tan: Float get = Math.Tan;; get;
+```
+
+#### Brief
+
+***
+
+### Sinh
+
+```C#
+property Sinh: Float get = Math.Sinh;; get;
+```
+
+#### Brief
+
+***
+
+### Cosh
+
+```C#
+property Cosh: Float get = Math.Cosh;; get;
+```
+
+#### Brief
+
+***
+
+### Tanh
+
+```C#
+property Tanh: Float get = Math.Tanh;; get;
+```
+
+#### Brief
+
+***
+
+### Asin
+
+```C#
+property Asin: Float get = Math.Asin;; get;
+```
+
+#### Brief
+
+***
+
+### Acos
+
+```C#
+property Acos: Float get = Math.Acos;; get;
+```
+
+#### Brief
+
+***
+
+### Atan
+
+```C#
+property Atan: Float get = Math.Atan;; get;
+```
+
+#### Brief
+
+***
+
+### Asinh
+
+```C#
+property Asinh: Float get = Math.Asinh;; get;
+```
+
+#### Brief
+
+***
+
+### Acosh
+
+```C#
+property Acosh: Float get = Math.Acosh;; get;
+```
+
+#### Brief
+
+***
+
+### Atanh
+
+```C#
+property Atanh: Float get = Math.Atanh;; get;
+```
+
+#### Brief
+
+***
+
+### Log
+
+```C#
+property Log: Float get = Math.Log;; get;
+```
+
+#### Brief
 Returns the natural logarithm of a value.
 
 ***
 
-#### Log10
+### Log2
 
 ```C#
-property Log10: Float get const Intrinsic.Log10;; get;
+property Log2: Float get = Math.Log2;; get;
 ```
 
-##### Brief
+#### Brief
+
+***
+
+### Log10
+
+```C#
+property Log10: Float get = Math.Log10;; get;
+```
+
+#### Brief
 Returns the base 10 logarithm of a value.
 
 ***
 
-Constants
----
+## Constants
 
-#### Zero
+### Zero
 
 ```C#
 const Zero: Float
 ```
 
-##### Brief
+#### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "0" value.
 
 ***
 
-#### One
+### One
 
 ```C#
 const One: Float
 ```
 
-##### Brief
+#### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "1" value.
 
 ***
 
-#### Min
+### Min
 
 ```C#
 const Min: Float
 ```
 
-##### Brief
+#### Brief
 The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
 const Max: Float
 ```
 
-##### Brief
+#### Brief
 The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
 const IsSigned
 ```
 
-##### Brief
+#### Brief
 Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
 const IsInteger
 ```
 
-##### Brief
+#### Brief
 Returns [false][sys.core.lang.Bool].
 
 ***
 
-#### MaxDigitsLow
+### MaxDigitsLow
 
 ```C#
 const MaxDigitsLow
 ```
 
-##### Brief
+#### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -303,13 +445,13 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MaxDigitsHigh
+### MaxDigitsHigh
 
 ```C#
 const MaxDigitsHigh
 ```
 
-##### Brief
+#### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
@@ -317,24 +459,24 @@ Should not be used for buffer sizes.
 
 ***
 
-#### Nan
+### Nan
 
 ```C#
 const Nan
 ```
 
-##### Brief
+#### Brief
 The not a number value.
 
 ***
 
-#### Infinite
+### Infinite
 
 ```C#
 const Infinite
 ```
 
-##### Brief
+#### Brief
 Positive infinite.
 
 ***

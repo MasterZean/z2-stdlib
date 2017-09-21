@@ -1,102 +1,117 @@
-Constructors
----
+# class AsciiParser from *sys.core*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{ref data: Slice<Byte>}
 this{ref data: String}
+this{data: String, skipSpaces: Bool}
 ```
 
-##### Brief
+#### Brief
 Constructs a new parser based on n input buffer.
 
 The buffer is not copied over so its lifespan must exceed the lifespan of the parser instance.
 
-###### param data
-the data to parse
+#### Parameters
+> *data* => the data to parse  
+> *skipSpaces* => 
 ***
 
-Methods
----
+## Methods
 
-#### EatSpaces
+### EatSpaces
 
 ```C#
 def EatSpaces()
 ```
 
-##### Brief
+#### Brief
 Attempts to consume whitespace and comments.
 
 If there was nothing to consume, the state of the parser is not changed.
 
-###### returns
-true if anything was consumed
+#### Returns
+> true if anything was consumed
 ***
 
-#### IsId
+### EatSpacesNoLineSkip
+
+```C#
+def EatSpacesNoLineSkip()
+```
+
+#### Brief
+
+
+#### Returns
+
+***
+
+### IsId
 
 ```C#
 func IsId()
 func IsId(id: String)
 ```
 
-##### Brief
+#### Brief
 Checks if the parser sees an identifier.
 
 Identifiers use "C" rules.
 
-###### param id
-the identifier to search for
-###### returns
-`true` if the identifier was found
+#### Parameters
+> *id* => the identifier to search for  
+#### Returns
+> `true` if the identifier was found
 ***
 
-#### EatId
+### EatId
 
 ```C#
 def EatId(id: String)
 ```
 
-##### Brief
+#### Brief
 Attempts to consume a given identifier. If the identifier was not found, the state of the parser is not changed.
 
-###### param id
-the identifier to search for
-###### returns
-`true` if something was consumed
+#### Parameters
+> *id* => the identifier to search for  
+#### Returns
+> `true` if something was consumed
 ***
 
-#### ReadId
+### ReadId
 
 ```C#
 def ReadId()
 ```
 
-##### Brief
+#### Brief
 Attempt to read and consume an identifier.
 
 Should be used ideally after `IsId`.
 
-###### returns
-the read identifier
+#### Returns
+> the read identifier
 ***
 
-#### Peek
+### Peek
 
 ```C#
 func Peek()
 ```
 
-##### Brief
+#### Brief
 Peeks into the buffer and returns the next byte without changing the state of the parser.
 
-###### returns
-the next byte
+#### Returns
+> the next byte
 ***
 
-#### IsChar
+### IsChar
 
 ```C#
 func IsChar(c: Char)
@@ -104,24 +119,21 @@ func IsChar(c1: Char, c2: Char)
 func IsChar(c1: Char, c2: Char, c3: Char)
 ```
 
-##### Brief
+#### Brief
 Checks if the next 1-3 bytes in the parser are the input ones.
 
 Does not alter the state of the parser.
 
-###### param c
-the first byte to check for
-###### param c1
-the first byte to check for
-###### param c2
-the second byte to check for
-###### param c3
-the third byte to check for
-###### returns
-`true` if the sequence is found.
+#### Parameters
+> *c* => the first byte to check for  
+> *c1* => the first byte to check for  
+> *c2* => the second byte to check for  
+> *c3* => the third byte to check for  
+#### Returns
+> `true` if the sequence is found.
 ***
 
-#### EatChar
+### EatChar
 
 ```C#
 def EatChar(c: Char)
@@ -129,128 +141,124 @@ def EatChar(c1: Char, c2: Char)
 def EatChar(c1: Char, c2: Char, c3: Char)
 ```
 
-##### Brief
+#### Brief
 Attempts to consume 1-3 input bytes.
 
-###### param c
-the first byte to check for
-###### param c1
-the first byte to check for
-###### param c2
-the second byte to check for
-###### param c3
-the third byte to check for
-###### returns
-`true` if the bytes were found and consumed
+#### Parameters
+> *c* => the first byte to check for  
+> *c1* => the first byte to check for  
+> *c2* => the second byte to check for  
+> *c3* => the third byte to check for  
+#### Returns
+> `true` if the bytes were found and consumed
 ***
 
-#### IsInt
+### IsInt
 
 ```C#
 func IsInt()
 ```
 
-##### Brief
+#### Brief
 Checks if the parser contains an integer, including sign.
 
-###### returns
-
+#### Returns
+> 
 ***
 
-#### Sign
+### Sign
 
 ```C#
 def Sign()
 ```
 
-##### Brief
+#### Brief
 Atempts to interpret the next character as a numeric sign and return the sign converted to an amount to multiply with.
 
 If not sign or '+' is encountered, it returns '1'.
 
 If '-' is found, it returns '-1'.
 
-###### returns
-
+#### Returns
+> 
 ***
 
-#### IsNumber
+### IsNumber
 
 ```C#
 func IsNumber(base: Int)
 ```
 
-##### Brief
+#### Brief
 Returns true if the parser sees a number in a given base.
 
-###### param base
-the base
-###### returns
-
+#### Parameters
+> *base* => the base  
+#### Returns
+> 
 ***
 
-#### ReadInt
+### ReadInt
 
 ```C#
 def ReadInt()
 ```
 
-##### Brief
+#### Brief
 Attempts to read and consume an integer in a base 10.
 
-###### returns
-
+#### Returns
+> 
 ***
 
-#### ReadNumber
+### ReadNumber
 
 ```C#
 def ReadNumber(base: Int)
 ```
 
-##### Brief
+#### Brief
 Attempts to read and consume an number in a given base.
 
-###### param base
-the base
-###### returns
-
+#### Parameters
+> *base* => the base  
+#### Returns
+> 
 ***
 
-Variables
----
+## Variables
 
-#### SkipWhitespace
+### SkipWhitespace
 
 ```C#
 val SkipWhitespace
 ```
 
-##### Brief
+#### Brief
 If set to `true`, every time an entity is consumed, whitespace following said entity is also consumed.
 
 If set to `false`, whitespace is not consumed and. It can manually be consumed with `EatSpaces`.
 
 ***
 
-#### SkipComments
+### SkipComments
 
 ```C#
 val SkipComments
 ```
 
-##### Brief
+#### Brief
 If set to true, every time whitespace is consumed, comments are also consumed.
 
 ***
 
-#### NestComments
+### NestComments
 
 ```C#
 val NestComments
 ```
 
-##### Brief
+#### Brief
 If set to true, every time comments are consumed, they can nest.
 
 ***

@@ -1,20 +1,21 @@
-Constructors
----
+# class Long from *sys.core.lang*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{string: String}
 ```
 
-##### Brief
+#### Brief
 Parses a string an constructs a [Long][sys.core.lang.Long] based on it.
 
-###### param string
-string to parse
+#### Parameters
+> *string* => string to parse  
 ***
 
-#### Saturated
+### Saturated
 
 ```C#
 this Saturated{value: Long}
@@ -23,260 +24,254 @@ this Saturated{value: Double}
 this Saturated{value: String}
 ```
 
-##### Brief
+#### Brief
 Constructs a saturated [Long][sys.core.lang.Long] based on the input value.
 
-###### param value
-the input value. Can be numeric or a string.
+#### Parameters
+> *value* => the input value. Can be numeric or a string.  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
 def Clamp(min: Long, max: Long)
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
 func Clamped(min: Long, max: Long)
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### ToString
+### ToString
 
 ```C#
 func ToString()
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
 func @write(ref stream: Stream)
 func @write(ref stream: Stream, format: OutputFormat)
 ```
 
-##### Brief
+#### Brief
 Writes the value to an Utf8 text stream.
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
 func @put(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 64 bit signed integer.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
 def @get(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Reads a 64 bit signed integer from a binary stream.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Properties
----
+## Properties
 
-#### Abs
+### Abs
 
 ```C#
 property Abs: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the absolute value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-#### Sqr
+### Sqr
 
 ```C#
 property Sqr: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square of the value value.
 
 ***
 
-#### Sqrt
+### Sqrt
 
 ```C#
 property Sqrt: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-#### Floor
+### Floor
 
 ```C#
 property Floor: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the floor of a floating point value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-#### Ceil
+### Ceil
 
 ```C#
 property Ceil: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the ceiling of a floating point value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-#### Round
+### Round
 
 ```C#
 property Round: Long; get;
 ```
 
-##### Brief
+#### Brief
 Returns the rounded value of a floating point.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-Constants
----
+## Constants
 
-#### Zero
+### Zero
 
 ```C#
 const Zero: Long
 ```
 
-##### Brief
+#### Brief
 A [Long][sys.core.lang.Long] instance representing a logical "0" value.
 
 ***
 
-#### One
+### One
 
 ```C#
 const One: Long
 ```
 
-##### Brief
+#### Brief
 A [Long][sys.core.lang.Long] instance representing a logical "1" value.
 
 ***
 
-#### Min
+### Min
 
 ```C#
 const Min: Long
 ```
 
-##### Brief
+#### Brief
 The minimum value for a [Long][sys.core.lang.Long] (64 bit signed integer) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
 const Max: Long
 ```
 
-##### Brief
+#### Brief
 The maximum value for a [Long][sys.core.lang.Long] (64 bit signed integer) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
 const IsSigned
 ```
 
-##### Brief
+#### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
 const IsInteger
 ```
 
-##### Brief
+#### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 
 ***
 
-#### MaxDigitsLow
+### MaxDigitsLow
 
 ```C#
 const MaxDigitsLow
 ```
 
-##### Brief
+#### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -284,13 +279,13 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MaxDigitsHigh
+### MaxDigitsHigh
 
 ```C#
 const MaxDigitsHigh
 ```
 
-##### Brief
+#### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   

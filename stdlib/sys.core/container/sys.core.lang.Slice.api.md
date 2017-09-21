@@ -1,7 +1,8 @@
-Constructors
----
+# class Slice from *sys.core.lang*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{ref ppp: CArray<T>}
@@ -11,9 +12,13 @@ this{ref p: Vector<T>}
 this{ref p: Vector<T>, length: PtrSize}
 this{ref p: Vector<T>, start: PtrSize, end: PtrSize}
 this{ref p: Small}
+this{ref p: Small, length: PtrSize}
 this{ref p: Short}
+this{ref p: Short, length: PtrSize}
 this{ref p: Byte}
+this{ref p: Byte, length: PtrSize}
 this{ref p: Word}
+this{ref p: Word, length: PtrSize}
 this{ref p: Int}
 this{ref p: Int, length: PtrSize}
 this{ref p: Long}
@@ -26,31 +31,27 @@ this{ref p: Float}
 this{ref p: Float, length: PtrSize}
 this{ref p: Double}
 this{ref p: Double, length: PtrSize}
+this{ref p: Char}
+this{ref p: Char, length: PtrSize}
 this{ref p: String}
 this{p: Slice<Byte>, length: PtrSize}
 this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}
 ```
 
-##### Brief
+#### Brief
 
-###### param ppp
-
-###### param p
-
-###### param length
-
-###### param start
-
-###### param end
-
-###### param offset
-
+#### Parameters
+> *ppp* => 
+> *p* => 
+> *length* => 
+> *start* => 
+> *end* => 
+> *offset* => 
 ***
 
-Methods
----
+## Methods
 
-#### Fill
+### Fill
 
 ```C#
 def Fill(value: T)
@@ -58,15 +59,14 @@ def Fill(items: Vector<T>)
 def Fill(items: CArray<T>)
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
-###### param items
-
+#### Parameters
+> *value* => 
+> *items* => 
 ***
 
-#### FindIndex
+### FindIndex
 
 ```C#
 func FindIndex(item: T)
@@ -77,19 +77,17 @@ func FindIndex(b: CArray<T>, start: PtrSize)
 func FindIndex(b: Vector<T>, start: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param start
-
-###### param b
-
-###### returns
-
+#### Parameters
+> *item* => 
+> *start* => 
+> *b* => 
+#### Returns
+> 
 ***
 
-#### RFindIndex
+### RFindIndex
 
 ```C#
 func RFindIndex(item: T)
@@ -100,46 +98,43 @@ func RFindIndex(b: CArray<T>, val start: PtrSize)
 func RFindIndex(b: Vector<T>, val start: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param start
-
-###### param b
-
-###### returns
-
+#### Parameters
+> *item* => 
+> *start* => 
+> *b* => 
+#### Returns
+> 
 ***
 
-#### BinaryIndex
+### BinaryIndex
 
 ```C#
 func BinaryIndex(item: T)
 func BinaryIndex(item: T, start: PtrSize)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param start
-
-###### returns
-
+#### Parameters
+> *item* => 
+> *start* => 
+#### Returns
+> 
 ***
 
-#### Reverse
+### Reverse
 
 ```C#
 def Reverse()
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Delete
+### Delete
 
 ```C#
 def Delete(item: T)
@@ -147,17 +142,16 @@ def Delete(items: CArray<T>)
 def Delete(items: Vector<T>)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param items
-
-###### returns
-
+#### Parameters
+> *item* => 
+> *items* => 
+#### Returns
+> 
 ***
 
-#### DeleteAll
+### DeleteAll
 
 ```C#
 def DeleteAll(item: T)
@@ -165,17 +159,16 @@ def DeleteAll(items: CArray<T>)
 def DeleteAll(items: Vector<T>)
 ```
 
-##### Brief
+#### Brief
 
-###### param item
-
-###### param items
-
-###### returns
-
+#### Parameters
+> *item* => 
+> *items* => 
+#### Returns
+> 
 ***
 
-#### DeleteIndex
+### DeleteIndex
 
 ```C#
 def DeleteIndex(index: PtrSize)
@@ -183,17 +176,16 @@ def DeleteIndex(items: CArray<PtrSize>)
 def DeleteIndex(items: Vector<PtrSize>)
 ```
 
-##### Brief
+#### Brief
 
-###### param index
-
-###### param items
-
-###### returns
-
+#### Parameters
+> *index* => 
+> *items* => 
+#### Returns
+> 
 ***
 
-#### Insert
+### Insert
 
 ```C#
 def Insert(pos: PtrSize, item: T)
@@ -201,88 +193,83 @@ def Insert(pos: PtrSize, items: CArray<T>)
 def Insert(pos: PtrSize, items: Vector<T>)
 ```
 
-##### Brief
+#### Brief
 
-###### param pos
-
-###### param item
-
-###### param items
-
+#### Parameters
+> *pos* => 
+> *item* => 
+> *items* => 
 ***
 
-#### Sort
+### Sort
 
 ```C#
 def Sort(low: Int, high: Int)
 def Sort()
 ```
 
-##### Brief
+#### Brief
 
-###### param low
-
-###### param high
-
+#### Parameters
+> *low* => 
+> *high* => 
 ***
 
-#### SortDec
+### SortDec
 
 ```C#
 def SortDec(low: Int, high: Int)
 def SortDec()
 ```
 
-##### Brief
+#### Brief
 
-###### param low
-
-###### param high
-
+#### Parameters
+> *low* => 
+> *high* => 
 ***
 
-#### Sum
+### Sum
 
 ```C#
 func Sum()
 ```
 
-##### Brief
+#### Brief
 
-###### returns
-
+#### Returns
+> 
 ***
 
-Properties
----
+## Properties
 
-#### Length
+### Length
 
 ```C#
 property Length: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### @index
+### @index
 
 ```C#
 property @index: T
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SysDataPointer
+### SysDataPointer
 
 ```C#
 property SysDataPointer: Ptr<T>; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 

@@ -1,317 +1,442 @@
-Constructors
----
+# class Double from *sys.core.lang*
 
-#### Saturated
+## Constructors
+
+### Saturated
 
 ```C#
 this Saturated{value: Double}
 ```
 
-##### Brief
+#### Brief
 Constructs a saturated `sys.core.lang.Double` based on the input value.
 
-###### param value
-the input value. Can be numeric or a string.
+#### Parameters
+> *value* => the input value. Can be numeric or a string.  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
 def Clamp(min: Double, max: Double)
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
 func Clamped(min: Double, max: Double)
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### Pow
+### Pow
 
 ```C#
 func Pow(exp: Double)
 ```
 
-##### Brief
+#### Brief
 Raises the instance to an exponent.
 
-###### param exp
-the exponent
-###### returns
-the exponential
+#### Parameters
+> *exp* => the exponent  
+#### Returns
+> the exponential
 ***
 
-#### ToString
+### ToString
 
 ```C#
 func ToString()
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
 func @write(ref stream: Stream)
 func @write(ref stream: Stream, format: OutputFormat)
 ```
 
-##### Brief
+#### Brief
 Writes the value to an Utf8 text stream.
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
 func @put(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 64 bit floating point.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
 def @get(ref stream: Stream)
 ```
 
-##### Brief
+#### Brief
 Reads a 64 bit floating point from a binary stream.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Properties
----
+## Properties
 
-#### IsNan
+### IsNan
 
 ```C#
 property IsNan: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the instance is not a number.
 
 ***
 
-#### IsInfinite
+### IsInfinite
 
 ```C#
 property IsInfinite: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the infinite.
 
 ***
 
-#### Abs
+### Abs
 
 ```C#
 property Abs: Double; get;
 ```
 
-##### Brief
+#### Brief
 Returns the absolute value.
 
 ***
 
-#### Sqr
+### Sqr
 
 ```C#
 property Sqr: Double; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square of the value value.
 
 ***
 
-#### Sqrt
+### Sqrt
 
 ```C#
-property Sqrt: Double get const Intrinsic.Sqrt;; get;
+property Sqrt: Double get = Intrinsic.Sqrt;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square root of the value.
 
 ***
 
-#### Floor
+### Floor
 
 ```C#
-property Floor: Double get const Intrinsic.Floor;; get;
+property Floor: Double get = Intrinsic.Floor;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the floor of a floating point value.
 
 ***
 
-#### Ceil
+### Ceil
 
 ```C#
-property Ceil: Double get const Intrinsic.Ceil;; get;
+property Ceil: Double get = Intrinsic.Ceil;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the ceiling of a floating point value.
 
 ***
 
-#### Round
+### Round
 
 ```C#
-property Round: Double get const Intrinsic.Round;; get;
+property Round: Double get = Intrinsic.Round;; get;
 ```
 
-##### Brief
+#### Brief
 Returns the rounded value of a floating point.
 
 ***
 
-#### Log
+### Sin
 
 ```C#
-property Log: Double get const Intrinsic.Log;; get;
+property Sin: Double get = Math.Sin;; get;
 ```
 
-##### Brief
+#### Brief
+
+***
+
+### Cos
+
+```C#
+property Cos: Double get = Math.Cos;; get;
+```
+
+#### Brief
+
+***
+
+### Tan
+
+```C#
+property Tan: Double get = Math.Tan;; get;
+```
+
+#### Brief
+
+***
+
+### Sinh
+
+```C#
+property Sinh: Double get = Math.Sinh;; get;
+```
+
+#### Brief
+
+***
+
+### Cosh
+
+```C#
+property Cosh: Double get = Math.Cosh;; get;
+```
+
+#### Brief
+
+***
+
+### Tanh
+
+```C#
+property Tanh: Double get = Math.Tanh;; get;
+```
+
+#### Brief
+
+***
+
+### Asin
+
+```C#
+property Asin: Double get = Math.Asin;; get;
+```
+
+#### Brief
+
+***
+
+### Acos
+
+```C#
+property Acos: Double get = Math.Acos;; get;
+```
+
+#### Brief
+
+***
+
+### Atan
+
+```C#
+property Atan: Double get = Math.Atan;; get;
+```
+
+#### Brief
+
+***
+
+### Asinh
+
+```C#
+property Asinh: Double get = Math.Asinh;; get;
+```
+
+#### Brief
+
+***
+
+### Acosh
+
+```C#
+property Acosh: Double get = Math.Acosh;; get;
+```
+
+#### Brief
+
+***
+
+### Atanh
+
+```C#
+property Atanh: Double get = Math.Atanh;; get;
+```
+
+#### Brief
+
+***
+
+### Log
+
+```C#
+property Log: Double get = Math.Log;; get;
+```
+
+#### Brief
 Returns the natural logarithm of a value.
 
 ***
 
-#### Log10
+### Log2
 
 ```C#
-property Log10: Double get const Intrinsic.Log10;; get;
+property Log2: Double get = Math.Log2;; get;
 ```
 
-##### Brief
+#### Brief
+
+***
+
+### Log10
+
+```C#
+property Log10: Double get = Math.Log10;; get;
+```
+
+#### Brief
 Returns the base 10 logarithm of a value.
 
 ***
 
-Constants
----
+## Constants
 
-#### Zero
+### Zero
 
 ```C#
 const Zero: Double
 ```
 
-##### Brief
+#### Brief
 A [Double][sys.core.lang.Double] instance representing a logical "0" value.
 
 ***
 
-#### One
+### One
 
 ```C#
 const One: Double
 ```
 
-##### Brief
+#### Brief
 A [Double][sys.core.lang.Double] instance representing a logical "1" value.
 
 ***
 
-#### Min
+### Min
 
 ```C#
 const Min: Double
 ```
 
-##### Brief
+#### Brief
 The minimum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
 const Max: Double
 ```
 
-##### Brief
+#### Brief
 The maximum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
 const IsSigned
 ```
 
-##### Brief
+#### Brief
 Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
 const IsInteger
 ```
 
-##### Brief
+#### Brief
 Returns [false][sys.core.lang.Bool].
 
 ***
 
-#### MaxDigitsLow
+### MaxDigitsLow
 
 ```C#
 const MaxDigitsLow
 ```
 
-##### Brief
+#### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -319,13 +444,13 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MaxDigitsHigh
+### MaxDigitsHigh
 
 ```C#
 const MaxDigitsHigh
 ```
 
-##### Brief
+#### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
@@ -333,46 +458,46 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MinExpBase10
+### MinExpBase10
 
 ```C#
 const MinExpBase10
 ```
 
-##### Brief
+#### Brief
 The minimum base 10 exponent.
 
 ***
 
-#### MaxExpBase10
+### MaxExpBase10
 
 ```C#
 const MaxExpBase10
 ```
 
-##### Brief
+#### Brief
 The maximum base 10 exponent.
 
 ***
 
-#### Nan
+### Nan
 
 ```C#
 const Nan
 ```
 
-##### Brief
+#### Brief
 The not a number value.
 
 ***
 
-#### Infinite
+### Infinite
 
 ```C#
 const Infinite
 ```
 
-##### Brief
+#### Brief
 Positive infinite.
 
 ***

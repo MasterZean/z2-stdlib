@@ -1,103 +1,104 @@
-Variables
----
+# class SystemCPU from *sys.core*
 
-#### Vendor
+## Variables
+
+### Vendor
 
 ```C#
 val Vendor
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### MMX
+### MMX
 
 ```C#
 val MMX
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSE
+### SSE
 
 ```C#
 val SSE
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSE2
+### SSE2
 
 ```C#
 val SSE2
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSE3
+### SSE3
 
 ```C#
 val SSE3
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSSE3
+### SSSE3
 
 ```C#
 val SSSE3
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSE41
+### SSE41
 
 ```C#
 val SSE41
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SSE42
+### SSE42
 
 ```C#
 val SSE42
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Bits
+### Bits
 
 ```C#
 val Bits
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Cores
+### Cores
 
 ```C#
 val Cores
 ```
 
-##### Brief
+#### Brief
 
 ***
 

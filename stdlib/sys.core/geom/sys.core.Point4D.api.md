@@ -1,7 +1,8 @@
-Constructors
----
+# class Point4D from *sys.core*
 
-#### this
+## Constructors
+
+### this
 
 ```C#
 this{value: T}
@@ -11,158 +12,148 @@ this{p2d: Point2D<T>, s2d: Point2D<T>}
 this{p3d: Point3D<T>, w: T}
 ```
 
-##### Brief
+#### Brief
 Creates a new instance initializing each component of the point.
 
-###### param value
-the value to use for each component
-###### param x
-the first dimension of the point
-###### param y
-the second dimension of the point
-###### param z
-the third dimension of the point
-###### param w
-the fourth dimension of the point
-###### param p2d
-a 2 dimensional point that is used as the first two dimensions
-###### param s2d
-a 2 dimensional point that is used as the last two dimensions
-###### param p3d
-a 3 dimensional point that is used as the first three dimensions
+#### Parameters
+> *value* => the value to use for each component  
+> *x* => the first dimension of the point  
+> *y* => the second dimension of the point  
+> *z* => the third dimension of the point  
+> *w* => the fourth dimension of the point  
+> *p2d* => a 2 dimensional point that is used as the first two dimensions  
+> *s2d* => a 2 dimensional point that is used as the last two dimensions  
+> *p3d* => a 3 dimensional point that is used as the first three dimensions  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
 def Clamp(min: Point4D<T>, max: Point4D<T>)
 def Clamp(min: T, max: T)
 ```
 
-##### Brief
+#### Brief
 Clamps each component of the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
 func Clamped(min: Point4D<T>, max: Point4D<T>)
 func Clamped(min: T, max: T)
 ```
 
-##### Brief
+#### Brief
 Returns a copy of the color with each component clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ***
 
-#### GetMin
+### GetMin
 
 ```C#
 func GetMin(min: Point4D<T>)
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise minimum between the current instance and the input.
 
-###### param min
-the value to test against
-###### returns
-the member-wise minimum
+#### Parameters
+> *min* => the value to test against  
+#### Returns
+> the member-wise minimum
 ***
 
-#### GetMax
+### GetMax
 
 ```C#
 func GetMax(max: Point4D<T>)
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise maximum between the current instance and the input.
 
-###### param max
-the value to test against
-###### returns
-the member-wise maximum
+#### Parameters
+> *max* => the value to test against  
+#### Returns
+> the member-wise maximum
 ***
 
-#### IsNormalized
+### IsNormalized
 
 ```C#
 func IsNormalized(tolerance: T)
 ```
 
-##### Brief
+#### Brief
 Tests if the current instance is a 4 dimensional normalized vector, within a tolerance.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
-###### returns
-
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
+#### Returns
+> 
 ***
 
-#### Normalize
+### Normalize
 
 ```C#
 def Normalize(tolerance: T)
 ```
 
-##### Brief
+#### Brief
 Normalizes the 4 dimensional vector if its length falls within the tolerance limits.
 
 Otherwise, the value remains unchanged.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
 ***
 
-#### Normalized
+### Normalized
 
 ```C#
 func Normalized(tolerance: T)
 ```
 
-##### Brief
+#### Brief
 Returns a 4 dimensional normalized copy of the vector if its length falls within the tolerance limits.
 
 Otherwise, returns the value as is.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
-###### returns
-
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
+#### Returns
+> 
 ***
 
-#### @add
+### @add
 
 ```C#
 func @add(second: Point4D<T>)
 func @add(second: T)
 ```
 
-##### Brief
+#### Brief
 Member-wise addition operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @sub
+### @sub
 
 ```C#
 static func @sub(left: Point4D<T>, right: Point4D<T>)
@@ -170,34 +161,33 @@ static func @sub(left: Point4D<T>, right: T)
 static func @sub(left: T, right: Point4D<T>)
 ```
 
-##### Brief
+#### Brief
 Member-wise subtraction operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @mul
+### @mul
 
 ```C#
 func @mul(second: Point4D<T>)
 func @mul(second: T)
 ```
 
-##### Brief
+#### Brief
 Member-wise multiplication operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @div
+### @div
 
 ```C#
 static func @div(left: Point4D<T>, right: Point4D<T>)
@@ -205,18 +195,17 @@ static func @div(left: Point4D<T>, right: T)
 static func @div(left: T, right: Point4D<T>)
 ```
 
-##### Brief
+#### Brief
 Member-wise division operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @mod
+### @mod
 
 ```C#
 static func @mod(left: Point4D<T>, right: Point4D<T>)
@@ -224,146 +213,142 @@ static func @mod(left: Point4D<T>, right: T)
 static func @mod(left: T, right: Point4D<T>)
 ```
 
-##### Brief
+#### Brief
 Member-wise modulo operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @minus
+### @minus
 
 ```C#
 func @minus()
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise negative of the current instance.
 
-###### returns
-
+#### Returns
+> 
 ***
 
-#### @eq
+### @eq
 
 ```C#
 func @eq(second: T)
 ```
 
-##### Brief
+#### Brief
 Member-wise equality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @neq
+### @neq
 
 ```C#
 func @neq(second: T)
 ```
 
-##### Brief
+#### Brief
 Member-wise inequality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### Equals
+### Equals
 
 ```C#
 func Equals(second: Point4D<T>, tolerance: T)
 func Equals(second: T, tolerance: T)
 ```
 
-##### Brief
+#### Brief
 Member-wise equality operator within a given tolerance.
 
-###### param second
-the second operand
-###### param tolerance
-tolerance for equality
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+> *tolerance* => tolerance for equality  
+#### Returns
+> 
 ***
 
-Properties
----
+## Properties
 
-#### Length
+### Length
 
 ```C#
 property Length: T; get;
 ```
 
-##### Brief
+#### Brief
 The length of the instance interpreted as a 4 dimensional vector.
 
 ***
 
-#### LengthSquared
+### LengthSquared
 
 ```C#
 property LengthSquared: T; get;
 ```
 
-##### Brief
+#### Brief
 The squared length of the instance interpreted as a 4 dimensional vector.
 
 ***
 
-Variables
----
+## Variables
 
-#### X
+### X
 
 ```C#
 val X: T
 ```
 
-##### Brief
+#### Brief
 The first dimension of the point.
 
 ***
 
-#### Y
+### Y
 
 ```C#
 val Y: T
 ```
 
-##### Brief
+#### Brief
 The second dimension of the point.
 
 ***
 
-#### Z
+### Z
 
 ```C#
 val Z: T
 ```
 
-##### Brief
+#### Brief
 The third dimension of the point.
 
 ***
 
-#### W
+### W
 
 ```C#
 val W: T
 ```
 
-##### Brief
+#### Brief
 The fourth dimension of the point.
 
 ***

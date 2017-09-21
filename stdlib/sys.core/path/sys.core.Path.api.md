@@ -1,209 +1,208 @@
-Methods
----
+# class Path from *sys.core*
 
-#### GetFolder
+## Methods
+
+### GetFolder
 
 ```C#
 static def GetFolder(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetFolderNoSep
+### GetFolderNoSep
 
 ```C#
 static def GetFolderNoSep(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetName
+### GetName
 
 ```C#
 static def GetName(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetNameIndex
+### GetNameIndex
 
 ```C#
 static def GetNameIndex(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetTitle
+### GetTitle
 
 ```C#
 static def GetTitle(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetTitleIndex
+### GetTitleIndex
 
 ```C#
 static def GetTitleIndex(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetExtension
+### GetExtension
 
 ```C#
 static def GetExtension(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetExtensionIndex
+### GetExtensionIndex
 
 ```C#
 static def GetExtensionIndex(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### GetParent
+### GetParent
 
 ```C#
 static def GetParent(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-#### IsRoot
+### IsRoot
 
 ```C#
 static def IsRoot(path: String)
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* => 
+#### Returns
+> 
 ***
 
-Properties
----
+## Properties
 
-#### CurrentFolder
+### CurrentFolder
 
 ```C#
 property CurrentFolder: String
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### ExeFileName
+### ExeFileName
 
 ```C#
 property ExeFileName: String; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-Constants
----
+## Constants
 
-#### DirSep
+### DirSep
 
 ```C#
 const DirSep
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### IgnoreCase
+### IgnoreCase
 
 ```C#
 const IgnoreCase
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### DirSepWin
+### DirSepWin
 
 ```C#
 const DirSepWin
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### DirSepUnix
+### DirSepUnix
 
 ```C#
 const DirSepUnix
 ```
 
-##### Brief
+#### Brief
 
 ***
 

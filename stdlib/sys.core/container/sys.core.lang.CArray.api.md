@@ -22,7 +22,7 @@ The elements of the array are either default constructed or copied over from the
 
 ### Fill
 
-```TypeScript
+```C#
 def Fill(value: T)
 def Fill(items: Vector<T>)
 def Fill(items: CArray<T>)
