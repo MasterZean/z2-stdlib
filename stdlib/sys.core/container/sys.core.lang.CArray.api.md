@@ -16,6 +16,7 @@ The elements of the array are either default constructed or copied over from the
 
 #### Parameters
 > *item* => items will be copied from this value
+> *item* => items will be copied from this value
 
 #### Returns
 >the index where the item was found
