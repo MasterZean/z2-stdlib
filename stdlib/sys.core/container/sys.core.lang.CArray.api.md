@@ -1,3 +1,29 @@
+# class Foo
+
+## Methods
+
+### this
+
+```C#
+this{}
+this{item: T}
+```
+
+#### Brief
+Creates a new static array, filling each element of the array.
+
+The elements of the array are either default constructed or copied over from the provided parameter.
+
+#### Parameters
+##### item
+
+> items will be copied from this value
+
+#### Returns
+>the index where the item was found
+
+***
+
 Constructors
 ---
 
