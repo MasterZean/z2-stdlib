@@ -62,8 +62,8 @@ this TakeOwnership{chars: Ptr<Byte>, len: PtrSize}
 ### @attr
 
 ```C#
-def @attr(obj: String)
-def @attr(move obj: String)
+def @attr(obj: String);
+def @attr(move obj: String);
 ```
 
 #### Brief
@@ -75,7 +75,7 @@ def @attr(move obj: String)
 ### Clear
 
 ```C#
-def Clear()
+def Clear();
 ```
 
 #### Brief
@@ -85,7 +85,7 @@ def Clear()
 ### @eq
 
 ```C#
-func @eq(second: String): Bool
+func @eq(second: String): Bool;
 ```
 
 #### Brief
@@ -99,7 +99,7 @@ func @eq(second: String): Bool
 ### @neq
 
 ```C#
-func @neq(second: String): Bool
+func @neq(second: String): Bool;
 ```
 
 #### Brief
@@ -113,8 +113,8 @@ func @neq(second: String): Bool
 ### @shl
 
 ```C#
-def @shl(ch: Char): ref String
-def @shl(str: String): ref String
+def @shl(ch: Char): ref String;
+def @shl(str: String): ref String;
 ```
 
 #### Brief
@@ -129,7 +129,7 @@ def @shl(str: String): ref String
 ### Insert
 
 ```C#
-def Insert(pos: PtrSize, string: String)
+def Insert(pos: PtrSize, string: String);
 ```
 
 #### Brief
@@ -142,7 +142,7 @@ def Insert(pos: PtrSize, string: String)
 ### Inserted
 
 ```C#
-func Inserted(pos: PtrSize, string: String): String
+func Inserted(pos: PtrSize, string: String): String;
 ```
 
 #### Brief
@@ -157,9 +157,9 @@ func Inserted(pos: PtrSize, string: String): String
 ### Find
 
 ```C#
-func Find(b: Byte): PtrSize
-func Find(b: Byte, start: PtrSize): PtrSize
-func Find(b: CArray<Byte>): PtrSize
+func Find(b: Byte): PtrSize;
+func Find(b: Byte, start: PtrSize): PtrSize;
+func Find(b: CArray<Byte>): PtrSize;
 ```
 
 #### Brief
@@ -174,9 +174,9 @@ func Find(b: CArray<Byte>): PtrSize
 ### RFind
 
 ```C#
-func RFind(b: Byte): PtrSize
-func RFind(b: Byte, start: PtrSize): PtrSize
-func RFind(b: CArray<Byte>): PtrSize
+func RFind(b: Byte): PtrSize;
+func RFind(b: Byte, start: PtrSize): PtrSize;
+func RFind(b: CArray<Byte>): PtrSize;
 ```
 
 #### Brief
@@ -191,7 +191,7 @@ func RFind(b: CArray<Byte>): PtrSize
 ### Split
 
 ```C#
-func Split(b: Byte): Vector<String>
+func Split(b: Byte): Vector<String>;
 ```
 
 #### Brief
@@ -205,7 +205,7 @@ func Split(b: Byte): Vector<String>
 ### Trimmed
 
 ```C#
-func Trimmed(): String
+func Trimmed(): String;
 ```
 
 #### Brief
@@ -217,8 +217,8 @@ func Trimmed(): String
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -231,7 +231,7 @@ func @write(ref stream: Stream, format: OutputFormat)
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -243,7 +243,7 @@ func @put(ref stream: Stream)
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -309,7 +309,7 @@ property SysDataPointer: Ptr<Byte>; get;
 ### GrowthSpacing
 
 ```C#
-val GrowthSpacing
+val GrowthSpacing;
 ```
 
 #### Brief

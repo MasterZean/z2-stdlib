@@ -5,7 +5,7 @@
 ### Sleep
 
 ```C#
-static func Sleep(msec: DWord)
+static func Sleep(msec: DWord);
 ```
 
 #### Brief

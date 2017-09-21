@@ -20,7 +20,7 @@ this Saturated{value: Double}
 ### Clamp
 
 ```C#
-def Clamp(min: Float, max: Float)
+def Clamp(min: Float, max: Float);
 ```
 
 #### Brief
@@ -35,7 +35,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Float, max: Float): Float
+func Clamped(min: Float, max: Float): Float;
 ```
 
 #### Brief
@@ -52,7 +52,7 @@ Returns the current instance clamped between `min` and `max`.
 ### Pow
 
 ```C#
-func Pow(exp: Float): Float
+func Pow(exp: Float): Float;
 ```
 
 #### Brief
@@ -67,7 +67,7 @@ Raises the instance to an exponent.
 ### ToString
 
 ```C#
-func ToString(): String
+func ToString(): String;
 ```
 
 #### Brief
@@ -80,8 +80,8 @@ Converts the value to a Utf8 [string][sys.core.lang.String].
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -97,7 +97,7 @@ Can use an optional [output format][sys.core.OutputFormat] specifier.
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -110,7 +110,7 @@ Writes the value to a binary stream as a 32 bit floating point.
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -367,7 +367,7 @@ Returns the base 10 logarithm of a value.
 ### Zero
 
 ```C#
-const Zero: Float
+const Zero: Float;
 ```
 
 #### Brief
@@ -378,7 +378,7 @@ A [Float][sys.core.lang.Float] instance representing a logical "0" value.
 ### One
 
 ```C#
-const One: Float
+const One: Float;
 ```
 
 #### Brief
@@ -389,7 +389,7 @@ A [Float][sys.core.lang.Float] instance representing a logical "1" value.
 ### Min
 
 ```C#
-const Min: Float
+const Min: Float;
 ```
 
 #### Brief
@@ -400,7 +400,7 @@ The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) ins
 ### Max
 
 ```C#
-const Max: Float
+const Max: Float;
 ```
 
 #### Brief
@@ -411,7 +411,7 @@ The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) ins
 ### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
 #### Brief
@@ -422,7 +422,7 @@ Returns [true][sys.core.lang.Bool] if the floating point representation is signe
 ### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
 #### Brief
@@ -433,7 +433,7 @@ Returns [false][sys.core.lang.Bool].
 ### MaxDigitsLow
 
 ```C#
-const MaxDigitsLow
+const MaxDigitsLow;
 ```
 
 #### Brief
@@ -447,7 +447,7 @@ Should not be used for buffer sizes.
 ### MaxDigitsHigh
 
 ```C#
-const MaxDigitsHigh
+const MaxDigitsHigh;
 ```
 
 #### Brief
@@ -461,7 +461,7 @@ Should not be used for buffer sizes.
 ### Nan
 
 ```C#
-const Nan
+const Nan;
 ```
 
 #### Brief
@@ -472,7 +472,7 @@ The not a number value.
 ### Infinite
 
 ```C#
-const Infinite
+const Infinite;
 ```
 
 #### Brief

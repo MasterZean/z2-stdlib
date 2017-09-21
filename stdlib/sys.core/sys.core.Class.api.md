@@ -5,7 +5,7 @@
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
+func @write(ref stream: Stream);
 ```
 
 #### Brief

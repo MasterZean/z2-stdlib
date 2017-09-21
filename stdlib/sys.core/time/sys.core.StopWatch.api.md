@@ -33,7 +33,7 @@ Calling `Elapsed` after is a not valid operation and you must manually start kee
 ### Reset
 
 ```C#
-def Reset()
+def Reset();
 ```
 
 #### Brief
@@ -44,7 +44,7 @@ Resets the internal statistics and starts tracking time from the point in time o
 ### Elapsed
 
 ```C#
-func Elapsed(): Double
+func Elapsed(): Double;
 ```
 
 #### Brief

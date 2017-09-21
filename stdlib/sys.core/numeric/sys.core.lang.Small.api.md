@@ -38,7 +38,7 @@ Constructs a saturated [Small][sys.core.lang.Small] based on the input value.
 ### Clamp
 
 ```C#
-def Clamp(min: Small, max: Small)
+def Clamp(min: Small, max: Small);
 ```
 
 #### Brief
@@ -52,7 +52,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Small, max: Small): Small
+func Clamped(min: Small, max: Small): Small;
 ```
 
 #### Brief
@@ -68,7 +68,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString(): String
+func ToString(): String;
 ```
 
 #### Brief
@@ -81,8 +81,8 @@ Converts the value to a Utf8 [string][sys.core.lang.String].
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -98,7 +98,7 @@ Can use an optional [output format][sys.core.OutputFormat] specifier.
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -111,7 +111,7 @@ Writes the value to a binary stream as a 8 bit signed integer.
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -200,7 +200,7 @@ In the case of [Small][sys.core.lang.Small] it returns the value itself and is i
 ### Zero
 
 ```C#
-const Zero: Small
+const Zero: Small;
 ```
 
 #### Brief
@@ -211,7 +211,7 @@ An [Small][sys.core.lang.Small] instance representing a logical "0" value.
 ### One
 
 ```C#
-const One: Small
+const One: Small;
 ```
 
 #### Brief
@@ -222,7 +222,7 @@ An [Small][sys.core.lang.Small] instance representing a logical "1" value.
 ### Min
 
 ```C#
-const Min: Small
+const Min: Small;
 ```
 
 #### Brief
@@ -233,7 +233,7 @@ The minimum value for a [Small][sys.core.lang.Small] (8 bit signed integer) inst
 ### Max
 
 ```C#
-const Max: Small
+const Max: Small;
 ```
 
 #### Brief
@@ -244,7 +244,7 @@ The maximum value for a [Small][sys.core.lang.Small] (8 bit signed integer) inst
 ### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
 #### Brief
@@ -255,7 +255,7 @@ const IsSigned
 ### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
 #### Brief
@@ -266,7 +266,7 @@ const IsInteger
 ### MaxDigitsLow
 
 ```C#
-const MaxDigitsLow
+const MaxDigitsLow;
 ```
 
 #### Brief
@@ -280,7 +280,7 @@ Should not be used for buffer sizes.
 ### MaxDigitsHigh
 
 ```C#
-const MaxDigitsHigh
+const MaxDigitsHigh;
 ```
 
 #### Brief

@@ -5,7 +5,7 @@
 ### Pow
 
 ```C#
-static def Pow(base: Double, exponenet: Double): Double
+static def Pow(base: Double, exponenet: Double): Double;
 ```
 
 #### Brief
@@ -21,7 +21,7 @@ Returns a base raised to an exponent.
 ### Sqrt
 
 ```C#
-static def Sqrt(value: Double): Double
+static def Sqrt(value: Double): Double;
 ```
 
 #### Brief
@@ -36,7 +36,7 @@ Returns square root of a value.
 ### MemCopy
 
 ```C#
-static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize)
+static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize);
 ```
 
 #### Brief
@@ -51,7 +51,7 @@ Does a C standard library `memcpy` operation, copying a number of bytes from a s
 ### CStrLen
 
 ```C#
-static def CStrLen(source: Ptr<Byte>): PtrSize
+static def CStrLen(source: Ptr<Byte>): PtrSize;
 ```
 
 #### Brief
@@ -68,7 +68,7 @@ Should not be used on `sys.core.lang.String` since it can contain valid null cha
 ### CpuID
 
 ```C#
-static def CpuID(ref cpu: CArray<Int>, val level: Int)
+static def CpuID(ref cpu: CArray<Int>, val level: Int);
 ```
 
 #### Brief

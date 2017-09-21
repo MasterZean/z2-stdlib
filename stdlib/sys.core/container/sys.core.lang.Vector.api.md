@@ -23,8 +23,8 @@ Creates a new instance containing a copy of the input parameter, or moves the da
 ### @attr
 
 ```C#
-def @attr(copy: Vector<T>)
-def @attr(move copy: Vector<T>)
+def @attr(copy: Vector<T>);
+def @attr(move copy: Vector<T>);
 ```
 
 #### Brief
@@ -39,10 +39,10 @@ Assign the current instance with a copy or a move of the input data.
 ### Add
 
 ```C#
-def Add(item: T)
-def Add(move item: T)
-def Add(items: Vector<T>)
-def Add(items: CArray<T>)
+def Add(item: T);
+def Add(move item: T);
+def Add(items: Vector<T>);
+def Add(items: CArray<T>);
 ```
 
 #### Brief
@@ -56,9 +56,9 @@ Append a single item or a collection to the end of the vector.
 ### Fill
 
 ```C#
-def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)
+def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);
 ```
 
 #### Brief
@@ -76,8 +76,8 @@ If an array is provided, elements will be copied over in sequence. If the source
 ### FindIndex
 
 ```C#
-func FindIndex(item: T): PtrSize
-func FindIndex(item: T, start: PtrSize): PtrSize
+func FindIndex(item: T): PtrSize;
+func FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -97,8 +97,8 @@ Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 ### BinaryIndex
 
 ```C#
-func BinaryIndex(item: T): PtrSize
-def BinaryIndex(item: T, start: PtrSize): PtrSize
+func BinaryIndex(item: T): PtrSize;
+def BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -118,9 +118,9 @@ Returns [-1][sys.core.lang.PtrSize] if the item was not found.
 ### Insert
 
 ```C#
-def Insert(pos: PtrSize, item: T)
-def Insert(pos: PtrSize, items: CArray<T>)
-def Insert(pos: PtrSize, items: Vector<T>)
+def Insert(pos: PtrSize, item: T);
+def Insert(pos: PtrSize, items: CArray<T>);
+def Insert(pos: PtrSize, items: Vector<T>);
 ```
 
 #### Brief
@@ -137,9 +137,9 @@ THe array will grow to accommodate the inserted items.
 ### Delete
 
 ```C#
-def Delete(item: T): PtrSize
-def Delete(items: CArray<T>): PtrSize
-def Delete(items: Vector<T>): PtrSize
+def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
@@ -154,9 +154,9 @@ def Delete(items: Vector<T>): PtrSize
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T): PtrSize
-def DeleteAll(item: CArray<T>): PtrSize
-def DeleteAll(item: Vector<T>): PtrSize
+def DeleteAll(item: T): PtrSize;
+def DeleteAll(item: CArray<T>): PtrSize;
+def DeleteAll(item: Vector<T>): PtrSize;
 ```
 
 #### Brief
@@ -170,9 +170,9 @@ def DeleteAll(item: Vector<T>): PtrSize
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(item: PtrSize): PtrSize
-def DeleteIndex(items: CArray<PtrSize>): PtrSize
-def DeleteIndex(items: Vector<PtrSize>): PtrSize
+def DeleteIndex(item: PtrSize): PtrSize;
+def DeleteIndex(items: CArray<PtrSize>): PtrSize;
+def DeleteIndex(items: Vector<PtrSize>): PtrSize;
 ```
 
 #### Brief
@@ -187,8 +187,8 @@ def DeleteIndex(items: Vector<PtrSize>): PtrSize
 ### Reverse
 
 ```C#
-def Reverse()
-def Reverse(start: PtrSize, end: PtrSize)
+def Reverse();
+def Reverse(start: PtrSize, end: PtrSize);
 ```
 
 #### Brief
@@ -201,7 +201,7 @@ def Reverse(start: PtrSize, end: PtrSize)
 ### Sum
 
 ```C#
-func Sum(): T
+func Sum(): T;
 ```
 
 #### Brief
@@ -213,8 +213,8 @@ func Sum(): T
 ### Sort
 
 ```C#
-def Sort()
-def Sort(low: Int, high: Int)
+def Sort();
+def Sort(low: Int, high: Int);
 ```
 
 #### Brief
@@ -227,8 +227,8 @@ def Sort(low: Int, high: Int)
 ### SortDec
 
 ```C#
-def SortDec()
-def SortDec(low: Int, high: Int)
+def SortDec();
+def SortDec(low: Int, high: Int);
 ```
 
 #### Brief
@@ -241,7 +241,7 @@ def SortDec(low: Int, high: Int)
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
+func @write(ref stream: Stream);
 ```
 
 #### Brief

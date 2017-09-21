@@ -31,8 +31,8 @@ Creates a new instance initializing each component of the point.
 ### Clamp
 
 ```C#
-def Clamp(min: Point4D<T>, max: Point4D<T>)
-def Clamp(min: T, max: T)
+def Clamp(min: Point4D<T>, max: Point4D<T>);
+def Clamp(min: T, max: T);
 ```
 
 #### Brief
@@ -46,8 +46,8 @@ Clamps each component of the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Point4D<T>, max: Point4D<T>): Point4D<T>
-func Clamped(min: T, max: T): Point4D<T>
+func Clamped(min: Point4D<T>, max: Point4D<T>): Point4D<T>;
+func Clamped(min: T, max: T): Point4D<T>;
 ```
 
 #### Brief
@@ -63,7 +63,7 @@ Returns a copy of the color with each component clamped between `min` and `max`.
 ### GetMin
 
 ```C#
-func GetMin(min: Point4D<T>): Point4D<T>
+func GetMin(min: Point4D<T>): Point4D<T>;
 ```
 
 #### Brief
@@ -78,7 +78,7 @@ Returns the member-wise minimum between the current instance and the input.
 ### GetMax
 
 ```C#
-func GetMax(max: Point4D<T>): Point4D<T>
+func GetMax(max: Point4D<T>): Point4D<T>;
 ```
 
 #### Brief
@@ -93,7 +93,7 @@ Returns the member-wise maximum between the current instance and the input.
 ### IsNormalized
 
 ```C#
-func IsNormalized(tolerance: T): Bool
+func IsNormalized(tolerance: T): Bool;
 ```
 
 #### Brief
@@ -108,7 +108,7 @@ Tests if the current instance is a 4 dimensional normalized vector, within a tol
 ### Normalize
 
 ```C#
-def Normalize(tolerance: T)
+def Normalize(tolerance: T);
 ```
 
 #### Brief
@@ -123,7 +123,7 @@ Otherwise, the value remains unchanged.
 ### Normalized
 
 ```C#
-func Normalized(tolerance: T): Point4D<T>
+func Normalized(tolerance: T): Point4D<T>;
 ```
 
 #### Brief
@@ -140,8 +140,8 @@ Otherwise, returns the value as is.
 ### @add
 
 ```C#
-func @add(second: Point4D<T>): Point4D<T>
-func @add(second: T): Point4D<T>
+func @add(second: Point4D<T>): Point4D<T>;
+func @add(second: T): Point4D<T>;
 ```
 
 #### Brief
@@ -156,9 +156,9 @@ Member-wise addition operator. Commutative.
 ### @sub
 
 ```C#
-static func @sub(left: Point4D<T>, right: Point4D<T>): Point4D<T>
-static func @sub(left: Point4D<T>, right: T): Point4D<T>
-static func @sub(left: T, right: Point4D<T>): Point4D<T>
+static func @sub(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
+static func @sub(left: Point4D<T>, right: T): Point4D<T>;
+static func @sub(left: T, right: Point4D<T>): Point4D<T>;
 ```
 
 #### Brief
@@ -174,8 +174,8 @@ Member-wise subtraction operator.
 ### @mul
 
 ```C#
-func @mul(second: Point4D<T>): Point4D<T>
-func @mul(second: T): Point4D<T>
+func @mul(second: Point4D<T>): Point4D<T>;
+func @mul(second: T): Point4D<T>;
 ```
 
 #### Brief
@@ -190,9 +190,9 @@ Member-wise multiplication operator. Commutative.
 ### @div
 
 ```C#
-static func @div(left: Point4D<T>, right: Point4D<T>): Point4D<T>
-static func @div(left: Point4D<T>, right: T): Point4D<T>
-static func @div(left: T, right: Point4D<T>): Point4D<T>
+static func @div(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
+static func @div(left: Point4D<T>, right: T): Point4D<T>;
+static func @div(left: T, right: Point4D<T>): Point4D<T>;
 ```
 
 #### Brief
@@ -208,9 +208,9 @@ Member-wise division operator.
 ### @mod
 
 ```C#
-static func @mod(left: Point4D<T>, right: Point4D<T>): Point4D<T>
-static func @mod(left: Point4D<T>, right: T): Point4D<T>
-static func @mod(left: T, right: Point4D<T>): Point4D<T>
+static func @mod(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
+static func @mod(left: Point4D<T>, right: T): Point4D<T>;
+static func @mod(left: T, right: Point4D<T>): Point4D<T>;
 ```
 
 #### Brief
@@ -226,7 +226,7 @@ Member-wise modulo operator.
 ### @minus
 
 ```C#
-func @minus(): Point4D<T>
+func @minus(): Point4D<T>;
 ```
 
 #### Brief
@@ -239,7 +239,7 @@ Returns the member-wise negative of the current instance.
 ### @eq
 
 ```C#
-func @eq(second: T): Bool
+func @eq(second: T): Bool;
 ```
 
 #### Brief
@@ -254,7 +254,7 @@ Member-wise equality operator.
 ### @neq
 
 ```C#
-func @neq(second: T): Bool
+func @neq(second: T): Bool;
 ```
 
 #### Brief
@@ -269,8 +269,8 @@ Member-wise inequality operator.
 ### Equals
 
 ```C#
-func Equals(second: Point4D<T>, tolerance: T): Bool
-func Equals(second: T, tolerance: T): Bool
+func Equals(second: Point4D<T>, tolerance: T): Bool;
+func Equals(second: T, tolerance: T): Bool;
 ```
 
 #### Brief
@@ -312,7 +312,7 @@ The squared length of the instance interpreted as a 4 dimensional vector.
 ### X
 
 ```C#
-val X: T
+val X: T;
 ```
 
 #### Brief
@@ -323,7 +323,7 @@ The first dimension of the point.
 ### Y
 
 ```C#
-val Y: T
+val Y: T;
 ```
 
 #### Brief
@@ -334,7 +334,7 @@ The second dimension of the point.
 ### Z
 
 ```C#
-val Z: T
+val Z: T;
 ```
 
 #### Brief
@@ -345,7 +345,7 @@ The third dimension of the point.
 ### W
 
 ```C#
-val W: T
+val W: T;
 ```
 
 #### Brief

@@ -35,8 +35,8 @@ this @allocate{len: PtrSize, capacity: PtrSize}
 ### @attr
 
 ```C#
-def @attr(copy: DynamicBlock<T>)
-def @attr(move copy: DynamicBlock<T>)
+def @attr(copy: DynamicBlock<T>);
+def @attr(move copy: DynamicBlock<T>);
 ```
 
 #### Brief
@@ -48,8 +48,8 @@ def @attr(move copy: DynamicBlock<T>)
 ### ExpandTo
 
 ```C#
-def ExpandTo(value: PtrSize)
-def ExpandTo(newLength: PtrSize, init: T)
+def ExpandTo(value: PtrSize);
+def ExpandTo(newLength: PtrSize, init: T);
 ```
 
 #### Brief
@@ -63,8 +63,8 @@ def ExpandTo(newLength: PtrSize, init: T)
 ### ExpandBy
 
 ```C#
-def ExpandBy(delta: PtrSize)
-def ExpandBy(delta: PtrSize, init: T)
+def ExpandBy(delta: PtrSize);
+def ExpandBy(delta: PtrSize, init: T);
 ```
 
 #### Brief
@@ -77,7 +77,7 @@ def ExpandBy(delta: PtrSize, init: T)
 ### ShrinkTo
 
 ```C#
-def ShrinkTo(newLength: PtrSize)
+def ShrinkTo(newLength: PtrSize);
 ```
 
 #### Brief
@@ -89,7 +89,7 @@ def ShrinkTo(newLength: PtrSize)
 ### ShrinkBy
 
 ```C#
-def ShrinkBy(delta: PtrSize)
+def ShrinkBy(delta: PtrSize);
 ```
 
 #### Brief
@@ -101,7 +101,7 @@ def ShrinkBy(delta: PtrSize)
 ### Fill
 
 ```C#
-def Fill(value: T)
+def Fill(value: T);
 ```
 
 #### Brief
@@ -113,7 +113,7 @@ def Fill(value: T)
 ### Clear
 
 ```C#
-def Clear()
+def Clear();
 ```
 
 #### Brief
@@ -123,8 +123,8 @@ def Clear()
 ### Append
 
 ```C#
-def Append(item: T)
-def Append(item: T, count: PtrSize)
+def Append(item: T);
+def Append(item: T, count: PtrSize);
 ```
 
 #### Brief
@@ -137,7 +137,7 @@ def Append(item: T, count: PtrSize)
 ### SetLengthUnsafe
 
 ```C#
-def SetLengthUnsafe(value: PtrSize)
+def SetLengthUnsafe(value: PtrSize);
 ```
 
 #### Brief
@@ -149,7 +149,7 @@ def SetLengthUnsafe(value: PtrSize)
 ### ExpandUnsafe
 
 ```C#
-def ExpandUnsafe(value: PtrSize)
+def ExpandUnsafe(value: PtrSize);
 ```
 
 #### Brief
@@ -161,7 +161,7 @@ def ExpandUnsafe(value: PtrSize)
 ### ShrinkUnsafe
 
 ```C#
-def ShrinkUnsafe(value: PtrSize)
+def ShrinkUnsafe(value: PtrSize);
 ```
 
 #### Brief
@@ -173,7 +173,7 @@ def ShrinkUnsafe(value: PtrSize)
 ### FreeUnsafe
 
 ```C#
-def FreeUnsafe(len: PtrSize)
+def FreeUnsafe(len: PtrSize);
 ```
 
 #### Brief

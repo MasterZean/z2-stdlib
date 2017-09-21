@@ -5,8 +5,8 @@
 ### IntAsText
 
 ```C#
-static func IntAsText(ref buffer: Slice<Byte>, data: Int)
-static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord)
+static func IntAsText(ref buffer: Slice<Byte>, data: Int);
+static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord);
 ```
 
 #### Brief
@@ -23,8 +23,8 @@ The buffer `Length` is updated to the number of code units written.
 ### LongAsText
 
 ```C#
-static func LongAsText(ref buffer: Slice<Byte>, data: Long)
-static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord)
+static func LongAsText(ref buffer: Slice<Byte>, data: Long);
+static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord);
 ```
 
 #### Brief
@@ -41,8 +41,8 @@ The buffer `Length` is updated to the number of code units written.
 ### DWordAsText
 
 ```C#
-static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord)
-static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord)
+static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord);
+static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord);
 ```
 
 #### Brief
@@ -59,8 +59,8 @@ The buffer `Length` is updated to the number of code units written.
 ### QWordAsText
 
 ```C#
-static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord)
-static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord)
+static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord);
+static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord);
 ```
 
 #### Brief
@@ -77,7 +77,7 @@ The buffer `Length` is updated to the number of code units written.
 ### FloatAsText
 
 ```C#
-static func FloatAsText(ref buffer: Slice<Byte>, data: Float)
+static func FloatAsText(ref buffer: Slice<Byte>, data: Float);
 ```
 
 #### Brief
@@ -95,7 +95,7 @@ The buffer `Length` is updated to the number of code units written.
 ### DoubleAsText
 
 ```C#
-static func DoubleAsText(ref buffer: Slice<Byte>, data: Double)
+static func DoubleAsText(ref buffer: Slice<Byte>, data: Double);
 ```
 
 #### Brief
@@ -113,7 +113,7 @@ The buffer `Length` is updated to the number of code units written.
 ### CharAsText
 
 ```C#
-static func CharAsText(ref buffer: Slice<Byte>, data: Char)
+static func CharAsText(ref buffer: Slice<Byte>, data: Char);
 ```
 
 #### Brief
@@ -129,7 +129,7 @@ The buffer `Length` is updated to the number of code units written.
 ### FromUtf16
 
 ```C#
-static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>)
+static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>);
 ```
 
 #### Brief
@@ -143,7 +143,7 @@ Converts a source Utf16 buffer to a destination Utf8 buffer.
 ### FromUtf32
 
 ```C#
-static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>)
+static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>);
 ```
 
 #### Brief
@@ -159,7 +159,7 @@ Converts a source Utf32 buffer to a destination Utf8 buffer.
 ### MaxSmallBuffer
 
 ```C#
-const MaxSmallBuffer
+const MaxSmallBuffer;
 ```
 
 #### Brief
@@ -170,7 +170,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxShortBuffer
 
 ```C#
-const MaxShortBuffer
+const MaxShortBuffer;
 ```
 
 #### Brief
@@ -181,7 +181,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxIntBuffer
 
 ```C#
-const MaxIntBuffer
+const MaxIntBuffer;
 ```
 
 #### Brief
@@ -192,7 +192,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxLongBuffer
 
 ```C#
-const MaxLongBuffer
+const MaxLongBuffer;
 ```
 
 #### Brief
@@ -203,7 +203,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxByteBuffer
 
 ```C#
-const MaxByteBuffer
+const MaxByteBuffer;
 ```
 
 #### Brief
@@ -214,7 +214,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxWordBuffer
 
 ```C#
-const MaxWordBuffer
+const MaxWordBuffer;
 ```
 
 #### Brief
@@ -225,7 +225,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxDWordBuffer
 
 ```C#
-const MaxDWordBuffer
+const MaxDWordBuffer;
 ```
 
 #### Brief
@@ -236,7 +236,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxQWordBuffer
 
 ```C#
-const MaxQWordBuffer
+const MaxQWordBuffer;
 ```
 
 #### Brief
@@ -247,7 +247,7 @@ The maximum required Utf8 buffer size to store the textual form of a `sys.core.l
 ### MaxBinSmallBuffer
 
 ```C#
-const MaxBinSmallBuffer
+const MaxBinSmallBuffer;
 ```
 
 #### Brief
@@ -258,7 +258,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinShortBuffer
 
 ```C#
-const MaxBinShortBuffer
+const MaxBinShortBuffer;
 ```
 
 #### Brief
@@ -269,7 +269,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinIntBuffer
 
 ```C#
-const MaxBinIntBuffer
+const MaxBinIntBuffer;
 ```
 
 #### Brief
@@ -280,7 +280,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinLongBuffer
 
 ```C#
-const MaxBinLongBuffer
+const MaxBinLongBuffer;
 ```
 
 #### Brief
@@ -291,7 +291,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinByteBuffer
 
 ```C#
-const MaxBinByteBuffer
+const MaxBinByteBuffer;
 ```
 
 #### Brief
@@ -302,7 +302,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinWordBuffer
 
 ```C#
-const MaxBinWordBuffer
+const MaxBinWordBuffer;
 ```
 
 #### Brief
@@ -313,7 +313,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinDWordBuffer
 
 ```C#
-const MaxBinDWordBuffer
+const MaxBinDWordBuffer;
 ```
 
 #### Brief
@@ -324,7 +324,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxBinQWordBuffer
 
 ```C#
-const MaxBinQWordBuffer
+const MaxBinQWordBuffer;
 ```
 
 #### Brief
@@ -335,7 +335,7 @@ The maximum required Utf8 buffer size to store the base 2 textual form of a `sys
 ### MaxCharBuffer
 
 ```C#
-const MaxCharBuffer
+const MaxCharBuffer;
 ```
 
 #### Brief

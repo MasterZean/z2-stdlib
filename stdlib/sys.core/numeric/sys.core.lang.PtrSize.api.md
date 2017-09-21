@@ -5,7 +5,7 @@
 ### Clamp
 
 ```C#
-def Clamp(min: PtrSize, max: PtrSize)
+def Clamp(min: PtrSize, max: PtrSize);
 ```
 
 #### Brief
@@ -20,7 +20,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: PtrSize, max: PtrSize): PtrSize
+func Clamped(min: PtrSize, max: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -37,8 +37,8 @@ Returns the current instance clamped between `min` and `max`.
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -54,7 +54,7 @@ Can use an optional [output format][sys.core.OutputFormat] specifier.
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -67,7 +67,7 @@ Writes the value to a binary stream as a 32/64 bit unsigned integer.
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -158,7 +158,7 @@ In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and 
 ### Zero
 
 ```C#
-const Zero: PtrSize
+const Zero: PtrSize;
 ```
 
 #### Brief
@@ -169,7 +169,7 @@ A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "0" value.
 ### One
 
 ```C#
-const One: PtrSize
+const One: PtrSize;
 ```
 
 #### Brief
@@ -180,7 +180,7 @@ A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "1" value.
 ### Min
 
 ```C#
-const Min: PtrSize
+const Min: PtrSize;
 ```
 
 #### Brief
@@ -191,7 +191,7 @@ The minimum value for a [PtrSize][sys.core.lang.PtrSize] (32/64 bit unsigned int
 ### Max
 
 ```C#
-const Max: PtrSize
+const Max: PtrSize;
 ```
 
 #### Brief
@@ -202,7 +202,7 @@ The minimum value for a [PtrSize][sys.core.lang.PtrSize] (64 bit signed integer)
 ### Invalid
 
 ```C#
-const Invalid: PtrSize
+const Invalid: PtrSize;
 ```
 
 #### Brief
@@ -213,7 +213,7 @@ The value signaling invalid/out of bounds.
 ### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
 #### Brief
@@ -224,7 +224,7 @@ const IsSigned
 ### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
 #### Brief
@@ -235,7 +235,7 @@ const IsInteger
 ### MaxDigitsLow
 
 ```C#
-const MaxDigitsLow
+const MaxDigitsLow;
 ```
 
 #### Brief
@@ -249,7 +249,7 @@ Should not be used for buffer sizes.
 ### MaxDigitsHigh
 
 ```C#
-const MaxDigitsHigh
+const MaxDigitsHigh;
 ```
 
 #### Brief

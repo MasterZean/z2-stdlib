@@ -20,7 +20,7 @@ Parses a string an constructs an `sys.core.lang.Bool` based on it.
 ### Clamp
 
 ```C#
-def Clamp(min: Bool, max: Bool)
+def Clamp(min: Bool, max: Bool);
 ```
 
 #### Brief
@@ -35,7 +35,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Bool, max: Bool): Int
+func Clamped(min: Bool, max: Bool): Int;
 ```
 
 #### Brief
@@ -52,7 +52,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString(): String
+func ToString(): String;
 ```
 
 #### Brief
@@ -65,8 +65,8 @@ Converts the value to a Utf8 string.
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -80,7 +80,7 @@ Writes the value to an Utf8 text stream.
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -93,7 +93,7 @@ Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -108,7 +108,7 @@ Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
 ### Min
 
 ```C#
-const Min
+const Min;
 ```
 
 #### Brief
@@ -119,7 +119,7 @@ The minimum value for an `sys.core.lang.Bool` (boolean) instance.
 ### Max
 
 ```C#
-const Max
+const Max;
 ```
 
 #### Brief
@@ -130,7 +130,7 @@ The maximum value for an `sys.core.lang.Bool` (boolean) instance.
 ### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
 #### Brief
@@ -141,7 +141,7 @@ const IsSigned
 ### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
 #### Brief

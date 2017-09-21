@@ -5,7 +5,7 @@
 ### Vendor
 
 ```C#
-val Vendor
+val Vendor;
 ```
 
 #### Brief
@@ -15,7 +15,7 @@ val Vendor
 ### MMX
 
 ```C#
-val MMX
+val MMX;
 ```
 
 #### Brief
@@ -25,7 +25,7 @@ val MMX
 ### SSE
 
 ```C#
-val SSE
+val SSE;
 ```
 
 #### Brief
@@ -35,7 +35,7 @@ val SSE
 ### SSE2
 
 ```C#
-val SSE2
+val SSE2;
 ```
 
 #### Brief
@@ -45,7 +45,7 @@ val SSE2
 ### SSE3
 
 ```C#
-val SSE3
+val SSE3;
 ```
 
 #### Brief
@@ -55,7 +55,7 @@ val SSE3
 ### SSSE3
 
 ```C#
-val SSSE3
+val SSSE3;
 ```
 
 #### Brief
@@ -65,7 +65,7 @@ val SSSE3
 ### SSE41
 
 ```C#
-val SSE41
+val SSE41;
 ```
 
 #### Brief
@@ -75,7 +75,7 @@ val SSE41
 ### SSE42
 
 ```C#
-val SSE42
+val SSE42;
 ```
 
 #### Brief
@@ -85,7 +85,7 @@ val SSE42
 ### Bits
 
 ```C#
-val Bits
+val Bits;
 ```
 
 #### Brief
@@ -95,7 +95,7 @@ val Bits
 ### Cores
 
 ```C#
-val Cores
+val Cores;
 ```
 
 #### Brief

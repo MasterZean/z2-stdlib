@@ -5,7 +5,7 @@
 ### GetFolder
 
 ```C#
-static def GetFolder(path: String): String
+static def GetFolder(path: String): String;
 ```
 
 #### Brief
@@ -19,7 +19,7 @@ static def GetFolder(path: String): String
 ### GetFolderNoSep
 
 ```C#
-static def GetFolderNoSep(path: String): String
+static def GetFolderNoSep(path: String): String;
 ```
 
 #### Brief
@@ -33,7 +33,7 @@ static def GetFolderNoSep(path: String): String
 ### GetName
 
 ```C#
-static def GetName(path: String): String
+static def GetName(path: String): String;
 ```
 
 #### Brief
@@ -47,7 +47,7 @@ static def GetName(path: String): String
 ### GetNameIndex
 
 ```C#
-static def GetNameIndex(path: String): PtrSize
+static def GetNameIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -61,7 +61,7 @@ static def GetNameIndex(path: String): PtrSize
 ### GetTitle
 
 ```C#
-static def GetTitle(path: String): String
+static def GetTitle(path: String): String;
 ```
 
 #### Brief
@@ -75,7 +75,7 @@ static def GetTitle(path: String): String
 ### GetTitleIndex
 
 ```C#
-static def GetTitleIndex(path: String): PtrSize
+static def GetTitleIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -89,7 +89,7 @@ static def GetTitleIndex(path: String): PtrSize
 ### GetExtension
 
 ```C#
-static def GetExtension(path: String): String
+static def GetExtension(path: String): String;
 ```
 
 #### Brief
@@ -103,7 +103,7 @@ static def GetExtension(path: String): String
 ### GetExtensionIndex
 
 ```C#
-static def GetExtensionIndex(path: String): PtrSize
+static def GetExtensionIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -117,7 +117,7 @@ static def GetExtensionIndex(path: String): PtrSize
 ### GetParent
 
 ```C#
-static def GetParent(path: String): String
+static def GetParent(path: String): String;
 ```
 
 #### Brief
@@ -131,7 +131,7 @@ static def GetParent(path: String): String
 ### IsRoot
 
 ```C#
-static def IsRoot(path: String): Bool
+static def IsRoot(path: String): Bool;
 ```
 
 #### Brief
@@ -169,7 +169,7 @@ property ExeFileName: String; get;
 ### DirSep
 
 ```C#
-const DirSep
+const DirSep;
 ```
 
 #### Brief
@@ -179,7 +179,7 @@ const DirSep
 ### IgnoreCase
 
 ```C#
-const IgnoreCase
+const IgnoreCase;
 ```
 
 #### Brief
@@ -189,7 +189,7 @@ const IgnoreCase
 ### DirSepWin
 
 ```C#
-const DirSepWin
+const DirSepWin;
 ```
 
 #### Brief
@@ -199,7 +199,7 @@ const DirSepWin
 ### DirSepUnix
 
 ```C#
-const DirSepUnix
+const DirSepUnix;
 ```
 
 #### Brief

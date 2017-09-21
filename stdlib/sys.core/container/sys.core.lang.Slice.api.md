@@ -54,9 +54,9 @@ this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}
 ### Fill
 
 ```C#
-def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)
+def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);
 ```
 
 #### Brief
@@ -69,12 +69,12 @@ def Fill(items: CArray<T>)
 ### FindIndex
 
 ```C#
-func FindIndex(item: T): PtrSize
-func FindIndex(item: T, start: PtrSize): PtrSize
-func FindIndex(b: CArray<T>): PtrSize
-func FindIndex(b: Vector<T>): PtrSize
-func FindIndex(b: CArray<T>, start: PtrSize): PtrSize
-func FindIndex(b: Vector<T>, start: PtrSize): PtrSize
+func FindIndex(item: T): PtrSize;
+func FindIndex(item: T, start: PtrSize): PtrSize;
+func FindIndex(b: CArray<T>): PtrSize;
+func FindIndex(b: Vector<T>): PtrSize;
+func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
+func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -90,12 +90,12 @@ func FindIndex(b: Vector<T>, start: PtrSize): PtrSize
 ### RFindIndex
 
 ```C#
-func RFindIndex(item: T): PtrSize
-func RFindIndex(item: T, val start: PtrSize): PtrSize
-func RFindIndex(b: CArray<T>): PtrSize
-func RFindIndex(b: Vector<T>): PtrSize
-func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize
-func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize
+func RFindIndex(item: T): PtrSize;
+func RFindIndex(item: T, val start: PtrSize): PtrSize;
+func RFindIndex(b: CArray<T>): PtrSize;
+func RFindIndex(b: Vector<T>): PtrSize;
+func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -111,8 +111,8 @@ func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize
 ### BinaryIndex
 
 ```C#
-func BinaryIndex(item: T): PtrSize
-func BinaryIndex(item: T, start: PtrSize): PtrSize
+func BinaryIndex(item: T): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -127,7 +127,7 @@ func BinaryIndex(item: T, start: PtrSize): PtrSize
 ### Reverse
 
 ```C#
-def Reverse()
+def Reverse();
 ```
 
 #### Brief
@@ -137,9 +137,9 @@ def Reverse()
 ### Delete
 
 ```C#
-def Delete(item: T): PtrSize
-def Delete(items: CArray<T>): PtrSize
-def Delete(items: Vector<T>): PtrSize
+def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
@@ -154,9 +154,9 @@ def Delete(items: Vector<T>): PtrSize
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T): PtrSize
-def DeleteAll(items: CArray<T>): PtrSize
-def DeleteAll(items: Vector<T>): PtrSize
+def DeleteAll(item: T): PtrSize;
+def DeleteAll(items: CArray<T>): PtrSize;
+def DeleteAll(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
@@ -171,9 +171,9 @@ def DeleteAll(items: Vector<T>): PtrSize
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(index: PtrSize): PtrSize
-def DeleteIndex(items: CArray<PtrSize>): PtrSize
-def DeleteIndex(items: Vector<PtrSize>): PtrSize
+def DeleteIndex(index: PtrSize): PtrSize;
+def DeleteIndex(items: CArray<PtrSize>): PtrSize;
+def DeleteIndex(items: Vector<PtrSize>): PtrSize;
 ```
 
 #### Brief
@@ -188,9 +188,9 @@ def DeleteIndex(items: Vector<PtrSize>): PtrSize
 ### Insert
 
 ```C#
-def Insert(pos: PtrSize, item: T)
-def Insert(pos: PtrSize, items: CArray<T>)
-def Insert(pos: PtrSize, items: Vector<T>)
+def Insert(pos: PtrSize, item: T);
+def Insert(pos: PtrSize, items: CArray<T>);
+def Insert(pos: PtrSize, items: Vector<T>);
 ```
 
 #### Brief
@@ -204,8 +204,8 @@ def Insert(pos: PtrSize, items: Vector<T>)
 ### Sort
 
 ```C#
-def Sort(low: Int, high: Int)
-def Sort()
+def Sort(low: Int, high: Int);
+def Sort();
 ```
 
 #### Brief
@@ -218,8 +218,8 @@ def Sort()
 ### SortDec
 
 ```C#
-def SortDec(low: Int, high: Int)
-def SortDec()
+def SortDec(low: Int, high: Int);
+def SortDec();
 ```
 
 #### Brief
@@ -232,7 +232,7 @@ def SortDec()
 ### Sum
 
 ```C#
-func Sum(): T
+func Sum(): T;
 ```
 
 #### Brief

@@ -25,7 +25,7 @@ The buffer is not copied over so its lifespan must exceed the lifespan of the pa
 ### EatSpaces
 
 ```C#
-def EatSpaces(): Bool
+def EatSpaces(): Bool;
 ```
 
 #### Brief
@@ -40,7 +40,7 @@ If there was nothing to consume, the state of the parser is not changed.
 ### EatSpacesNoLineSkip
 
 ```C#
-def EatSpacesNoLineSkip(): Bool
+def EatSpacesNoLineSkip(): Bool;
 ```
 
 #### Brief
@@ -52,8 +52,8 @@ def EatSpacesNoLineSkip(): Bool
 ### IsId
 
 ```C#
-func IsId(): Bool
-func IsId(id: String): Bool
+func IsId(): Bool;
+func IsId(id: String): Bool;
 ```
 
 #### Brief
@@ -70,7 +70,7 @@ Identifiers use "C" rules.
 ### EatId
 
 ```C#
-def EatId(id: String): Bool
+def EatId(id: String): Bool;
 ```
 
 #### Brief
@@ -85,7 +85,7 @@ Attempts to consume a given identifier. If the identifier was not found, the sta
 ### ReadId
 
 ```C#
-def ReadId(): String
+def ReadId(): String;
 ```
 
 #### Brief
@@ -100,7 +100,7 @@ Should be used ideally after `IsId`.
 ### Peek
 
 ```C#
-func Peek(): Char
+func Peek(): Char;
 ```
 
 #### Brief
@@ -113,9 +113,9 @@ Peeks into the buffer and returns the next byte without changing the state of th
 ### IsChar
 
 ```C#
-func IsChar(c: Char): Bool
-func IsChar(c1: Char, c2: Char): Bool
-func IsChar(c1: Char, c2: Char, c3: Char): Bool
+func IsChar(c: Char): Bool;
+func IsChar(c1: Char, c2: Char): Bool;
+func IsChar(c1: Char, c2: Char, c3: Char): Bool;
 ```
 
 #### Brief
@@ -135,9 +135,9 @@ Does not alter the state of the parser.
 ### EatChar
 
 ```C#
-def EatChar(c: Char): Bool
-def EatChar(c1: Char, c2: Char): Bool
-def EatChar(c1: Char, c2: Char, c3: Char): Bool
+def EatChar(c: Char): Bool;
+def EatChar(c1: Char, c2: Char): Bool;
+def EatChar(c1: Char, c2: Char, c3: Char): Bool;
 ```
 
 #### Brief
@@ -155,7 +155,7 @@ Attempts to consume 1-3 input bytes.
 ### IsInt
 
 ```C#
-func IsInt(): Bool
+func IsInt(): Bool;
 ```
 
 #### Brief
@@ -168,7 +168,7 @@ Checks if the parser contains an integer, including sign.
 ### Sign
 
 ```C#
-def Sign(): Int
+def Sign(): Int;
 ```
 
 #### Brief
@@ -185,7 +185,7 @@ If '-' is found, it returns '-1'.
 ### IsNumber
 
 ```C#
-func IsNumber(base: Int): Bool
+func IsNumber(base: Int): Bool;
 ```
 
 #### Brief
@@ -200,7 +200,7 @@ Returns true if the parser sees a number in a given base.
 ### ReadInt
 
 ```C#
-def ReadInt(): Int
+def ReadInt(): Int;
 ```
 
 #### Brief
@@ -213,7 +213,7 @@ Attempts to read and consume an integer in a base 10.
 ### ReadNumber
 
 ```C#
-def ReadNumber(base: Int): DWord
+def ReadNumber(base: Int): DWord;
 ```
 
 #### Brief
@@ -230,7 +230,7 @@ Attempts to read and consume an number in a given base.
 ### SkipWhitespace
 
 ```C#
-val SkipWhitespace
+val SkipWhitespace;
 ```
 
 #### Brief
@@ -243,7 +243,7 @@ If set to `false`, whitespace is not consumed and. It can manually be consumed w
 ### SkipComments
 
 ```C#
-val SkipComments
+val SkipComments;
 ```
 
 #### Brief
@@ -254,7 +254,7 @@ If set to true, every time whitespace is consumed, comments are also consumed.
 ### NestComments
 
 ```C#
-val NestComments
+val NestComments;
 ```
 
 #### Brief

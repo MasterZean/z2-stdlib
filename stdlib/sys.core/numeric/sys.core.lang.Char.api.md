@@ -5,7 +5,7 @@
 ### Clamp
 
 ```C#
-def Clamp(min: Char, max: Char)
+def Clamp(min: Char, max: Char);
 ```
 
 #### Brief
@@ -20,7 +20,7 @@ Clamps the current mutable instance between `min` and `max`.
 ### Clamped
 
 ```C#
-func Clamped(min: Char, max: Char): Char
+func Clamped(min: Char, max: Char): Char;
 ```
 
 #### Brief
@@ -37,7 +37,7 @@ Returns the current instance clamped between `min` and `max`.
 ### ToString
 
 ```C#
-func ToString(): String
+func ToString(): String;
 ```
 
 #### Brief
@@ -50,8 +50,8 @@ Converts the value to a Utf8 string.
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
@@ -65,7 +65,7 @@ Writes the value to an Utf8 text stream.
 ### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
 #### Brief
@@ -78,7 +78,7 @@ Writes the code unit to a binary stream as a 32 bit unsigned integer.
 ### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
 #### Brief
@@ -326,7 +326,7 @@ Returns true if the character is an Unicode decimal.
 ### Zero
 
 ```C#
-const Zero: Char
+const Zero: Char;
 ```
 
 #### Brief
@@ -337,7 +337,7 @@ An `sys.core.lang.Char` instance representing a logical "0" value.
 ### Min
 
 ```C#
-const Min: Char
+const Min: Char;
 ```
 
 #### Brief
@@ -348,7 +348,7 @@ The minimum value for an `sys.core.lang.Char` (Unicode code point) instance.
 ### Max
 
 ```C#
-const Max: Char
+const Max: Char;
 ```
 
 #### Brief
@@ -359,7 +359,7 @@ The maximum value for an `sys.core.lang.Char` (Unicode code point) instance.
 ### MaxUtf8CP1
 
 ```C#
-const MaxUtf8CP1: Char
+const MaxUtf8CP1: Char;
 ```
 
 #### Brief
@@ -370,7 +370,7 @@ The highest code point that can be represented by 1 code unit.
 ### MaxUtf8CP2
 
 ```C#
-const MaxUtf8CP2: Char
+const MaxUtf8CP2: Char;
 ```
 
 #### Brief
@@ -381,7 +381,7 @@ The highest code point that can be represented by 2 code units.
 ### MaxUtf8CP3
 
 ```C#
-const MaxUtf8CP3: Char
+const MaxUtf8CP3: Char;
 ```
 
 #### Brief
@@ -392,7 +392,7 @@ The highest code point that can be represented by 3 code units.
 ### MaxUtf8CP4
 
 ```C#
-const MaxUtf8CP4: Char
+const MaxUtf8CP4: Char;
 ```
 
 #### Brief
@@ -403,7 +403,7 @@ The highest code point that can be represented by 4 code units.
 ### Invalid
 
 ```C#
-const Invalid: Char
+const Invalid: Char;
 ```
 
 #### Brief

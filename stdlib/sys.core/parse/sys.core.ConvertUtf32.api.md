@@ -5,7 +5,7 @@
 ### FromUtf8
 
 ```C#
-static def FromUtf8(ref dest: Slice<DWord>, ref src: Slice<Byte>)
+static def FromUtf8(ref dest: Slice<DWord>, ref src: Slice<Byte>);
 ```
 
 #### Brief

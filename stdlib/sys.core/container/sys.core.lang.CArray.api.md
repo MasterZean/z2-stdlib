@@ -22,7 +22,11 @@ The elements of the array are either default constructed or copied over from the
 
 ### Fill
 
-```C# def Fill(value: T)``` ```C# def Fill(items: Vector<T>) ``` ```C# def Fill(items: CArray<T>) ```
+```C#
+def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);
+```
 
 #### Brief
 Copies over all the elements in the static array.
@@ -39,8 +43,8 @@ If an array is provided, elements will be copied over in sequence. If the source
 ### FindIndex
 
 ```C#
-def FindIndex(item: T): PtrSize
-def FindIndex(item: T, start: PtrSize): PtrSize
+def FindIndex(item: T): PtrSize;
+def FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -58,8 +62,8 @@ The search starts on an index given by the `start` parameter if present or from 
 ### BinaryIndex
 
 ```C#
-def BinaryIndex(item: T): PtrSize
-def BinaryIndex(item: T, start: PtrSize): PtrSize
+def BinaryIndex(item: T): PtrSize;
+def BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -77,7 +81,7 @@ The search starts on an index given by the `start` parameter if present or from 
 ### Insert
 
 ```C#
-def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, item: T);
 ```
 
 #### Brief
@@ -93,7 +97,7 @@ Since the array is static, it can not grow in size. Instead elements are pushed 
 ### Delete
 
 ```C#
-def Delete(item: T): PtrSize
+def Delete(item: T): PtrSize;
 ```
 
 #### Brief
@@ -110,7 +114,7 @@ Since the array is static, it can not shrink in size. Instead elements are copie
 ### DeleteAll
 
 ```C#
-def DeleteAll(item: T): PtrSize
+def DeleteAll(item: T): PtrSize;
 ```
 
 #### Brief
@@ -127,7 +131,7 @@ Since the array is static, it can not shrink in size. Instead elements are copie
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(pos: PtrSize): PtrSize
+def DeleteIndex(pos: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -144,8 +148,8 @@ Since the array is static, it can not shrink in size. Instead elements are copie
 ### Reverse
 
 ```C#
-def Reverse()
-def Reverse(start: PtrSize, end: PtrSize)
+def Reverse();
+def Reverse(start: PtrSize, end: PtrSize);
 ```
 
 #### Brief
@@ -159,7 +163,7 @@ Reverses the contents of the array, from beginning to end or between two input i
 ### Sum
 
 ```C#
-def Sum(): T
+def Sum(): T;
 ```
 
 #### Brief
@@ -172,8 +176,8 @@ Returns the sum of all the items in the array.
 ### Sort
 
 ```C#
-def Sort()
-def Sort(low: Int, high: Int)
+def Sort();
+def Sort(low: Int, high: Int);
 ```
 
 #### Brief
@@ -187,8 +191,8 @@ Sorts the content of the array in ascending order, from beginning to end or betw
 ### SortDescending
 
 ```C#
-def SortDescending()
-def SortDescending(low: Int, high: Int)
+def SortDescending();
+def SortDescending(low: Int, high: Int);
 ```
 
 #### Brief
@@ -202,7 +206,7 @@ Sorts the content of the array in descending order, from beginning to end or bet
 ### @write
 
 ```C#
-func @write(ref stream: Stream)
+func @write(ref stream: Stream);
 ```
 
 #### Brief

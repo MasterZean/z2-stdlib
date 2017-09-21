@@ -5,8 +5,8 @@
 ### Assert
 
 ```C#
-def Assert(test: Bool)
-def Assert(test: Bool, error: String)
+def Assert(test: Bool);
+def Assert(test: Bool, error: String);
 ```
 
 #### Brief
@@ -24,7 +24,7 @@ Should be used for critical run-time assertion in "Release" builds.
 ### Error
 
 ```C#
-def Error(error: String)
+def Error(error: String);
 ```
 
 #### Brief
