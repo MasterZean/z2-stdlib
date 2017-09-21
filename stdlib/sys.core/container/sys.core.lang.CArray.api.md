@@ -15,7 +15,7 @@ Creates a new static array, filling each element of the array.
 The elements of the array are either default constructed or copied over from the provided parameter.
 
 #### Parameters
-*_item_*<pre>   => </pre>items will be copied from this value
+<span style="font-family: monospace;">item   => </span>items will be copied from this value
 
 #### Returns
 >the index where the item was found
