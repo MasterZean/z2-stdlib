@@ -22,6 +22,15 @@ The elements of the array are either default constructed or copied over from the
 
 ***
 
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+
 Constructors
 ---
 
