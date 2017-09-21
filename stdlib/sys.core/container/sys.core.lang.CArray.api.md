@@ -22,15 +22,7 @@ The elements of the array are either default constructed or copied over from the
 
 ### Fill
 
-```C#
-def Fill(value: T)
-```
-```C#
-def Fill(items: Vector<T>)
-```
-```C#
-def Fill(items: CArray<T>)
-```
+```C# def Fill(value: T)``` ```C# def Fill(items: Vector<T>) ``` ```C# def Fill(items: CArray<T>) ```
 
 #### Brief
 Copies over all the elements in the static array.
