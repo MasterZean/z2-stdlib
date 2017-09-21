@@ -5,9 +5,9 @@
 ### this
 
 ```C#
-this{value: T}
-this{x: T, y: T, z: T}
-this{p2d: Point2D<T>, z: T}
+this{value: T};
+this{x: T, y: T, z: T};
+this{p2d: Point2D<T>, z: T};
 ```
 
 #### Brief

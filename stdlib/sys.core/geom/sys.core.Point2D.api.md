@@ -5,8 +5,8 @@
 ### this
 
 ```C#
-this{value: T}
-this{x: T, y: T}
+this{value: T};
+this{x: T, y: T};
 ```
 
 #### Brief

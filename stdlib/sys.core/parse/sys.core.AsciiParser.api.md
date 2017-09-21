@@ -5,9 +5,9 @@
 ### this
 
 ```C#
-this{ref data: Slice<Byte>}
-this{ref data: String}
-this{data: String, skipSpaces: Bool}
+this{ref data: Slice<Byte>};
+this{ref data: String};
+this{data: String, skipSpaces: Bool};
 ```
 
 #### Brief

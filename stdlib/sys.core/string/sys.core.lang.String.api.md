@@ -5,16 +5,16 @@
 ### this
 
 ```C#
-this{data: Char}
-this{chars: Slice<Byte>}
-this{chars: Ptr<Byte>, len: PtrSize}
-this{chars: String, len: PtrSize}
-this{chars: String, start: PtrSize, end: PtrSize}
-this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize}
-this{chars: CArray<Byte>}
-this{chars: CArray<Byte>, len: PtrSize}
-this{obj: String}
-this{move obj: String}
+this{data: Char};
+this{chars: Slice<Byte>};
+this{chars: Ptr<Byte>, len: PtrSize};
+this{chars: String, len: PtrSize};
+this{chars: String, start: PtrSize, end: PtrSize};
+this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize};
+this{chars: CArray<Byte>};
+this{chars: CArray<Byte>, len: PtrSize};
+this{obj: String};
+this{move obj: String};
 ```
 
 #### Brief
@@ -32,8 +32,8 @@ this{move obj: String}
 ### FromIndex
 
 ```C#
-this FromIndex{chars: String, start: PtrSize}
-this FromIndex{chars: String, start: PtrSize, end: PtrSize}
+this FromIndex{chars: String, start: PtrSize};
+this FromIndex{chars: String, start: PtrSize, end: PtrSize};
 ```
 
 #### Brief
@@ -47,7 +47,7 @@ this FromIndex{chars: String, start: PtrSize, end: PtrSize}
 ### TakeOwnership
 
 ```C#
-this TakeOwnership{chars: Ptr<Byte>, len: PtrSize}
+this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};
 ```
 
 #### Brief

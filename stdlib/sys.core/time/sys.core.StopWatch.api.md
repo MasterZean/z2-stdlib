@@ -5,7 +5,7 @@
 ### this
 
 ```C#
-this{}
+this{};
 ```
 
 #### Brief
@@ -18,7 +18,7 @@ Calling `Elapsed` after is a valid operation.
 ### Stopped
 
 ```C#
-this Stopped{}
+this Stopped{};
 ```
 
 #### Brief

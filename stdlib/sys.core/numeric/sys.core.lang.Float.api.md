@@ -5,8 +5,8 @@
 ### Saturated
 
 ```C#
-this Saturated{value: Float}
-this Saturated{value: Double}
+this Saturated{value: Float};
+this Saturated{value: Double};
 ```
 
 #### Brief

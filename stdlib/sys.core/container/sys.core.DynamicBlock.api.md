@@ -5,9 +5,9 @@
 ### this
 
 ```C#
-this{a: PtrSize}
-this{copy: DynamicBlock<T>}
-this{move copy: DynamicBlock<T>}
+this{a: PtrSize};
+this{copy: DynamicBlock<T>};
+this{move copy: DynamicBlock<T>};
 ```
 
 #### Brief
@@ -20,7 +20,7 @@ this{move copy: DynamicBlock<T>}
 ### @allocate
 
 ```C#
-this @allocate{len: PtrSize, capacity: PtrSize}
+this @allocate{len: PtrSize, capacity: PtrSize};
 ```
 
 #### Brief

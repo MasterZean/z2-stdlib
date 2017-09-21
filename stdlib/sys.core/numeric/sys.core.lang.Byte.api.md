@@ -5,7 +5,7 @@
 ### this
 
 ```C#
-this{string: String}
+this{string: String};
 ```
 
 #### Brief
@@ -18,12 +18,12 @@ Parses a string an constructs a [Byte][sys.core.lang.Byte] based on it.
 ### Saturated
 
 ```C#
-this Saturated{value: Int}
-this Saturated{value: DWord}
-this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: Double}
-this Saturated{value: String}
+this Saturated{value: Int};
+this Saturated{value: DWord};
+this Saturated{value: Long};
+this Saturated{value: QWord};
+this Saturated{value: Double};
+this Saturated{value: String};
 ```
 
 #### Brief

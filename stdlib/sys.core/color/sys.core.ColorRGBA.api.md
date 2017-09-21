@@ -5,18 +5,18 @@
 ### this
 
 ```C#
-this{value: Int}
-this{value: DWord}
-this{value: Float}
-this{value: Double}
-this{red: Int, green: Int, blue: Int}
-this{red: DWord, green: DWord, blue: DWord}
-this{red: Float, green: Float, blue: Float}
-this{red: Double, green: Double, blue: Double}
-this{red: Int, green: Int, blue: Int, alpha: Int}
-this{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this{red: Float, green: Float, blue: Float, alpha: Float}
-this{red: Double, green: Double, blue: Double, alpha: Double}
+this{value: Int};
+this{value: DWord};
+this{value: Float};
+this{value: Double};
+this{red: Int, green: Int, blue: Int};
+this{red: DWord, green: DWord, blue: DWord};
+this{red: Float, green: Float, blue: Float};
+this{red: Double, green: Double, blue: Double};
+this{red: Int, green: Int, blue: Int, alpha: Int};
+this{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this{red: Float, green: Float, blue: Float, alpha: Float};
+this{red: Double, green: Double, blue: Double, alpha: Double};
 ```
 
 #### Brief
@@ -37,10 +37,10 @@ Floating point values are interpreted as having a range of 0.0 to 1.0.
 ### FromUncapped
 
 ```C#
-this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int}
-this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float}
-this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double}
+this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int};
+this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float};
+this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double};
 ```
 
 #### Brief
@@ -58,7 +58,7 @@ Floating point values are interpreted as having a range of 0.0 to 1.0.
 ### FromRGBA
 
 ```C#
-this FromRGBA{rgba: DWord}
+this FromRGBA{rgba: DWord};
 ```
 
 #### Brief
@@ -71,7 +71,7 @@ Creates a new color from an integer encoded in the RGBA memory layout.
 ### FromBGRA
 
 ```C#
-this FromBGRA{bgra: DWord}
+this FromBGRA{bgra: DWord};
 ```
 
 #### Brief
@@ -84,7 +84,7 @@ Creates a new color from an integer encoded in the BGRA memory layout.
 ### FromARGB
 
 ```C#
-this FromARGB{argb: DWord}
+this FromARGB{argb: DWord};
 ```
 
 #### Brief
@@ -97,7 +97,7 @@ Creates a new color from an integer encoded in the ARGB memory layout.
 ### FromABGR
 
 ```C#
-this FromABGR{abgr: DWord}
+this FromABGR{abgr: DWord};
 ```
 
 #### Brief

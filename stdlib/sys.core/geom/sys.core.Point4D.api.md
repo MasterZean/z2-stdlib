@@ -5,11 +5,11 @@
 ### this
 
 ```C#
-this{value: T}
-this{x: T, y: T, z: T, w: T}
-this{p2d: Point2D<T>, z: T, w: T}
-this{p2d: Point2D<T>, s2d: Point2D<T>}
-this{p3d: Point3D<T>, w: T}
+this{value: T};
+this{x: T, y: T, z: T, w: T};
+this{p2d: Point2D<T>, z: T, w: T};
+this{p2d: Point2D<T>, s2d: Point2D<T>};
+this{p3d: Point3D<T>, w: T};
 ```
 
 #### Brief

@@ -5,8 +5,8 @@
 ### this
 
 ```C#
-this{copy: Vector<T>}
-this{move copy: Vector<T>}
+this{copy: Vector<T>};
+this{move copy: Vector<T>};
 ```
 
 #### Brief

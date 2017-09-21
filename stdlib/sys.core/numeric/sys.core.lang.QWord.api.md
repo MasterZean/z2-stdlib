@@ -5,7 +5,7 @@
 ### this
 
 ```C#
-this{string: String}
+this{string: String};
 ```
 
 #### Brief
@@ -18,9 +18,9 @@ Parses a string an constructs a [QWord][sys.core.lang.QWord] based on it.
 ### Saturated
 
 ```C#
-this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: String}
+this Saturated{value: Long};
+this Saturated{value: QWord};
+this Saturated{value: String};
 ```
 
 #### Brief

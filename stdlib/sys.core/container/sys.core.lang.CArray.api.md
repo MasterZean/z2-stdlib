@@ -5,8 +5,8 @@
 ### this
 
 ```C#
-this{}
-this{item: T}
+this{};
+this{item: T};
 ```
 
 #### Brief

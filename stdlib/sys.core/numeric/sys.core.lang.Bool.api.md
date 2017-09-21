@@ -5,7 +5,7 @@
 ### this
 
 ```C#
-this{string: String}
+this{string: String};
 ```
 
 #### Brief

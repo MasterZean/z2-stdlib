@@ -5,7 +5,7 @@
 ### FromAbbr
 
 ```C#
-this FromAbbr{s: String}
+this FromAbbr{s: String};
 ```
 
 #### Brief
