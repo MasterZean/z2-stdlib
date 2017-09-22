@@ -255,7 +255,8 @@ The maximum value for a <a>QWord</a> (64 bit unsigned integer) instance.
 <pre><code class="cs">const MaxDigitsLow;</code></pre>
 <h4>Brief</h4>
 <p>
-The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
+
 In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
@@ -265,9 +266,11 @@ Should not be used for buffer sizes.
 <pre><code class="cs">const MaxDigitsHigh;</code></pre>
 <h4>Brief</h4>
 <p>
-The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
+
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
-  
+<br/>
+
 Should not be used for buffer sizes.
 
 </p></div></div>
