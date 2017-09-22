@@ -40,15 +40,15 @@ class Double {
 		return this * this;
 	}
 
-	property Sqrt: Double get = Intrinsic.Sqrt;
+	property Sqrt: Double get = Math.Sqrt;
 
-	property Floor: Double get = Intrinsic.Floor;
+	property Floor: Double get = Math.Floor;
 	
-	property Ceil: Double get = Intrinsic.Ceil;
+	property Ceil: Double get = Math.Ceil;
 	
-	property Round: Double get = Intrinsic.Round;
+	property Round: Double get = Math.Round;
 	
-	property Trunc: Double get = Intrinsic.Trunc;
+	property Trunc: Double get = Math.Trunc;
 
 	def Clamp(min: Double, max: Double) = Intrinsic.Clamp;
 	func Clamped(min: Double, max: Double): Double = Intrinsic.Clamped;
@@ -75,7 +75,7 @@ class Double {
 	property Log2 : Double get = Math.Log2;
 	property Log10: Double get = Math.Log10;
 
-	func Pow(exp: Double): Double = Intrinsic.Pow;
+	func Pow(exp: Double): Double = Math.Pow;
 
 #endregion
 

@@ -589,8 +589,8 @@ class Slice<T: Class> {
 		
 		Swap(ptr[i - 1], ptr[low]);
 	
-		SortDec(low, i - 2);
-		SortDec(i, high);
+		SortDesc(low, i - 2);
+		SortDesc(i, high);
 	}
 	
 	def SortDesc() {

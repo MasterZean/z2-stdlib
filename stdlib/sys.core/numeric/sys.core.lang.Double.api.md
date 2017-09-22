@@ -169,7 +169,7 @@ Returns the square of the value value.
 ### Sqrt
 
 ```C#
-property Sqrt: Double get = Intrinsic.Sqrt;; get;
+property Sqrt: Double get = Math.Sqrt;; get;
 ```
 
 #### Brief
@@ -180,7 +180,7 @@ Returns the square root of the value.
 ### Floor
 
 ```C#
-property Floor: Double get = Intrinsic.Floor;; get;
+property Floor: Double get = Math.Floor;; get;
 ```
 
 #### Brief
@@ -191,7 +191,7 @@ Returns the floor of a floating point value.
 ### Ceil
 
 ```C#
-property Ceil: Double get = Intrinsic.Ceil;; get;
+property Ceil: Double get = Math.Ceil;; get;
 ```
 
 #### Brief
@@ -202,7 +202,7 @@ Returns the ceiling of a floating point value.
 ### Round
 
 ```C#
-property Round: Double get = Intrinsic.Round;; get;
+property Round: Double get = Math.Round;; get;
 ```
 
 #### Brief
@@ -213,7 +213,7 @@ Returns the rounded value of a floating point.
 ### Trunc
 
 ```C#
-property Trunc: Double get = Intrinsic.Trunc;; get;
+property Trunc: Double get = Math.Trunc;; get;
 ```
 
 #### Brief

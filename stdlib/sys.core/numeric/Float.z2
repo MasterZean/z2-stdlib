@@ -37,15 +37,15 @@ class Float {
 		return this * this;
 	}
 
-	property Sqrt: Float get = Intrinsic.Sqrt;
+	property Sqrt: Float get = Math.Sqrt;
 
-	property Floor: Float get = Intrinsic.Floor;
+	property Floor: Float get = Math.Floor;
 
-	property Ceil: Float get = Intrinsic.Ceil;
+	property Ceil: Float get = Math.Ceil;
 
-	property Round: Float get = Intrinsic.Round;
+	property Round: Float get = Math.Round;
 	
-	property Trunc: Float get = Intrinsic.Trunc;
+	property Trunc: Float get = Math.Trunc;
 
 	def Clamp(min: Float, max: Float) = Intrinsic.Clamp;
 	
@@ -73,7 +73,7 @@ class Float {
 	property Log2 : Float get = Math.Log2;
 	property Log10: Float get = Math.Log10;
 
-	func Pow(exp: Float): Float = Intrinsic.Pow;
+	func Pow(exp: Float): Float = Math.Pow;
 
 #endregion
 

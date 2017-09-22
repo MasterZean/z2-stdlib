@@ -1,6 +1,7 @@
 namespace org.z2legacy.ut.intrinsic;
 
 using sys.core.OutputFormat;
+using sys.core.Math;
 
 class RolRor16Test {
 	def @main() {
@@ -9,26 +10,26 @@ class RolRor16Test {
 			Width = 32;
 		};
 		
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b00000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b01000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b10000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b11000010, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b00000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b01000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b10000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b11000010, 1), f) << '\n';
 		
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b01010101'00000000'00001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b01010101'00000000'01001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b01010101'00000000'10001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Rol16(0b01010101'00000000'11001010, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b01010101'00000000'00001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b01010101'00000000'01001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b01010101'00000000'10001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Rol16(0b01010101'00000000'11001010, 1), f) << '\n';
 		
 		System.Out << '\n';
 		
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b00000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b01000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b10000001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b11000010, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b00000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b01000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b10000001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b11000010, 1), f) << '\n';
 		
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b01010101'00000000'00001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b01010101'00000000'01001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b01010101'00000000'10001001, 1), f) << '\n';
-		System.Out.Write("0b").Write(Intrinsic.Ror16(0b01010101'00000000'11001010, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b01010101'00000000'00001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b01010101'00000000'01001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b01010101'00000000'10001001, 1), f) << '\n';
+		System.Out.Write("0b").Write(Math.Ror16(0b01010101'00000000'11001010, 1), f) << '\n';
 	}
 }
