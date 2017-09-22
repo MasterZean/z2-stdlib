@@ -59,18 +59,33 @@ class SystemDebug
 <h2>Methods</h2>
 <div class="codesection">
 <h3>Assert</h3>
-<pre><code class="cs">def Assert(test: Bool)</code></pre>
-<p>Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.
+<pre><code class="cs">def Assert(test: Bool);
+def Assert(test: Bool, error: String);</code></pre>
+<h4>Brief</h4>
+<p>
+Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.
 
 "Debug" builds have the "Trace" flag set.
 
 Should be used for often for run-time assertion in "Debug" builds, to test conditions which should not fail.
-</p><hr/><h3>Error</h3>
-<pre><code class="cs">def Error(error: String)</code></pre>
-<p>Throws an exception with a string message, but only if the "Trace" flag is set for compilation.
+
+</p><h4>Parameters</h4>
+<blockquote>test=> <br/>
+error=> <br/>
+</blockquote>
+<hr/>
+<h3>Error</h3>
+<pre><code class="cs">def Error(error: String);</code></pre>
+<h4>Brief</h4>
+<p>
+Throws an exception with a string message, but only if the "Trace" flag is set for compilation.
 
 "Release" builds have the "Trace" flag set.
-</p></div></div>
+
+</p><h4>Parameters</h4>
+<blockquote>error=> the error message to throw<br/>
+</blockquote>
+</div></div>
 </div>
 
 <footer class="footer">

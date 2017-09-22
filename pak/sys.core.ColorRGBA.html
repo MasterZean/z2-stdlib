@@ -59,144 +59,332 @@ class ColorRGBA
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{value: Int}
-this{value: DWord}
-this{value: Float}
-this{value: Double}
-this{red: Int, green: Int, blue: Int}
-this{red: DWord, green: DWord, blue: DWord}
-this{red: Float, green: Float, blue: Float}
-this{red: Double, green: Double, blue: Double}
-this{red: Int, green: Int, blue: Int, alpha: Int}
-this{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this{red: Float, green: Float, blue: Float, alpha: Float}
-this{red: Double, green: Double, blue: Double, alpha: Double}</code></pre>
-<p>Creates a new instance initializing each component of the color.
+<pre><code class="cs">this{value: Int};
+this{value: DWord};
+this{value: Float};
+this{value: Double};
+this{red: Int, green: Int, blue: Int};
+this{red: DWord, green: DWord, blue: DWord};
+this{red: Float, green: Float, blue: Float};
+this{red: Double, green: Double, blue: Double};
+this{red: Int, green: Int, blue: Int, alpha: Int};
+this{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this{red: Float, green: Float, blue: Float, alpha: Float};
+this{red: Double, green: Double, blue: Double, alpha: Double};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new instance initializing each component of the color.
 
 If an input component is missing, it will be initialized tot he maximum value.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
-</p><hr/><h3>FromUncapped</h3>
-<pre><code class="cs">this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int}
-this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float}
-this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double}</code></pre>
-<p>Creates a new instance initializing each component of the color from uncapped values. Each input is clamped to the valid range of the color.
+
+</p><h4>Parameters</h4>
+<blockquote>value=> the value to use for each component<br/>
+red=> the red component<br/>
+green=> the green component<br/>
+blue=> the blue component<br/>
+alpha=> the alpha component<br/>
+</blockquote>
+<hr/>
+<h3>FromUncapped</h3>
+<pre><code class="cs">this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int};
+this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float};
+this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new instance initializing each component of the color from uncapped values. Each input is clamped to the valid range of the color.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
-</p><hr/><h3>FromRGBA</h3>
-<pre><code class="cs">this FromRGBA{rgba: DWord}</code></pre>
-<p>Creates a new color from an integer encoded in the RGBA memory layout.
-</p><hr/><h3>FromBGRA</h3>
-<pre><code class="cs">this FromBGRA{bgra: DWord}</code></pre>
-<p>Creates a new color from an integer encoded in the BGRA memory layout.
-</p><hr/><h3>FromARGB</h3>
-<pre><code class="cs">this FromARGB{argb: DWord}</code></pre>
-<p>Creates a new color from an integer encoded in the ARGB memory layout.
-</p><hr/><h3>FromABGR</h3>
-<pre><code class="cs">this FromABGR{abgr: DWord}</code></pre>
-<p>Creates a new color from an integer encoded in the ABGR memory layout.
-</p></div><h2>Methods</h2>
+
+</p><h4>Parameters</h4>
+<blockquote>red=> the red component<br/>
+green=> the green component<br/>
+blue=> the blue component<br/>
+alpha=> the alpha component<br/>
+</blockquote>
+<hr/>
+<h3>FromRGBA</h3>
+<pre><code class="cs">this FromRGBA{rgba: DWord};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new color from an integer encoded in the RGBA memory layout.
+
+</p><h4>Parameters</h4>
+<blockquote>rgba=> the color integer<br/>
+</blockquote>
+<hr/>
+<h3>FromBGRA</h3>
+<pre><code class="cs">this FromBGRA{bgra: DWord};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new color from an integer encoded in the BGRA memory layout.
+
+</p><h4>Parameters</h4>
+<blockquote>bgra=> the color integer<br/>
+</blockquote>
+<hr/>
+<h3>FromARGB</h3>
+<pre><code class="cs">this FromARGB{argb: DWord};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new color from an integer encoded in the ARGB memory layout.
+
+</p><h4>Parameters</h4>
+<blockquote>argb=> the color integer<br/>
+</blockquote>
+<hr/>
+<h3>FromABGR</h3>
+<pre><code class="cs">this FromABGR{abgr: DWord};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new color from an integer encoded in the ABGR memory layout.
+
+</p><h4>Parameters</h4>
+<blockquote>abgr=> the color integer<br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>ToRGBA</h3>
-<pre><code class="cs">func ToRGBA()</code></pre>
-<p>Encodes the color to an integer using the RGBA memory layout.
-</p><hr/><h3>ToBGRA</h3>
-<pre><code class="cs">func ToBGRA()</code></pre>
-<p>Encodes the color to an integer using the BGRA memory layout.
-</p><hr/><h3>ToARGB</h3>
-<pre><code class="cs">func ToARGB()</code></pre>
-<p>Encodes the color to an integer using the ARGB memory layout.
-</p><hr/><h3>ToABGR</h3>
-<pre><code class="cs">func ToABGR()</code></pre>
-<p>Encodes the color to an integer using the ABGR memory layout.
-</p><hr/><h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: ColorRGBA, max: ColorRGBA)
-def Clamp(min: Byte, max: Byte)</code></pre>
-<p>Clamps each component of the current mutable instance between `min` and `max`.
-</p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: ColorRGBA, max: ColorRGBA)
-func Clamped(min: Byte, max: Byte)</code></pre>
-<p>Returns a copy of the color with each component clamped between `min` and `max`.
-</p><hr/><h3>GetMin</h3>
-<pre><code class="cs">func GetMin(min: ColorRGBA)</code></pre>
-<p>Returns the member-wise minimum between the current instance and the input.
-</p><hr/><h3>GetMax</h3>
-<pre><code class="cs">func GetMax(max: ColorRGBA)</code></pre>
-<p>Returns the member-wise maximum between the current instance and the input.
-</p><hr/><h3>@add</h3>
-<pre><code class="cs">func @add(second: ColorRGBA)
-func @add(second: Int)
-func @add(second: DWord)
-func @add(second: Float)
-func @add(second: Double)</code></pre>
-<p>Member-wise addition operator. Commutative.
-</p><hr/><h3>@sub</h3>
-<pre><code class="cs">static func @sub(left: ColorRGBA, right: ColorRGBA)
-static func @sub(left: Int, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Int)
-static func @sub(left: DWord, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: DWord)
-static func @sub(left: Float, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Float)
-static func @sub(left: Double, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Double)</code></pre>
-<p>Member-wise subtraction operator.
-</p><hr/><h3>@mul</h3>
-<pre><code class="cs">func @mul(second: ColorRGBA)
-func @mul(second: Int)
-func @mul(second: DWord)
-func @mul(second: Float)
-func @mul(second: Double)</code></pre>
-<p>Member-wise multiplication operator. Commutative.
-</p><hr/><h3>@div</h3>
-<pre><code class="cs">static func @div(left: ColorRGBA, right: ColorRGBA)
-static func @div(left: Int, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Int)
-static func @div(left: DWord, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: DWord)
-static func @div(left: Float, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Float)
-static func @div(left: Double, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Double)</code></pre>
-<p>Member-wise division operator.
-</p><hr/><h3>@mod</h3>
-<pre><code class="cs">static func @mod(left: ColorRGBA, right: ColorRGBA)
-static func @mod(left: Int, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Int)
-static func @mod(left: DWord, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: DWord)
-static func @mod(left: Float, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Float)
-static func @mod(left: Double, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Double)</code></pre>
-<p>Member-wise modulo operator.
-</p><hr/><h3>@eq</h3>
-<pre><code class="cs">func @eq(second: Int)
-func @eq(second: DWord)
-func @eq(second: Float)
-func @eq(second: Double)</code></pre>
-<p>Member-wise equality operator.
-</p><hr/><h3>@neq</h3>
-<pre><code class="cs">func @neq(second: Int)
-func @neq(second: DWord)
-func @neq(second: Float)
-func @neq(second: Double)</code></pre>
-<p>Member-wise inequality operator.
-</p></div><h2>Variables</h2>
+<pre><code class="cs">func ToRGBA(): DWord;</code></pre>
+<h4>Brief</h4>
+<p>
+Encodes the color to an integer using the RGBA memory layout.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting integer</blockquote>
+<hr/>
+<h3>ToBGRA</h3>
+<pre><code class="cs">func ToBGRA(): DWord;</code></pre>
+<h4>Brief</h4>
+<p>
+Encodes the color to an integer using the BGRA memory layout.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting integer</blockquote>
+<hr/>
+<h3>ToARGB</h3>
+<pre><code class="cs">func ToARGB(): DWord;</code></pre>
+<h4>Brief</h4>
+<p>
+Encodes the color to an integer using the ARGB memory layout.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting integer</blockquote>
+<hr/>
+<h3>ToABGR</h3>
+<pre><code class="cs">func ToABGR(): DWord;</code></pre>
+<h4>Brief</h4>
+<p>
+Encodes the color to an integer using the ABGR memory layout.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting integer</blockquote>
+<hr/>
+<h3>Clamp</h3>
+<pre><code class="cs">def Clamp(min: ColorRGBA, max: ColorRGBA);
+def Clamp(min: Byte, max: Byte);</code></pre>
+<h4>Brief</h4>
+<p>
+Clamps each component of the current mutable instance between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA;
+func Clamped(min: Byte, max: Byte): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns a copy of the color with each component clamped between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the clamped value</blockquote>
+<hr/>
+<h3>GetMin</h3>
+<pre><code class="cs">func GetMin(min: ColorRGBA): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the member-wise minimum between the current instance and the input.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the value to test against<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise minimum</blockquote>
+<hr/>
+<h3>GetMax</h3>
+<pre><code class="cs">func GetMax(max: ColorRGBA): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the member-wise maximum between the current instance and the input.
+
+</p><h4>Parameters</h4>
+<blockquote>max=> the value to test against<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise maximum</blockquote>
+<hr/>
+<h3>@add</h3>
+<pre><code class="cs">func @add(second: ColorRGBA): ColorRGBA;
+func @add(second: Int): ColorRGBA;
+func @add(second: DWord): ColorRGBA;
+func @add(second: Float): ColorRGBA;
+func @add(second: Double): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise addition operator. Commutative.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise sum</blockquote>
+<hr/>
+<h3>@sub</h3>
+<pre><code class="cs">static func @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @sub(left: Int, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Int): ColorRGBA;
+static func @sub(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @sub(left: Float, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Float): ColorRGBA;
+static func @sub(left: Double, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise subtraction operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise substraction</blockquote>
+<hr/>
+<h3>@mul</h3>
+<pre><code class="cs">func @mul(second: ColorRGBA): ColorRGBA;
+func @mul(second: Int): ColorRGBA;
+func @mul(second: DWord): ColorRGBA;
+func @mul(second: Float): ColorRGBA;
+func @mul(second: Double): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise multiplication operator. Commutative.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise multiplication</blockquote>
+<hr/>
+<h3>@div</h3>
+<pre><code class="cs">static func @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @div(left: Int, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Int): ColorRGBA;
+static func @div(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @div(left: Float, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Float): ColorRGBA;
+static func @div(left: Double, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise division operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise division</blockquote>
+<hr/>
+<h3>@mod</h3>
+<pre><code class="cs">static func @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @mod(left: Int, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Int): ColorRGBA;
+static func @mod(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @mod(left: Float, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Float): ColorRGBA;
+static func @mod(left: Double, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise modulo operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise modulo</blockquote>
+<hr/>
+<h3>@eq</h3>
+<pre><code class="cs">func @eq(second: Int): Bool;
+func @eq(second: DWord): Bool;
+func @eq(second: Float): Bool;
+func @eq(second: Double): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise equality operator.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>true on equality</blockquote>
+<hr/>
+<h3>@neq</h3>
+<pre><code class="cs">func @neq(second: Int): Bool;
+func @neq(second: DWord): Bool;
+func @neq(second: Float): Bool;
+func @neq(second: Double): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise inequality operator.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>true on inequality</blockquote>
+</div><h2>Variables</h2>
 <div class="codesection">
 <h3>R</h3>
-<pre><code class="cs">val R: Byte</code></pre>
-<p>The red component.
-</p><hr/><h3>G</h3>
-<pre><code class="cs">val G: Byte</code></pre>
-<p>The green component.
-</p><hr/><h3>B</h3>
-<pre><code class="cs">val B: Byte</code></pre>
-<p>The blue component.
-</p><hr/><h3>A</h3>
-<pre><code class="cs">val A: Byte</code></pre>
-<p>The alpha component.
+<pre><code class="cs">val R: Byte;</code></pre>
+<h4>Brief</h4>
+<p>
+The red component.
+
+</p><hr/>
+<h3>G</h3>
+<pre><code class="cs">val G: Byte;</code></pre>
+<h4>Brief</h4>
+<p>
+The green component.
+
+</p><hr/>
+<h3>B</h3>
+<pre><code class="cs">val B: Byte;</code></pre>
+<h4>Brief</h4>
+<p>
+The blue component.
+
+</p><hr/>
+<h3>A</h3>
+<pre><code class="cs">val A: Byte;</code></pre>
+<h4>Brief</h4>
+<p>
+The alpha component.
+
 </p></div></div>
 </div>
 

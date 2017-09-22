@@ -59,85 +59,187 @@ class CArray
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{}
-this{item: T}</code></pre>
-<p>Creates a new static array, filling each element of the array.
+<pre><code class="cs">this{};
+this{item: T};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new static array, filling each element of the array.
 
 The elements of the array are either default constructed or copied over from the provided parameter.
-</p></div><h2>Methods</h2>
+
+</p><h4>Parameters</h4>
+<blockquote>item=> items will be copied from this value<br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Fill</h3>
-<pre><code class="cs">def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)</code></pre>
-<p>Copies over all the elements in the static array.
+<pre><code class="cs">def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);</code></pre>
+<h4>Brief</h4>
+<p>
+Copies over all the elements in the static array.
 
 If a single value is provided, all elements will be initialized with it.
 
 If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
-</p><hr/><h3>FindIndex</h3>
-<pre><code class="cs">def FindIndex(item: T)
-def FindIndex(item: T, start: PtrSize)</code></pre>
-<p>Searches for an item in the array and returns the first index at which it was found.
 
-The search starts with index `0`/the `start` parameter.
+</p><h4>Parameters</h4>
+<blockquote>value=> the value to fill with<br/>
+items=> the array to use<br/>
+</blockquote>
+<hr/>
+<h3>FindIndex</h3>
+<pre><code class="cs">def FindIndex(item: T): PtrSize;
+def FindIndex(item: T, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item in the array and returns the first index at which it was found or <a>-1</a> if the item was not found.
 
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
-</p><hr/><h3>BinaryIndex</h3>
-<pre><code class="cs">def BinaryIndex(item: T)
-def BinaryIndex(item: T, start: PtrSize)</code></pre>
-<p>Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
-The search starts with index `0`/the `start` parameter.
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>BinaryIndex</h3>
+<pre><code class="cs">def BinaryIndex(item: T): PtrSize;
+def BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item in the array and returns the first index at which it was found or <a>-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
 
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
-</p><hr/><h3>Insert</h3>
-<pre><code class="cs">def Insert(pos: PtrSize, item: T)</code></pre>
-<p>Inserts an item into the array at a given position.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>Insert</h3>
+<pre><code class="cs">def Insert(pos: PtrSize, item: T);</code></pre>
+<h4>Brief</h4>
+<p>
+Inserts an item into the array at a given position.
 
 Since the array is static, it can not grow in size. Instead elements are pushed out of the array and destroyed.
-</p><hr/><h3>InsertDumb</h3>
-<pre><code class="cs">def InsertDumb(pos: PtrSize, item: T)</code></pre>
-<p></p><hr/><h3>Delete</h3>
-<pre><code class="cs">def Delete(item: T)</code></pre>
-<p>Searches for the first occurrence of an item within the array and if found it removes it.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
-</p><hr/><h3>DeleteAll</h3>
-<pre><code class="cs">def DeleteAll(item: T)</code></pre>
-<p>Searches for all the occurrences of an item within the array and if found removes the all.
+</p><h4>Parameters</h4>
+<blockquote>pos=> the position to insert to<br/>
+item=> the item to insert<br/>
+</blockquote>
+<hr/>
+<h3>Delete</h3>
+<pre><code class="cs">def Delete(item: T): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for the first occurrence of an item within the array and if found it removes it.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
-</p><hr/><h3>DeleteIndex</h3>
-<pre><code class="cs">def DeleteIndex(pos: PtrSize)</code></pre>
-<p>Deletes an item at a given index from the array.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
-</p><hr/><h3>Reverse</h3>
-<pre><code class="cs">def Reverse()
-def Reverse(start: PtrSize, end: PtrSize)</code></pre>
-<p>Reverses the content of the array, from beginning to end or between two input indices.
-</p><hr/><h3>Sum</h3>
-<pre><code class="cs">def Sum()</code></pre>
-<p>Returns the sum of all the items in the array.
-</p><hr/><h3>Sort</h3>
-<pre><code class="cs">def Sort()
-def Sort(low: Int, high: Int)</code></pre>
-<p>Sorts the content of the array in ascending order, from beginning to end or between two input indices.
-</p><hr/><h3>SortDescending</h3>
-<pre><code class="cs">def SortDescending()
-def SortDescending(low: Int, high: Int)</code></pre>
-<p>Sorts the content of the array in descending order, from beginning to end or between two input indices.
-</p><hr/><h3>@write</h3>
-<pre><code class="cs">func @write(ref stream: Stream)</code></pre>
-<p>Writes each element of the array to a stream as an Utf8 text.
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to delete<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>DeleteAll</h3>
+<pre><code class="cs">def DeleteAll(item: T): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for all the occurrences of an item within the array and if found removes them all.
+
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to delete<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>DeleteIndex</h3>
+<pre><code class="cs">def DeleteIndex(pos: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Deletes an item at a given index from the array.
+
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
+
+</p><h4>Parameters</h4>
+<blockquote>pos=> the index to delete<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>Reverse</h3>
+<pre><code class="cs">def Reverse();
+def Reverse(start: PtrSize, end: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+Reverses the contents of the array, from beginning to end or between two input indices.
+
+</p><h4>Parameters</h4>
+<blockquote>start=> the start index<br/>
+end=> the end index<br/>
+</blockquote>
+<hr/>
+<h3>Sum</h3>
+<pre><code class="cs">def Sum(): T;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the sum of all the items in the array.
+
+</p><h4>Returns</h4>
+<blockquote>the sum</blockquote>
+<hr/>
+<h3>Sort</h3>
+<pre><code class="cs">def Sort();
+def Sort(low: Int, high: Int);</code></pre>
+<h4>Brief</h4>
+<p>
+Sorts the content of the array in ascending order, from beginning to end or between two input indices.
+
+</p><h4>Parameters</h4>
+<blockquote>low=> the start index<br/>
+high=> the end index<br/>
+</blockquote>
+<hr/>
+<h3>SortDesc</h3>
+<pre><code class="cs">def SortDesc();
+def SortDesc(low: Int, high: Int);</code></pre>
+<h4>Brief</h4>
+<p>
+Sorts the content of the array in descending order, from beginning to end or between two input indices.
+
+</p><h4>Parameters</h4>
+<blockquote>low=> the start index<br/>
+high=> the end index<br/>
+</blockquote>
+<hr/>
+<h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes each element of the array to a stream as an Utf8 text.
 
 The item count is not included.
-</p></div><h2>Properties</h2>
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>IsEmpty</h3>
 <pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
-<p>Returns `false` because the array is static and always has a non-zero length.
+<h4>Brief</h4>
+<p>
+Returns `false` because the array is static and always has a non-zero length.
+
 </p></div></div>
 </div>
 

@@ -59,73 +59,239 @@ class String
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{chars: Slice<Byte>}
-this{chars: Ptr<Byte>, len: PtrSize}
-this{chars: String, len: PtrSize}
-this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize}
-this{chars: CArray<Byte>}
-this{chars: CArray<Byte>, len: PtrSize}
-this{obj: String}
-this{move obj: String}</code></pre>
-<p></p><hr/><h3>FromIndex</h3>
-<pre><code class="cs">this FromIndex{chars: String, start: PtrSize}
-this FromIndex{chars: String, start: PtrSize, end: PtrSize}</code></pre>
-<p></p><hr/><h3>TakeOwnership</h3>
-<pre><code class="cs">this TakeOwnership{chars: Ptr<Byte>, len: PtrSize}</code></pre>
-<p></p></div><h2>Methods</h2>
+<pre><code class="cs">this{data: Char};
+this{chars: Slice<Byte>};
+this{chars: Ptr<Byte>, len: PtrSize};
+this{chars: String, len: PtrSize};
+this{chars: String, start: PtrSize, end: PtrSize};
+this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize};
+this{chars: CArray<Byte>};
+this{chars: CArray<Byte>, len: PtrSize};
+this{obj: String};
+this{move obj: String};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>data=> <br/>
+chars=> <br/>
+len=> <br/>
+start=> <br/>
+end=> <br/>
+cap=> <br/>
+obj=> <br/>
+</blockquote>
+<hr/>
+<h3>FromIndex</h3>
+<pre><code class="cs">this FromIndex{chars: String, start: PtrSize};
+this FromIndex{chars: String, start: PtrSize, end: PtrSize};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>chars=> <br/>
+start=> <br/>
+end=> <br/>
+</blockquote>
+<hr/>
+<h3>TakeOwnership</h3>
+<pre><code class="cs">this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>chars=> <br/>
+len=> <br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>@attr</h3>
-<pre><code class="cs">def @attr(obj: String)
-def @attr(move obj: String)</code></pre>
-<p></p><hr/><h3>Clear</h3>
-<pre><code class="cs">def Clear()</code></pre>
-<p></p><hr/><h3>@eq</h3>
-<pre><code class="cs">func @eq(second: String)</code></pre>
-<p></p><hr/><h3>@neq</h3>
-<pre><code class="cs">func @neq(second: String)</code></pre>
-<p></p><hr/><h3>@shl</h3>
-<pre><code class="cs">def @shl(ch: Char)
-def @shl(str: String)</code></pre>
-<p></p><hr/><h3>Insert</h3>
-<pre><code class="cs">def Insert(pos: PtrSize, string: String)</code></pre>
-<p></p><hr/><h3>Inserted</h3>
-<pre><code class="cs">func Inserted(pos: PtrSize, string: String)</code></pre>
-<p></p><hr/><h3>Find</h3>
-<pre><code class="cs">func Find(b: Byte)
-func Find(b: Byte, start: PtrSize)
-func Find(b: CArray<Byte>)</code></pre>
-<p></p><hr/><h3>RFind</h3>
-<pre><code class="cs">func RFind(b: Byte)
-func RFind(b: Byte, start: PtrSize)
-func RFind(b: CArray<Byte>)</code></pre>
-<p></p><hr/><h3>Parse</h3>
-<p></p><hr/><h3>ParseSaturated</h3>
-<p></p><hr/><h3>Split</h3>
-<pre><code class="cs">func Split(b: Byte)</code></pre>
-<p></p><hr/><h3>@write</h3>
-<pre><code class="cs">func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)</code></pre>
-<p></p><hr/><h3>@put</h3>
-<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p></p><hr/><h3>@get</h3>
-<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p></p></div><h2>Properties</h2>
+<pre><code class="cs">def @attr(obj: String);
+def @attr(move obj: String);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>obj=> <br/>
+</blockquote>
+<hr/>
+<h3>Clear</h3>
+<pre><code class="cs">def Clear();</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>@eq</h3>
+<pre><code class="cs">func @eq(second: String): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>second=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@neq</h3>
+<pre><code class="cs">func @neq(second: String): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>second=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@shl</h3>
+<pre><code class="cs">def @shl(ch: Char): ref String;
+def @shl(str: String): ref String;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>ch=> <br/>
+str=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Insert</h3>
+<pre><code class="cs">def Insert(pos: PtrSize, string: String);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>pos=> <br/>
+string=> <br/>
+</blockquote>
+<hr/>
+<h3>Inserted</h3>
+<pre><code class="cs">func Inserted(pos: PtrSize, string: String): String;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>pos=> <br/>
+string=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Find</h3>
+<pre><code class="cs">func Find(b: Byte): PtrSize;
+func Find(b: Byte, start: PtrSize): PtrSize;
+func Find(b: CArray<Byte>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>b=> <br/>
+start=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>RFind</h3>
+<pre><code class="cs">func RFind(b: Byte): PtrSize;
+func RFind(b: Byte, start: PtrSize): PtrSize;
+func RFind(b: CArray<Byte>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>b=> <br/>
+start=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Split</h3>
+<pre><code class="cs">func Split(b: Byte): Vector<String>;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>b=> <br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Trimmed</h3>
+<pre><code class="cs">func Trimmed(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> <br/>
+format=> <br/>
+</blockquote>
+<hr/>
+<h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> <br/>
+</blockquote>
+<hr/>
+<h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> <br/>
+</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>Length</h3>
 <pre><code class="cs">property Length: PtrSize</code></pre>
-<p></p><hr/><h3>Capacity</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Capacity</h3>
 <pre><code class="cs">property Capacity: PtrSize</code></pre>
-<p></p><hr/><h3>@index</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>@index</h3>
 <pre><code class="cs">property @index: ref Byte; get;</code></pre>
-<p></p><hr/><h3>IsEmpty</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>IsEmpty</h3>
 <pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
-<p></p><hr/><h3>SysDataPointer</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>SysDataPointer</h3>
 <pre><code class="cs">property SysDataPointer: Ptr<Byte>; get;</code></pre>
-<p></p></div><h2>Variables</h2>
+<h4>Brief</h4>
+<p>
+
+</p></div><h2>Variables</h2>
 <div class="codesection">
 <h3>GrowthSpacing</h3>
-<pre><code class="cs">val GrowthSpacing</code></pre>
-<p></p></div></div>
+<pre><code class="cs">val GrowthSpacing;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p></div></div>
 </div>
 
 <footer class="footer">

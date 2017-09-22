@@ -59,54 +59,172 @@ class DynamicBlock
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{a: PtrSize}
-this{copy: DynamicBlock<T>}
-this{move copy: DynamicBlock<T>}</code></pre>
-<p></p><hr/><h3>@allocate</h3>
-<pre><code class="cs">this @allocate{len: PtrSize, capacity: PtrSize}</code></pre>
-<p></p></div><h2>Methods</h2>
+<pre><code class="cs">this{a: PtrSize};
+this{copy: DynamicBlock<T>};
+this{move copy: DynamicBlock<T>};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>a=> <br/>
+copy=> <br/>
+</blockquote>
+<hr/>
+<h3>@allocate</h3>
+<pre><code class="cs">this @allocate{len: PtrSize, capacity: PtrSize};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>len=> <br/>
+capacity=> <br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>@attr</h3>
-<pre><code class="cs">def @attr(copy: DynamicBlock<T>)
-def @attr(move copy: DynamicBlock<T>)</code></pre>
-<p></p><hr/><h3>ExpandTo</h3>
-<pre><code class="cs">def ExpandTo(value: PtrSize)
-def ExpandTo(newLength: PtrSize, init: T)</code></pre>
-<p></p><hr/><h3>ExpandBy</h3>
-<pre><code class="cs">def ExpandBy(delta: PtrSize)
-def ExpandBy(delta: PtrSize, init: T)</code></pre>
-<p></p><hr/><h3>ShrinkTo</h3>
-<pre><code class="cs">def ShrinkTo(newLength: PtrSize)</code></pre>
-<p></p><hr/><h3>ShrinkBy</h3>
-<pre><code class="cs">def ShrinkBy(delta: PtrSize)</code></pre>
-<p></p><hr/><h3>Fill</h3>
-<pre><code class="cs">def Fill(value: T)</code></pre>
-<p></p><hr/><h3>Clear</h3>
-<pre><code class="cs">def Clear()</code></pre>
-<p></p><hr/><h3>Append</h3>
-<pre><code class="cs">def Append(item: T)
-def Append(item: T, count: PtrSize)</code></pre>
-<p></p><hr/><h3>SetLengthUnsafe</h3>
-<pre><code class="cs">def SetLengthUnsafe(value: PtrSize)</code></pre>
-<p></p><hr/><h3>ExpandUnsafe</h3>
-<pre><code class="cs">def ExpandUnsafe(value: PtrSize)</code></pre>
-<p></p><hr/><h3>ShrinkUnsafe</h3>
-<pre><code class="cs">def ShrinkUnsafe(value: PtrSize)</code></pre>
-<p></p><hr/><h3>FreeUnsafe</h3>
-<pre><code class="cs">def FreeUnsafe(len: PtrSize)</code></pre>
-<p></p></div><h2>Properties</h2>
+<pre><code class="cs">def @attr(copy: DynamicBlock<T>);
+def @attr(move copy: DynamicBlock<T>);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>copy=> <br/>
+</blockquote>
+<hr/>
+<h3>ExpandTo</h3>
+<pre><code class="cs">def ExpandTo(value: PtrSize);
+def ExpandTo(newLength: PtrSize, init: T);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+newLength=> <br/>
+init=> <br/>
+</blockquote>
+<hr/>
+<h3>ExpandBy</h3>
+<pre><code class="cs">def ExpandBy(delta: PtrSize);
+def ExpandBy(delta: PtrSize, init: T);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>delta=> <br/>
+init=> <br/>
+</blockquote>
+<hr/>
+<h3>ShrinkTo</h3>
+<pre><code class="cs">def ShrinkTo(newLength: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>newLength=> <br/>
+</blockquote>
+<hr/>
+<h3>ShrinkBy</h3>
+<pre><code class="cs">def ShrinkBy(delta: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>delta=> <br/>
+</blockquote>
+<hr/>
+<h3>Fill</h3>
+<pre><code class="cs">def Fill(value: T);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+</blockquote>
+<hr/>
+<h3>Clear</h3>
+<pre><code class="cs">def Clear();</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Append</h3>
+<pre><code class="cs">def Append(item: T);
+def Append(item: T, count: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>item=> <br/>
+count=> <br/>
+</blockquote>
+<hr/>
+<h3>SetLengthUnsafe</h3>
+<pre><code class="cs">def SetLengthUnsafe(value: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+</blockquote>
+<hr/>
+<h3>ExpandUnsafe</h3>
+<pre><code class="cs">def ExpandUnsafe(value: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+</blockquote>
+<hr/>
+<h3>ShrinkUnsafe</h3>
+<pre><code class="cs">def ShrinkUnsafe(value: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+</blockquote>
+<hr/>
+<h3>FreeUnsafe</h3>
+<pre><code class="cs">def FreeUnsafe(len: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>len=> <br/>
+</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>@index</h3>
 <pre><code class="cs">property @index: ref T; get;</code></pre>
-<p></p><hr/><h3>Length</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Length</h3>
 <pre><code class="cs">property Length: PtrSize</code></pre>
-<p></p><hr/><h3>IsEmpty</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>IsEmpty</h3>
 <pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
-<p></p><hr/><h3>Capacity</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Capacity</h3>
 <pre><code class="cs">property Capacity: PtrSize</code></pre>
-<p></p><hr/><h3>SysDataPointer</h3>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>SysDataPointer</h3>
 <pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
-<p></p></div></div>
+<h4>Brief</h4>
+<p>
+
+</p></div></div>
 </div>
 
 <footer class="footer">

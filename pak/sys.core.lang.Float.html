@@ -56,102 +56,330 @@
 <pre><code class="cs">namespace sys.core.lang
 class Float
 </code></pre><hr>
-<h2>Methods</h2>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>Saturated</h3>
+<pre><code class="cs">this Saturated{value: Float};
+this Saturated{value: Double};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>value=> <br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: Float, max: Float)</code></pre>
-<p>Clamps the current mutable instance between `min` and `max`.
-</p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: Float, max: Float)</code></pre>
-<p>Returns the current instance clamped between `min` and `max`.
-</p><hr/><h3>Pow</h3>
-<pre><code class="cs">func Pow(exp: Float)</code></pre>
-<p>Raises the instance to an exponent.
-</p><hr/><h3>ToString</h3>
-<pre><code class="cs">func ToString()</code></pre>
-<p>Converts the value to a Utf8 [string][sys.core.lang.String].
-</p><hr/><h3>@write</h3>
-<pre><code class="cs">func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)</code></pre>
-<p>Writes the value to an Utf8 text stream.
+<pre><code class="cs">def Clamp(min: Float, max: Float);</code></pre>
+<h4>Brief</h4>
+<p>
+Clamps the current mutable instance between `min` and `max`.
 
-Can use an optional [output format][sys.core.OutputFormat] specifier.
-</p><hr/><h3>@put</h3>
-<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p>Writes the value to a binary stream as a 32 bit floating point.
-</p><hr/><h3>@get</h3>
-<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p>Reads a 32 bit floating point from a binary stream.
-</p></div><h2>Properties</h2>
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Float, max: Float): Float;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the current instance clamped between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the clamped value</blockquote>
+<hr/>
+<h3>Pow</h3>
+<pre><code class="cs">func Pow(exp: Float): Float;</code></pre>
+<h4>Brief</h4>
+<p>
+Raises the instance to an exponent.
+
+</p><h4>Parameters</h4>
+<blockquote>exp=> the exponent<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the exponential</blockquote>
+<hr/>
+<h3>ToString</h3>
+<pre><code class="cs">func ToString(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+Converts the value to a Utf8 <a>string</a>.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting string</blockquote>
+<hr/>
+<h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to an Utf8 text stream.
+
+Can use an optional <a>output format</a> specifier.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+format=> formatting information<br/>
+</blockquote>
+<hr/>
+<h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to a binary stream as a 32 bit floating point.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+</blockquote>
+<hr/>
+<h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Reads a 32 bit floating point from a binary stream.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the input stream<br/>
+</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>IsNan</h3>
 <pre><code class="cs">property IsNan: Bool; get;</code></pre>
-<p>Return true if the instance is not a number.
-</p><hr/><h3>IsInfinite</h3>
+<h4>Brief</h4>
+<p>
+Return true if the instance is not a number.
+
+</p><hr/>
+<h3>IsInfinite</h3>
 <pre><code class="cs">property IsInfinite: Bool; get;</code></pre>
-<p>Return true if the infinite.
-</p><hr/><h3>Abs</h3>
+<h4>Brief</h4>
+<p>
+Return true if the infinite.
+
+</p><hr/>
+<h3>Abs</h3>
 <pre><code class="cs">property Abs: Float; get;</code></pre>
-<p>Returns the absolute value.
-</p><hr/><h3>Sqr</h3>
+<h4>Brief</h4>
+<p>
+Returns the absolute value.
+
+</p><hr/>
+<h3>Sqr</h3>
 <pre><code class="cs">property Sqr: Float; get;</code></pre>
-<p>Returns the square of the value value.
-</p><hr/><h3>Sqrt</h3>
-<pre><code class="cs">property Sqrt: Float get const Intrinsic.Sqrt;; get;</code></pre>
-<p>Returns the square root of the value.
-</p><hr/><h3>Floor</h3>
-<pre><code class="cs">property Floor: Float get const Intrinsic.Floor;; get;</code></pre>
-<p>Returns the floor of a floating point value.
-</p><hr/><h3>Ceil</h3>
-<pre><code class="cs">property Ceil: Float get const Intrinsic.Ceil;; get;</code></pre>
-<p>Returns the ceiling of a floating point value.
-</p><hr/><h3>Round</h3>
-<pre><code class="cs">property Round: Float get const Intrinsic.Round;; get;</code></pre>
-<p>Returns the rounded value of a floating point.
-</p><hr/><h3>Log</h3>
-<pre><code class="cs">property Log: Float get const Intrinsic.Log;; get;</code></pre>
-<p>Returns the natural logarithm of a value.
-</p><hr/><h3>Log10</h3>
-<pre><code class="cs">property Log10: Float get const Intrinsic.Log10;; get;</code></pre>
-<p>Returns the base 10 logarithm of a value.
+<h4>Brief</h4>
+<p>
+Returns the square of the value value.
+
+</p><hr/>
+<h3>Sqrt</h3>
+<pre><code class="cs">property Sqrt: Float get = Math.Sqrt;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the square root of the value.
+
+</p><hr/>
+<h3>Floor</h3>
+<pre><code class="cs">property Floor: Float get = Math.Floor;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the floor of a floating point value.
+
+</p><hr/>
+<h3>Ceil</h3>
+<pre><code class="cs">property Ceil: Float get = Math.Ceil;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the ceiling of a floating point value.
+
+</p><hr/>
+<h3>Round</h3>
+<pre><code class="cs">property Round: Float get = Math.Round;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the rounded value of a floating point.
+
+</p><hr/>
+<h3>Trunc</h3>
+<pre><code class="cs">property Trunc: Float get = Math.Trunc;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the value truncated to the nearest integer value.
+
+</p><hr/>
+<h3>Sin</h3>
+<pre><code class="cs">property Sin: Float get = Math.Sin;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Cos</h3>
+<pre><code class="cs">property Cos: Float get = Math.Cos;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Tan</h3>
+<pre><code class="cs">property Tan: Float get = Math.Tan;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Sinh</h3>
+<pre><code class="cs">property Sinh: Float get = Math.Sinh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Cosh</h3>
+<pre><code class="cs">property Cosh: Float get = Math.Cosh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Tanh</h3>
+<pre><code class="cs">property Tanh: Float get = Math.Tanh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Asin</h3>
+<pre><code class="cs">property Asin: Float get = Math.Asin;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Acos</h3>
+<pre><code class="cs">property Acos: Float get = Math.Acos;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Atan</h3>
+<pre><code class="cs">property Atan: Float get = Math.Atan;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Asinh</h3>
+<pre><code class="cs">property Asinh: Float get = Math.Asinh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Acosh</h3>
+<pre><code class="cs">property Acosh: Float get = Math.Acosh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Atanh</h3>
+<pre><code class="cs">property Atanh: Float get = Math.Atanh;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Log</h3>
+<pre><code class="cs">property Log: Float get = Math.Log;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the natural logarithm of a value.
+
+</p><hr/>
+<h3>Log2</h3>
+<pre><code class="cs">property Log2: Float get = Math.Log2;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Log10</h3>
+<pre><code class="cs">property Log10: Float get = Math.Log10;; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the base 10 logarithm of a value.
+
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
-<pre><code class="cs">const Zero: Float</code></pre>
-<p>A [Float][sys.core.lang.Float] instance representing a logical "0" value.
-</p><hr/><h3>One</h3>
-<pre><code class="cs">const One: Float</code></pre>
-<p>A [Float][sys.core.lang.Float] instance representing a logical "1" value.
-</p><hr/><h3>Min</h3>
-<pre><code class="cs">const Min: Float</code></pre>
-<p>The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-</p><hr/><h3>Max</h3>
-<pre><code class="cs">const Max: Float</code></pre>
-<p>The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-</p><hr/><h3>IsSigned</h3>
-<pre><code class="cs">const IsSigned</code></pre>
-<p>Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
-</p><hr/><h3>IsInteger</h3>
-<pre><code class="cs">const IsInteger</code></pre>
-<p>Returns [false][sys.core.lang.Bool].
-</p><hr/><h3>MaxDigitsLow</h3>
-<pre><code class="cs">const MaxDigitsLow</code></pre>
-<p>The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+<pre><code class="cs">const Zero: Float;</code></pre>
+<h4>Brief</h4>
+<p>
+A <a>Float</a> instance representing a logical "0" value.
+
+</p><hr/>
+<h3>One</h3>
+<pre><code class="cs">const One: Float;</code></pre>
+<h4>Brief</h4>
+<p>
+A <a>Float</a> instance representing a logical "1" value.
+
+</p><hr/>
+<h3>Min</h3>
+<pre><code class="cs">const Min: Float;</code></pre>
+<h4>Brief</h4>
+<p>
+The minimum value for a <a>Float</a> (32 bit floating point) instance.
+
+</p><hr/>
+<h3>Max</h3>
+<pre><code class="cs">const Max: Float;</code></pre>
+<h4>Brief</h4>
+<p>
+The maximum value for a <a>Float</a> (32 bit floating point) instance.
+
+</p><hr/>
+<h3>IsSigned</h3>
+<pre><code class="cs">const IsSigned;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns <a>true</a> if the floating point representation is signed.
+
+</p><hr/>
+<h3>IsInteger</h3>
+<pre><code class="cs">const IsInteger;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns <a>false</a>.
+
+</p><hr/>
+<h3>MaxDigitsLow</h3>
+<pre><code class="cs">const MaxDigitsLow;</code></pre>
+<h4>Brief</h4>
+<p>
+The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
 Should not be used for buffer sizes.
-</p><hr/><h3>MaxDigitsHigh</h3>
-<pre><code class="cs">const MaxDigitsHigh</code></pre>
-<p>The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+
+</p><hr/>
+<h3>MaxDigitsHigh</h3>
+<pre><code class="cs">const MaxDigitsHigh;</code></pre>
+<h4>Brief</h4>
+<p>
+The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-</p><hr/><h3>Nan</h3>
-<pre><code class="cs">const Nan</code></pre>
-<p>The not a number value.
-</p><hr/><h3>Infinite</h3>
-<pre><code class="cs">const Infinite</code></pre>
-<p>Positive infinite.
+
+</p><hr/>
+<h3>Nan</h3>
+<pre><code class="cs">const Nan;</code></pre>
+<h4>Brief</h4>
+<p>
+The not a number value.
+
+</p><hr/>
+<h3>Infinite</h3>
+<pre><code class="cs">const Infinite;</code></pre>
+<h4>Brief</h4>
+<p>
+Positive infinite.
+
 </p></div></div>
 </div>
 

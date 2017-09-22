@@ -59,89 +59,255 @@ class Slice
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{ref ppp: CArray<T>}
-this{ref p: CArray<T>, length: PtrSize}
-this{ref p: CArray<T>, start: PtrSize, end: PtrSize}
-this{ref p: Vector<T>}
-this{ref p: Vector<T>, length: PtrSize}
-this{ref p: Vector<T>, start: PtrSize, end: PtrSize}
-this{ref p: Small}
-this{ref p: Short}
-this{ref p: Byte}
-this{ref p: Word}
-this{ref p: Int}
-this{ref p: Int, length: PtrSize}
-this{ref p: Long}
-this{ref p: Long, length: PtrSize}
-this{ref p: DWord}
-this{ref p: DWord, length: PtrSize}
-this{ref p: QWord}
-this{ref p: QWord, length: PtrSize}
-this{ref p: Float}
-this{ref p: Float, length: PtrSize}
-this{ref p: Double}
-this{ref p: Double, length: PtrSize}
-this{ref p: String}
-this{p: Slice<Byte>, length: PtrSize}
-this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}</code></pre>
-<p></p></div><h2>Methods</h2>
+<pre><code class="cs">this{ref p: CArray<T>};
+this{ref p: CArray<T>, length: PtrSize};
+this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
+this{ref p: Vector<T>};
+this{ref p: Vector<T>, length: PtrSize};
+this{ref p: Vector<T>, start: PtrSize, end: PtrSize};
+this{ref p: Small};
+this{ref p: Small, length: PtrSize};
+this{ref p: Short};
+this{ref p: Short, length: PtrSize};
+this{ref p: Byte};
+this{ref p: Byte, length: PtrSize};
+this{ref p: Word};
+this{ref p: Word, length: PtrSize};
+this{ref p: Int};
+this{ref p: Int, length: PtrSize};
+this{ref p: Long};
+this{ref p: Long, length: PtrSize};
+this{ref p: DWord};
+this{ref p: DWord, length: PtrSize};
+this{ref p: QWord};
+this{ref p: QWord, length: PtrSize};
+this{ref p: Float};
+this{ref p: Float, length: PtrSize};
+this{ref p: Double};
+this{ref p: Double, length: PtrSize};
+this{ref p: Char};
+this{ref p: Char, length: PtrSize};
+this{ref p: String};
+this{p: Slice<Byte>, length: PtrSize};
+this{p: Slice<Byte>, offset: PtrSize, length: PtrSize};</code></pre>
+<h4>Brief</h4>
+<p>
+Constructs a new slice based on a persistent memory location and an optional size. The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
+
+</p><h4>Parameters</h4>
+<blockquote>p=> a vector of items<br/>
+length=> the length of the slice<br/>
+start=> the start index<br/>
+end=> the end index<br/>
+offset=> an offset to use<br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Fill</h3>
-<pre><code class="cs">def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)</code></pre>
-<p></p><hr/><h3>FindIndex</h3>
-<pre><code class="cs">func FindIndex(item: T)
-func FindIndex(item: T, start: PtrSize)
-func FindIndex(b: CArray<T>)
-func FindIndex(b: Vector<T>)
-func FindIndex(b: CArray<T>, start: PtrSize)
-func FindIndex(b: Vector<T>, start: PtrSize)</code></pre>
-<p></p><hr/><h3>RFindIndex</h3>
-<pre><code class="cs">func RFindIndex(item: T)
-func RFindIndex(item: T, val start: PtrSize)
-func RFindIndex(b: CArray<T>)
-func RFindIndex(b: Vector<T>)
-func RFindIndex(b: CArray<T>, val start: PtrSize)
-func RFindIndex(b: Vector<T>, val start: PtrSize)</code></pre>
-<p></p><hr/><h3>BinaryIndex</h3>
-<pre><code class="cs">func BinaryIndex(item: T)
-func BinaryIndex(item: T, start: PtrSize)</code></pre>
-<p></p><hr/><h3>Reverse</h3>
-<pre><code class="cs">def Reverse()</code></pre>
-<p></p><hr/><h3>Delete</h3>
-<pre><code class="cs">def Delete(item: T)
-def Delete(items: CArray<T>)
-def Delete(items: Vector<T>)</code></pre>
-<p></p><hr/><h3>DeleteAll</h3>
-<pre><code class="cs">def DeleteAll(item: T)
-def DeleteAll(items: CArray<T>)
-def DeleteAll(items: Vector<T>)</code></pre>
-<p></p><hr/><h3>DeleteIndex</h3>
-<pre><code class="cs">def DeleteIndex(index: PtrSize)
-def DeleteIndex(items: CArray<PtrSize>)
-def DeleteIndex(items: Vector<PtrSize>)</code></pre>
-<p></p><hr/><h3>Insert</h3>
-<pre><code class="cs">def Insert(pos: PtrSize, item: T)
-def Insert(pos: PtrSize, items: CArray<T>)
-def Insert(pos: PtrSize, items: Vector<T>)</code></pre>
-<p></p><hr/><h3>Sort</h3>
-<pre><code class="cs">def Sort(low: Int, high: Int)
-def Sort()</code></pre>
-<p></p><hr/><h3>SortDec</h3>
-<pre><code class="cs">def SortDec(low: Int, high: Int)
-def SortDec()</code></pre>
-<p></p><hr/><h3>Sum</h3>
-<pre><code class="cs">func Sum()</code></pre>
-<p></p></div><h2>Properties</h2>
+<pre><code class="cs">def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);</code></pre>
+<h4>Brief</h4>
+<p>
+Copies over all the elements in the static array.
+
+If a single value is provided, all elements will be initialized with it.
+
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
+
+</p><h4>Parameters</h4>
+<blockquote>value=> the value to fill with<br/>
+items=> the array to use<br/>
+</blockquote>
+<hr/>
+<h3>FindIndex</h3>
+<pre><code class="cs">func FindIndex(item: T): PtrSize;
+func FindIndex(item: T, start: PtrSize): PtrSize;
+func FindIndex(b: CArray<T>): PtrSize;
+func FindIndex(b: Vector<T>): PtrSize;
+func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
+func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item or items in the array and returns the first index at which it was found or <a>-1</a> if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+b=> a vector of items to search for<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>RFindIndex</h3>
+<pre><code class="cs">func RFindIndex(item: T): PtrSize;
+func RFindIndex(item: T, val start: PtrSize): PtrSize;
+func RFindIndex(b: CArray<T>): PtrSize;
+func RFindIndex(b: Vector<T>): PtrSize;
+func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item or items in the array in reverse order and returns the first index from the back at which it was found or <a>-1</a> if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+b=> a vector of items to search for<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>BinaryIndex</h3>
+<pre><code class="cs">func BinaryIndex(item: T): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item in the array and returns the first index at which it was found or <a>-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>Reverse</h3>
+<pre><code class="cs">def Reverse();</code></pre>
+<h4>Brief</h4>
+<p>
+Reverses the items in the slice.
+
+</p><hr/>
+<h3>Delete</h3>
+<pre><code class="cs">def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Reverses the contents of the array, from beginning to end or between two input indices.
+*** 
+
+```C#
+def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;
+```
+
+Searches for the first occurrence of an item or items within the array and if found it removes it.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to delete<br/>
+items=> the items to delete<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>DeleteAll</h3>
+<pre><code class="cs">def DeleteAll(item: T): PtrSize;
+def DeleteAll(items: CArray<T>): PtrSize;
+def DeleteAll(items: Vector<T>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for all the occurrences of an item or items within the slice and if found removes them all.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+items=> the items to search for<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>DeleteIndex</h3>
+<pre><code class="cs">def DeleteIndex(index: PtrSize): PtrSize;
+def DeleteIndex(items: CArray<PtrSize>): PtrSize;
+def DeleteIndex(items: Vector<PtrSize>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Deletes an item at a given index or indices from the slice.
+
+</p><h4>Parameters</h4>
+<blockquote>index=> the index to delete<br/>
+items=> an array of indices to delete<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the number of deleted items</blockquote>
+<hr/>
+<h3>Insert</h3>
+<pre><code class="cs">def Insert(pos: PtrSize, item: T);
+def Insert(pos: PtrSize, items: CArray<T>);
+def Insert(pos: PtrSize, items: Vector<T>);</code></pre>
+<h4>Brief</h4>
+<p>
+Inserts an item or a collection of items into the array at a given position.
+
+</p><h4>Parameters</h4>
+<blockquote>pos=> the position to insert to<br/>
+item=> the item to insert<br/>
+items=> the items to insert<br/>
+</blockquote>
+<hr/>
+<h3>Sort</h3>
+<pre><code class="cs">def Sort(low: Int, high: Int);
+def Sort();</code></pre>
+<h4>Brief</h4>
+<p>
+Sorts the content of the array in ascending order, from beginning to end or between two input indices.
+
+</p><h4>Parameters</h4>
+<blockquote>low=> the start index<br/>
+high=> the end index<br/>
+</blockquote>
+<hr/>
+<h3>SortDesc</h3>
+<pre><code class="cs">def SortDesc(low: Int, high: Int);
+def SortDesc();</code></pre>
+<h4>Brief</h4>
+<p>
+Sorts the content of the array in descending order, from beginning to end or between two input indices.
+
+</p><h4>Parameters</h4>
+<blockquote>low=> the start index<br/>
+high=> the end index<br/>
+</blockquote>
+<hr/>
+<h3>Sum</h3>
+<pre><code class="cs">func Sum(): T;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the sum of all the items in the array.
+
+</p><h4>Returns</h4>
+<blockquote>the sum</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>Length</h3>
 <pre><code class="cs">property Length: PtrSize</code></pre>
-<p></p><hr/><h3>@index</h3>
+<h4>Brief</h4>
+<p>
+Reads and writes the length of the slice. Can not grow, only decrease.
+
+</p><hr/>
+<h3>@index</h3>
 <pre><code class="cs">property @index: T</code></pre>
-<p></p><hr/><h3>SysDataPointer</h3>
+<h4>Brief</h4>
+<p>
+Reads and writes a given index from the slice.
+
+</p><hr/>
+<h3>SysDataPointer</h3>
 <pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
-<p></p></div></div>
+<h4>Brief</h4>
+<p>
+Returns a pointer to the data from the slice.
+
+</p></div></div>
 </div>
 
 <footer class="footer">

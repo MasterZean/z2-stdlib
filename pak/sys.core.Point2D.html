@@ -59,90 +59,254 @@ class Point2D
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{value: T}
-this{x: T, y: T}</code></pre>
-<p>Creates a new instance initializing each component of the point.
-</p></div><h2>Methods</h2>
+<pre><code class="cs">this{value: T};
+this{x: T, y: T};</code></pre>
+<h4>Brief</h4>
+<p>
+Creates a new instance initializing each component of the point.
+
+</p><h4>Parameters</h4>
+<blockquote>value=> the value to use for each component<br/>
+x=> the first dimension of the point<br/>
+y=> <br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: Point2D<T>, max: Point2D<T>)
-def Clamp(min: T, max: T)</code></pre>
-<p>Clamps each component of the current mutable instance between `min` and `max`.
-</p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: Point2D<T>, max: Point2D<T>)
-func Clamped(min: T, max: T)</code></pre>
-<p>Returns a copy of the color with each component clamped between `min` and `max`.
-</p><hr/><h3>GetMin</h3>
-<pre><code class="cs">func GetMin(min: Point2D<T>)</code></pre>
-<p>Returns the member-wise minimum between the current instance and the input.
-</p><hr/><h3>GetMax</h3>
-<pre><code class="cs">func GetMax(max: Point2D<T>)</code></pre>
-<p>Returns the member-wise maximum between the current instance and the input.
-</p><hr/><h3>IsNormalized</h3>
-<pre><code class="cs">func IsNormalized(tolerance: T)</code></pre>
-<p>Tests if the current instance is a 2 dimensional normalized vector, within a tolerance.
-</p><hr/><h3>Normalize</h3>
-<pre><code class="cs">def Normalize(tolerance: T)</code></pre>
-<p>Normalizes the 2 dimensional vector if its length falls within the tolerance limits.
+<pre><code class="cs">def Clamp(min: Point2D<T>, max: Point2D<T>);
+def Clamp(min: T, max: T);</code></pre>
+<h4>Brief</h4>
+<p>
+Clamps each component of the current mutable instance between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T>;
+func Clamped(min: T, max: T): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns a copy of the color with each component clamped between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the clamped value</blockquote>
+<hr/>
+<h3>GetMin</h3>
+<pre><code class="cs">func GetMin(min: Point2D<T>): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the member-wise minimum between the current instance and the input.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the value to test against<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise minimum</blockquote>
+<hr/>
+<h3>GetMax</h3>
+<pre><code class="cs">func GetMax(max: Point2D<T>): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the member-wise maximum between the current instance and the input.
+
+</p><h4>Parameters</h4>
+<blockquote>max=> the value to test against<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the member-wise maximum</blockquote>
+<hr/>
+<h3>IsNormalized</h3>
+<pre><code class="cs">func IsNormalized(tolerance: T): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Tests if the current instance is a 2 dimensional normalized vector, within a tolerance.
+
+</p><h4>Parameters</h4>
+<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Normalize</h3>
+<pre><code class="cs">def Normalize(tolerance: T);</code></pre>
+<h4>Brief</h4>
+<p>
+Normalizes the 2 dimensional vector if its length falls within the tolerance limits.
 
 Otherwise, the value remains unchanged.
-</p><hr/><h3>Normalized</h3>
-<pre><code class="cs">func Normalized(tolerance: T)</code></pre>
-<p>Returns a 2 dimensional normalized copy of the vector if its length falls within the tolerance limits.
+
+</p><h4>Parameters</h4>
+<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
+</blockquote>
+<hr/>
+<h3>Normalized</h3>
+<pre><code class="cs">func Normalized(tolerance: T): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns a 2 dimensional normalized copy of the vector if its length falls within the tolerance limits.
 
 Otherwise, returns the value as is.
-</p><hr/><h3>@add</h3>
-<pre><code class="cs">func @add(second: Point2D<T>)
-func @add(second: T)</code></pre>
-<p>Member-wise addition operator. Commutative.
-</p><hr/><h3>@sub</h3>
-<pre><code class="cs">static func @sub(left: Point2D<T>, right: Point2D<T>)
-static func @sub(left: Point2D<T>, right: T)
-static func @sub(left: T, right: Point2D<T>)</code></pre>
-<p>Member-wise subtraction operator.
-</p><hr/><h3>@mul</h3>
-<pre><code class="cs">func @mul(second: Point2D<T>)
-func @mul(second: T)</code></pre>
-<p>Member-wise multiplication operator. Commutative.
-</p><hr/><h3>@div</h3>
-<pre><code class="cs">static func @div(left: Point2D<T>, right: Point2D<T>)
-static func @div(left: Point2D<T>, right: T)
-static func @div(left: T, right: Point2D<T>)</code></pre>
-<p>Member-wise division operator.
-</p><hr/><h3>@mod</h3>
-<pre><code class="cs">static func @mod(left: Point2D<T>, right: Point2D<T>)
-static func @mod(left: Point2D<T>, right: T)
-static func @mod(left: T, right: Point2D<T>)</code></pre>
-<p>Member-wise modulo operator.
-</p><hr/><h3>@minus</h3>
-<pre><code class="cs">func @minus()</code></pre>
-<p>Returns the member-wise negative of the current instance.
-</p><hr/><h3>@eq</h3>
-<pre><code class="cs">func @eq(second: T)</code></pre>
-<p>Member-wise equality operator.
-</p><hr/><h3>@neq</h3>
-<pre><code class="cs">func @neq(second: T)</code></pre>
-<p>Member-wise inequality operator.
-</p><hr/><h3>Equals</h3>
-<pre><code class="cs">func Equals(second: Point2D<T>, tolerance: T)
-func Equals(second: T, tolerance: T)</code></pre>
-<p>Member-wise equality operator within a given tolerance.
-</p></div><h2>Properties</h2>
+
+</p><h4>Parameters</h4>
+<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@add</h3>
+<pre><code class="cs">func @add(second: Point2D<T>): Point2D<T>;
+func @add(second: T): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise addition operator. Commutative.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@sub</h3>
+<pre><code class="cs">static func @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @sub(left: Point2D<T>, right: T): Point2D<T>;
+static func @sub(left: T, right: Point2D<T>): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise subtraction operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@mul</h3>
+<pre><code class="cs">func @mul(second: Point2D<T>): Point2D<T>;
+func @mul(second: T): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise multiplication operator. Commutative.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@div</h3>
+<pre><code class="cs">static func @div(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @div(left: Point2D<T>, right: T): Point2D<T>;
+static func @div(left: T, right: Point2D<T>): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise division operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@mod</h3>
+<pre><code class="cs">static func @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @mod(left: Point2D<T>, right: T): Point2D<T>;
+static func @mod(left: T, right: Point2D<T>): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise modulo operator.
+
+</p><h4>Parameters</h4>
+<blockquote>left=> the left operand<br/>
+right=> the right operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@minus</h3>
+<pre><code class="cs">func @minus(): Point2D<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the member-wise negative of the current instance.
+
+</p><h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@eq</h3>
+<pre><code class="cs">func @eq(second: T): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise equality operator.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>@neq</h3>
+<pre><code class="cs">func @neq(second: T): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise inequality operator.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>Equals</h3>
+<pre><code class="cs">func Equals(second: Point2D<T>, tolerance: T): Bool;
+func Equals(second: T, tolerance: T): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Member-wise equality operator within a given tolerance.
+
+</p><h4>Parameters</h4>
+<blockquote>second=> the second operand<br/>
+tolerance=> tolerance for equality<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote></blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>Length</h3>
 <pre><code class="cs">property Length: T; get;</code></pre>
-<p>The length of the instance interpreted as a 2 dimensional vector.
-</p><hr/><h3>LengthSquared</h3>
+<h4>Brief</h4>
+<p>
+The length of the instance interpreted as a 2 dimensional vector.
+
+</p><hr/>
+<h3>LengthSquared</h3>
 <pre><code class="cs">property LengthSquared: T; get;</code></pre>
-<p>The squared length of the instance interpreted as a 2 dimensional vector.
+<h4>Brief</h4>
+<p>
+The squared length of the instance interpreted as a 2 dimensional vector.
+
 </p></div><h2>Variables</h2>
 <div class="codesection">
 <h3>X</h3>
-<pre><code class="cs">val X: T</code></pre>
-<p>The first dimension of the point.
-</p><hr/><h3>Y</h3>
-<pre><code class="cs">val Y: T</code></pre>
-<p>The second dimension of the point.
+<pre><code class="cs">val X: T;</code></pre>
+<h4>Brief</h4>
+<p>
+The first dimension of the point.
+
+</p><hr/>
+<h3>Y</h3>
+<pre><code class="cs">val Y: T;</code></pre>
+<h4>Brief</h4>
+<p>
+The second dimension of the point.
+
 </p></div></div>
 </div>
 

@@ -59,96 +59,217 @@ class QWord
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{string: String}</code></pre>
-<p>Parses a string an constructs a [QWord][sys.core.lang.QWord] based on it.
-</p><hr/><h3>Saturated</h3>
-<pre><code class="cs">this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: String}</code></pre>
-<p>Constructs a saturated [QWord][sys.core.lang.QWord] based on the input value.
-</p></div><h2>Methods</h2>
+<pre><code class="cs">this{string: String};</code></pre>
+<h4>Brief</h4>
+<p>
+Parses a string an constructs a <a>QWord</a> based on it.
+
+</p><h4>Parameters</h4>
+<blockquote>string=> string to parse<br/>
+</blockquote>
+<hr/>
+<h3>Saturated</h3>
+<pre><code class="cs">this Saturated{value: Long};
+this Saturated{value: QWord};
+this Saturated{value: String};</code></pre>
+<h4>Brief</h4>
+<p>
+Constructs a saturated <a>QWord</a> based on the input value.
+
+</p><h4>Parameters</h4>
+<blockquote>value=> the input value. Can be numeric or a string.<br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: QWord, max: QWord)</code></pre>
-<p>Clamps the current mutable instance between `min` and `max`.
-</p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: QWord, max: QWord)</code></pre>
-<p>Returns the current instance clamped between `min` and `max`.
-</p><hr/><h3>ToString</h3>
-<pre><code class="cs">func ToString()</code></pre>
-<p>Converts the value to a Utf8 [string][sys.core.lang.String].
-</p><hr/><h3>@write</h3>
-<pre><code class="cs">func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)</code></pre>
-<p>Writes the value to an Utf8 text stream.
+<pre><code class="cs">def Clamp(min: QWord, max: QWord);</code></pre>
+<h4>Brief</h4>
+<p>
+Clamps the current mutable instance between `min` and `max`.
 
-Can use an optional [output format][sys.core.OutputFormat] specifier.
-</p><hr/><h3>@put</h3>
-<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p>Writes the value to a binary stream as a 64 bit unsigned integer.
-</p><hr/><h3>@get</h3>
-<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p>Reads a 64 bit unsigned integer from a binary stream.
-</p></div><h2>Properties</h2>
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: QWord, max: QWord): QWord;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the current instance clamped between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the clamped value</blockquote>
+<hr/>
+<h3>ToString</h3>
+<pre><code class="cs">func ToString(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+Converts the value to a Utf8 <a>string</a>.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting string</blockquote>
+<hr/>
+<h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to an Utf8 text stream.
+
+Can use an optional <a>output format</a> specifier.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+format=> formatting information<br/>
+</blockquote>
+<hr/>
+<h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to a binary stream as a 64 bit unsigned integer.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+</blockquote>
+<hr/>
+<h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Reads a 64 bit unsigned integer from a binary stream.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the input stream<br/>
+</blockquote>
+</div><h2>Properties</h2>
 <div class="codesection">
 <h3>Abs</h3>
 <pre><code class="cs">property Abs: QWord; get;</code></pre>
-<p>Returns the absolute value.
+<h4>Brief</h4>
+<p>
+Returns the absolute value.
 
-In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
-</p><hr/><h3>Sqr</h3>
+In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+
+</p><hr/>
+<h3>Sqr</h3>
 <pre><code class="cs">property Sqr: QWord; get;</code></pre>
-<p>Returns the square of the value value.
-</p><hr/><h3>Sqrt</h3>
+<h4>Brief</h4>
+<p>
+Returns the square of the value value.
+
+</p><hr/>
+<h3>Sqrt</h3>
 <pre><code class="cs">property Sqrt: QWord; get;</code></pre>
-<p>Returns the square root of the value, rounded down.
-</p><hr/><h3>Floor</h3>
+<h4>Brief</h4>
+<p>
+Returns the square root of the value, rounded down.
+
+</p><hr/>
+<h3>Floor</h3>
 <pre><code class="cs">property Floor: QWord; get;</code></pre>
-<p>Returns the floor of a floating point value.
+<h4>Brief</h4>
+<p>
+Returns the floor of a floating point value.
 
-In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
-</p><hr/><h3>Ceil</h3>
+In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+
+</p><hr/>
+<h3>Ceil</h3>
 <pre><code class="cs">property Ceil: QWord; get;</code></pre>
-<p>Returns the ceiling of a floating point value.
+<h4>Brief</h4>
+<p>
+Returns the ceiling of a floating point value.
 
-In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
-</p><hr/><h3>Round</h3>
+In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+
+</p><hr/>
+<h3>Round</h3>
 <pre><code class="cs">property Round: QWord; get;</code></pre>
-<p>Returns the rounded value of a floating point.
+<h4>Brief</h4>
+<p>
+Returns the rounded value of a floating point.
 
-In the case of [QWord][sys.core.lang.QWord] it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+
+</p><hr/>
+<h3>Trunc</h3>
+<pre><code class="cs">property Trunc: QWord; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the value truncated to the nearest integer value.
+
+In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
-<pre><code class="cs">const Zero: QWord</code></pre>
-<p>A [QWord][sys.core.lang.QWord] instance representing a logical "0" value.
-</p><hr/><h3>One</h3>
-<pre><code class="cs">const One: QWord</code></pre>
-<p>A [QWord][sys.core.lang.QWord] instance representing a logical "1" value.
-</p><hr/><h3>Min</h3>
-<pre><code class="cs">const Min: QWord</code></pre>
-<p>The minimum value for a [QWord][sys.core.lang.QWord] (64 bit unsigned integer) instance.
-</p><hr/><h3>Max</h3>
-<pre><code class="cs">const Max: QWord</code></pre>
-<p>The maximum value for a [QWord][sys.core.lang.QWord] (64 bit unsigned integer) instance.
-</p><hr/><h3>IsSigned</h3>
-<pre><code class="cs">const IsSigned</code></pre>
-<p>[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-</p><hr/><h3>IsInteger</h3>
-<pre><code class="cs">const IsInteger</code></pre>
-<p>[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-</p><hr/><h3>MaxDigitsLow</h3>
-<pre><code class="cs">const MaxDigitsLow</code></pre>
-<p>The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, you can have MaxDigitsLow digits that go though values 0-9.
+<pre><code class="cs">const Zero: QWord;</code></pre>
+<h4>Brief</h4>
+<p>
+A <a>QWord</a> instance representing a logical "0" value.
+
+</p><hr/>
+<h3>One</h3>
+<pre><code class="cs">const One: QWord;</code></pre>
+<h4>Brief</h4>
+<p>
+A <a>QWord</a> instance representing a logical "1" value.
+
+</p><hr/>
+<h3>Min</h3>
+<pre><code class="cs">const Min: QWord;</code></pre>
+<h4>Brief</h4>
+<p>
+The minimum value for a <a>QWord</a> (64 bit unsigned integer) instance.
+
+</p><hr/>
+<h3>Max</h3>
+<pre><code class="cs">const Max: QWord;</code></pre>
+<h4>Brief</h4>
+<p>
+The maximum value for a <a>QWord</a> (64 bit unsigned integer) instance.
+
+</p><hr/>
+<h3>IsSigned</h3>
+<pre><code class="cs">const IsSigned;</code></pre>
+<h4>Brief</h4>
+<p>
+<a>true</a> if the numeric representation uses two's complement signed values, <a>false</a> otherwise.
+
+</p><hr/>
+<h3>IsInteger</h3>
+<pre><code class="cs">const IsInteger;</code></pre>
+<h4>Brief</h4>
+<p>
+<a>true</a> if the numeric representation is an integer, <a>false</a> if it is a floating point.
+
+</p><hr/>
+<h3>MaxDigitsLow</h3>
+<pre><code class="cs">const MaxDigitsLow;</code></pre>
+<h4>Brief</h4>
+<p>
+The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
-</p><hr/><h3>MaxDigitsHigh</h3>
-<pre><code class="cs">const MaxDigitsHigh</code></pre>
-<p>The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
+
+</p><hr/>
+<h3>MaxDigitsHigh</h3>
+<pre><code class="cs">const MaxDigitsHigh;</code></pre>
+<h4>Brief</h4>
+<p>
+The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
+
 </p></div></div>
 </div>
 

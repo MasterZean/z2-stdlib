@@ -49,159 +49,156 @@
 
 <ol class="breadcrumb">
 <li class="breadcrumb-item">sys.core</li>
-<li class="breadcrumb-item active">Path</li>
+<li class="breadcrumb-item active">SizeRect</li>
 </ol>
 
-<h1>class Path</h1>
+<h1>class SizeRect</h1>
 <pre><code class="cs">namespace sys.core
-class Path
+class SizeRect
 </code></pre><hr>
-<h2>Methods</h2>
+<h2>Constructors</h2>
 <div class="codesection">
-<h3>GetFolder</h3>
-<pre><code class="cs">static def GetFolder(path: String): String;</code></pre>
+<h3>this</h3>
+<pre><code class="cs">this{x: T, y: T, x2: T, y2: T};</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>path=> <br/>
+<blockquote>x=> <br/>
+y=> <br/>
+x2=> <br/>
+y2=> <br/>
+</blockquote>
+<hr/>
+<h3>FromSize</h3>
+<pre><code class="cs">this FromSize{x: T, y: T, w: T, h: T};</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>x=> <br/>
+y=> <br/>
+w=> <br/>
+h=> <br/>
+</blockquote>
+</div><h2>Methods</h2>
+<div class="codesection">
+<h3>Offset</h3>
+<pre><code class="cs">def Offset(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<blockquote>horizontal=> <br/>
+vertical=> <br/>
 </blockquote>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
-<h3>GetFolderNoSep</h3>
-<pre><code class="cs">static def GetFolderNoSep(path: String): String;</code></pre>
+<h3>Offseted</h3>
+<pre><code class="cs">func Offseted(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>path=> <br/>
+<blockquote>horizontal=> <br/>
+vertical=> <br/>
 </blockquote>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
-<h3>GetName</h3>
-<pre><code class="cs">static def GetName(path: String): String;</code></pre>
+<h3>Inflate</h3>
+<pre><code class="cs">def Inflate(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>path=> <br/>
+<blockquote>horizontal=> <br/>
+vertical=> <br/>
 </blockquote>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
-<h3>GetNameIndex</h3>
-<pre><code class="cs">static def GetNameIndex(path: String): PtrSize;</code></pre>
+<h3>Inflated</h3>
+<pre><code class="cs">func Inflated(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>path=> <br/>
+<blockquote>horizontal=> <br/>
+vertical=> <br/>
 </blockquote>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
-<h3>GetTitle</h3>
-<pre><code class="cs">static def GetTitle(path: String): String;</code></pre>
+<h3>Normalize</h3>
+<pre><code class="cs">def Normalize();</code></pre>
 <h4>Brief</h4>
 <p>
 
-</p><h4>Parameters</h4>
-<blockquote>path=> <br/>
-</blockquote>
-<h4>Returns</h4>
+</p><hr/>
+<h3>Normalized</h3>
+<pre><code class="cs">func Normalized(): SizeRect<T>;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
-<h3>GetTitleIndex</h3>
-<pre><code class="cs">static def GetTitleIndex(path: String): PtrSize;</code></pre>
+<h3>Contains</h3>
+<pre><code class="cs">def Contains(x: T, y: T): Bool;
+def Contains(r: SizeRect<T>): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>path=> <br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote></blockquote>
-<hr/>
-<h3>GetExtension</h3>
-<pre><code class="cs">static def GetExtension(path: String): String;</code></pre>
-<h4>Brief</h4>
-<p>
-
-</p><h4>Parameters</h4>
-<blockquote>path=> <br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote></blockquote>
-<hr/>
-<h3>GetExtensionIndex</h3>
-<pre><code class="cs">static def GetExtensionIndex(path: String): PtrSize;</code></pre>
-<h4>Brief</h4>
-<p>
-
-</p><h4>Parameters</h4>
-<blockquote>path=> <br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote></blockquote>
-<hr/>
-<h3>GetParent</h3>
-<pre><code class="cs">static def GetParent(path: String): String;</code></pre>
-<h4>Brief</h4>
-<p>
-
-</p><h4>Parameters</h4>
-<blockquote>path=> <br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote></blockquote>
-<hr/>
-<h3>IsRoot</h3>
-<pre><code class="cs">static def IsRoot(path: String): Bool;</code></pre>
-<h4>Brief</h4>
-<p>
-
-</p><h4>Parameters</h4>
-<blockquote>path=> <br/>
+<blockquote>x=> <br/>
+y=> <br/>
+r=> <br/>
 </blockquote>
 <h4>Returns</h4>
 <blockquote></blockquote>
 </div><h2>Properties</h2>
 <div class="codesection">
-<h3>CurrentFolder</h3>
-<pre><code class="cs">property CurrentFolder: String</code></pre>
+<h3>X2</h3>
+<pre><code class="cs">property X2: T</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><hr/>
-<h3>ExeFileName</h3>
-<pre><code class="cs">property ExeFileName: String; get;</code></pre>
+<h3>Y2</h3>
+<pre><code class="cs">property Y2: T</code></pre>
 <h4>Brief</h4>
 <p>
 
-</p></div><h2>Constants</h2>
+</p><hr/>
+<h3>IsEmpty</h3>
+<pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p></div><h2>Variables</h2>
 <div class="codesection">
-<h3>DirSep</h3>
-<pre><code class="cs">const DirSep;</code></pre>
+<h3>X</h3>
+<pre><code class="cs">val X: T;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><hr/>
-<h3>IgnoreCase</h3>
-<pre><code class="cs">const IgnoreCase;</code></pre>
+<h3>Y</h3>
+<pre><code class="cs">val Y: T;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><hr/>
-<h3>DirSepWin</h3>
-<pre><code class="cs">const DirSepWin;</code></pre>
+<h3>Width</h3>
+<pre><code class="cs">val Width: T;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><hr/>
-<h3>DirSepUnix</h3>
-<pre><code class="cs">const DirSepUnix;</code></pre>
+<h3>Height</h3>
+<pre><code class="cs">val Height: T;</code></pre>
 <h4>Brief</h4>
 <p>
 

@@ -58,67 +58,43 @@ class Intrinsic
 </code></pre><hr>
 <h2>Methods</h2>
 <div class="codesection">
-<h3>Min</h3>
-<p>Returns the minimum of the input arguments.
-</p><hr/><h3>Max</h3>
-<p>Returns the minimum of the maximum arguments.
-</p><hr/><h3>Clamped</h3>
-<p>Returns the `a` argument clamped between `min` and `max`.
-</p><hr/><h3>Clamp</h3>
-<p>Clamps the output argument `a` between `min` and `max`.
-</p><hr/><h3>Rol8</h3>
-<pre><code class="cs">static def Rol8(value: Int, bits: DWord)
-static def Rol8(value: DWord, bits: DWord)</code></pre>
-<p>Does an 8 bit binary rotate to the left.
-</p><hr/><h3>Ror8</h3>
-<pre><code class="cs">static def Ror8(value: Int, bits: DWord)
-static def Ror8(value: DWord, bits: DWord)</code></pre>
-<p>Does a 8 bit binary rotate to the right.
-</p><hr/><h3>Rol16</h3>
-<pre><code class="cs">static def Rol16(value: Int, bits: DWord)
-static def Rol16(value: DWord, bits: DWord)</code></pre>
-<p>Does a 16 bit binary rotate to the left.
-</p><hr/><h3>Ror16</h3>
-<pre><code class="cs">static def Ror16(value: Int, bits: DWord)
-static def Ror16(value: DWord, bits: DWord)</code></pre>
-<p>Does a 16 bit binary rotate to the right.
-</p><hr/><h3>Rol32</h3>
-<pre><code class="cs">static def Rol32(value: Int, bits: DWord)
-static def Rol32(value: DWord, bits: DWord)</code></pre>
-<p>Does a 32 bit binary rotate to the left.
-</p><hr/><h3>Ror32</h3>
-<pre><code class="cs">static def Ror32(value: Int, bits: DWord)
-static def Ror32(value: DWord, bits: DWord)</code></pre>
-<p>Does a 32 bit binary rotate to the right.
-</p><hr/><h3>Rol64</h3>
-<pre><code class="cs">static def Rol64(value: Long, bits: DWord)
-static def Rol64(value: QWord, bits: DWord)</code></pre>
-<p>Does a 64 bit binary rotate to the left.
-</p><hr/><h3>Ror64</h3>
-<pre><code class="cs">static def Ror64(value: Long, bits: DWord)
-static def Ror64(value: QWord, bits: DWord)</code></pre>
-<p>Does a 64 bit binary rotate to the right.
-</p><hr/><h3>Pow</h3>
-<pre><code class="cs">static def Pow(base: Double, exponenet: Double)</code></pre>
-<p>Returns a base raised to an exponent.
-</p><hr/><h3>Log</h3>
-<pre><code class="cs">static def Log(value: Double)</code></pre>
-<p>Returns the natural logarithm (base `e`) of the argument.
-</p><hr/><h3>Sqrt</h3>
-<pre><code class="cs">static def Sqrt(value: Double)</code></pre>
-<p>Returns square root of a value.
-</p><hr/><h3>MemCopy</h3>
-<pre><code class="cs">static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize)</code></pre>
-<p>Does a C standard library `memcpy` operation, copying a number of bytes from a source to a destination.
-</p><hr/><h3>CStrLen</h3>
-<pre><code class="cs">static def CStrLen(source: Ptr<Byte>)</code></pre>
-<p>Does a C standard library `strlen` operation, retuning the length of a null terminated C string.
+<h3>MemCopy</h3>
+<pre><code class="cs">static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+Does a C standard library `memcpy` operation, copying a number of bytes from a source to a destination.
+
+</p><h4>Parameters</h4>
+<blockquote>destination=> the destination pointer<br/>
+source=> the source pointer<br/>
+bytes=> the number of bytes to copy<br/>
+</blockquote>
+<hr/>
+<h3>CStrLen</h3>
+<pre><code class="cs">static def CStrLen(source: Ptr<Byte>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Does a C standard library `strlen` operation, retuning the length of a null terminated C string.
 
 Should not be used on `sys.core.lang.String` since it can contain valid null characters.
-</p><hr/><h3>CpuID</h3>
-<pre><code class="cs">static def CpuID(ref cpu: CArray<Int>, val level: Int)</code></pre>
-<p>Executes a CPU identifying set of instructions.
-</p></div></div>
+
+</p><h4>Parameters</h4>
+<blockquote>source=> the C string<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the length</blockquote>
+<hr/>
+<h3>CpuID</h3>
+<pre><code class="cs">static def CpuID(ref cpu: CArray<Int>, val level: Int);</code></pre>
+<h4>Brief</h4>
+<p>
+Executes a CPU identifying set of instructions.
+
+</p><h4>Parameters</h4>
+<blockquote>cpu=> the output table<br/>
+level=> the level of the requested information<br/>
+</blockquote>
+</div></div>
 </div>
 
 <footer class="footer">

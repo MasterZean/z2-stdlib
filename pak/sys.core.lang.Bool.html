@@ -59,43 +59,109 @@ class Bool
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{string: String}</code></pre>
-<p>Parses a string an constructs an `sys.core.lang.Bool` based on it.
-</p></div><h2>Methods</h2>
+<pre><code class="cs">this{string: String};</code></pre>
+<h4>Brief</h4>
+<p>
+Parses a string an constructs an `sys.core.lang.Bool` based on it.
+
+</p><h4>Parameters</h4>
+<blockquote>string=> string to parse<br/>
+</blockquote>
+</div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
-<pre><code class="cs">def Clamp(min: Bool, max: Bool)</code></pre>
-<p>Clamps the current mutable instance between `min` and `max`.
-</p><hr/><h3>Clamped</h3>
-<pre><code class="cs">func Clamped(min: Bool, max: Bool)</code></pre>
-<p>Returns the current instance clamped between `min` and `max`.
-</p><hr/><h3>ToString</h3>
-<pre><code class="cs">func ToString()</code></pre>
-<p>Converts the value to a Utf8 string.
-</p><hr/><h3>@write</h3>
-<pre><code class="cs">func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)</code></pre>
-<p>Writes the value to an Utf8 text stream.
-</p><hr/><h3>@put</h3>
-<pre><code class="cs">func @put(ref stream: Stream)</code></pre>
-<p>Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
-</p><hr/><h3>@get</h3>
-<pre><code class="cs">def @get(ref stream: Stream)</code></pre>
-<p>Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
-</p></div><h2>Constants</h2>
+<pre><code class="cs">def Clamp(min: Bool, max: Bool);</code></pre>
+<h4>Brief</h4>
+<p>
+Clamps the current mutable instance between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">func Clamped(min: Bool, max: Bool): Int;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the current instance clamped between `min` and `max`.
+
+</p><h4>Parameters</h4>
+<blockquote>min=> the minimum value<br/>
+max=> the maximum value<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the clamped value</blockquote>
+<hr/>
+<h3>ToString</h3>
+<pre><code class="cs">func ToString(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+Converts the value to a Utf8 string.
+
+</p><h4>Returns</h4>
+<blockquote>the resulting string</blockquote>
+<hr/>
+<h3>@write</h3>
+<pre><code class="cs">func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to an Utf8 text stream.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+format=> formatting information<br/>
+</blockquote>
+<hr/>
+<h3>@put</h3>
+<pre><code class="cs">func @put(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the output stream<br/>
+</blockquote>
+<hr/>
+<h3>@get</h3>
+<pre><code class="cs">def @get(ref stream: Stream);</code></pre>
+<h4>Brief</h4>
+<p>
+Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
+
+</p><h4>Parameters</h4>
+<blockquote>stream=> the input stream<br/>
+</blockquote>
+</div><h2>Constants</h2>
 <div class="codesection">
 <h3>Min</h3>
-<pre><code class="cs">const Min</code></pre>
-<p>The minimum value for an `sys.core.lang.Bool` (boolean) instance.
-</p><hr/><h3>Max</h3>
-<pre><code class="cs">const Max</code></pre>
-<p>The maximum value for an `sys.core.lang.Bool` (boolean) instance.
-</p><hr/><h3>IsSigned</h3>
-<pre><code class="cs">const IsSigned</code></pre>
-<p>`true` if the numeric representation uses two's complement signed values, `false` otherwise.
-</p><hr/><h3>IsInteger</h3>
-<pre><code class="cs">const IsInteger</code></pre>
-<p>`true` if the numeric representation is an integer, `false` if it is a floating point.
+<pre><code class="cs">const Min;</code></pre>
+<h4>Brief</h4>
+<p>
+The minimum value for an `sys.core.lang.Bool` (boolean) instance.
+
+</p><hr/>
+<h3>Max</h3>
+<pre><code class="cs">const Max;</code></pre>
+<h4>Brief</h4>
+<p>
+The maximum value for an `sys.core.lang.Bool` (boolean) instance.
+
+</p><hr/>
+<h3>IsSigned</h3>
+<pre><code class="cs">const IsSigned;</code></pre>
+<h4>Brief</h4>
+<p>
+`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+
+</p><hr/>
+<h3>IsInteger</h3>
+<pre><code class="cs">const IsInteger;</code></pre>
+<h4>Brief</h4>
+<p>
+`true` if the numeric representation is an integer, `false` if it is a floating point.
+
 </p></div></div>
 </div>
 
