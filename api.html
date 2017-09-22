@@ -9,6 +9,9 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
 </head>
 
 <body>
@@ -47,50 +50,46 @@
 <p>
 The Z2 compiler and build system are package based.
 </p>
-
 <p>
 Bellow you can find a list of the packages that make up the standard library.
 </p>
-
 <h1>sys.core</h1>
-<ul>
-<li><a href="pak/sys.core.AsciiParser.html"><span class="muted">sys.core.AsciiParser</span><a></li>
-<li><a href="pak/sys.core.Class.html"><span class="muted">sys.core.Class</span><a></li>
-<li><a href="pak/sys.core.ColorRGBA.html"><span class="muted">sys.core.ColorRGBA</span><a></li>
-<li><a href="pak/sys.core.ConvertUtf16.html"><span class="muted">sys.core.ConvertUtf16</span><a></li>
-<li><a href="pak/sys.core.ConvertUtf32.html"><span class="muted">sys.core.ConvertUtf32</span><a></li>
-<li><a href="pak/sys.core.ConvertUtf8.html"><span class="muted">sys.core.ConvertUtf8</span><a></li>
-<li><a href="pak/sys.core.DynamicBlock.html"><span class="muted">sys.core.DynamicBlock</span><a></li>
-<li><a href="pak/sys.core.i18n.UnicodeCategory.html"><span class="muted">sys.core.i18n.UnicodeCategory</span><a></li>
-<li><a href="pak/sys.core.lang.Bool.html"><span class="muted">sys.core.lang.Bool</span><a></li>
-<li><a href="pak/sys.core.lang.Byte.html"><span class="muted">sys.core.lang.Byte</span><a></li>
-<li><a href="pak/sys.core.lang.CArray.html"><span class="muted">sys.core.lang</span><a></li>
-<li><a href="pak/sys.core.lang.Char.html"><span class="muted">sys.core.lang.Char</span><a></li>
-<li><a href="pak/sys.core.lang.Double.html"><span class="muted">sys.core.lang.Double</span><a></li>
-<li><a href="pak/sys.core.lang.DWord.html"><span class="muted">sys.core.lang.DWord</span><a></li>
-<li><a href="pak/sys.core.lang.Float.html"><span class="muted">sys.core.lang.Float</span><a></li>
-<li><a href="pak/sys.core.lang.Int.html"><span class="muted">sys.core.lang.Int</span><a></li>
-<li><a href="pak/sys.core.lang.Intrinsic.html"><span class="muted">sys.core.lang.Intrinsic</span><a></li>
-<li><a href="pak/sys.core.lang.Long.html"><span class="muted">sys.core.lang.Long</span><a></li>
-<li><a href="pak/sys.core.lang.PtrSize.html"><span class="muted">sys.core.lang.PtrSize</span><a></li>
-<li><a href="pak/sys.core.lang.QWord.html"><span class="muted">sys.core.lang.QWord</span><a></li>
-<li><a href="pak/sys.core.lang.Short.html"><span class="muted">sys.core.lang.Short</span><a></li>
-<li><a href="pak/sys.core.lang.Slice.html"><span class="muted">sys.core.lang.Slice</span><a></li>
-<li><a href="pak/sys.core.lang.Small.html"><span class="muted">sys.core.lang.Small</span><a></li>
-<li><a href="pak/sys.core.lang.String.html"><span class="muted">sys.core.lang.String</span><a></li>
-<li><a href="pak/sys.core.lang.Vector.html"><span class="muted">sys.core.lang.Vector</span><a></li>
-<li><a href="pak/sys.core.lang.Word.html"><span class="muted">sys.core.lang.Word</span><a></li>
-<li><a href="pak/sys.core.Path.html"><span class="muted">sys.core.Path</span><a></li>
-<li><a href="pak/sys.core.Point2D.html"><span class="muted">sys.core.Point2D</span><a></li>
-<li><a href="pak/sys.core.Point3D.html"><span class="muted">sys.core.Point3D</span><a></li>
-<li><a href="pak/sys.core.Point4D.html"><span class="muted">sys.core.Point4D</span><a></li>
-<li><a href="pak/sys.core.StopWatch.html"><span class="muted">sys.core.StopWatch</span><a></li>
-<li><a href="pak/sys.core.SystemCPU.html"><span class="muted">sys.core.SystemCPU</span><a></li>
-<li><a href="pak/sys.core.SystemDebug.html"><span class="muted">sys.core.SystemDebug</span><a></li>
-<li><a href="pak/sys.core.SystemTrace.html"><span class="muted">sys.core.SystemTrace</span><a></li>
-<li><a href="pak/sys.core.Thread.html"><span class="muted">sys.core.Thread</span><a></li>
-</ul>
-
+<li><a href="pak/sys.core.AsciiParser.html">AsciiParser (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.Bool.html">Bool (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Byte.html">Byte (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.CArray.html">CArray (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Char.html">Char (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.Class.html">Class (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.ColorRGBA.html">ColorRGBA (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.ConvertUtf16.html">ConvertUtf16 (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.ConvertUtf32.html">ConvertUtf32 (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.ConvertUtf8.html">ConvertUtf8 (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.DWord.html">DWord (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Double.html">Double (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.DynamicBlock.html">DynamicBlock (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.Float.html">Float (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Int.html">Int (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Intrinsic.html">Intrinsic (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Long.html">Long (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.Path.html">Path (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.Point2D.html">Point2D (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.Point3D.html">Point3D (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.Point4D.html">Point4D (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.PtrSize.html">PtrSize (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.QWord.html">QWord (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Short.html">Short (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.SizeRect.html">SizeRect (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.Slice.html">Slice (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Small.html">Small (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.StopWatch.html">StopWatch (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.lang.String.html">String (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.SystemCPU.html">SystemCPU (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.SystemDebug.html">SystemDebug (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.SystemTrace.html">SystemTrace (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.Thread.html">Thread (<span class="muted">sys.core)</span><a></li>
+<li><a href="pak/sys.core.i18n.UnicodeCategory.html">UnicodeCategory (<span class="muted">sys.core.i18n)</span><a></li>
+<li><a href="pak/sys.core.lang.Vector.html">Vector (<span class="muted">sys.core.lang)</span><a></li>
+<li><a href="pak/sys.core.lang.Word.html">Word (<span class="muted">sys.core.lang)</span><a></li>
 </div>
 </div>
 
@@ -100,9 +99,13 @@ Bellow you can find a list of the packages that make up the standard library.
   </div>
 </footer>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
