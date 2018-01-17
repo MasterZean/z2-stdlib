@@ -105,17 +105,17 @@ class ColorRGBA {
 	}
 
 	this FromUncapped(red: Float, green: Float, blue: Float, alpha: Float) {
-		R = ToByte(red.Clamped(0, Byte.Max));
-		G = ToByte(green.Clamped(0, Byte.Max));
-		B = ToByte(blue.Clamped(0, Byte.Max));
-		A = ToByte(alpha.Clamped(0, Byte.Max));
+		R = ToByte(red.Clamped(0, 1.0f));
+		G = ToByte(green.Clamped(0, 1.0f));
+		B = ToByte(blue.Clamped(0, 1.0f));
+		A = ToByte(alpha.Clamped(0, 1.0f));
 	}
 
 	this FromUncapped(red: Double, green: Double, blue: Double, alpha: Double) {
-		R = ToByte(red.Clamped(0, Byte.Max));
-		G = ToByte(green.Clamped(0, Byte.Max));
-		B = ToByte(blue.Clamped(0, Byte.Max));
-		A = ToByte(alpha.Clamped(0, Byte.Max));
+		R = ToByte(red.Clamped(0, 1.0));
+		G = ToByte(green.Clamped(0, 1.0));
+		B = ToByte(blue.Clamped(0, 1.0));
+		A = ToByte(alpha.Clamped(0, 1.0));
 	}
 
 #region Conversion
@@ -135,16 +135,16 @@ class ColorRGBA {
 	}
 
 	this FromARGB(argb: DWord) {
-		R = Byte{argb >> 24};
+		R = Byte{argb >> 8};
 		G = Byte{argb >> 16};
-		B = Byte{argb >> 8};
+		B = Byte{argb >> 24};
 		A = Byte{argb};
 	}
 
 	this FromABGR(abgr: DWord) {
-		R = Byte{abgr >> 8};
+		R = Byte{abgr >> 24};
 		G = Byte{abgr >> 16};
-		B = Byte{abgr >> 24};
+		B = Byte{abgr >> 8};
 		A = Byte{abgr};
 	}
 
