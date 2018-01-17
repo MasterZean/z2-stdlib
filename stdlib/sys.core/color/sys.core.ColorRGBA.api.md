@@ -1,5 +1,11 @@
 # class *ColorRGBA* from sys.core
 
+A class representing a logical red, green, blue and alpha channeled color as an object storing each component as 8 bit unsigned integers, using a memory order of red, green, blue and alpha.
+
+This class is only suited for storing low dynamic range colors.
+
+Since all channels are stored in 8bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
+
 ## Constructors
 
 ### this
@@ -22,7 +28,7 @@ this{red: Double, green: Double, blue: Double, alpha: Double};
 #### Brief
 Creates a new instance initializing each component of the color.
 
-If an input component is missing, it will be initialized tot he maximum value.
+If an input component is missing, it will be initialized to the maximum value.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
 
@@ -263,7 +269,7 @@ Member-wise subtraction operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> the member-wise substraction
+> the member-wise subtraction
 ***
 
 ### @mul
