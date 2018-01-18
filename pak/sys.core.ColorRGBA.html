@@ -17,7 +17,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.html">Z2</a>
+  <a class="navbar-brand" href="../index.html">Z2</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -56,6 +56,12 @@
 <pre><code class="cs">namespace sys.core
 class ColorRGBA
 </code></pre><hr>
+<p>A class representing a logical red, green, blue and alpha channeled color as an object storing each component as 8 bit unsigned integers, using a memory order of red, green, blue and alpha.<br/>
+<br/>
+This class is only suited for storing low dynamic range colors.<br/>
+<br/>
+Since all channels are stored in 8 bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.<br/>
+</p>
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
@@ -73,9 +79,10 @@ this{red: Float, green: Float, blue: Float, alpha: Float};
 this{red: Double, green: Double, blue: Double, alpha: Double};</code></pre>
 <h4>Brief</h4>
 <p>
+
 Creates a new instance initializing each component of the color.
 
-If an input component is missing, it will be initialized tot he maximum value.
+If an input component is missing, it will be initialized to the maximum value.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
 
@@ -267,7 +274,7 @@ Member-wise subtraction operator.
 right=> the right operand<br/>
 </blockquote>
 <h4>Returns</h4>
-<blockquote>the member-wise substraction</blockquote>
+<blockquote>the member-wise subtraction</blockquote>
 <hr/>
 <h3>@mul</h3>
 <pre><code class="cs">func @mul(second: ColorRGBA): ColorRGBA;
