@@ -1,5 +1,6 @@
 # class *CArray* from sys.core.lang
 
+
 ## Constructors
 
 ### this
@@ -10,6 +11,7 @@ this{item: T};
 ```
 
 #### Brief
+
 Creates a new static array, filling each element of the array.
 
 The elements of the array are either default constructed or copied over from the provided parameter.
@@ -67,7 +69,9 @@ def BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
-Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. 
+
+If the elements are not sorted, the result is unpredictable.
 
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 

@@ -1,5 +1,6 @@
 # class *SystemDebug* from sys.core
 
+
 ## Methods
 
 ### Assert
@@ -10,6 +11,7 @@ def Assert(test: Bool, error: String);
 ```
 
 #### Brief
+
 Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.
 
 "Debug" builds have the "Trace" flag set.

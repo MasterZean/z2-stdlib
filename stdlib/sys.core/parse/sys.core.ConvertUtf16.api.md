@@ -1,5 +1,6 @@
 # class *ConvertUtf16* from sys.core
 
+
 ## Methods
 
 ### FromUtf8
@@ -9,6 +10,7 @@ static def FromUtf8(ref dest: Slice<Word>, ref src: Slice<Byte>);
 ```
 
 #### Brief
+
 Converts a source Utf8 buffer to a destination Utf16 buffer.
 
 #### Parameters

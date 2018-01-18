@@ -1,5 +1,6 @@
 # class *Float* from sys.core.lang
 
+
 ## Constructors
 
 ### Saturated
@@ -85,7 +86,7 @@ func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
@@ -169,7 +170,7 @@ Returns the square of the value value.
 ### Sqrt
 
 ```C#
-property Sqrt: Float get = Math.Sqrt;; get;
+property Sqrt: Float get = Math.Sqrt;
 ```
 
 #### Brief
@@ -180,7 +181,7 @@ Returns the square root of the value.
 ### Floor
 
 ```C#
-property Floor: Float get = Math.Floor;; get;
+property Floor: Float get = Math.Floor;
 ```
 
 #### Brief
@@ -191,7 +192,7 @@ Returns the floor of a floating point value.
 ### Ceil
 
 ```C#
-property Ceil: Float get = Math.Ceil;; get;
+property Ceil: Float get = Math.Ceil;
 ```
 
 #### Brief
@@ -202,7 +203,7 @@ Returns the ceiling of a floating point value.
 ### Round
 
 ```C#
-property Round: Float get = Math.Round;; get;
+property Round: Float get = Math.Round;
 ```
 
 #### Brief
@@ -213,7 +214,7 @@ Returns the rounded value of a floating point.
 ### Trunc
 
 ```C#
-property Trunc: Float get = Math.Trunc;; get;
+property Trunc: Float get = Math.Trunc;
 ```
 
 #### Brief
@@ -224,7 +225,7 @@ Returns the value truncated to the nearest integer value.
 ### Sin
 
 ```C#
-property Sin: Float get = Math.Sin;; get;
+property Sin: Float get = Math.Sin;
 ```
 
 #### Brief
@@ -234,7 +235,7 @@ property Sin: Float get = Math.Sin;; get;
 ### Cos
 
 ```C#
-property Cos: Float get = Math.Cos;; get;
+property Cos: Float get = Math.Cos;
 ```
 
 #### Brief
@@ -244,7 +245,7 @@ property Cos: Float get = Math.Cos;; get;
 ### Tan
 
 ```C#
-property Tan: Float get = Math.Tan;; get;
+property Tan: Float get = Math.Tan;
 ```
 
 #### Brief
@@ -254,7 +255,7 @@ property Tan: Float get = Math.Tan;; get;
 ### Sinh
 
 ```C#
-property Sinh: Float get = Math.Sinh;; get;
+property Sinh: Float get = Math.Sinh;
 ```
 
 #### Brief
@@ -264,7 +265,7 @@ property Sinh: Float get = Math.Sinh;; get;
 ### Cosh
 
 ```C#
-property Cosh: Float get = Math.Cosh;; get;
+property Cosh: Float get = Math.Cosh;
 ```
 
 #### Brief
@@ -274,7 +275,7 @@ property Cosh: Float get = Math.Cosh;; get;
 ### Tanh
 
 ```C#
-property Tanh: Float get = Math.Tanh;; get;
+property Tanh: Float get = Math.Tanh;
 ```
 
 #### Brief
@@ -284,7 +285,7 @@ property Tanh: Float get = Math.Tanh;; get;
 ### Asin
 
 ```C#
-property Asin: Float get = Math.Asin;; get;
+property Asin: Float get = Math.Asin;
 ```
 
 #### Brief
@@ -294,7 +295,7 @@ property Asin: Float get = Math.Asin;; get;
 ### Acos
 
 ```C#
-property Acos: Float get = Math.Acos;; get;
+property Acos: Float get = Math.Acos;
 ```
 
 #### Brief
@@ -304,7 +305,7 @@ property Acos: Float get = Math.Acos;; get;
 ### Atan
 
 ```C#
-property Atan: Float get = Math.Atan;; get;
+property Atan: Float get = Math.Atan;
 ```
 
 #### Brief
@@ -314,7 +315,7 @@ property Atan: Float get = Math.Atan;; get;
 ### Asinh
 
 ```C#
-property Asinh: Float get = Math.Asinh;; get;
+property Asinh: Float get = Math.Asinh;
 ```
 
 #### Brief
@@ -324,7 +325,7 @@ property Asinh: Float get = Math.Asinh;; get;
 ### Acosh
 
 ```C#
-property Acosh: Float get = Math.Acosh;; get;
+property Acosh: Float get = Math.Acosh;
 ```
 
 #### Brief
@@ -334,7 +335,7 @@ property Acosh: Float get = Math.Acosh;; get;
 ### Atanh
 
 ```C#
-property Atanh: Float get = Math.Atanh;; get;
+property Atanh: Float get = Math.Atanh;
 ```
 
 #### Brief
@@ -344,7 +345,7 @@ property Atanh: Float get = Math.Atanh;; get;
 ### Log
 
 ```C#
-property Log: Float get = Math.Log;; get;
+property Log: Float get = Math.Log;
 ```
 
 #### Brief
@@ -355,7 +356,7 @@ Returns the natural logarithm of a value.
 ### Log2
 
 ```C#
-property Log2: Float get = Math.Log2;; get;
+property Log2: Float get = Math.Log2;
 ```
 
 #### Brief
@@ -365,7 +366,7 @@ property Log2: Float get = Math.Log2;; get;
 ### Log10
 
 ```C#
-property Log10: Float get = Math.Log10;; get;
+property Log10: Float get = Math.Log10;
 ```
 
 #### Brief
@@ -492,6 +493,7 @@ Positive infinite.
 ***
 
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

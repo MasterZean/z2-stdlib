@@ -1,5 +1,6 @@
 # class *Char* from sys.core.lang
 
+
 ## Methods
 
 ### Clamp
@@ -9,6 +10,7 @@ def Clamp(min: Char, max: Char);
 ```
 
 #### Brief
+
 Clamps the current mutable instance between `min` and `max`.
 
 #### Parameters
@@ -55,7 +57,7 @@ func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 #### Parameters
 > *stream* => the output stream  
@@ -69,7 +71,7 @@ func @put(ref stream: Stream);
 ```
 
 #### Brief
-Writes the code unit to a binary stream as a 32 bit unsigned integer.
+Writes the code point to a binary stream as a 32 bit unsigned integer.
 
 #### Parameters
 > *stream* => the output stream  
@@ -82,7 +84,7 @@ def @get(ref stream: Stream);
 ```
 
 #### Brief
-Reads the code unit a 32 bit signed uninteger from a binary stream.
+Reads the code point a 32 bit unsigned integer from a binary stream.
 
 #### Parameters
 > *stream* => the input stream  
@@ -229,7 +231,7 @@ property UnicodePlane: Byte; get;
 ```
 
 #### Brief
-REturns the Unicode plane of the code point, between 0 and 16.
+Returns the Unicode plane of the code point, between 0 and 16.
 
 ***
 
@@ -330,7 +332,7 @@ const Zero: Char;
 ```
 
 #### Brief
-An `sys.core.lang.Char` instance representing a logical "0" value.
+An [Char][sys.core.lang.Char] instance representing a logical "0" value.
 
 ***
 
@@ -341,7 +343,7 @@ const Min: Char;
 ```
 
 #### Brief
-The minimum value for an `sys.core.lang.Char` (Unicode code point) instance.
+The minimum value for an [Char][sys.core.lang.Char] (Unicode code point) instance.
 
 ***
 
@@ -352,7 +354,7 @@ const Max: Char;
 ```
 
 #### Brief
-The maximum value for an `sys.core.lang.Char` (Unicode code point) instance.
+The maximum value for an [Char][sys.core.lang.Char] (Unicode code point) instance.
 
 ***
 
@@ -363,7 +365,7 @@ const MaxUtf8CP1: Char;
 ```
 
 #### Brief
-The highest code point that can be represented by 1 code unit.
+The highest code point that can be represented by 1 Utf8 code unit.
 
 ***
 
@@ -374,7 +376,7 @@ const MaxUtf8CP2: Char;
 ```
 
 #### Brief
-The highest code point that can be represented by 2 code units.
+The highest code point that can be represented by 2 Utf8 code units.
 
 ***
 
@@ -385,7 +387,7 @@ const MaxUtf8CP3: Char;
 ```
 
 #### Brief
-The highest code point that can be represented by 3 code units.
+The highest code point that can be represented by 3 Utf8 code units.
 
 ***
 
@@ -396,7 +398,7 @@ const MaxUtf8CP4: Char;
 ```
 
 #### Brief
-The highest code point that can be represented by 4 code units.
+The highest code point that can be represented by 4 Utf8 code units.
 
 ***
 
@@ -411,3 +413,5 @@ A constant describing an "invalid" code point.
 
 ***
 
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
+[sys.core.lang.Char]: sys.core.lang.Char.api.md "sys.core.lang.Char"

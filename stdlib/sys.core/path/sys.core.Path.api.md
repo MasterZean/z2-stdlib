@@ -1,5 +1,6 @@
 # class *Path* from sys.core
 
+
 ## Methods
 
 ### GetFolder

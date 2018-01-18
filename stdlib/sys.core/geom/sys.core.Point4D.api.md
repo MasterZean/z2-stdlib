@@ -1,5 +1,6 @@
 # class *Point4D* from sys.core
 
+
 ## Constructors
 
 ### this
@@ -13,6 +14,7 @@ this{p3d: Point3D<T>, w: T};
 ```
 
 #### Brief
+
 Creates a new instance initializing each component of the point.
 
 #### Parameters

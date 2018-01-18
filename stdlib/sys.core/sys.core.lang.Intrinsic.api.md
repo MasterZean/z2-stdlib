@@ -1,5 +1,6 @@
 # class *Intrinsic* from sys.core.lang
 
+
 ## Methods
 
 ### MemCopy
@@ -9,6 +10,7 @@ static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize);
 ```
 
 #### Brief
+
 Does a C standard library `memcpy` operation, copying a number of bytes from a source to a destination.
 
 #### Parameters

@@ -1,5 +1,6 @@
 # class *Vector* from sys.core.lang
 
+
 ## Constructors
 
 ### this
@@ -10,6 +11,7 @@ this{move copy: Vector<T>};
 ```
 
 #### Brief
+
 Copy/move constructor.
 
 Creates a new instance containing a copy of the input parameter, or moves the data if the input parameter is an expiring value.

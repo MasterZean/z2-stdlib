@@ -79,6 +79,12 @@ class Vector<T: Class> {
 
 		if (value > capacity) {
 			Capacity = value;
+			val i = length;
+			
+			while (i < value) {
+				data[i]{};
+				i++;
+			}
 		}
 		else if (value < length) {
 			val i = value;

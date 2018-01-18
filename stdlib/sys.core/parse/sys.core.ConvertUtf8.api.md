@@ -1,5 +1,6 @@
 # class *ConvertUtf8* from sys.core
 
+
 ## Methods
 
 ### IntAsText
@@ -10,7 +11,8 @@ static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord);
 ```
 
 #### Brief
-Writes a `sys.core.lang.Int` to a buffer as an Utf8 text.
+
+Writes a [Int][sys.core.lang.Int] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
@@ -28,7 +30,7 @@ static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord);
 ```
 
 #### Brief
-Writes a `sys.core.lang.Long` to a buffer as an Utf8 text.
+Writes a [Long][sys.core.lang.Long] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
@@ -46,7 +48,7 @@ static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord);
 ```
 
 #### Brief
-Writes a `sys.core.lang.DWord` to a buffer as an Utf8 text.
+Writes a [DWord][sys.core.lang.DWord] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
@@ -64,7 +66,7 @@ static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord);
 ```
 
 #### Brief
-Writes a `sys.core.lang.QWord` to a buffer as an Utf8 text.
+Writes a [QWord][sys.core.lang.QWord] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
@@ -81,7 +83,7 @@ static func FloatAsText(ref buffer: Slice<Byte>, data: Float);
 ```
 
 #### Brief
-Writes a `sys.core.lang.Float` to a buffer as an Utf8 text.
+Writes a [Float][sys.core.lang.Float] to a buffer as an Utf8 text.
 
 Will use exponenet notation for large values.
 
@@ -99,7 +101,7 @@ static func DoubleAsText(ref buffer: Slice<Byte>, data: Double);
 ```
 
 #### Brief
-Writes a `sys.core.lang.Float` to a buffer as an Utf8 text.
+Writes a [Double][sys.core.lang.Double] to a buffer as an Utf8 text.
 
 Will use exponenet notation for large values.
 
@@ -117,7 +119,7 @@ static func CharAsText(ref buffer: Slice<Byte>, data: Char);
 ```
 
 #### Brief
-Writes a `sys.core.lang.Char` to a buffer as an Utf8 text.
+Writes a [Char][sys.core.lang.Char] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
@@ -163,7 +165,7 @@ const MaxSmallBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Small` value.
+The maximum required Utf8 buffer size to store the textual form of a [Small][sys.core.lang.Small] value.
 
 ***
 
@@ -174,7 +176,7 @@ const MaxShortBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Short` value.
+The maximum required Utf8 buffer size to store the textual form of a [Short][sys.core.lang.Short] value.
 
 ***
 
@@ -185,7 +187,7 @@ const MaxIntBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Int` value.
+The maximum required Utf8 buffer size to store the textual form of a [Int][sys.core.lang.Int] value.
 
 ***
 
@@ -196,7 +198,7 @@ const MaxLongBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Long` value.
+The maximum required Utf8 buffer size to store the textual form of a [Long][sys.core.lang.Long] value.
 
 ***
 
@@ -207,7 +209,7 @@ const MaxByteBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Byte` value.
+The maximum required Utf8 buffer size to store the textual form of a [Byte][sys.core.lang.Byte] value.
 
 ***
 
@@ -218,7 +220,7 @@ const MaxWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Word` value.
+The maximum required Utf8 buffer size to store the textual form of a [Word][sys.core.lang.Word] value.
 
 ***
 
@@ -229,7 +231,7 @@ const MaxDWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.DWord` value.
+The maximum required Utf8 buffer size to store the textual form of a [DWord][sys.core.lang.DWord] value.
 
 ***
 
@@ -240,7 +242,7 @@ const MaxQWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.QWord` value.
+The maximum required Utf8 buffer size to store the textual form of a [QWord][sys.core.lang.QWord] value.
 
 ***
 
@@ -251,7 +253,7 @@ const MaxBinSmallBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Small` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Small][sys.core.lang.Small] value.
 
 ***
 
@@ -262,7 +264,7 @@ const MaxBinShortBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Short` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Short][sys.core.lang.Short] value.
 
 ***
 
@@ -273,7 +275,7 @@ const MaxBinIntBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Int` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Int][sys.core.lang.Int] value.
 
 ***
 
@@ -284,7 +286,7 @@ const MaxBinLongBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Long` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Long][sys.core.lang.Long] value.
 
 ***
 
@@ -295,7 +297,7 @@ const MaxBinByteBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Byte` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Byte][sys.core.lang.Byte] value.
 
 ***
 
@@ -306,7 +308,7 @@ const MaxBinWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Word` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Word][sys.core.lang.Word] value.
 
 ***
 
@@ -317,7 +319,7 @@ const MaxBinDWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.DWord` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [DWord][sys.core.lang.DWord] value.
 
 ***
 
@@ -328,7 +330,7 @@ const MaxBinQWordBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.QWord` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [QWord][sys.core.lang.QWord] value.
 
 ***
 
@@ -339,7 +341,18 @@ const MaxCharBuffer;
 ```
 
 #### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Char` value.
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Char][sys.core.lang.Char] value.
 
 ***
 
+[sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"
+[sys.core.lang.Long]: sys.core.lang.Long.api.md "sys.core.lang.Long"
+[sys.core.lang.DWord]: sys.core.lang.DWord.api.md "sys.core.lang.DWord"
+[sys.core.lang.QWord]: sys.core.lang.QWord.api.md "sys.core.lang.QWord"
+[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
+[sys.core.lang.Double]: sys.core.lang.Double.api.md "sys.core.lang.Double"
+[sys.core.lang.Char]: sys.core.lang.Char.api.md "sys.core.lang.Char"
+[sys.core.lang.Small]: sys.core.lang.Small.api.md "sys.core.lang.Small"
+[sys.core.lang.Short]: sys.core.lang.Short.api.md "sys.core.lang.Short"
+[sys.core.lang.Byte]: sys.core.lang.Byte.api.md "sys.core.lang.Byte"
+[sys.core.lang.Word]: sys.core.lang.Word.api.md "sys.core.lang.Word"

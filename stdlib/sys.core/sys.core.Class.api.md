@@ -1,5 +1,6 @@
 # class *Class* from sys.core
 
+
 ## Methods
 
 ### @write
@@ -9,6 +10,7 @@ func @write(ref stream: Stream);
 ```
 
 #### Brief
+
 Writes the name of the class to an output stream.
 
 #### Parameters

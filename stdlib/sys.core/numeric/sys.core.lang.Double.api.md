@@ -1,5 +1,6 @@
 # class *Double* from sys.core.lang
 
+
 ## Constructors
 
 ### Saturated
@@ -9,7 +10,8 @@ this Saturated{value: Double};
 ```
 
 #### Brief
-Constructs a saturated `sys.core.lang.Double` based on the input value.
+
+Constructs a saturated [Double][sys.core.lang.Double] based on the input value.
 
 #### Parameters
 > *value* => the input value. Can be numeric or a string.  
@@ -85,7 +87,7 @@ func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
@@ -169,7 +171,7 @@ Returns the square of the value value.
 ### Sqrt
 
 ```C#
-property Sqrt: Double get = Math.Sqrt;; get;
+property Sqrt: Double get = Math.Sqrt;
 ```
 
 #### Brief
@@ -180,7 +182,7 @@ Returns the square root of the value.
 ### Floor
 
 ```C#
-property Floor: Double get = Math.Floor;; get;
+property Floor: Double get = Math.Floor;
 ```
 
 #### Brief
@@ -191,7 +193,7 @@ Returns the floor of a floating point value.
 ### Ceil
 
 ```C#
-property Ceil: Double get = Math.Ceil;; get;
+property Ceil: Double get = Math.Ceil;
 ```
 
 #### Brief
@@ -202,7 +204,7 @@ Returns the ceiling of a floating point value.
 ### Round
 
 ```C#
-property Round: Double get = Math.Round;; get;
+property Round: Double get = Math.Round;
 ```
 
 #### Brief
@@ -213,7 +215,7 @@ Returns the rounded value of a floating point.
 ### Trunc
 
 ```C#
-property Trunc: Double get = Math.Trunc;; get;
+property Trunc: Double get = Math.Trunc;
 ```
 
 #### Brief
@@ -224,7 +226,7 @@ Returns the value truncated to the nearest integer value.
 ### Sin
 
 ```C#
-property Sin: Double get = Math.Sin;; get;
+property Sin: Double get = Math.Sin;
 ```
 
 #### Brief
@@ -234,7 +236,7 @@ property Sin: Double get = Math.Sin;; get;
 ### Cos
 
 ```C#
-property Cos: Double get = Math.Cos;; get;
+property Cos: Double get = Math.Cos;
 ```
 
 #### Brief
@@ -244,7 +246,7 @@ property Cos: Double get = Math.Cos;; get;
 ### Tan
 
 ```C#
-property Tan: Double get = Math.Tan;; get;
+property Tan: Double get = Math.Tan;
 ```
 
 #### Brief
@@ -254,7 +256,7 @@ property Tan: Double get = Math.Tan;; get;
 ### Sinh
 
 ```C#
-property Sinh: Double get = Math.Sinh;; get;
+property Sinh: Double get = Math.Sinh;
 ```
 
 #### Brief
@@ -264,7 +266,7 @@ property Sinh: Double get = Math.Sinh;; get;
 ### Cosh
 
 ```C#
-property Cosh: Double get = Math.Cosh;; get;
+property Cosh: Double get = Math.Cosh;
 ```
 
 #### Brief
@@ -274,7 +276,7 @@ property Cosh: Double get = Math.Cosh;; get;
 ### Tanh
 
 ```C#
-property Tanh: Double get = Math.Tanh;; get;
+property Tanh: Double get = Math.Tanh;
 ```
 
 #### Brief
@@ -284,7 +286,7 @@ property Tanh: Double get = Math.Tanh;; get;
 ### Asin
 
 ```C#
-property Asin: Double get = Math.Asin;; get;
+property Asin: Double get = Math.Asin;
 ```
 
 #### Brief
@@ -294,7 +296,7 @@ property Asin: Double get = Math.Asin;; get;
 ### Acos
 
 ```C#
-property Acos: Double get = Math.Acos;; get;
+property Acos: Double get = Math.Acos;
 ```
 
 #### Brief
@@ -304,7 +306,7 @@ property Acos: Double get = Math.Acos;; get;
 ### Atan
 
 ```C#
-property Atan: Double get = Math.Atan;; get;
+property Atan: Double get = Math.Atan;
 ```
 
 #### Brief
@@ -314,7 +316,7 @@ property Atan: Double get = Math.Atan;; get;
 ### Asinh
 
 ```C#
-property Asinh: Double get = Math.Asinh;; get;
+property Asinh: Double get = Math.Asinh;
 ```
 
 #### Brief
@@ -324,7 +326,7 @@ property Asinh: Double get = Math.Asinh;; get;
 ### Acosh
 
 ```C#
-property Acosh: Double get = Math.Acosh;; get;
+property Acosh: Double get = Math.Acosh;
 ```
 
 #### Brief
@@ -334,7 +336,7 @@ property Acosh: Double get = Math.Acosh;; get;
 ### Atanh
 
 ```C#
-property Atanh: Double get = Math.Atanh;; get;
+property Atanh: Double get = Math.Atanh;
 ```
 
 #### Brief
@@ -344,7 +346,7 @@ property Atanh: Double get = Math.Atanh;; get;
 ### Log
 
 ```C#
-property Log: Double get = Math.Log;; get;
+property Log: Double get = Math.Log;
 ```
 
 #### Brief
@@ -355,7 +357,7 @@ Returns the natural logarithm of a value.
 ### Log2
 
 ```C#
-property Log2: Double get = Math.Log2;; get;
+property Log2: Double get = Math.Log2;
 ```
 
 #### Brief
@@ -365,7 +367,7 @@ property Log2: Double get = Math.Log2;; get;
 ### Log10
 
 ```C#
-property Log10: Double get = Math.Log10;; get;
+property Log10: Double get = Math.Log10;
 ```
 
 #### Brief
@@ -513,7 +515,8 @@ Positive infinite.
 
 ***
 
-[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
-[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Double]: sys.core.lang.Double.api.md "sys.core.lang.Double"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

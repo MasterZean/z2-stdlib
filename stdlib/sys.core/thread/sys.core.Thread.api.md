@@ -1,5 +1,6 @@
 # class *Thread* from sys.core
 
+
 ## Methods
 
 ### Sleep
@@ -9,6 +10,7 @@ static func Sleep(msec: DWord);
 ```
 
 #### Brief
+
 Puts the main thread of application to sleep for an input amount of milliseconds.
 
 #### Parameters

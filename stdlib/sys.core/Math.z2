@@ -1,34 +1,35 @@
 namespace sys.core;
 
 static class Math {
+
 #region trigonometry
 
-	func Sin(value: Double): Double = bind.c.math.sin;
-	func Sin(value: Float) : Float  = bind.c.math.sin;
+	func Sin(value: Double): Double   = bind.c.math.sin;
+	func Sin(value: Float) : Float    = bind.c.math.sin;
 	
-	func Cos(value: Double): Double = bind.c.math.cos;
-	func Cos(value: Float) : Float  = bind.c.math.cos;
+	func Cos(value: Double): Double   = bind.c.math.cos;
+	func Cos(value: Float) : Float    = bind.c.math.cos;
 	
-	func Tan(value: Double): Double = bind.c.math.tan;
-	func Tan(value: Float) : Float  = bind.c.math.tan;
+	func Tan(value: Double): Double   = bind.c.math.tan;
+	func Tan(value: Float) : Float    = bind.c.math.tan;
 	
-	func Asin(value: Double): Double = bind.c.math.asin;
-	func Asin(value: Float) : Float  = bind.c.math.asin;
+	func Asin(value: Double): Double  = bind.c.math.asin;
+	func Asin(value: Float) : Float   = bind.c.math.asin;
 	
-	func Acos(value: Double): Double = bind.c.math.acos;
-	func Acos(value: Float) : Float  = bind.c.math.acos;
+	func Acos(value: Double): Double  = bind.c.math.acos;
+	func Acos(value: Float) : Float   = bind.c.math.acos;
 	
-	func Atan(value: Double): Double = bind.c.math.atan;
-	func Atan(value: Float) : Float  = bind.c.math.atan;
+	func Atan(value: Double): Double  = bind.c.math.atan;
+	func Atan(value: Float) : Float   = bind.c.math.atan;
 	
-	func Sinh(value: Double): Double = bind.c.math.sinh;
-	func Sinh(value: Float) : Float  = bind.c.math.sinh;
+	func Sinh(value: Double): Double  = bind.c.math.sinh;
+	func Sinh(value: Float) : Float   = bind.c.math.sinh;
 	
-	func Cosh(value: Double): Double = bind.c.math.cosh;
-	func Cosh(value: Float) : Float  = bind.c.math.cosh;
+	func Cosh(value: Double): Double  = bind.c.math.cosh;
+	func Cosh(value: Float) : Float   = bind.c.math.cosh;
 	
-	func Tanh(value: Double): Double = bind.c.math.tanh;
-	func Tanh(value: Float) : Float  = bind.c.math.tanh;
+	func Tanh(value: Double): Double  = bind.c.math.tanh;
+	func Tanh(value: Float) : Float   = bind.c.math.tanh;
 	
 	func Asinh(value: Double): Double = bind.c.math.asinh;
 	func Asinh(value: Float) : Float  = bind.c.math.asinh;
@@ -45,13 +46,14 @@ static class Math {
 
 	func Pow(base: Double, exponenet: Double): Double = bind.c.math.pow;
 	
-	func Sqrt(value: Double): Double = bind.c.math.sqrt;
+	func Sqrt(value: Double): Double  = bind.c.math.sqrt;
+	func Sqrt(value: Float) : Float   = bind.c.math.sqrt;
 	
-	func Log(value: Double): Double = bind.c.math.log;
-	func Log(value: Float) : Float  = bind.c.math.log;
+	func Log(value: Double): Double   = bind.c.math.log;
+	func Log(value: Float) : Float    = bind.c.math.log;
 	
-	func Log2(value: Double): Double = bind.c.math.log2;
-	func Log2(value: Float) : Float  = bind.c.math.log2;
+	func Log2(value: Double): Double  = bind.c.math.log2;
+	func Log2(value: Float) : Float   = bind.c.math.log2;
 	
 	func Log10(value: Double): Double = bind.c.math.log10;
 	func Log10(value: Float) : Float  = bind.c.math.log10;
@@ -60,28 +62,28 @@ static class Math {
 
 #region bitrotate
 	
-	func Rol8(value: Int, bits: DWord): Byte = @[force]_rotl8;
-	func Rol8(value: DWord, bits: DWord): Byte = @[force]_rotl8;
+	func Rol8(value: Int, bits: DWord): Byte     = @[force]_rotl8;
+	func Rol8(value: DWord, bits: DWord): Byte   = @[force]_rotl8;
 
-	func Ror8(value: Int, bits: DWord): Byte = @[force]_rotr8;
-	func Ror8(value: DWord, bits: DWord): Byte = @[force]_rotr8;
+	func Ror8(value: Int, bits: DWord): Byte     = @[force]_rotr8;
+	func Ror8(value: DWord, bits: DWord): Byte   = @[force]_rotr8;
 
-	func Rol16(value: Int, bits: DWord): Word = @[force]_rotl16;
-	func Rol16(value: DWord, bits: DWord): Word = @[force]_rotl16;
+	func Rol16(value: Int, bits: DWord): Word    = @[force]_rotl16;
+	func Rol16(value: DWord, bits: DWord): Word  = @[force]_rotl16;
 
-	func Ror16(value: Int, bits: DWord): Word = @[force]_rotr16;
-	func Ror16(value: DWord, bits: DWord): Word = @[force]_rotr16;
+	func Ror16(value: Int, bits: DWord): Word    = @[force]_rotr16;
+	func Ror16(value: DWord, bits: DWord): Word  = @[force]_rotr16;
 
-	func Rol32(value: Int, bits: DWord): DWord = _rotl;
+	func Rol32(value: Int, bits: DWord): DWord   = _rotl;
 	func Rol32(value: DWord, bits: DWord): DWord = _rotl;
 
-	func Ror32(value: Int, bits: DWord): DWord = _rotr;
+	func Ror32(value: Int, bits: DWord): DWord   = _rotr;
 	func Ror32(value: DWord, bits: DWord): DWord = _rotr;
 
-	func Rol64(value: Long, bits: DWord): QWord = _rotl64;
+	func Rol64(value: Long, bits: DWord): QWord  = _rotl64;
 	func Rol64(value: QWord, bits: DWord): QWord = _rotl64;
 
-	func Ror64(value: Long, bits: DWord): QWord = _rotr64;
+	func Ror64(value: Long, bits: DWord): QWord  = _rotr64;
 	func Ror64(value: QWord, bits: DWord): QWord = _rotr64;
 	
 #endregion
@@ -89,52 +91,14 @@ static class Math {
 }
 private {
     
-#if Compiler.Platform == "WIN32"
-
     @[bindc] func _rotr8 (value: Byte, shift: Byte): Byte;
 	@[bindc] func _rotr16(value: Word, shift: Byte): Word;
 	@[bindc] func _rotl8 (value: Byte, shift: Byte): Byte;
 	@[bindc] func _rotl16(value: Word, shift: Byte): Word;
 	
-	@[bindc, cdecl] func _rotl  (_Val: DWord, _Shift: Int): DWord;
-	@[bindc, cdecl] func _rotl64(_Val: QWord, _Shift: Int): QWord;
-	@[bindc, cdecl] func _rotr  (_Val: DWord, _Shift: Int): DWord;
-	@[bindc, cdecl] func _rotr64(_Val: QWord, _Shift: Int): QWord;
-	
-#else
-
-    func _rotl8(Byte x, Byte r): Byte {
-        return (x << r) | (x >> (8 - r));
-    }
-    
-    func _rotr8(x: Byte, r: Byte): Byte {
-        return (x >> r) | (x << (8 - r));
-    }
-    
-    func _rotl16(x: Word, r: Byte): Word {
-        return (x << r) | (x >> (16 - r));
-    }
-    
-    func _rotr16(x: Word, r: Byte): Word{
-        return (x >> r) | (x << (16 - r));
-    }
-    
-    func _rotl(x: DWord, r:Byte): DWord {
-        return (x << r) | (x >> (32 - r));
-    }
-    
-    func _rotr(DWord x, r: Byte): DWord {
-        return (x >> r) | (x << (32 - r));
-    }
-    
-    func _rotl64 (x: QWord, r: Small): QWord {
-        return (x << r) | (x >> (64 - r));
-    }
-    
-    func _rotr64 (x: QWord, r: Small): QWord {
-        return (x >> r) | (x << (64 - r));
-    }
-
-#endif
+	@[bindc] func _rotl  (_Val: DWord, _Shift: Int): DWord;
+	@[bindc] func _rotl64(_Val: QWord, _Shift: Int): QWord;
+	@[bindc] func _rotr  (_Val: DWord, _Shift: Int): DWord;
+	@[bindc] func _rotr64(_Val: QWord, _Shift: Int): QWord;
 
 }

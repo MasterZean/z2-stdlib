@@ -1,5 +1,6 @@
 # class *SizeRect* from sys.core
 
+
 ## Constructors
 
 ### this

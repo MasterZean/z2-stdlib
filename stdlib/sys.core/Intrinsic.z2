@@ -29,8 +29,8 @@ class Intrinsic {
 			a = max;
 	}
 
-	@[intrinsic] static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize);
-	@[intrinsic] static def CStrLen(source: Ptr<Byte>): PtrSize;
+	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) = bind.c.string.memcpy;
+	static def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
 	
 	@[intrinsic] static def CpuID(ref cpu: CArray<Int>, val level: Int);
 }

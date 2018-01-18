@@ -1,5 +1,6 @@
 # class *AsciiParser* from sys.core
 
+
 ## Constructors
 
 ### this
@@ -11,6 +12,7 @@ this{data: String, skipSpaces: Bool};
 ```
 
 #### Brief
+
 Constructs a new parser based on n input buffer.
 
 The buffer is not copied over so its lifespan must exceed the lifespan of the parser instance.

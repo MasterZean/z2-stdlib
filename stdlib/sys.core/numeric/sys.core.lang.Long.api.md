@@ -1,5 +1,6 @@
 # class *Long* from sys.core.lang
 
+
 ## Constructors
 
 ### this
@@ -9,6 +10,7 @@ this{string: String};
 ```
 
 #### Brief
+
 Parses a string an constructs a [Long][sys.core.lang.Long] based on it.
 
 #### Parameters
@@ -86,7 +88,7 @@ func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
@@ -308,5 +310,6 @@ Should not be used for buffer sizes.
 
 [sys.core.lang.Long]: sys.core.lang.Long.api.md "sys.core.lang.Long"
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

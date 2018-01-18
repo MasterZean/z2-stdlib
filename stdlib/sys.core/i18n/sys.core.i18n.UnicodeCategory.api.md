@@ -1,5 +1,6 @@
 # enum *UnicodeCategory* from sys.core.i18n
 
+
 ## Constructors
 
 ### FromAbbr
@@ -9,6 +10,7 @@ this FromAbbr{s: String};
 ```
 
 #### Brief
+
 Constructs a new instance from a string abbreviation.
 
 #### Parameters

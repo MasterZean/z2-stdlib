@@ -1,5 +1,7 @@
 namespace sys.core.lang;
 
+using sys.core.SystemCPU;
+
 #if Compiler.Platform == "WIN32"
 using microsoft.windows.Win32;
 #else
@@ -10,7 +12,15 @@ class System {
 	static val Debug = sys.core.SystemDebug{};
 	static val Trace = sys.core.SystemTrace{};
 	
-	static val CPU = sys.core.SystemCPU{};
+	static property CPU: ref SystemCPU {
+		if (cpuRead == false) {
+			GetCPU();
+			cpuRead = true;
+		}
+		
+		return cpu;
+	}
+			
 
 #if Compiler.Platfrom == "WIN32"
 
@@ -19,44 +29,8 @@ class System {
     
 	static def @setup() {
 		SetConsoleCodePage();
-		
-		val cpudata = CArray[0, 0, 0, 0];
-		Intrinsic.CpuID(cpudata, 0);
-		
-		val vendor = CArray[0, 0, 0, 0];
-		vendor[0] = cpudata[1];
-		vendor[1] = cpudata[3];
-		vendor[2] = cpudata[2];
-		
-		val p = Ptr<Byte>{vendor.SysDataPointer};
-		CPU.Vendor = String{p, Intrinsic.CStrLen(p)};
-		
-		Intrinsic.CpuID(cpudata, 1);
-		CPU.MMX   = ((cpudata[3] >> 23) & 0x1) != 0;
-		CPU.SSE   = ((cpudata[3] >> 25) & 0x1) != 0;
-		CPU.SSE2  = ((cpudata[3] >> 26) & 0x1) != 0;
-		CPU.SSE3  = ((cpudata[2]) & 0x1) != 0;
-		CPU.SSSE3 = ((cpudata[2] >> 9) & 0x1) != 0;
-		CPU.SSE41 = ((cpudata[2] >> 19) & 0x1) != 0;
-		CPU.SSE42 = ((cpudata[2] >> 20) & 0x1) != 0;
-		
-		CPU.Bits = 32;
-		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
-		if (envArch == "x86") {
-			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
-			if (envArchEx == "AMD64" || envArchEx == "IA64")
-				CPU.Bits = 64;
-		}
-		else if (envArch == "AMD64" || envArch == "IA64")
-			CPU.Bits = 64;
-		
-		
-		CPU.Cores = 1;
-		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
-		if (cores.Length != 0)
-		    CPU.Cores = cores.Parse<Int>();
 	}
-	
+		
 	static def GetEnvVariable(val var: String): String {
 		val sourceVar = Slice<Byte>{var};
 		val varu16: CArray<Word, 32767> = void;
@@ -102,10 +76,51 @@ private {
 	
 #if Compiler.Platform == "WIN32"
 
+	static val cpu = SystemCPU{};
+	static val cpuRead = false;
+	
 	static def SetConsoleCodePage() {
 		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
 	}
 
+	static def GetCPU() {
+		val cpudata = CArray[0, 0, 0, 0];
+		Intrinsic.CpuID(cpudata, 0);
+		
+		val vendor = CArray[0, 0, 0, 0];
+		vendor[0] = cpudata[1];
+		vendor[1] = cpudata[3];
+		vendor[2] = cpudata[2];
+		
+		val p = Ptr<Byte>{vendor.SysDataPointer};
+		cpu.Vendor = String{p, Intrinsic.CStrLen(p)};
+		
+		Intrinsic.CpuID(cpudata, 1);
+		cpu.MMX   = ((cpudata[3] >> 23) & 0x1) != 0;
+		cpu.SSE   = ((cpudata[3] >> 25) & 0x1) != 0;
+		cpu.SSE2  = ((cpudata[3] >> 26) & 0x1) != 0;
+		cpu.SSE3  = ((cpudata[2]) & 0x1) != 0;
+		cpu.SSSE3 = ((cpudata[2] >> 9) & 0x1) != 0;
+		cpu.SSE41 = ((cpudata[2] >> 19) & 0x1) != 0;
+		cpu.SSE42 = ((cpudata[2] >> 20) & 0x1) != 0;
+		
+		cpu.Bits = 32;
+		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
+		if (envArch == "x86") {
+			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
+			if (envArchEx == "AMD64" || envArchEx == "IA64")
+				cpu.Bits = 64;
+		}
+		else if (envArch == "AMD64" || envArch == "IA64")
+			cpu.Bits = 64;
+		
+		
+		cpu.Cores = 1;
+		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
+		if (cores.Length != 0)
+		    cpu.Cores = cores.Parse<Int>();
+	}
+	
 #else
 
 	static def SetConsoleCodePage() {

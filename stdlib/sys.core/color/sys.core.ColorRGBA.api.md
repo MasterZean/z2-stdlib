@@ -4,7 +4,7 @@ A class representing a logical red, green, blue and alpha channeled color as an 
 
 This class is only suited for storing low dynamic range colors.
 
-Since all channels are stored in 8bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
+Since all channels are stored in 8 bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
 
 ## Constructors
 
@@ -26,6 +26,7 @@ this{red: Double, green: Double, blue: Double, alpha: Double};
 ```
 
 #### Brief
+
 Creates a new instance initializing each component of the color.
 
 If an input component is missing, it will be initialized to the maximum value.

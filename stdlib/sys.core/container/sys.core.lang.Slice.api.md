@@ -1,5 +1,6 @@
 # class *Slice* from sys.core.lang
 
+
 ## Constructors
 
 ### this
@@ -39,7 +40,12 @@ this{p: Slice<Byte>, offset: PtrSize, length: PtrSize};
 ```
 
 #### Brief
-Constructs a new slice based on a persistent memory location and an optional size. The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
+
+Constructs a new slice based on a persistent memory location and an optional size.
+
+The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
+
+The provided emeory location must not be freed before the slice is destoyed.
 
 #### Parameters
 > *p* => a vector of items  

@@ -1,5 +1,9 @@
 # class *Int* from sys.core.lang
 
+A class representing a a 32 bit signed integer.
+
+It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
+
 ## Constructors
 
 ### this
@@ -9,6 +13,7 @@ this{string: String};
 ```
 
 #### Brief
+
 Parses a string an constructs an [Int][sys.core.lang.Int] based on it.
 
 #### Parameters
@@ -88,7 +93,7 @@ func @write(ref stream: Stream, format: OutputFormat);
 ```
 
 #### Brief
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
@@ -143,7 +148,7 @@ property Sqr: Int; get;
 ```
 
 #### Brief
-Returns the square of the value value.
+Returns the square of the value.
 
 ***
 
@@ -308,5 +313,6 @@ Should not be used for buffer sizes.
 
 [sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

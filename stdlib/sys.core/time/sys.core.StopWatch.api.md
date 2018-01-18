@@ -1,5 +1,6 @@
 # class *StopWatch* from sys.core
 
+
 ## Constructors
 
 ### this
@@ -9,6 +10,7 @@ this{};
 ```
 
 #### Brief
+
 Creates a new instance and start keeping track of time.
 
 Calling `Elapsed` after is a valid operation.

@@ -1,5 +1,6 @@
 # class *Point2D* from sys.core
 
+
 ## Constructors
 
 ### this
@@ -10,6 +11,7 @@ this{x: T, y: T};
 ```
 
 #### Brief
+
 Creates a new instance initializing each component of the point.
 
 #### Parameters

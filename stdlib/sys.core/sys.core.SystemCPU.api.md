@@ -1,5 +1,6 @@
 # class *SystemCPU* from sys.core
 
+
 ## Variables
 
 ### Vendor
