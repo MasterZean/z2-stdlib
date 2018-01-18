@@ -63,7 +63,7 @@ class QWord
 <h4>Brief</h4>
 <p>
 
-Parses a string an constructs a <a>QWord</a> based on it.
+Parses a string an constructs a <a href="sys.core.lang.QWord.html">QWord</a> based on it.
 
 </p><h4>Parameters</h4>
 <blockquote>string=> string to parse<br/>
@@ -75,7 +75,7 @@ this Saturated{value: QWord};
 this Saturated{value: String};</code></pre>
 <h4>Brief</h4>
 <p>
-Constructs a saturated <a>QWord</a> based on the input value.
+Constructs a saturated <a href="sys.core.lang.QWord.html">QWord</a> based on the input value.
 
 </p><h4>Parameters</h4>
 <blockquote>value=> the input value. Can be numeric or a string.<br/>
@@ -110,7 +110,7 @@ max=> the maximum value<br/>
 <pre><code class="cs">func ToString(): String;</code></pre>
 <h4>Brief</h4>
 <p>
-Converts the value to a Utf8 <a>string</a>.
+Converts the value to a Utf8 <a href="sys.core.lang.String.html">string</a>.
 
 </p><h4>Returns</h4>
 <blockquote>the resulting string</blockquote>
@@ -120,9 +120,9 @@ Converts the value to a Utf8 <a>string</a>.
 func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.
 
-Can use an optional <a>output format</a> specifier.
+Can use an optional <a href="sys.core.OutputFormat.html">output format</a> specifier.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the output stream<br/>
@@ -156,7 +156,7 @@ Reads a 64 bit unsigned integer from a binary stream.
 <p>
 Returns the absolute value.
 
-In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a href="sys.core.lang.QWord.html">QWord</a> it returns the value itself and is included only for API compatibility when using templates.
 
 </p><hr/>
 <h3>Sqr</h3>
@@ -179,7 +179,7 @@ Returns the square root of the value, rounded down.
 <p>
 Returns the floor of a floating point value.
 
-In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a href="sys.core.lang.QWord.html">QWord</a> it returns the value itself and is included only for API compatibility when using templates.
 
 </p><hr/>
 <h3>Ceil</h3>
@@ -188,7 +188,7 @@ In the case of <a>QWord</a> it returns the value itself and is included only for
 <p>
 Returns the ceiling of a floating point value.
 
-In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a href="sys.core.lang.QWord.html">QWord</a> it returns the value itself and is included only for API compatibility when using templates.
 
 </p><hr/>
 <h3>Round</h3>
@@ -197,7 +197,7 @@ In the case of <a>QWord</a> it returns the value itself and is included only for
 <p>
 Returns the rounded value of a floating point.
 
-In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a href="sys.core.lang.QWord.html">QWord</a> it returns the value itself and is included only for API compatibility when using templates.
 
 </p><hr/>
 <h3>Trunc</h3>
@@ -206,7 +206,7 @@ In the case of <a>QWord</a> it returns the value itself and is included only for
 <p>
 Returns the value truncated to the nearest integer value.
 
-In the case of <a>QWord</a> it returns the value itself and is included only for API compatibility when using templates.
+In the case of <a href="sys.core.lang.QWord.html">QWord</a> it returns the value itself and is included only for API compatibility when using templates.
 
 </p></div><h2>Constants</h2>
 <div class="codesection">
@@ -214,42 +214,42 @@ In the case of <a>QWord</a> it returns the value itself and is included only for
 <pre><code class="cs">const Zero: QWord;</code></pre>
 <h4>Brief</h4>
 <p>
-A <a>QWord</a> instance representing a logical "0" value.
+A <a href="sys.core.lang.QWord.html">QWord</a> instance representing a logical "0" value.
 
 </p><hr/>
 <h3>One</h3>
 <pre><code class="cs">const One: QWord;</code></pre>
 <h4>Brief</h4>
 <p>
-A <a>QWord</a> instance representing a logical "1" value.
+A <a href="sys.core.lang.QWord.html">QWord</a> instance representing a logical "1" value.
 
 </p><hr/>
 <h3>Min</h3>
 <pre><code class="cs">const Min: QWord;</code></pre>
 <h4>Brief</h4>
 <p>
-The minimum value for a <a>QWord</a> (64 bit unsigned integer) instance.
+The minimum value for a <a href="sys.core.lang.QWord.html">QWord</a> (64 bit unsigned integer) instance.
 
 </p><hr/>
 <h3>Max</h3>
 <pre><code class="cs">const Max: QWord;</code></pre>
 <h4>Brief</h4>
 <p>
-The maximum value for a <a>QWord</a> (64 bit unsigned integer) instance.
+The maximum value for a <a href="sys.core.lang.QWord.html">QWord</a> (64 bit unsigned integer) instance.
 
 </p><hr/>
 <h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned;</code></pre>
 <h4>Brief</h4>
 <p>
-<a>true</a> if the numeric representation uses two's complement signed values, <a>false</a> otherwise.
+<a href="sys.core.lang.Bool.html">true</a> if the numeric representation uses two's complement signed values, <a href="sys.core.lang.Bool.html">false</a> otherwise.
 
 </p><hr/>
 <h3>IsInteger</h3>
 <pre><code class="cs">const IsInteger;</code></pre>
 <h4>Brief</h4>
 <p>
-<a>true</a> if the numeric representation is an integer, <a>false</a> if it is a floating point.
+<a href="sys.core.lang.Bool.html">true</a> if the numeric representation is an integer, <a href="sys.core.lang.Bool.html">false</a> if it is a floating point.
 
 </p><hr/>
 <h3>MaxDigitsLow</h3>

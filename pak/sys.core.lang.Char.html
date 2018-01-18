@@ -97,7 +97,7 @@ Converts the value to a Utf8 string.
 func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the output stream<br/>
@@ -108,7 +108,7 @@ format=> formatting information<br/>
 <pre><code class="cs">func @put(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the code unit to a binary stream as a 32 bit unsigned integer.
+Writes the code point to a binary stream as a 32 bit unsigned integer.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the output stream<br/>
@@ -118,7 +118,7 @@ Writes the code unit to a binary stream as a 32 bit unsigned integer.
 <pre><code class="cs">def @get(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
-Reads the code unit a 32 bit signed uninteger from a binary stream.
+Reads the code point a 32 bit unsigned integer from a binary stream.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the input stream<br/>
@@ -213,7 +213,7 @@ Returns the ASCII lower case of the ASCII character.
 <pre><code class="cs">property UnicodePlane: Byte; get;</code></pre>
 <h4>Brief</h4>
 <p>
-REturns the Unicode plane of the code point, between 0 and 16.
+Returns the Unicode plane of the code point, between 0 and 16.
 
 </p><hr/>
 <h3>Category</h3>
@@ -277,49 +277,49 @@ Returns true if the character is an Unicode decimal.
 <pre><code class="cs">const Zero: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-An `sys.core.lang.Char` instance representing a logical "0" value.
+An <a href="sys.core.lang.Char.html">Char</a> instance representing a logical "0" value.
 
 </p><hr/>
 <h3>Min</h3>
 <pre><code class="cs">const Min: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The minimum value for an `sys.core.lang.Char` (Unicode code point) instance.
+The minimum value for an <a href="sys.core.lang.Char.html">Char</a> (Unicode code point) instance.
 
 </p><hr/>
 <h3>Max</h3>
 <pre><code class="cs">const Max: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The maximum value for an `sys.core.lang.Char` (Unicode code point) instance.
+The maximum value for an <a href="sys.core.lang.Char.html">Char</a> (Unicode code point) instance.
 
 </p><hr/>
 <h3>MaxUtf8CP1</h3>
 <pre><code class="cs">const MaxUtf8CP1: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The highest code point that can be represented by 1 code unit.
+The highest code point that can be represented by 1 Utf8 code unit.
 
 </p><hr/>
 <h3>MaxUtf8CP2</h3>
 <pre><code class="cs">const MaxUtf8CP2: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The highest code point that can be represented by 2 code units.
+The highest code point that can be represented by 2 Utf8 code units.
 
 </p><hr/>
 <h3>MaxUtf8CP3</h3>
 <pre><code class="cs">const MaxUtf8CP3: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The highest code point that can be represented by 3 code units.
+The highest code point that can be represented by 3 Utf8 code units.
 
 </p><hr/>
 <h3>MaxUtf8CP4</h3>
 <pre><code class="cs">const MaxUtf8CP4: Char;</code></pre>
 <h4>Brief</h4>
 <p>
-The highest code point that can be represented by 4 code units.
+The highest code point that can be represented by 4 Utf8 code units.
 
 </p><hr/>
 <h3>Invalid</h3>

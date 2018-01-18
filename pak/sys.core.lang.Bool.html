@@ -63,7 +63,7 @@ class Bool
 <h4>Brief</h4>
 <p>
 
-Parses a string an constructs an `sys.core.lang.Bool` based on it.
+Parses a string an constructs an <a href="sys.core.lang.Bool.html">Bool</a> based on it.
 
 </p><h4>Parameters</h4>
 <blockquote>string=> string to parse<br/>
@@ -98,7 +98,7 @@ max=> the maximum value<br/>
 <pre><code class="cs">func ToString(): String;</code></pre>
 <h4>Brief</h4>
 <p>
-Converts the value to a Utf8 string.
+Converts the value to a Utf8 <a href="sys.core.lang.String.html">string</a>.
 
 </p><h4>Returns</h4>
 <blockquote>the resulting string</blockquote>
@@ -108,7 +108,9 @@ Converts the value to a Utf8 string.
 func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to an Utf8 text stream.
+Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.
+
+Can use an optional <a href="sys.core.OutputFormat.html">output format</a> specifier.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the output stream<br/>
@@ -119,7 +121,7 @@ format=> formatting information<br/>
 <pre><code class="cs">func @put(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
+Writes the value to a binary <a href="sys.core.Stream.html">stream</a> as a 8 bit signed integer, 0 or 1.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the output stream<br/>
@@ -129,7 +131,7 @@ Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
 <pre><code class="cs">def @get(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
-Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
+Reads a 8 bit signed integer and casts it to a <a href="sys.core.lang.Bool.html">Bool</a>.
 
 </p><h4>Parameters</h4>
 <blockquote>stream=> the input stream<br/>
@@ -140,28 +142,28 @@ Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
 <pre><code class="cs">const Min;</code></pre>
 <h4>Brief</h4>
 <p>
-The minimum value for an `sys.core.lang.Bool` (boolean) instance.
+The minimum value for an <a href="sys.core.lang.Bool.html">Bool</a> instance.
 
 </p><hr/>
 <h3>Max</h3>
 <pre><code class="cs">const Max;</code></pre>
 <h4>Brief</h4>
 <p>
-The maximum value for an `sys.core.lang.Bool` (boolean) instance.
+The maximum value for an <a href="sys.core.lang.Bool.html">Bool</a> instance.
 
 </p><hr/>
 <h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned;</code></pre>
 <h4>Brief</h4>
 <p>
-`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+<a href="sys.core.lang.Bool.html">true</a> if the numeric representation uses two's complement signed values, <a href="sys.core.lang.Bool.html">false</a> otherwise.
 
 </p><hr/>
 <h3>IsInteger</h3>
 <pre><code class="cs">const IsInteger;</code></pre>
 <h4>Brief</h4>
 <p>
-`true` if the numeric representation is an integer, `false` if it is a floating point.
+<a href="sys.core.lang.Bool.html">true</a> if the numeric representation is an integer, <a href="sys.core.lang.Bool.html">false</a> if it is a floating point.
 
 </p></div></div>
 </div>
