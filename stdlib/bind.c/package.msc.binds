@@ -1,0 +1,10 @@
+memcpy:
+extern "C" void* __cdecl memcpy(void* _Dst, void const* _Src, size_t _Size);
+memmove:
+extern "C" void* __cdecl memmove(void* _Dst, void const* _Src, size_t _Size);
+strcpy:
+extern "C" char* __cdecl strcpy(char *_Destination,  char const* _Source);
+strncpy:
+extern "C++" char* __cdecl strncpy(char *_Destination,   char const* _Source,   size_t _Count);
+strlen:
+extern "C" size_t __cdecl strlen(uint8* _Str);

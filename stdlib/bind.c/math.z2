@@ -15,7 +15,7 @@ static class math {
 	
 	@[bindc] def pow(base: Double, exponenet: Double): Double;
 	
-	def pow(base: Double, exponenet: Double): Float {
+	def pow(base: Float, exponenet: Float): Float {
 		return Float{pow(Double{base}, Double{exponenet})};
 	}
 	

@@ -1,0 +1,35 @@
+namespace org.z2legacy.ut.intrinsic;
+
+using sys.core.Math;
+
+class FloatTest {
+    def @main() {
+        val f = 10.0f;
+        
+        System.Out << Math.Log(f) << "\n";
+        System.Out << f.Log << "\n";
+        System.Out << bind.c.math.log(f) << "\n";
+        
+        System.Out << Math.Log10(f) << "\n";
+        System.Out << f.Log10 << "\n";
+        System.Out << bind.c.math.log10(f) << "\n";
+        
+        System.Out << Math.Log2(f) << "\n";
+        System.Out << f.Log2 << "\n";
+        System.Out << bind.c.math.log2(f) << "\n";
+        
+        val d = 10.0;
+        
+        System.Out << Math.Log(d) << "\n";
+        System.Out << d.Log << "\n";
+        System.Out << bind.c.math.log(d) << "\n";
+        
+        System.Out << Math.Log10(d) << "\n";
+        System.Out << d.Log10 << "\n";
+        System.Out << bind.c.math.log10(d) << "\n";
+        
+        System.Out << Math.Log2(d) << "\n";
+        System.Out << d.Log2 << "\n";
+        System.Out << bind.c.math.log2(d) << "\n";
+    }
+}

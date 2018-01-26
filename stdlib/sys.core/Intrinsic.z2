@@ -32,5 +32,10 @@ class Intrinsic {
 	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) = bind.c.string.memcpy;
 	static def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
 	
-	@[intrinsic] static def CpuID(ref cpu: CArray<Int>, val level: Int);
+	static def CpuID(ref cpu: CArray<Int>, val level: Int) {
+		__cpuid(cpu.SysDataPointer, level);
+	}
+}
+private {
+	@[bindc] static def __cpuid(cpu: Ptr<Int>, level: Int);
 }

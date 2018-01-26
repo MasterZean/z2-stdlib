@@ -1,0 +1,9 @@
+namespace bind.c;
+
+static class string {
+	@[bindc] def memcpy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize): Ptr<Byte>;
+	@[bindc] def memmove(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize): Ptr<Byte>;
+	@[bindc] def strcpy(destination: Ptr<Byte>, source: Ptr<Byte>): Ptr<Byte>;
+	@[bindc] def strncpy(destination: Ptr<Byte>, source: Ptr<Byte>, num: PtrSize): Ptr<Byte>;
+	@[bindc] def strlen(str: Ptr<Byte>): PtrSize;
+}

@@ -6,4 +6,10 @@ static class Posix {
 	const STDERR = 2;
 	
 	@[bindc] def write(fd: Int, buf: Ptr<Byte>, nbytes: PtrSize): PtrSize;
+	@[bindc] def clock_gettime(clock_id: Int, tp: Ptr<timespec>): Int;
+}
+
+class timespec {
+	val tv_sec = 0;
+	val tv_nsec = 0;
 }
