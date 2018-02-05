@@ -12,7 +12,7 @@ class PassInit07 {
 		val d = [7: i, ...];
 		System.Out << d << "\n";
 		
-		val e = [7: func(), ...];
+		val e = [7: fun(), ...];
 		System.Out << e << "\n";
 		
 		val f = [7: i++, ...];
@@ -21,7 +21,7 @@ class PassInit07 {
 	
 	val index = 0;
 	
-	def func(): Int {
+	def fun(): Int {
 		index++;
 		return index;
 	}

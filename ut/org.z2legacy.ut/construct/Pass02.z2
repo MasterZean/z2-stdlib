@@ -7,7 +7,7 @@ class TestCon {
 		System.Out << a << '\n';
 		
 		System.Out << "* 2" << '\n';
-		val b = func();
+		val b = fun();
 		System.Out << b << '\n';
 		
 		System.Out << "* 3" << '\n';
@@ -24,21 +24,21 @@ class TestCon {
 		
 		System.Out << "* 6" << '\n';
 		val tt = CArray[0, 1, 2];
-		val f = func(tt);
+		val f = fun(tt);
 		System.Out << f << '\n';
 		
 		System.Out << "* 7" << '\n';
-		val g = func2(tt);
+		val g = fun2(tt);
 		System.Out << g << '\n';
 
 		System.Out << "* end" << '\n';
 	}
 	
-	def func(): Foo {
+	def fun(): Foo {
 		return Foo{};
 	}
 			
-	def func(a: CArray<Int>): Foo {
+	def fun(a: CArray<Int>): Foo {
 		for (val i = 0p; i < a.Length; i++)
 			if (a[i] == 7)
 				return Foo{56};
@@ -47,7 +47,7 @@ class TestCon {
 		return Foo{42};
 	}
 	
-	def func2(a: CArray<Int>): Foo {
+	def fun2(a: CArray<Int>): Foo {
 		val temp = Foo{7};
 		for (val i = 0p; i < a.Length; i++)
 			if (a[i] == 7)

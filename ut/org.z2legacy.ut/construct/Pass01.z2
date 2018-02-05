@@ -5,12 +5,12 @@ class TestCon {
 		System.Out << "* 1" << '\n';
 		val a = Foo{};
 		System.Out << "* 2" << '\n';
-		val b = func();
+		val b = fun();
 		
 		System.Out << "* end" << '\n';
 	}
 	
-	def func(): Foo {
+	def fun(): Foo {
 		return Foo{};
 	}
 }

@@ -23,17 +23,17 @@ class TestCon {
 		System.Out << a << '\n';
 		
 		System.Out << "* 6" << '\n';
-		a = func();
+		a = fun();
 		System.Out << a << '\n';
 		
 		System.Out << "* 7" << '\n';
-		a = Foo{func(), 8};
+		a = Foo{fun(), 8};
 		System.Out << a << '\n';
 		
 		System.Out << "* end" << '\n';
 	}
 	
-	def func(): Foo {
+	def fun(): Foo {
 		return Foo{2};
 	}
 }

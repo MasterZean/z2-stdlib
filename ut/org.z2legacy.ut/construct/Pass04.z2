@@ -7,7 +7,7 @@ class TestCon {
 		System.Out << a << '\n';
 		
 		System.Out << "* 2" << '\n';
-		val b = func();
+		val b = fun();
 		System.Out << b << '\n';
 		
 		System.Out << "* 3" << '\n';
@@ -21,7 +21,7 @@ class TestCon {
 		System.Out << "* end" << '\n';
 	}
 	
-	def func(): Foo {
+	def fun(): Foo {
 		return Foo{2};
 	}
 }
