@@ -32,7 +32,7 @@ class PassFor01 {
 	
 	def print5(a: CArray<Int>) {
 		foreach (v in a)
-			System.Out << v << " ";
+			System.Out << '[' << for.Index << "]=" << v << " ";
 		System.Out << '\n';
 	}
 	
