@@ -73,16 +73,9 @@ class System {
 
 }
 private {
-	
-#if Compiler.Platform == "WIN32"
-
 	static val cpu = SystemCPU{};
 	static val cpuRead = false;
 	
-	static def SetConsoleCodePage() {
-		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
-	}
-
 	static def GetCPU() {
 		val cpudata = CArray[0, 0, 0, 0];
 		Intrinsic.CpuID(cpudata, 0);
@@ -119,6 +112,12 @@ private {
 		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
 		if (cores.Length != 0)
 		    cpu.Cores = cores.Parse<Int>();
+	}
+	
+#if Compiler.Platform == "WIN32"
+
+	static def SetConsoleCodePage() {
+		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
 	}
 	
 #else

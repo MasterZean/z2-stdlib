@@ -7,6 +7,8 @@ static class Posix {
 	
 	@[bindc] def write(fd: Int, buf: Ptr<Byte>, nbytes: PtrSize): PtrSize;
 	@[bindc] def clock_gettime(clock_id: Int, tp: Ptr<timespec>): Int;
+	@[bindc] def getcwd(path: Ptr<Byte>, size: PtrSize);
+	@[bindc] def chdir(path: Ptr<Byte>);
 }
 
 class timespec {

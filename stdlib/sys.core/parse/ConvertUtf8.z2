@@ -681,7 +681,7 @@ class ConvertUtf8 {
 		buffer.Length = i;
 	}
 	
-	static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>) {
+	static func FromUtf16(ref dest: Slice<Byte>, ref src: ReadSlice<Word>) {
 		val s = src.SysDataPointer;
 		val lim = s + src.Length;
 		val d = dest.SysDataPointer;
@@ -739,7 +739,7 @@ class ConvertUtf8 {
 		dest.Length = d - dest.SysDataPointer;
 	}
 	
-	static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>) {
+	static func FromUtf32(ref dest: Slice<Byte>, ref src: ReadSlice<DWord>) {
 		val s = src.SysDataPointer;
 		val lim = s + src.Length;
 		val d = dest.SysDataPointer;

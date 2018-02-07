@@ -17,11 +17,13 @@ class Path {
 	const DirSepWin = '\\';
 	const DirSepUnix = '/';
 
+#if Compiler.Platform == "WIN32"
+
 	static property CurrentFolder: String
 	get const {
 		val pathu16: CArray<Word, Win32.MAX_PATH> = void;
 		val written = PtrSize{Win32.GetCurrentDirectoryW(Win32.MAX_PATH, pathu16.SysDataPointer)};
-		val source = Slice<Word>{pathu16, written};
+		val source = ReadSlice<Word>{pathu16, written};
 		
 		val pathu8: CArray<Byte, Win32.MAX_PATH * 4 + 1> = void;
 		val dest = Slice<Byte>{pathu8};
@@ -32,20 +34,38 @@ class Path {
 			dest.Length = dest.Length + 1;
 			pathu8[dest.Length + 1] = Byte{'\0'};
 		}
+		
 		return String{dest};
 	}
 	set (dir) {
-		// TODO: add a good fix to PT 9.2 introduced problem
-		val temp = dir;
-		val source = Slice<Byte>{temp};
+		val source = ReadSlice<Byte>{dir};
 		
 		val pathu16: CArray<Word, Win32.MAX_PATH> = void;
 		val dest = Slice<Word>{pathu16};
 		
 		ConvertUtf16.FromUtf8(dest, source);
 		pathu16[dest.Length] = Word{'\0'};
+		
 		val result = Win32.SetCurrentDirectoryW(pathu16.SysDataPointer);
 	}
+	
+#else
+
+	static property CurrentFolder: String
+	get const {
+		val pathu8: CArray<Byte, 1025> = void;
+		
+		ieee.posix.Posix.getcwd(pathu8.SysDataPointer, 1024);
+		
+		return String{pathu8.SysDataPointer, bind.c.string.strlen(pathu8.SysDataPointer)};
+	}
+	set (dir) {
+		ieee.posix.Posix.chdir(dir.SysDataPointer);
+	}
+	
+#endif
+
+#if Compiler.Platform == "WIN32"
 
 	static property ExeFileName: String
 	get const {
@@ -60,6 +80,15 @@ class Path {
 		
 		return String{dest};
 	}
+	
+#else
+
+	static property ExeFileName: String
+	get const {
+		return "";
+	}
+	
+#endif
 
 	static def GetFolder(path: String): String {
 		val index = path.RFind(Byte{DirSep});

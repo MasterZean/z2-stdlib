@@ -1,0 +1,4 @@
+chdir:
+extern "C" int chdir (const char *__path);
+getcwd:
+extern "C" char *getcwd (char *__buf, size_t __size);

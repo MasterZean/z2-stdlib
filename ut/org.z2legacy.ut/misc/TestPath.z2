@@ -28,7 +28,7 @@ class TestPath {
 		}
 		
 		temp = Path.GetParent(Path.ExeFileName);
-		while (!Path.IsRoot(temp)) {
+		while (temp.Length > 0 && !Path.IsRoot(temp)) {
 			System.Out << "Parent folder: " << temp << "\n";
 			temp = Path.GetParent(temp);
 		}
