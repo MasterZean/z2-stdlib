@@ -1,298 +1,311 @@
-Constructors
----
+# class *Int* from sys.core.lang
 
-#### this
+A class representing a a 32 bit signed integer.
+
+It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
+
+## Constructors
+
+### this
 
 ```C#
-this{string: String}
+this{string: String};
 ```
 
-##### Brief
+#### Brief
+
 Parses a string an constructs an [Int][sys.core.lang.Int] based on it.
 
-###### param string
-string to parse
+#### Parameters
+> *string* => string to parse  
 ***
 
-#### Saturated
+### Saturated
 
 ```C#
-this Saturated{value: Int}
-this Saturated{value: DWord}
-this Saturated{value: Long}
-this Saturated{value: QWord}
-this Saturated{value: Double}
-this Saturated{value: String}
+this Saturated{value: Int};
+this Saturated{value: DWord};
+this Saturated{value: Long};
+this Saturated{value: QWord};
+this Saturated{value: Double};
+this Saturated{value: String};
 ```
 
-##### Brief
+#### Brief
 Constructs a saturated [Int][sys.core.lang.Int] based on the input value.
 
-###### param value
-the input value. Can be numeric or a string.
+#### Parameters
+> *value* => the input value. Can be numeric or a string.  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
-def Clamp(min: Int, max: Int)
+def Clamp(min: Int, max: Int);
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
-func Clamped(min: Int, max: Int)
+func Clamped(min: Int, max: Int): Int;
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### ToString
+### ToString
 
 ```C#
-func ToString()
+func ToString(): String;
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
-##### Brief
-Writes the value to an Utf8 text stream.
+#### Brief
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 32 bit signed integer.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
-##### Brief
+#### Brief
 Reads a 32 bit signed integer from a binary stream.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Properties
----
+## Properties
 
-#### Abs
+### Abs
 
 ```C#
 property Abs: Int; get;
 ```
 
-##### Brief
+#### Brief
 Returns the absolute value.
 
 ***
 
-#### Sqr
+### Sqr
 
 ```C#
 property Sqr: Int; get;
 ```
 
-##### Brief
-Returns the square of the value value.
+#### Brief
+Returns the square of the value.
 
 ***
 
-#### Sqrt
+### Sqrt
 
 ```C#
 property Sqrt: Int; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square root of the value, rounded down.
 
 ***
 
-#### Floor
+### Floor
 
 ```C#
 property Floor: Int; get;
 ```
 
-##### Brief
+#### Brief
 Returns the floor of a floating point value.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-#### Ceil
+### Ceil
 
 ```C#
 property Ceil: Int; get;
 ```
 
-##### Brief
+#### Brief
 Returns the ceiling of a floating point value.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-#### Round
+### Round
 
 ```C#
 property Round: Int; get;
 ```
 
-##### Brief
+#### Brief
 Returns the rounded value of a floating point.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
 
 ***
 
-Constants
----
-
-#### Zero
+### Trunc
 
 ```C#
-const Zero: Int
+property Trunc: Int; get;
 ```
 
-##### Brief
+#### Brief
+Returns the value truncated to the nearest integer value.
+
+In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
+
+***
+
+## Constants
+
+### Zero
+
+```C#
+const Zero: Int;
+```
+
+#### Brief
 An [Int][sys.core.lang.Int] instance representing a logical "0" value.
 
 ***
 
-#### One
+### One
 
 ```C#
-const One: Int
+const One: Int;
 ```
 
-##### Brief
+#### Brief
 An [Int][sys.core.lang.Int] instance representing a logical "1" value.
 
 ***
 
-#### Min
+### Min
 
 ```C#
-const Min: Int
+const Min: Int;
 ```
 
-##### Brief
+#### Brief
 The minimum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
-const Max: Int
+const Max: Int;
 ```
 
-##### Brief
+#### Brief
 The maximum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
-##### Brief
+#### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
-##### Brief
+#### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 
 ***
 
-#### MaxDigitsLow
+### MaxDigitsLow
 
 ```C#
-const MaxDigitsLow
+const MaxDigitsLow;
 ```
 
-##### Brief
+#### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, you can have MaxDigitsLow digits that go though values 0-9.
+In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
 
 ***
 
-#### MaxDigitsHigh
+### MaxDigitsHigh
 
 ```C#
-const MaxDigitsHigh
+const MaxDigitsHigh;
 ```
 
-##### Brief
+#### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
-In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
 
@@ -300,5 +313,6 @@ Should not be used for buffer sizes.
 
 [sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

@@ -40,14 +40,18 @@ class Small {
 	property Round: Small {
 		return this;
 	}
-
-	def Clamp(min: Small, max: Small); Intrinsic.Clamp;
 	
-	func Clamped(min: Small, max: Small): Small; Intrinsic.Clamped;
+	property Trunc: Int {
+		return this;
+	}
+
+	def Clamp(min: Small, max: Small) = Intrinsic.Clamp;
+	
+	func Clamped(min: Small, max: Small): Small = Intrinsic.Clamped;
 
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = Small{ConvertUtf8.ParseSig<Int>(s)};
 	}
 
@@ -96,7 +100,7 @@ class Small {
 	}
 
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
 	}
 	

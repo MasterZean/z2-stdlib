@@ -1,5 +1,5 @@
 UsingFail.z2(11, 17): error:
-	class 'EmptyDummy' is ambigous. The following matching classes are avaible in the assembly: 
+	class 'EmptyDummy' is ambigous. The following matching classes are available in the assembly: 
 	org.z2legacy.ut.compa.EmptyDummy
 	org.z2legacy.ut.compa.compb.EmptyDummy
 	org.z2legacy.ut.using.EmptyDummy

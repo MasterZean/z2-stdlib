@@ -27,7 +27,10 @@ class CallPassFoo03 {
 	
 	def @main() {
 		val a = Foo{};
+		const b = Foo{};
+		
 		test(Foo{});
 		test(a);
+		test(b);
 	}
 }

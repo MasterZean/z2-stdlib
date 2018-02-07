@@ -1,0 +1,30 @@
+namespace org.z2legacy.ut.color;
+
+using sys.core.ColorRGBA;
+
+class PassColor01 {
+	def @main() {
+		val a = ColorRGBA{};
+		System.Out << a << "\n";
+		
+		val b = ColorRGBA{0};
+		System.Out << (a == b) << "\n";
+		
+		a.A = 0;
+		System.Out << (a == b) << "\n";
+		
+		a = ColorRGBA{-2};
+		b = ColorRGBA{254};
+		System.Out << (a == b) << "\n";
+		
+		b = ColorRGBA{254u};
+		System.Out << (a == b) << "\n";
+		
+		a = ColorRGBA{127};
+		b = ColorRGBA{0.5};
+		System.Out << a << "\n";
+		System.Out << b << "\n";
+		b = ColorRGBA{0.5f};
+		System.Out << b << "\n";
+	}
+}

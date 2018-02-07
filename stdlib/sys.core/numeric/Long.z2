@@ -41,12 +41,16 @@ class Long {
 		return this;
 	}
 	
-	def Clamp(min: Long, max: Long); Intrinsic.Clamp;
+	property Trunc: Long {
+		return this;
+	}
 	
-	func Clamped(min: Long, max: Long): Long; Intrinsic.Clamped;
+	def Clamp(min: Long, max: Long) = Intrinsic.Clamp;
+	
+	func Clamped(min: Long, max: Long): Long = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = ConvertUtf8.ParseSig<Long>(s);
 	}
 	
@@ -77,7 +81,7 @@ class Long {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this = ConvertUtf8.ParseSigSaturated<Long>(s);
 	}
 

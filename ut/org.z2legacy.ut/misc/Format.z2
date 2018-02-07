@@ -1,0 +1,136 @@
+namespace org.z2legacy.ut;
+
+using sys.core.OutputFormat;
+
+class FormatTest {
+    def @main() {
+        val f1r = OutputFormat{} {
+            Width = 7;
+        };
+        
+        val f1l = OutputFormat{} {
+            Width = 7;
+            Align = sys.core.LineAlignment.Left
+        };
+        
+        val f1c = OutputFormat{} {
+            Width = 7;
+            Align = sys.core.LineAlignment.Center
+        };
+        
+        val f2r = OutputFormat{} {
+            Width = 7;
+            Fill = '*';
+        };
+        
+        val f2l = OutputFormat{} {
+            Width = 7;
+            Fill = '*';
+            Align = sys.core.LineAlignment.Left
+        };
+        
+        val f2c = OutputFormat{} {
+            Width = 7;
+            Fill = '*';
+            Align = sys.core.LineAlignment.Center
+        };
+        
+        val f3r = OutputFormat{} {
+            Width = 8;
+            Fill = 'ᾈ';
+        };
+        
+        val f3l = OutputFormat{} {
+            Width = 8;
+            Fill = 'ᾈ';
+            Align = sys.core.LineAlignment.Left
+        };
+        
+        val f3c = OutputFormat{} {
+            Width = 8;
+            Fill = 'ᾈ';
+            Align = sys.core.LineAlignment.Center
+        };
+        
+        val f4r = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Right
+        };
+        
+        val f4l = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Left
+        };
+        
+        val f4c = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Center
+        };
+        
+        val f5r = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Right;
+            ForceSign = true;
+        };
+        
+        val f5l = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Left;
+            ForceSign = true;
+        };
+        
+        val f5c = OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ᾈ';
+            FillAfter = 'ş';
+            Align = sys.core.LineAlignment.Center;
+            ForceSign = true;
+        };
+        
+        System.Out.Write(Byte{7}, f1r) << "\n";
+        System.Out.Write(Byte{7}, f1c) << "\n";
+        System.Out.Write(Byte{7}, f1l) << "\n";
+        
+        System.Out.Write(Byte{7}, f2r) << "\n";
+        System.Out.Write(Byte{7}, f2c) << "\n";
+        System.Out.Write(Byte{7}, f2l) << "\n";
+        
+        System.Out.Write(Byte{78}, f1r) << "\n";
+        System.Out.Write(Byte{78}, f1c) << "\n";
+        System.Out.Write(Byte{78}, f1l) << "\n";
+        
+        System.Out.Write(Byte{78}, f2r) << "\n";
+        System.Out.Write(Byte{78}, f2c) << "\n";
+        System.Out.Write(Byte{78}, f2l) << "\n";
+        
+        System.Out.Write(Byte{7}, f3r) << "\n";
+        System.Out.Write(Byte{7}, f3c) << "\n";
+        System.Out.Write(Byte{7}, f3l) << "\n";
+        
+        System.Out.Write(Byte{12}, f4r) << "\n";
+        System.Out.Write(Byte{12}, f4c) << "\n";
+        System.Out.Write(Byte{12}, f4l) << "\n";
+        
+        System.Out.Write(Byte{12}, f5r) << "\n";
+        System.Out.Write(Byte{12}, f5c) << "\n";
+        System.Out.Write(Byte{12}, f5l) << "\n";
+        
+        System.Out.Write(12, OutputFormat{} {
+            Width = 9;
+            FillBefore = 'ş';
+            FillAfter = 'ᾈ';
+            Align = sys.core.LineAlignment.Center;
+            ForceSign = true;
+        }) << "\n";
+    }
+}

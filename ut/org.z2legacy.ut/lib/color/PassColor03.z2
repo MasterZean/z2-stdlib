@@ -1,0 +1,28 @@
+namespace org.z2legacy.ut.color;
+
+using sys.core.ColorRGBA;
+using sys.core.OutputFormat;
+
+class PassColor03 {
+	def @main() {
+		val hex = OutputFormat{} {
+            Base = 16;
+        };
+        
+		val a = ColorRGBA{0x11, 0x22, 0x33, 0x44};
+		
+		System.Out.Write(a.ToRGBA(), hex) << "\n";
+		System.Out.Write(a.ToABGR(), hex) << "\n";
+		System.Out.Write(a.ToBGRA(), hex) << "\n";
+		System.Out.Write(a.ToARGB(), hex) << "\n";
+		
+		val b = ColorRGBA.FromRGBA{0x44332211};
+		System.Out << (a == b) << "\n";
+		b = ColorRGBA.FromABGR{0x11223344};
+		System.Out << (a == b) << "\n";
+		b = ColorRGBA.FromBGRA{0x44112233};
+		System.Out << (a == b) << "\n";
+		b = ColorRGBA.FromARGB{0x33221144};
+		System.Out << (a == b) << "\n";
+	}
+}

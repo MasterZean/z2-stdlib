@@ -43,9 +43,9 @@ class PtrSize {
 		return this;
 	}
 	
-	def Clamp(min: PtrSize, max: PtrSize); Intrinsic.Clamp;
+	def Clamp(min: PtrSize, max: PtrSize) = Intrinsic.Clamp;
 	
-	func Clamped(min: PtrSize, max: PtrSize): PtrSize; Intrinsic.Clamped;
+	func Clamped(min: PtrSize, max: PtrSize): PtrSize = Intrinsic.Clamped;
 
 	func @write(ref stream: Stream) {
 		if (Compiler.Bits == 32) {

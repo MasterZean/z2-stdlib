@@ -1,0 +1,85 @@
+namespace sys.core;
+
+using Stream;
+
+class MemoryStream: Stream {
+	this() {
+		Capacity = 128;
+	}
+	
+	override def BinPutImpl(ref data: ReadSlice<const Byte>) {
+		Grow(capacity + data.Length);
+		Intrinsic.MemCopy(ptr, data.SysDataPointer, data.Length);
+		ptr = ptr + data.Length;
+	}
+	
+	property Capacity: PtrSize
+	get {
+		return capacity;
+	}
+	set (value) {
+		System.Trace.Assert(value >= capacity);
+
+		val temp = Intrinsic.Max(value, 2p);
+		if (temp == capacity)
+			return;
+
+        capacity = value;
+        
+        val back = data;
+        
+        val length = 0p;
+        
+        if (back != null)
+            length = ptr - back;
+        
+		data = data.Clone(capacity, length);
+		
+		back.Free();
+		
+		wrlim = data + capacity;
+		ptr = data + length;
+	}
+	
+	def Move(ref s: String) {
+		if (data == null)
+			s = "";
+		else {
+			s = String.TakeOwnership{data, ptr - data};
+		
+			data = null;
+			capacity = 0;
+			wrlim = null;
+			ptr = null;
+		}
+	}
+	
+	def GetString(): String {
+		val s = "";
+		Move(s);
+		return s;
+	}
+	
+	def CopyString(): String {
+		if (data != null)
+			return String{data, ptr - data};
+		else
+			return "";
+	}
+}
+private {
+	val data: Ptr<Byte>;
+	val capacity: PtrSize;
+	
+	def Grow() {
+		val newCap = Intrinsic.Max(capacity * 2, 2p);
+		Capacity = newCap;
+	}
+	
+	def Grow(newLen: PtrSize) {
+		val newCap = Intrinsic.Max(capacity * 2, 2p);
+		if (newCap < newLen)
+			newCap = newLen;
+		Capacity = newCap;
+	}
+}

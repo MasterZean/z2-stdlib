@@ -29,7 +29,7 @@ class Pass04Add {
 		p << [2, 7] << CArray[1, 8];
 		System.Out << p << "\n";
 		
-		p.SortDec();
+		p.SortDesc();
 		System.Out << p << "\n";
 	}
 }

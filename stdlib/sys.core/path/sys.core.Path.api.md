@@ -1,209 +1,209 @@
-Methods
----
+# class *Path* from sys.core
 
-#### GetFolder
 
-```C#
-static def GetFolder(path: String)
-```
+## Methods
 
-##### Brief
-
-###### param path
-
-###### returns
-
-***
-
-#### GetFolderNoSep
+### GetFolder
 
 ```C#
-static def GetFolderNoSep(path: String)
+static def GetFolder(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetName
+### GetFolderNoSep
 
 ```C#
-static def GetName(path: String)
+static def GetFolderNoSep(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetNameIndex
+### GetName
 
 ```C#
-static def GetNameIndex(path: String)
+static def GetName(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetTitle
+### GetNameIndex
 
 ```C#
-static def GetTitle(path: String)
+static def GetNameIndex(path: String): PtrSize;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetTitleIndex
+### GetTitle
 
 ```C#
-static def GetTitleIndex(path: String)
+static def GetTitle(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetExtension
+### GetTitleIndex
 
 ```C#
-static def GetExtension(path: String)
+static def GetTitleIndex(path: String): PtrSize;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetExtensionIndex
+### GetExtension
 
 ```C#
-static def GetExtensionIndex(path: String)
+static def GetExtension(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### GetParent
+### GetExtensionIndex
 
 ```C#
-static def GetParent(path: String)
+static def GetExtensionIndex(path: String): PtrSize;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-#### IsRoot
+### GetParent
 
 ```C#
-static def IsRoot(path: String)
+static def GetParent(path: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param path
-
-###### returns
-
+#### Parameters
+> *path* =>   
+#### Returns
+> 
 ***
 
-Properties
----
+### IsRoot
 
-#### CurrentFolder
+```C#
+static def IsRoot(path: String): Bool;
+```
+
+#### Brief
+
+#### Parameters
+> *path* =>   
+#### Returns
+> 
+***
+
+## Properties
+
+### CurrentFolder
 
 ```C#
 property CurrentFolder: String
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### ExeFileName
+### ExeFileName
 
 ```C#
 property ExeFileName: String; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-Constants
----
+## Constants
 
-#### DirSep
+### DirSep
 
 ```C#
-const DirSep
+const DirSep;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### IgnoreCase
+### IgnoreCase
 
 ```C#
-const IgnoreCase
+const IgnoreCase;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### DirSepWin
+### DirSepWin
 
 ```C#
-const DirSepWin
+const DirSepWin;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### DirSepUnix
+### DirSepUnix
 
 ```C#
-const DirSepUnix
+const DirSepUnix;
 ```
 
-##### Brief
+#### Brief
 
 ***
 

@@ -1,243 +1,237 @@
-Constructors
----
+# class *DynamicBlock* from sys.core
 
-#### this
+
+## Constructors
+
+### this
 
 ```C#
-this{a: PtrSize}
-this{copy: DynamicBlock<T>}
-this{move copy: DynamicBlock<T>}
+this{a: PtrSize};
+this{copy: DynamicBlock<T>};
+this{move copy: DynamicBlock<T>};
 ```
 
-##### Brief
+#### Brief
 
-###### param a
+#### Parameters
+> *a* =>   
+> *copy* =>   
+***
 
-###### param copy
+### @allocate
+
+```C#
+this @allocate{len: PtrSize, capacity: PtrSize};
+```
+
+#### Brief
+
+#### Parameters
+> *len* =>   
+> *capacity* =>   
+***
+
+## Methods
+
+### @attr
+
+```C#
+def @attr(copy: DynamicBlock<T>);
+def @attr(move copy: DynamicBlock<T>);
+```
+
+#### Brief
+
+#### Parameters
+> *copy* =>   
+***
+
+### ExpandTo
+
+```C#
+def ExpandTo(value: PtrSize);
+def ExpandTo(newLength: PtrSize, init: T);
+```
+
+#### Brief
+
+#### Parameters
+> *value* =>   
+> *newLength* =>   
+> *init* =>   
+***
+
+### ExpandBy
+
+```C#
+def ExpandBy(delta: PtrSize);
+def ExpandBy(delta: PtrSize, init: T);
+```
+
+#### Brief
+
+#### Parameters
+> *delta* =>   
+> *init* =>   
+***
+
+### ShrinkTo
+
+```C#
+def ShrinkTo(newLength: PtrSize);
+```
+
+#### Brief
+
+#### Parameters
+> *newLength* =>   
+***
+
+### ShrinkBy
+
+```C#
+def ShrinkBy(delta: PtrSize);
+```
+
+#### Brief
+
+#### Parameters
+> *delta* =>   
+***
+
+### Fill
+
+```C#
+def Fill(value: T);
+```
+
+#### Brief
+
+#### Parameters
+> *value* =>   
+***
+
+### Clear
+
+```C#
+def Clear();
+```
+
+#### Brief
 
 ***
 
-#### @allocate
+### Append
 
 ```C#
-this @allocate{len: PtrSize, capacity: PtrSize}
+def Append(item: T);
+def Append(item: T, count: PtrSize);
 ```
 
-##### Brief
+#### Brief
 
-###### param len
-
-###### param capacity
-
+#### Parameters
+> *item* =>   
+> *count* =>   
 ***
 
-Methods
----
-
-#### @attr
+### SetLengthUnsafe
 
 ```C#
-def @attr(copy: DynamicBlock<T>)
-def @attr(move copy: DynamicBlock<T>)
+def SetLengthUnsafe(value: PtrSize);
 ```
 
-##### Brief
+#### Brief
 
-###### param copy
-
+#### Parameters
+> *value* =>   
 ***
 
-#### ExpandTo
+### ExpandUnsafe
 
 ```C#
-def ExpandTo(value: PtrSize)
-def ExpandTo(newLength: PtrSize, init: T)
+def ExpandUnsafe(value: PtrSize);
 ```
 
-##### Brief
+#### Brief
 
-###### param value
-
-###### param newLength
-
-###### param init
-
+#### Parameters
+> *value* =>   
 ***
 
-#### ExpandBy
+### ShrinkUnsafe
 
 ```C#
-def ExpandBy(delta: PtrSize)
-def ExpandBy(delta: PtrSize, init: T)
+def ShrinkUnsafe(value: PtrSize);
 ```
 
-##### Brief
+#### Brief
 
-###### param delta
-
-###### param init
-
+#### Parameters
+> *value* =>   
 ***
 
-#### ShrinkTo
+### FreeUnsafe
 
 ```C#
-def ShrinkTo(newLength: PtrSize)
+def FreeUnsafe(len: PtrSize);
 ```
 
-##### Brief
+#### Brief
 
-###### param newLength
-
+#### Parameters
+> *len* =>   
 ***
 
-#### ShrinkBy
+## Properties
 
-```C#
-def ShrinkBy(delta: PtrSize)
-```
-
-##### Brief
-
-###### param delta
-
-***
-
-#### Fill
-
-```C#
-def Fill(value: T)
-```
-
-##### Brief
-
-###### param value
-
-***
-
-#### Clear
-
-```C#
-def Clear()
-```
-
-##### Brief
-
-***
-
-#### Append
-
-```C#
-def Append(item: T)
-def Append(item: T, count: PtrSize)
-```
-
-##### Brief
-
-###### param item
-
-###### param count
-
-***
-
-#### SetLengthUnsafe
-
-```C#
-def SetLengthUnsafe(value: PtrSize)
-```
-
-##### Brief
-
-###### param value
-
-***
-
-#### ExpandUnsafe
-
-```C#
-def ExpandUnsafe(value: PtrSize)
-```
-
-##### Brief
-
-###### param value
-
-***
-
-#### ShrinkUnsafe
-
-```C#
-def ShrinkUnsafe(value: PtrSize)
-```
-
-##### Brief
-
-###### param value
-
-***
-
-#### FreeUnsafe
-
-```C#
-def FreeUnsafe(len: PtrSize)
-```
-
-##### Brief
-
-###### param len
-
-***
-
-Properties
----
-
-#### @index
+### @index
 
 ```C#
 property @index: ref T; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Length
+### Length
 
 ```C#
 property Length: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### IsEmpty
+### IsEmpty
 
 ```C#
 property IsEmpty: Bool; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Capacity
+### Capacity
 
 ```C#
 property Capacity: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SysDataPointer
+### SysDataPointer
 
 ```C#
 property SysDataPointer: Ptr<T>; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 

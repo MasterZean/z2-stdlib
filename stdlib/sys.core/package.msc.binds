@@ -1,0 +1,24 @@
+_rotr8:
+extern "C" uint8 _rotr8(uint8 value, uint8 shift);
+_rotr16:
+extern "C" uint16 _rotr16(uint16 value, uint8 shift);
+_rotl8:
+extern "C" uint8 _rotl8(uint8 value, uint8 shift);
+_rotl16:
+extern "C" uint16 _rotl16(uint16 value, uint8 shift);
+_rotl:
+extern "C" uint32 __cdecl _rotl(uint32 _Val, int32 _Shift);
+#pragma intrinsic(_rotl)
+_rotl64:
+extern "C" uint64 __cdecl _rotl64(uint64 _Val, int32 _Shift);
+#pragma intrinsic(_rotl64)
+_rotr:
+extern "C" uint32 __cdecl _rotr(uint32 _Val, int32 _Shift);
+#pragma intrinsic(_rotr)
+_rotr64:
+extern "C" uint64 __cdecl _rotr64(uint64 _Val, int32 _Shift);
+#pragma intrinsic(_rotr64)
+
+
+
+

@@ -1,0 +1,27 @@
+namespace org.z2legacy.ut;
+
+using sys.core.MemoryStream;
+
+class TestMemoryStream {
+	def @main() {
+		val m = MemoryStream{};
+		m << "Hello";
+		m << " worl";
+		m << 'd';
+		m.RawPutU8(33u);
+		
+		System.Out << "String: " << m.CopyString() << "\n";
+		System.Out << "String: " << m.CopyString() << "\n";
+		System.Out << "String: " << m.GetString() << "\n";
+		System.Out << "String: " << m.GetString() << "\n";
+		
+		m << "Hello" << ' ' << "world" << "!";
+		
+		val s = "";
+		
+		m.Move(s);
+		System.Out << "String: " << s << "\n";
+		m.Move(s);
+		System.Out << "String: " << s << "\n";
+	}
+}

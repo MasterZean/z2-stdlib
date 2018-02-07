@@ -1,6 +1,7 @@
 namespace sys.core.lang;
 
 using sys.core.Stream;
+using sys.core.Math;
 using sys.core.OutputFormat;
 using sys.core.ConvertUtf8;
 
@@ -39,25 +40,42 @@ class Double {
 		return this * this;
 	}
 
-	property Sqrt: Double get const Intrinsic.Sqrt;
+	property Sqrt: Double get = Math.Sqrt;
 
-	property Floor: Double get const Intrinsic.Floor;
-
-	property Ceil: Double get const Intrinsic.Ceil;
-
-	property Round: Double get const Intrinsic.Round;
-
-	def Clamp(min: Double, max: Double); Intrinsic.Clamp;
+	property Floor: Double get = Math.Floor;
 	
-	func Clamped(min: Double, max: Double): Double; Intrinsic.Clamped;
+	property Ceil: Double get = Math.Ceil;
+	
+	property Round: Double get = Math.Round;
+	
+	property Trunc: Double get = Math.Trunc;
+
+	def Clamp(min: Double, max: Double) = Intrinsic.Clamp;
+	func Clamped(min: Double, max: Double): Double = Intrinsic.Clamped;
 
 #region Math
 
-	property Log: Double get const Intrinsic.Log;
+	property Sin  : Double get = Math.Sin;
+	property Cos  : Double get = Math.Cos;
+	property Tan  : Double get = Math.Tan;
+	
+	property Sinh : Double get = Math.Sinh;
+	property Cosh : Double get = Math.Cosh;
+	property Tanh : Double get = Math.Tanh;
+	
+	property Asin : Double get = Math.Asin;
+	property Acos : Double get = Math.Acos;
+	property Atan : Double get = Math.Atan;
+	
+	property Asinh: Double get = Math.Asinh;
+	property Acosh: Double get = Math.Acosh;
+	property Atanh: Double get = Math.Atanh;
+	
+	property Log  : Double get = Math.Log;
+	property Log2 : Double get = Math.Log2;
+	property Log10: Double get = Math.Log10;
 
-	property Log10: Double get const Intrinsic.Log10;
-
-	func Pow(exp: Double): Double; Intrinsic.Pow;
+	func Pow(exp: Double): Double = Math.Pow;
 
 #endregion
 

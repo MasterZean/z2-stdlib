@@ -1,394 +1,358 @@
-Methods
----
+# class *ConvertUtf8* from sys.core
 
-#### IntAsText
+
+## Methods
+
+### IntAsText
 
 ```C#
-static func IntAsText(ref buffer: Slice<Byte>, data: Int)
-static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord)
+static func IntAsText(ref buffer: Slice<Byte>, data: Int);
+static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord);
 ```
 
-##### Brief
-Writes a `sys.core.lang.Int` to a buffer as an Utf8 text.
+#### Brief
+
+Writes a [Int][sys.core.lang.Int] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param data
-the value to write
-###### param base
-the base to use
+#### Parameters
+> *buffer* => the output buffer  
+> *data* => the value to write  
+> *base* => the base to use  
 ***
 
-#### LongAsText
+### LongAsText
 
 ```C#
-static func LongAsText(ref buffer: Slice<Byte>, data: Long)
-static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord)
+static func LongAsText(ref buffer: Slice<Byte>, data: Long);
+static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord);
 ```
 
-##### Brief
-Writes a `sys.core.lang.Long` to a buffer as an Utf8 text.
+#### Brief
+Writes a [Long][sys.core.lang.Long] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param data
-the value to write
-###### param base
-the base to use
+#### Parameters
+> *buffer* => the output buffer  
+> *data* => the value to write  
+> *base* => the base to use  
 ***
 
-#### ParseSig
-##### Brief
-Parses an Utf8 text buffer for a signed integer of type T.
-
-The buffer `Length` is updated to the number of code units parsed.
-
-***
-
-#### ParseSigSaturated
-##### Brief
-Parses an Utf8 text buffer for a signed integer of type T.
-
-The value is saturated if it not within the bounds of T.
-
-The buffer `Length` is updated to the number of code units parsed.
-
-***
-
-#### ParseUns
-##### Brief
-Parses an Utf8 text buffer for a unsigned integer of type T.
-
-The buffer `Length` is updated to the number of code units parsed.
-
-***
-
-#### ParseUnsSaturated
-##### Brief
-Parses an Utf8 text buffer for a unsigned integer of type T.
-
-The value is saturated if it not within the bounds of T.
-
-The buffer `Length` is updated to the number of code units parsed.
-
-***
-
-#### DWordAsText
+### DWordAsText
 
 ```C#
-static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord)
-static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord)
+static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord);
+static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord);
 ```
 
-##### Brief
-Writes a `sys.core.lang.DWord` to a buffer as an Utf8 text.
+#### Brief
+Writes a [DWord][sys.core.lang.DWord] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param value
-the value to write
-###### param base
-the base to use
+#### Parameters
+> *buffer* => the output buffer  
+> *value* => the value to write  
+> *base* => the base to use  
 ***
 
-#### QWordAsText
+### QWordAsText
 
 ```C#
-static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord)
-static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord)
+static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord);
+static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord);
 ```
 
-##### Brief
-Writes a `sys.core.lang.QWord` to a buffer as an Utf8 text.
+#### Brief
+Writes a [QWord][sys.core.lang.QWord] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param value
-the value to write
-###### param base
-the base to use
+#### Parameters
+> *buffer* => the output buffer  
+> *value* => the value to write  
+> *base* => the base to use  
 ***
 
-#### FloatAsText
+### FloatAsText
 
 ```C#
-static func FloatAsText(ref buffer: Slice<Byte>, data: Float)
+static func FloatAsText(ref buffer: Slice<Byte>, data: Float);
 ```
 
-##### Brief
-Writes a `sys.core.lang.Float` to a buffer as an Utf8 text.
+#### Brief
+Writes a [Float][sys.core.lang.Float] to a buffer as an Utf8 text.
 
 Will use exponenet notation for large values.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param data
-the value to write
+#### Parameters
+> *buffer* => the output buffer  
+> *data* => the value to write  
 ***
 
-#### DoubleAsText
+### DoubleAsText
 
 ```C#
-static func DoubleAsText(ref buffer: Slice<Byte>, data: Double)
+static func DoubleAsText(ref buffer: Slice<Byte>, data: Double);
 ```
 
-##### Brief
-Writes a `sys.core.lang.Float` to a buffer as an Utf8 text.
+#### Brief
+Writes a [Double][sys.core.lang.Double] to a buffer as an Utf8 text.
 
 Will use exponenet notation for large values.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param data
-the value to write
+#### Parameters
+> *buffer* => the output buffer  
+> *data* => the value to write  
 ***
 
-#### CharAsText
+### CharAsText
 
 ```C#
-static func CharAsText(ref buffer: Slice<Byte>, data: Char)
+static func CharAsText(ref buffer: Slice<Byte>, data: Char);
 ```
 
-##### Brief
-Writes a `sys.core.lang.Char` to a buffer as an Utf8 text.
+#### Brief
+Writes a [Char][sys.core.lang.Char] to a buffer as an Utf8 text.
 
 The buffer `Length` is updated to the number of code units written.
 
-###### param buffer
-the output buffer
-###### param data
-the value to write
+#### Parameters
+> *buffer* => the output buffer  
+> *data* => the value to write  
 ***
 
-#### FromUtf16
+### FromUtf16
 
 ```C#
-static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>)
+static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>);
 ```
 
-##### Brief
+#### Brief
 Converts a source Utf16 buffer to a destination Utf8 buffer.
 
-###### param dest
-the destination buffer
-###### param src
-the source buffer
+#### Parameters
+> *dest* => the destination buffer  
+> *src* => the source buffer  
 ***
 
-#### FromUtf32
+### FromUtf32
 
 ```C#
-static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>)
+static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>);
 ```
 
-##### Brief
+#### Brief
 Converts a source Utf32 buffer to a destination Utf8 buffer.
 
-###### param dest
-the destination buffer
-###### param src
-the source buffer
+#### Parameters
+> *dest* => the destination buffer  
+> *src* => the source buffer  
 ***
 
-Constants
----
+## Constants
 
-#### MaxSmallBuffer
+### MaxSmallBuffer
 
 ```C#
-const MaxSmallBuffer
+const MaxSmallBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Small` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Small][sys.core.lang.Small] value.
 
 ***
 
-#### MaxShortBuffer
+### MaxShortBuffer
 
 ```C#
-const MaxShortBuffer
+const MaxShortBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Short` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Short][sys.core.lang.Short] value.
 
 ***
 
-#### MaxIntBuffer
+### MaxIntBuffer
 
 ```C#
-const MaxIntBuffer
+const MaxIntBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Int` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Int][sys.core.lang.Int] value.
 
 ***
 
-#### MaxLongBuffer
+### MaxLongBuffer
 
 ```C#
-const MaxLongBuffer
+const MaxLongBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Long` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Long][sys.core.lang.Long] value.
 
 ***
 
-#### MaxByteBuffer
+### MaxByteBuffer
 
 ```C#
-const MaxByteBuffer
+const MaxByteBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Byte` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Byte][sys.core.lang.Byte] value.
 
 ***
 
-#### MaxWordBuffer
+### MaxWordBuffer
 
 ```C#
-const MaxWordBuffer
+const MaxWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.Word` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [Word][sys.core.lang.Word] value.
 
 ***
 
-#### MaxDWordBuffer
+### MaxDWordBuffer
 
 ```C#
-const MaxDWordBuffer
+const MaxDWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.DWord` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [DWord][sys.core.lang.DWord] value.
 
 ***
 
-#### MaxQWordBuffer
+### MaxQWordBuffer
 
 ```C#
-const MaxQWordBuffer
+const MaxQWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the textual form of a `sys.core.lang.QWord` value.
+#### Brief
+The maximum required Utf8 buffer size to store the textual form of a [QWord][sys.core.lang.QWord] value.
 
 ***
 
-#### MaxBinSmallBuffer
+### MaxBinSmallBuffer
 
 ```C#
-const MaxBinSmallBuffer
+const MaxBinSmallBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Small` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Small][sys.core.lang.Small] value.
 
 ***
 
-#### MaxBinShortBuffer
+### MaxBinShortBuffer
 
 ```C#
-const MaxBinShortBuffer
+const MaxBinShortBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Short` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Short][sys.core.lang.Short] value.
 
 ***
 
-#### MaxBinIntBuffer
+### MaxBinIntBuffer
 
 ```C#
-const MaxBinIntBuffer
+const MaxBinIntBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Int` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Int][sys.core.lang.Int] value.
 
 ***
 
-#### MaxBinLongBuffer
+### MaxBinLongBuffer
 
 ```C#
-const MaxBinLongBuffer
+const MaxBinLongBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Long` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Long][sys.core.lang.Long] value.
 
 ***
 
-#### MaxBinByteBuffer
+### MaxBinByteBuffer
 
 ```C#
-const MaxBinByteBuffer
+const MaxBinByteBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Byte` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Byte][sys.core.lang.Byte] value.
 
 ***
 
-#### MaxBinWordBuffer
+### MaxBinWordBuffer
 
 ```C#
-const MaxBinWordBuffer
+const MaxBinWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Word` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Word][sys.core.lang.Word] value.
 
 ***
 
-#### MaxBinDWordBuffer
+### MaxBinDWordBuffer
 
 ```C#
-const MaxBinDWordBuffer
+const MaxBinDWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.DWord` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [DWord][sys.core.lang.DWord] value.
 
 ***
 
-#### MaxBinQWordBuffer
+### MaxBinQWordBuffer
 
 ```C#
-const MaxBinQWordBuffer
+const MaxBinQWordBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.QWord` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [QWord][sys.core.lang.QWord] value.
 
 ***
 
-#### MaxCharBuffer
+### MaxCharBuffer
 
 ```C#
-const MaxCharBuffer
+const MaxCharBuffer;
 ```
 
-##### Brief
-The maximum required Utf8 buffer size to store the base 2 textual form of a `sys.core.lang.Char` value.
+#### Brief
+The maximum required Utf8 buffer size to store the base 2 textual form of a [Char][sys.core.lang.Char] value.
 
 ***
 
+[sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"
+[sys.core.lang.Long]: sys.core.lang.Long.api.md "sys.core.lang.Long"
+[sys.core.lang.DWord]: sys.core.lang.DWord.api.md "sys.core.lang.DWord"
+[sys.core.lang.QWord]: sys.core.lang.QWord.api.md "sys.core.lang.QWord"
+[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
+[sys.core.lang.Double]: sys.core.lang.Double.api.md "sys.core.lang.Double"
+[sys.core.lang.Char]: sys.core.lang.Char.api.md "sys.core.lang.Char"
+[sys.core.lang.Small]: sys.core.lang.Small.api.md "sys.core.lang.Small"
+[sys.core.lang.Short]: sys.core.lang.Short.api.md "sys.core.lang.Short"
+[sys.core.lang.Byte]: sys.core.lang.Byte.api.md "sys.core.lang.Byte"
+[sys.core.lang.Word]: sys.core.lang.Word.api.md "sys.core.lang.Word"

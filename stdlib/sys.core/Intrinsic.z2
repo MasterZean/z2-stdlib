@@ -29,36 +29,13 @@ class Intrinsic {
 			a = max;
 	}
 
-	static def Rol8(value: Int, bits: DWord): Byte; intrinsic;
-	static def Rol8(value: DWord, bits: DWord): Byte; intrinsic;
-
-	static def Ror8(value: Int, bits: DWord): Byte; intrinsic;
-	static def Ror8(value: DWord, bits: DWord): Byte; intrinsic;
-
-	static def Rol16(value: Int, bits: DWord): Word; intrinsic;
-	static def Rol16(value: DWord, bits: DWord): Word; intrinsic;
-
-	static def Ror16(value: Int, bits: DWord): Word; intrinsic;
-	static def Ror16(value: DWord, bits: DWord): Word; intrinsic;
-
-	static def Rol32(value: Int, bits: DWord): DWord; intrinsic;
-	static def Rol32(value: DWord, bits: DWord): DWord; intrinsic;
-
-	static def Ror32(value: Int, bits: DWord): DWord; intrinsic;
-	static def Ror32(value: DWord, bits: DWord): DWord; intrinsic;
-
-	static def Rol64(value: Long, bits: DWord): QWord; intrinsic;
-	static def Rol64(value: QWord, bits: DWord): QWord; intrinsic;
-
-	static def Ror64(value: Long, bits: DWord): QWord; intrinsic;
-	static def Ror64(value: QWord, bits: DWord): QWord; intrinsic;
-
-	static def Pow(base: Double, exponenet: Double): Double; intrinsic;
-	static def Log(value: Double): Double; intrinsic;
-	static def Sqrt(value: Double): Double; intrinsic;
-
-	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize); intrinsic;
-	static def CStrLen(source: Ptr<Byte>): PtrSize; intrinsic;
+	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) = bind.c.string.memcpy;
+	static def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
 	
-	static def CpuID(ref cpu: CArray<Int>, val level: Int); intrinsic;
+	static def CpuID(ref cpu: CArray<Int>, val level: Int) {
+		cpuid(cpu.SysDataPointer, level);
+	}
+}
+private {
+	@[bindc] static def cpuid(cpu: Ptr<Int>, level: Int);
 }

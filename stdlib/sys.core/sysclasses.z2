@@ -1,19 +1,17 @@
 namespace sys.core;
 
 class SystemDebug {
-	def Assert(test: Bool); Intrinsic.DebugAssert;
+	def Assert(test: Bool) = Intrinsic.DebugAssert;
+	def Assert(test: Bool, error: String) = Intrinsic.DebugAssert;
 
-	//def Assert(test: Bool, error: String); Intrinsic.DebugAssert;
-
-	def Error(error: String); Intrinsic.Error;
+	def Error(error: String) = Intrinsic.Error;
 }
 
 class SystemTrace {
-	def Assert(test: Bool); Intrinsic.TraceAssert;
+	def Assert(test: Bool) = Intrinsic.TraceAssert;
+	def Assert(test: Bool, error: String) = Intrinsic.TraceAssert;
 
-	//def Assert(test: Bool, error: String); Intrinsic.TraceAssert;
-
-	def Error(error: String); Intrinsic.Error;
+	def Error(error: String) = Intrinsic.Error;
 }
 
 class SystemCPU {

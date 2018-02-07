@@ -86,7 +86,7 @@ class DynamicBlock<T: Class> {
 #endregion
 
 	property @index: ref T
-	get [index: PtrSize] const {
+	get const [index: PtrSize] {
 		System.Debug.Assert(index < length);
 		return data[index];
 	}

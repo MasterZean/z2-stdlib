@@ -1,0 +1,5 @@
+log2:
+inline double log2(double n) {
+    return log(n) / log(2.0);
+}
+  

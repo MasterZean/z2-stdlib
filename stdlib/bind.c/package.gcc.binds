@@ -1,0 +1,11 @@
+memcpy:
+extern "C" void * __attribute__((__cdecl__)) memcpy(void * __restrict__ _Dst, const void * __restrict__ _Src, size_t _Size);
+memmove:
+extern "C" void *__attribute__((__cdecl__)) memmove(void *_Dst, const void *_Src,size_t _Size);
+strcpy:
+extern "C" char * __attribute__((__cdecl__)) strcpy(char * __restrict__ _Dest, const char * __restrict__ _Source);
+strncpy:
+extern "C" char *strncpy(char * __restrict__ _Dest, const char * __restrict__ _Source, size_t _Count);
+strlen:
+extern "C" size_t __attribute__((__cdecl__)) strlen(uint8* _Str);
+

@@ -41,12 +41,16 @@ class QWord {
 		return this;
 	}
 
-	def Clamp(min: QWord, max: QWord); Intrinsic.Clamp;
+	property Trunc: QWord {
+		return this;
+	}
 	
-	func Clamped(min: QWord, max: QWord): QWord; Intrinsic.Clamped;
+	def Clamp(min: QWord, max: QWord) = Intrinsic.Clamp;
+	
+	func Clamped(min: QWord, max: QWord): QWord = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = ConvertUtf8.ParseUns<QWord>(s);
 	}
 	
@@ -73,7 +77,7 @@ class QWord {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this = ConvertUtf8.ParseUnsSaturated<QWord>(s);
 	}
 	

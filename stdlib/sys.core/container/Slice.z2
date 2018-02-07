@@ -1,9 +1,11 @@
 namespace sys.core.lang;
 
-class Slice<T: Class> {
-	this(ref ppp: CArray<T>) {
-		ptr = ppp.SysDataPointer;
-		size = ppp.Length;
+class Slice<T: Class>: ReadSlice<T> {
+	this() = null;
+	
+	this(ref p: CArray<T>) {
+		ptr = p.SysDataPointer;
+		size = p.Length;
 	}
 	
 	this(ref p: CArray<T>, length: PtrSize) {
@@ -36,9 +38,19 @@ class Slice<T: Class> {
 		size = p.@size / T.@size;
 	}
 	
+	this(ref p: Small, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: Short) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Short, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
 	this(ref p: Byte) {
@@ -46,9 +58,19 @@ class Slice<T: Class> {
 		size = p.@size / T.@size;
 	}
 	
+	this(ref p: Byte, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: Word) {
 		ptr = Ptr<T>{p};
 		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Word, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
 	this(ref p: Int) {
@@ -111,6 +133,16 @@ class Slice<T: Class> {
 		size = Intrinsic.Min(p.@size / T.@size, length);
 	}
 	
+	this(ref p: Char) {
+		ptr = Ptr<T>{p};
+		size = p.@size / T.@size;
+	}
+	
+	this(ref p: Char, length: PtrSize) {
+		ptr = Ptr<T>{p};
+		size = Intrinsic.Min(p.@size / T.@size, length);
+	}
+	
 	this(ref p: String) {
 		ptr = p.SysDataPointer;
 		size = p.Length;
@@ -124,29 +156,6 @@ class Slice<T: Class> {
 	this(p: Slice<Byte>, offset: PtrSize, length: PtrSize) {
 		ptr = p.SysDataPointer + offset;
 		size = length;
-	}
-	
-	property Length: PtrSize
-	get const {
-		return size;
-	}
-	set (value) {
-		size = value;
-	}
-	
-	property @index: T
-	get [index: PtrSize] const {
-		System.Debug.Assert(index < size);
-		return ptr[index];
-	}
-	set (byte)[index: PtrSize] {
-		System.Debug.Assert(index < size);
-		ptr[index] = byte;
-	}
-	
-	property SysDataPointer: Ptr<T>
-	get {
-		return ptr;
 	}
 	
 	def Fill(value: T) {
@@ -170,170 +179,6 @@ class Slice<T: Class> {
 			if (subIndex >= items.Length)
 				subIndex = 0p;
 		}
-	}
-	
-	func FindIndex(item: T): PtrSize {
-		for (val i = 0p; i < size; i++)
-			if (ptr[i] == item)
-				return i;
-			
-		return PtrSize{-1};
-	}
-	
-	func FindIndex(item: T, start: PtrSize): PtrSize {
-		val s = Intrinsic.Min(start, size - 1);
-		
-		for (val i = s; i < size; i++)
-			if (ptr[i] == item)
-				return i;
-			
-		return PtrSize{-1};
-	}
-	
-	func FindIndex(b: CArray<T>): PtrSize {
-		for (val i = 0p; i < size; i++)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func FindIndex(b: Vector<T>): PtrSize {
-		for (val i = 0p; i < size; i++)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func FindIndex(b: CArray<T>, start: PtrSize): PtrSize {
-		val s = Intrinsic.Min(start, size - 1);
-		
-		for (val i = s; i < size; i++)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func FindIndex(b: Vector<T>, start: PtrSize): PtrSize {
-		val s = Intrinsic.Min(start, size - 1);
-		
-		for (val i = s; i < size; i++)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(item: T): PtrSize {
-		for (val i = size - 1; i != -1; i--)
-			if (ptr[i] == item)
-				return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(item: T, val start: PtrSize): PtrSize {
-		if (start == 0)
-			start = PtrSize{-1};
-		else if (start >= size)
-			start = size - 1;
-		
-		for (val i = size - 1; i != start; i--)
-			if (ptr[i] == item)
-				return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(b: CArray<T>): PtrSize {
-		for (val i = size - 1; i != -1; i--)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(b: Vector<T>): PtrSize {
-		for (val i = size - 1; i != -1; i--)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize {
-		if (start == 0)
-			start = PtrSize{-1};
-		else if (start >= size)
-			start = size - 1;
-		
-		for (val i = size - 1; i != start; i--)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize {
-		if (start == 0)
-			start = PtrSize{-1};
-		else if (start >= size)
-			start = size - 1;
-		
-		for (val i = size - 1; i != start; i--)
-			for (val j = 0p; j < b.Length; j++)
-				if (ptr[i] == b[j])
-					return i;
-		
-		return PtrSize{-1};
-	}
-	
-	func BinaryIndex(item: T): PtrSize {
-		val lowerBound = 0p;
-		val upperBound = size - 1;
-		
-		while (lowerBound <= upperBound) {
-			val midPoint = lowerBound + (upperBound - lowerBound) / 2;
-		
-			if (ptr[midPoint] == item)
-				return midPoint;
-			else if(ptr[midPoint] < item)
-				lowerBound = midPoint + 1;
-			else
-				upperBound = midPoint -1;
-		}
-		
-		return PtrSize{-1};
-	}
-	
-	func BinaryIndex(item: T, start: PtrSize): PtrSize {
-	    if (ptr[start] > item)
-	        return -1;
-	    
-		val lowerBound = start;
-		val upperBound = size - 1;
-		
-		while (lowerBound <= upperBound) {
-			val midPoint = lowerBound + (upperBound - lowerBound) / 2;
-		
-			if (ptr[midPoint] == item)
-				return midPoint;
-			else if (ptr[midPoint] < item)
-				lowerBound = midPoint + 1;
-			else
-				upperBound = midPoint -1;
-		}
-		
-		return -1;
 	}
 	
 	def Reverse() {
@@ -517,7 +362,7 @@ class Slice<T: Class> {
 		Sort(0, Int{size - 1});
 	}
 	
-	def SortDec(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		if (low >= high)
 			return;
 	
@@ -559,27 +404,15 @@ class Slice<T: Class> {
 		
 		Swap(ptr[i - 1], ptr[low]);
 	
-		SortDec(low, i - 2);
-		SortDec(i, high);
+		SortDesc(low, i - 2);
+		SortDesc(i, high);
 	}
 	
-	def SortDec() {
-		SortDec(0, Int{size - 1});
-	}
-	
-	func Sum(): T {
-		val sum: T = ptr[0];
-		
-		for (val i = 1p; i < Length; i++)
-			sum += ptr[i];
-		
-		return sum;
+	def SortDesc() {
+		SortDesc(0, Int{size - 1});
 	}
 }
 private {
-	val ptr: Ptr<T>;
-	val size: PtrSize;
-	
 	static def Swap(ref f: T, ref s: T) {
 		val temp = f;
 		f = s;

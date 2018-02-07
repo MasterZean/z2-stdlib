@@ -1,245 +1,238 @@
-Constructors
----
+# class *CArray* from sys.core.lang
 
-#### this
+
+## Constructors
+
+### this
 
 ```C#
-this{}
-this{item: T}
+this{};
+this{item: T};
 ```
 
-##### Brief
+#### Brief
+
 Creates a new static array, filling each element of the array.
 
 The elements of the array are either default constructed or copied over from the provided parameter.
 
-###### param item
-items will be copied from this value
+#### Parameters
+> *item* => items will be copied from this value  
 ***
 
-Methods
----
+## Methods
 
-#### Fill
+### Fill
 
 ```C#
-def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)
+def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);
 ```
 
-##### Brief
+#### Brief
 Copies over all the elements in the static array.
 
 If a single value is provided, all elements will be initialized with it.
 
 If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
 
-###### param value
-the value to fill with
-###### param items
-the array to use
+#### Parameters
+> *value* => the value to fill with  
+> *items* => the array to use  
 ***
 
-#### FindIndex
+### FindIndex
 
 ```C#
-def FindIndex(item: T)
-def FindIndex(item: T, start: PtrSize)
+def FindIndex(item: T): PtrSize;
+def FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
-##### Brief
-Searches for an item in the array and returns the first index at which it was found.
+#### Brief
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
 
-The search starts with index `0`/the `start` parameter.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
-
-###### param item
-the item to search for
-###### param start
-the start index for the search
-###### returns
-the index where the item was found
+#### Parameters
+> *item* => the item to search for  
+> *start* => the start index for the search  
+#### Returns
+> the index where the item was found
 ***
 
-#### BinaryIndex
+### BinaryIndex
 
 ```C#
-def BinaryIndex(item: T)
-def BinaryIndex(item: T, start: PtrSize)
+def BinaryIndex(item: T): PtrSize;
+def BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
-##### Brief
-Searches for an item in the array and returns the first index at which it was found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+#### Brief
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. 
 
-The search starts with index `0`/the `start` parameter.
+If the elements are not sorted, the result is unpredictable.
 
-Returns [-1][sys.core.lang.PtrSize] if the item was not found.
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
-###### param item
-the item to search for
-###### param start
-the start index for the search
-###### returns
-the index where the item was found
+#### Parameters
+> *item* => the item to search for  
+> *start* => the start index for the search  
+#### Returns
+> the index where the item was found
 ***
 
-#### Insert
+### Insert
 
 ```C#
-def Insert(pos: PtrSize, item: T)
+def Insert(pos: PtrSize, item: T);
 ```
 
-##### Brief
+#### Brief
 Inserts an item into the array at a given position.
 
 Since the array is static, it can not grow in size. Instead elements are pushed out of the array and destroyed.
 
-###### param pos
-the position to insert to
-###### param item
-the item to insert
+#### Parameters
+> *pos* => the position to insert to  
+> *item* => the item to insert  
 ***
 
-#### Delete
+### Delete
 
 ```C#
-def Delete(item: T)
+def Delete(item: T): PtrSize;
 ```
 
-##### Brief
+#### Brief
 Searches for the first occurrence of an item within the array and if found it removes it.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
-###### param item
-the item to delete
-###### returns
-the number of items deleted
+#### Parameters
+> *item* => the item to delete  
+#### Returns
+> the number of deleted items
 ***
 
-#### DeleteAll
+### DeleteAll
 
 ```C#
-def DeleteAll(item: T)
+def DeleteAll(item: T): PtrSize;
 ```
 
-##### Brief
-Searches for all the occurrences of an item within the array and if found removes the all.
+#### Brief
+Searches for all the occurrences of an item within the array and if found removes them all.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
-###### param item
-the item to delete
-###### returns
-the number of items deleted
+#### Parameters
+> *item* => the item to delete  
+#### Returns
+> the number of deleted items
 ***
 
-#### DeleteIndex
+### DeleteIndex
 
 ```C#
-def DeleteIndex(pos: PtrSize)
+def DeleteIndex(pos: PtrSize): PtrSize;
 ```
 
-##### Brief
+#### Brief
 Deletes an item at a given index from the array.
 
-Since the array is static, it can not shrink in size. Instead elements copied around and the free spaces are default constructed.
+Since the array is static, it can not shrink in size. Instead elements are copied around and the free spaces are default constructed.
 
-###### param pos
-the index to delete
-###### returns
-the number of items deleted
+#### Parameters
+> *pos* => the index to delete  
+#### Returns
+> the number of deleted items
 ***
 
-#### Reverse
+### Reverse
 
 ```C#
-def Reverse()
-def Reverse(start: PtrSize, end: PtrSize)
+def Reverse();
+def Reverse(start: PtrSize, end: PtrSize);
 ```
 
-##### Brief
-Reverses the content of the array, from beginning to end or between two input indices.
+#### Brief
+Reverses the contents of the array, from beginning to end or between two input indices.
 
-###### param start
-the start index
-###### param end
-the end index
+#### Parameters
+> *start* => the start index  
+> *end* => the end index  
 ***
 
-#### Sum
+### Sum
 
 ```C#
-def Sum()
+def Sum(): T;
 ```
 
-##### Brief
+#### Brief
 Returns the sum of all the items in the array.
 
-###### returns
-
+#### Returns
+> the sum
 ***
 
-#### Sort
+### Sort
 
 ```C#
-def Sort()
-def Sort(low: Int, high: Int)
+def Sort();
+def Sort(low: Int, high: Int);
 ```
 
-##### Brief
+#### Brief
 Sorts the content of the array in ascending order, from beginning to end or between two input indices.
 
-###### param low
-the start index
-###### param high
-the end index
+#### Parameters
+> *low* => the start index  
+> *high* => the end index  
 ***
 
-#### SortDescending
+### SortDesc
 
 ```C#
-def SortDescending()
-def SortDescending(low: Int, high: Int)
+def SortDesc();
+def SortDesc(low: Int, high: Int);
 ```
 
-##### Brief
+#### Brief
 Sorts the content of the array in descending order, from beginning to end or between two input indices.
 
-###### param low
-the start index
-###### param high
-the end index
+#### Parameters
+> *low* => the start index  
+> *high* => the end index  
 ***
 
-#### @write
+### @write
 
 ```C#
-func @write(ref stream: Stream)
+func @write(ref stream: Stream);
 ```
 
-##### Brief
+#### Brief
 Writes each element of the array to a stream as an Utf8 text.
 
 The item count is not included.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-Properties
----
+## Properties
 
-#### IsEmpty
+### IsEmpty
 
 ```C#
 property IsEmpty: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Returns `false` because the array is static and always has a non-zero length.
 
 ***
 
+[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

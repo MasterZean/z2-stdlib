@@ -1,6 +1,7 @@
 namespace sys.core.lang;
 
 using sys.core.Stream;
+using sys.core.Math;
 using sys.core.OutputFormat;
 using sys.core.ConvertUtf8;
 
@@ -36,25 +37,43 @@ class Float {
 		return this * this;
 	}
 
-	property Sqrt: Float get const Intrinsic.Sqrt;
+	property Sqrt: Float get = Math.Sqrt;
 
-	property Floor: Float get const Intrinsic.Floor;
+	property Floor: Float get = Math.Floor;
 
-	property Ceil: Float get const Intrinsic.Ceil;
+	property Ceil: Float get = Math.Ceil;
 
-	property Round: Float get const Intrinsic.Round;
-
-	def Clamp(min: Float, max: Float); Intrinsic.Clamp;
+	property Round: Float get = Math.Round;
 	
-	func Clamped(min: Float, max: Float): Float; Intrinsic.Clamped;
+	property Trunc: Float get = Math.Trunc;
+
+	def Clamp(min: Float, max: Float) = Intrinsic.Clamp;
+	
+	func Clamped(min: Float, max: Float): Float = Intrinsic.Clamped;
 
 #region Math
 
-	property Log: Float get const Intrinsic.Log;
+	property Sin  : Float get = Math.Sin;
+	property Cos  : Float get = Math.Cos;
+	property Tan  : Float get = Math.Tan;
+	
+	property Sinh : Float get = Math.Sinh;
+	property Cosh : Float get = Math.Cosh;
+	property Tanh : Float get = Math.Tanh;
+	
+	property Asin : Float get = Math.Asin;
+	property Acos : Float get = Math.Acos;
+	property Atan : Float get = Math.Atan;
+	
+	property Asinh: Float get = Math.Asinh;
+	property Acosh: Float get = Math.Acosh;
+	property Atanh: Float get = Math.Atanh;
+	
+	property Log  : Float get = Math.Log;
+	property Log2 : Float get = Math.Log2;
+	property Log10: Float get = Math.Log10;
 
-	property Log10: Float get const Intrinsic.Log10;
-
-	func Pow(exp: Float): Float; Intrinsic.Pow;
+	func Pow(exp: Float): Float = Math.Pow;
 
 #endregion
 
@@ -69,6 +88,22 @@ class Float {
 
 #endregion
 
+#region Saturation
+
+	this Saturated(value: Float) {
+		this = value;
+	}
+	
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Int{value};
+	}
+#endregion
+	
 #region IO
 
 	func @write(ref stream: Stream) {

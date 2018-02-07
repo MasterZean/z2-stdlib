@@ -1,325 +1,319 @@
-Constructors
----
+# class *String* from sys.core.lang
 
-#### this
 
-```C#
-this{chars: Slice<Byte>}
-this{chars: Ptr<Byte>, len: PtrSize}
-this{chars: String, len: PtrSize}
-this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize}
-this{chars: CArray<Byte>}
-this{chars: CArray<Byte>, len: PtrSize}
-this{obj: String}
-this{move obj: String}
-```
+## Constructors
 
-##### Brief
-
-###### param chars
-
-###### param len
-
-###### param cap
-
-###### param obj
-
-***
-
-#### FromIndex
+### this
 
 ```C#
-this FromIndex{chars: String, start: PtrSize}
-this FromIndex{chars: String, start: PtrSize, end: PtrSize}
+this{data: Char};
+this{chars: Slice<Byte>};
+this{chars: Ptr<Byte>, len: PtrSize};
+this{chars: String, len: PtrSize};
+this{chars: String, start: PtrSize, end: PtrSize};
+this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize};
+this{chars: CArray<Byte>};
+this{chars: CArray<Byte>, len: PtrSize};
+this{obj: String};
+this{move obj: String};
 ```
 
-##### Brief
+#### Brief
 
-###### param chars
-
-###### param start
-
-###### param end
-
+#### Parameters
+> *data* =>   
+> *chars* =>   
+> *len* =>   
+> *start* =>   
+> *end* =>   
+> *cap* =>   
+> *obj* =>   
 ***
 
-#### TakeOwnership
+### FromIndex
 
 ```C#
-this TakeOwnership{chars: Ptr<Byte>, len: PtrSize}
+this FromIndex{chars: String, start: PtrSize};
+this FromIndex{chars: String, start: PtrSize, end: PtrSize};
 ```
 
-##### Brief
+#### Brief
 
-###### param chars
-
-###### param len
-
+#### Parameters
+> *chars* =>   
+> *start* =>   
+> *end* =>   
 ***
 
-Methods
----
-
-#### @attr
+### TakeOwnership
 
 ```C#
-def @attr(obj: String)
-def @attr(move obj: String)
+this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};
 ```
 
-##### Brief
+#### Brief
 
-###### param obj
-
+#### Parameters
+> *chars* =>   
+> *len* =>   
 ***
 
-#### Clear
+## Methods
+
+### @attr
 
 ```C#
-def Clear()
+def @attr(obj: String);
+def @attr(move obj: String);
 ```
 
-##### Brief
+#### Brief
 
+#### Parameters
+> *obj* =>   
 ***
 
-#### @eq
+### Clear
 
 ```C#
-func @eq(second: String)
+def Clear();
 ```
 
-##### Brief
-
-###### param second
-
-###### returns
+#### Brief
 
 ***
 
-#### @neq
+### @eq
 
 ```C#
-func @neq(second: String)
+func @eq(second: String): Bool;
 ```
 
-##### Brief
+#### Brief
 
-###### param second
-
-###### returns
-
+#### Parameters
+> *second* =>   
+#### Returns
+> 
 ***
 
-#### @shl
+### @neq
 
 ```C#
-def @shl(ch: Char)
-def @shl(str: String)
+func @neq(second: String): Bool;
 ```
 
-##### Brief
+#### Brief
 
-###### param ch
-
-###### param str
-
-###### returns
-
+#### Parameters
+> *second* =>   
+#### Returns
+> 
 ***
 
-#### Insert
+### @shl
 
 ```C#
-def Insert(pos: PtrSize, string: String)
+def @shl(ch: Char): ref String;
+def @shl(str: String): ref String;
 ```
 
-##### Brief
+#### Brief
 
-###### param pos
-
-###### param string
-
+#### Parameters
+> *ch* =>   
+> *str* =>   
+#### Returns
+> 
 ***
 
-#### Inserted
+### Insert
 
 ```C#
-func Inserted(pos: PtrSize, string: String)
+def Insert(pos: PtrSize, string: String);
 ```
 
-##### Brief
+#### Brief
 
-###### param pos
-
-###### param string
-
-###### returns
-
+#### Parameters
+> *pos* =>   
+> *string* =>   
 ***
 
-#### Find
+### Inserted
 
 ```C#
-func Find(b: Byte)
-func Find(b: Byte, start: PtrSize)
-func Find(b: CArray<Byte>)
+func Inserted(pos: PtrSize, string: String): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param b
-
-###### param start
-
-###### returns
-
+#### Parameters
+> *pos* =>   
+> *string* =>   
+#### Returns
+> 
 ***
 
-#### RFind
+### Find
 
 ```C#
-func RFind(b: Byte)
-func RFind(b: Byte, start: PtrSize)
-func RFind(b: CArray<Byte>)
+func Find(b: Byte): PtrSize;
+func Find(b: Byte, start: PtrSize): PtrSize;
+func Find(b: CArray<Byte>): PtrSize;
 ```
 
-##### Brief
+#### Brief
 
-###### param b
-
-###### param start
-
-###### returns
-
+#### Parameters
+> *b* =>   
+> *start* =>   
+#### Returns
+> 
 ***
 
-#### Parse
-##### Brief
-
-***
-
-#### ParseSaturated
-##### Brief
-
-***
-
-#### Split
+### RFind
 
 ```C#
-func Split(b: Byte)
+func RFind(b: Byte): PtrSize;
+func RFind(b: Byte, start: PtrSize): PtrSize;
+func RFind(b: CArray<Byte>): PtrSize;
 ```
 
-##### Brief
+#### Brief
 
-###### param b
-
-###### returns
-
+#### Parameters
+> *b* =>   
+> *start* =>   
+#### Returns
+> 
 ***
 
-#### @write
+### Split
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func Split(b: Byte): Vector<String>;
 ```
 
-##### Brief
+#### Brief
 
-###### param stream
-
-###### param format
-
+#### Parameters
+> *b* =>   
+#### Returns
+> 
 ***
 
-#### @put
+### Trimmed
 
 ```C#
-func @put(ref stream: Stream)
+func Trimmed(): String;
 ```
 
-##### Brief
+#### Brief
 
-###### param stream
-
+#### Returns
+> 
 ***
 
-#### @get
+### @write
 
 ```C#
-def @get(ref stream: Stream)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
-##### Brief
+#### Brief
 
-###### param stream
-
+#### Parameters
+> *stream* =>   
+> *format* =>   
 ***
 
-Properties
----
+### @put
 
-#### Length
+```C#
+func @put(ref stream: Stream);
+```
+
+#### Brief
+
+#### Parameters
+> *stream* =>   
+***
+
+### @get
+
+```C#
+def @get(ref stream: Stream);
+```
+
+#### Brief
+
+#### Parameters
+> *stream* =>   
+***
+
+## Properties
+
+### Length
 
 ```C#
 property Length: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### Capacity
+### Capacity
 
 ```C#
 property Capacity: PtrSize
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### @index
+### @index
 
 ```C#
 property @index: ref Byte; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### IsEmpty
+### IsEmpty
 
 ```C#
 property IsEmpty: Bool; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-#### SysDataPointer
+### SysDataPointer
 
 ```C#
 property SysDataPointer: Ptr<Byte>; get;
 ```
 
-##### Brief
+#### Brief
 
 ***
 
-Variables
----
+## Variables
 
-#### GrowthSpacing
+### GrowthSpacing
 
 ```C#
-val GrowthSpacing
+val GrowthSpacing;
 ```
 
-##### Brief
+#### Brief
 
 ***
 

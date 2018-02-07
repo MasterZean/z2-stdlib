@@ -68,7 +68,8 @@ class CArray<T: Class> {
 		this[pos] = item;
 	}
 	
-	def InsertDumb(pos: PtrSize, item: T); test deprecated {
+	@[test, deprecated, nodoc]
+	def InsertDumb(pos: PtrSize, item: T) {
 		System.Debug.Assert(pos < Length);
 		
 		for (val i = Length - 1; i >= pos + 1; i--)
@@ -139,14 +140,14 @@ class CArray<T: Class> {
 		s.Sort(low, high);
 	}
 	
-	def SortDescending() {
+	def SortDesc() {
 		val s = Slice<T>{this};
-		s.SortDescending();
+		s.SortDesc();
 	}
 	
-	def SortDescending(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		val s = Slice<T>{this};
-		s.SortDescending(low, high);
+		s.SortDesc(low, high);
 	}
 	
 #region IO

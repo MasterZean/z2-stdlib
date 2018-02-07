@@ -10,9 +10,9 @@ class Bool {
 	const IsSigned = false;
 	const IsInteger = false;
 
-	def Clamp(min: Bool, max: Bool); Intrinsic.Clamp;
+	def Clamp(min: Bool, max: Bool) = Intrinsic.Clamp;
 	
-	func Clamped(min: Bool, max: Bool): Int; Intrinsic.Clamped;
+	func Clamped(min: Bool, max: Bool): Int = Intrinsic.Clamped;
 	
 #region ToString
 

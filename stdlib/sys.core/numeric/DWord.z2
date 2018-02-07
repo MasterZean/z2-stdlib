@@ -41,12 +41,16 @@ class DWord {
 		return this;
 	}
 
-	def Clamp(min: DWord, max: DWord); Intrinsic.Clamp;
+	property Trunc: DWord {
+		return this;
+	}
 	
-	func Clamped(min: DWord, max: DWord): DWord; Intrinsic.Clamped;
+	def Clamp(min: DWord, max: DWord) = Intrinsic.Clamp;
+	
+	func Clamped(min: DWord, max: DWord): DWord = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = ConvertUtf8.ParseUns<DWord>(s);
 	}
 	
@@ -95,7 +99,7 @@ class DWord {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this = ConvertUtf8.ParseUnsSaturated<DWord>(s);
 	}
 

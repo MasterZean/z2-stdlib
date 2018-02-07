@@ -1,7 +1,7 @@
 namespace sys.core;
 
 class ConvertUtf32 {
-	static def FromUtf8(ref dest: Slice<DWord>, ref src: Slice<Byte>) {
+	static def FromUtf8(ref dest: Slice<DWord>, ref src: ReadSlice<Byte>) {
 		val s = src.SysDataPointer;
 		val l = s + src.Length;
 		val d = dest.SysDataPointer;

@@ -41,12 +41,16 @@ class Byte {
 		return this;
 	}
 	
-	def Clamp(min: Byte, max: Byte); Intrinsic.Clamp;
+	property Trunc: Byte {
+		return this;
+	}
 	
-	func Clamped(min: Byte, max: Byte): Byte; Intrinsic.Clamped;
+	def Clamp(min: Byte, max: Byte) = Intrinsic.Clamp;
+	
+	func Clamped(min: Byte, max: Byte): Byte = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = Byte{ConvertUtf8.ParseUns<DWord>(s)};
 	}
 	
@@ -95,7 +99,7 @@ class Byte {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this.Saturated{ConvertUtf8.ParseUnsSaturated<DWord>(s)};
 	}
 

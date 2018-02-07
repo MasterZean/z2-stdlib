@@ -79,6 +79,12 @@ class Vector<T: Class> {
 
 		if (value > capacity) {
 			Capacity = value;
+			val i = length;
+			
+			while (i < value) {
+				data[i]{};
+				i++;
+			}
 		}
 		else if (value < length) {
 			val i = value;
@@ -309,14 +315,14 @@ class Vector<T: Class> {
 		s.Sort(low, high);
 	}
 	
-	def SortDec() {
+	def SortDesc() {
 		val s = Slice<T>{this};
-		s.SortDec();
+		s.SortDesc();
 	}
 	
-	def SortDec(low: Int, high: Int) {
+	def SortDesc(low: Int, high: Int) {
 		val s = Slice<T>{this};
-		s.SortDec(low, high);
+		s.SortDesc(low, high);
 	}
 	
 #region IO

@@ -1,155 +1,159 @@
-Constructors
----
+# class *Bool* from sys.core.lang
 
-#### this
+
+## Constructors
+
+### this
 
 ```C#
-this{string: String}
+this{string: String};
 ```
 
-##### Brief
-Parses a string an constructs an `sys.core.lang.Bool` based on it.
+#### Brief
 
-###### param string
-string to parse
+Parses a string an constructs an [Bool][sys.core.lang.Bool] based on it.
+
+#### Parameters
+> *string* => string to parse  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
-def Clamp(min: Bool, max: Bool)
+def Clamp(min: Bool, max: Bool);
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
-func Clamped(min: Bool, max: Bool)
+func Clamped(min: Bool, max: Bool): Int;
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### ToString
+### ToString
 
 ```C#
-func ToString()
+func ToString(): String;
 ```
 
-##### Brief
-Converts the value to a Utf8 string.
+#### Brief
+Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
-##### Brief
-Writes the value to an Utf8 text stream.
+#### Brief
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
-###### param stream
-the output stream
-###### param format
-formatting information
+Can use an optional [output format][sys.core.OutputFormat] specifier.
+
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
-##### Brief
-Writes the value to a binary stream as a 8 bit signed integer, 0 or 1.
+#### Brief
+Writes the value to a binary [stream][sys.core.Stream] as a 8 bit signed integer, 0 or 1.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
-##### Brief
-Reads a 8 bit signed integer and stroes it as `sys.core.lang.Bool`.
+#### Brief
+Reads a 8 bit signed integer and casts it to a [Bool][sys.core.lang.Bool].
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Constants
----
+## Constants
 
-#### Min
-
-```C#
-const Min
-```
-
-##### Brief
-The minimum value for an `sys.core.lang.Bool` (boolean) instance.
-
-***
-
-#### Max
+### Min
 
 ```C#
-const Max
+const Min;
 ```
 
-##### Brief
-The maximum value for an `sys.core.lang.Bool` (boolean) instance.
+#### Brief
+The minimum value for an [Bool][sys.core.lang.Bool] instance.
 
 ***
 
-#### IsSigned
+### Max
 
 ```C#
-const IsSigned
+const Max;
 ```
 
-##### Brief
-`true` if the numeric representation uses two's complement signed values, `false` otherwise.
+#### Brief
+The maximum value for an [Bool][sys.core.lang.Bool] instance.
 
 ***
 
-#### IsInteger
+### IsSigned
 
 ```C#
-const IsInteger
+const IsSigned;
 ```
 
-##### Brief
-`true` if the numeric representation is an integer, `false` if it is a floating point.
+#### Brief
+[true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
 
 ***
 
+### IsInteger
+
+```C#
+const IsInteger;
+```
+
+#### Brief
+[true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
+
+***
+
+[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"

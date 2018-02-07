@@ -1,334 +1,326 @@
-Constructors
----
+# class *Point2D* from sys.core
 
-#### this
+
+## Constructors
+
+### this
 
 ```C#
-this{value: T}
-this{x: T, y: T}
+this{value: T};
+this{x: T, y: T};
 ```
 
-##### Brief
+#### Brief
+
 Creates a new instance initializing each component of the point.
 
-###### param value
-the value to use for each component
-###### param x
-the first dimension of the point
-###### param y
-
+#### Parameters
+> *value* => the value to use for each component  
+> *x* => the first dimension of the point  
+> *y* =>   
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
-def Clamp(min: Point2D<T>, max: Point2D<T>)
-def Clamp(min: T, max: T)
+def Clamp(min: Point2D<T>, max: Point2D<T>);
+def Clamp(min: T, max: T);
 ```
 
-##### Brief
+#### Brief
 Clamps each component of the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
-func Clamped(min: Point2D<T>, max: Point2D<T>)
-func Clamped(min: T, max: T)
+func Clamped(min: Point2D<T>, max: Point2D<T>): Point2D<T>;
+func Clamped(min: T, max: T): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Returns a copy of the color with each component clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ***
 
-#### GetMin
+### GetMin
 
 ```C#
-func GetMin(min: Point2D<T>)
+func GetMin(min: Point2D<T>): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise minimum between the current instance and the input.
 
-###### param min
-the value to test against
-###### returns
-the member-wise minimum
+#### Parameters
+> *min* => the value to test against  
+#### Returns
+> the member-wise minimum
 ***
 
-#### GetMax
+### GetMax
 
 ```C#
-func GetMax(max: Point2D<T>)
+func GetMax(max: Point2D<T>): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise maximum between the current instance and the input.
 
-###### param max
-the value to test against
-###### returns
-the member-wise maximum
+#### Parameters
+> *max* => the value to test against  
+#### Returns
+> the member-wise maximum
 ***
 
-#### IsNormalized
+### IsNormalized
 
 ```C#
-func IsNormalized(tolerance: T)
+func IsNormalized(tolerance: T): Bool;
 ```
 
-##### Brief
+#### Brief
 Tests if the current instance is a 2 dimensional normalized vector, within a tolerance.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
-###### returns
-
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
+#### Returns
+> 
 ***
 
-#### Normalize
+### Normalize
 
 ```C#
-def Normalize(tolerance: T)
+def Normalize(tolerance: T);
 ```
 
-##### Brief
+#### Brief
 Normalizes the 2 dimensional vector if its length falls within the tolerance limits.
 
 Otherwise, the value remains unchanged.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
 ***
 
-#### Normalized
+### Normalized
 
 ```C#
-func Normalized(tolerance: T)
+func Normalized(tolerance: T): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Returns a 2 dimensional normalized copy of the vector if its length falls within the tolerance limits.
 
 Otherwise, returns the value as is.
 
-###### param tolerance
-tolerance for a non zero lengthed vector
-###### returns
-
+#### Parameters
+> *tolerance* => tolerance for a non zero lengthed vector  
+#### Returns
+> 
 ***
 
-#### @add
+### @add
 
 ```C#
-func @add(second: Point2D<T>)
-func @add(second: T)
+func @add(second: Point2D<T>): Point2D<T>;
+func @add(second: T): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Member-wise addition operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @sub
+### @sub
 
 ```C#
-static func @sub(left: Point2D<T>, right: Point2D<T>)
-static func @sub(left: Point2D<T>, right: T)
-static func @sub(left: T, right: Point2D<T>)
+static func @sub(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @sub(left: Point2D<T>, right: T): Point2D<T>;
+static func @sub(left: T, right: Point2D<T>): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Member-wise subtraction operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @mul
+### @mul
 
 ```C#
-func @mul(second: Point2D<T>)
-func @mul(second: T)
+func @mul(second: Point2D<T>): Point2D<T>;
+func @mul(second: T): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Member-wise multiplication operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @div
+### @div
 
 ```C#
-static func @div(left: Point2D<T>, right: Point2D<T>)
-static func @div(left: Point2D<T>, right: T)
-static func @div(left: T, right: Point2D<T>)
+static func @div(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @div(left: Point2D<T>, right: T): Point2D<T>;
+static func @div(left: T, right: Point2D<T>): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Member-wise division operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @mod
+### @mod
 
 ```C#
-static func @mod(left: Point2D<T>, right: Point2D<T>)
-static func @mod(left: Point2D<T>, right: T)
-static func @mod(left: T, right: Point2D<T>)
+static func @mod(left: Point2D<T>, right: Point2D<T>): Point2D<T>;
+static func @mod(left: Point2D<T>, right: T): Point2D<T>;
+static func @mod(left: T, right: Point2D<T>): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Member-wise modulo operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> 
 ***
 
-#### @minus
+### @minus
 
 ```C#
-func @minus()
+func @minus(): Point2D<T>;
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise negative of the current instance.
 
-###### returns
-
+#### Returns
+> 
 ***
 
-#### @eq
+### @eq
 
 ```C#
-func @eq(second: T)
+func @eq(second: T): Bool;
 ```
 
-##### Brief
+#### Brief
 Member-wise equality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### @neq
+### @neq
 
 ```C#
-func @neq(second: T)
+func @neq(second: T): Bool;
 ```
 
-##### Brief
+#### Brief
 Member-wise inequality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> 
 ***
 
-#### Equals
+### Equals
 
 ```C#
-func Equals(second: Point2D<T>, tolerance: T)
-func Equals(second: T, tolerance: T)
+func Equals(second: Point2D<T>, tolerance: T): Bool;
+func Equals(second: T, tolerance: T): Bool;
 ```
 
-##### Brief
+#### Brief
 Member-wise equality operator within a given tolerance.
 
-###### param second
-the second operand
-###### param tolerance
-tolerance for equality
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+> *tolerance* => tolerance for equality  
+#### Returns
+> 
 ***
 
-Properties
----
+## Properties
 
-#### Length
+### Length
 
 ```C#
 property Length: T; get;
 ```
 
-##### Brief
+#### Brief
 The length of the instance interpreted as a 2 dimensional vector.
 
 ***
 
-#### LengthSquared
+### LengthSquared
 
 ```C#
 property LengthSquared: T; get;
 ```
 
-##### Brief
+#### Brief
 The squared length of the instance interpreted as a 2 dimensional vector.
 
 ***
 
-Variables
----
+## Variables
 
-#### X
+### X
 
 ```C#
-val X: T
+val X: T;
 ```
 
-##### Brief
+#### Brief
 The first dimension of the point.
 
 ***
 
-#### Y
+### Y
 
 ```C#
-val Y: T
+val Y: T;
 ```
 
-##### Brief
+#### Brief
 The second dimension of the point.
 
 ***

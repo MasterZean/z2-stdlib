@@ -1,288 +1,201 @@
-Constructors
----
+# class *Slice* from sys.core.lang
 
-#### this
+
+## Constructors
+
+### this
 
 ```C#
-this{ref ppp: CArray<T>}
-this{ref p: CArray<T>, length: PtrSize}
-this{ref p: CArray<T>, start: PtrSize, end: PtrSize}
-this{ref p: Vector<T>}
-this{ref p: Vector<T>, length: PtrSize}
-this{ref p: Vector<T>, start: PtrSize, end: PtrSize}
-this{ref p: Small}
-this{ref p: Short}
-this{ref p: Byte}
-this{ref p: Word}
-this{ref p: Int}
-this{ref p: Int, length: PtrSize}
-this{ref p: Long}
-this{ref p: Long, length: PtrSize}
-this{ref p: DWord}
-this{ref p: DWord, length: PtrSize}
-this{ref p: QWord}
-this{ref p: QWord, length: PtrSize}
-this{ref p: Float}
-this{ref p: Float, length: PtrSize}
-this{ref p: Double}
-this{ref p: Double, length: PtrSize}
-this{ref p: String}
-this{p: Slice<Byte>, length: PtrSize}
-this{p: Slice<Byte>, offset: PtrSize, length: PtrSize}
+this{};
+this{ref p: CArray<T>};
+this{ref p: CArray<T>, length: PtrSize};
+this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
+this{ref p: Vector<T>};
+this{ref p: Vector<T>, length: PtrSize};
+this{ref p: Vector<T>, start: PtrSize, end: PtrSize};
+this{ref p: Small};
+this{ref p: Small, length: PtrSize};
+this{ref p: Short};
+this{ref p: Short, length: PtrSize};
+this{ref p: Byte};
+this{ref p: Byte, length: PtrSize};
+this{ref p: Word};
+this{ref p: Word, length: PtrSize};
+this{ref p: Int};
+this{ref p: Int, length: PtrSize};
+this{ref p: Long};
+this{ref p: Long, length: PtrSize};
+this{ref p: DWord};
+this{ref p: DWord, length: PtrSize};
+this{ref p: QWord};
+this{ref p: QWord, length: PtrSize};
+this{ref p: Float};
+this{ref p: Float, length: PtrSize};
+this{ref p: Double};
+this{ref p: Double, length: PtrSize};
+this{ref p: Char};
+this{ref p: Char, length: PtrSize};
+this{ref p: String};
+this{p: Slice<Byte>, length: PtrSize};
+this{p: Slice<Byte>, offset: PtrSize, length: PtrSize};
 ```
 
-##### Brief
+#### Brief
 
-###### param ppp
+Constructs a new slice based on a persistent readable and writable memory location and an optional size.
 
-###### param p
+The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
 
-###### param length
+The provided memory location must not be freed before the slice is destroyed.
 
-###### param start
+#### Parameters
+> *p* => a vector of items  
+> *length* => the length of the slice  
+> *start* => the start index  
+> *end* => the end index  
+> *offset* => an offset to use  
+***
 
-###### param end
+## Methods
 
-###### param offset
+### Fill
+
+```C#
+def Fill(value: T);
+def Fill(items: Vector<T>);
+def Fill(items: CArray<T>);
+```
+
+#### Brief
+Copies over all the elements in the static array.
+
+If a single value is provided, all elements will be initialized with it.
+
+If an array is provided, elements will be copied over in sequence. If the source array is exhausted, the reading index will be reset to 0 and the copying resumed.
+
+#### Parameters
+> *value* => the value to fill with  
+> *items* => the array to use  
+***
+
+### Reverse
+
+```C#
+def Reverse();
+```
+
+#### Brief
+Reverses the items in the slice.
 
 ***
 
-Methods
----
-
-#### Fill
+### Delete
 
 ```C#
-def Fill(value: T)
-def Fill(items: Vector<T>)
-def Fill(items: CArray<T>)
+def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;
 ```
 
-##### Brief
+#### Brief
+Reverses the contents of the array, from beginning to end or between two input indices.
+*** 
 
-###### param value
+```C#
+def Delete(item: T): PtrSize;
+def Delete(items: CArray<T>): PtrSize;
+def Delete(items: Vector<T>): PtrSize;
+```
 
-###### param items
+Searches for the first occurrence of an item or items within the array and if found it removes it.
 
+#### Parameters
+> *item* => the item to delete  
+> *items* => the items to delete  
+#### Returns
+> the number of deleted items
 ***
 
-#### FindIndex
+### DeleteAll
 
 ```C#
-func FindIndex(item: T)
-func FindIndex(item: T, start: PtrSize)
-func FindIndex(b: CArray<T>)
-func FindIndex(b: Vector<T>)
-func FindIndex(b: CArray<T>, start: PtrSize)
-func FindIndex(b: Vector<T>, start: PtrSize)
+def DeleteAll(item: T): PtrSize;
+def DeleteAll(items: CArray<T>): PtrSize;
+def DeleteAll(items: Vector<T>): PtrSize;
 ```
 
-##### Brief
+#### Brief
+Searches for all the occurrences of an item or items within the slice and if found removes them all.
 
-###### param item
-
-###### param start
-
-###### param b
-
-###### returns
-
+#### Parameters
+> *item* => the item to search for  
+> *items* => the items to search for  
+#### Returns
+> the number of deleted items
 ***
 
-#### RFindIndex
+### DeleteIndex
 
 ```C#
-func RFindIndex(item: T)
-func RFindIndex(item: T, val start: PtrSize)
-func RFindIndex(b: CArray<T>)
-func RFindIndex(b: Vector<T>)
-func RFindIndex(b: CArray<T>, val start: PtrSize)
-func RFindIndex(b: Vector<T>, val start: PtrSize)
+def DeleteIndex(index: PtrSize): PtrSize;
+def DeleteIndex(items: CArray<PtrSize>): PtrSize;
+def DeleteIndex(items: Vector<PtrSize>): PtrSize;
 ```
 
-##### Brief
+#### Brief
+Deletes an item at a given index or indices from the slice.
 
-###### param item
-
-###### param start
-
-###### param b
-
-###### returns
-
+#### Parameters
+> *index* => the index to delete  
+> *items* => an array of indices to delete  
+#### Returns
+> the number of deleted items
 ***
 
-#### BinaryIndex
+### Insert
 
 ```C#
-func BinaryIndex(item: T)
-func BinaryIndex(item: T, start: PtrSize)
+def Insert(pos: PtrSize, item: T);
+def Insert(pos: PtrSize, items: CArray<T>);
+def Insert(pos: PtrSize, items: Vector<T>);
 ```
 
-##### Brief
+#### Brief
+Inserts an item or a collection of items into the array at a given position.
 
-###### param item
-
-###### param start
-
-###### returns
-
+#### Parameters
+> *pos* => the position to insert to  
+> *item* => the item to insert  
+> *items* => the items to insert  
 ***
 
-#### Reverse
+### Sort
 
 ```C#
-def Reverse()
+def Sort(low: Int, high: Int);
+def Sort();
 ```
 
-##### Brief
+#### Brief
+Sorts the content of the array in ascending order, from beginning to end or between two input indices.
 
+#### Parameters
+> *low* => the start index  
+> *high* => the end index  
 ***
 
-#### Delete
+### SortDesc
 
 ```C#
-def Delete(item: T)
-def Delete(items: CArray<T>)
-def Delete(items: Vector<T>)
+def SortDesc(low: Int, high: Int);
+def SortDesc();
 ```
 
-##### Brief
+#### Brief
+Sorts the content of the array in descending order, from beginning to end or between two input indices.
 
-###### param item
-
-###### param items
-
-###### returns
-
-***
-
-#### DeleteAll
-
-```C#
-def DeleteAll(item: T)
-def DeleteAll(items: CArray<T>)
-def DeleteAll(items: Vector<T>)
-```
-
-##### Brief
-
-###### param item
-
-###### param items
-
-###### returns
-
-***
-
-#### DeleteIndex
-
-```C#
-def DeleteIndex(index: PtrSize)
-def DeleteIndex(items: CArray<PtrSize>)
-def DeleteIndex(items: Vector<PtrSize>)
-```
-
-##### Brief
-
-###### param index
-
-###### param items
-
-###### returns
-
-***
-
-#### Insert
-
-```C#
-def Insert(pos: PtrSize, item: T)
-def Insert(pos: PtrSize, items: CArray<T>)
-def Insert(pos: PtrSize, items: Vector<T>)
-```
-
-##### Brief
-
-###### param pos
-
-###### param item
-
-###### param items
-
-***
-
-#### Sort
-
-```C#
-def Sort(low: Int, high: Int)
-def Sort()
-```
-
-##### Brief
-
-###### param low
-
-###### param high
-
-***
-
-#### SortDec
-
-```C#
-def SortDec(low: Int, high: Int)
-def SortDec()
-```
-
-##### Brief
-
-###### param low
-
-###### param high
-
-***
-
-#### Sum
-
-```C#
-func Sum()
-```
-
-##### Brief
-
-###### returns
-
-***
-
-Properties
----
-
-#### Length
-
-```C#
-property Length: PtrSize
-```
-
-##### Brief
-
-***
-
-#### @index
-
-```C#
-property @index: T
-```
-
-##### Brief
-
-***
-
-#### SysDataPointer
-
-```C#
-property SysDataPointer: Ptr<T>; get;
-```
-
-##### Brief
-
+#### Parameters
+> *low* => the start index  
+> *high* => the end index  
 ***
 

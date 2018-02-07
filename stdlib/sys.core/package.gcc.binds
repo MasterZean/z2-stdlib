@@ -1,0 +1,41 @@
+_rotl8:
+inline uint8 _rotl8(uint8 x, uint8 r) {
+  return (x << r) | (x >> (8 - r));
+}
+
+_rotr8:
+inline uint8 _rotr8(uint8 x, uint8 r) {
+  return (x >> r) | (x << (8 - r));
+}
+
+_rotl16:
+inline uint16 _rotl16(uint16 x, uint8 r) {
+  return (x << r) | (x >> (16 - r));
+}
+
+_rotr16:
+inline uint16 _rotr16(uint16 x, uint8 r) {
+  return (x >> r) | (x << (16 - r));
+}
+
+_rotl:
+inline uint32 _rotl(uint32 x, uint8 r) {
+  return (x << r) | (x >> (32 - r));
+}
+
+_rotr:
+inline uint32 _rotr(uint32 x, uint8 r) {
+  return (x >> r) | (x << (32 - r));
+}
+
+_rotl64:
+inline uint64 _rotl64 (uint64 x, int8 r)
+{
+  return (x << r) | (x >> (64 - r));
+}
+
+_rotr64:
+inline uint64 _rotr64 (uint64 x, int8 r)
+{
+  return (x >> r) | (x << (64 - r));
+}

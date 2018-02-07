@@ -1,0 +1,95 @@
+namespace sys.core;
+
+class SizeRect<T: Class> {
+	val X: T;
+	val Y: T;
+
+	property X2: T {
+		return X + Width;
+	}
+	set (value){
+		Width = value - X;
+	}
+
+	property Y2: T {
+		return Y + Height;
+	}
+	set (value){
+		Height = value - Y;
+	}
+
+	val Width: T;
+	val Height: T;
+
+	this(x: T, y: T, x2: T, y2: T) {
+		X = x;
+		Y = y;
+		X2 = x2;
+		Y2 = y2;
+	}
+
+	this FromSize(x: T, y: T, w: T, h: T) {
+		X = x;
+		Y = y;
+		Width = w;
+		Height = h;
+	}
+
+	property IsEmpty: Bool {
+		return Width == 0 && Height == 0;
+	}
+
+	def Offset(horizontal: T, vertical: T): SizeRect<T> {
+		X += horizontal;
+		Y += vertical;
+	}
+	
+	func Offseted(horizontal: T, vertical: T): SizeRect<T> {
+		return SizeRect<T>.FromSize{X + horizontal, Y + vertical, Width, Height};
+	}
+	
+	def Inflate(horizontal: T, vertical: T): SizeRect<T> {
+		X -= horizontal;
+		Y -= vertical;
+		Width += 2 * horizontal;
+		Height += 2 * vertical;
+	}
+	
+	func Inflated(horizontal: T, vertical: T): SizeRect<T> {
+		return SizeRect<T>.FromSize{X - horizontal, Y - vertical, Width + 2 * horizontal, Height + 2 * vertical};
+	}
+	
+	def Normalize() {
+		val x = Intrinsic.Min(r.X, r.X2);
+		val x2 = Intrinsic.Min(r.X, r.X2);
+		val y = Intrinsic.Min(r.Y, r.Y2);
+		val y2 = Intrinsic.Min(r.Y, r.Y2);
+		
+		X = x;
+		Y = y;
+		X2 = x2;
+		Y2 = y2;
+	}
+	
+	func Normalized(): SizeRect<T> {
+		val x = Intrinsic.Min(r.X, r.X2);
+		val x2 = Intrinsic.Min(r.X, r.X2);
+		val y = Intrinsic.Min(r.Y, r.Y2);
+		val y2 = Intrinsic.Min(r.Y, r.Y2);
+		
+		return SizeRect<T>{x, y, x2, y2};
+	}
+
+	def Contains(x: T, y: T): Bool {
+		val r = Normalized();
+		
+		return (r1.X <= x) && (x <= r.X2) && (r.Y <= y) && (y <= r.Y2);
+	}
+
+	def Contains(r: SizeRect<T>): Bool {
+		val r1 = Normalized();
+		val r2 = r.Normalized();
+		
+		return (r1.X <= r2.X) && (r2.X2 <= r1.X2) && (r1.Y <= r2.Y) && (r2.Y2 <= r1.Y2);
+	}
+}

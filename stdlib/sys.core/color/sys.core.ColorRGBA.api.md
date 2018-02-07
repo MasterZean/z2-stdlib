@@ -1,429 +1,423 @@
-Constructors
----
+# class *ColorRGBA* from sys.core
 
-#### this
+A class representing a logical red, green, blue and alpha channeled color as an object storing each component as 8 bit unsigned integers, using a memory order of red, green, blue and alpha.
+
+This class is only suited for storing low dynamic range colors.
+
+Since all channels are stored in 8 bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
+
+## Constructors
+
+### this
 
 ```C#
-this{value: Int}
-this{value: DWord}
-this{value: Float}
-this{value: Double}
-this{red: Int, green: Int, blue: Int}
-this{red: DWord, green: DWord, blue: DWord}
-this{red: Float, green: Float, blue: Float}
-this{red: Double, green: Double, blue: Double}
-this{red: Int, green: Int, blue: Int, alpha: Int}
-this{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this{red: Float, green: Float, blue: Float, alpha: Float}
-this{red: Double, green: Double, blue: Double, alpha: Double}
+this{value: Int};
+this{value: DWord};
+this{value: Float};
+this{value: Double};
+this{red: Int, green: Int, blue: Int};
+this{red: DWord, green: DWord, blue: DWord};
+this{red: Float, green: Float, blue: Float};
+this{red: Double, green: Double, blue: Double};
+this{red: Int, green: Int, blue: Int, alpha: Int};
+this{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this{red: Float, green: Float, blue: Float, alpha: Float};
+this{red: Double, green: Double, blue: Double, alpha: Double};
 ```
 
-##### Brief
+#### Brief
+
 Creates a new instance initializing each component of the color.
 
-If an input component is missing, it will be initialized tot he maximum value.
+If an input component is missing, it will be initialized to the maximum value.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
 
-###### param value
-the value to use for each component
-###### param red
-the red component
-###### param green
-the green component
-###### param blue
-the blue component
-###### param alpha
-the alpha component
+#### Parameters
+> *value* => the value to use for each component  
+> *red* => the red component  
+> *green* => the green component  
+> *blue* => the blue component  
+> *alpha* => the alpha component  
 ***
 
-#### FromUncapped
+### FromUncapped
 
 ```C#
-this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int}
-this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord}
-this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float}
-this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double}
+this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int};
+this FromUncapped{red: DWord, green: DWord, blue: DWord, alpha: DWord};
+this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float};
+this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double};
 ```
 
-##### Brief
+#### Brief
 Creates a new instance initializing each component of the color from uncapped values. Each input is clamped to the valid range of the color.
 
 Floating point values are interpreted as having a range of 0.0 to 1.0.
 
-###### param red
-the red component
-###### param green
-the green component
-###### param blue
-the blue component
-###### param alpha
-the alpha component
+#### Parameters
+> *red* => the red component  
+> *green* => the green component  
+> *blue* => the blue component  
+> *alpha* => the alpha component  
 ***
 
-#### FromRGBA
+### FromRGBA
 
 ```C#
-this FromRGBA{rgba: DWord}
+this FromRGBA{rgba: DWord};
 ```
 
-##### Brief
+#### Brief
 Creates a new color from an integer encoded in the RGBA memory layout.
 
-###### param rgba
-the color integer
+#### Parameters
+> *rgba* => the color integer  
 ***
 
-#### FromBGRA
+### FromBGRA
 
 ```C#
-this FromBGRA{bgra: DWord}
+this FromBGRA{bgra: DWord};
 ```
 
-##### Brief
+#### Brief
 Creates a new color from an integer encoded in the BGRA memory layout.
 
-###### param bgra
-the color integer
+#### Parameters
+> *bgra* => the color integer  
 ***
 
-#### FromARGB
+### FromARGB
 
 ```C#
-this FromARGB{argb: DWord}
+this FromARGB{argb: DWord};
 ```
 
-##### Brief
+#### Brief
 Creates a new color from an integer encoded in the ARGB memory layout.
 
-###### param argb
-the color integer
+#### Parameters
+> *argb* => the color integer  
 ***
 
-#### FromABGR
+### FromABGR
 
 ```C#
-this FromABGR{abgr: DWord}
+this FromABGR{abgr: DWord};
 ```
 
-##### Brief
+#### Brief
 Creates a new color from an integer encoded in the ABGR memory layout.
 
-###### param abgr
-the color integer
+#### Parameters
+> *abgr* => the color integer  
 ***
 
-Methods
----
+## Methods
 
-#### ToRGBA
+### ToRGBA
 
 ```C#
-func ToRGBA()
+func ToRGBA(): DWord;
 ```
 
-##### Brief
+#### Brief
 Encodes the color to an integer using the RGBA memory layout.
 
-###### returns
-the resulting integer
+#### Returns
+> the resulting integer
 ***
 
-#### ToBGRA
+### ToBGRA
 
 ```C#
-func ToBGRA()
+func ToBGRA(): DWord;
 ```
 
-##### Brief
+#### Brief
 Encodes the color to an integer using the BGRA memory layout.
 
-###### returns
-the resulting integer
+#### Returns
+> the resulting integer
 ***
 
-#### ToARGB
+### ToARGB
 
 ```C#
-func ToARGB()
+func ToARGB(): DWord;
 ```
 
-##### Brief
+#### Brief
 Encodes the color to an integer using the ARGB memory layout.
 
-###### returns
-the resulting integer
+#### Returns
+> the resulting integer
 ***
 
-#### ToABGR
+### ToABGR
 
 ```C#
-func ToABGR()
+func ToABGR(): DWord;
 ```
 
-##### Brief
+#### Brief
 Encodes the color to an integer using the ABGR memory layout.
 
-###### returns
-the resulting integer
+#### Returns
+> the resulting integer
 ***
 
-#### Clamp
+### Clamp
 
 ```C#
-def Clamp(min: ColorRGBA, max: ColorRGBA)
-def Clamp(min: Byte, max: Byte)
+def Clamp(min: ColorRGBA, max: ColorRGBA);
+def Clamp(min: Byte, max: Byte);
 ```
 
-##### Brief
+#### Brief
 Clamps each component of the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
-func Clamped(min: ColorRGBA, max: ColorRGBA)
-func Clamped(min: Byte, max: Byte)
+func Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA;
+func Clamped(min: Byte, max: Byte): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Returns a copy of the color with each component clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ***
 
-#### GetMin
+### GetMin
 
 ```C#
-func GetMin(min: ColorRGBA)
+func GetMin(min: ColorRGBA): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise minimum between the current instance and the input.
 
-###### param min
-the value to test against
-###### returns
-the member-wise minimum
+#### Parameters
+> *min* => the value to test against  
+#### Returns
+> the member-wise minimum
 ***
 
-#### GetMax
+### GetMax
 
 ```C#
-func GetMax(max: ColorRGBA)
+func GetMax(max: ColorRGBA): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Returns the member-wise maximum between the current instance and the input.
 
-###### param max
-the value to test against
-###### returns
-the member-wise maximum
+#### Parameters
+> *max* => the value to test against  
+#### Returns
+> the member-wise maximum
 ***
 
-#### @add
+### @add
 
 ```C#
-func @add(second: ColorRGBA)
-func @add(second: Int)
-func @add(second: DWord)
-func @add(second: Float)
-func @add(second: Double)
+func @add(second: ColorRGBA): ColorRGBA;
+func @add(second: Int): ColorRGBA;
+func @add(second: DWord): ColorRGBA;
+func @add(second: Float): ColorRGBA;
+func @add(second: Double): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Member-wise addition operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> the member-wise sum
 ***
 
-#### @sub
+### @sub
 
 ```C#
-static func @sub(left: ColorRGBA, right: ColorRGBA)
-static func @sub(left: Int, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Int)
-static func @sub(left: DWord, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: DWord)
-static func @sub(left: Float, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Float)
-static func @sub(left: Double, right: ColorRGBA)
-static func @sub(left: ColorRGBA, right: Double)
+static func @sub(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @sub(left: Int, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Int): ColorRGBA;
+static func @sub(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @sub(left: Float, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Float): ColorRGBA;
+static func @sub(left: Double, right: ColorRGBA): ColorRGBA;
+static func @sub(left: ColorRGBA, right: Double): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Member-wise subtraction operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> the member-wise subtraction
 ***
 
-#### @mul
+### @mul
 
 ```C#
-func @mul(second: ColorRGBA)
-func @mul(second: Int)
-func @mul(second: DWord)
-func @mul(second: Float)
-func @mul(second: Double)
+func @mul(second: ColorRGBA): ColorRGBA;
+func @mul(second: Int): ColorRGBA;
+func @mul(second: DWord): ColorRGBA;
+func @mul(second: Float): ColorRGBA;
+func @mul(second: Double): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Member-wise multiplication operator. Commutative.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> the member-wise multiplication
 ***
 
-#### @div
+### @div
 
 ```C#
-static func @div(left: ColorRGBA, right: ColorRGBA)
-static func @div(left: Int, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Int)
-static func @div(left: DWord, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: DWord)
-static func @div(left: Float, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Float)
-static func @div(left: Double, right: ColorRGBA)
-static func @div(left: ColorRGBA, right: Double)
+static func @div(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @div(left: Int, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Int): ColorRGBA;
+static func @div(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @div(left: Float, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Float): ColorRGBA;
+static func @div(left: Double, right: ColorRGBA): ColorRGBA;
+static func @div(left: ColorRGBA, right: Double): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Member-wise division operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> the member-wise division
 ***
 
-#### @mod
+### @mod
 
 ```C#
-static func @mod(left: ColorRGBA, right: ColorRGBA)
-static func @mod(left: Int, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Int)
-static func @mod(left: DWord, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: DWord)
-static func @mod(left: Float, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Float)
-static func @mod(left: Double, right: ColorRGBA)
-static func @mod(left: ColorRGBA, right: Double)
+static func @mod(left: ColorRGBA, right: ColorRGBA): ColorRGBA;
+static func @mod(left: Int, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Int): ColorRGBA;
+static func @mod(left: DWord, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: DWord): ColorRGBA;
+static func @mod(left: Float, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Float): ColorRGBA;
+static func @mod(left: Double, right: ColorRGBA): ColorRGBA;
+static func @mod(left: ColorRGBA, right: Double): ColorRGBA;
 ```
 
-##### Brief
+#### Brief
 Member-wise modulo operator.
 
-###### param left
-the left operand
-###### param right
-the right operand
-###### returns
-
+#### Parameters
+> *left* => the left operand  
+> *right* => the right operand  
+#### Returns
+> the member-wise modulo
 ***
 
-#### @eq
+### @eq
 
 ```C#
-func @eq(second: Int)
-func @eq(second: DWord)
-func @eq(second: Float)
-func @eq(second: Double)
+func @eq(second: Int): Bool;
+func @eq(second: DWord): Bool;
+func @eq(second: Float): Bool;
+func @eq(second: Double): Bool;
 ```
 
-##### Brief
+#### Brief
 Member-wise equality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> true on equality
 ***
 
-#### @neq
+### @neq
 
 ```C#
-func @neq(second: Int)
-func @neq(second: DWord)
-func @neq(second: Float)
-func @neq(second: Double)
+func @neq(second: Int): Bool;
+func @neq(second: DWord): Bool;
+func @neq(second: Float): Bool;
+func @neq(second: Double): Bool;
 ```
 
-##### Brief
+#### Brief
 Member-wise inequality operator.
 
-###### param second
-the second operand
-###### returns
-
+#### Parameters
+> *second* => the second operand  
+#### Returns
+> true on inequality
 ***
 
-Variables
----
+## Variables
 
-#### R
+### R
 
 ```C#
-val R: Byte
+val R: Byte;
 ```
 
-##### Brief
+#### Brief
 The red component.
 
 ***
 
-#### G
+### G
 
 ```C#
-val G: Byte
+val G: Byte;
 ```
 
-##### Brief
+#### Brief
 The green component.
 
 ***
 
-#### B
+### B
 
 ```C#
-val B: Byte
+val B: Byte;
 ```
 
-##### Brief
+#### Brief
 The blue component.
 
 ***
 
-#### A
+### A
 
 ```C#
-val A: Byte
+val A: Byte;
 ```
 
-##### Brief
+#### Brief
 The alpha component.
 
 ***

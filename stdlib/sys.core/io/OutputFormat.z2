@@ -10,4 +10,13 @@ class OutputFormat {
 	val Base = 10u;
 	val Width = 0u;
 	val Align = LineAlignment.Right;
+	val FillBefore = ' ';
+	val FillAfter = ' ';
+	val ForceSign = false;
+	
+	property Fill: Char
+	set (value) {
+	    FillBefore = value;
+	    FillAfter = value;
+	}
 }

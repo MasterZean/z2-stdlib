@@ -1,317 +1,455 @@
-Constructors
----
+# class *Double* from sys.core.lang
 
-#### Saturated
+
+## Constructors
+
+### Saturated
 
 ```C#
-this Saturated{value: Double}
+this Saturated{value: Double};
 ```
 
-##### Brief
-Constructs a saturated `sys.core.lang.Double` based on the input value.
+#### Brief
 
-###### param value
-the input value. Can be numeric or a string.
+Constructs a saturated [Double][sys.core.lang.Double] based on the input value.
+
+#### Parameters
+> *value* => the input value. Can be numeric or a string.  
 ***
 
-Methods
----
+## Methods
 
-#### Clamp
+### Clamp
 
 ```C#
-def Clamp(min: Double, max: Double)
+def Clamp(min: Double, max: Double);
 ```
 
-##### Brief
+#### Brief
 Clamps the current mutable instance between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
 ###### seealso `sys.core.lang.Intrinsic Clamp`
 ***
 
-#### Clamped
+### Clamped
 
 ```C#
-func Clamped(min: Double, max: Double)
+func Clamped(min: Double, max: Double): Double;
 ```
 
-##### Brief
+#### Brief
 Returns the current instance clamped between `min` and `max`.
 
-###### param min
-the minimum value
-###### param max
-the maximum value
-###### returns
-the clamped value
+#### Parameters
+> *min* => the minimum value  
+> *max* => the maximum value  
+#### Returns
+> the clamped value
 ###### seealso `sys.core.lang.Intrinsic Clamped`
 ***
 
-#### Pow
+### Pow
 
 ```C#
-func Pow(exp: Double)
+func Pow(exp: Double): Double;
 ```
 
-##### Brief
+#### Brief
 Raises the instance to an exponent.
 
-###### param exp
-the exponent
-###### returns
-the exponential
+#### Parameters
+> *exp* => the exponent  
+#### Returns
+> the exponential
 ***
 
-#### ToString
+### ToString
 
 ```C#
-func ToString()
+func ToString(): String;
 ```
 
-##### Brief
+#### Brief
 Converts the value to a Utf8 [string][sys.core.lang.String].
 
-###### returns
-the resulting string
+#### Returns
+> the resulting string
 ***
 
-#### @write
+### @write
 
 ```C#
-func @write(ref stream: Stream)
-func @write(ref stream: Stream, format: OutputFormat)
+func @write(ref stream: Stream);
+func @write(ref stream: Stream, format: OutputFormat);
 ```
 
-##### Brief
-Writes the value to an Utf8 text stream.
+#### Brief
+Writes the value to an Utf8 text [stream][sys.core.Stream].
 
 Can use an optional [output format][sys.core.OutputFormat] specifier.
 
-###### param stream
-the output stream
-###### param format
-formatting information
+#### Parameters
+> *stream* => the output stream  
+> *format* => formatting information  
 ***
 
-#### @put
+### @put
 
 ```C#
-func @put(ref stream: Stream)
+func @put(ref stream: Stream);
 ```
 
-##### Brief
+#### Brief
 Writes the value to a binary stream as a 64 bit floating point.
 
-###### param stream
-the output stream
+#### Parameters
+> *stream* => the output stream  
 ***
 
-#### @get
+### @get
 
 ```C#
-def @get(ref stream: Stream)
+def @get(ref stream: Stream);
 ```
 
-##### Brief
+#### Brief
 Reads a 64 bit floating point from a binary stream.
 
-###### param stream
-the input stream
+#### Parameters
+> *stream* => the input stream  
 ***
 
-Properties
----
+## Properties
 
-#### IsNan
+### IsNan
 
 ```C#
 property IsNan: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the instance is not a number.
 
 ***
 
-#### IsInfinite
+### IsInfinite
 
 ```C#
 property IsInfinite: Bool; get;
 ```
 
-##### Brief
+#### Brief
 Return true if the infinite.
 
 ***
 
-#### Abs
+### Abs
 
 ```C#
 property Abs: Double; get;
 ```
 
-##### Brief
+#### Brief
 Returns the absolute value.
 
 ***
 
-#### Sqr
+### Sqr
 
 ```C#
 property Sqr: Double; get;
 ```
 
-##### Brief
+#### Brief
 Returns the square of the value value.
 
 ***
 
-#### Sqrt
+### Sqrt
 
 ```C#
-property Sqrt: Double get const Intrinsic.Sqrt;; get;
+property Sqrt: Double get = Math.Sqrt;
 ```
 
-##### Brief
+#### Brief
 Returns the square root of the value.
 
 ***
 
-#### Floor
+### Floor
 
 ```C#
-property Floor: Double get const Intrinsic.Floor;; get;
+property Floor: Double get = Math.Floor;
 ```
 
-##### Brief
+#### Brief
 Returns the floor of a floating point value.
 
 ***
 
-#### Ceil
+### Ceil
 
 ```C#
-property Ceil: Double get const Intrinsic.Ceil;; get;
+property Ceil: Double get = Math.Ceil;
 ```
 
-##### Brief
+#### Brief
 Returns the ceiling of a floating point value.
 
 ***
 
-#### Round
+### Round
 
 ```C#
-property Round: Double get const Intrinsic.Round;; get;
+property Round: Double get = Math.Round;
 ```
 
-##### Brief
+#### Brief
 Returns the rounded value of a floating point.
 
 ***
 
-#### Log
+### Trunc
 
 ```C#
-property Log: Double get const Intrinsic.Log;; get;
+property Trunc: Double get = Math.Trunc;
 ```
 
-##### Brief
+#### Brief
+Returns the value truncated to the nearest integer value.
+
+***
+
+### Sin
+
+```C#
+property Sin: Double get = Math.Sin;
+```
+
+#### Brief
+
+***
+
+### Cos
+
+```C#
+property Cos: Double get = Math.Cos;
+```
+
+#### Brief
+
+***
+
+### Tan
+
+```C#
+property Tan: Double get = Math.Tan;
+```
+
+#### Brief
+
+***
+
+### Sinh
+
+```C#
+property Sinh: Double get = Math.Sinh;
+```
+
+#### Brief
+
+***
+
+### Cosh
+
+```C#
+property Cosh: Double get = Math.Cosh;
+```
+
+#### Brief
+
+***
+
+### Tanh
+
+```C#
+property Tanh: Double get = Math.Tanh;
+```
+
+#### Brief
+
+***
+
+### Asin
+
+```C#
+property Asin: Double get = Math.Asin;
+```
+
+#### Brief
+
+***
+
+### Acos
+
+```C#
+property Acos: Double get = Math.Acos;
+```
+
+#### Brief
+
+***
+
+### Atan
+
+```C#
+property Atan: Double get = Math.Atan;
+```
+
+#### Brief
+
+***
+
+### Asinh
+
+```C#
+property Asinh: Double get = Math.Asinh;
+```
+
+#### Brief
+
+***
+
+### Acosh
+
+```C#
+property Acosh: Double get = Math.Acosh;
+```
+
+#### Brief
+
+***
+
+### Atanh
+
+```C#
+property Atanh: Double get = Math.Atanh;
+```
+
+#### Brief
+
+***
+
+### Log
+
+```C#
+property Log: Double get = Math.Log;
+```
+
+#### Brief
 Returns the natural logarithm of a value.
 
 ***
 
-#### Log10
+### Log2
 
 ```C#
-property Log10: Double get const Intrinsic.Log10;; get;
+property Log2: Double get = Math.Log2;
 ```
 
-##### Brief
+#### Brief
+
+***
+
+### Log10
+
+```C#
+property Log10: Double get = Math.Log10;
+```
+
+#### Brief
 Returns the base 10 logarithm of a value.
 
 ***
 
-Constants
----
+## Constants
 
-#### Zero
+### Zero
 
 ```C#
-const Zero: Double
+const Zero: Double;
 ```
 
-##### Brief
+#### Brief
 A [Double][sys.core.lang.Double] instance representing a logical "0" value.
 
 ***
 
-#### One
+### One
 
 ```C#
-const One: Double
+const One: Double;
 ```
 
-##### Brief
+#### Brief
 A [Double][sys.core.lang.Double] instance representing a logical "1" value.
 
 ***
 
-#### Min
+### Min
 
 ```C#
-const Min: Double
+const Min: Double;
 ```
 
-##### Brief
+#### Brief
 The minimum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
-#### Max
+### Max
 
 ```C#
-const Max: Double
+const Max: Double;
 ```
 
-##### Brief
+#### Brief
 The maximum value for a [Double][sys.core.lang.Double] (64 bit floating point) instance.
 
 ***
 
-#### IsSigned
+### IsSigned
 
 ```C#
-const IsSigned
+const IsSigned;
 ```
 
-##### Brief
+#### Brief
 Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
 
 ***
 
-#### IsInteger
+### IsInteger
 
 ```C#
-const IsInteger
+const IsInteger;
 ```
 
-##### Brief
+#### Brief
 Returns [false][sys.core.lang.Bool].
 
 ***
 
-#### MaxDigitsLow
+### MaxDigitsLow
 
 ```C#
-const MaxDigitsLow
+const MaxDigitsLow;
 ```
 
-##### Brief
+#### Brief
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
@@ -319,13 +457,13 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MaxDigitsHigh
+### MaxDigitsHigh
 
 ```C#
-const MaxDigitsHigh
+const MaxDigitsHigh;
 ```
 
-##### Brief
+#### Brief
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.  
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
@@ -333,51 +471,52 @@ Should not be used for buffer sizes.
 
 ***
 
-#### MinExpBase10
+### MinExpBase10
 
 ```C#
-const MinExpBase10
+const MinExpBase10;
 ```
 
-##### Brief
+#### Brief
 The minimum base 10 exponent.
 
 ***
 
-#### MaxExpBase10
+### MaxExpBase10
 
 ```C#
-const MaxExpBase10
+const MaxExpBase10;
 ```
 
-##### Brief
+#### Brief
 The maximum base 10 exponent.
 
 ***
 
-#### Nan
+### Nan
 
 ```C#
-const Nan
+const Nan;
 ```
 
-##### Brief
+#### Brief
 The not a number value.
 
 ***
 
-#### Infinite
+### Infinite
 
 ```C#
-const Infinite
+const Infinite;
 ```
 
-##### Brief
+#### Brief
 Positive infinite.
 
 ***
 
-[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
-[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Double]: sys.core.lang.Double.api.md "sys.core.lang.Double"
+[sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
+[sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"
