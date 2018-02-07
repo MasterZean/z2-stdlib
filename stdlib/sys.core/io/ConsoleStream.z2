@@ -16,7 +16,7 @@ class ConsoleStream: Stream {
         handle = h;
     }
     
-	override def BinPutImpl(ref data: Slice<const Byte>) {
+	override def BinPutImpl(ref data: ReadSlice<const Byte>) {
 		val dummy = 0u;
 		Win32.WriteFile(handle, data.SysDataPointer, DWord{data.Length}, Ptr{dummy}, null);
 	}
@@ -41,7 +41,7 @@ class ConsoleStream: Stream {
 	
 #else
 
-	override def BinPutImpl(ref data: Slice<const Byte>) {
+	override def BinPutImpl(ref data: ReadSlice<const Byte>) {
 		Posix.write(handle, data.SysDataPointer, data.Length);
 	}
 	

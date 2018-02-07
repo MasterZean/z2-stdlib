@@ -7,7 +7,7 @@ class MemoryStream: Stream {
 		Capacity = 128;
 	}
 	
-	override def BinPutImpl(ref data: Slice<const Byte>) {
+	override def BinPutImpl(ref data: ReadSlice<const Byte>) {
 		Grow(capacity + data.Length);
 		Intrinsic.MemCopy(ptr, data.SysDataPointer, data.Length);
 		ptr = ptr + data.Length;
@@ -49,7 +49,22 @@ class MemoryStream: Stream {
 		
 			data = null;
 			capacity = 0;
+			wrlim = null;
+			ptr = null;
 		}
+	}
+	
+	def GetString(): String {
+		val s = "";
+		Move(s);
+		return s;
+	}
+	
+	def CopyString(): String {
+		if (data != null)
+			return String{data, ptr - data};
+		else
+			return "";
 	}
 }
 private {

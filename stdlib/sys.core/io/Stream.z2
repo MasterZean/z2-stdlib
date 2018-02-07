@@ -4,7 +4,7 @@ using sys.core.OutputFormat;
 namespace sys.core;
 
 class Stream {
-	def BinPut(ref data: Slice<Byte>) {
+	def BinPut(ref data: ReadSlice<Byte>) {
 		if (ptr + data.Length <= wrlim) {
 			Intrinsic.MemCopy(ptr, data.SysDataPointer, data.Length);
 			ptr = ptr + data.Length;
@@ -151,82 +151,82 @@ class Stream {
 #region RawPut
 
 	def RawPutS8(data: Int) {
-		val s = Slice<Byte>{data, 1p};
+		val s = ReadSlice<Byte>{data, 1p};
 		BinPut(s);
 	}
 	
 	def RawPutS8(data: Long) {
-		val s = Slice<Byte>{data, 1p};
+		val s = ReadSlice<Byte>{data, 1p};
 		BinPut(s);
 	}
 
 	def RawPutU8(data: DWord) {
-		val s = Slice<Byte>{data, 1p};
+		val s = ReadSlice<Byte>{data, 1p};
 		BinPut(s);
 	}
 
 	def RawPutU8(data: QWord) {
-		val s = Slice<Byte>{data, 1p};
+		val s = ReadSlice<Byte>{data, 1p};
 		BinPut(s);
 	}
 
 	def RawPutS16(data: Int) {
-		val s = Slice<Byte>{data, 2p};
+		val s = ReadSlice<Byte>{data, 2p};
 		BinPut(s);
 	}
 	
 	def RawPutS16(data: Long) {
-		val s = Slice<Byte>{data, 2p};
+		val s = ReadSlice<Byte>{data, 2p};
 		BinPut(s);
 	}
 
 	def RawPutU16(data: DWord) {
-		val s = Slice<Byte>{data, 2p};
+		val s = ReadSlice<Byte>{data, 2p};
 		BinPut(s);
 	}
 
 	def RawPutU16(data: QWord) {
-		val s = Slice<Byte>{data, 2p};
+		val s = ReadSlice<Byte>{data, 2p};
 		BinPut(s);
 	}
 
 	def RawPutS32(data: Int) {
-		val s = Slice<Byte>{data, 4p};
+		val s = ReadSlice<Byte>{data, 4p};
 		BinPut(s);
 	}
 	
 	def RawPutS32(data: Long) {
-		val s = Slice<Byte>{data, 4p};
+		val s = ReadSlice<Byte>{data, 4p};
 		BinPut(s);
 	}
 
 	def RawPutU32(data: DWord) {
-		val s = Slice<Byte>{data, 4p};
+		val s = ReadSlice<Byte>{data, 4p};
 		BinPut(s);
 	}
 	
 	def RawPutU32(data: QWord) {
-		val s = Slice<Byte>{data, 4p};
+		val s = ReadSlice<Byte>{data, 4p};
 		BinPut(s);
 	}
 
 	def RawPutS64(data: Long) {
-		val s = Slice<Byte>{data, 8p};
+		val s = ReadSlice<Byte>{data, 8p};
 		BinPut(s);
 	}
 
 	def RawPutU64(data: QWord) {
-		val s = Slice<Byte>{data, 8p};
+		val s = ReadSlice<Byte>{data, 8p};
 		BinPut(s);
 	}
 
 	def RawPutF32(data: Float) {
-		val s = Slice<Byte>{data, 4p};
+		val s = ReadSlice<Byte>{data, 4p};
 		BinPut(s);
 	}
 	
 	def RawPutF64(data: Double) {
-		val s = Slice<Byte>{data, 8p};
+		val s = ReadSlice<Byte>{data, 8p};
 		BinPut(s);
 	}
 
@@ -345,9 +345,9 @@ class Stream {
 
 #endregion
 		
-	def FormatBuffer(s: Slice<Byte>, format: OutputFormat) {
+	def FormatBuffer(ref s: ReadSlice<Byte>, format: OutputFormat) {
 		if (format.Width != 0 && format.Width < s.Length) {
-			val s2 = Slice<Byte>{s, s.Length - PtrSize{format.Width}, PtrSize{format.Width}};
+			val s2 = ReadSlice<Byte>{s, s.Length - PtrSize{format.Width}, PtrSize{format.Width}};
 			BinPut(s2);
 		}
 		else if (format.Width > s.Length) {
@@ -368,8 +368,8 @@ class Stream {
 				}
 				
 				if (reduce) {
-					val buf = CArray[Byte{'+'}];
-					val slice = Slice<Byte>{buf};
+					val buf = Byte{'+'};
+					val slice = ReadSlice<Byte>{buf};
 					BinPut(slice);
 				}
 				
@@ -383,8 +383,8 @@ class Stream {
 					right--;
 					
 					if (reduce) {
-					val buf = CArray[Byte{'+'}];
-						val slice = Slice<Byte>{buf};
+						val buf = Byte{'+'};
+						val slice = ReadSlice<Byte>{buf};
 						BinPut(slice);
 					}
 				}
@@ -406,7 +406,7 @@ class Stream {
 				val reduce = format.ForceSign && s[0] != '+' && s[0] != '-';
 				
 				if (reduce)
-					left--;
+					right--;
 				
 				while (left > 0) {
 					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
@@ -417,8 +417,8 @@ class Stream {
 				}
 				
 				if (reduce) {
-					val buf = CArray[Byte{'+'}];
-					val slice = Slice<Byte>{buf};
+					val buf = Byte{'+'};
+					val slice = ReadSlice<Byte>{buf};
 					BinPut(slice);
 				}
 				
@@ -474,7 +474,7 @@ protected {
 	val style = 0;
 	val errorcode = 0;
 
-	virtual def BinPutImpl(ref data: Slice<Byte>) {
+	virtual def BinPutImpl(ref data: ReadSlice<Byte>) {
 		SetError(ERROR_NOT_ENOUGH_SPACE);
 	}
 

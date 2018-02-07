@@ -235,7 +235,7 @@ class ConvertUtf8 {
 		buffer.Length = n;
 	}
 	
-	static func ParseSig<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseSig<T: Class>(ref buffer: ReadSlice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -268,7 +268,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static func ParseSigSaturated<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseSigSaturated<T: Class>(ref buffer: ReadSlice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		val sign = 1;
@@ -306,7 +306,7 @@ class ConvertUtf8 {
 		return value * sign;
 	}
 	
-	static func ParseUns<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseUns<T: Class>(ref buffer: ReadSlice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')
@@ -334,7 +334,7 @@ class ConvertUtf8 {
 		return value;
 	}
 	
-	static func ParseUnsSaturated<T: Class>(ref buffer: Slice<Byte>): T {
+	static func ParseUnsSaturated<T: Class>(ref buffer: ReadSlice<Byte>): T {
 		val value = T{};
 		val i = 0p;
 		while (i < buffer.Length && buffer[i] <= ' ')

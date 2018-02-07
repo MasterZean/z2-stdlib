@@ -33,9 +33,9 @@ class Intrinsic {
 	static def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
 	
 	static def CpuID(ref cpu: CArray<Int>, val level: Int) {
-		__cpuid(cpu.SysDataPointer, level);
+		cpuid(cpu.SysDataPointer, level);
 	}
 }
 private {
-	@[bindc] static def __cpuid(cpu: Ptr<Int>, level: Int);
+	@[bindc] static def cpuid(cpu: Ptr<Int>, level: Int);
 }

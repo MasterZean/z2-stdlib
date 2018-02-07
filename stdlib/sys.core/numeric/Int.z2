@@ -50,7 +50,7 @@ class Int {
 	func Clamped(min: Int, max: Int): Int = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = ConvertUtf8.ParseSig<Int>(s);
 	}
 	
@@ -94,7 +94,7 @@ class Int {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this = ConvertUtf8.ParseSigSaturated<Int>(s);
 	}
 

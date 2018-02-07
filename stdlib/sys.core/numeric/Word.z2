@@ -50,7 +50,7 @@ class Word {
 	func Clamped(min: Word, max: Word): Word = Intrinsic.Clamped;
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = Word{ConvertUtf8.ParseUns<DWord>(s)};
 	}
 
@@ -99,7 +99,7 @@ class Word {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this.Saturated{ConvertUtf8.ParseUnsSaturated<DWord>(s)};
 	}
 

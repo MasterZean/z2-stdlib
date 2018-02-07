@@ -51,7 +51,7 @@ class Short {
 
 
 	this(string: String) {
-		val s = Slice<Byte>{string};
+		val s = ReadSlice<Byte>{string};
 		this = Short{ConvertUtf8.ParseSig<Int>(s)};
 	}
 
@@ -100,7 +100,7 @@ class Short {
 	}
 	
 	this Saturated(value: String) {
-		val s = Slice<Byte>{value};
+		val s = ReadSlice<Byte>{value};
 		this = Short.Saturated{ConvertUtf8.ParseSigSaturated<Int>(s)};
 	}
 
