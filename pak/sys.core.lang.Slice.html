@@ -59,7 +59,8 @@ class Slice
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{ref p: CArray<T>};
+<pre><code class="cs">this{};
+this{ref p: CArray<T>};
 this{ref p: CArray<T>, length: PtrSize};
 this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
 this{ref p: Vector<T>};
@@ -93,11 +94,11 @@ this{p: Slice<Byte>, offset: PtrSize, length: PtrSize};</code></pre>
 <h4>Brief</h4>
 <p>
 
-Constructs a new slice based on a persistent memory location and an optional size.
+Constructs a new slice based on a persistent readable and writable memory location and an optional size.
 
 The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
 
-The provided emeory location must not be freed before the slice is destoyed.
+The provided memory location must not be freed before the slice is destroyed.
 
 </p><h4>Parameters</h4>
 <blockquote>p=> a vector of items<br/>
@@ -124,64 +125,6 @@ If an array is provided, elements will be copied over in sequence. If the source
 <blockquote>value=> the value to fill with<br/>
 items=> the array to use<br/>
 </blockquote>
-<hr/>
-<h3>FindIndex</h3>
-<pre><code class="cs">func FindIndex(item: T): PtrSize;
-func FindIndex(item: T, start: PtrSize): PtrSize;
-func FindIndex(b: CArray<T>): PtrSize;
-func FindIndex(b: Vector<T>): PtrSize;
-func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
-func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;</code></pre>
-<h4>Brief</h4>
-<p>
-Searches for an item or items in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
-
-The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
-</p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-b=> a vector of items to search for<br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote>the index where the item was found</blockquote>
-<hr/>
-<h3>RFindIndex</h3>
-<pre><code class="cs">func RFindIndex(item: T): PtrSize;
-func RFindIndex(item: T, val start: PtrSize): PtrSize;
-func RFindIndex(b: CArray<T>): PtrSize;
-func RFindIndex(b: Vector<T>): PtrSize;
-func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
-func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;</code></pre>
-<h4>Brief</h4>
-<p>
-Searches for an item or items in the array in reverse order and returns the first index from the back at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
-
-The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
-</p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-b=> a vector of items to search for<br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote>the index where the item was found</blockquote>
-<hr/>
-<h3>BinaryIndex</h3>
-<pre><code class="cs">func BinaryIndex(item: T): PtrSize;
-func BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
-<h4>Brief</h4>
-<p>
-Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
-
-The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
-</p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-</blockquote>
-<h4>Returns</h4>
-<blockquote>the index where the item was found</blockquote>
 <hr/>
 <h3>Reverse</h3>
 <pre><code class="cs">def Reverse();</code></pre>
@@ -281,38 +224,7 @@ Sorts the content of the array in descending order, from beginning to end or bet
 <blockquote>low=> the start index<br/>
 high=> the end index<br/>
 </blockquote>
-<hr/>
-<h3>Sum</h3>
-<pre><code class="cs">func Sum(): T;</code></pre>
-<h4>Brief</h4>
-<p>
-Returns the sum of all the items in the array.
-
-</p><h4>Returns</h4>
-<blockquote>the sum</blockquote>
-</div><h2>Properties</h2>
-<div class="codesection">
-<h3>Length</h3>
-<pre><code class="cs">property Length: PtrSize</code></pre>
-<h4>Brief</h4>
-<p>
-Reads and writes the length of the slice. Can not grow, only decrease.
-
-</p><hr/>
-<h3>@index</h3>
-<pre><code class="cs">property @index: T</code></pre>
-<h4>Brief</h4>
-<p>
-Reads and writes a given index from the slice.
-
-</p><hr/>
-<h3>SysDataPointer</h3>
-<pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
-<h4>Brief</h4>
-<p>
-Returns a pointer to the data from the slice.
-
-</p></div></div>
+</div></div>
 </div>
 
 <footer class="footer">

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="../index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../docs.html">Documentation</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../api.html">API <span class="sr-only">(current)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">ReadSlice</li>
+</ol>
+
+<h1>class ReadSlice</h1>
+<pre><code class="cs">namespace sys.core.lang
+class ReadSlice
+</code></pre>
+<h2>Constructors</h2>
+<div class="codesection">
+<h3>this</h3>
+<pre><code class="cs">this{};
+this{ref const p: CArray<T>};
+this{ref const p: CArray<T>, length: PtrSize};
+this{ref const p: CArray<T>, start: PtrSize, end: PtrSize};
+this{ref const p: Vector<T>};
+this{ref const p: Vector<T>, length: PtrSize};
+this{ref const p: Vector<T>, start: PtrSize, end: PtrSize};
+this{ref const p: Small};
+this{ref const p: Small, length: PtrSize};
+this{ref const p: Short};
+this{ref const p: Short, length: PtrSize};
+this{ref const p: Byte};
+this{ref const p: Byte, length: PtrSize};
+this{ref const p: Word};
+this{ref const p: Word, length: PtrSize};
+this{ref const p: Int};
+this{ref const p: Int, length: PtrSize};
+this{ref const p: Long};
+this{ref const p: Long, length: PtrSize};
+this{ref const p: DWord};
+this{ref const p: DWord, length: PtrSize};
+this{ref const p: QWord};
+this{ref const p: QWord, length: PtrSize};
+this{ref const p: Float};
+this{ref const p: Float, length: PtrSize};
+this{ref const p: Double};
+this{ref const p: Double, length: PtrSize};
+this{ref const p: Char};
+this{ref const p: Char, length: PtrSize};
+this{ref const p: String};
+this{ref const p: ReadSlice<Byte>, length: PtrSize};
+this{ref const p: ReadSlice<Byte>, offset: PtrSize, length: PtrSize};</code></pre>
+<h4>Brief</h4>
+<p>
+
+Constructs a new slice based on a persistent readable memory location and an optional size.
+
+The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
+
+The provided memory location must not be freed before the slice is destroyed.
+
+</p><h4>Parameters</h4>
+<blockquote>p=> a vector of items<br/>
+length=> the length of the slice<br/>
+start=> the start index<br/>
+end=> the end index<br/>
+offset=> an offset to use<br/>
+</blockquote>
+</div><h2>Methods</h2>
+<div class="codesection">
+<h3>FindIndex</h3>
+<pre><code class="cs">func FindIndex(item: T): PtrSize;
+func FindIndex(item: T, start: PtrSize): PtrSize;
+func FindIndex(b: CArray<T>): PtrSize;
+func FindIndex(b: Vector<T>): PtrSize;
+func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
+func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+
+Searches for an item or items in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+b=> a vector of items to search for<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>RFindIndex</h3>
+<pre><code class="cs">func RFindIndex(item: T): PtrSize;
+func RFindIndex(item: T, val start: PtrSize): PtrSize;
+func RFindIndex(b: CArray<T>): PtrSize;
+func RFindIndex(b: Vector<T>): PtrSize;
+func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item or items in the array in reverse order and returns the first index from the back at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+b=> a vector of items to search for<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>BinaryIndex</h3>
+<pre><code class="cs">func BinaryIndex(item: T): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+</p><h4>Parameters</h4>
+<blockquote>item=> the item to search for<br/>
+start=> the start index for the search<br/>
+</blockquote>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>Sum</h3>
+<pre><code class="cs">func Sum(): T;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns the sum of all the items in the array.
+
+</p><h4>Returns</h4>
+<blockquote>the sum</blockquote>
+</div><h2>Properties</h2>
+<div class="codesection">
+<h3>Length</h3>
+<pre><code class="cs">property Length: PtrSize</code></pre>
+<h4>Brief</h4>
+<p>
+Reads and writes the length of the slice. Can not grow, only decrease.
+
+</p><hr/>
+<h3>@index</h3>
+<pre><code class="cs">property @index: T</code></pre>
+<h4>Brief</h4>
+<p>
+Reads and writes a given index from the slice.
+
+</p><hr/>
+<h3>SysDataPointer</h3>
+<pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns a pointer to the data from the slice.
+
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
