@@ -1,0 +1,15 @@
+namespace org.z2legacy.ut.auto.eq04;
+
+class Foo {
+	func @eq(p: Foo): Bool {
+		System.Out << def.Name;
+		
+		return true;
+	}
+}
+
+class EqTest {
+	def @main() {
+		Foo{} != Foo{};
+	}
+}
