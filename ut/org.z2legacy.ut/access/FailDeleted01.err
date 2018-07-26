@@ -1,0 +1,3 @@
+FailDeleted01.z2(7, 17): error:
+	Can't access deleted constructor:
+		org.z2legacy.ut.access.Baz{}

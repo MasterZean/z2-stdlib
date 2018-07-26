@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.access;
+
+using Baz;
+
+class FailDeleted02 {
+	def @main() {
+		val pd = Baz{};
+	}
+}
