@@ -159,8 +159,7 @@ class ReadSlice<T: Class> {
 		size = length;
 	}
 	
-	property Length: PtrSize
-	get const {
+	property Length: PtrSize {
 		return size;
 	}
 	set (value) {
@@ -168,7 +167,7 @@ class ReadSlice<T: Class> {
 	}
 	
 	property @index: T
-	get const [index: PtrSize] {
+	get [index: PtrSize] {
 		System.Debug.Assert(index < size);
 		return ptr[index];
 	}

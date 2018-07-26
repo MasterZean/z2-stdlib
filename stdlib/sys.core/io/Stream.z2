@@ -137,12 +137,12 @@ class Stream {
 	}
 
 	virtual def RawWrite(data: String) {
-		val s = Slice<Byte>{data};
+		val s = ReadSlice<Byte>{data};
 		BinPut(s);
 	}
 	
 	virtual def RawWrite(data: String, format: OutputFormat) {
-		val s = Slice<Byte>{data};
+		val s = ReadSlice<Byte>{data};
 		FormatBuffer(s, format);
 	}
 

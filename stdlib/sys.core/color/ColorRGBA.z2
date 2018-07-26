@@ -105,17 +105,17 @@ class ColorRGBA {
 	}
 
 	this FromUncapped(red: Float, green: Float, blue: Float, alpha: Float) {
-		R = ToByte(red.Clamped(0, 1.0f));
-		G = ToByte(green.Clamped(0, 1.0f));
-		B = ToByte(blue.Clamped(0, 1.0f));
-		A = ToByte(alpha.Clamped(0, 1.0f));
+		R = ToByte(red.Clamped(0.0f, 1.0f));
+		G = ToByte(green.Clamped(0.0f, 1.0f));
+		B = ToByte(blue.Clamped(0.0f, 1.0f));
+		A = ToByte(alpha.Clamped(0.0f, 1.0f));
 	}
 
 	this FromUncapped(red: Double, green: Double, blue: Double, alpha: Double) {
-		R = ToByte(red.Clamped(0, 1.0));
-		G = ToByte(green.Clamped(0, 1.0));
-		B = ToByte(blue.Clamped(0, 1.0));
-		A = ToByte(alpha.Clamped(0, 1.0));
+		R = ToByte(red.Clamped(0.0, 1.0));
+		G = ToByte(green.Clamped(0.0, 1.0));
+		B = ToByte(blue.Clamped(0.0, 1.0));
+		A = ToByte(alpha.Clamped(0.0, 1.0));
 	}
 
 #region Conversion
