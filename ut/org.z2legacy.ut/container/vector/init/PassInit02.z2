@@ -14,7 +14,7 @@ class PassInit02 {
 		val v3 = Vector<Int>[1];
 		System.Out << v3.class << ": " << v3 << "\n";
 		
-		// explicit construcotr call
+		// explicit constructor call
 		val v4 = Vector<Int>{[1]};
 		System.Out << v4.class << ": " << v4 << "\n";
 	}

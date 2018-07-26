@@ -25,4 +25,8 @@ class Increment {
 	this() {
 		PassInit03.Counter++;
 	}
+	
+	~this() {
+		System.Out << "Destroy.\n";
+	}
 }
