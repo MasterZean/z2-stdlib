@@ -1,0 +1,37 @@
+namespace org.z2legacy.bench;
+
+using sys.core.StopWatch;
+
+class BenchCArrayInsert {
+    static def test_insert(ref b: CArray<String>) {
+        b.Insert(0p, "miu");
+    }
+    
+    static def test_insertDumb(ref b: CArray<String>) {
+        b.InsertDumb(0p, "miu");
+    }
+    
+    def @main() {
+        val i = 0;
+        val a = CArray[1000: (++i).ToString(), ...];
+        
+        //System.Out << a << "\n";
+        {
+			val sw = StopWatch{};
+            test_insert(a);
+            System.Out << test_insert.Name << "     finished in " << sw.Elapsed() / 1000 << " sec.\n";
+        }
+        //System.Out << a << "\n";
+        
+        i = 0;
+        val b = CArray[1000: (++i).ToString(), ...];
+        
+        //System.Out << b << "\n";
+        {
+			val sw = StopWatch{};
+            test_insertDumb(b);
+            System.Out << test_insertDumb.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+        }
+        //System.Out << b << "\n";
+    }
+}
