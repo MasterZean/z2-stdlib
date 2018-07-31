@@ -1,0 +1,46 @@
+namespace org.z2legacy.bench;
+
+using sys.core.StopWatch;
+
+//#include <stdlib.h>
+
+class BenchIntAbs {
+	const TIMES = 100000;
+	
+	static def test_Abs(buf: CArray<Int>, ref out: CArray<Int>) {
+		for (val i = 0; i < TIMES; i++) {
+			for (val j = 0p; j < out.Length; j++)
+				out[j] = buf[j].Abs;
+		}
+	}
+	
+	static def test_abs(buf: CArray<Int>, ref out: CArray<Int>) {
+		for (val i = 0; i < TIMES; i++) {
+			for (val j = 0p; j < out.Length; j++) {
+				out[j] = buf[j].Abs;
+				//out[j] = abs(buf[j]);
+			}
+		}
+	}
+
+	static val buffa: CArray<Int, 100000>;
+	static val buffb: CArray<Int, 100000>;
+	
+	def @main() {
+		for (val i = 0p; i < buffa.Length / 2; i++) {
+			buffa[i * 2]     = -1000000 + Int{i};
+			buffa[i * 2 + 1] =  1000000 - Int{i};
+		}
+		
+		{
+			val sw = StopWatch{};
+			test_Abs(buffa, buffb);
+			System.Out << test_Abs.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_abs(buffa, buffb);
+			System.Out << test_abs.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+	}
+}
