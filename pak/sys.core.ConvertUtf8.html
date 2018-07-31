@@ -163,7 +163,7 @@ data=> the value to write<br/>
 </blockquote>
 <hr/>
 <h3>FromUtf16</h3>
-<pre><code class="cs">static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>);</code></pre>
+<pre><code class="cs">static func FromUtf16(ref dest: Slice<Byte>, ref src: ReadSlice<Word>);</code></pre>
 <h4>Brief</h4>
 <p>
 Converts a source Utf16 buffer to a destination Utf8 buffer.
@@ -174,7 +174,7 @@ src=> the source buffer<br/>
 </blockquote>
 <hr/>
 <h3>FromUtf32</h3>
-<pre><code class="cs">static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>);</code></pre>
+<pre><code class="cs">static func FromUtf32(ref dest: Slice<Byte>, ref src: ReadSlice<DWord>);</code></pre>
 <h4>Brief</h4>
 <p>
 Converts a source Utf32 buffer to a destination Utf8 buffer.
