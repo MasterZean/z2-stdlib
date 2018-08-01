@@ -5,13 +5,15 @@ class TestGetEnv {
 	    System.Out << System.GetEnvVariable("PATH") << "\n";
 	    System.Out << "\n";
 	    
-	    val paths = System.GetEnvVariable("PATH").Split(';');
+	    val sep = sys.core.Compiler.Platform == "WIN32" ? Byte{';'} : Byte{':'};
+	    
+	    val paths = System.GetEnvVariable("PATH").Split(sep);
 		foreach (p in paths) {
 		    System.Out << p << "\n";
 		}
 		System.Out << "\n";
 		
-		foreach (p in System.GetEnvVariable("PATH").Split(';'))
+		foreach (p in System.GetEnvVariable("PATH").Split(sep))
 		    System.Out << p << "\n";
 
 		System.Out << "\n";

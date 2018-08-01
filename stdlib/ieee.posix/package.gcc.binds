@@ -2,3 +2,8 @@ chdir:
 extern "C" int chdir (const char *__path);
 getcwd:
 extern "C" char *getcwd (char *__buf, size_t __size);
+getenv:
+extern "C" char* getenv (const char* name);
+usleep:
+__extension__ typedef unsigned int __useconds_t;
+extern "C" int usleep (__useconds_t __useconds);

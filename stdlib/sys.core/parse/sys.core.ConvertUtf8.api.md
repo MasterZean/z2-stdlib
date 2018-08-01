@@ -131,7 +131,7 @@ The buffer `Length` is updated to the number of code units written.
 ### FromUtf16
 
 ```C#
-static func FromUtf16(ref dest: Slice<Byte>, ref src: Slice<Word>);
+static func FromUtf16(ref dest: Slice<Byte>, ref src: ReadSlice<Word>);
 ```
 
 #### Brief
@@ -145,7 +145,7 @@ Converts a source Utf16 buffer to a destination Utf8 buffer.
 ### FromUtf32
 
 ```C#
-static func FromUtf32(ref dest: Slice<Byte>, ref src: Slice<DWord>);
+static func FromUtf32(ref dest: Slice<Byte>, ref src: ReadSlice<DWord>);
 ```
 
 #### Brief

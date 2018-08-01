@@ -80,15 +80,17 @@ class Path {
 	
 #else
 
-	static property ExeFileName: String
-	get const {
-		return "";
+	static property ExeFileName: String {
+		if (System.Args.Length > 0)
+			return System.Args[0];
+		else
+			return "";
 	}
 	
 #endif
 
 	static def GetFolder(path: String): String {
-		val index = path.RFind(Byte{DirSep});
+		val index = path.RFind(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
 		else
@@ -96,7 +98,7 @@ class Path {
 	}
 
 	static def GetFolderNoSep(path: String): String {
-		val index = path.RFind(Byte{DirSep});
+		val index = path.RFind(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
 		else
@@ -152,7 +154,7 @@ class Path {
 	}
 	
 	static def GetParent(path: String): String {
-		if (path[path.Length - 1] == DirSep)
+		if (path[path.Length - 1] == DirSepWin || path[path.Length - 1] == DirSepUnix)
 			return GetFolder(GetFolderNoSep(path));
 		else
 			return GetFolder(path);
