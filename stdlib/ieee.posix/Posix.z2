@@ -16,6 +16,6 @@ static class Posix {
 }
 
 class timespec {
-	val tv_sec = 0;
-	val tv_nsec = 0;
+	val tv_sec = 0p;
+	val tv_nsec = 0p;
 }
