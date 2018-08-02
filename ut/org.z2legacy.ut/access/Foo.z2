@@ -27,3 +27,9 @@ private {
 		return 0;
 	}
 }
+
+class Baz {
+	this() = null;
+	
+	this(a: Int) = null;
+}

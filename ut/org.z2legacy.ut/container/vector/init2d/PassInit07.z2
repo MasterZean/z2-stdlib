@@ -1,0 +1,14 @@
+namespace org.z2legacy.ut.container.vector.init2d;
+
+class PassInit07 {
+	def @main() {
+		val p = [[1, 2, 3, 4], [5, 6, 7], [8, 9]];
+		
+		foreach (col in p)
+			System.Out << "p[]: " << col << "\n";
+			
+		foreach (col in p)
+			foreach (e in col)
+				System.Out << "p[""][""]=" << e << "\n";
+	}
+}

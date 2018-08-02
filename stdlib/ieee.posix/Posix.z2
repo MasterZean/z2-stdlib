@@ -9,9 +9,13 @@ static class Posix {
 	@[bindc] def clock_gettime(clock_id: Int, tp: Ptr<timespec>): Int;
 	@[bindc] def getcwd(path: Ptr<Byte>, size: PtrSize);
 	@[bindc] def chdir(path: Ptr<Byte>);
+	@[bindc] def getenv(name: Ptr<Byte>): Ptr<Byte>;
+	@[bindc] def get_nprocs(): Int;
+	@[bindc] def sysconf(conf: Int): Long;
+	@[bindc] def usleep(microsec: Int): Int;
 }
 
 class timespec {
-	val tv_sec = 0;
-	val tv_nsec = 0;
+	val tv_sec = 0p;
+	val tv_nsec = 0p;
 }

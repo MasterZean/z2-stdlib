@@ -1,3 +1,5 @@
+namespace org.z2legacy.bench;
+
 using sys.core.StopWatch;
 using sys.core.ConvertUtf8;
 
@@ -5,8 +7,6 @@ using sys.core.ConvertUtf8;
 #include <stdlib.h>
 #include <stdio.h>
 */
-
-namespace org.z2legacy.bench;
 
 class BenchIntToString {
 	const TIMES = 100000000;
@@ -49,7 +49,7 @@ class BenchIntToString {
 			val s = Slice<Byte>{b};
 			ConvertUtf8.IntAsText(s, TEST_VAL);
 			
-			val z = Slice<Byte>{b};
+			val z = ReadSlice<Byte>{b};
 			val d = ConvertUtf8.ParseSig<Int>(z);
 			
 			System.Trace.Assert(d == TEST_VAL);

@@ -1,0 +1,51 @@
+namespace org.z2legacy.bench;
+
+using sys.core.StopWatch;
+using sys.core.ConvertUtf8;
+
+/*
+#include <stdlib.h>
+#include <stdio.h>
+*/
+
+class BenchDoubleToString {
+	const TIMES = 10000000;
+	const TEST_VAL = 123456.789;
+	
+	static def test_sprintf(ref b: CArray<Byte>) {
+		for (val i = 0; i < TIMES; i++) {
+			/*
+			sprintf((char*)b, "%.10g", 123456.789);
+			*/
+		}
+	}
+	
+	static def test_ToArray(ref b: CArray<Byte>) {
+		for (val i = 0; i < TIMES; i++) {
+			val s = Slice<Byte>{b};
+			sys.core.ConvertUtf8.DoubleAsText(s, TEST_VAL);
+		}
+	}
+	
+	static def runTests() {
+		{
+			val sw = StopWatch{};
+			test_sprintf(buffa);
+			System.Out << test_sprintf.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+		{
+			val sw = StopWatch{};
+			test_ToArray(buffb);
+			System.Out << test_ToArray.Name << " finished in " << sw.Elapsed() / 1000 << " sec.\n";
+		}
+	}
+	
+	// sprintf
+	static val buffa = CArray<Byte, 32>{};
+	// ToArray
+	static val buffb = CArray<Byte, 32>{};
+	
+	def @main() {
+		runTests();
+	}
+}

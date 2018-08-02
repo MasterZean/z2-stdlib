@@ -1,0 +1,11 @@
+namespace org.z2legacy.ut.container.vector.init2d;
+
+class PassInit02 {
+	def @main() {
+		System.Out << [1] << "\n";
+		System.Out << [[1]] << "\n";
+		System.Out << [[1, 2]] << "\n";
+		System.Out << [[1, 2], [3, 4]] << "\n";
+		System.Out << [[1, 2, 3, 4], [5, 6, 7], [8, 9]] << "\n";
+	}
+}

@@ -412,7 +412,7 @@ class String {
 	func @put(ref stream: Stream) {
 		length.@put(stream);
 		val s = Slice<Byte>{this};
-		stream.BinPutImpl(s);
+		stream.BinPut(s);
 	}
 
 	def @get(ref stream: Stream) {

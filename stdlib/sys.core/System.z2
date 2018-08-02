@@ -31,7 +31,7 @@ class System {
 		SetConsoleCodePage();
 	}
 		
-	static def GetEnvVariable(val var: String): String {
+	static def GetEnvVariable(var: String): String {
 		val sourceVar = Slice<Byte>{var};
 		val varu16: CArray<Word, 32767> = void;
 		val destVar = Slice<Word>{varu16};
@@ -58,6 +58,24 @@ class System {
 		}
 	}
 	
+	static def GetCPUPS() {
+		cpu.Bits = 32;
+		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
+		if (envArch == "x86") {
+			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
+			if (envArchEx == "AMD64" || envArchEx == "IA64")
+				cpu.Bits = 64;
+		}
+		else if (envArch == "AMD64" || envArch == "IA64")
+			cpu.Bits = 64;
+		
+		
+		cpu.Cores = 1;
+		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
+		if (cores.Length != 0)
+		    cpu.Cores = cores.Parse<Int>();
+	}
+	
 #else
 
     static val Out = sys.core.ConsoleStream{};
@@ -65,16 +83,36 @@ class System {
 	static def @setup() {
 	}
 	
-	static def GetEnvVariable(val var: String): String {
-		return "";
+	static def GetEnvVariable(var: String): String {
+		val env = Posix.getenv(var.SysDataPointer);
+		
+		if (env != null)
+			return String{env, bind.c.string.strlen(env)};
+		else
+			return "";
+	}
+	
+	static def GetCPUPS() {
+		cpu.Bits = Int{Posix.sysconf(107)};
+		cpu.Cores = Posix.get_nprocs();
 	}
 	
 #endif
+
+	static property Args: const ref Vector<String> {
+		return args;
+	}
+	
+	@[system]
+	static def AddArgument(arg: String) {
+		args << arg;
+	}
 
 }
 private {
 	static val cpu = SystemCPU{};
 	static val cpuRead = false;
+	static val args = Vector<String>{};
 	
 	static def GetCPU() {
 		val cpudata = CArray[0, 0, 0, 0];
@@ -97,21 +135,7 @@ private {
 		cpu.SSE41 = ((cpudata[2] >> 19) & 0x1) != 0;
 		cpu.SSE42 = ((cpudata[2] >> 20) & 0x1) != 0;
 		
-		cpu.Bits = 32;
-		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
-		if (envArch == "x86") {
-			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
-			if (envArchEx == "AMD64" || envArchEx == "IA64")
-				cpu.Bits = 64;
-		}
-		else if (envArch == "AMD64" || envArch == "IA64")
-			cpu.Bits = 64;
-		
-		
-		cpu.Cores = 1;
-		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
-		if (cores.Length != 0)
-		    cpu.Cores = cores.Parse<Int>();
+		GetCPUPS();
 	}
 	
 #if Compiler.Platform == "WIN32"

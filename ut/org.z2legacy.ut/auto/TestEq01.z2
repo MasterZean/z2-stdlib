@@ -21,6 +21,7 @@ class Foo {
 
 	def @neq(obj: Foo): Bool {
 		System.Out << "call " << this.class << '.' << @neq.Name << "() of class " << @neq.class << "\n";
+		
 		return a != obj.a || b != obj.b;
 	}
 }

@@ -100,7 +100,7 @@ class Float {
 		else if (value < Min)
 			this = Min;
 		else
-			this = Int{value};
+			this = Float{value};
 	}
 #endregion
 	

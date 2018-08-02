@@ -1,9 +1,25 @@
 namespace sys.core;
 
+#if Compiler.Platform == "WIN32"
 using microsoft.windows.Win32;
+#else
+using ieee.posix.Posix;
+#endif
 
 class Thread {
+	
+#if Compiler.Platform == "WIN32"
+
 	static func Sleep(msec: DWord) {
 		Win32.Sleep(msec);
 	}
+	
+#else
+
+	static func Sleep(msec: DWord) {
+		Posix.usleep(Int{msec * 1000});
+	}
+	
+#endif
+
 }

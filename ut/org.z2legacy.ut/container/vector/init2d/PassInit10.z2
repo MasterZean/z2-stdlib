@@ -1,0 +1,15 @@
+namespace org.z2legacy.ut.container.vector.init2d;
+
+class PassInit10 {
+	def @main() {
+		val p1 = [4: [4: 1, 2, 3, 4], ...];
+		System.Out << p1 << "\n";
+		
+		val p2 = [4: [4: 1, ...], ...];
+		System.Out << p2 << "\n";
+		
+		val i = 1;
+		val p3 = [4: [4: i++, ...], ...];
+		System.Out << p3 << "\n";
+	}
+}

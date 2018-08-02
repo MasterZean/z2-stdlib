@@ -1,0 +1,19 @@
+namespace org.z2legacy.ut.container.vector.init2d;
+
+class PassInit03 {
+	def @main() {
+		val p = [[1, 2, 3, 4], [5, 6, 7], [8, 9]];
+		System.Out << p[0] << "\n";
+		System.Out << p[0][0] << "\n";
+		System.Out << p[0][1] << "\n";
+		System.Out << p[0][2] << "\n";
+		System.Out << p[0][3] << "\n";
+		System.Out << p[1] << "\n";
+		System.Out << p[1][0] << "\n";
+		System.Out << p[1][1] << "\n";
+		System.Out << p[1][2] << "\n";
+		System.Out << p[2] << "\n";
+		System.Out << p[2][0] << "\n";
+		System.Out << p[2][1] << "\n";
+	}
+}
