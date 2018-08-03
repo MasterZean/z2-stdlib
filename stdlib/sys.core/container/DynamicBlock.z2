@@ -79,7 +79,7 @@ class DynamicBlock<T: Class> {
 	}
 	
 	this @allocate(len: PtrSize, capacity: PtrSize) {
-		Debug.Assert(len == capacity);
+		System.Debug.Assert(len == capacity);
 		length = capacity;
 		data = Ptr<T>.AllocVoid(capacity);
 	}
