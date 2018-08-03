@@ -1,5 +1,8 @@
 # class *ReadSlice* from sys.core.lang
 
+Represents a read-only block of memory given by address of the block and a size. Implements common block algorithms that work on immutable data. After the algorithm is finished, the Length property is adjusted in accordance to the actions taken by the algorithm, often the extent of the read. The final Length can't be greater than the initial Length: Length can only shrink.
+
+A `ReadSlice` can only be instantiated based on persistent object whose lifetime must exceed the lifetime of the slice. Freeing the data is an error.
 
 ## Constructors
 
@@ -66,8 +69,7 @@ func FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
-
-Searches for an item or items in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
 
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
@@ -88,12 +90,15 @@ func FindFirst(b: Vector<T>, start: PtrSize): PtrSize;
 ```
 
 #### Brief
+Searches for first occurrence of any of the input items from `b` in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
-> *b* =>   
-> *start* =>   
+> *b* => the array of items to search for  
+> *start* => the start position  
 #### Returns
-> 
+> the index where the item was found
 ***
 
 ### RFindIndex
@@ -125,12 +130,15 @@ func RFindFirst(b: Vector<T>, val start: PtrSize): PtrSize;
 ```
 
 #### Brief
+Searches for first occurrence of any of the input items from `b` in the array in reverse order and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
-> *b* =>   
-> *start* =>   
+> *b* => the array of items to search for  
+> *start* => the start position  
 #### Returns
-> 
+> the index where the item was found
 ***
 
 ### BinaryIndex

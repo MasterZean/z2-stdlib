@@ -79,6 +79,7 @@ class DynamicBlock<T: Class> {
 	}
 	
 	this @allocate(len: PtrSize, capacity: PtrSize) {
+		Debug.Assert(len == capacity);
 		length = capacity;
 		data = Ptr<T>.AllocVoid(capacity);
 	}
@@ -121,9 +122,9 @@ class DynamicBlock<T: Class> {
 		Length = capacity;
 	}
 
-	def ExpandTo(value: PtrSize) {
-		if (value > length)
-			Length = value;
+	def ExpandTo(newLength: PtrSize) {
+		if (newLength > length)
+			Length = newLength;
 	}
 	
 	def ExpandTo(newLength: PtrSize, init: T) {
@@ -191,6 +192,7 @@ class DynamicBlock<T: Class> {
 	
 #region unsafe
 
+	@[unsafe]
 	def SetLengthUnsafe(value: PtrSize) {
 		if (value == length)
 			return;
@@ -204,24 +206,21 @@ class DynamicBlock<T: Class> {
 		length = value;
 	}
 	
+	@[unsafe]
 	def ExpandUnsafe(value: PtrSize) {
 		if (value > length)
 			SetLengthUnsafe(value);
 	}
 	
+	@[unsafe]
 	def ShrinkUnsafe(value: PtrSize) {
 		if (value < length)
 			SetLengthUnsafe(value);
 	}
-
-	def FreeUnsafe(len: PtrSize) {
-		length = len;
-	}
 	
 #endregion
 
-	property SysDataPointer: Ptr<T>
-	get {
+	property SysDataPointer: Ptr<T> {
 		return data;
 	}
 	

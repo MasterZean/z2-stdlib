@@ -1,5 +1,8 @@
 # class *Vector* from sys.core.lang
 
+A dynamic array with ammortized growth cost.
+
+This is the most commonly used array for dynamicly allocated data.
 
 ## Constructors
 
@@ -265,6 +268,7 @@ The item count is included.
 ```
 
 #### Brief
+Appends a vector `v` to the array.
 
 ***
 

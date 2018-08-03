@@ -1,5 +1,8 @@
 # class *CArray* from sys.core.lang
 
+A class representing a simple C array, a continuous indexable memory memory block. It uses static memory allocation. It does not store anywhere in memory the actual size of the block or the number of elements in the array.
+
+In C using such arrays behaves mostly like using a pointer, since the array length is not available. Z2 makes the array length available, even though it is not stored, by using compile time information when possible and passing the actual length in though a hidden parameter, when not.
 
 ## Constructors
 
@@ -185,7 +188,7 @@ def Sort(low: Int, high: Int);
 ```
 
 #### Brief
-Sorts the content of the array in ascending order, from beginning to end or between two input indices.
+Sorts the content of the array in ascending order, from beginning to end or only sorting the values between two input indices.
 
 #### Parameters
 > *low* => the start index  
@@ -200,7 +203,7 @@ def SortDesc(low: Int, high: Int);
 ```
 
 #### Brief
-Sorts the content of the array in descending order, from beginning to end or between two input indices.
+Sorts the content of the array in descending order, from beginning to end or only sorting the values between two input indices.
 
 #### Parameters
 > *low* => the start index  
