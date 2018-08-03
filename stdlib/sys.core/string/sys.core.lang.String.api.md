@@ -1,5 +1,6 @@
 # class *String* from sys.core.lang
 
+
 ## Constructors
 
 ### this
@@ -20,13 +21,13 @@ this{move obj: String};
 #### Brief
 
 #### Parameters
-> *data* => 
-> *chars* => 
-> *len* => 
-> *start* => 
-> *end* => 
-> *cap* => 
-> *obj* => 
+> *data* =>   
+> *chars* =>   
+> *len* =>   
+> *start* =>   
+> *end* =>   
+> *cap* =>   
+> *obj* =>   
 ***
 
 ### FromIndex
@@ -39,9 +40,9 @@ this FromIndex{chars: String, start: PtrSize, end: PtrSize};
 #### Brief
 
 #### Parameters
-> *chars* => 
-> *start* => 
-> *end* => 
+> *chars* =>   
+> *start* =>   
+> *end* =>   
 ***
 
 ### TakeOwnership
@@ -53,8 +54,8 @@ this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};
 #### Brief
 
 #### Parameters
-> *chars* => 
-> *len* => 
+> *chars* =>   
+> *len* =>   
 ***
 
 ## Methods
@@ -69,7 +70,7 @@ def @attr(move obj: String);
 #### Brief
 
 #### Parameters
-> *obj* => 
+> *obj* =>   
 ***
 
 ### Clear
@@ -91,10 +92,9 @@ func @eq(second: String): Bool;
 #### Brief
 
 #### Parameters
-> *second* => 
-
+> *second* =>   
 #### Returns
-
+> 
 ***
 
 ### @neq
@@ -106,10 +106,9 @@ func @neq(second: String): Bool;
 #### Brief
 
 #### Parameters
-> *second* => 
-
+> *second* =>   
 #### Returns
-
+> 
 ***
 
 ### @shl
@@ -122,11 +121,10 @@ def @shl(str: String): ref String;
 #### Brief
 
 #### Parameters
-> *ch* => 
-> *str* => 
-
+> *ch* =>   
+> *str* =>   
 #### Returns
-
+> 
 ***
 
 ### Insert
@@ -138,8 +136,8 @@ def Insert(pos: PtrSize, string: String);
 #### Brief
 
 #### Parameters
-> *pos* => 
-> *string* => 
+> *pos* =>   
+> *string* =>   
 ***
 
 ### Inserted
@@ -151,11 +149,10 @@ func Inserted(pos: PtrSize, string: String): String;
 #### Brief
 
 #### Parameters
-> *pos* => 
-> *string* => 
-
+> *pos* =>   
+> *string* =>   
 #### Returns
-
+> 
 ***
 
 ### Find
@@ -168,11 +165,10 @@ func Find(b: Byte, start: PtrSize): PtrSize;
 #### Brief
 
 #### Parameters
-> *b* => 
-> *start* => 
-
+> *b* =>   
+> *start* =>   
 #### Returns
-
+> 
 ***
 
 ### FindFirst
@@ -184,10 +180,9 @@ func FindFirst(b: CArray<Byte>): PtrSize;
 #### Brief
 
 #### Parameters
-> *b* => 
-
+> *b* =>   
 #### Returns
-
+> 
 ***
 
 ### RFind
@@ -200,11 +195,10 @@ func RFind(b: Byte, start: PtrSize): PtrSize;
 #### Brief
 
 #### Parameters
-> *b* => 
-> *start* => 
-
+> *b* =>   
+> *start* =>   
 #### Returns
-
+> 
 ***
 
 ### RFindFirst
@@ -216,10 +210,9 @@ func RFindFirst(b: CArray<Byte>): PtrSize;
 #### Brief
 
 #### Parameters
-> *b* => 
-
+> *b* =>   
 #### Returns
-
+> 
 ***
 
 ### Split
@@ -231,10 +224,9 @@ func Split(b: Byte): Vector<String>;
 #### Brief
 
 #### Parameters
-> *b* => 
-
+> *b* =>   
 #### Returns
-
+> 
 ***
 
 ### Trim
@@ -276,8 +268,8 @@ def Sub(start: PtrSize, end: PtrSize);
 #### Brief
 
 #### Parameters
-> *start* => 
-> *end* => 
+> *start* =>   
+> *end* =>   
 ***
 
 ### Trimmed
@@ -288,9 +280,8 @@ func Trimmed(): String;
 
 #### Brief
 
-
 #### Returns
-
+> 
 ***
 
 ### TrimmedLeft
@@ -301,9 +292,8 @@ func TrimmedLeft(): String;
 
 #### Brief
 
-
 #### Returns
-
+> 
 ***
 
 ### TrimmedRight
@@ -314,9 +304,8 @@ func TrimmedRight(): String;
 
 #### Brief
 
-
 #### Returns
-
+> 
 ***
 
 ### @write
@@ -329,8 +318,8 @@ func @write(ref stream: Stream, format: OutputFormat);
 #### Brief
 
 #### Parameters
-> *stream* => 
-> *format* => 
+> *stream* =>   
+> *format* =>   
 ***
 
 ### @put
@@ -342,7 +331,7 @@ func @put(ref stream: Stream);
 #### Brief
 
 #### Parameters
-> *stream* => 
+> *stream* =>   
 ***
 
 ### @get
@@ -354,7 +343,7 @@ def @get(ref stream: Stream);
 #### Brief
 
 #### Parameters
-> *stream* => 
+> *stream* =>   
 ***
 
 ### Parse

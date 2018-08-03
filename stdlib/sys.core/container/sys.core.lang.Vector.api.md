@@ -258,6 +258,16 @@ The item count is included.
 > *stream* => the output stream  
 ***
 
+### @shl
+
+```C#
+@shl(ref v: Vector<T>, data: T): ref Vector<T>;
+```
+
+#### Brief
+
+***
+
 ## Properties
 
 ### Length
