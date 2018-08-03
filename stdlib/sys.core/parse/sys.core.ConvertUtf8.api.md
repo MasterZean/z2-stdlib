@@ -156,6 +156,46 @@ Converts a source Utf32 buffer to a destination Utf8 buffer.
 > *src* => the source buffer  
 ***
 
+### ParseSig
+
+```C#
+ParseSig(ref buffer: ReadSlice<Byte>): T;
+```
+
+#### Brief
+
+***
+
+### ParseSigSaturated
+
+```C#
+ParseSigSaturated(ref buffer: ReadSlice<Byte>): T;
+```
+
+#### Brief
+
+***
+
+### ParseUns
+
+```C#
+ParseUns(ref buffer: ReadSlice<Byte>): T;
+```
+
+#### Brief
+
+***
+
+### ParseUnsSaturated
+
+```C#
+ParseUnsSaturated(ref buffer: ReadSlice<Byte>): T;
+```
+
+#### Brief
+
+***
+
 ## Constants
 
 ### MaxSmallBuffer

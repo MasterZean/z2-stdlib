@@ -50,3 +50,43 @@ Executes a CPU identifying set of instructions.
 > *level* => the level of the requested information  
 ***
 
+### Min
+
+```C#
+Min(a: T, b: T): T;
+```
+
+#### Brief
+
+***
+
+### Max
+
+```C#
+Max(a: T, b: T): T;
+```
+
+#### Brief
+
+***
+
+### Clamped
+
+```C#
+Clamped(a: T, min: T, max: T): T;
+```
+
+#### Brief
+
+***
+
+### Clamp
+
+```C#
+Clamp(ref a: T, min: T, max: T);
+```
+
+#### Brief
+
+***
+

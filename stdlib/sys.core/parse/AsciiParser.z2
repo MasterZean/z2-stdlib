@@ -1,25 +1,33 @@
 namespace sys.core;
 
 class AsciiParser {
-	this(ref data: Slice<Byte>) {
+	this(ref const data: String) {
 		term = data.SysDataPointer;
 		wspc = term;
 		lineptr = term;
 		EatSpaces();
 	}
 	
-	this(ref data: String) {
-		term = data.SysDataPointer;
-		wspc = term;
-		lineptr = term;
-		EatSpaces();
-	}
-	
-	this(data: String, skipSpaces: Bool) {
+	this(ref const data: String, skipSpaces: Bool) {
 	    SkipWhitespace = skipSpaces;
 		term = data.SysDataPointer;
 		wspc = term;
 		lineptr = term;
+	}
+	
+	this(ref const data: Slice<Byte>) {
+		term = data.SysDataPointer;
+		wspc = term;
+		lineptr = term;
+		EatSpaces();
+	}
+	
+	this(ref const data: Slice<Byte>, skipSpaces: Bool) {
+		SkipWhitespace = skipSpaces;
+		term = data.SysDataPointer;
+		wspc = term;
+		lineptr = term;
+		EatSpaces();
 	}
 	
 	val SkipWhitespace = true;

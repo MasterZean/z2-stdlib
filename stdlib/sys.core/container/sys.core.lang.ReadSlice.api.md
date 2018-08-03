@@ -63,10 +63,6 @@ The provided memory location must not be freed before the slice is destroyed.
 ```C#
 func FindIndex(item: T): PtrSize;
 func FindIndex(item: T, start: PtrSize): PtrSize;
-func FindIndex(b: CArray<T>): PtrSize;
-func FindIndex(b: Vector<T>): PtrSize;
-func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
-func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -78,9 +74,26 @@ The search starts on an index given by the `start` parameter if present or from 
 #### Parameters
 > *item* => the item to search for  
 > *start* => the start index for the search  
-> *b* => a vector of items to search for  
 #### Returns
 > the index where the item was found
+***
+
+### FindFirst
+
+```C#
+func FindFirst(b: CArray<T>): PtrSize;
+func FindFirst(b: Vector<T>): PtrSize;
+func FindFirst(b: CArray<T>, start: PtrSize): PtrSize;
+func FindFirst(b: Vector<T>, start: PtrSize): PtrSize;
+```
+
+#### Brief
+
+#### Parameters
+> *b* =>   
+> *start* =>   
+#### Returns
+> 
 ***
 
 ### RFindIndex
@@ -88,10 +101,6 @@ The search starts on an index given by the `start` parameter if present or from 
 ```C#
 func RFindIndex(item: T): PtrSize;
 func RFindIndex(item: T, val start: PtrSize): PtrSize;
-func RFindIndex(b: CArray<T>): PtrSize;
-func RFindIndex(b: Vector<T>): PtrSize;
-func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
-func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -102,9 +111,26 @@ The search starts on an index given by the `start` parameter if present or from 
 #### Parameters
 > *item* => the item to search for  
 > *start* => the start index for the search  
-> *b* => a vector of items to search for  
 #### Returns
 > the index where the item was found
+***
+
+### RFindFirst
+
+```C#
+func RFindFirst(b: CArray<T>): PtrSize;
+func RFindFirst(b: Vector<T>): PtrSize;
+func RFindFirst(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindFirst(b: Vector<T>, val start: PtrSize): PtrSize;
+```
+
+#### Brief
+
+#### Parameters
+> *b* =>   
+> *start* =>   
+#### Returns
+> 
 ***
 
 ### BinaryIndex

@@ -90,7 +90,7 @@ class Path {
 #endif
 
 	static def GetFolder(path: String): String {
-		val index = path.RFind(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
+		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
 		else
@@ -98,7 +98,7 @@ class Path {
 	}
 
 	static def GetFolderNoSep(path: String): String {
-		val index = path.RFind(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
+		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
 		else
@@ -110,7 +110,7 @@ class Path {
 	}
 
 	static def GetNameIndex(path: String): PtrSize {
-		val index = path.RFind(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
+		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1) {
 			if (IsRoot(path))
 				return PtrSize{-1};

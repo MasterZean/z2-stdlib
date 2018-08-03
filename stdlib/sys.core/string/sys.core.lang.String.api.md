@@ -1,6 +1,5 @@
 # class *String* from sys.core.lang
 
-
 ## Constructors
 
 ### this
@@ -8,9 +7,9 @@
 ```C#
 this{data: Char};
 this{chars: Slice<Byte>};
-this{chars: Ptr<Byte>, len: PtrSize};
 this{chars: String, len: PtrSize};
 this{chars: String, start: PtrSize, end: PtrSize};
+this{chars: Ptr<Byte>, len: PtrSize};
 this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize};
 this{chars: CArray<Byte>};
 this{chars: CArray<Byte>, len: PtrSize};
@@ -21,13 +20,13 @@ this{move obj: String};
 #### Brief
 
 #### Parameters
-> *data* =>   
-> *chars* =>   
-> *len* =>   
-> *start* =>   
-> *end* =>   
-> *cap* =>   
-> *obj* =>   
+> *data* => 
+> *chars* => 
+> *len* => 
+> *start* => 
+> *end* => 
+> *cap* => 
+> *obj* => 
 ***
 
 ### FromIndex
@@ -40,9 +39,9 @@ this FromIndex{chars: String, start: PtrSize, end: PtrSize};
 #### Brief
 
 #### Parameters
-> *chars* =>   
-> *start* =>   
-> *end* =>   
+> *chars* => 
+> *start* => 
+> *end* => 
 ***
 
 ### TakeOwnership
@@ -54,8 +53,8 @@ this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};
 #### Brief
 
 #### Parameters
-> *chars* =>   
-> *len* =>   
+> *chars* => 
+> *len* => 
 ***
 
 ## Methods
@@ -70,7 +69,7 @@ def @attr(move obj: String);
 #### Brief
 
 #### Parameters
-> *obj* =>   
+> *obj* => 
 ***
 
 ### Clear
@@ -92,9 +91,10 @@ func @eq(second: String): Bool;
 #### Brief
 
 #### Parameters
-> *second* =>   
+> *second* => 
+
 #### Returns
-> 
+
 ***
 
 ### @neq
@@ -106,9 +106,10 @@ func @neq(second: String): Bool;
 #### Brief
 
 #### Parameters
-> *second* =>   
+> *second* => 
+
 #### Returns
-> 
+
 ***
 
 ### @shl
@@ -121,10 +122,11 @@ def @shl(str: String): ref String;
 #### Brief
 
 #### Parameters
-> *ch* =>   
-> *str* =>   
+> *ch* => 
+> *str* => 
+
 #### Returns
-> 
+
 ***
 
 ### Insert
@@ -136,8 +138,8 @@ def Insert(pos: PtrSize, string: String);
 #### Brief
 
 #### Parameters
-> *pos* =>   
-> *string* =>   
+> *pos* => 
+> *string* => 
 ***
 
 ### Inserted
@@ -149,10 +151,11 @@ func Inserted(pos: PtrSize, string: String): String;
 #### Brief
 
 #### Parameters
-> *pos* =>   
-> *string* =>   
+> *pos* => 
+> *string* => 
+
 #### Returns
-> 
+
 ***
 
 ### Find
@@ -160,16 +163,31 @@ func Inserted(pos: PtrSize, string: String): String;
 ```C#
 func Find(b: Byte): PtrSize;
 func Find(b: Byte, start: PtrSize): PtrSize;
-func Find(b: CArray<Byte>): PtrSize;
 ```
 
 #### Brief
 
 #### Parameters
-> *b* =>   
-> *start* =>   
+> *b* => 
+> *start* => 
+
 #### Returns
-> 
+
+***
+
+### FindFirst
+
+```C#
+func FindFirst(b: CArray<Byte>): PtrSize;
+```
+
+#### Brief
+
+#### Parameters
+> *b* => 
+
+#### Returns
+
 ***
 
 ### RFind
@@ -177,16 +195,31 @@ func Find(b: CArray<Byte>): PtrSize;
 ```C#
 func RFind(b: Byte): PtrSize;
 func RFind(b: Byte, start: PtrSize): PtrSize;
-func RFind(b: CArray<Byte>): PtrSize;
 ```
 
 #### Brief
 
 #### Parameters
-> *b* =>   
-> *start* =>   
+> *b* => 
+> *start* => 
+
 #### Returns
-> 
+
+***
+
+### RFindFirst
+
+```C#
+func RFindFirst(b: CArray<Byte>): PtrSize;
+```
+
+#### Brief
+
+#### Parameters
+> *b* => 
+
+#### Returns
+
 ***
 
 ### Split
@@ -198,9 +231,53 @@ func Split(b: Byte): Vector<String>;
 #### Brief
 
 #### Parameters
-> *b* =>   
+> *b* => 
+
 #### Returns
-> 
+
+***
+
+### Trim
+
+```C#
+def Trim();
+```
+
+#### Brief
+
+***
+
+### TrimLeft
+
+```C#
+def TrimLeft();
+```
+
+#### Brief
+
+***
+
+### TrimRight
+
+```C#
+def TrimRight();
+```
+
+#### Brief
+
+***
+
+### Sub
+
+```C#
+def Sub(start: PtrSize, end: PtrSize);
+```
+
+#### Brief
+
+#### Parameters
+> *start* => 
+> *end* => 
 ***
 
 ### Trimmed
@@ -211,8 +288,35 @@ func Trimmed(): String;
 
 #### Brief
 
+
 #### Returns
-> 
+
+***
+
+### TrimmedLeft
+
+```C#
+func TrimmedLeft(): String;
+```
+
+#### Brief
+
+
+#### Returns
+
+***
+
+### TrimmedRight
+
+```C#
+func TrimmedRight(): String;
+```
+
+#### Brief
+
+
+#### Returns
+
 ***
 
 ### @write
@@ -225,8 +329,8 @@ func @write(ref stream: Stream, format: OutputFormat);
 #### Brief
 
 #### Parameters
-> *stream* =>   
-> *format* =>   
+> *stream* => 
+> *format* => 
 ***
 
 ### @put
@@ -238,7 +342,7 @@ func @put(ref stream: Stream);
 #### Brief
 
 #### Parameters
-> *stream* =>   
+> *stream* => 
 ***
 
 ### @get
@@ -250,7 +354,27 @@ def @get(ref stream: Stream);
 #### Brief
 
 #### Parameters
-> *stream* =>   
+> *stream* => 
+***
+
+### Parse
+
+```C#
+Parse(): T;
+```
+
+#### Brief
+
+***
+
+### ParseSaturated
+
+```C#
+ParseSaturated(): T;
+```
+
+#### Brief
+
 ***
 
 ## Properties
