@@ -8,7 +8,13 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
 <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
@@ -25,14 +31,19 @@
         <a class="nav-link" href="about.html">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="docs.html">Documentation</a>
+        <a class="nav-link" href="download.html">Download <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="docDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Documentation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="docDropdown">
+          <a class="dropdown-item" href="install.html">Installation</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="api.html">API</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="download.html">Download <span class="sr-only">(current)</span></a>
-      </li>
+      </li>      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -44,63 +55,64 @@
 <div class="container-fluid">
 <div class="page">
 
-<h1>Introduction</h1>
+<h1>Latest version</h1>
 <p>
-Z2 pre-compiled packages focus on giving you an out of the box configuration-free working setup. Ideally, you would unpack a single archive and have a fully functioning development environment.
+You can download the latest version of the pre-compiled packages from here:
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Version</th>
+      <th scope="col">OS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PT 9.4.1</td>
+      <td><a href="downloads/z2c-pt9.4.1-win32-x86.zip" target="blank">Win32 x86</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="downloads/z2c-pt9.4.1-win32-x64.zip" target="blank">Win32 x64</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="downloads/z2c-pt9.4.1-linux-mint18-x86.tar.gz" target="blank">Mint Linux 18 x86</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="downloads/z2c-pt9.4.1-linux-mint18-x64.tar.gz" target="blank">Mint Linux 18 x64</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+These packages will auto-detect any installed suitable back-end compilers.<br/>
+Under Windows, Visual Studio versions will be auto-detected. You can also download a pre-packaged <a href="downloads/tdm-for-pt9.zip" target="blank">Prepackaged 32/64 bit TDM version</a> if you don not have/wish to use Visual Studio.<br/>
+Under Linux, GCC will be auto-detected if installed.
 </p>
 
 <p>
-In order to facilitate this, all packages come with the frontend Z2 compiler, an integrated development environment (ZIDE), standard library sources, benchmarks and the full test suite, compiled and ready to run. The Z2 frontend compiler compiles Z2 source code into an intermediate form that must be transformed into native host platform binaries. A backend compiler is needed for this task.
+Consult the <a href="install.html">installation instructions</a> for more information.
 </p>
-
-<p>
-Ideally, packages would also come with included backend compilers, but this is fairly complicated. There are many supported backend compilers on various operating systems and many possible combinations. Plus, there are legal issues, with several third party back-end compilers not being able to be packaged. So it is not possible to supply you with a single package that you unpack once and are set to produce arbitrarily complex natively compiled applications, both for legal and practical reasons. Even if it were possible, the download size would be very large.
-</p>
-
-<p>
-Instead the distributions focus on auto-detecting available backend compilers that you have installed on your system and automatically configuring support for them. What can be auto-detected depends on the operating system you are using.
-</p>
-
-<h1>Windows</h1>
-
-<p>
-On Windows you have two main choices of backend: you can go with one of the available GCC ports (it must include G++ and tools) or you can use Microsoft tools: Visual C++, Visual C++ Express, Visual C++ Build Tools or even older Visual C++ SDK (packages that only included command line tools). Some of these come in Visual Studio bundles, some are standalone. The Express versions and often the command line only tools are free.
-</p>
-
-<h2>GCC</h2>
-<p>
-There are several options if you want to use GCC under windows. They all have subtle differences in what and where is included in the package, so auto-detecting them is not easy. To help with this, there is the "gcc" folder in your installation path, where you can drop an existing GCC installation.
-</p>
-
-<p>
-Older distributions have a lower chance of being auto-detected, so if want an up to date and working free C++ compiler you can use <a href="http://tdm-gcc.tdragon.net/" target="blank">TDM</a>.
-</p>
-
-<p>
-The packages from the official site should work, but 32-bit and 64-bit versions are separate downloads. The two packages have a bit of an overlap and getting the files in the right place is a bit of a hassle, so we provide a prepackaged ready to unpack and work version that combines both the 32-bit and the 64-bit compiler in one package and is guaranteed to auto-detect with no issues and is even a smaller download:<br/>
-<a href="downloads/tdm-for-pt9.zip" target="blank">Prepackaged 32/64 bit TDM</a>
-</p>
-
-<p>
-As always, if you encounter some problems with auto-detection or would like to set up links to an existing external C++ compiler, you can edit the "buildMethods.xml" file that describes all the available back-end compilers.
-</p>
-
-<h2>Microsoft</h2>
-
-<h1>Linux</h1>
 
 </div>
 </div>
 
 <footer class="footer">
-  <div class="container-flex">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
+	<div class="container-flex">
+		<span class="text-muted">Place sticky footer content here.</span>
+	</div>
 </footer>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
