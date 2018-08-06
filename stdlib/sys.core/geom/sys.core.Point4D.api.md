@@ -115,7 +115,7 @@ Tests if the current instance is a 4 dimensional normalized vector, within a tol
 #### Parameters
 > *tolerance* => tolerance for a non zero lengthed vector  
 #### Returns
-> 
+> `true` if normalized
 ***
 
 ### Normalize
@@ -147,7 +147,7 @@ Otherwise, returns the value as is.
 #### Parameters
 > *tolerance* => tolerance for a non zero lengthed vector  
 #### Returns
-> 
+> `true` if normalized
 ***
 
 ### @add
@@ -163,7 +163,7 @@ Member-wise addition operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @sub
@@ -181,7 +181,7 @@ Member-wise subtraction operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @mul
@@ -197,7 +197,7 @@ Member-wise multiplication operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @div
@@ -215,7 +215,7 @@ Member-wise division operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @mod
@@ -233,7 +233,7 @@ Member-wise modulo operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @minus
@@ -246,7 +246,7 @@ func @minus(): Point4D<T>;
 Returns the member-wise negative of the current instance.
 
 #### Returns
-> 
+> the result
 ***
 
 ### @eq
@@ -261,7 +261,7 @@ Member-wise equality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> `true` if equal
 ***
 
 ### @neq
@@ -276,7 +276,7 @@ Member-wise inequality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> `true` if not equal
 ***
 
 ### Equals
@@ -293,7 +293,7 @@ Member-wise equality operator within a given tolerance.
 > *second* => the second operand  
 > *tolerance* => tolerance for equality  
 #### Returns
-> 
+> `true` if equal
 ***
 
 ## Properties
