@@ -27,8 +27,8 @@ Creates a new instance initializing each component of the point.
 
 #### Parameters
 > *value* => the value to use for each component  
-> *x* => the first dimension of the point
-> *y* => the second dimension of the point
+> *x* => the first dimension of the point  
+> *y* => the second dimension of the point  
 ***
 
 ## Methods
