@@ -62,6 +62,10 @@ body {
 	margin-bottom: 60px;
 }
 
+.classhead {
+	margin-bottom: 60px;
+}
+
 code {
 	margin-top: 5px;
 	margin-left: 25px;
@@ -86,4 +90,16 @@ code {
 	.footer {	
 		padding-left: 15px;
 	}
+}
+
+.params {
+	margin-left: 25px;
+}
+
+th {
+	width: 10px;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid lightgray;
 }
