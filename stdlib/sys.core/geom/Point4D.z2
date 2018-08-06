@@ -106,13 +106,11 @@ class Point4D<T: Class> {
 		return ((X * X) + (Y * Y) + (Z * Z) + (W * W) - T{1}).Abs < tolerance;
 	}
 
-	property Length: T
-	get {
+	property Length: T {
 		return ((X * X) + (Y * Y) + (Z * Z) + (W * W)).Sqrt;
 	}
 
-	property LengthSquared: T
-	get {
+	property LengthSquared: T {
 		return (X * X) + (Y * Y) + (Z * Z) + (W * W);
 	}
 

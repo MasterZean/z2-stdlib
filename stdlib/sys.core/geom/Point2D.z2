@@ -64,13 +64,11 @@ class Point2D<T: Class> {
 		return ((X * X) + (Y * Y) - T{1}).Abs < tolerance;
 	}
 
-	property Length: T
-	get {
+	property Length: T {
 		return ((X * X) + (Y * Y)).Sqrt;
 	}
 
-	property LengthSquared: T
-	get {
+	property LengthSquared: T {
 		return (X * X) + (Y * Y);
 	}
 

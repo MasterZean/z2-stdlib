@@ -1,5 +1,16 @@
 # class *Point2D* from sys.core
 
+A two dimensional generic vector.
+
+Can be used as a point or a vector.
+
+Predefined specializations:
+```C#
+alias Point2Di = Point2D<Int>;
+alias Point2Du = Point2D<DWord>;
+alias Point2Df = Point2D<Float>;
+alias Point2Dd = Point2D<Double>;
+```
 
 ## Constructors
 
