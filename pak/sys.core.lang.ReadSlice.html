@@ -57,10 +57,16 @@
 <li class="breadcrumb-item active">ReadSlice</li>
 </ol>
 
+<div class="classhead">
 <h1>class ReadSlice</h1>
 <pre><code class="cs">namespace sys.core.lang
 class ReadSlice
 </code></pre>
+<p>Represents a read-only block of memory given by address of the block and a size. Implements common block algorithms that work on immutable data. After the algorithm is finished, the Length property is adjusted in accordance to the actions taken by the algorithm, often the extent of the read. The final Length can't be greater than the initial Length: Length can only shrink.<br/>
+<br/>
+A `ReadSlice` can only be instantiated based on persistent object whose lifetime must exceed the lifetime of the slice. Freeing the data is an error.<br/>
+</p>
+</div>
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
@@ -98,62 +104,125 @@ this{ref const p: ReadSlice<Byte>, length: PtrSize};
 this{ref const p: ReadSlice<Byte>, offset: PtrSize, length: PtrSize};</code></pre>
 <h4>Brief</h4>
 <p>
-
-Constructs a new slice based on a persistent readable memory location and an optional size.
-
-The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.
-
+Constructs a new slice based on a persistent readable memory location and an optional size.<br/>
+<br/>
+The size can't be greater than the size of the memory location and the size is not allowed to grow after creation, only shrink.<br/>
+<br/>
 The provided memory location must not be freed before the slice is destroyed.
-
 </p><h4>Parameters</h4>
-<blockquote>p=> a vector of items<br/>
-length=> the length of the slice<br/>
-start=> the start index<br/>
-end=> the end index<br/>
-offset=> an offset to use<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">p</th>
+<td>a vector of items</td>
+</tr>
+<tr>
+<th scope="row">length</th>
+<td>the length of the slice</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start index</td>
+</tr>
+<tr>
+<th scope="row">end</th>
+<td>the end index</td>
+</tr>
+<tr>
+<th scope="row">offset</th>
+<td>an offset to use</td>
+</tr>
+</table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>FindIndex</h3>
 <pre><code class="cs">func FindIndex(item: T): PtrSize;
-func FindIndex(item: T, start: PtrSize): PtrSize;
-func FindIndex(b: CArray<T>): PtrSize;
-func FindIndex(b: Vector<T>): PtrSize;
-func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
-func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;</code></pre>
+func FindIndex(item: T, start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-
-Searches for an item or items in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
-
+Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.<br/>
+<br/>
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
 </p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-b=> a vector of items to search for<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">item</th>
+<td>the item to search for</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start index for the search</td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>FindFirst</h3>
+<pre><code class="cs">func FindFirst(b: CArray<T>): PtrSize;
+func FindFirst(b: Vector<T>): PtrSize;
+func FindFirst(b: CArray<T>, start: PtrSize): PtrSize;
+func FindFirst(b: Vector<T>, start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for first occurrence of any of the input items from `b` in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.<br/>
+<br/>
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td>the array of items to search for</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start position</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the index where the item was found</blockquote>
 <hr/>
 <h3>RFindIndex</h3>
 <pre><code class="cs">func RFindIndex(item: T): PtrSize;
-func RFindIndex(item: T, val start: PtrSize): PtrSize;
-func RFindIndex(b: CArray<T>): PtrSize;
-func RFindIndex(b: Vector<T>): PtrSize;
-func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
-func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;</code></pre>
+func RFindIndex(item: T, val start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-Searches for an item or items in the array in reverse order and returns the first index from the back at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.
-
+Searches for an item or items in the array in reverse order and returns the first index from the back at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.<br/>
+<br/>
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
 </p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-b=> a vector of items to search for<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">item</th>
+<td>the item to search for</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start index for the search</td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote>the index where the item was found</blockquote>
+<hr/>
+<h3>RFindFirst</h3>
+<pre><code class="cs">func RFindFirst(b: CArray<T>): PtrSize;
+func RFindFirst(b: Vector<T>): PtrSize;
+func RFindFirst(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindFirst(b: Vector<T>, val start: PtrSize): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+Searches for first occurrence of any of the input items from `b` in the array in reverse order and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found.<br/>
+<br/>
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td>the array of items to search for</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start position</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the index where the item was found</blockquote>
 <hr/>
@@ -162,14 +231,20 @@ b=> a vector of items to search for<br/>
 func BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.
-
+Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.<br/>
+<br/>
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
-
 </p><h4>Parameters</h4>
-<blockquote>item=> the item to search for<br/>
-start=> the start index for the search<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">item</th>
+<td>the item to search for</td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td>the start index for the search</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the index where the item was found</blockquote>
 <hr/>
@@ -178,7 +253,6 @@ start=> the start index for the search<br/>
 <h4>Brief</h4>
 <p>
 Returns the sum of all the items in the array.
-
 </p><h4>Returns</h4>
 <blockquote>the sum</blockquote>
 </div><h2>Properties</h2>
@@ -188,21 +262,18 @@ Returns the sum of all the items in the array.
 <h4>Brief</h4>
 <p>
 Reads and writes the length of the slice. Can not grow, only decrease.
-
 </p><hr/>
 <h3>@index</h3>
 <pre><code class="cs">property @index: T</code></pre>
 <h4>Brief</h4>
 <p>
 Reads and writes a given index from the slice.
-
 </p><hr/>
 <h3>SysDataPointer</h3>
 <pre><code class="cs">property SysDataPointer: Ptr<T>; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns a pointer to the data from the slice.
-
 </p></div></div>
 </div>
 

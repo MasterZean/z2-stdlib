@@ -57,36 +57,49 @@
 <li class="breadcrumb-item active">Intrinsic</li>
 </ol>
 
+<div class="classhead">
 <h1>class Intrinsic</h1>
 <pre><code class="cs">namespace sys.core.lang
 class Intrinsic
 </code></pre>
+</div>
 <h2>Methods</h2>
 <div class="codesection">
 <h3>MemCopy</h3>
 <pre><code class="cs">static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize);</code></pre>
 <h4>Brief</h4>
 <p>
-
 Does a C standard library `memcpy` operation, copying a number of bytes from a source to a destination.
-
 </p><h4>Parameters</h4>
-<blockquote>destination=> the destination pointer<br/>
-source=> the source pointer<br/>
-bytes=> the number of bytes to copy<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">destination</th>
+<td>the destination pointer</td>
+</tr>
+<tr>
+<th scope="row">source</th>
+<td>the source pointer</td>
+</tr>
+<tr>
+<th scope="row">bytes</th>
+<td>the number of bytes to copy</td>
+</tr>
+</table></div>
 <hr/>
 <h3>CStrLen</h3>
 <pre><code class="cs">static def CStrLen(source: Ptr<Byte>): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-Does a C standard library `strlen` operation, retuning the length of a null terminated C string.
-
+Does a C standard library `strlen` operation, retuning the length of a null terminated C string.<br/>
+<br/>
 Should not be used on `sys.core.lang.String` since it can contain valid null characters.
-
 </p><h4>Parameters</h4>
-<blockquote>source=> the C string<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">source</th>
+<td>the C string</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the length</blockquote>
 <hr/>
@@ -95,12 +108,42 @@ Should not be used on `sys.core.lang.String` since it can contain valid null cha
 <h4>Brief</h4>
 <p>
 Executes a CPU identifying set of instructions.
-
 </p><h4>Parameters</h4>
-<blockquote>cpu=> the output table<br/>
-level=> the level of the requested information<br/>
-</blockquote>
-</div></div>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">cpu</th>
+<td>the output table</td>
+</tr>
+<tr>
+<th scope="row">level</th>
+<td>the level of the requested information</td>
+</tr>
+</table></div>
+<hr/>
+<h3>Min</h3>
+<pre><code class="cs">Min(a: T, b: T): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Max</h3>
+<pre><code class="cs">Max(a: T, b: T): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Clamped</h3>
+<pre><code class="cs">Clamped(a: T, min: T, max: T): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Clamp</h3>
+<pre><code class="cs">Clamp(ref a: T, min: T, max: T);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p></div></div>
 </div>
 
 <footer class="footer">

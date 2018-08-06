@@ -57,22 +57,26 @@
 <li class="breadcrumb-item active">Class</li>
 </ol>
 
+<div class="classhead">
 <h1>class Class</h1>
 <pre><code class="cs">namespace sys.core
 class Class
 </code></pre>
+</div>
 <h2>Methods</h2>
 <div class="codesection">
 <h3>@write</h3>
 <pre><code class="cs">func @write(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
-
 Writes the name of the class to an output stream.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the output stream<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the output stream</td>
+</tr>
+</table></div>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>Name</h3>
@@ -80,21 +84,18 @@ Writes the name of the class to an output stream.
 <h4>Brief</h4>
 <p>
 Returns the fully qualified class name.
-
 </p><hr/>
 <h3>ShortName</h3>
 <pre><code class="cs">property ShortName: const ref String; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns only the class name, without the namespace.
-
 </p><hr/>
 <h3>Namespace</h3>
 <pre><code class="cs">property Namespace: const ref String; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the namespace of the class.
-
 </p></div></div>
 </div>
 

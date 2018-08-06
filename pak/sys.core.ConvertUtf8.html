@@ -57,10 +57,12 @@
 <li class="breadcrumb-item active">ConvertUtf8</li>
 </ol>
 
+<div class="classhead">
 <h1>class ConvertUtf8</h1>
 <pre><code class="cs">namespace sys.core
 class ConvertUtf8
 </code></pre>
+</div>
 <h2>Methods</h2>
 <div class="codesection">
 <h3>IntAsText</h3>
@@ -68,246 +70,318 @@ class ConvertUtf8
 static func IntAsText(ref buffer: Slice<Byte>, data: Int, base: DWord);</code></pre>
 <h4>Brief</h4>
 <p>
-
-Writes a <a href="sys.core.lang.Int.html">Int</a> to a buffer as an Utf8 text.
-
+Writes a <a href="sys.core.lang.Int.html">Int</a> to a buffer as an Utf8 text.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-data=> the value to write<br/>
-base=> the base to use<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">data</th>
+<td>the value to write</td>
+</tr>
+<tr>
+<th scope="row">base</th>
+<td>the base to use</td>
+</tr>
+</table></div>
 <hr/>
 <h3>LongAsText</h3>
 <pre><code class="cs">static func LongAsText(ref buffer: Slice<Byte>, data: Long);
 static func LongAsText(ref buffer: Slice<Byte>, data: Long, base: DWord);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.Long.html">Long</a> to a buffer as an Utf8 text.
-
+Writes a <a href="sys.core.lang.Long.html">Long</a> to a buffer as an Utf8 text.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-data=> the value to write<br/>
-base=> the base to use<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">data</th>
+<td>the value to write</td>
+</tr>
+<tr>
+<th scope="row">base</th>
+<td>the base to use</td>
+</tr>
+</table></div>
 <hr/>
 <h3>DWordAsText</h3>
 <pre><code class="cs">static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord);
 static func DWordAsText(ref buffer: Slice<Byte>, val value: DWord, base: DWord);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.DWord.html">DWord</a> to a buffer as an Utf8 text.
-
+Writes a <a href="sys.core.lang.DWord.html">DWord</a> to a buffer as an Utf8 text.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-value=> the value to write<br/>
-base=> the base to use<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">value</th>
+<td>the value to write</td>
+</tr>
+<tr>
+<th scope="row">base</th>
+<td>the base to use</td>
+</tr>
+</table></div>
 <hr/>
 <h3>QWordAsText</h3>
 <pre><code class="cs">static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord);
 static func QWordAsText(ref buffer: Slice<Byte>, val value: QWord, base: DWord);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.QWord.html">QWord</a> to a buffer as an Utf8 text.
-
+Writes a <a href="sys.core.lang.QWord.html">QWord</a> to a buffer as an Utf8 text.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-value=> the value to write<br/>
-base=> the base to use<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">value</th>
+<td>the value to write</td>
+</tr>
+<tr>
+<th scope="row">base</th>
+<td>the base to use</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FloatAsText</h3>
 <pre><code class="cs">static func FloatAsText(ref buffer: Slice<Byte>, data: Float);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.Float.html">Float</a> to a buffer as an Utf8 text.
-
-Will use exponenet notation for large values.
-
+Writes a <a href="sys.core.lang.Float.html">Float</a> to a buffer as an Utf8 text.<br/>
+<br/>
+Will use exponenet notation for large values.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-data=> the value to write<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">data</th>
+<td>the value to write</td>
+</tr>
+</table></div>
 <hr/>
 <h3>DoubleAsText</h3>
 <pre><code class="cs">static func DoubleAsText(ref buffer: Slice<Byte>, data: Double);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.Double.html">Double</a> to a buffer as an Utf8 text.
-
-Will use exponenet notation for large values.
-
+Writes a <a href="sys.core.lang.Double.html">Double</a> to a buffer as an Utf8 text.<br/>
+<br/>
+Will use exponenet notation for large values.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-data=> the value to write<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">data</th>
+<td>the value to write</td>
+</tr>
+</table></div>
 <hr/>
 <h3>CharAsText</h3>
 <pre><code class="cs">static func CharAsText(ref buffer: Slice<Byte>, data: Char);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes a <a href="sys.core.lang.Char.html">Char</a> to a buffer as an Utf8 text.
-
+Writes a <a href="sys.core.lang.Char.html">Char</a> to a buffer as an Utf8 text.<br/>
+<br/>
 The buffer `Length` is updated to the number of code units written.
-
 </p><h4>Parameters</h4>
-<blockquote>buffer=> the output buffer<br/>
-data=> the value to write<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">buffer</th>
+<td>the output buffer</td>
+</tr>
+<tr>
+<th scope="row">data</th>
+<td>the value to write</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromUtf16</h3>
 <pre><code class="cs">static func FromUtf16(ref dest: Slice<Byte>, ref src: ReadSlice<Word>);</code></pre>
 <h4>Brief</h4>
 <p>
 Converts a source Utf16 buffer to a destination Utf8 buffer.
-
 </p><h4>Parameters</h4>
-<blockquote>dest=> the destination buffer<br/>
-src=> the source buffer<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">dest</th>
+<td>the destination buffer</td>
+</tr>
+<tr>
+<th scope="row">src</th>
+<td>the source buffer</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromUtf32</h3>
 <pre><code class="cs">static func FromUtf32(ref dest: Slice<Byte>, ref src: ReadSlice<DWord>);</code></pre>
 <h4>Brief</h4>
 <p>
 Converts a source Utf32 buffer to a destination Utf8 buffer.
-
 </p><h4>Parameters</h4>
-<blockquote>dest=> the destination buffer<br/>
-src=> the source buffer<br/>
-</blockquote>
-</div><h2>Constants</h2>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">dest</th>
+<td>the destination buffer</td>
+</tr>
+<tr>
+<th scope="row">src</th>
+<td>the source buffer</td>
+</tr>
+</table></div>
+<hr/>
+<h3>ParseSig</h3>
+<pre><code class="cs">ParseSig(ref buffer: ReadSlice<Byte>): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>ParseSigSaturated</h3>
+<pre><code class="cs">ParseSigSaturated(ref buffer: ReadSlice<Byte>): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>ParseUns</h3>
+<pre><code class="cs">ParseUns(ref buffer: ReadSlice<Byte>): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>ParseUnsSaturated</h3>
+<pre><code class="cs">ParseUnsSaturated(ref buffer: ReadSlice<Byte>): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>MaxSmallBuffer</h3>
 <pre><code class="cs">const MaxSmallBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Small.html">Small</a> value.
-
 </p><hr/>
 <h3>MaxShortBuffer</h3>
 <pre><code class="cs">const MaxShortBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Short.html">Short</a> value.
-
 </p><hr/>
 <h3>MaxIntBuffer</h3>
 <pre><code class="cs">const MaxIntBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Int.html">Int</a> value.
-
 </p><hr/>
 <h3>MaxLongBuffer</h3>
 <pre><code class="cs">const MaxLongBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Long.html">Long</a> value.
-
 </p><hr/>
 <h3>MaxByteBuffer</h3>
 <pre><code class="cs">const MaxByteBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Byte.html">Byte</a> value.
-
 </p><hr/>
 <h3>MaxWordBuffer</h3>
 <pre><code class="cs">const MaxWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.Word.html">Word</a> value.
-
 </p><hr/>
 <h3>MaxDWordBuffer</h3>
 <pre><code class="cs">const MaxDWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.DWord.html">DWord</a> value.
-
 </p><hr/>
 <h3>MaxQWordBuffer</h3>
 <pre><code class="cs">const MaxQWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the textual form of a <a href="sys.core.lang.QWord.html">QWord</a> value.
-
 </p><hr/>
 <h3>MaxBinSmallBuffer</h3>
 <pre><code class="cs">const MaxBinSmallBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Small.html">Small</a> value.
-
 </p><hr/>
 <h3>MaxBinShortBuffer</h3>
 <pre><code class="cs">const MaxBinShortBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Short.html">Short</a> value.
-
 </p><hr/>
 <h3>MaxBinIntBuffer</h3>
 <pre><code class="cs">const MaxBinIntBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Int.html">Int</a> value.
-
 </p><hr/>
 <h3>MaxBinLongBuffer</h3>
 <pre><code class="cs">const MaxBinLongBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Long.html">Long</a> value.
-
 </p><hr/>
 <h3>MaxBinByteBuffer</h3>
 <pre><code class="cs">const MaxBinByteBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Byte.html">Byte</a> value.
-
 </p><hr/>
 <h3>MaxBinWordBuffer</h3>
 <pre><code class="cs">const MaxBinWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Word.html">Word</a> value.
-
 </p><hr/>
 <h3>MaxBinDWordBuffer</h3>
 <pre><code class="cs">const MaxBinDWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.DWord.html">DWord</a> value.
-
 </p><hr/>
 <h3>MaxBinQWordBuffer</h3>
 <pre><code class="cs">const MaxBinQWordBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.QWord.html">QWord</a> value.
-
 </p><hr/>
 <h3>MaxCharBuffer</h3>
 <pre><code class="cs">const MaxCharBuffer;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum required Utf8 buffer size to store the base 2 textual form of a <a href="sys.core.lang.Char.html">Char</a> value.
-
 </p></div></div>
 </div>
 

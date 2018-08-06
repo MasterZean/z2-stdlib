@@ -57,11 +57,11 @@
 <li class="breadcrumb-item active">Int</li>
 </ol>
 
+<div class="classhead">
 <h1>class Int</h1>
 <pre><code class="cs">namespace sys.core.lang
 class Int
 </code></pre>
-<div class="codesection">
 <p>A class representing a a 32 bit signed integer.<br/>
 <br/>
 It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.<br/>
@@ -73,12 +73,14 @@ It maps exactly to a 32 bit CPU resource and has no overhead. Because of this st
 <pre><code class="cs">this{string: String};</code></pre>
 <h4>Brief</h4>
 <p>
-
 Parses a string an constructs an <a href="sys.core.lang.Int.html">Int</a> based on it.
-
 </p><h4>Parameters</h4>
-<blockquote>string=> string to parse<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">string</th>
+<td>string to parse</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Saturated</h3>
 <pre><code class="cs">this Saturated{value: Int};
@@ -90,10 +92,13 @@ this Saturated{value: String};</code></pre>
 <h4>Brief</h4>
 <p>
 Constructs a saturated <a href="sys.core.lang.Int.html">Int</a> based on the input value.
-
 </p><h4>Parameters</h4>
-<blockquote>value=> the input value. Can be numeric or a string.<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">value</th>
+<td>the input value. Can be numeric or a string.</td>
+</tr>
+</table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
@@ -101,22 +106,34 @@ Constructs a saturated <a href="sys.core.lang.Int.html">Int</a> based on the inp
 <h4>Brief</h4>
 <p>
 Clamps the current mutable instance between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Clamped</h3>
 <pre><code class="cs">func Clamped(min: Int, max: Int): Int;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the current instance clamped between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the clamped value</blockquote>
 <hr/>
@@ -125,7 +142,6 @@ max=> the maximum value<br/>
 <h4>Brief</h4>
 <p>
 Converts the value to a Utf8 <a href="sys.core.lang.String.html">string</a>.
-
 </p><h4>Returns</h4>
 <blockquote>the resulting string</blockquote>
 <hr/>
@@ -134,34 +150,46 @@ Converts the value to a Utf8 <a href="sys.core.lang.String.html">string</a>.
 func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.
-
+Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.<br/>
+<br/>
 Can use an optional <a href="sys.core.OutputFormat.html">output format</a> specifier.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the output stream<br/>
-format=> formatting information<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the output stream</td>
+</tr>
+<tr>
+<th scope="row">format</th>
+<td>formatting information</td>
+</tr>
+</table></div>
 <hr/>
 <h3>@put</h3>
 <pre><code class="cs">func @put(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
 Writes the value to a binary stream as a 32 bit signed integer.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the output stream<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the output stream</td>
+</tr>
+</table></div>
 <hr/>
 <h3>@get</h3>
 <pre><code class="cs">def @get(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
 Reads a 32 bit signed integer from a binary stream.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the input stream<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the input stream</td>
+</tr>
+</table></div>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>Abs</h3>
@@ -169,57 +197,50 @@ Reads a 32 bit signed integer from a binary stream.
 <h4>Brief</h4>
 <p>
 Returns the absolute value.
-
 </p><hr/>
 <h3>Sqr</h3>
 <pre><code class="cs">property Sqr: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the square of the value.
-
 </p><hr/>
 <h3>Sqrt</h3>
 <pre><code class="cs">property Sqrt: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the square root of the value, rounded down.
-
 </p><hr/>
 <h3>Floor</h3>
 <pre><code class="cs">property Floor: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the floor of a floating point value.
-
+Returns the floor of a floating point value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.Int.html">Int</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Ceil</h3>
 <pre><code class="cs">property Ceil: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the ceiling of a floating point value.
-
+Returns the ceiling of a floating point value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.Int.html">Int</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Round</h3>
 <pre><code class="cs">property Round: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the rounded value of a floating point.
-
+Returns the rounded value of a floating point.<br/>
+<br/>
 In the case of <a href="sys.core.lang.Int.html">Int</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Trunc</h3>
 <pre><code class="cs">property Trunc: Int; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the value truncated to the nearest integer value.
-
+Returns the value truncated to the nearest integer value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.Int.html">Int</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
@@ -227,65 +248,57 @@ In the case of <a href="sys.core.lang.Int.html">Int</a> it returns the value its
 <h4>Brief</h4>
 <p>
 An <a href="sys.core.lang.Int.html">Int</a> instance representing a logical "0" value.
-
 </p><hr/>
 <h3>One</h3>
 <pre><code class="cs">const One: Int;</code></pre>
 <h4>Brief</h4>
 <p>
 An <a href="sys.core.lang.Int.html">Int</a> instance representing a logical "1" value.
-
 </p><hr/>
 <h3>Min</h3>
 <pre><code class="cs">const Min: Int;</code></pre>
 <h4>Brief</h4>
 <p>
 The minimum value for an <a href="sys.core.lang.Int.html">Int</a> (32 bit signed integer) instance.
-
 </p><hr/>
 <h3>Max</h3>
 <pre><code class="cs">const Max: Int;</code></pre>
 <h4>Brief</h4>
 <p>
 The maximum value for an <a href="sys.core.lang.Int.html">Int</a> (32 bit signed integer) instance.
-
 </p><hr/>
 <h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned;</code></pre>
 <h4>Brief</h4>
 <p>
 <a href="sys.core.lang.Bool.html">true</a> if the numeric representation uses two's complement signed values, <a href="sys.core.lang.Bool.html">false</a> otherwise.
-
 </p><hr/>
 <h3>IsInteger</h3>
 <pre><code class="cs">const IsInteger;</code></pre>
 <h4>Brief</h4>
 <p>
 <a href="sys.core.lang.Bool.html">true</a> if the numeric representation is an integer, <a href="sys.core.lang.Bool.html">false</a> if it is a floating point.
-
 </p><hr/>
 <h3>MaxDigitsLow</h3>
 <pre><code class="cs">const MaxDigitsLow;</code></pre>
 <h4>Brief</h4>
 <p>
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
-
-In base 10, you can have MaxDigitsLow digits that go through values 0-9.
-
+<br/>
+In base 10, you can have MaxDigitsLow digits that go through values 0-9.<br/>
+<br/>
 Should not be used for buffer sizes.
-
 </p><hr/>
 <h3>MaxDigitsHigh</h3>
 <pre><code class="cs">const MaxDigitsHigh;</code></pre>
 <h4>Brief</h4>
 <p>
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
-
-In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
 <br/>
-
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.<br/>
+<br/>
+<br/>
 Should not be used for buffer sizes.
-
 </p></div></div>
 </div>
 

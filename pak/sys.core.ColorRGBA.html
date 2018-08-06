@@ -57,11 +57,11 @@
 <li class="breadcrumb-item active">ColorRGBA</li>
 </ol>
 
+<div class="classhead">
 <h1>class ColorRGBA</h1>
 <pre><code class="cs">namespace sys.core
 class ColorRGBA
 </code></pre>
-<div class="codesection">
 <p>A class representing a logical red, green, blue and alpha channeled color as an object storing each component as 8 bit unsigned integers, using a memory order of red, green, blue and alpha.<br/>
 <br/>
 This class is only suited for storing low dynamic range colors.<br/>
@@ -86,20 +86,34 @@ this{red: Float, green: Float, blue: Float, alpha: Float};
 this{red: Double, green: Double, blue: Double, alpha: Double};</code></pre>
 <h4>Brief</h4>
 <p>
-
-Creates a new instance initializing each component of the color.
-
-If an input component is missing, it will be initialized to the maximum value.
-
+Creates a new instance initializing each component of the color.<br/>
+<br/>
+If an input component is missing, it will be initialized to the maximum value.<br/>
+<br/>
 Floating point values are interpreted as having a range of 0.0 to 1.0.
-
 </p><h4>Parameters</h4>
-<blockquote>value=> the value to use for each component<br/>
-red=> the red component<br/>
-green=> the green component<br/>
-blue=> the blue component<br/>
-alpha=> the alpha component<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">value</th>
+<td>the value to use for each component</td>
+</tr>
+<tr>
+<th scope="row">red</th>
+<td>the red component</td>
+</tr>
+<tr>
+<th scope="row">green</th>
+<td>the green component</td>
+</tr>
+<tr>
+<th scope="row">blue</th>
+<td>the blue component</td>
+</tr>
+<tr>
+<th scope="row">alpha</th>
+<td>the alpha component</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromUncapped</h3>
 <pre><code class="cs">this FromUncapped{red: Int, green: Int, blue: Int, alpha: Int};
@@ -108,56 +122,80 @@ this FromUncapped{red: Float, green: Float, blue: Float, alpha: Float};
 this FromUncapped{red: Double, green: Double, blue: Double, alpha: Double};</code></pre>
 <h4>Brief</h4>
 <p>
-Creates a new instance initializing each component of the color from uncapped values. Each input is clamped to the valid range of the color.
-
+Creates a new instance initializing each component of the color from uncapped values. Each input is clamped to the valid range of the color.<br/>
+<br/>
 Floating point values are interpreted as having a range of 0.0 to 1.0.
-
 </p><h4>Parameters</h4>
-<blockquote>red=> the red component<br/>
-green=> the green component<br/>
-blue=> the blue component<br/>
-alpha=> the alpha component<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">red</th>
+<td>the red component</td>
+</tr>
+<tr>
+<th scope="row">green</th>
+<td>the green component</td>
+</tr>
+<tr>
+<th scope="row">blue</th>
+<td>the blue component</td>
+</tr>
+<tr>
+<th scope="row">alpha</th>
+<td>the alpha component</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromRGBA</h3>
 <pre><code class="cs">this FromRGBA{rgba: DWord};</code></pre>
 <h4>Brief</h4>
 <p>
 Creates a new color from an integer encoded in the RGBA memory layout.
-
 </p><h4>Parameters</h4>
-<blockquote>rgba=> the color integer<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">rgba</th>
+<td>the color integer</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromBGRA</h3>
 <pre><code class="cs">this FromBGRA{bgra: DWord};</code></pre>
 <h4>Brief</h4>
 <p>
 Creates a new color from an integer encoded in the BGRA memory layout.
-
 </p><h4>Parameters</h4>
-<blockquote>bgra=> the color integer<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">bgra</th>
+<td>the color integer</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromARGB</h3>
 <pre><code class="cs">this FromARGB{argb: DWord};</code></pre>
 <h4>Brief</h4>
 <p>
 Creates a new color from an integer encoded in the ARGB memory layout.
-
 </p><h4>Parameters</h4>
-<blockquote>argb=> the color integer<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">argb</th>
+<td>the color integer</td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromABGR</h3>
 <pre><code class="cs">this FromABGR{abgr: DWord};</code></pre>
 <h4>Brief</h4>
 <p>
 Creates a new color from an integer encoded in the ABGR memory layout.
-
 </p><h4>Parameters</h4>
-<blockquote>abgr=> the color integer<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">abgr</th>
+<td>the color integer</td>
+</tr>
+</table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>ToRGBA</h3>
@@ -165,7 +203,6 @@ Creates a new color from an integer encoded in the ABGR memory layout.
 <h4>Brief</h4>
 <p>
 Encodes the color to an integer using the RGBA memory layout.
-
 </p><h4>Returns</h4>
 <blockquote>the resulting integer</blockquote>
 <hr/>
@@ -174,7 +211,6 @@ Encodes the color to an integer using the RGBA memory layout.
 <h4>Brief</h4>
 <p>
 Encodes the color to an integer using the BGRA memory layout.
-
 </p><h4>Returns</h4>
 <blockquote>the resulting integer</blockquote>
 <hr/>
@@ -183,7 +219,6 @@ Encodes the color to an integer using the BGRA memory layout.
 <h4>Brief</h4>
 <p>
 Encodes the color to an integer using the ARGB memory layout.
-
 </p><h4>Returns</h4>
 <blockquote>the resulting integer</blockquote>
 <hr/>
@@ -192,7 +227,6 @@ Encodes the color to an integer using the ARGB memory layout.
 <h4>Brief</h4>
 <p>
 Encodes the color to an integer using the ABGR memory layout.
-
 </p><h4>Returns</h4>
 <blockquote>the resulting integer</blockquote>
 <hr/>
@@ -202,11 +236,17 @@ def Clamp(min: Byte, max: Byte);</code></pre>
 <h4>Brief</h4>
 <p>
 Clamps each component of the current mutable instance between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Clamped</h3>
 <pre><code class="cs">func Clamped(min: ColorRGBA, max: ColorRGBA): ColorRGBA;
@@ -214,11 +254,17 @@ func Clamped(min: Byte, max: Byte): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns a copy of the color with each component clamped between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the clamped value</blockquote>
 <hr/>
@@ -227,10 +273,13 @@ max=> the maximum value<br/>
 <h4>Brief</h4>
 <p>
 Returns the member-wise minimum between the current instance and the input.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the value to test against<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the value to test against</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise minimum</blockquote>
 <hr/>
@@ -239,10 +288,13 @@ Returns the member-wise minimum between the current instance and the input.
 <h4>Brief</h4>
 <p>
 Returns the member-wise maximum between the current instance and the input.
-
 </p><h4>Parameters</h4>
-<blockquote>max=> the value to test against<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">max</th>
+<td>the value to test against</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise maximum</blockquote>
 <hr/>
@@ -255,10 +307,13 @@ func @add(second: Double): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise addition operator. Commutative.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise sum</blockquote>
 <hr/>
@@ -275,11 +330,17 @@ static func @sub(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise subtraction operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise subtraction</blockquote>
 <hr/>
@@ -292,10 +353,13 @@ func @mul(second: Double): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise multiplication operator. Commutative.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise multiplication</blockquote>
 <hr/>
@@ -312,11 +376,17 @@ static func @div(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise division operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise division</blockquote>
 <hr/>
@@ -333,11 +403,17 @@ static func @mod(left: ColorRGBA, right: Double): ColorRGBA;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise modulo operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise modulo</blockquote>
 <hr/>
@@ -349,10 +425,13 @@ func @eq(second: Double): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise equality operator.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>true on equality</blockquote>
 <hr/>
@@ -364,10 +443,13 @@ func @neq(second: Double): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise inequality operator.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>true on inequality</blockquote>
 </div><h2>Variables</h2>
@@ -377,28 +459,24 @@ Member-wise inequality operator.
 <h4>Brief</h4>
 <p>
 The red component.
-
 </p><hr/>
 <h3>G</h3>
 <pre><code class="cs">val G: Byte;</code></pre>
 <h4>Brief</h4>
 <p>
 The green component.
-
 </p><hr/>
 <h3>B</h3>
 <pre><code class="cs">val B: Byte;</code></pre>
 <h4>Brief</h4>
 <p>
 The blue component.
-
 </p><hr/>
 <h3>A</h3>
 <pre><code class="cs">val A: Byte;</code></pre>
 <h4>Brief</h4>
 <p>
 The alpha component.
-
 </p></div></div>
 </div>
 

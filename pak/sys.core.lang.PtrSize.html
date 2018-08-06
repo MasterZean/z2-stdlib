@@ -57,34 +57,47 @@
 <li class="breadcrumb-item active">PtrSize</li>
 </ol>
 
+<div class="classhead">
 <h1>class PtrSize</h1>
 <pre><code class="cs">namespace sys.core.lang
 class PtrSize
 </code></pre>
+</div>
 <h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
 <pre><code class="cs">def Clamp(min: PtrSize, max: PtrSize);</code></pre>
 <h4>Brief</h4>
 <p>
-
 Clamps the current mutable instance between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Clamped</h3>
 <pre><code class="cs">func Clamped(min: PtrSize, max: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the current instance clamped between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the clamped value</blockquote>
 <hr/>
@@ -93,85 +106,91 @@ max=> the maximum value<br/>
 func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <h4>Brief</h4>
 <p>
-Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.
-
+Writes the value to an Utf8 text <a href="sys.core.Stream.html">stream</a>.<br/>
+<br/>
 Can use an optional <a href="sys.core.OutputFormat.html">output format</a> specifier.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the output stream<br/>
-format=> formatting information<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the output stream</td>
+</tr>
+<tr>
+<th scope="row">format</th>
+<td>formatting information</td>
+</tr>
+</table></div>
 <hr/>
 <h3>@put</h3>
 <pre><code class="cs">func @put(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
 Writes the value to a binary stream as a 32/64 bit unsigned integer.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the output stream<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the output stream</td>
+</tr>
+</table></div>
 <hr/>
 <h3>@get</h3>
 <pre><code class="cs">def @get(ref stream: Stream);</code></pre>
 <h4>Brief</h4>
 <p>
 Reads a 32/64 bit unsigned integer from a binary stream.
-
 </p><h4>Parameters</h4>
-<blockquote>stream=> the input stream<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td>the input stream</td>
+</tr>
+</table></div>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>Abs</h3>
 <pre><code class="cs">property Abs: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the absolute value.
-
+Returns the absolute value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.PtrSize.html">PtrSize</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Sqr</h3>
 <pre><code class="cs">property Sqr: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the square of the value value.
-
 </p><hr/>
 <h3>Sqrt</h3>
 <pre><code class="cs">property Sqrt: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the square root of the value, rounded down.
-
 </p><hr/>
 <h3>Floor</h3>
 <pre><code class="cs">property Floor: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the floor of a floating point value.
-
+Returns the floor of a floating point value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.PtrSize.html">PtrSize</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Ceil</h3>
 <pre><code class="cs">property Ceil: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the ceiling of a floating point value.
-
+Returns the ceiling of a floating point value.<br/>
+<br/>
 In the case of <a href="sys.core.lang.PtrSize.html">PtrSize</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p><hr/>
 <h3>Round</h3>
 <pre><code class="cs">property Round: PtrSize; get;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns the rounded value of a floating point.
-
+Returns the rounded value of a floating point.<br/>
+<br/>
 In the case of <a href="sys.core.lang.PtrSize.html">PtrSize</a> it returns the value itself and is included only for API compatibility when using templates.
-
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>Zero</h3>
@@ -179,72 +198,63 @@ In the case of <a href="sys.core.lang.PtrSize.html">PtrSize</a> it returns the v
 <h4>Brief</h4>
 <p>
 A <a href="sys.core.lang.PtrSize.html">PtrSize</a> instance representing a logical "0" value.
-
 </p><hr/>
 <h3>One</h3>
 <pre><code class="cs">const One: PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 A <a href="sys.core.lang.PtrSize.html">PtrSize</a> instance representing a logical "1" value.
-
 </p><hr/>
 <h3>Min</h3>
 <pre><code class="cs">const Min: PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 The minimum value for a <a href="sys.core.lang.PtrSize.html">PtrSize</a> (32/64 bit unsigned integer) instance.
-
 </p><hr/>
 <h3>Max</h3>
 <pre><code class="cs">const Max: PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 The minimum value for a <a href="sys.core.lang.PtrSize.html">PtrSize</a> (64 bit signed integer) instance.
-
 </p><hr/>
 <h3>Invalid</h3>
 <pre><code class="cs">const Invalid: PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 The value signaling invalid/out of bounds.
-
 </p><hr/>
 <h3>IsSigned</h3>
 <pre><code class="cs">const IsSigned;</code></pre>
 <h4>Brief</h4>
 <p>
 <a href="sys.core.lang.Bool.html">true</a> if the numeric representation uses two's complement signed values, <a href="sys.core.lang.Bool.html">false</a> otherwise.
-
 </p><hr/>
 <h3>IsInteger</h3>
 <pre><code class="cs">const IsInteger;</code></pre>
 <h4>Brief</h4>
 <p>
 <a href="sys.core.lang.Bool.html">true</a> if the numeric representation is an integer, <a href="sys.core.lang.Bool.html">false</a> if it is a floating point.
-
 </p><hr/>
 <h3>MaxDigitsLow</h3>
 <pre><code class="cs">const MaxDigitsLow;</code></pre>
 <h4>Brief</h4>
 <p>
 The lower limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
-
-In base 10, you can have MaxDigitsLow digits that go though values 0-9.
-
+<br/>
+In base 10, you can have MaxDigitsLow digits that go though values 0-9.<br/>
+<br/>
 Should not be used for buffer sizes.
-
 </p><hr/>
 <h3>MaxDigitsHigh</h3>
 <pre><code class="cs">const MaxDigitsHigh;</code></pre>
 <h4>Brief</h4>
 <p>
 The upper limit for the number of base 10 digits that are needed to represent a maximal value in textual form.<br/>
-
-In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
 <br/>
-
+In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.<br/>
+<br/>
+<br/>
 Should not be used for buffer sizes.
-
 </p></div></div>
 </div>
 

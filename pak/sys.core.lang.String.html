@@ -57,18 +57,20 @@
 <li class="breadcrumb-item active">String</li>
 </ol>
 
+<div class="classhead">
 <h1>class String</h1>
 <pre><code class="cs">namespace sys.core.lang
 class String
 </code></pre>
+</div>
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
 <pre><code class="cs">this{data: Char};
 this{chars: Slice<Byte>};
-this{chars: Ptr<Byte>, len: PtrSize};
 this{chars: String, len: PtrSize};
 this{chars: String, start: PtrSize, end: PtrSize};
+this{chars: Ptr<Byte>, len: PtrSize};
 this{chars: Ptr<Byte>, len: PtrSize, cap: PtrSize};
 this{chars: CArray<Byte>};
 this{chars: CArray<Byte>, len: PtrSize};
@@ -78,14 +80,36 @@ this{move obj: String};</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>data=> <br/>
-chars=> <br/>
-len=> <br/>
-start=> <br/>
-end=> <br/>
-cap=> <br/>
-obj=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">data</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">chars</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">len</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">end</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">cap</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">obj</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>FromIndex</h3>
 <pre><code class="cs">this FromIndex{chars: String, start: PtrSize};
@@ -94,10 +118,20 @@ this FromIndex{chars: String, start: PtrSize, end: PtrSize};</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>chars=> <br/>
-start=> <br/>
-end=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">chars</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">end</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>TakeOwnership</h3>
 <pre><code class="cs">this TakeOwnership{chars: Ptr<Byte>, len: PtrSize};</code></pre>
@@ -105,9 +139,16 @@ end=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>chars=> <br/>
-len=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">chars</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">len</th>
+<td></td>
+</tr>
+</table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>@attr</h3>
@@ -117,8 +158,12 @@ def @attr(move obj: String);</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>obj=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">obj</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>Clear</h3>
 <pre><code class="cs">def Clear();</code></pre>
@@ -132,8 +177,12 @@ def @attr(move obj: String);</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>second=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -143,8 +192,12 @@ def @attr(move obj: String);</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>second=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -155,9 +208,16 @@ def @shl(str: String): ref String;</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>ch=> <br/>
-str=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">ch</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">str</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -167,9 +227,16 @@ str=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>pos=> <br/>
-string=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">pos</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">string</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>Inserted</h3>
 <pre><code class="cs">func Inserted(pos: PtrSize, string: String): String;</code></pre>
@@ -177,37 +244,86 @@ string=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>pos=> <br/>
-string=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">pos</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">string</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
 <h3>Find</h3>
 <pre><code class="cs">func Find(b: Byte): PtrSize;
-func Find(b: Byte, start: PtrSize): PtrSize;
-func Find(b: CArray<Byte>): PtrSize;</code></pre>
+func Find(b: Byte, start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>b=> <br/>
-start=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td></td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>FindFirst</h3>
+<pre><code class="cs">func FindFirst(b: CArray<Byte>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
 <h3>RFind</h3>
 <pre><code class="cs">func RFind(b: Byte): PtrSize;
-func RFind(b: Byte, start: PtrSize): PtrSize;
-func RFind(b: CArray<Byte>): PtrSize;</code></pre>
+func RFind(b: Byte, start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>b=> <br/>
-start=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">start</th>
+<td></td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>RFindFirst</h3>
+<pre><code class="cs">func RFindFirst(b: CArray<Byte>): PtrSize;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -217,13 +333,68 @@ start=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>b=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">b</th>
+<td></td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
+<h3>Trim</h3>
+<pre><code class="cs">def Trim();</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>TrimLeft</h3>
+<pre><code class="cs">def TrimLeft();</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>TrimRight</h3>
+<pre><code class="cs">def TrimRight();</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>Sub</h3>
+<pre><code class="cs">def Sub(start: PtrSize, end: PtrSize);</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">start</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">end</th>
+<td></td>
+</tr>
+</table></div>
+<hr/>
 <h3>Trimmed</h3>
 <pre><code class="cs">func Trimmed(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>TrimmedLeft</h3>
+<pre><code class="cs">func TrimmedLeft(): String;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><h4>Returns</h4>
+<blockquote></blockquote>
+<hr/>
+<h3>TrimmedRight</h3>
+<pre><code class="cs">func TrimmedRight(): String;</code></pre>
 <h4>Brief</h4>
 <p>
 
@@ -237,9 +408,16 @@ func @write(ref stream: Stream, format: OutputFormat);</code></pre>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>stream=> <br/>
-format=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">format</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>@put</h3>
 <pre><code class="cs">func @put(ref stream: Stream);</code></pre>
@@ -247,8 +425,12 @@ format=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>stream=> <br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td></td>
+</tr>
+</table></div>
 <hr/>
 <h3>@get</h3>
 <pre><code class="cs">def @get(ref stream: Stream);</code></pre>
@@ -256,9 +438,25 @@ format=> <br/>
 <p>
 
 </p><h4>Parameters</h4>
-<blockquote>stream=> <br/>
-</blockquote>
-</div><h2>Properties</h2>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">stream</th>
+<td></td>
+</tr>
+</table></div>
+<hr/>
+<h3>Parse</h3>
+<pre><code class="cs">Parse(): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p><hr/>
+<h3>ParseSaturated</h3>
+<pre><code class="cs">ParseSaturated(): T;</code></pre>
+<h4>Brief</h4>
+<p>
+
+</p></div><h2>Properties</h2>
 <div class="codesection">
 <h3>Length</h3>
 <pre><code class="cs">property Length: PtrSize</code></pre>

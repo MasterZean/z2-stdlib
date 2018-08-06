@@ -57,30 +57,29 @@
 <li class="breadcrumb-item active">StopWatch</li>
 </ol>
 
+<div class="classhead">
 <h1>class StopWatch</h1>
 <pre><code class="cs">namespace sys.core
 class StopWatch
 </code></pre>
+</div>
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
 <pre><code class="cs">this{};</code></pre>
 <h4>Brief</h4>
 <p>
-
-Creates a new instance and start keeping track of time.
-
+Creates a new instance and start keeping track of time.<br/>
+<br/>
 Calling `Elapsed` after is a valid operation.
-
 </p><hr/>
 <h3>Stopped</h3>
 <pre><code class="cs">this Stopped{};</code></pre>
 <h4>Brief</h4>
 <p>
-Creates a new instance but does not start tracking time.
-
+Creates a new instance but does not start tracking time.<br/>
+<br/>
 Calling `Elapsed` after is a not valid operation and you must manually start keeping track of time by calling `Reset`.
-
 </p></div><h2>Methods</h2>
 <div class="codesection">
 <h3>Reset</h3>
@@ -88,14 +87,12 @@ Calling `Elapsed` after is a not valid operation and you must manually start kee
 <h4>Brief</h4>
 <p>
 Resets the internal statistics and starts tracking time from the point in time of the call.
-
 </p><hr/>
 <h3>Elapsed</h3>
 <pre><code class="cs">func Elapsed(): Double;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns the elapsed time from the last time the tracking of time started, in milliseconds.
-
 </p><h4>Returns</h4>
 <blockquote>elapsed milliseconds</blockquote>
 </div><h2>Properties</h2>
@@ -105,7 +102,6 @@ Returns the elapsed time from the last time the tracking of time started, in mil
 <h4>Brief</h4>
 <p>
 Returns `true` if the timer is a high resolution timer, with improved granularity.
-
 </p></div></div>
 </div>
 

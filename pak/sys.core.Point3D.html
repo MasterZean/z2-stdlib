@@ -57,10 +57,12 @@
 <li class="breadcrumb-item active">Point3D</li>
 </ol>
 
+<div class="classhead">
 <h1>class Point3D</h1>
 <pre><code class="cs">namespace sys.core
 class Point3D
 </code></pre>
+</div>
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
@@ -69,16 +71,30 @@ this{x: T, y: T, z: T};
 this{p2d: Point2D<T>, z: T};</code></pre>
 <h4>Brief</h4>
 <p>
-
 Creates a new instance initializing each component of the point.
-
 </p><h4>Parameters</h4>
-<blockquote>value=> the value to use for each component<br/>
-x=> the first dimension of the point<br/>
-y=> the second dimension of the point<br/>
-z=> the third dimension of the point<br/>
-p2d=> a 2 dimensional point that is used as the first two dimensions<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">value</th>
+<td>the value to use for each component</td>
+</tr>
+<tr>
+<th scope="row">x</th>
+<td>the first dimension of the point</td>
+</tr>
+<tr>
+<th scope="row">y</th>
+<td>the second dimension of the point</td>
+</tr>
+<tr>
+<th scope="row">z</th>
+<td>the third dimension of the point</td>
+</tr>
+<tr>
+<th scope="row">p2d</th>
+<td>a 2 dimensional point that is used as the first two dimensions</td>
+</tr>
+</table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>Clamp</h3>
@@ -87,11 +103,17 @@ def Clamp(min: T, max: T);</code></pre>
 <h4>Brief</h4>
 <p>
 Clamps each component of the current mutable instance between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Clamped</h3>
 <pre><code class="cs">func Clamped(min: Point3D<T>, max: Point3D<T>): Point3D<T>;
@@ -99,11 +121,17 @@ func Clamped(min: T, max: T): Point2D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Returns a copy of the color with each component clamped between `min` and `max`.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the minimum value<br/>
-max=> the maximum value<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the minimum value</td>
+</tr>
+<tr>
+<th scope="row">max</th>
+<td>the maximum value</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the clamped value</blockquote>
 <hr/>
@@ -112,10 +140,13 @@ max=> the maximum value<br/>
 <h4>Brief</h4>
 <p>
 Returns the member-wise minimum between the current instance and the input.
-
 </p><h4>Parameters</h4>
-<blockquote>min=> the value to test against<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">min</th>
+<td>the value to test against</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise minimum</blockquote>
 <hr/>
@@ -124,10 +155,13 @@ Returns the member-wise minimum between the current instance and the input.
 <h4>Brief</h4>
 <p>
 Returns the member-wise maximum between the current instance and the input.
-
 </p><h4>Parameters</h4>
-<blockquote>max=> the value to test against<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">max</th>
+<td>the value to test against</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote>the member-wise maximum</blockquote>
 <hr/>
@@ -136,10 +170,13 @@ Returns the member-wise maximum between the current instance and the input.
 <h4>Brief</h4>
 <p>
 Tests if the current instance is a 3 dimensional normalized vector, within a tolerance.
-
 </p><h4>Parameters</h4>
-<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">tolerance</th>
+<td>tolerance for a non zero lengthed vector</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -147,25 +184,31 @@ Tests if the current instance is a 3 dimensional normalized vector, within a tol
 <pre><code class="cs">def Normalize(tolerance: T);</code></pre>
 <h4>Brief</h4>
 <p>
-Normalizes the 3 dimensional vector if its length falls within the tolerance limits.
-
+Normalizes the 3 dimensional vector if its length falls within the tolerance limits.<br/>
+<br/>
 Otherwise, the value remains unchanged.
-
 </p><h4>Parameters</h4>
-<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">tolerance</th>
+<td>tolerance for a non zero lengthed vector</td>
+</tr>
+</table></div>
 <hr/>
 <h3>Normalized</h3>
 <pre><code class="cs">func Normalized(tolerance: T): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
-Returns a 3 dimensional normalized copy of the vector if its length falls within the tolerance limits.
-
+Returns a 3 dimensional normalized copy of the vector if its length falls within the tolerance limits.<br/>
+<br/>
 Otherwise, returns the value as is.
-
 </p><h4>Parameters</h4>
-<blockquote>tolerance=> tolerance for a non zero lengthed vector<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">tolerance</th>
+<td>tolerance for a non zero lengthed vector</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -175,10 +218,13 @@ func @add(second: T): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise addition operator. Commutative.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -189,11 +235,17 @@ static func @sub(left: T, right: Point3D<T>): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise subtraction operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -203,10 +255,13 @@ func @mul(second: T): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise multiplication operator. Commutative.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -217,11 +272,17 @@ static func @div(left: T, right: Point3D<T>): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise division operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -232,11 +293,17 @@ static func @mod(left: T, right: Point3D<T>): Point3D<T>;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise modulo operator.
-
 </p><h4>Parameters</h4>
-<blockquote>left=> the left operand<br/>
-right=> the right operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">left</th>
+<td>the left operand</td>
+</tr>
+<tr>
+<th scope="row">right</th>
+<td>the right operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -245,7 +312,6 @@ right=> the right operand<br/>
 <h4>Brief</h4>
 <p>
 Returns the member-wise negative of the current instance.
-
 </p><h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -254,10 +320,13 @@ Returns the member-wise negative of the current instance.
 <h4>Brief</h4>
 <p>
 Member-wise equality operator.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -266,10 +335,13 @@ Member-wise equality operator.
 <h4>Brief</h4>
 <p>
 Member-wise inequality operator.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 <hr/>
@@ -279,11 +351,17 @@ func Equals(second: T, tolerance: T): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
 Member-wise equality operator within a given tolerance.
-
 </p><h4>Parameters</h4>
-<blockquote>second=> the second operand<br/>
-tolerance=> tolerance for equality<br/>
-</blockquote>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">second</th>
+<td>the second operand</td>
+</tr>
+<tr>
+<th scope="row">tolerance</th>
+<td>tolerance for equality</td>
+</tr>
+</table></div>
 <h4>Returns</h4>
 <blockquote></blockquote>
 </div><h2>Properties</h2>
@@ -293,14 +371,12 @@ tolerance=> tolerance for equality<br/>
 <h4>Brief</h4>
 <p>
 The length of the instance interpreted as a 3 dimensional vector.
-
 </p><hr/>
 <h3>LengthSquared</h3>
 <pre><code class="cs">property LengthSquared: T; get;</code></pre>
 <h4>Brief</h4>
 <p>
 The squred length of the instance interpreted as a 3 dimensional vector.
-
 </p></div><h2>Variables</h2>
 <div class="codesection">
 <h3>X</h3>
@@ -308,21 +384,18 @@ The squred length of the instance interpreted as a 3 dimensional vector.
 <h4>Brief</h4>
 <p>
 The first dimension of the point.
-
 </p><hr/>
 <h3>Y</h3>
 <pre><code class="cs">val Y: T;</code></pre>
 <h4>Brief</h4>
 <p>
 The second dimension of the point.
-
 </p><hr/>
 <h3>Z</h3>
 <pre><code class="cs">val Z: T;</code></pre>
 <h4>Brief</h4>
 <p>
 The third dimension of the point.
-
 </p></div></div>
 </div>
 
