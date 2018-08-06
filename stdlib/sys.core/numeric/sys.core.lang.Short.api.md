@@ -1,5 +1,8 @@
 # class *Short* from sys.core.lang
 
+A class representing a 16 bit signed integer.
+
+It maps exactly to a 16 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Constructors
 

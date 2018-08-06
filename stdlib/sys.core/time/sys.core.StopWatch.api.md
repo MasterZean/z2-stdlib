@@ -1,5 +1,6 @@
 # class *StopWatch* from sys.core
 
+A class used to measure the time delta between two events.
 
 ## Constructors
 
@@ -11,7 +12,7 @@ this{};
 
 #### Brief
 
-Creates a new instance and start keeping track of time.
+Creates a new instance and starts keeping track of time.
 
 Calling `Elapsed` after is a valid operation.
 ***

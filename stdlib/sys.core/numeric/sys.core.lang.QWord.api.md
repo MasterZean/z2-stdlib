@@ -1,5 +1,8 @@
 # class *QWord* from sys.core.lang
 
+A class representing a 64 bit unsigned integer.
+
+It maps exactly to a 64 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Constructors
 

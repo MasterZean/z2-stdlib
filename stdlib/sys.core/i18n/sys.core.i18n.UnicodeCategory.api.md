@@ -1,5 +1,6 @@
 # enum *UnicodeCategory* from sys.core.i18n
 
+An enum used to describe the category of a Unicode codepoint.
 
 ## Constructors
 

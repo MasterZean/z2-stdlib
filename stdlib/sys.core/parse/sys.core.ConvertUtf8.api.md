@@ -1,5 +1,6 @@
 # class *ConvertUtf8* from sys.core
 
+A class implementing conversions to and from binary data and Utf8 buffers.
 
 ## Methods
 

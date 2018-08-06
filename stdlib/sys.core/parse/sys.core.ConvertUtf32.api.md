@@ -1,5 +1,6 @@
 # class *ConvertUtf32* from sys.core
 
+A class implementing conversions to and from binary data and Utf32 buffers.
 
 ## Methods
 

@@ -1,5 +1,6 @@
 # class *Thread* from sys.core
 
+A class representing a thread.
 
 ## Methods
 

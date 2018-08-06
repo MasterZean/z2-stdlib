@@ -1,5 +1,10 @@
 # class *PtrSize* from sys.core.lang
 
+A class representing a size of a pointer or an offset withing a pointer.
+
+It is an unsigned value. It can be 32 or 64 bits long, depending on the target architecture.
+
+It maps exactly to a 32/64 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Methods
 

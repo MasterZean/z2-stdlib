@@ -1,5 +1,8 @@
 # class *Path* from sys.core
 
+A class implementing utility functions related to path manipulation and obtaining system paths.
+
+As a general rule, it can handle inputs from all target platforms at the same time, but outputs are using the exact target specific conventions. This is a form of implicit path normalization.
 
 ## Methods
 
@@ -11,10 +14,14 @@ static def GetFolder(path: String): String;
 
 #### Brief
 
+Returns a substring of a path representing the folder component.
+
+Includes the platform specific folder separator as the last character in the result.
+
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> the folder component
 ***
 
 ### GetFolderNoSep
@@ -24,11 +31,14 @@ static def GetFolderNoSep(path: String): String;
 ```
 
 #### Brief
+Returns a substring of a path representing the folder component.
+
+Includes the platform specific folder separator as the last character in the result.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> the folder component
 ***
 
 ### GetName
@@ -38,11 +48,12 @@ static def GetName(path: String): String;
 ```
 
 #### Brief
+Returns a substring of a path representing the file name component, including the extension.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> file name and extension
 ***
 
 ### GetNameIndex
@@ -52,11 +63,12 @@ static def GetNameIndex(path: String): PtrSize;
 ```
 
 #### Brief
+Returns the position of the file name in an input path, [-1][sys.core.lang.PtrSize] if not found.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> file name position
 ***
 
 ### GetTitle
@@ -66,11 +78,12 @@ static def GetTitle(path: String): String;
 ```
 
 #### Brief
+Returns a substring of a path representing the file name component, excluding the extension.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> the file name without extension
 ***
 
 ### GetTitleIndex
@@ -80,11 +93,12 @@ static def GetTitleIndex(path: String): PtrSize;
 ```
 
 #### Brief
+Returns the position of the file title in an input path, [-1][sys.core.lang.PtrSize] if not found.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> file title position
 ***
 
 ### GetExtension
@@ -94,11 +108,12 @@ static def GetExtension(path: String): String;
 ```
 
 #### Brief
+Returns a substring of a path representing the file extension component.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> file extension
 ***
 
 ### GetExtensionIndex
@@ -108,11 +123,12 @@ static def GetExtensionIndex(path: String): PtrSize;
 ```
 
 #### Brief
+Returns the position of the file extension in an input path, [-1][sys.core.lang.PtrSize] if not found.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> file extension position
 ***
 
 ### GetParent
@@ -122,11 +138,14 @@ static def GetParent(path: String): String;
 ```
 
 #### Brief
+REturns the parent folder of the input path. If the input path ends with a platform specific folder separator, it is treated as a folder. Otherwise it is treated as a file.
+
+Folder separator character is included as the last character in the result.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> parent folder
 ***
 
 ### IsRoot
@@ -136,11 +155,12 @@ static def IsRoot(path: String): Bool;
 ```
 
 #### Brief
+Checks if the input path is a root path.
 
 #### Parameters
-> *path* =>   
+> *path* => input path  
 #### Returns
-> 
+> `true` if root
 ***
 
 ## Properties
@@ -152,7 +172,9 @@ property CurrentFolder: String
 ```
 
 #### Brief
+Gets or sets the current folder.
 
+Can fail if the process does not have permission to change the folder.
 ***
 
 ### ExeFileName
@@ -162,7 +184,7 @@ property ExeFileName: String; get;
 ```
 
 #### Brief
-
+Returns the full path of the currently executing program.
 ***
 
 ## Constants
@@ -174,7 +196,9 @@ const DirSep;
 ```
 
 #### Brief
+THe folder separating character for the current platform.
 
+It is `DirSepWin` under Windows and `DirSepUnix` under POSIX systems.
 ***
 
 ### IgnoreCase
@@ -184,7 +208,7 @@ const IgnoreCase;
 ```
 
 #### Brief
-
+A value that is `true` if the target platform ignores case in paths, like on Windows. It is `false` if paths do not ignore case, like under POSIX.
 ***
 
 ### DirSepWin
@@ -194,7 +218,7 @@ const DirSepWin;
 ```
 
 #### Brief
-
+The folder separator character under Windows ('\').
 ***
 
 ### DirSepUnix
@@ -204,6 +228,7 @@ const DirSepUnix;
 ```
 
 #### Brief
-
+The folder separator character under Windows ('/').
 ***
 
+[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

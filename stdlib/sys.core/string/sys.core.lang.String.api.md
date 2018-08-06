@@ -1,5 +1,8 @@
 # class *String* from sys.core.lang
 
+A dynamic string class that uses Utf8 as an encoding scheme.
+
+Using a subset of the API it can be used to represent simple 8 bit strings instead of Unicode strings.
 
 ## Constructors
 

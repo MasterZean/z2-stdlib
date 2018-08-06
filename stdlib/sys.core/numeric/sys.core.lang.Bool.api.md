@@ -1,5 +1,8 @@
 # class *Bool* from sys.core.lang
 
+A class representing a boolean value.
+
+It can only take as a value the following literal constants: `true` and `false`.
 
 ## Constructors
 

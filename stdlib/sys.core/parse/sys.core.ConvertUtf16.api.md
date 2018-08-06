@@ -1,5 +1,6 @@
 # class *ConvertUtf16* from sys.core
 
+A class implementing conversions to and from binary data and Utf16 buffers.
 
 ## Methods
 

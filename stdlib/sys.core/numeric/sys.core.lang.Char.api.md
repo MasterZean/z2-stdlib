@@ -1,5 +1,10 @@
 # class *Char* from sys.core.lang
 
+A class representing an Unicode codepoint.
+
+It is a 32 bit unsigned values, with a valid range of values consisting of `Invalid` (signaling an error/invalid character) and all values between `Min` (0) and `Max` (0x10FFFF).
+
+It spans the whole valid range of 17 Unicode planes.
 
 ## Methods
 
