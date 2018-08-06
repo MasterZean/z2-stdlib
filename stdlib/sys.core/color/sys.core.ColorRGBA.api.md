@@ -386,7 +386,6 @@ val R: Byte;
 
 #### Brief
 The red component.
-
 ***
 
 ### G
@@ -397,7 +396,6 @@ val G: Byte;
 
 #### Brief
 The green component.
-
 ***
 
 ### B
@@ -408,7 +406,6 @@ val B: Byte;
 
 #### Brief
 The blue component.
-
 ***
 
 ### A
@@ -419,6 +416,5 @@ val A: Byte;
 
 #### Brief
 The alpha component.
-
 ***
 

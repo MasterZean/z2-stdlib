@@ -206,7 +206,6 @@ const MaxSmallBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Small][sys.core.lang.Small] value.
-
 ***
 
 ### MaxShortBuffer
@@ -217,7 +216,6 @@ const MaxShortBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Short][sys.core.lang.Short] value.
-
 ***
 
 ### MaxIntBuffer
@@ -228,7 +226,6 @@ const MaxIntBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Int][sys.core.lang.Int] value.
-
 ***
 
 ### MaxLongBuffer
@@ -239,7 +236,6 @@ const MaxLongBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Long][sys.core.lang.Long] value.
-
 ***
 
 ### MaxByteBuffer
@@ -250,7 +246,6 @@ const MaxByteBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Byte][sys.core.lang.Byte] value.
-
 ***
 
 ### MaxWordBuffer
@@ -261,7 +256,6 @@ const MaxWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [Word][sys.core.lang.Word] value.
-
 ***
 
 ### MaxDWordBuffer
@@ -272,7 +266,6 @@ const MaxDWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [DWord][sys.core.lang.DWord] value.
-
 ***
 
 ### MaxQWordBuffer
@@ -283,7 +276,6 @@ const MaxQWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the textual form of a [QWord][sys.core.lang.QWord] value.
-
 ***
 
 ### MaxBinSmallBuffer
@@ -294,7 +286,6 @@ const MaxBinSmallBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Small][sys.core.lang.Small] value.
-
 ***
 
 ### MaxBinShortBuffer
@@ -305,7 +296,6 @@ const MaxBinShortBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Short][sys.core.lang.Short] value.
-
 ***
 
 ### MaxBinIntBuffer
@@ -316,7 +306,6 @@ const MaxBinIntBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Int][sys.core.lang.Int] value.
-
 ***
 
 ### MaxBinLongBuffer
@@ -327,7 +316,6 @@ const MaxBinLongBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Long][sys.core.lang.Long] value.
-
 ***
 
 ### MaxBinByteBuffer
@@ -338,7 +326,6 @@ const MaxBinByteBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Byte][sys.core.lang.Byte] value.
-
 ***
 
 ### MaxBinWordBuffer
@@ -349,7 +336,6 @@ const MaxBinWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Word][sys.core.lang.Word] value.
-
 ***
 
 ### MaxBinDWordBuffer
@@ -360,7 +346,6 @@ const MaxBinDWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [DWord][sys.core.lang.DWord] value.
-
 ***
 
 ### MaxBinQWordBuffer
@@ -371,7 +356,6 @@ const MaxBinQWordBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [QWord][sys.core.lang.QWord] value.
-
 ***
 
 ### MaxCharBuffer
@@ -382,7 +366,6 @@ const MaxCharBuffer;
 
 #### Brief
 The maximum required Utf8 buffer size to store the base 2 textual form of a [Char][sys.core.lang.Char] value.
-
 ***
 
 [sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"

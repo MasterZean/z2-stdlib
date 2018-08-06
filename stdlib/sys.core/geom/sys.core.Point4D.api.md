@@ -1,5 +1,16 @@
 # class *Point4D* from sys.core
 
+A four dimensional generic vector.
+
+Can be used as a point or a vector.
+
+Predefined specializations:
+```C#
+alias Point4Di = Point4D<Int>;
+alias Point4Du = Point4D<DWord>;
+alias Point4Df = Point4D<Float>;
+alias Point4Dd = Point4D<Double>;
+```
 
 ## Constructors
 
@@ -295,7 +306,6 @@ property Length: T; get;
 
 #### Brief
 The length of the instance interpreted as a 4 dimensional vector.
-
 ***
 
 ### LengthSquared
@@ -306,7 +316,6 @@ property LengthSquared: T; get;
 
 #### Brief
 The squared length of the instance interpreted as a 4 dimensional vector.
-
 ***
 
 ## Variables
@@ -319,7 +328,6 @@ val X: T;
 
 #### Brief
 The first dimension of the point.
-
 ***
 
 ### Y
@@ -330,7 +338,6 @@ val Y: T;
 
 #### Brief
 The second dimension of the point.
-
 ***
 
 ### Z
@@ -341,7 +348,6 @@ val Z: T;
 
 #### Brief
 The third dimension of the point.
-
 ***
 
 ### W
@@ -352,6 +358,5 @@ val W: T;
 
 #### Brief
 The fourth dimension of the point.
-
 ***
 

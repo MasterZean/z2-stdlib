@@ -269,7 +269,6 @@ The item count is included.
 
 #### Brief
 Appends a vector `v` to the array.
-
 ***
 
 ## Properties
@@ -282,7 +281,6 @@ property Length: PtrSize
 
 #### Brief
 Read and writes the length of the vector.
-
 ***
 
 ### Capacity
@@ -295,7 +293,6 @@ property Capacity: PtrSize
 Read and writes the capacity of the vector.
 
 Capacity can't be set lower than the Length.
-
 ***
 
 ### @index
@@ -308,7 +305,6 @@ property @index: ref T; get;
 Reads and writes a given index from the vector.
 
 Accessing an invalid index is an error.
-
 ***
 
 ### At
@@ -321,7 +317,6 @@ property At: ref T; get;
 Reads and writes a given index from the vector.
 
 Accessing an index greater than Length will cause all the missing values to be default constructed.
-
 ***
 
 ### SysDataPointer
@@ -332,7 +327,6 @@ property SysDataPointer: Ptr<T>; get;
 
 #### Brief
 Returns a pointer to the data.
-
 ***
 
 [sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

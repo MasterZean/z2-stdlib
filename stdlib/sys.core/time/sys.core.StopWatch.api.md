@@ -14,7 +14,6 @@ this{};
 Creates a new instance and start keeping track of time.
 
 Calling `Elapsed` after is a valid operation.
-
 ***
 
 ### Stopped
@@ -27,7 +26,6 @@ this Stopped{};
 Creates a new instance but does not start tracking time.
 
 Calling `Elapsed` after is a not valid operation and you must manually start keeping track of time by calling `Reset`.
-
 ***
 
 ## Methods
@@ -40,7 +38,6 @@ def Reset();
 
 #### Brief
 Resets the internal statistics and starts tracking time from the point in time of the call.
-
 ***
 
 ### Elapsed
@@ -66,6 +63,5 @@ property IsHighResolution: Bool; get;
 
 #### Brief
 Returns `true` if the timer is a high resolution timer, with improved granularity.
-
 ***
 

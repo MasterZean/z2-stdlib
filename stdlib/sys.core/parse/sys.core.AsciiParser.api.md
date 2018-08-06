@@ -246,7 +246,6 @@ val SkipWhitespace;
 If set to `true`, every time an entity is consumed, whitespace following said entity is also consumed.
 
 If set to `false`, whitespace is not consumed and. It can manually be consumed with `EatSpaces`.
-
 ***
 
 ### SkipComments
@@ -257,7 +256,6 @@ val SkipComments;
 
 #### Brief
 If set to true, every time whitespace is consumed, comments are also consumed.
-
 ***
 
 ### NestComments
@@ -268,6 +266,5 @@ val NestComments;
 
 #### Brief
 If set to true, every time comments are consumed, they can nest.
-
 ***
 

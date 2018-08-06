@@ -1,5 +1,16 @@
 # class *Point3D* from sys.core
 
+A three dimensional generic vector.
+
+Can be used as a point or a vector.
+
+Predefined specializations:
+```C#
+alias Point2Di = Point2D<Int>;
+alias Point2Du = Point2D<DWord>;
+alias Point2Df = Point2D<Float>;
+alias Point2Dd = Point2D<Double>;
+```
 
 ## Constructors
 
@@ -290,7 +301,6 @@ property Length: T; get;
 
 #### Brief
 The length of the instance interpreted as a 3 dimensional vector.
-
 ***
 
 ### LengthSquared
@@ -301,7 +311,6 @@ property LengthSquared: T; get;
 
 #### Brief
 The squred length of the instance interpreted as a 3 dimensional vector.
-
 ***
 
 ## Variables
@@ -314,7 +323,6 @@ val X: T;
 
 #### Brief
 The first dimension of the point.
-
 ***
 
 ### Y
@@ -325,7 +333,6 @@ val Y: T;
 
 #### Brief
 The second dimension of the point.
-
 ***
 
 ### Z
@@ -336,6 +343,5 @@ val Z: T;
 
 #### Brief
 The third dimension of the point.
-
 ***
 

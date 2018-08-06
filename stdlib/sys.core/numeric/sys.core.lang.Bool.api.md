@@ -117,7 +117,6 @@ const Min;
 
 #### Brief
 The minimum value for an [Bool][sys.core.lang.Bool] instance.
-
 ***
 
 ### Max
@@ -128,7 +127,6 @@ const Max;
 
 #### Brief
 The maximum value for an [Bool][sys.core.lang.Bool] instance.
-
 ***
 
 ### IsSigned
@@ -139,7 +137,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -150,7 +147,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

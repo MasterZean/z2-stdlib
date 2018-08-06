@@ -89,7 +89,6 @@ def Reverse();
 
 #### Brief
 Reverses the items in the slice.
-
 ***
 
 ### Delete

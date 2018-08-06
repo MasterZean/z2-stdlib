@@ -298,7 +298,6 @@ property Length: T; get;
 
 #### Brief
 The length of the instance interpreted as a 2 dimensional vector.
-
 ***
 
 ### LengthSquared
@@ -309,7 +308,6 @@ property LengthSquared: T; get;
 
 #### Brief
 The squared length of the instance interpreted as a 2 dimensional vector.
-
 ***
 
 ## Variables
@@ -322,7 +320,6 @@ val X: T;
 
 #### Brief
 The first dimension of the point.
-
 ***
 
 ### Y
@@ -333,6 +330,5 @@ val Y: T;
 
 #### Brief
 The second dimension of the point.
-
 ***
 

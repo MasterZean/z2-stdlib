@@ -183,7 +183,6 @@ property Length: PtrSize
 
 #### Brief
 Reads and writes the length of the slice. Can not grow, only decrease.
-
 ***
 
 ### @index
@@ -194,7 +193,6 @@ property @index: T
 
 #### Brief
 Reads and writes a given index from the slice.
-
 ***
 
 ### SysDataPointer
@@ -205,7 +203,6 @@ property SysDataPointer: Ptr<T>; get;
 
 #### Brief
 Returns a pointer to the data from the slice.
-
 ***
 
 [sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

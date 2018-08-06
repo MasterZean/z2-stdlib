@@ -137,7 +137,6 @@ property Abs: Word; get;
 Returns the absolute value.
 
 In the case of [Byte][sys.core.lang.Byte] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Sqr
@@ -148,7 +147,6 @@ property Sqr: Word; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -159,7 +157,6 @@ property Sqrt: Word; get;
 
 #### Brief
 Returns the square root of the value, rounded down.
-
 ***
 
 ### Floor
@@ -172,7 +169,6 @@ property Floor: Word; get;
 Returns the floor of a floating point value.
 
 In the case of [Word][sys.core.lang.Word] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Ceil
@@ -185,7 +181,6 @@ property Ceil: Word; get;
 Returns the ceiling of a floating point value.
 
 In the case of [Word][sys.core.lang.Word] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Round
@@ -198,7 +193,6 @@ property Round: Word; get;
 Returns the rounded value of a floating point.
 
 In the case of [Word][sys.core.lang.Word] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Trunc
@@ -211,7 +205,6 @@ property Trunc: Word; get;
 Returns the value truncated to the nearest integer value.
 
 In the case of [Word][sys.core.lang.Word] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ## Constants
@@ -224,7 +217,6 @@ const Zero: Word;
 
 #### Brief
 A [Word][sys.core.lang.Word] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -235,7 +227,6 @@ const One: Word;
 
 #### Brief
 A [Word][sys.core.lang.Word] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -246,7 +237,6 @@ const Min: Word;
 
 #### Brief
 The minimum value for a [Word][sys.core.lang.Word] (16 bit unsigned integer) instance.
-
 ***
 
 ### Max
@@ -257,7 +247,6 @@ const Max: Word;
 
 #### Brief
 The maximum value for a [Word][sys.core.lang.Word] (16 bit unsigned integer) instance.
-
 ***
 
 ### IsSigned
@@ -268,7 +257,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -279,7 +267,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 ### MaxDigitsLow
@@ -293,7 +280,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -307,7 +293,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 [sys.core.lang.Word]: sys.core.lang.Word.api.md "sys.core.lang.Word"

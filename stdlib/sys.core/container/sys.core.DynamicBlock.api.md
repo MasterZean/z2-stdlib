@@ -140,7 +140,6 @@ def Clear();
 
 #### Brief
 Deallocates all data and set length to 0.
-
 ***
 
 ### Append
@@ -207,7 +206,6 @@ property @index: ref T; get;
 
 #### Brief
 Standard index operator into the dynamic array.
-
 ***
 
 ### Length
@@ -218,7 +216,6 @@ property Length: PtrSize
 
 #### Brief
 The length of the array. Same as `Capacity`.
-
 ***
 
 ### IsEmpty
@@ -229,7 +226,6 @@ property IsEmpty: Bool; get;
 
 #### Brief
 Returns [true][sys.core.lang.Bool] if the array has a `Length` greater than 0.
-
 ***
 
 ### Capacity
@@ -240,7 +236,6 @@ property Capacity: PtrSize
 
 #### Brief
 The capacity of the array. Same as `Length`.
-
 ***
 
 ### SysDataPointer
@@ -251,7 +246,6 @@ property SysDataPointer: Ptr<T>; get;
 
 #### Brief
 Returns an unsafe pointer to the memory block.
-
 ***
 
 [sys.core.DynamicBlock]: sys.core.DynamicBlock.api.md "sys.core.DynamicBlock"

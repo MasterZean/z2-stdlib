@@ -131,7 +131,6 @@ property IsNan: Bool; get;
 
 #### Brief
 Return true if the instance is not a number.
-
 ***
 
 ### IsInfinite
@@ -142,7 +141,6 @@ property IsInfinite: Bool; get;
 
 #### Brief
 Return true if the infinite.
-
 ***
 
 ### Abs
@@ -153,7 +151,6 @@ property Abs: Float; get;
 
 #### Brief
 Returns the absolute value.
-
 ***
 
 ### Sqr
@@ -164,7 +161,6 @@ property Sqr: Float; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -175,7 +171,6 @@ property Sqrt: Float get = Math.Sqrt;
 
 #### Brief
 Returns the square root of the value.
-
 ***
 
 ### Floor
@@ -186,7 +181,6 @@ property Floor: Float get = Math.Floor;
 
 #### Brief
 Returns the floor of a floating point value.
-
 ***
 
 ### Ceil
@@ -197,7 +191,6 @@ property Ceil: Float get = Math.Ceil;
 
 #### Brief
 Returns the ceiling of a floating point value.
-
 ***
 
 ### Round
@@ -208,7 +201,6 @@ property Round: Float get = Math.Round;
 
 #### Brief
 Returns the rounded value of a floating point.
-
 ***
 
 ### Trunc
@@ -219,7 +211,6 @@ property Trunc: Float get = Math.Trunc;
 
 #### Brief
 Returns the value truncated to the nearest integer value.
-
 ***
 
 ### Sin
@@ -350,7 +341,6 @@ property Log: Float get = Math.Log;
 
 #### Brief
 Returns the natural logarithm of a value.
-
 ***
 
 ### Log2
@@ -371,7 +361,6 @@ property Log10: Float get = Math.Log10;
 
 #### Brief
 Returns the base 10 logarithm of a value.
-
 ***
 
 ## Constants
@@ -384,7 +373,6 @@ const Zero: Float;
 
 #### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -395,7 +383,6 @@ const One: Float;
 
 #### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -406,7 +393,6 @@ const Min: Float;
 
 #### Brief
 The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-
 ***
 
 ### Max
@@ -417,7 +403,6 @@ const Max: Float;
 
 #### Brief
 The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-
 ***
 
 ### IsSigned
@@ -428,7 +413,6 @@ const IsSigned;
 
 #### Brief
 Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
-
 ***
 
 ### IsInteger
@@ -439,7 +423,6 @@ const IsInteger;
 
 #### Brief
 Returns [false][sys.core.lang.Bool].
-
 ***
 
 ### MaxDigitsLow
@@ -453,7 +436,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -467,7 +449,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 ### Nan
@@ -478,7 +459,6 @@ const Nan;
 
 #### Brief
 The not a number value.
-
 ***
 
 ### Infinite
@@ -489,7 +469,6 @@ const Infinite;
 
 #### Brief
 Positive infinite.
-
 ***
 
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
