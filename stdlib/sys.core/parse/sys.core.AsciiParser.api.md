@@ -174,10 +174,10 @@ Checks if the parser contains an integer, including sign.
 > `true` if integer was found
 ***
 
-### Sign
+### EatSign
 
 ```C#
-def Sign(): Int;
+def EatSign(): Int;
 ```
 
 #### Brief

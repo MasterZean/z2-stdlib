@@ -196,7 +196,7 @@ const DirSep;
 ```
 
 #### Brief
-THe folder separating character for the current platform.
+The folder separating character for the current platform.
 
 It is `DirSepWin` under Windows and `DirSepUnix` under POSIX systems.
 ***

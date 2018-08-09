@@ -137,7 +137,7 @@ class AsciiParser {
 		return Char{t[0]}.IsAsciiDigit;
 	}
 	
-	def Sign(): Int {
+	def EatSign(): Int {
 		val sign = 1;
 		
 		if (term[0] == '-') {
@@ -166,7 +166,7 @@ class AsciiParser {
 	}
 	
 	def ReadInt(): Int {
-		val sign = Sign();
+		val sign = EatSign();
 		val n = ReadNumber(10);
 		
 		if (sign > 0 ? n > Int.Max : n > DWord{Int.Max} + 1)

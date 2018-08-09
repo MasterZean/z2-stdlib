@@ -193,7 +193,7 @@ class Vector<T: Class> {
 		return s.BinaryIndex(item);
 	}
 	
-	def BinaryIndex(item: T, start: PtrSize): PtrSize {
+	func BinaryIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item, start);
 	}

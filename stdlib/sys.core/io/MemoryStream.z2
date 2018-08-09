@@ -60,7 +60,7 @@ class MemoryStream: Stream {
 		return s;
 	}
 	
-	def CopyString(): String {
+	func CopyString(): String {
 		if (data != null)
 			return String{data, ptr - data};
 		else

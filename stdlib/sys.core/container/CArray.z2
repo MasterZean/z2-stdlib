@@ -32,22 +32,22 @@ class CArray<T: Class> {
 		s.Fill(items);
 	}
 	
-	def FindIndex(item: T): PtrSize {
+	func FindIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item);
 	}
 	
-	def FindIndex(item: T, start: PtrSize): PtrSize {
+	func FindIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
 		return s.FindIndex(item, start);
 	}
 	
-	def BinaryIndex(item: T): PtrSize {
+	func BinaryIndex(item: T): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item);
 	}
 	
-	def BinaryIndex(item: T, start: PtrSize): PtrSize {
+	func BinaryIndex(item: T, start: PtrSize): PtrSize {
 		val s = Slice<T>{this};
 		return s.BinaryIndex(item, start);
 	}
@@ -125,7 +125,7 @@ class CArray<T: Class> {
 		s.Reverse();
 	}
 	
-	def Sum(): T {
+	func Sum(): T {
 		val s = Slice<T>{this};
 		return s.Sum();
 	}

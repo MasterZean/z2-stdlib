@@ -89,7 +89,7 @@ class Path {
 	
 #endif
 
-	static def GetFolder(path: String): String {
+	static func GetFolder(path: String): String {
 		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
@@ -97,7 +97,7 @@ class Path {
 			return String{path, index + 1};
 	}
 
-	static def GetFolderNoSep(path: String): String {
+	static func GetFolderNoSep(path: String): String {
 		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1)
 			return "";
@@ -105,11 +105,11 @@ class Path {
 			return String{path, index};
 	}
 
-	static def GetName(path: String): String {
+	static func GetName(path: String): String {
 		return String.FromIndex{path, GetNameIndex(path)};
 	}
 
-	static def GetNameIndex(path: String): PtrSize {
+	static func GetNameIndex(path: String): PtrSize {
 		val index = path.RFindFirst(CArray[Byte{DirSepWin}, Byte{DirSepUnix}]);
 		if (index == -1) {
 			if (IsRoot(path))
@@ -121,7 +121,7 @@ class Path {
 			return index + 1;
 	}
 	
-	static def GetTitle(path: String): String {
+	static func GetTitle(path: String): String {
 		val index = GetTitleIndex(path);
 		if (index != -1) {
 			val pointIndex = path.RFind(Byte{'.'}, index);
@@ -134,15 +134,15 @@ class Path {
 			return "";
 	}
 
-	static def GetTitleIndex(path: String): PtrSize {
+	static func GetTitleIndex(path: String): PtrSize {
 		return GetNameIndex(path);
 	}
 	
-	static def GetExtension(path: String): String {
+	static func GetExtension(path: String): String {
 		return String.FromIndex{path, GetExtensionIndex(path)};
 	}
 
-	static def GetExtensionIndex(path: String): PtrSize {
+	static func GetExtensionIndex(path: String): PtrSize {
 		val index = GetNameIndex(path);
 		
 		if (index != -1) {
@@ -153,14 +153,14 @@ class Path {
 		return index;
 	}
 	
-	static def GetParent(path: String): String {
+	static func GetParent(path: String): String {
 		if (path[path.Length - 1] == DirSepWin || path[path.Length - 1] == DirSepUnix)
 			return GetFolder(GetFolderNoSep(path));
 		else
 			return GetFolder(path);
 	}
 
-	static def IsRoot(path: String): Bool {
+	static func IsRoot(path: String): Bool {
 		return (path.Length == 1 && (path[0] == DirSepWin || path[0] == DirSepUnix)) ||
 		       (path.Length == 2 && Char{path[0]}.IsAsciiAlpha && path[1] == ':') ||
 		       (path.Length == 3 && Char{path[0]}.IsAsciiAlpha && path[1] == ':' && (path[2] == DirSepWin || path[2] == DirSepUnix));
