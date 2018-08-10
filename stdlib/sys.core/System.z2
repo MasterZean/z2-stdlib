@@ -32,7 +32,7 @@ class System {
 	}
 		
 	static def GetEnvVariable(var: String): String {
-		val sourceVar = Slice<Byte>{var};
+		val sourceVar = ReadSlice<Byte>{var};
 		val varu16: CArray<Word, 32767> = void;
 		val destVar = Slice<Word>{varu16};
 		

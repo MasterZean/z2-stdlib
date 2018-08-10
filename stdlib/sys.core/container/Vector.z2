@@ -179,22 +179,22 @@ class Vector<T: Class> {
 	}
 		
 	func FindIndex(item: T): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.FindIndex(item);
 	}
 	
 	func FindIndex(item: T, start: PtrSize): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.FindIndex(item, start);
 	}
 	
 	func BinaryIndex(item: T): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.BinaryIndex(item);
 	}
 	
 	func BinaryIndex(item: T, start: PtrSize): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.BinaryIndex(item, start);
 	}
 	
@@ -299,7 +299,7 @@ class Vector<T: Class> {
 	}
 	
 	func Sum(): T {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.Sum();
 	}
 	

@@ -295,32 +295,32 @@ class String {
 	}
 
 	func Find(b: Byte): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.FindIndex(b);
 	}
 	
 	func Find(b: Byte, start: PtrSize): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.FindIndex(b, start);
 	}
 
     func FindFirst(b: CArray<Byte>): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.FindFirst(b);
 	}
 	
 	func RFind(b: Byte): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.RFindIndex(b);
 	}
 	
 	func RFind(b: Byte, start: PtrSize): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.RFindIndex(b, start);
 	}
 	
 	func RFindFirst(b: CArray<Byte>): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.RFindFirst(b);
 	}
 
@@ -383,7 +383,7 @@ class String {
 
     func Split(b: Byte): Vector<String> {
         val v = Vector<String>[];
-        val s = Slice<Byte>{this};
+        val s = ReadSlice<Byte>{this};
         val last = 0p;
         
         val i = s.FindIndex(b);
@@ -473,7 +473,7 @@ class String {
 
 	func @put(ref stream: Stream) {
 		length.@put(stream);
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		stream.BinPut(s);
 	}
 
