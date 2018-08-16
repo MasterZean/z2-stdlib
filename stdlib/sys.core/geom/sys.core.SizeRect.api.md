@@ -133,8 +133,8 @@ A normalized rectangle will have its lower coordinates stored in the origin poin
 ### Contains
 
 ```C#
-def Contains(x: T, y: T): Bool;
-def Contains(r: SizeRect<T>): Bool;
+func Contains(x: T, y: T): Bool;
+func Contains(r: SizeRect<T>): Bool;
 ```
 
 #### Brief
@@ -151,7 +151,7 @@ Checks if the rectangle fully contains within its bounds a point defined by `x` 
 ### Intersects
 
 ```C#
-def Intersects(r: SizeRect<T>): Bool;
+func Intersects(r: SizeRect<T>): Bool;
 ```
 
 #### Brief

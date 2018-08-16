@@ -101,7 +101,7 @@ The search starts on an index given by the `start` parameter if present or from 
 
 ```C#
 func BinaryIndex(item: T): PtrSize;
-def BinaryIndex(item: T, start: PtrSize): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief

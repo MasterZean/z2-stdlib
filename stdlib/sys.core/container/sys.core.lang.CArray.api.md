@@ -48,8 +48,8 @@ If an array is provided, elements will be copied over in sequence. If the source
 ### FindIndex
 
 ```C#
-def FindIndex(item: T): PtrSize;
-def FindIndex(item: T, start: PtrSize): PtrSize;
+func FindIndex(item: T): PtrSize;
+func FindIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -67,8 +67,8 @@ The search starts on an index given by the `start` parameter if present or from 
 ### BinaryIndex
 
 ```C#
-def BinaryIndex(item: T): PtrSize;
-def BinaryIndex(item: T, start: PtrSize): PtrSize;
+func BinaryIndex(item: T): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -170,7 +170,7 @@ Reverses the contents of the array, from beginning to end or between two input i
 ### Sum
 
 ```C#
-def Sum(): T;
+func Sum(): T;
 ```
 
 #### Brief

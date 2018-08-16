@@ -9,7 +9,7 @@ A `ReadSlice` can only be instantiated based on persistent mutable object whose 
 ### this
 
 ```C#
-this{};
+this{} = null;
 this{ref p: CArray<T>};
 this{ref p: CArray<T>, length: PtrSize};
 this{ref p: CArray<T>, start: PtrSize, end: PtrSize};

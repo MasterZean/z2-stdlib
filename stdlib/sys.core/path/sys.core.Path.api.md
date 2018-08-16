@@ -9,7 +9,7 @@ As a general rule, it can handle inputs from all target platforms at the same ti
 ### GetFolder
 
 ```C#
-static def GetFolder(path: String): String;
+static func GetFolder(path: String): String;
 ```
 
 #### Brief
@@ -27,7 +27,7 @@ Includes the platform specific folder separator as the last character in the res
 ### GetFolderNoSep
 
 ```C#
-static def GetFolderNoSep(path: String): String;
+static func GetFolderNoSep(path: String): String;
 ```
 
 #### Brief
@@ -44,7 +44,7 @@ Includes the platform specific folder separator as the last character in the res
 ### GetName
 
 ```C#
-static def GetName(path: String): String;
+static func GetName(path: String): String;
 ```
 
 #### Brief
@@ -59,7 +59,7 @@ Returns a substring of a path representing the file name component, including th
 ### GetNameIndex
 
 ```C#
-static def GetNameIndex(path: String): PtrSize;
+static func GetNameIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -74,7 +74,7 @@ Returns the position of the file name in an input path, [-1][sys.core.lang.PtrSi
 ### GetTitle
 
 ```C#
-static def GetTitle(path: String): String;
+static func GetTitle(path: String): String;
 ```
 
 #### Brief
@@ -89,7 +89,7 @@ Returns a substring of a path representing the file name component, excluding th
 ### GetTitleIndex
 
 ```C#
-static def GetTitleIndex(path: String): PtrSize;
+static func GetTitleIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -104,7 +104,7 @@ Returns the position of the file title in an input path, [-1][sys.core.lang.PtrS
 ### GetExtension
 
 ```C#
-static def GetExtension(path: String): String;
+static func GetExtension(path: String): String;
 ```
 
 #### Brief
@@ -119,7 +119,7 @@ Returns a substring of a path representing the file extension component.
 ### GetExtensionIndex
 
 ```C#
-static def GetExtensionIndex(path: String): PtrSize;
+static func GetExtensionIndex(path: String): PtrSize;
 ```
 
 #### Brief
@@ -134,7 +134,7 @@ Returns the position of the file extension in an input path, [-1][sys.core.lang.
 ### GetParent
 
 ```C#
-static def GetParent(path: String): String;
+static func GetParent(path: String): String;
 ```
 
 #### Brief
@@ -151,7 +151,7 @@ Folder separator character is included as the last character in the result.
 ### IsRoot
 
 ```C#
-static def IsRoot(path: String): Bool;
+static func IsRoot(path: String): Bool;
 ```
 
 #### Brief

@@ -9,7 +9,7 @@ A `ReadSlice` can only be instantiated based on persistent object whose lifetime
 ### this
 
 ```C#
-this{};
+this{} = null;
 this{ref const p: CArray<T>};
 this{ref const p: CArray<T>, length: PtrSize};
 this{ref const p: CArray<T>, start: PtrSize, end: PtrSize};
