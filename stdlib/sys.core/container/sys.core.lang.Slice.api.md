@@ -177,10 +177,11 @@ Sorts the content of the array in ascending order, from beginning to end or betw
 > *high* => the end index  
 ***
 
+### SortDesc
 
-
-### SortDesc ```C
-# def SortDesc();
+```C#
+def SortDesc(low: Int, high: Int);
+def SortDesc();
 ```
 
 #### Brief
