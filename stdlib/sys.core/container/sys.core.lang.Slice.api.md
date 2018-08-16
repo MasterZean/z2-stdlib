@@ -177,18 +177,17 @@ Sorts the content of the array in ascending order, from beginning to end or betw
 > *high* => the end index  
 ***
 
-### SortDesc
 
-```C#
-def SortDesc(low: Int, high: Int);
-def SortDesc();
+
+### SortDesc ```C
+# def SortDesc();
 ```
 
 #### Brief
 Sorts the content of the array in descending order, from beginning to end or between two input indices.
 
 #### Parameters
-> `low` => the start index  
-> `high` => the end index  
+> *low* => the start index  
+> *high* => the end index  
 ***
 
