@@ -100,15 +100,6 @@ def Delete(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
-Reverses the contents of the array, from beginning to end or between two input indices.
-*** 
-
-```C#
-def Delete(item: T): PtrSize;
-def Delete(items: CArray<T>): PtrSize;
-def Delete(items: Vector<T>): PtrSize;
-```
-
 Searches for the first occurrence of an item or items within the array and if found it removes it.
 
 #### Parameters
