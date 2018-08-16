@@ -188,7 +188,7 @@ def SortDesc();
 Sorts the content of the array in descending order, from beginning to end or between two input indices.
 
 #### Parameters
-> *`low&nbsp;`* => the start index  
-> *`high`* => the end index  
+> `low` => the start index  
+> `high` => the end index  
 ***
 
