@@ -62,6 +62,18 @@
 <pre><code class="cs">namespace sys.core
 class Point4D
 </code></pre>
+<p>A four dimensional generic vector.<br/>
+<br/>
+Can be used as a point or a vector.<br/>
+<br/>
+Predefined specializations:<br/>
+```C#<br/>
+alias Point4Di = Point4D<Int>;<br/>
+alias Point4Du = Point4D<DWord>;<br/>
+alias Point4Df = Point4D<Float>;<br/>
+alias Point4Dd = Point4D<Double>;<br/>
+```<br/>
+</p>
 </div>
 <h2>Constructors</h2>
 <div class="codesection">
@@ -192,7 +204,7 @@ Tests if the current instance is a 4 dimensional normalized vector, within a tol
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if normalized</blockquote>
 <hr/>
 <h3>Normalize</h3>
 <pre><code class="cs">def Normalize(tolerance: T);</code></pre>
@@ -224,7 +236,7 @@ Otherwise, returns the value as is.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if normalized</blockquote>
 <hr/>
 <h3>@add</h3>
 <pre><code class="cs">func @add(second: Point4D<T>): Point4D<T>;
@@ -240,7 +252,7 @@ Member-wise addition operator. Commutative.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@sub</h3>
 <pre><code class="cs">static func @sub(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
@@ -261,7 +273,7 @@ Member-wise subtraction operator.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@mul</h3>
 <pre><code class="cs">func @mul(second: Point4D<T>): Point4D<T>;
@@ -277,7 +289,7 @@ Member-wise multiplication operator. Commutative.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@div</h3>
 <pre><code class="cs">static func @div(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
@@ -298,7 +310,7 @@ Member-wise division operator.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@mod</h3>
 <pre><code class="cs">static func @mod(left: Point4D<T>, right: Point4D<T>): Point4D<T>;
@@ -319,7 +331,7 @@ Member-wise modulo operator.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@minus</h3>
 <pre><code class="cs">func @minus(): Point4D<T>;</code></pre>
@@ -327,7 +339,7 @@ Member-wise modulo operator.
 <p>
 Returns the member-wise negative of the current instance.
 </p><h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the result</blockquote>
 <hr/>
 <h3>@eq</h3>
 <pre><code class="cs">func @eq(second: T): Bool;</code></pre>
@@ -342,7 +354,7 @@ Member-wise equality operator.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if equal</blockquote>
 <hr/>
 <h3>@neq</h3>
 <pre><code class="cs">func @neq(second: T): Bool;</code></pre>
@@ -357,7 +369,7 @@ Member-wise inequality operator.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if not equal</blockquote>
 <hr/>
 <h3>Equals</h3>
 <pre><code class="cs">func Equals(second: Point4D<T>, tolerance: T): Bool;
@@ -377,7 +389,7 @@ Member-wise equality operator within a given tolerance.
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if equal</blockquote>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>Length</h3>

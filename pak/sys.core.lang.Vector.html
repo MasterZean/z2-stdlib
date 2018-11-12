@@ -169,7 +169,7 @@ The search starts on an index given by the `start` parameter if present or from 
 <hr/>
 <h3>BinaryIndex</h3>
 <pre><code class="cs">func BinaryIndex(item: T): PtrSize;
-def BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
+func BinaryIndex(item: T, start: PtrSize): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
 Searches for an item in the array and returns the first index at which it was found or <a href="sys.core.lang.PtrSize.html">-1</a> if the item was not found. It uses a binary search algorithm and the contents of the container must be sorted in ascending order. If the elements are not sorted, the result is unpredictable.<br/>

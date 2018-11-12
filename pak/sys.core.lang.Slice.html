@@ -70,7 +70,7 @@ A `ReadSlice` can only be instantiated based on persistent mutable object whose 
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{};
+<pre><code class="cs">this{} = null;
 this{ref p: CArray<T>};
 this{ref p: CArray<T>, length: PtrSize};
 this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
@@ -169,15 +169,6 @@ def Delete(items: CArray<T>): PtrSize;
 def Delete(items: Vector<T>): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-Reverses the contents of the array, from beginning to end or between two input indices.<br/>
-*** <br/>
-<br/>
-```C#<br/>
-def Delete(item: T): PtrSize;<br/>
-def Delete(items: CArray<T>): PtrSize;<br/>
-def Delete(items: Vector<T>): PtrSize;<br/>
-```<br/>
-<br/>
 Searches for the first occurrence of an item or items within the array and if found it removes it.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">

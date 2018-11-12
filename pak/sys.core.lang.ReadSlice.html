@@ -70,7 +70,7 @@ A `ReadSlice` can only be instantiated based on persistent object whose lifetime
 <h2>Constructors</h2>
 <div class="codesection">
 <h3>this</h3>
-<pre><code class="cs">this{};
+<pre><code class="cs">this{} = null;
 this{ref const p: CArray<T>};
 this{ref const p: CArray<T>, length: PtrSize};
 this{ref const p: CArray<T>, start: PtrSize, end: PtrSize};

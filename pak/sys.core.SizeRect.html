@@ -62,6 +62,8 @@
 <pre><code class="cs">namespace sys.core
 class SizeRect
 </code></pre>
+<p>A generic rectangle defined by an origin point and a size.<br/>
+</p>
 </div>
 <h2>Constructors</h2>
 <div class="codesection">
@@ -69,24 +71,24 @@ class SizeRect
 <pre><code class="cs">this{x: T, y: T, x2: T, y2: T};</code></pre>
 <h4>Brief</h4>
 <p>
-
+Creates a new rectangle based on four coordinates defining two opposite corners of the rectangle.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">x</th>
-<td></td>
+<td>first corner left</td>
 </tr>
 <tr>
 <th scope="row">y</th>
-<td></td>
+<td>first corner top</td>
 </tr>
 <tr>
 <th scope="row">x2</th>
-<td></td>
+<td>second corner left</td>
 </tr>
 <tr>
 <th scope="row">y2</th>
-<td></td>
+<td>second corner top</td>
 </tr>
 </table></div>
 <hr/>
@@ -94,185 +96,204 @@ class SizeRect
 <pre><code class="cs">this FromSize{x: T, y: T, w: T, h: T};</code></pre>
 <h4>Brief</h4>
 <p>
-
+Creates a new rectangle based on the two coordinates of the first corner and a size given by width and height.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">x</th>
-<td></td>
+<td>first corner left</td>
 </tr>
 <tr>
 <th scope="row">y</th>
-<td></td>
+<td>first corner top</td>
 </tr>
 <tr>
 <th scope="row">w</th>
-<td></td>
+<td>width</td>
 </tr>
 <tr>
 <th scope="row">h</th>
-<td></td>
+<td>height</td>
 </tr>
 </table></div>
 </div><h2>Methods</h2>
 <div class="codesection">
 <h3>Offset</h3>
-<pre><code class="cs">def Offset(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
+<pre><code class="cs">def Offset(horizontal: T, vertical: T);</code></pre>
 <h4>Brief</h4>
 <p>
-
+Translates the rectangle by two relative vertical and horizontal amounts.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">horizontal</th>
-<td></td>
+<td>horizontal translation amount</td>
 </tr>
 <tr>
 <th scope="row">vertical</th>
-<td></td>
+<td>vertical translation amount</td>
 </tr>
 </table></div>
-<h4>Returns</h4>
-<blockquote></blockquote>
 <hr/>
 <h3>Offseted</h3>
 <pre><code class="cs">func Offseted(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Creates a new translated rectangle by two relative vertical and horizontal amounts.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">horizontal</th>
-<td></td>
+<td>horizontal translation amount</td>
 </tr>
 <tr>
 <th scope="row">vertical</th>
-<td></td>
+<td>vertical translation amount</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the new rectangle</blockquote>
 <hr/>
 <h3>Inflate</h3>
-<pre><code class="cs">def Inflate(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
+<pre><code class="cs">def Inflate(horizontal: T, vertical: T);</code></pre>
 <h4>Brief</h4>
 <p>
-
+Inflates the rectangle by two relative vertical and horizontal amounts.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">horizontal</th>
-<td></td>
+<td>horizontal inflation amount</td>
 </tr>
 <tr>
 <th scope="row">vertical</th>
-<td></td>
+<td>vertical inflation amount</td>
 </tr>
 </table></div>
-<h4>Returns</h4>
-<blockquote></blockquote>
 <hr/>
 <h3>Inflated</h3>
 <pre><code class="cs">func Inflated(horizontal: T, vertical: T): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a new inflated rectangle by two relative vertical and horizontal amounts.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">horizontal</th>
-<td></td>
+<td>horizontal inflation amount</td>
 </tr>
 <tr>
 <th scope="row">vertical</th>
-<td></td>
+<td>vertical inflation amount</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the new rectangle</blockquote>
 <hr/>
 <h3>Normalize</h3>
 <pre><code class="cs">def Normalize();</code></pre>
 <h4>Brief</h4>
 <p>
-
+Normalizes the rectangle.<br/>
+<br/>
+A normalized rectangle will have its lower coordinates stored in the origin point and its higher coordinates in the second point:<br/>
+> X <= X2<br/>
+> Y <= Y2
 </p><hr/>
 <h3>Normalized</h3>
 <pre><code class="cs">func Normalized(): SizeRect<T>;</code></pre>
 <h4>Brief</h4>
 <p>
-
+returns a new normalized rectangle.<br/>
+<br/>
+A normalized rectangle will have its lower coordinates stored in the origin point and its higher coordinates in the second point:<br/>
+> X <= X2<br/>
+> Y <= Y2
 </p><h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the new rectangle</blockquote>
 <hr/>
 <h3>Contains</h3>
-<pre><code class="cs">def Contains(x: T, y: T): Bool;
-def Contains(r: SizeRect<T>): Bool;</code></pre>
+<pre><code class="cs">func Contains(x: T, y: T): Bool;
+func Contains(r: SizeRect<T>): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Checks if the rectangle fully contains within its bounds a point defined by `x` and `y` or another rectangle given by `r`.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">x</th>
-<td></td>
+<td>the left of the point</td>
 </tr>
 <tr>
 <th scope="row">y</th>
-<td></td>
+<td>the top of the point</td>
 </tr>
 <tr>
 <th scope="row">r</th>
-<td></td>
+<td>the rectangle</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if the entity is contained within the rectangle</blockquote>
+<hr/>
+<h3>Intersects</h3>
+<pre><code class="cs">func Intersects(r: SizeRect<T>): Bool;</code></pre>
+<h4>Brief</h4>
+<p>
+Checks if the rectangle intersects another rectangle.
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">r</th>
+<td>the rectangle</td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote>`true` if there is an intersection</blockquote>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>X2</h3>
 <pre><code class="cs">property X2: T</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the left of the second corner of the rectangle.
 </p><hr/>
 <h3>Y2</h3>
 <pre><code class="cs">property Y2: T</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the top of the second corner of the rectangle.
 </p><hr/>
 <h3>IsEmpty</h3>
 <pre><code class="cs">property IsEmpty: Bool; get;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns true if the rectangle is empty: it has both its `Width` and `Height` equal to zero.
 </p></div><h2>Variables</h2>
 <div class="codesection">
 <h3>X</h3>
 <pre><code class="cs">val X: T;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the left of the first corner of the rectangle.
 </p><hr/>
 <h3>Y</h3>
 <pre><code class="cs">val Y: T;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the top of the first corner of the rectangle.
 </p><hr/>
 <h3>Width</h3>
 <pre><code class="cs">val Width: T;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the left of width of the rectangle.
 </p><hr/>
 <h3>Height</h3>
 <pre><code class="cs">val Height: T;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets and sets the left of height of the rectangle.
 </p></div></div>
 </div>
 

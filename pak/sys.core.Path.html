@@ -62,196 +62,210 @@
 <pre><code class="cs">namespace sys.core
 class Path
 </code></pre>
+<p>A class implementing utility functions related to path manipulation and obtaining system paths.<br/>
+<br/>
+As a general rule, it can handle inputs from all target platforms at the same time, but outputs are using the exact target specific conventions. This is a form of implicit path normalization.<br/>
+</p>
 </div>
 <h2>Methods</h2>
 <div class="codesection">
 <h3>GetFolder</h3>
-<pre><code class="cs">static def GetFolder(path: String): String;</code></pre>
+<pre><code class="cs">static func GetFolder(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a substring of a path representing the folder component.<br/>
+<br/>
+Includes the platform specific folder separator as the last character in the result.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the folder component</blockquote>
 <hr/>
 <h3>GetFolderNoSep</h3>
-<pre><code class="cs">static def GetFolderNoSep(path: String): String;</code></pre>
+<pre><code class="cs">static func GetFolderNoSep(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a substring of a path representing the folder component.<br/>
+<br/>
+Includes the platform specific folder separator as the last character in the result.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the folder component</blockquote>
 <hr/>
 <h3>GetName</h3>
-<pre><code class="cs">static def GetName(path: String): String;</code></pre>
+<pre><code class="cs">static func GetName(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a substring of a path representing the file name component, including the extension.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>file name and extension</blockquote>
 <hr/>
 <h3>GetNameIndex</h3>
-<pre><code class="cs">static def GetNameIndex(path: String): PtrSize;</code></pre>
+<pre><code class="cs">static func GetNameIndex(path: String): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns the position of the file name in an input path, <a href="sys.core.lang.PtrSize.html">-1</a> if not found.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>file name position</blockquote>
 <hr/>
 <h3>GetTitle</h3>
-<pre><code class="cs">static def GetTitle(path: String): String;</code></pre>
+<pre><code class="cs">static func GetTitle(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a substring of a path representing the file name component, excluding the extension.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>the file name without extension</blockquote>
 <hr/>
 <h3>GetTitleIndex</h3>
-<pre><code class="cs">static def GetTitleIndex(path: String): PtrSize;</code></pre>
+<pre><code class="cs">static func GetTitleIndex(path: String): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns the position of the file title in an input path, <a href="sys.core.lang.PtrSize.html">-1</a> if not found.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>file title position</blockquote>
 <hr/>
 <h3>GetExtension</h3>
-<pre><code class="cs">static def GetExtension(path: String): String;</code></pre>
+<pre><code class="cs">static func GetExtension(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns a substring of a path representing the file extension component.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>file extension</blockquote>
 <hr/>
 <h3>GetExtensionIndex</h3>
-<pre><code class="cs">static def GetExtensionIndex(path: String): PtrSize;</code></pre>
+<pre><code class="cs">static func GetExtensionIndex(path: String): PtrSize;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns the position of the file extension in an input path, <a href="sys.core.lang.PtrSize.html">-1</a> if not found.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>file extension position</blockquote>
 <hr/>
 <h3>GetParent</h3>
-<pre><code class="cs">static def GetParent(path: String): String;</code></pre>
+<pre><code class="cs">static func GetParent(path: String): String;</code></pre>
 <h4>Brief</h4>
 <p>
-
+REturns the parent folder of the input path. If the input path ends with a platform specific folder separator, it is treated as a folder. Otherwise it is treated as a file.<br/>
+<br/>
+Folder separator character is included as the last character in the result.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>parent folder</blockquote>
 <hr/>
 <h3>IsRoot</h3>
-<pre><code class="cs">static def IsRoot(path: String): Bool;</code></pre>
+<pre><code class="cs">static func IsRoot(path: String): Bool;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Checks if the input path is a root path.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">path</th>
-<td></td>
+<td>input path</td>
 </tr>
 </table></div>
 <h4>Returns</h4>
-<blockquote></blockquote>
+<blockquote>`true` if root</blockquote>
 </div><h2>Properties</h2>
 <div class="codesection">
 <h3>CurrentFolder</h3>
 <pre><code class="cs">property CurrentFolder: String</code></pre>
 <h4>Brief</h4>
 <p>
-
+Gets or sets the current folder.<br/>
+<br/>
+Can fail if the process does not have permission to change the folder.
 </p><hr/>
 <h3>ExeFileName</h3>
 <pre><code class="cs">property ExeFileName: String; get;</code></pre>
 <h4>Brief</h4>
 <p>
-
+Returns the full path of the currently executing program.
 </p></div><h2>Constants</h2>
 <div class="codesection">
 <h3>DirSep</h3>
 <pre><code class="cs">const DirSep;</code></pre>
 <h4>Brief</h4>
 <p>
-
+The folder separating character for the current platform.<br/>
+<br/>
+It is `DirSepWin` under Windows and `DirSepUnix` under POSIX systems.
 </p><hr/>
 <h3>IgnoreCase</h3>
 <pre><code class="cs">const IgnoreCase;</code></pre>
 <h4>Brief</h4>
 <p>
-
+A value that is `true` if the target platform ignores case in paths, like on Windows. It is `false` if paths do not ignore case, like under POSIX.
 </p><hr/>
 <h3>DirSepWin</h3>
 <pre><code class="cs">const DirSepWin;</code></pre>
 <h4>Brief</h4>
 <p>
-
+The folder separator character under Windows ('\').
 </p><hr/>
 <h3>DirSepUnix</h3>
 <pre><code class="cs">const DirSepUnix;</code></pre>
 <h4>Brief</h4>
 <p>
-
+The folder separator character under Windows ('/').
 </p></div></div>
 </div>
 
