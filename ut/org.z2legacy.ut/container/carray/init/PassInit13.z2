@@ -12,6 +12,8 @@ class PassInit13 {
         
         a.Insert(0p, "miu");
         System.Out << a << "\n";
+        test_insert(a);
+        System.Out << a << "\n";
         
         val b = CArray[1.ToString(), 2.ToString()];
         i = 2;

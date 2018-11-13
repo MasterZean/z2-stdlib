@@ -531,11 +531,13 @@ class ColorRGBA {
 	}
 
 	func @eq(second: Float): Bool {
-		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
+		val temp = ToByte(second);
+		return R == temp && G == temp && B == temp && A == temp;
 	}
 
 	func @eq(second: Double): Bool {
-		return R == ToByte(second) && G == ToByte(second) && B == ToByte(second) && A == ToByte(second);
+		val temp = ToByte(second);
+		return R == temp && G == temp && B == temp && A == temp;
 	}
 
 #endregion
@@ -551,11 +553,13 @@ class ColorRGBA {
 	}
 
 	func @neq(second: Float): Bool {
-		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
+		val temp = ToByte(second);
+		return R != temp || G != temp || B != temp || A != temp;
 	}
 
 	func @neq(second: Double): Bool {
-		return R != ToByte(second) || G != ToByte(second) || B != ToByte(second) || A != ToByte(second);
+		val temp = ToByte(second);
+		return R != temp || G != temp || B != temp || A != temp;
 	}
 
 #endregion

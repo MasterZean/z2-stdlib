@@ -1,6 +1,6 @@
 # class *DynamicBlock* from sys.core
 
-Represents a simple dynamically allocated array. It is a continuous indexable memory memory block. The length of the array is always identical to its capacity, so any change in length will result in data reallocation: it does not support amortized growth and can't shrink without reallocating data.
+Represents a simple dynamically allocated array. It is a continuous indexable memory block. The length of the array is always identical to its capacity, so any change in length will result in data reallocation: it does not support amortized growth and can't shrink without reallocating data.
 
 Might become deprecated.
 

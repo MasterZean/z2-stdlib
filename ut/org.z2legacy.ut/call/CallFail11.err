@@ -1,0 +1,2 @@
+CallFail11.z2(6, 11): error:
+	can't call non-const method 'Delete' on readonly 'CArray<Int, 3>' instance

@@ -1,0 +1,2 @@
+CallFail12.z2(5, 16): error:
+	can't instantiate Vector<Int>::@shl(Vector<Int>, Int), parameter 1: can't match actual Vector<Int> to formal ref Vector<Int>

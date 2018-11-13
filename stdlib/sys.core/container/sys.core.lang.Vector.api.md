@@ -1,8 +1,8 @@
 # class *Vector* from sys.core.lang
 
-A dynamic array with ammortized growth cost.
+A dynamic array with amortized growth cost.
 
-This is the most commonly used array for dynamicly allocated data.
+This is the most commonly used array for dynamically allocated data.
 
 ## Constructors
 

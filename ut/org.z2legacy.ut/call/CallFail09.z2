@@ -1,0 +1,7 @@
+namespace org.z2legacy.ut.call;
+
+class CallFail09 {
+	def @main() {
+		[1, 2, 3].Sort();
+	}
+}

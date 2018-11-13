@@ -1,6 +1,6 @@
 # class *CArray* from sys.core.lang
 
-A class representing a simple C array, a continuous indexable memory memory block. It uses static memory allocation. It does not store anywhere in memory the actual size of the block or the number of elements in the array.
+A class representing a simple C array, a continuous indexable memory block. It uses static memory allocation. It does not store anywhere in memory the actual size of the block or the number of elements in the array.
 
 In C using such arrays behaves mostly like using a pointer, since the array length is not available. Z2 makes the array length available, even though it is not stored, by using compile time information when possible and passing the actual length in though a hidden parameter, when not.
 

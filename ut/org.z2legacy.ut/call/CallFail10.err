@@ -1,0 +1,2 @@
+CallFail10.z2(5, 25): error:
+	can't call non-const method 'Insert' on readonly 'CArray<Int, 3>' instance
