@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="../index.html">Z2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../download.html">Download</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="docDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Documentation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="docDropdown">
+          <a class="dropdown-item" href="../install.html">Installation</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../api.html">API</a>
+      </li>      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid">
+<div class="page">
+
+<ol class="breadcrumb">
+<li class="breadcrumb-item">sys.core.lang</li>
+<li class="breadcrumb-item active">System</li>
+</ol>
+
+<div class="classhead">
+<h1>class System</h1>
+<pre><code class="cs">namespace sys.core.lang
+class System
+</code></pre>
+<p>A class representing system information and IO.<br/>
+</p>
+</div>
+<h2>Methods</h2>
+<div class="codesection">
+<h3>GetEnvVariable</h3>
+<pre><code class="cs">static def GetEnvVariable(var: String): String;</code></pre>
+<h4>Brief</h4>
+<p>
+Returns and environment variable.
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">var</th>
+<td>the name of the variable</td>
+</tr>
+</table></div>
+<h4>Returns</h4>
+<blockquote>the content of the variable as a string</blockquote>
+<hr/>
+<h3>AddArgument</h3>
+<pre><code class="cs">static def AddArgument(arg: String);</code></pre>
+<h4>Brief</h4>
+<p>
+Modifies the command line of the currently running application by adding an argument.<br/>
+<br/>
+Reserved for system use.
+</p><h4>Parameters</h4>
+<div class="params"><table class="table table-bordered">
+<tr>
+<th scope="row">arg</th>
+<td>the argument to add</td>
+</tr>
+</table></div>
+</div><h2>Properties</h2>
+<div class="codesection">
+<h3>CPU</h3>
+<pre><code class="cs">property CPU: ref SystemCPU; get;</code></pre>
+<h4>Brief</h4>
+<p>
+The installed CPU information.
+</p><hr/>
+<h3>Args</h3>
+<pre><code class="cs">property Args: const ref Vector<String>; get;</code></pre>
+<h4>Brief</h4>
+<p>
+The current application command line stored as a vector.
+</p></div><h2>Variables</h2>
+<div class="codesection">
+<h3>Debug</h3>
+<pre><code class="cs">val Debug;</code></pre>
+<h4>Brief</h4>
+<p>
+Debug mode asserter and error reporter.
+</p><hr/>
+<h3>Trace</h3>
+<pre><code class="cs">val Trace;</code></pre>
+<h4>Brief</h4>
+<p>
+Trace mode asserter and error reporter.
+</p><hr/>
+<h3>Out</h3>
+<pre><code class="cs">val Out;</code></pre>
+<h4>Brief</h4>
+<p>
+STDOUT stream.
+</p><hr/>
+<h3>In</h3>
+<pre><code class="cs">val In;</code></pre>
+<h4>Brief</h4>
+<p>
+STDIN stream.
+</p></div></div>
+</div>
+
+<footer class="footer">
+  <div class="container-flex">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
