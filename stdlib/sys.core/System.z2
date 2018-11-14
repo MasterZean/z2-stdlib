@@ -27,6 +27,7 @@ class System {
     static val Out = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_OUTPUT_HANDLE)};
     static val In = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_INPUT_HANDLE)};
     
+    @[nodoc]
 	static def @setup() {
 		SetConsoleCodePage();
 	}
@@ -62,6 +63,7 @@ class System {
 
     static val Out = sys.core.ConsoleStream{};
     
+    @[nodoc]
 	static def @setup() {
 	}
 	
