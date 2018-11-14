@@ -64,7 +64,7 @@ class Slice
 </code></pre>
 <p>Represents a read-and-write block of memory given by address of the block and a size. Implements common block algorithms that work on mutable data and inherits from ReadSlice in order to implement algorithms that work on immutable data. After the algorithm is finished, the Length property is adjusted in accordance to the actions taken by the algorithm, often the extent of the read or write. The final Length can't be greater than the initial Length: Length can only shrink.<br/>
 <br/>
-A `ReadSlice` can only be instantiated based on persistent mutable object whose lifetime must exceed the lifetime of the slice. Freeing the data is an error.<br/>
+A `Slice` can only be instantiated based on persistent mutable object whose lifetime must exceed the lifetime of the slice. Freeing the data before the slice is destroyed is an error.<br/>
 </p>
 </div>
 <h2>Constructors</h2>

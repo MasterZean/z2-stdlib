@@ -62,6 +62,10 @@
 <pre><code class="cs">namespace sys.core
 class SystemDebug
 </code></pre>
+<p>A class used to assert and post error messages only on Debug builds.<br/>
+<br/>
+On Release builds these operations are ignored.<br/>
+</p>
 </div>
 <h2>Methods</h2>
 <div class="codesection">
@@ -72,18 +76,18 @@ def Assert(test: Bool, error: String);</code></pre>
 <p>
 Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.<br/>
 <br/>
-"Debug" builds have the "Trace" flag set.<br/>
+"Debug" builds have the "Debug" flag set by default.<br/>
 <br/>
-Should be used for often for run-time assertion in "Debug" builds, to test conditions which should not fail.
+Should be used for run-time assertion in "Debug" builds, to test conditions which should not fail.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
 <th scope="row">test</th>
-<td></td>
+<td>the assert condition</td>
 </tr>
 <tr>
 <th scope="row">error</th>
-<td></td>
+<td>the error message to throw</td>
 </tr>
 </table></div>
 <hr/>
@@ -91,9 +95,9 @@ Should be used for often for run-time assertion in "Debug" builds, to test condi
 <pre><code class="cs">def Error(error: String);</code></pre>
 <h4>Brief</h4>
 <p>
-Throws an exception with a string message, but only if the "Trace" flag is set for compilation.<br/>
+Throws an exception with a string message, but only if the "Debug" flag is set for compilation.<br/>
 <br/>
-"Release" builds have the "Trace" flag set.
+"Debug" builds have the "Debug" flag set by default.
 </p><h4>Parameters</h4>
 <div class="params"><table class="table table-bordered">
 <tr>
