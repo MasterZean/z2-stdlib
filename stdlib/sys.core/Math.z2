@@ -44,7 +44,7 @@ static class Math {
 	
 #region powers
 
-	func Pow(base: Double, exponenet: Double): Double = bind.c.math.pow;
+	func Pow(base: Double, exponent: Double): Double = bind.c.math.pow;
 	
 	func Sqrt(value: Double): Double  = bind.c.math.sqrt;
 	func Sqrt(value: Float) : Float   = bind.c.math.sqrt;

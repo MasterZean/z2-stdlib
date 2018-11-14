@@ -1,5 +1,6 @@
 # class *SystemCPU* from sys.core
 
+A class describing CPU information.
 
 ## Variables
 
@@ -11,6 +12,7 @@ val Vendor;
 
 #### Brief
 
+The vendor string.
 ***
 
 ### MMX
@@ -20,7 +22,7 @@ val MMX;
 ```
 
 #### Brief
-
+MMX support.
 ***
 
 ### SSE
@@ -30,7 +32,7 @@ val SSE;
 ```
 
 #### Brief
-
+SSE support.
 ***
 
 ### SSE2
@@ -40,7 +42,7 @@ val SSE2;
 ```
 
 #### Brief
-
+SSE2 support.
 ***
 
 ### SSE3
@@ -50,7 +52,7 @@ val SSE3;
 ```
 
 #### Brief
-
+SSE3 support.
 ***
 
 ### SSSE3
@@ -60,7 +62,7 @@ val SSSE3;
 ```
 
 #### Brief
-
+SSSE3 support.
 ***
 
 ### SSE41
@@ -70,7 +72,7 @@ val SSE41;
 ```
 
 #### Brief
-
+SSE41 support.
 ***
 
 ### SSE42
@@ -80,7 +82,7 @@ val SSE42;
 ```
 
 #### Brief
-
+SSE42 support.
 ***
 
 ### Bits
@@ -90,7 +92,7 @@ val Bits;
 ```
 
 #### Brief
-
+The number of bits the CPU works on.
 ***
 
 ### Cores
@@ -100,6 +102,6 @@ val Cores;
 ```
 
 #### Brief
-
+The number of cores.
 ***
 

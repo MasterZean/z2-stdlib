@@ -99,7 +99,6 @@ class ReadSlice<T: Class> {
 	}
 	
 	this(ref const p: DWord, length: PtrSize) {
-		//System.Out << "aa\n";
 		ptr = Ptr<T>{p};
 		size = Intrinsic.Min(p.@size / T.@size, length);
 	}

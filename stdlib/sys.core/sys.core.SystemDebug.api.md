@@ -1,5 +1,8 @@
 # class *SystemDebug* from sys.core
 
+A class used to assert and post error messages only on Debug builds.
+
+On Release builds these operations are ignored.
 
 ## Methods
 
@@ -14,13 +17,13 @@ def Assert(test: Bool, error: String);
 
 Throws an exception if the condition is false, but only if the "Debug" flag is set for compilation.
 
-"Debug" builds have the "Trace" flag set.
+"Debug" builds have the "Debug" flag set by default.
 
-Should be used for often for run-time assertion in "Debug" builds, to test conditions which should not fail.
+Should be used for run-time assertion in "Debug" builds, to test conditions which should not fail.
 
 #### Parameters
-> *test* =>   
-> *error* =>   
+> *test* => the assert condition  
+> *error* => the error message to throw  
 ***
 
 ### Error
@@ -30,9 +33,9 @@ def Error(error: String);
 ```
 
 #### Brief
-Throws an exception with a string message, but only if the "Trace" flag is set for compilation.
+Throws an exception with a string message, but only if the "Debug" flag is set for compilation.
 
-"Release" builds have the "Trace" flag set.
+"Debug" builds have the "Debug" flag set by default.
 
 #### Parameters
 > *error* => the error message to throw  

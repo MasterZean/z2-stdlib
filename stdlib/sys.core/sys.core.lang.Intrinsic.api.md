@@ -1,5 +1,6 @@
 # class *Intrinsic* from sys.core.lang
 
+A collection of miscellaneous intrinsic operations and helper functions.
 
 ## Methods
 
@@ -57,7 +58,7 @@ Min(a: T, b: T): T;
 ```
 
 #### Brief
-
+Returns the minimum between two values.
 ***
 
 ### Max
@@ -67,7 +68,7 @@ Max(a: T, b: T): T;
 ```
 
 #### Brief
-
+Returns the maximum between two values.
 ***
 
 ### Clamped
@@ -77,7 +78,7 @@ Clamped(a: T, min: T, max: T): T;
 ```
 
 #### Brief
-
+Returns the `a` parameter clamped between two values.
 ***
 
 ### Clamp
@@ -87,6 +88,6 @@ Clamp(ref a: T, min: T, max: T);
 ```
 
 #### Brief
-
+Clamps the `a` parameter between two values.
 ***
 

@@ -1,5 +1,6 @@
 # class *Class* from sys.core
 
+Represents meta information about a class.
 
 ## Methods
 

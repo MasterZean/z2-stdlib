@@ -15,8 +15,10 @@ this Saturated{value: Double};
 
 #### Brief
 
+Constructs a saturated [Float][sys.core.lang.Float] based on the input value.
+
 #### Parameters
-> *value* =>   
+> *value* => the input value  
 ***
 
 ## Methods
@@ -223,7 +225,7 @@ property Sin: Float get = Math.Sin;
 ```
 
 #### Brief
-
+Returns the sine of the value.
 ***
 
 ### Cos
@@ -233,7 +235,7 @@ property Cos: Float get = Math.Cos;
 ```
 
 #### Brief
-
+Returns the cosine of the value.
 ***
 
 ### Tan
@@ -243,7 +245,7 @@ property Tan: Float get = Math.Tan;
 ```
 
 #### Brief
-
+Returns the tangent of the value.
 ***
 
 ### Sinh
@@ -253,7 +255,7 @@ property Sinh: Float get = Math.Sinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic sine of the value.
 ***
 
 ### Cosh
@@ -263,7 +265,7 @@ property Cosh: Float get = Math.Cosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic cosine of the value.
 ***
 
 ### Tanh
@@ -273,7 +275,7 @@ property Tanh: Float get = Math.Tanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic tangent of the value.
 ***
 
 ### Asin
@@ -283,7 +285,7 @@ property Asin: Float get = Math.Asin;
 ```
 
 #### Brief
-
+Returns the arcsine of the value.
 ***
 
 ### Acos
@@ -293,7 +295,7 @@ property Acos: Float get = Math.Acos;
 ```
 
 #### Brief
-
+Returns the arccosine of the value.
 ***
 
 ### Atan
@@ -303,7 +305,7 @@ property Atan: Float get = Math.Atan;
 ```
 
 #### Brief
-
+Returns the arctangent of the value.
 ***
 
 ### Asinh
@@ -313,7 +315,7 @@ property Asinh: Float get = Math.Asinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arcsine of the value.
 ***
 
 ### Acosh
@@ -323,7 +325,7 @@ property Acosh: Float get = Math.Acosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arccosine of the value.
 ***
 
 ### Atanh
@@ -333,7 +335,7 @@ property Atanh: Float get = Math.Atanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arctangent of the value.
 ***
 
 ### Log
@@ -353,7 +355,7 @@ property Log2: Float get = Math.Log2;
 ```
 
 #### Brief
-
+Returns the base 2 logarithm of a value.
 ***
 
 ### Log10
@@ -474,8 +476,8 @@ const Infinite;
 Positive infinite.
 ***
 
+[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
-[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

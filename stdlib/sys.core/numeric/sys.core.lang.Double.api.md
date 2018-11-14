@@ -224,7 +224,7 @@ property Sin: Double get = Math.Sin;
 ```
 
 #### Brief
-
+Returns the sine of the value.
 ***
 
 ### Cos
@@ -234,7 +234,7 @@ property Cos: Double get = Math.Cos;
 ```
 
 #### Brief
-
+Returns the cosine of the value.
 ***
 
 ### Tan
@@ -244,7 +244,7 @@ property Tan: Double get = Math.Tan;
 ```
 
 #### Brief
-
+Returns the tangent of the value.
 ***
 
 ### Sinh
@@ -254,7 +254,7 @@ property Sinh: Double get = Math.Sinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic sine of the value.
 ***
 
 ### Cosh
@@ -264,7 +264,7 @@ property Cosh: Double get = Math.Cosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic cosine of the value.
 ***
 
 ### Tanh
@@ -274,7 +274,7 @@ property Tanh: Double get = Math.Tanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic tangent of the value.
 ***
 
 ### Asin
@@ -284,7 +284,7 @@ property Asin: Double get = Math.Asin;
 ```
 
 #### Brief
-
+Returns the arcsine of the value.
 ***
 
 ### Acos
@@ -294,7 +294,7 @@ property Acos: Double get = Math.Acos;
 ```
 
 #### Brief
-
+Returns the arccosine of the value.
 ***
 
 ### Atan
@@ -304,7 +304,7 @@ property Atan: Double get = Math.Atan;
 ```
 
 #### Brief
-
+Returns the arctangent of the value.
 ***
 
 ### Asinh
@@ -314,7 +314,7 @@ property Asinh: Double get = Math.Asinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arcsine of the value.
 ***
 
 ### Acosh
@@ -324,7 +324,7 @@ property Acosh: Double get = Math.Acosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arcsine of the value.
 ***
 
 ### Atanh
@@ -334,7 +334,7 @@ property Atanh: Double get = Math.Atanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arctangent of the value.
 ***
 
 ### Log
@@ -354,7 +354,7 @@ property Log2: Double get = Math.Log2;
 ```
 
 #### Brief
-
+Returns the base 2 logarithm of a value.
 ***
 
 ### Log10

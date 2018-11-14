@@ -338,8 +338,7 @@ class Vector<T: Class> {
 	
 #endregion
 	
-	property SysDataPointer: Ptr<T>
-	get {
+	property SysDataPointer: Ptr<T> {
 		return data;
 	}
 }

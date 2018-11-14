@@ -149,23 +149,19 @@ class Char {
 		return this;
 	}
 
-	property IsUpper: Bool
-	get {
+	property IsUpper: Bool {
 		return Category == UnicodeCategory.Uppercase_Letter;
 	}
 
-	property IsLower: Bool
-	get {
+	property IsLower: Bool {
 		return Category == UnicodeCategory.Lowercase_Letter;
 	}
 
-	property IsTitle: Bool
-	get {
+	property IsTitle: Bool {
 		return Category == UnicodeCategory.Titlecase_Letter;
 	}
 
-	property IsDecimal: Bool
-	get {
+	property IsDecimal: Bool {
 		return Category == UnicodeCategory.Decimal_Number;
 	}
 

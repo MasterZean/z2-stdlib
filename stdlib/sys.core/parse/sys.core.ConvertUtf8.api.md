@@ -164,7 +164,7 @@ ParseSig(ref buffer: ReadSlice<Byte>): T;
 ```
 
 #### Brief
-
+Parses a singed integer.
 ***
 
 ### ParseSigSaturated
@@ -174,7 +174,7 @@ ParseSigSaturated(ref buffer: ReadSlice<Byte>): T;
 ```
 
 #### Brief
-
+Parses and saturates a singed integer.
 ***
 
 ### ParseUns
@@ -184,7 +184,7 @@ ParseUns(ref buffer: ReadSlice<Byte>): T;
 ```
 
 #### Brief
-
+Parses an unsigned integer.
 ***
 
 ### ParseUnsSaturated
@@ -194,7 +194,7 @@ ParseUnsSaturated(ref buffer: ReadSlice<Byte>): T;
 ```
 
 #### Brief
-
+Parses and saturates an unsigned integer.
 ***
 
 ## Constants
