@@ -1,5 +1,8 @@
 # class *Long* from sys.core.lang
 
+A class representing a 64 bit signed integer.
+
+It maps exactly to a 64 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Constructors
 
@@ -135,7 +138,6 @@ property Abs: Long; get;
 Returns the absolute value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Sqr
@@ -146,7 +148,6 @@ property Sqr: Long; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -157,7 +158,6 @@ property Sqrt: Long; get;
 
 #### Brief
 Returns the square root of the value, rounded down.
-
 ***
 
 ### Floor
@@ -170,7 +170,6 @@ property Floor: Long; get;
 Returns the floor of a floating point value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Ceil
@@ -183,7 +182,6 @@ property Ceil: Long; get;
 Returns the ceiling of a floating point value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Round
@@ -196,7 +194,6 @@ property Round: Long; get;
 Returns the rounded value of a floating point.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Trunc
@@ -209,7 +206,6 @@ property Trunc: Long; get;
 Returns the value truncated to the nearest integer value.
 
 In the case of [Long][sys.core.lang.Long] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ## Constants
@@ -222,7 +218,6 @@ const Zero: Long;
 
 #### Brief
 A [Long][sys.core.lang.Long] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -233,7 +228,6 @@ const One: Long;
 
 #### Brief
 A [Long][sys.core.lang.Long] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -244,7 +238,6 @@ const Min: Long;
 
 #### Brief
 The minimum value for a [Long][sys.core.lang.Long] (64 bit signed integer) instance.
-
 ***
 
 ### Max
@@ -255,7 +248,6 @@ const Max: Long;
 
 #### Brief
 The maximum value for a [Long][sys.core.lang.Long] (64 bit signed integer) instance.
-
 ***
 
 ### IsSigned
@@ -266,7 +258,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -277,7 +268,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 ### MaxDigitsLow
@@ -291,7 +281,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -305,7 +294,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 [sys.core.lang.Long]: sys.core.lang.Long.api.md "sys.core.lang.Long"

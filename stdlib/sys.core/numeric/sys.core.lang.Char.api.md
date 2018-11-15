@@ -1,5 +1,10 @@
 # class *Char* from sys.core.lang
 
+A class representing an Unicode codepoint.
+
+It is a 32 bit unsigned values, with a valid range of values consisting of `Invalid` (signaling an error/invalid character) and all values between `Min` (0) and `Max` (0x10FFFF).
+
+It spans the whole valid range of 17 Unicode planes.
 
 ## Methods
 
@@ -100,7 +105,6 @@ property IsAsciiDigit: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII digit.
-
 ***
 
 ### IsAsciiAlpha
@@ -111,7 +115,6 @@ property IsAsciiAlpha: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII alphabetic character.
-
 ***
 
 ### IsAsciiAlphaNum
@@ -122,7 +125,6 @@ property IsAsciiAlphaNum: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII alphanumeric character.
-
 ***
 
 ### IsAsciiControl
@@ -133,7 +135,6 @@ property IsAsciiControl: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII control character.
-
 ***
 
 ### IsAsciiGraph
@@ -144,7 +145,6 @@ property IsAsciiGraph: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII graphical character.
-
 ***
 
 ### IsAsciiPrintable
@@ -155,7 +155,6 @@ property IsAsciiPrintable: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII printable character.
-
 ***
 
 ### IsAsciiPunct
@@ -166,7 +165,6 @@ property IsAsciiPunct: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII punctuation character.
-
 ***
 
 ### IsAsciiUpper
@@ -177,7 +175,6 @@ property IsAsciiUpper: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII upper case character.
-
 ***
 
 ### IsAsciiLower
@@ -188,7 +185,6 @@ property IsAsciiLower: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII lower case character.
-
 ***
 
 ### IsAsciiSpace
@@ -199,7 +195,6 @@ property IsAsciiSpace: Bool; get;
 
 #### Brief
 Returns true if the code point is an ASCII whitespace character.
-
 ***
 
 ### AsciiUpper
@@ -210,7 +205,6 @@ property AsciiUpper: Char; get;
 
 #### Brief
 Returns the ASCII upper case of the ASCII character.
-
 ***
 
 ### AsciiLower
@@ -221,7 +215,6 @@ property AsciiLower: Char; get;
 
 #### Brief
 Returns the ASCII lower case of the ASCII character.
-
 ***
 
 ### UnicodePlane
@@ -232,7 +225,6 @@ property UnicodePlane: Byte; get;
 
 #### Brief
 Returns the Unicode plane of the code point, between 0 and 16.
-
 ***
 
 ### Category
@@ -243,7 +235,6 @@ property Category: UnicodeCategory; get;
 
 #### Brief
 Returns the Unicode category of the code point.
-
 ***
 
 ### Upper
@@ -254,7 +245,6 @@ property Upper: Char; get;
 
 #### Brief
 Returns the upper case of the character.
-
 ***
 
 ### Lower
@@ -265,7 +255,6 @@ property Lower: Char; get;
 
 #### Brief
 Returns the lower case of the character.
-
 ***
 
 ### Title
@@ -276,7 +265,6 @@ property Title: Char; get;
 
 #### Brief
 Returns the title case of the character.
-
 ***
 
 ### IsUpper
@@ -287,7 +275,6 @@ property IsUpper: Bool; get;
 
 #### Brief
 Returns true if the character is upper case.
-
 ***
 
 ### IsLower
@@ -298,7 +285,6 @@ property IsLower: Bool; get;
 
 #### Brief
 Returns true if the character is lower case.
-
 ***
 
 ### IsTitle
@@ -309,7 +295,6 @@ property IsTitle: Bool; get;
 
 #### Brief
 Returns true if the character is title case.
-
 ***
 
 ### IsDecimal
@@ -320,7 +305,6 @@ property IsDecimal: Bool; get;
 
 #### Brief
 Returns true if the character is an Unicode decimal.
-
 ***
 
 ## Constants
@@ -333,7 +317,6 @@ const Zero: Char;
 
 #### Brief
 An [Char][sys.core.lang.Char] instance representing a logical "0" value.
-
 ***
 
 ### Min
@@ -344,7 +327,6 @@ const Min: Char;
 
 #### Brief
 The minimum value for an [Char][sys.core.lang.Char] (Unicode code point) instance.
-
 ***
 
 ### Max
@@ -355,7 +337,6 @@ const Max: Char;
 
 #### Brief
 The maximum value for an [Char][sys.core.lang.Char] (Unicode code point) instance.
-
 ***
 
 ### MaxUtf8CP1
@@ -366,7 +347,6 @@ const MaxUtf8CP1: Char;
 
 #### Brief
 The highest code point that can be represented by 1 Utf8 code unit.
-
 ***
 
 ### MaxUtf8CP2
@@ -377,7 +357,6 @@ const MaxUtf8CP2: Char;
 
 #### Brief
 The highest code point that can be represented by 2 Utf8 code units.
-
 ***
 
 ### MaxUtf8CP3
@@ -388,7 +367,6 @@ const MaxUtf8CP3: Char;
 
 #### Brief
 The highest code point that can be represented by 3 Utf8 code units.
-
 ***
 
 ### MaxUtf8CP4
@@ -399,7 +377,6 @@ const MaxUtf8CP4: Char;
 
 #### Brief
 The highest code point that can be represented by 4 Utf8 code units.
-
 ***
 
 ### Invalid
@@ -410,7 +387,6 @@ const Invalid: Char;
 
 #### Brief
 A constant describing an "invalid" code point.
-
 ***
 
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"

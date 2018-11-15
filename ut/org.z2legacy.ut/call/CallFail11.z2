@@ -1,0 +1,8 @@
+namespace org.z2legacy.ut.call;
+
+class CallFail11 {
+	def @main() {
+		const v = CArray[1, 2, 3];
+		v.Delete(0);
+	}
+}

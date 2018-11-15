@@ -23,5 +23,7 @@ class PassIns01 {
 		print(a);
 		a.DeleteIndex(1p);
 		print(a);
+		a.DeleteAll(9);
+		print(a);
 	}
 }

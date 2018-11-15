@@ -1,5 +1,6 @@
 # class *Intrinsic* from sys.core.lang
 
+A collection of miscellaneous intrinsic operations and helper functions.
 
 ## Methods
 
@@ -48,5 +49,45 @@ Executes a CPU identifying set of instructions.
 #### Parameters
 > *cpu* => the output table  
 > *level* => the level of the requested information  
+***
+
+### Min
+
+```C#
+Min(a: T, b: T): T;
+```
+
+#### Brief
+Returns the minimum between two values.
+***
+
+### Max
+
+```C#
+Max(a: T, b: T): T;
+```
+
+#### Brief
+Returns the maximum between two values.
+***
+
+### Clamped
+
+```C#
+Clamped(a: T, min: T, max: T): T;
+```
+
+#### Brief
+Returns the `a` parameter clamped between two values.
+***
+
+### Clamp
+
+```C#
+Clamp(ref a: T, min: T, max: T);
+```
+
+#### Brief
+Clamps the `a` parameter between two values.
 ***
 

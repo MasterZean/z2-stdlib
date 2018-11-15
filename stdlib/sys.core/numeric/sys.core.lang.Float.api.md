@@ -1,5 +1,8 @@
 # class *Float* from sys.core.lang
 
+A class representing a 32 bit floating point number.
+
+It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Constructors
 
@@ -12,8 +15,10 @@ this Saturated{value: Double};
 
 #### Brief
 
+Constructs a saturated [Float][sys.core.lang.Float] based on the input value.
+
 #### Parameters
-> *value* =>   
+> *value* => the input value  
 ***
 
 ## Methods
@@ -131,7 +136,6 @@ property IsNan: Bool; get;
 
 #### Brief
 Return true if the instance is not a number.
-
 ***
 
 ### IsInfinite
@@ -142,7 +146,6 @@ property IsInfinite: Bool; get;
 
 #### Brief
 Return true if the infinite.
-
 ***
 
 ### Abs
@@ -153,7 +156,6 @@ property Abs: Float; get;
 
 #### Brief
 Returns the absolute value.
-
 ***
 
 ### Sqr
@@ -164,7 +166,6 @@ property Sqr: Float; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -175,7 +176,6 @@ property Sqrt: Float get = Math.Sqrt;
 
 #### Brief
 Returns the square root of the value.
-
 ***
 
 ### Floor
@@ -186,7 +186,6 @@ property Floor: Float get = Math.Floor;
 
 #### Brief
 Returns the floor of a floating point value.
-
 ***
 
 ### Ceil
@@ -197,7 +196,6 @@ property Ceil: Float get = Math.Ceil;
 
 #### Brief
 Returns the ceiling of a floating point value.
-
 ***
 
 ### Round
@@ -208,7 +206,6 @@ property Round: Float get = Math.Round;
 
 #### Brief
 Returns the rounded value of a floating point.
-
 ***
 
 ### Trunc
@@ -219,7 +216,6 @@ property Trunc: Float get = Math.Trunc;
 
 #### Brief
 Returns the value truncated to the nearest integer value.
-
 ***
 
 ### Sin
@@ -229,7 +225,7 @@ property Sin: Float get = Math.Sin;
 ```
 
 #### Brief
-
+Returns the sine of the value.
 ***
 
 ### Cos
@@ -239,7 +235,7 @@ property Cos: Float get = Math.Cos;
 ```
 
 #### Brief
-
+Returns the cosine of the value.
 ***
 
 ### Tan
@@ -249,7 +245,7 @@ property Tan: Float get = Math.Tan;
 ```
 
 #### Brief
-
+Returns the tangent of the value.
 ***
 
 ### Sinh
@@ -259,7 +255,7 @@ property Sinh: Float get = Math.Sinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic sine of the value.
 ***
 
 ### Cosh
@@ -269,7 +265,7 @@ property Cosh: Float get = Math.Cosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic cosine of the value.
 ***
 
 ### Tanh
@@ -279,7 +275,7 @@ property Tanh: Float get = Math.Tanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic tangent of the value.
 ***
 
 ### Asin
@@ -289,7 +285,7 @@ property Asin: Float get = Math.Asin;
 ```
 
 #### Brief
-
+Returns the arcsine of the value.
 ***
 
 ### Acos
@@ -299,7 +295,7 @@ property Acos: Float get = Math.Acos;
 ```
 
 #### Brief
-
+Returns the arccosine of the value.
 ***
 
 ### Atan
@@ -309,7 +305,7 @@ property Atan: Float get = Math.Atan;
 ```
 
 #### Brief
-
+Returns the arctangent of the value.
 ***
 
 ### Asinh
@@ -319,7 +315,7 @@ property Asinh: Float get = Math.Asinh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arcsine of the value.
 ***
 
 ### Acosh
@@ -329,7 +325,7 @@ property Acosh: Float get = Math.Acosh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arccosine of the value.
 ***
 
 ### Atanh
@@ -339,7 +335,7 @@ property Atanh: Float get = Math.Atanh;
 ```
 
 #### Brief
-
+Returns the hyperbolic arctangent of the value.
 ***
 
 ### Log
@@ -350,7 +346,6 @@ property Log: Float get = Math.Log;
 
 #### Brief
 Returns the natural logarithm of a value.
-
 ***
 
 ### Log2
@@ -360,7 +355,7 @@ property Log2: Float get = Math.Log2;
 ```
 
 #### Brief
-
+Returns the base 2 logarithm of a value.
 ***
 
 ### Log10
@@ -371,7 +366,6 @@ property Log10: Float get = Math.Log10;
 
 #### Brief
 Returns the base 10 logarithm of a value.
-
 ***
 
 ## Constants
@@ -384,7 +378,6 @@ const Zero: Float;
 
 #### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -395,7 +388,6 @@ const One: Float;
 
 #### Brief
 A [Float][sys.core.lang.Float] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -406,7 +398,6 @@ const Min: Float;
 
 #### Brief
 The minimum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-
 ***
 
 ### Max
@@ -417,7 +408,6 @@ const Max: Float;
 
 #### Brief
 The maximum value for a [Float][sys.core.lang.Float] (32 bit floating point) instance.
-
 ***
 
 ### IsSigned
@@ -428,7 +418,6 @@ const IsSigned;
 
 #### Brief
 Returns [true][sys.core.lang.Bool] if the floating point representation is signed.
-
 ***
 
 ### IsInteger
@@ -439,7 +428,6 @@ const IsInteger;
 
 #### Brief
 Returns [false][sys.core.lang.Bool].
-
 ***
 
 ### MaxDigitsLow
@@ -453,7 +441,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -467,7 +454,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 ### Nan
@@ -478,7 +464,6 @@ const Nan;
 
 #### Brief
 The not a number value.
-
 ***
 
 ### Infinite
@@ -489,11 +474,10 @@ const Infinite;
 
 #### Brief
 Positive infinite.
-
 ***
 
+[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
 [sys.core.lang.String]: sys.core.lang.String.api.md "sys.core.lang.String"
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
-[sys.core.lang.Float]: sys.core.lang.Float.api.md "sys.core.lang.Float"
 [sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"

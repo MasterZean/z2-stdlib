@@ -1,6 +1,6 @@
 # class *Int* from sys.core.lang
 
-A class representing a a 32 bit signed integer.
+A class representing a 32 bit signed integer.
 
 It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
@@ -138,7 +138,6 @@ property Abs: Int; get;
 
 #### Brief
 Returns the absolute value.
-
 ***
 
 ### Sqr
@@ -149,7 +148,6 @@ property Sqr: Int; get;
 
 #### Brief
 Returns the square of the value.
-
 ***
 
 ### Sqrt
@@ -160,7 +158,6 @@ property Sqrt: Int; get;
 
 #### Brief
 Returns the square root of the value, rounded down.
-
 ***
 
 ### Floor
@@ -173,7 +170,6 @@ property Floor: Int; get;
 Returns the floor of a floating point value.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Ceil
@@ -186,7 +182,6 @@ property Ceil: Int; get;
 Returns the ceiling of a floating point value.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Round
@@ -199,7 +194,6 @@ property Round: Int; get;
 Returns the rounded value of a floating point.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Trunc
@@ -212,7 +206,6 @@ property Trunc: Int; get;
 Returns the value truncated to the nearest integer value.
 
 In the case of [Int][sys.core.lang.Int] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ## Constants
@@ -225,7 +218,6 @@ const Zero: Int;
 
 #### Brief
 An [Int][sys.core.lang.Int] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -236,7 +228,6 @@ const One: Int;
 
 #### Brief
 An [Int][sys.core.lang.Int] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -247,7 +238,6 @@ const Min: Int;
 
 #### Brief
 The minimum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
-
 ***
 
 ### Max
@@ -258,7 +248,6 @@ const Max: Int;
 
 #### Brief
 The maximum value for an [Int][sys.core.lang.Int] (32 bit signed integer) instance.
-
 ***
 
 ### IsSigned
@@ -269,7 +258,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -280,7 +268,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 ### MaxDigitsLow
@@ -294,7 +281,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -308,7 +294,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 [sys.core.lang.Int]: sys.core.lang.Int.api.md "sys.core.lang.Int"

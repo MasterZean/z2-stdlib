@@ -1,5 +1,6 @@
 # class *Class* from sys.core
 
+Represents meta information about a class.
 
 ## Methods
 
@@ -27,7 +28,6 @@ property Name: const ref String; get;
 
 #### Brief
 Returns the fully qualified class name.
-
 ***
 
 ### ShortName
@@ -38,7 +38,6 @@ property ShortName: const ref String; get;
 
 #### Brief
 Returns only the class name, without the namespace.
-
 ***
 
 ### Namespace
@@ -49,6 +48,5 @@ property Namespace: const ref String; get;
 
 #### Brief
 Returns the namespace of the class.
-
 ***
 

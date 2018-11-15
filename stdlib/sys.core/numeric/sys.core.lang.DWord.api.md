@@ -1,5 +1,8 @@
 # class *DWord* from sys.core.lang
 
+A class representing a 32 bit unsigned integer.
+
+It maps exactly to a 32 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Constructors
 
@@ -137,7 +140,6 @@ property Abs: DWord; get;
 Returns the absolute value.
 
 In the case of [DWord][sys.core.lang.DWord] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Sqr
@@ -148,7 +150,6 @@ property Sqr: DWord; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -159,7 +160,6 @@ property Sqrt: DWord; get;
 
 #### Brief
 Returns the square root of the value, rounded down.
-
 ***
 
 ### Floor
@@ -172,7 +172,6 @@ property Floor: DWord; get;
 Returns the floor of a floating point value.
 
 In the case of [DWord][sys.core.lang.DWord] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Ceil
@@ -185,7 +184,6 @@ property Ceil: DWord; get;
 Returns the ceiling of a floating point value.
 
 In the case of [DWord][sys.core.lang.DWord] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Round
@@ -198,7 +196,6 @@ property Round: DWord; get;
 Returns the rounded value of a floating point.
 
 In the case of [DWord][sys.core.lang.DWord] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Trunc
@@ -211,7 +208,6 @@ property Trunc: DWord; get;
 Returns the value truncated to the nearest integer value.
 
 In the case of [DWord][sys.core.lang.DWord] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ## Constants
@@ -224,7 +220,6 @@ const Zero: DWord;
 
 #### Brief
 A [DWord][sys.core.lang.DWord] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -235,7 +230,6 @@ const One: DWord;
 
 #### Brief
 A [DWord][sys.core.lang.DWord] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -246,7 +240,6 @@ const Min: DWord;
 
 #### Brief
 The minimum value for a [DWord][sys.core.lang.DWord] (32 bit unsigned integer) instance.
-
 ***
 
 ### Max
@@ -257,7 +250,6 @@ const Max: DWord;
 
 #### Brief
 The maximum value for a [DWord][sys.core.lang.DWord] (32 bit unsigned integer) instance.
-
 ***
 
 ### IsSigned
@@ -268,7 +260,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -279,7 +270,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 ### MaxDigitsLow
@@ -293,7 +283,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go through values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -307,7 +296,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go through values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 [sys.core.lang.DWord]: sys.core.lang.DWord.api.md "sys.core.lang.DWord"

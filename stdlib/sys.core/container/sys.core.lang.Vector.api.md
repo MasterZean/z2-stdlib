@@ -1,5 +1,8 @@
 # class *Vector* from sys.core.lang
 
+A dynamic array with amortized growth cost.
+
+This is the most commonly used array for dynamically allocated data.
 
 ## Constructors
 
@@ -98,7 +101,7 @@ The search starts on an index given by the `start` parameter if present or from 
 
 ```C#
 func BinaryIndex(item: T): PtrSize;
-def BinaryIndex(item: T, start: PtrSize): PtrSize;
+func BinaryIndex(item: T, start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -258,6 +261,16 @@ The item count is included.
 > *stream* => the output stream  
 ***
 
+### @shl
+
+```C#
+@shl(ref v: Vector<T>, data: T): ref Vector<T>;
+```
+
+#### Brief
+Appends a vector `v` to the array.
+***
+
 ## Properties
 
 ### Length
@@ -268,7 +281,6 @@ property Length: PtrSize
 
 #### Brief
 Read and writes the length of the vector.
-
 ***
 
 ### Capacity
@@ -281,7 +293,6 @@ property Capacity: PtrSize
 Read and writes the capacity of the vector.
 
 Capacity can't be set lower than the Length.
-
 ***
 
 ### @index
@@ -294,7 +305,6 @@ property @index: ref T; get;
 Reads and writes a given index from the vector.
 
 Accessing an invalid index is an error.
-
 ***
 
 ### At
@@ -307,7 +317,6 @@ property At: ref T; get;
 Reads and writes a given index from the vector.
 
 Accessing an index greater than Length will cause all the missing values to be default constructed.
-
 ***
 
 ### SysDataPointer
@@ -318,7 +327,6 @@ property SysDataPointer: Ptr<T>; get;
 
 #### Brief
 Returns a pointer to the data.
-
 ***
 
 [sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

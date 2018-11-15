@@ -35,6 +35,12 @@ class String {
 		return data[index];
 	}
 
+	property IsEmpty: Bool {
+		return Length == 0;
+	}
+	
+#region constructors
+
     this(data: Char) {
         val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
         val ch = data;
@@ -50,14 +56,7 @@ class String {
 		capacity = length;
 		data[length] = 0;
 	}
-		
-	this(chars: Ptr<Byte>, len: PtrSize) {
-		data = chars.Clone(len + 1, len);
-		length = len;
-		capacity = len;
-		data[length] = 0;
-	}
-
+	
 	this(chars: String, len: PtrSize) {
 		data = chars.SysDataPointer.Clone(len + 1, len);
 		length = len;
@@ -68,7 +67,36 @@ class String {
 	this(chars: String, start: PtrSize, end: PtrSize) {
 		data = (chars.SysDataPointer + start).Clone(end - start + 2, end - start + 1);
 		length = end - start + 1;
-		capacity = end - start;
+		capacity = length;
+		data[length] = 0;
+	}
+
+	this(chars: Ptr<Byte>, len: PtrSize) {
+		data = chars.Clone(len + 1, len);
+		length = len;
+		capacity = len;
+		data[length] = 0;
+	}
+	
+	this(chars: Ptr<Byte>, len: PtrSize, cap: PtrSize) {
+		System.Debug.Assert(cap >= len);
+		data = chars.Clone(cap + 1, len);
+		length = len;
+		capacity = cap;
+		data[length] = 0;
+	}
+
+	this(chars: CArray<Byte>) {
+		data = chars.SysDataPointer.Clone(chars.Length + 1, chars.Length);
+		length = chars.Length;
+		capacity = chars.Length;
+		data[length] = 0;
+	}
+
+	this(chars: CArray<Byte>, len: PtrSize) {
+		data = chars.SysDataPointer.Clone(len + 1, len);
+		length = len;
+		capacity = len;
 		data[length] = 0;
 	}
 
@@ -95,39 +123,15 @@ class String {
 		else
 			this{};
 	}
-
-	this(chars: Ptr<Byte>, len: PtrSize, cap: PtrSize) {
-		System.Debug.Assert(cap >= len);
-		data = chars.Clone(cap + 1, len);
-		length = len;
-		capacity = cap;
-		data[length] = 0;
-	}
-
-	this(chars: CArray<Byte>) {
-		data = chars.SysDataPointer.Clone(chars.Length + 1, chars.Length);
-		length = chars.Length;
-		capacity = chars.Length;
-		data[length] = 0;
-	}
-
-	this(chars: CArray<Byte>, len: PtrSize) {
-		data = chars.SysDataPointer.Clone(len + 1, len);
-		length = len;
-		capacity = len;
-		data[length] = 0;
-	}
-
+	
 	this TakeOwnership(chars: Ptr<Byte>, len: PtrSize) {
 		data = chars;
 		length = len;
 		capacity = len;
 		data[length] = 0;
 	}
-
-	property IsEmpty: Bool {
-		return Length == 0;
-	}
+	
+#endregion
 
 #region manager
 
@@ -245,7 +249,7 @@ class String {
 	
 	def @shl(str: String): ref String {
 	    if (length + str.Length >= capacity)
-				Capacity = Capacity + str.Length + 3;
+			Capacity = Capacity + str.Length + 3;
 	    
 	    for (val i = 0p; i < str.Length; i++) {
 	        data[length] = str[i];
@@ -257,11 +261,6 @@ class String {
 	    return this;
 	}
     
-	property SysDataPointer: Ptr<Byte>
-	get {
-		return data;
-	}
-
 	def Insert(pos: PtrSize, string: String) {
 		val newLen = length + string.Length;
 		val temp = Byte.new(newLen + 1);
@@ -296,47 +295,52 @@ class String {
 	}
 
 	func Find(b: Byte): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.FindIndex(b);
 	}
 	
 	func Find(b: Byte, start: PtrSize): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.FindIndex(b, start);
 	}
 
-    func Find(b: CArray<Byte>): PtrSize {
-		val s = Slice<Byte>{this};
-		return s.FindIndex(b);
+    func FindFirst(b: CArray<Byte>): PtrSize {
+		val s = ReadSlice<Byte>{this};
+		return s.FindFirst(b);
 	}
 	
 	func RFind(b: Byte): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.RFindIndex(b);
 	}
 	
 	func RFind(b: Byte, start: PtrSize): PtrSize {
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		return s.RFindIndex(b, start);
 	}
 	
-	func RFind(b: CArray<Byte>): PtrSize {
-		val s = Slice<Byte>{this};
-		return s.RFindIndex(b);
+	func RFindFirst(b: CArray<Byte>): PtrSize {
+		val s = ReadSlice<Byte>{this};
+		return s.RFindFirst(b);
 	}
 
 	func Parse<T: Class>(): T {
 		val value = T{};
-		val i = 0p;
 		val sign = 1;
+		
+		// skip whitespace
+		val i = 0p;
 		while (i < length && data[i] <= ' ')
 			i++;
+		
+		// skip sign
 		if (data[i] == '+')
 			i++;
 		else if (data[i] == '-') {
 			i++;
 			sign = -1;
 		}
+		
 		while (i < length && Char{data[i]}.IsAsciiDigit) {
 			value = value * 10 + data[i] - T{'0'};
 			i++;
@@ -347,16 +351,21 @@ class String {
 
 	func ParseSaturated<T: Class>(): T {
 		val value = T{};
-		val i = 0p;
 		val sign = 1;
+		
+		// skip whitespace
+		val i = 0p;
 		while (i < length && data[i] <= ' ')
 			i++;
+		
+		// skip sign
 		if (data[i] == '+')
 			i++;
 		else if (data[i] == '-') {
 			i++;
 			sign = -1;
 		}
+		
 		while (i < length && Char{data[i]}.IsAsciiDigit) {
 			val oldValue = value;
 			value = value * 10 + data[i] - T{'0'};
@@ -374,12 +383,10 @@ class String {
 
     func Split(b: Byte): Vector<String> {
         val v = Vector<String>[];
-        
-        val s = Slice<Byte>{this};
-        
-        val i = s.FindIndex(b);
+        val s = ReadSlice<Byte>{this};
         val last = 0p;
         
+        val i = s.FindIndex(b);
         while (i != -1) {
             v.Add(String.FromIndex{this, last, i - 1});
             last = i + 1;
@@ -387,6 +394,45 @@ class String {
         }
         
         return v;
+    }
+    
+    def Trim() {
+        val start = 0p;
+        while (start < Length && this[start] <= ' ')
+            start++;
+        
+        val end = Length - 1;
+        while (end != -1 && this[end] <= ' ')
+            end--;
+        
+        Sub(start, end);
+    }
+    
+    def TrimLeft() {
+        val start = 0p;
+        while (start < Length && this[start] <= ' ')
+            start++;
+        
+        Sub(start, Length - 1);
+    }
+    
+    def TrimRight() {
+        val end = Length - 1;
+        while (end != -1 && this[end] <= ' ')
+            end--;
+        
+        Sub(0, end);
+    }
+    
+    def Sub(start: PtrSize, end: PtrSize) {
+        val back = data;
+        
+        data = (data + start).Clone(end - start + 2, end - start + 1);
+		length = end - start + 1;
+		capacity = length;
+		data[length] = 0;
+		
+		back.Free();
     }
     
     func Trimmed(): String {
@@ -401,6 +447,22 @@ class String {
         return String{this, start, end};
     }
     
+    func TrimmedLeft(): String {
+        val start = 0p;
+        while (start < Length && this[start] <= ' ')
+            start++;
+        
+        return String{this, start, Length - 1};
+    }
+    
+    func TrimmedRight(): String {
+        val end = Length - 1;
+        while (end != -1 && this[end] <= ' ')
+            end--;
+        
+        return String{this, 0, end};
+    }
+    
 	func @write(ref stream: Stream) {
 		stream.RawWrite(this);
 	}
@@ -411,12 +473,16 @@ class String {
 
 	func @put(ref stream: Stream) {
 		length.@put(stream);
-		val s = Slice<Byte>{this};
+		val s = ReadSlice<Byte>{this};
 		stream.BinPut(s);
 	}
 
 	def @get(ref stream: Stream) {
 		//this = stream.RawGetS32();
+	}
+	
+	property SysDataPointer: Ptr<Byte> {
+		return data;
 	}
 }
 private {

@@ -1,0 +1,2 @@
+CallFail09.z2(5, 19): error:
+	can't call non-const method 'Sort' on readonly 'Vector<Int>' instance

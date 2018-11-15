@@ -1,12 +1,15 @@
 # class *ReadSlice* from sys.core.lang
 
+Represents a read-only block of memory given by address of the block and a size. Implements common block algorithms that work on immutable data. After the algorithm is finished, the Length property is adjusted in accordance to the actions taken by the algorithm, often the extent of the read. The final Length can't be greater than the initial Length: Length can only shrink.
+
+A `ReadSlice` can only be instantiated based on persistent object whose lifetime must exceed the lifetime of the slice. Freeing the data is an error.
 
 ## Constructors
 
 ### this
 
 ```C#
-this{};
+this{} = null;
 this{ref const p: CArray<T>};
 this{ref const p: CArray<T>, length: PtrSize};
 this{ref const p: CArray<T>, start: PtrSize, end: PtrSize};
@@ -63,22 +66,37 @@ The provided memory location must not be freed before the slice is destroyed.
 ```C#
 func FindIndex(item: T): PtrSize;
 func FindIndex(item: T, start: PtrSize): PtrSize;
-func FindIndex(b: CArray<T>): PtrSize;
-func FindIndex(b: Vector<T>): PtrSize;
-func FindIndex(b: CArray<T>, start: PtrSize): PtrSize;
-func FindIndex(b: Vector<T>, start: PtrSize): PtrSize;
 ```
 
 #### Brief
-
-Searches for an item or items in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+Searches for an item in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
 
 The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
 
 #### Parameters
 > *item* => the item to search for  
 > *start* => the start index for the search  
-> *b* => a vector of items to search for  
+#### Returns
+> the index where the item was found
+***
+
+### FindFirst
+
+```C#
+func FindFirst(b: CArray<T>): PtrSize;
+func FindFirst(b: Vector<T>): PtrSize;
+func FindFirst(b: CArray<T>, start: PtrSize): PtrSize;
+func FindFirst(b: Vector<T>, start: PtrSize): PtrSize;
+```
+
+#### Brief
+Searches for first occurrence of any of the input items from `b` in the array and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+#### Parameters
+> *b* => the array of items to search for  
+> *start* => the start position  
 #### Returns
 > the index where the item was found
 ***
@@ -88,10 +106,6 @@ The search starts on an index given by the `start` parameter if present or from 
 ```C#
 func RFindIndex(item: T): PtrSize;
 func RFindIndex(item: T, val start: PtrSize): PtrSize;
-func RFindIndex(b: CArray<T>): PtrSize;
-func RFindIndex(b: Vector<T>): PtrSize;
-func RFindIndex(b: CArray<T>, val start: PtrSize): PtrSize;
-func RFindIndex(b: Vector<T>, val start: PtrSize): PtrSize;
 ```
 
 #### Brief
@@ -102,7 +116,27 @@ The search starts on an index given by the `start` parameter if present or from 
 #### Parameters
 > *item* => the item to search for  
 > *start* => the start index for the search  
-> *b* => a vector of items to search for  
+#### Returns
+> the index where the item was found
+***
+
+### RFindFirst
+
+```C#
+func RFindFirst(b: CArray<T>): PtrSize;
+func RFindFirst(b: Vector<T>): PtrSize;
+func RFindFirst(b: CArray<T>, val start: PtrSize): PtrSize;
+func RFindFirst(b: Vector<T>, val start: PtrSize): PtrSize;
+```
+
+#### Brief
+Searches for first occurrence of any of the input items from `b` in the array in reverse order and returns the first index at which it was found or [-1][sys.core.lang.PtrSize] if the item was not found.
+
+The search starts on an index given by the `start` parameter if present or from index 0 otherwise.
+
+#### Parameters
+> *b* => the array of items to search for  
+> *start* => the start position  
 #### Returns
 > the index where the item was found
 ***
@@ -149,7 +183,6 @@ property Length: PtrSize
 
 #### Brief
 Reads and writes the length of the slice. Can not grow, only decrease.
-
 ***
 
 ### @index
@@ -160,7 +193,6 @@ property @index: T
 
 #### Brief
 Reads and writes a given index from the slice.
-
 ***
 
 ### SysDataPointer
@@ -171,7 +203,6 @@ property SysDataPointer: Ptr<T>; get;
 
 #### Brief
 Returns a pointer to the data from the slice.
-
 ***
 
 [sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

@@ -1,5 +1,6 @@
 # class *StopWatch* from sys.core
 
+A class used to measure the time delta between two events.
 
 ## Constructors
 
@@ -11,10 +12,9 @@ this{};
 
 #### Brief
 
-Creates a new instance and start keeping track of time.
+Creates a new instance and starts keeping track of time.
 
 Calling `Elapsed` after is a valid operation.
-
 ***
 
 ### Stopped
@@ -27,7 +27,6 @@ this Stopped{};
 Creates a new instance but does not start tracking time.
 
 Calling `Elapsed` after is a not valid operation and you must manually start keeping track of time by calling `Reset`.
-
 ***
 
 ## Methods
@@ -40,7 +39,6 @@ def Reset();
 
 #### Brief
 Resets the internal statistics and starts tracking time from the point in time of the call.
-
 ***
 
 ### Elapsed
@@ -66,6 +64,5 @@ property IsHighResolution: Bool; get;
 
 #### Brief
 Returns `true` if the timer is a high resolution timer, with improved granularity.
-
 ***
 

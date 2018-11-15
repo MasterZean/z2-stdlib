@@ -27,12 +27,13 @@ class System {
     static val Out = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_OUTPUT_HANDLE)};
     static val In = sys.core.ConsoleStream{Win32.GetStdHandle(Win32.STD_INPUT_HANDLE)};
     
+    @[nodoc]
 	static def @setup() {
 		SetConsoleCodePage();
 	}
 		
 	static def GetEnvVariable(var: String): String {
-		val sourceVar = Slice<Byte>{var};
+		val sourceVar = ReadSlice<Byte>{var};
 		val varu16: CArray<Word, 32767> = void;
 		val destVar = Slice<Word>{varu16};
 		
@@ -58,28 +59,11 @@ class System {
 		}
 	}
 	
-	static def GetCPUPS() {
-		cpu.Bits = 32;
-		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
-		if (envArch == "x86") {
-			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
-			if (envArchEx == "AMD64" || envArchEx == "IA64")
-				cpu.Bits = 64;
-		}
-		else if (envArch == "AMD64" || envArch == "IA64")
-			cpu.Bits = 64;
-		
-		
-		cpu.Cores = 1;
-		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
-		if (cores.Length != 0)
-		    cpu.Cores = cores.Parse<Int>();
-	}
-	
 #else
 
     static val Out = sys.core.ConsoleStream{};
     
+    @[nodoc]
 	static def @setup() {
 	}
 	
@@ -90,11 +74,6 @@ class System {
 			return String{env, bind.c.string.strlen(env)};
 		else
 			return "";
-	}
-	
-	static def GetCPUPS() {
-		cpu.Bits = Int{Posix.sysconf(107)};
-		cpu.Cores = Posix.get_nprocs();
 	}
 	
 #endif
@@ -144,9 +123,32 @@ private {
 		Win32.SetConsoleOutputCP(Win32.CP_UTF8);
 	}
 	
+	static def GetCPUPS() {
+		cpu.Bits = 32;
+		val envArch = GetEnvVariable("PROCESSOR_ARCHITECTURE");
+		if (envArch == "x86") {
+			val envArchEx = GetEnvVariable("PROCESSOR_ARCHITEW6432");
+			if (envArchEx == "AMD64" || envArchEx == "IA64")
+				cpu.Bits = 64;
+		}
+		else if (envArch == "AMD64" || envArch == "IA64")
+			cpu.Bits = 64;
+		
+		
+		cpu.Cores = 1;
+		val cores = GetEnvVariable("NUMBER_OF_PROCESSORS");
+		if (cores.Length != 0)
+		    cpu.Cores = cores.Parse<Int>();
+	}
+	
 #else
 
 	static def SetConsoleCodePage() {
+	}
+	
+	static def GetCPUPS() {
+		cpu.Bits = Int{Posix.sysconf(107)};
+		cpu.Cores = Posix.get_nprocs();
 	}
 	
 #endif

@@ -1,5 +1,6 @@
 # class *Math* from sys.core
 
+A collection of math related functions.
 
 ## Methods
 
@@ -12,10 +13,12 @@ static func Sin(value: Float) : Float;
 
 #### Brief
 
+Returns the sine of a value.
+
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the sine
 ***
 
 ### Cos
@@ -26,11 +29,12 @@ static func Cos(value: Float) : Float;
 ```
 
 #### Brief
+Returns the cosine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the cosine
 ***
 
 ### Tan
@@ -41,11 +45,12 @@ static func Tan(value: Float) : Float;
 ```
 
 #### Brief
+Returns the tangent of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the tangent
 ***
 
 ### Asin
@@ -56,11 +61,12 @@ static func Asin(value: Float) : Float;
 ```
 
 #### Brief
+Returns the arcsine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the arcsine
 ***
 
 ### Acos
@@ -71,11 +77,12 @@ static func Acos(value: Float) : Float;
 ```
 
 #### Brief
+Returns the arccosine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the arccossine
 ***
 
 ### Atan
@@ -86,11 +93,12 @@ static func Atan(value: Float) : Float;
 ```
 
 #### Brief
+Returns the arctangent of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the arctangent
 ***
 
 ### Sinh
@@ -101,11 +109,12 @@ static func Sinh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic sine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic sine
 ***
 
 ### Cosh
@@ -116,11 +125,12 @@ static func Cosh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic cosine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic cosine
 ***
 
 ### Tanh
@@ -131,11 +141,12 @@ static func Tanh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic tangent of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic tangent
 ***
 
 ### Asinh
@@ -146,11 +157,12 @@ static func Asinh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic arcsine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic arcsine
 ***
 
 ### Acosh
@@ -161,11 +173,12 @@ static func Acosh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic arccosine of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic arccosine
 ***
 
 ### Atanh
@@ -176,26 +189,28 @@ static func Atanh(value: Float) : Float;
 ```
 
 #### Brief
+Returns the hyperbolic tangent of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the hyperbolic tangent
 ***
 
 ### Pow
 
 ```C#
-static func Pow(base: Double, exponenet: Double): Double;
+static func Pow(base: Double, exponent: Double): Double;
 ```
 
 #### Brief
+Raises a base to an exponent.
 
 #### Parameters
-> *base* =>   
-> *exponenet* =>   
+> *base* => the base  
+> *exponent* => the power to raise to  
 #### Returns
-> 
+> the resulting value
 ***
 
 ### Sqrt
@@ -206,11 +221,12 @@ static func Sqrt(value: Float) : Float;
 ```
 
 #### Brief
+Returns the square root of a number.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the square root
 ***
 
 ### Log
@@ -221,11 +237,12 @@ static func Log(value: Float) : Float;
 ```
 
 #### Brief
+Returns the natural logarithm of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the logarithm
 ***
 
 ### Log2
@@ -236,11 +253,12 @@ static func Log2(value: Float) : Float;
 ```
 
 #### Brief
+Returns the base 2 logarithm of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the logarithm
 ***
 
 ### Log10
@@ -251,11 +269,12 @@ static func Log10(value: Float) : Float;
 ```
 
 #### Brief
+Returns the base 10 logarithm of a value.
 
 #### Parameters
-> *value* =>   
+> *value* => the value  
 #### Returns
-> 
+> the logarithm
 ***
 
 ### Rol8
@@ -266,12 +285,13 @@ static func Rol8(value: DWord, bits: DWord): Byte;
 ```
 
 #### Brief
+Performs a bitwise left rotate on a 8 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Ror8
@@ -282,12 +302,13 @@ static func Ror8(value: DWord, bits: DWord): Byte;
 ```
 
 #### Brief
+Performs a bitwise right rotate on a 8 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Rol16
@@ -298,12 +319,13 @@ static func Rol16(value: DWord, bits: DWord): Word;
 ```
 
 #### Brief
+Performs a bitwise left rotate on a 16 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Ror16
@@ -314,12 +336,13 @@ static func Ror16(value: DWord, bits: DWord): Word;
 ```
 
 #### Brief
+Performs a bitwise right rotate on a 16 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Rol32
@@ -330,12 +353,13 @@ static func Rol32(value: DWord, bits: DWord): DWord;
 ```
 
 #### Brief
+Performs a bitwise left rotate on a 32 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Ror32
@@ -346,12 +370,13 @@ static func Ror32(value: DWord, bits: DWord): DWord;
 ```
 
 #### Brief
+Performs a bitwise right rotate on a 32 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Rol64
@@ -362,12 +387,13 @@ static func Rol64(value: QWord, bits: DWord): QWord;
 ```
 
 #### Brief
+Performs a bitwise left rotate on a 64 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 
 ### Ror64
@@ -378,11 +404,12 @@ static func Ror64(value: QWord, bits: DWord): QWord;
 ```
 
 #### Brief
+Performs a bitwise right rotate on a 64 bit value.
 
 #### Parameters
-> *value* =>   
-> *bits* =>   
+> *value* => the value  
+> *bits* => the rotate amount  
 #### Returns
-> 
+> the rotation result
 ***
 

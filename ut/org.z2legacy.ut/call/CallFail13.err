@@ -1,0 +1,2 @@
+CallFail13.z2(5, 15): error:
+	can't call non-const method '@shl' on readonly 'String' instance

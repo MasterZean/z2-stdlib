@@ -359,6 +359,7 @@ class Stream {
 				if (reduce)
 					left--;
 				
+				// pad left
 				while (left > 0) {
 					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 					val slice = Slice<Byte>{buf};
@@ -367,30 +368,32 @@ class Stream {
 					left--;
 				}
 				
+				// write sign
 				if (reduce) {
 					val buf = Byte{'+'};
 					val slice = ReadSlice<Byte>{buf};
 					BinPut(slice);
 				}
 				
+				// write buffer
 				BinPut(s);
 			}
 			else if (format.Align == sys.core.LineAlignment.Left) {
 			    val right = format.Width - s.Length;
 				val reduce = format.ForceSign && s[0] != '+' && s[0] != '-';
 				
+				// write sign
 				if (reduce) {
 					right--;
-					
-					if (reduce) {
-						val buf = Byte{'+'};
-						val slice = ReadSlice<Byte>{buf};
-						BinPut(slice);
-					}
+					val buf = Byte{'+'};
+					val slice = ReadSlice<Byte>{buf};
+					BinPut(slice);
 				}
 				
+				// write buffer
 				BinPut(s);
 				
+				// pad right
 				while (right > 0) {
 					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 					val slice = Slice<Byte>{buf};
@@ -408,6 +411,7 @@ class Stream {
 				if (reduce)
 					right--;
 				
+				// pad left
 				while (left > 0) {
 					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 					val slice = Slice<Byte>{buf};
@@ -416,14 +420,17 @@ class Stream {
 					left--;
 				}
 				
+				// write sign
 				if (reduce) {
 					val buf = Byte{'+'};
 					val slice = ReadSlice<Byte>{buf};
 					BinPut(slice);
 				}
 				
+				// write buffer
 				BinPut(s);
 				
+				// pad right
 				while (right > 0) {
 					val buf: CArray<Byte, ConvertUtf8.MaxCharBuffer> = void;
 					val slice = Slice<Byte>{buf};

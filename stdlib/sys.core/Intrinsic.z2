@@ -1,15 +1,15 @@
 namespace sys.core.lang;
 
-class Intrinsic {
-	static def Min<T: Class>(a: T, b: T): T {
+static class Intrinsic {
+	def Min<T: Class>(a: T, b: T): T {
 		return a >= b ? b : a;
 	}
 
-	static def Max<T: Class>(a: T, b: T): T {
+	def Max<T: Class>(a: T, b: T): T {
 		return a <= b ? b : a;
 	}
 
-	static def Clamped<T: Class>(a: T, min: T, max: T): T {
+	def Clamped<T: Class>(a: T, min: T, max: T): T {
 		System.Debug.Assert(min <= max);
 
 		if (a <= min)
@@ -20,7 +20,7 @@ class Intrinsic {
 			return a;
 	}
 
-	static def Clamp<T: Class>(ref a: T, min: T, max: T) {
+	def Clamp<T: Class>(ref a: T, min: T, max: T) {
 		System.Debug.Assert(min <= max);
 
 		if (a <= min)
@@ -29,13 +29,13 @@ class Intrinsic {
 			a = max;
 	}
 
-	static def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) = bind.c.string.memcpy;
-	static def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
+	def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) = bind.c.string.memcpy;
+	def CStrLen(source: Ptr<Byte>): PtrSize = bind.c.string.strlen;
 	
-	static def CpuID(ref cpu: CArray<Int>, val level: Int) {
+	def CpuID(ref cpu: CArray<Int>, val level: Int) {
 		cpuid(cpu.SysDataPointer, level);
 	}
 }
 private {
-	@[bindc] static def cpuid(cpu: Ptr<Int>, level: Int);
+	@[bindc] def cpuid(cpu: Ptr<Int>, level: Int);
 }

@@ -17,7 +17,7 @@ class TestPath {
 		
 		val temp = Path.GetFolderNoSep(Path.ExeFileName);
 		while (temp.Length > 0) {
-			System.Out << "Parent folder: " << temp << Path.DirSep << "\n";
+			System.Out <<  "Parent folder: " << temp << Path.DirSep << "\n";
 			temp = Path.GetFolderNoSep(temp);
 		}
 		

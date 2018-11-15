@@ -1,0 +1,9 @@
+namespace org.z2legacy.ut.call;
+
+class CallFail08 {
+	def @main() {
+		const v = [1, 2, 3];
+		System.Out << v.Sum() << "\n";
+		v.Fill(0);
+	}
+}

@@ -1,12 +1,15 @@
 # class *Slice* from sys.core.lang
 
+Represents a read-and-write block of memory given by address of the block and a size. Implements common block algorithms that work on mutable data and inherits from ReadSlice in order to implement algorithms that work on immutable data. After the algorithm is finished, the Length property is adjusted in accordance to the actions taken by the algorithm, often the extent of the read or write. The final Length can't be greater than the initial Length: Length can only shrink.
+
+A `Slice` can only be instantiated based on persistent mutable object whose lifetime must exceed the lifetime of the slice. Freeing the data before the slice is destroyed is an error.
 
 ## Constructors
 
 ### this
 
 ```C#
-this{};
+this{} = null;
 this{ref p: CArray<T>};
 this{ref p: CArray<T>, length: PtrSize};
 this{ref p: CArray<T>, start: PtrSize, end: PtrSize};
@@ -86,7 +89,6 @@ def Reverse();
 
 #### Brief
 Reverses the items in the slice.
-
 ***
 
 ### Delete
@@ -98,15 +100,6 @@ def Delete(items: Vector<T>): PtrSize;
 ```
 
 #### Brief
-Reverses the contents of the array, from beginning to end or between two input indices.
-*** 
-
-```C#
-def Delete(item: T): PtrSize;
-def Delete(items: CArray<T>): PtrSize;
-def Delete(items: Vector<T>): PtrSize;
-```
-
 Searches for the first occurrence of an item or items within the array and if found it removes it.
 
 #### Parameters

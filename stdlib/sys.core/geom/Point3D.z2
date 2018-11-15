@@ -81,13 +81,11 @@ class Point3D<T: Class> {
 		return ((X * X) + (Y * Y) + (Z * Z) - T{1}).Abs < tolerance;
 	}
 
-	property Length: T
-	get {
+	property Length: T {
 		return ((X * X) + (Y * Y) + (Z * Z)).Sqrt;
 	}
 
-	property LengthSquared: T
-	get {
+	property LengthSquared: T {
 		return (X * X) + (Y * Y) + (Z * Z);
 	}
 

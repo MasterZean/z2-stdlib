@@ -1,25 +1,29 @@
 # class *AsciiParser* from sys.core
 
+Implements a basic parser operating on ASCII data. The data needs to be null ('\0') terminated.
 
 ## Constructors
 
 ### this
 
 ```C#
-this{ref data: Slice<Byte>};
-this{ref data: String};
-this{data: String, skipSpaces: Bool};
+this{ref const data: String};
+this{ref const data: String, skipSpaces: Bool};
+this{ref const data: Slice<Byte>};
+this{ref const data: Slice<Byte>, skipSpaces: Bool};
 ```
 
 #### Brief
 
-Constructs a new parser based on n input buffer.
+Constructs a new parser based on an input buffer.
 
 The buffer is not copied over so its lifespan must exceed the lifespan of the parser instance.
 
+By default, upon creation, the parse will consume whitespaces, leaving its internal cursor on the first non-whitespace character. Use `skipSpaces = false` to supress this behavior. 
+
 #### Parameters
 > *data* => the data to parse  
-> *skipSpaces* =>   
+> *skipSpaces* => skip spaces option  
 ***
 
 ## Methods
@@ -31,7 +35,7 @@ def EatSpaces(): Bool;
 ```
 
 #### Brief
-Attempts to consume whitespace and comments.
+Attempts to consume whitespaces and comments.
 
 If there was nothing to consume, the state of the parser is not changed.
 
@@ -46,9 +50,12 @@ def EatSpacesNoLineSkip(): Bool;
 ```
 
 #### Brief
+Attempts to consume whitespaces but stops on a newline character.
+
+If there was nothing to consume, the state of the parser is not changed.
 
 #### Returns
-> 
+> true if anything was consumed
 ***
 
 ### IsId
@@ -59,7 +66,7 @@ func IsId(id: String): Bool;
 ```
 
 #### Brief
-Checks if the parser sees an identifier.
+Checks if the parser's current token is an identifier.
 
 Identifiers use "C" rules.
 
@@ -164,13 +171,13 @@ func IsInt(): Bool;
 Checks if the parser contains an integer, including sign.
 
 #### Returns
-> 
+> `true` if integer was found
 ***
 
-### Sign
+### EatSign
 
 ```C#
-def Sign(): Int;
+def EatSign(): Int;
 ```
 
 #### Brief
@@ -181,7 +188,7 @@ If not sign or '+' is encountered, it returns '1'.
 If '-' is found, it returns '-1'.
 
 #### Returns
-> 
+> `1` or `-1` based on sign
 ***
 
 ### IsNumber
@@ -196,7 +203,7 @@ Returns true if the parser sees a number in a given base.
 #### Parameters
 > *base* => the base  
 #### Returns
-> 
+> `true` if integer is base `base` is found
 ***
 
 ### ReadInt
@@ -209,7 +216,7 @@ def ReadInt(): Int;
 Attempts to read and consume an integer in a base 10.
 
 #### Returns
-> 
+> the integer value
 ***
 
 ### ReadNumber
@@ -224,7 +231,7 @@ Attempts to read and consume an number in a given base.
 #### Parameters
 > *base* => the base  
 #### Returns
-> 
+> the integer value
 ***
 
 ## Variables
@@ -239,7 +246,6 @@ val SkipWhitespace;
 If set to `true`, every time an entity is consumed, whitespace following said entity is also consumed.
 
 If set to `false`, whitespace is not consumed and. It can manually be consumed with `EatSpaces`.
-
 ***
 
 ### SkipComments
@@ -250,7 +256,6 @@ val SkipComments;
 
 #### Brief
 If set to true, every time whitespace is consumed, comments are also consumed.
-
 ***
 
 ### NestComments
@@ -261,6 +266,5 @@ val NestComments;
 
 #### Brief
 If set to true, every time comments are consumed, they can nest.
-
 ***
 

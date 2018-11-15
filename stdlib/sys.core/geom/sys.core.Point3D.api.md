@@ -1,5 +1,16 @@
 # class *Point3D* from sys.core
 
+A three dimensional generic vector.
+
+Can be used as a point or a vector.
+
+Predefined specializations:
+```C#
+alias Point2Di = Point2D<Int>;
+alias Point2Du = Point2D<DWord>;
+alias Point2Df = Point2D<Float>;
+alias Point2Dd = Point2D<Double>;
+```
 
 ## Constructors
 
@@ -99,7 +110,7 @@ Tests if the current instance is a 3 dimensional normalized vector, within a tol
 #### Parameters
 > *tolerance* => tolerance for a non zero lengthed vector  
 #### Returns
-> 
+> `true` if normalized
 ***
 
 ### Normalize
@@ -131,7 +142,7 @@ Otherwise, returns the value as is.
 #### Parameters
 > *tolerance* => tolerance for a non zero lengthed vector  
 #### Returns
-> 
+> `true` if normalized
 ***
 
 ### @add
@@ -147,7 +158,7 @@ Member-wise addition operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @sub
@@ -165,7 +176,7 @@ Member-wise subtraction operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @mul
@@ -181,7 +192,7 @@ Member-wise multiplication operator. Commutative.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @div
@@ -199,7 +210,7 @@ Member-wise division operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @mod
@@ -217,7 +228,7 @@ Member-wise modulo operator.
 > *left* => the left operand  
 > *right* => the right operand  
 #### Returns
-> 
+> the result
 ***
 
 ### @minus
@@ -230,7 +241,7 @@ func @minus(): Point3D<T>;
 Returns the member-wise negative of the current instance.
 
 #### Returns
-> 
+> the result
 ***
 
 ### @eq
@@ -245,7 +256,7 @@ Member-wise equality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> `true` if equal
 ***
 
 ### @neq
@@ -260,7 +271,7 @@ Member-wise inequality operator.
 #### Parameters
 > *second* => the second operand  
 #### Returns
-> 
+> `true` if not equal
 ***
 
 ### Equals
@@ -277,7 +288,7 @@ Member-wise equality operator within a given tolerance.
 > *second* => the second operand  
 > *tolerance* => tolerance for equality  
 #### Returns
-> 
+> `true` if equal
 ***
 
 ## Properties
@@ -290,7 +301,6 @@ property Length: T; get;
 
 #### Brief
 The length of the instance interpreted as a 3 dimensional vector.
-
 ***
 
 ### LengthSquared
@@ -301,7 +311,6 @@ property LengthSquared: T; get;
 
 #### Brief
 The squred length of the instance interpreted as a 3 dimensional vector.
-
 ***
 
 ## Variables
@@ -314,7 +323,6 @@ val X: T;
 
 #### Brief
 The first dimension of the point.
-
 ***
 
 ### Y
@@ -325,7 +333,6 @@ val Y: T;
 
 #### Brief
 The second dimension of the point.
-
 ***
 
 ### Z
@@ -336,6 +343,5 @@ val Z: T;
 
 #### Brief
 The third dimension of the point.
-
 ***
 

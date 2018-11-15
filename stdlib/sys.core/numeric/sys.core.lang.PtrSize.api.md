@@ -1,5 +1,10 @@
 # class *PtrSize* from sys.core.lang
 
+A class representing a size of a pointer or an offset withing a pointer.
+
+It is an unsigned value. It can be 32 or 64 bits long, depending on the target architecture.
+
+It maps exactly to a 32/64 bit CPU resource and has no overhead. Because of this strict mapping it can't have extra non-static member variables, can't be inherited from and can't have virtual methods.
 
 ## Methods
 
@@ -91,7 +96,6 @@ property Abs: PtrSize; get;
 Returns the absolute value.
 
 In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Sqr
@@ -102,7 +106,6 @@ property Sqr: PtrSize; get;
 
 #### Brief
 Returns the square of the value value.
-
 ***
 
 ### Sqrt
@@ -113,7 +116,6 @@ property Sqrt: PtrSize; get;
 
 #### Brief
 Returns the square root of the value, rounded down.
-
 ***
 
 ### Floor
@@ -126,7 +128,6 @@ property Floor: PtrSize; get;
 Returns the floor of a floating point value.
 
 In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Ceil
@@ -139,7 +140,6 @@ property Ceil: PtrSize; get;
 Returns the ceiling of a floating point value.
 
 In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ### Round
@@ -152,7 +152,6 @@ property Round: PtrSize; get;
 Returns the rounded value of a floating point.
 
 In the case of [PtrSize][sys.core.lang.PtrSize] it returns the value itself and is included only for API compatibility when using templates.
-
 ***
 
 ## Constants
@@ -165,7 +164,6 @@ const Zero: PtrSize;
 
 #### Brief
 A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "0" value.
-
 ***
 
 ### One
@@ -176,7 +174,6 @@ const One: PtrSize;
 
 #### Brief
 A [PtrSize][sys.core.lang.PtrSize] instance representing a logical "1" value.
-
 ***
 
 ### Min
@@ -187,7 +184,6 @@ const Min: PtrSize;
 
 #### Brief
 The minimum value for a [PtrSize][sys.core.lang.PtrSize] (32/64 bit unsigned integer) instance.
-
 ***
 
 ### Max
@@ -198,7 +194,6 @@ const Max: PtrSize;
 
 #### Brief
 The minimum value for a [PtrSize][sys.core.lang.PtrSize] (64 bit signed integer) instance.
-
 ***
 
 ### Invalid
@@ -209,7 +204,6 @@ const Invalid: PtrSize;
 
 #### Brief
 The value signaling invalid/out of bounds.
-
 ***
 
 ### IsSigned
@@ -220,7 +214,6 @@ const IsSigned;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation uses two's complement signed values, [false][sys.core.lang.Bool] otherwise.
-
 ***
 
 ### IsInteger
@@ -231,7 +224,6 @@ const IsInteger;
 
 #### Brief
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
-
 ***
 
 ### MaxDigitsLow
@@ -245,7 +237,6 @@ The lower limit for the number of base 10 digits that are needed to represent a 
 In base 10, you can have MaxDigitsLow digits that go though values 0-9.
 
 Should not be used for buffer sizes.
-
 ***
 
 ### MaxDigitsHigh
@@ -259,7 +250,6 @@ The upper limit for the number of base 10 digits that are needed to represent a 
 In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go though values 0-9 because they do not fit the binary representation.
   
 Should not be used for buffer sizes.
-
 ***
 
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"

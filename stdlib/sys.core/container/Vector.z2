@@ -69,8 +69,7 @@ class Vector<T: Class> {
 		}
 	}
 	
-	property Length: PtrSize
-	get {
+	property Length: PtrSize {
 		return length;
 	}
 	set (value) {
@@ -98,8 +97,7 @@ class Vector<T: Class> {
 		length = value;
 	}
 
-	property Capacity: PtrSize
-	get {
+	property Capacity: PtrSize {
 		return capacity;
 	}
 	set (value) {
@@ -181,22 +179,22 @@ class Vector<T: Class> {
 	}
 		
 	func FindIndex(item: T): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.FindIndex(item);
 	}
 	
 	func FindIndex(item: T, start: PtrSize): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.FindIndex(item, start);
 	}
 	
 	func BinaryIndex(item: T): PtrSize {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.BinaryIndex(item);
 	}
 	
-	def BinaryIndex(item: T, start: PtrSize): PtrSize {
-		val s = Slice<T>{this};
+	func BinaryIndex(item: T, start: PtrSize): PtrSize {
+		val s = ReadSlice<T>{this};
 		return s.BinaryIndex(item, start);
 	}
 	
@@ -301,7 +299,7 @@ class Vector<T: Class> {
 	}
 	
 	func Sum(): T {
-		val s = Slice<T>{this};
+		val s = ReadSlice<T>{this};
 		return s.Sum();
 	}
 	
@@ -340,8 +338,7 @@ class Vector<T: Class> {
 	
 #endregion
 	
-	property SysDataPointer: Ptr<T>
-	get {
+	property SysDataPointer: Ptr<T> {
 		return data;
 	}
 }

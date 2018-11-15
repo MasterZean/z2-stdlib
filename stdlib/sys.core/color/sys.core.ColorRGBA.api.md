@@ -4,7 +4,7 @@ A class representing a logical red, green, blue and alpha channeled color as an 
 
 This class is only suited for storing low dynamic range colors.
 
-Since all channels are stored in 8 bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
+Since all channels are represented using 8 bit unsigned integers, this class is better suited for storing colors rather than manipulating them. But it still has the full set of manipulation API.
 
 ## Constructors
 
@@ -386,7 +386,6 @@ val R: Byte;
 
 #### Brief
 The red component.
-
 ***
 
 ### G
@@ -397,7 +396,6 @@ val G: Byte;
 
 #### Brief
 The green component.
-
 ***
 
 ### B
@@ -408,7 +406,6 @@ val B: Byte;
 
 #### Brief
 The blue component.
-
 ***
 
 ### A
@@ -419,6 +416,5 @@ val A: Byte;
 
 #### Brief
 The alpha component.
-
 ***
 
