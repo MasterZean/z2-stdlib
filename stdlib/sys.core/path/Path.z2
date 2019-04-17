@@ -36,7 +36,8 @@ class Path {
 		
 		return String{dest};
 	}
-	set (dir) {
+	
+	static property def CurrentFolder(dir: String) {
 		val source = ReadSlice<Byte>{dir};
 		
 		val pathu16: CArray<Word, Win32.MAX_PATH> = void;
@@ -57,7 +58,8 @@ class Path {
 		
 		return String{pathu8.SysDataPointer, bind.c.string.strlen(pathu8.SysDataPointer)};
 	}
-	set (dir) {
+	
+	static property def CurrentFolder(dir: String) {
 		ieee.posix.Posix.chdir(dir.SysDataPointer);
 	}
 	

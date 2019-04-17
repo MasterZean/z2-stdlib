@@ -127,7 +127,7 @@ def Insert(pos: PtrSize, items: Vector<T>);
 #### Brief
 Inserts an item or a collection of items into the array at a given position.
 
-THe array will grow to accommodate the inserted items.
+The array will grow to accommodate the inserted items.
 
 #### Parameters
 > *pos* => the position to insert to  
@@ -264,7 +264,7 @@ The item count is included.
 ### @shl
 
 ```C#
-@shl(ref v: Vector<T>, data: T): ref Vector<T>;
+@shl(data: T): ref Vector<T>;
 ```
 
 #### Brief

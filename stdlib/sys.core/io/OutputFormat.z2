@@ -14,8 +14,7 @@ class OutputFormat {
 	val FillAfter = ' ';
 	val ForceSign = false;
 	
-	property Fill: Char
-	set (value) {
+	property def Fill(value: Char) {
 	    FillBefore = value;
 	    FillAfter = value;
 	}

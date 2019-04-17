@@ -7,14 +7,16 @@ class SizeRect<T: Class> {
 	property X2: T {
 		return X + Width;
 	}
-	set (value){
+	
+	property def X2(value: T) {
 		Width = value - X;
 	}
 
 	property Y2: T {
 		return Y + Height;
 	}
-	set (value){
+	
+	property def Y2(value: T) {
 		Height = value - Y;
 	}
 

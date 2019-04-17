@@ -20,3 +20,6 @@ class AlignmentException: Exception {
 
 class OutOfMemoryException: Exception {
 }
+
+class AssertException: Exception {
+}

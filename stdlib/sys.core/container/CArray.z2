@@ -5,12 +5,12 @@ using sys.core.Stream;
 class CArray<T: Class> {
 	this() {
 		for (val i = 0p; i < Length; i++)
-			this[i]{};
+			this[i].!{};
 	}
 	
 	this(item: T) {
 		for (val i = 0p; i < Length; i++)
-			this[i]{item};
+			this[i].!{item};
 	}
 	
 	property IsEmpty: Bool {
@@ -64,7 +64,7 @@ class CArray<T: Class> {
 		        this[i] = move(this[i - 1]);
 		}
 		
-		this[pos]{};
+		this[pos].!{};
 		this[pos] = item;
 	}
 	
@@ -110,7 +110,7 @@ class CArray<T: Class> {
 		for (val i = pos; i < Length - 1; i++)
 			this[i] = this[i + 1];
 		
-		this[Length - 1]{};
+		this[Length - 1].!{};
 		
 		return 1;
 	}

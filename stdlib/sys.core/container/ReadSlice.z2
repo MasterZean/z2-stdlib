@@ -161,18 +161,14 @@ class ReadSlice<T: Class> {
 	property Length: PtrSize {
 		return size;
 	}
-	set (value) {
+	
+	property Length(value: PtrSize) {
 		size = value;
 	}
 	
-	property @index: T
-	get [index: PtrSize] {
+	property @index[index: PtrSize]: T {
 		System.Debug.Assert(index < size);
 		return ptr[index];
-	}
-	set (byte)[index: PtrSize] {
-		System.Debug.Assert(index < size);
-		ptr[index] = byte;
 	}
 	
 	property SysDataPointer: Ptr<T> {

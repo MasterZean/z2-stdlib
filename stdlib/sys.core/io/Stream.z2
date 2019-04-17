@@ -136,9 +136,9 @@ class Stream {
 		FormatBuffer(s, format);
 	}
 
-	virtual def RawWrite(data: String) {
-		val s = ReadSlice<Byte>{data};
-		BinPut(s);
+	virtual def RawWrite(data7: String) {
+		val sss = ReadSlice<Byte>{data7};
+		BinPut(sss);
 	}
 	
 	virtual def RawWrite(data: String, format: OutputFormat) {
@@ -323,9 +323,9 @@ class Stream {
 		return this;
 	}
 
-	static def @shl<T: Class>(ref s: Stream, data: T): ref Stream {
-		data.@write(s);
-		return s;
+	def @shl<T: Class>(data: T): ref Stream {
+		data.@write(this);
+		return this;
 	}
 	
 	static def @shr<T: Class>(ref s: Stream, ref data: T): ref Stream {

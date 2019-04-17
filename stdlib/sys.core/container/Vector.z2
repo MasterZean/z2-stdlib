@@ -19,7 +19,7 @@ class Vector<T: Class> {
 			
 			// then copy constructor is called on each member
 			for (val i = 0p; i < length; i++)
-				temp[i]{copy.data[i]};
+				temp[i].!{copy.data[i]};
 		}
 		
 		data = temp;
@@ -37,7 +37,7 @@ class Vector<T: Class> {
 		data.Free();
 
 		// forward to copy constructor
-		this{copy};
+		this.!{copy};
 	}
 		
 	~this() {
@@ -72,7 +72,8 @@ class Vector<T: Class> {
 	property Length: PtrSize {
 		return length;
 	}
-	set (value) {
+	
+	property def Length(value: PtrSize) {
 		if (value == length)
 			return;
 
@@ -81,7 +82,7 @@ class Vector<T: Class> {
 			val i = length;
 			
 			while (i < value) {
-				data[i]{};
+				data[i].!{};
 				i++;
 			}
 		}
@@ -100,7 +101,8 @@ class Vector<T: Class> {
 	property Capacity: PtrSize {
 		return capacity;
 	}
-	set (value) {
+	
+	property def Capacity(value: PtrSize) {
 		System.Trace.Assert(value >= length);
 
 		val temp = Intrinsic.Max(value, 2p);
@@ -116,23 +118,41 @@ class Vector<T: Class> {
 		back.Free();
 	}
 
-	property @index: ref T
-	get [index: PtrSize] {
+	property @index[index: PtrSize]: ref const T {
 		System.Debug.Assert(index < length);
 		return data[index];
 	}
 	
-	def Add(item: T) {
-		if (length >= capacity)
-			Grow();
-		data[length++]{item};
+	property def @index[index: PtrSize]: ref T {
+		System.Debug.Assert(index < length);
+		return data[index];
 	}
 	
-	def Add(move item: T) {
+	def Add(): ref T {
 		if (length >= capacity)
 			Grow();
 		
-		data[length++]{item};
+		data[length++].!{};
+		
+		return data[length - 1];
+	}
+	
+	def Add(item: T): ref T {
+		if (length >= capacity)
+			Grow();
+		
+		data[length++].!{item};
+		
+		return data[length - 1];
+	}
+	
+	def Add(move item: T): ref T {
+		if (length >= capacity)
+			Grow();
+		
+		data[length++].!{item};
+		
+		return data[length - 1];
 	}
 	
 	def Add(items: Vector<T>) {
@@ -140,7 +160,7 @@ class Vector<T: Class> {
 			Grow(length + items.Length);
 		
 		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
-			data[length++]{items[iIndex]};
+			data[length++].!{items[iIndex]};
 	}
 	
 	def Add(items: CArray<T>) {
@@ -148,16 +168,15 @@ class Vector<T: Class> {
 			Grow(length + items.Length);
 		
 		for (val iIndex = 0p; iIndex < items.Length; iIndex++)
-			data[length++]{items[iIndex]};
+			data[length++].!{items[iIndex]};
 	}
 	
-	static def @shl<T: Class>(ref v: Vector<T>, data: T): ref Vector<T> {
-		v.Add(data);
-		return v;
+	def @shl<T: Class>(data: T): ref Vector<T> {
+		this.Add(data);
+		return this;
 	}
 	
-	property At: ref T
-	get [index: PtrSize] {
+	property def At[index: PtrSize]: ref T {
 		if (index >= length)
 			Length = index + 1;
 		return data[index];
@@ -267,23 +286,23 @@ class Vector<T: Class> {
 		return r;
 	}
 	
-	def DeleteIndex(item: PtrSize): PtrSize {
+	def DeleteIndex(index: PtrSize): PtrSize {
 		val s = Slice<T>{this};
-		val r = s.DeleteIndex(item);
+		val r = s.DeleteIndex(index);
 		length = s.Length;
 		return r;
 	}
 	
-	def DeleteIndex(items: CArray<PtrSize>): PtrSize {
+	def DeleteIndex(indices: CArray<PtrSize>): PtrSize {
 		val s = Slice<T>{this};
-		val r = s.DeleteIndex(items);
+		val r = s.DeleteIndex(indices);
 		length = s.Length;
 		return r;
 	}
 	
-	def DeleteIndex(items: Vector<PtrSize>): PtrSize {
+	def DeleteIndex(indices: Vector<PtrSize>): PtrSize {
 		val s = Slice<T>{this};
-		val r = s.DeleteIndex(items);
+		val r = s.DeleteIndex(indices);
 		length = s.Length;
 		return r;
 	}

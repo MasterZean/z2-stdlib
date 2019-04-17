@@ -10,7 +10,8 @@ class String {
 	property Length: PtrSize {
 		return length;
 	}
-	set (len) {
+	
+	property Length(len: PtrSize) {
 		if (len > Capacity)
 			Capacity = len;
 		length = len;
@@ -20,7 +21,8 @@ class String {
 	property Capacity: PtrSize {
 		return capacity;
 	}
-	set (cap) {
+	
+	property Capacity(cap: PtrSize) {
 		if (cap > capacity) {
 			capacity = cap;
 			data.Realloc(capacity + 1);
@@ -29,8 +31,12 @@ class String {
 			throw sys.core.IllegalArgumentException{};
 	}
 
-	property @index: ref Byte
-	get [index: PtrSize] {
+	property @index[index: PtrSize]: ref const Byte {
+		System.Debug.Assert(index < length);
+		return data[index];
+	}
+	
+	property def @index[index: PtrSize]: ref Byte {
 		System.Debug.Assert(index < length);
 		return data[index];
 	}
@@ -47,7 +53,7 @@ class String {
 		val s = Slice<Byte>{ch};
 		ConvertUtf8.CharAsText(s, data);
 		
-		this{s};
+		this.!{s};
     }
     
 	this(chars: Slice<Byte>) {
@@ -109,7 +115,7 @@ class String {
 			data[length] = 0;
 		}
 		else
-			this{};
+			this.!{};
 	}
 	
 	this FromIndex(chars: String, start: PtrSize, end: PtrSize) {
@@ -121,7 +127,7 @@ class String {
 			data[length] = 0;
 		}
 		else
-			this{};
+			this.!{};
 	}
 	
 	this TakeOwnership(chars: Ptr<Byte>, len: PtrSize) {

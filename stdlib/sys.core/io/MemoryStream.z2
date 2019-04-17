@@ -13,11 +13,11 @@ class MemoryStream: Stream {
 		ptr = ptr + data.Length;
 	}
 	
-	property Capacity: PtrSize
-	get {
+	property Capacity: PtrSize {
 		return capacity;
 	}
-	set (value) {
+	
+	property Capacity(value: PtrSize) {
 		System.Trace.Assert(value >= capacity);
 
 		val temp = Intrinsic.Max(value, 2p);

@@ -158,6 +158,11 @@ class Slice<T: Class>: ReadSlice<T> {
 		size = length;
 	}
 	
+	property def @index[index: PtrSize](item: T) {
+		System.Debug.Assert(index < size);
+		ptr[index] = item;
+	}
+	
 	def Fill(value: T) {
 		for (val i = 0p; i < size; i++)
 			ptr[i] = value;
@@ -198,7 +203,7 @@ class Slice<T: Class>: ReadSlice<T> {
 		ptr[index].~{};
 		
 		for (val i = index; i < size - 1; i++)
-			ptr[i]{move(ptr[i+ 1])};
+			ptr[i].!{move(ptr[i+ 1])};
 		
 		size--;
 		return 1p;
@@ -234,7 +239,7 @@ class Slice<T: Class>: ReadSlice<T> {
 			ptr[index].~{};
 			
 			for (val i = index; i < size - 1; i++)
-				ptr[i]{move(ptr[i+ 1])};
+				ptr[i].!{move(ptr[i+ 1])};
 			
 			size--;
 			count++;
@@ -268,25 +273,25 @@ class Slice<T: Class>: ReadSlice<T> {
 		ptr[index].~{};
 		
 		for (val i = index; i < size - 1; i++)
-			ptr[i]{move(ptr[i+ 1])};
+			ptr[i].!{move(ptr[i+ 1])};
 		
 		size--;
 		return 1p;
 	}
 	
-	def DeleteIndex(items: CArray<PtrSize>): PtrSize {
+	def DeleteIndex(indices: CArray<PtrSize>): PtrSize {
 		val count = 0p;
 		
-		foreach (v in items)
+		foreach (v in indices)
 			count += DeleteIndex(v - count);
 		
 		return count;
 	}
 	
-	def DeleteIndex(items: Vector<PtrSize>): PtrSize {
+	def DeleteIndex(indices: Vector<PtrSize>): PtrSize {
 		val count = 0p;
 		
-		foreach (v, i in items)
+		foreach (v, i in indices)
 			count += DeleteIndex(v - count);
 			
 			
@@ -295,7 +300,7 @@ class Slice<T: Class>: ReadSlice<T> {
 	
 	def Insert(pos: PtrSize, item: T) {
 		for (val i = size; i >= pos + 1; i--)
-			ptr[i]{move(ptr[i - 1])};
+			ptr[i].!{move(ptr[i - 1])};
 		
 		ptr[pos] = item;
 		

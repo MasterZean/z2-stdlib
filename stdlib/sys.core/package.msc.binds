@@ -18,6 +18,9 @@ extern "C" uint32 __cdecl _rotr(uint32 _Val, int32 _Shift);
 _rotr64:
 extern "C" uint64 __cdecl _rotr64(uint64 _Val, int32 _Shift);
 #pragma intrinsic(_rotr64)
+_byteswap_ulong:
+//#pragma intrinsic(_byteswap_ulong)
+extern "C" unsigned long    __cdecl _byteswap_ulong(  unsigned long    _Number);
 
 
 
