@@ -52,7 +52,7 @@ Clamps the current mutable instance between `min` and `max`.
 #### Parameters
 > *min* => the minimum value  
 > *max* => the maximum value  
-###### seealso `sys.core.lang.Intrinsic Clamp`
+###### seealso [sys.core.lang.Intrinsic.Clamp](../sys.core/sys.core.lang.Intrinsic#clamp)
 ***
 
 ### Clamped
@@ -69,7 +69,7 @@ Returns the current instance clamped between `min` and `max`.
 > *max* => the maximum value  
 #### Returns
 > the clamped value
-###### seealso `sys.core.lang.Intrinsic Clamped`
+###### seealso [sys.core.lang.Intrinsic.Clamp](../sys.core/sys.core.lang.Intrinsic#clamped)
 ***
 
 ### ToString
@@ -126,6 +126,18 @@ Reads a 32 bit signed integer from a binary stream.
 
 #### Parameters
 > *stream* => the input stream  
+***
+
+### @stdHash
+
+```C#
+func @stdHash(): DWord;
+```
+
+#### Brief
+
+#### Returns
+> 
 ***
 
 ## Properties

@@ -65,7 +65,7 @@ Returns the current instance clamped between `min` and `max`.
 > *max* => the maximum value  
 #### Returns
 > the clamped value
-###### seealso `sys.core.lang.Intrinsic Clamped`
+###### seealso [sys.core.lang.Intrinsic.Clamp](../sys.core/sys.core.lang.Intrinsic#clamped)
 ***
 
 ### ToString
