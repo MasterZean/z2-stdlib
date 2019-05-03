@@ -201,7 +201,7 @@ Shrinks the array to a new length equal to `value` in an unsafe manner.
 ### @index
 
 ```C#
-property @index: ref T; get;
+property @index[index: PtrSize]: ref const T; get;
 ```
 
 #### Brief
@@ -248,5 +248,5 @@ property SysDataPointer: Ptr<T>; get;
 Returns an unsafe pointer to the memory block.
 ***
 
-[sys.core.DynamicBlock]: sys.core.DynamicBlock.api.md "sys.core.DynamicBlock"
-[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"
+[sys.core.DynamicBlock]: ..\..\sys.core\container\sys.core.DynamicBlock.api.md "sys.core.DynamicBlock"
+[sys.core.lang.Bool]: ..\..\sys.core\numeric\sys.core.lang.Bool.api.md "sys.core.lang.Bool"

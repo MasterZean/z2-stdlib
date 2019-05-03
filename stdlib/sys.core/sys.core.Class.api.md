@@ -23,7 +23,7 @@ Writes the name of the class to an output stream.
 ### Name
 
 ```C#
-property Name: const ref String; get;
+property Name: ref const String; get;
 ```
 
 #### Brief
@@ -33,7 +33,7 @@ Returns the fully qualified class name.
 ### ShortName
 
 ```C#
-property ShortName: const ref String; get;
+property ShortName: ref const String; get;
 ```
 
 #### Brief
@@ -43,7 +43,7 @@ Returns only the class name, without the namespace.
 ### Namespace
 
 ```C#
-property Namespace: const ref String; get;
+property Namespace: ref const String; get;
 ```
 
 #### Brief

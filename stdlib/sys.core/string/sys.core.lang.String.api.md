@@ -428,7 +428,7 @@ THe amount of available storage capacity allocated for the string.
 ### @index
 
 ```C#
-property @index: ref Byte; get;
+property @index[index: PtrSize]: ref const Byte; get;
 ```
 
 #### Brief
@@ -467,6 +467,6 @@ val GrowthSpacing;
 A variable used to control the growth rate of the string.
 ***
 
-[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"

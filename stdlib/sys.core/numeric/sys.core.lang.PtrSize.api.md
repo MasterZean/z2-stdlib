@@ -254,5 +254,5 @@ Should not be used for buffer sizes.
 
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
-[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
-[sys.core.lang.Bool]: sys.core.lang.Bool.api.md "sys.core.lang.Bool"
+[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.Bool]: ..\..\sys.core\numeric\sys.core.lang.Bool.api.md "sys.core.lang.Bool"

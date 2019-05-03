@@ -188,11 +188,11 @@ Reads and writes the length of the slice. Can not grow, only decrease.
 ### @index
 
 ```C#
-property @index: T
+property @index[index: PtrSize]: T; get;
 ```
 
 #### Brief
-Reads and writes a given index from the slice.
+Reads a given index from the slice.
 ***
 
 ### SysDataPointer
@@ -205,4 +205,4 @@ property SysDataPointer: Ptr<T>; get;
 Returns a pointer to the data from the slice.
 ***
 
-[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

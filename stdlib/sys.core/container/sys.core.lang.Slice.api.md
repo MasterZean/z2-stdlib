@@ -131,8 +131,8 @@ Searches for all the occurrences of an item or items within the slice and if fou
 
 ```C#
 def DeleteIndex(index: PtrSize): PtrSize;
-def DeleteIndex(items: CArray<PtrSize>): PtrSize;
-def DeleteIndex(items: Vector<PtrSize>): PtrSize;
+def DeleteIndex(indices: CArray<PtrSize>): PtrSize;
+def DeleteIndex(indices: Vector<PtrSize>): PtrSize;
 ```
 
 #### Brief
@@ -140,7 +140,7 @@ Deletes an item at a given index or indices from the slice.
 
 #### Parameters
 > *index* => the index to delete  
-> *items* => an array of indices to delete  
+> *indices* => an array of indices to delete  
 #### Returns
 > the number of deleted items
 ***
@@ -190,5 +190,17 @@ Sorts the content of the array in descending order, from beginning to end or bet
 #### Parameters
 > *low* => the start index  
 > *high* => the end index  
+***
+
+## Properties
+
+### @index
+
+```C#
+property @index[index: PtrSize](item: T); set;
+```
+
+#### Brief
+Reads and writes a given index from the slice.
 ***
 

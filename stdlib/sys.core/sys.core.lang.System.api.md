@@ -50,7 +50,7 @@ The installed CPU information.
 ### Args
 
 ```C#
-property Args: const ref Vector<String>; get;
+property Args: ref const Vector<String>; get;
 ```
 
 #### Brief

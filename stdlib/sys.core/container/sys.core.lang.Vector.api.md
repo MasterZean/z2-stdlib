@@ -44,8 +44,9 @@ Assign the current instance with a copy or a move of the input data.
 ### Add
 
 ```C#
-def Add(item: T);
-def Add(move item: T);
+def Add(): ref T;
+def Add(item: T): ref T;
+def Add(move item: T): ref T;
 def Add(items: Vector<T>);
 def Add(items: CArray<T>);
 ```
@@ -56,6 +57,8 @@ Append a single item or a collection to the end of the vector.
 #### Parameters
 > *item* => the item to append  
 > *items* => the item collection to append  
+#### Returns
+> the added item
 ***
 
 ### Fill
@@ -173,17 +176,17 @@ Searches for all the occurrences of an item within the array and if found remove
 ### DeleteIndex
 
 ```C#
-def DeleteIndex(item: PtrSize): PtrSize;
-def DeleteIndex(items: CArray<PtrSize>): PtrSize;
-def DeleteIndex(items: Vector<PtrSize>): PtrSize;
+def DeleteIndex(index: PtrSize): PtrSize;
+def DeleteIndex(indices: CArray<PtrSize>): PtrSize;
+def DeleteIndex(indices: Vector<PtrSize>): PtrSize;
 ```
 
 #### Brief
 Deletes an item at a given index from the array.
 
 #### Parameters
-> *item* => the index to delete  
-> *items* => an array of indices to delete  
+> *index* => the index to delete  
+> *indices* => an array of indices to delete  
 #### Returns
 > the number of deleted items
 ***
@@ -298,7 +301,7 @@ Capacity can't be set lower than the Length.
 ### @index
 
 ```C#
-property @index: ref T; get;
+property @index[index: PtrSize]: ref const T; get;
 ```
 
 #### Brief
@@ -310,7 +313,7 @@ Accessing an invalid index is an error.
 ### At
 
 ```C#
-property At: ref T; get;
+property At[index: PtrSize]: ref T; get;
 ```
 
 #### Brief
@@ -329,4 +332,4 @@ property SysDataPointer: Ptr<T>; get;
 Returns a pointer to the data.
 ***
 
-[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"

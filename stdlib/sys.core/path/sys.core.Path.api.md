@@ -231,4 +231,4 @@ const DirSepUnix;
 The folder separator character under Windows ('/').
 ***
 
-[sys.core.lang.PtrSize]: sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
