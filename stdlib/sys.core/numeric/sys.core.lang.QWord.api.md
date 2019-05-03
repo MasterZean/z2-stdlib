@@ -49,6 +49,7 @@ Clamps the current mutable instance between `min` and `max`.
 #### Parameters
 > *min* => the minimum value  
 > *max* => the maximum value  
+###### seealso [sys.core.lang.Intrinsic.Clamp](../../sys.core/sys.core.lang.Intrinsic.api.md#clamp)
 ***
 
 ### Clamped
@@ -65,7 +66,7 @@ Returns the current instance clamped between `min` and `max`.
 > *max* => the maximum value  
 #### Returns
 > the clamped value
-###### seealso [sys.core.lang.Intrinsic.Clamp](../sys.core/sys.core.lang.Intrinsic#clamped)
+###### seealso [sys.core.lang.Intrinsic.Clamped](../../sys.core/sys.core.lang.Intrinsic.api.md#clamped)
 ***
 
 ### ToString
