@@ -390,4 +390,4 @@ A constant describing an "invalid" code point.
 ***
 
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
-[sys.core.lang.Char]: ..\..\sys.core\numeric\sys.core.lang.Char.api.md "sys.core.lang.Char"
+[sys.core.lang.Char]: ../../sys.core/numeric/sys.core.lang.Char.api.md "sys.core.lang.Char"

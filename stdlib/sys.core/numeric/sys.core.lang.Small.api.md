@@ -294,8 +294,8 @@ In base 10, the `MaxDigitsHigh - MaxDigitsLow` most significant digits can't go 
 Should not be used for buffer sizes.
 ***
 
-[sys.core.lang.Small]: ..\..\sys.core\numeric\sys.core.lang.Small.api.md "sys.core.lang.Small"
-[sys.core.lang.String]: ..\..\sys.core\string\sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.lang.Small]: ../../sys.core/numeric/sys.core.lang.Small.api.md "sys.core.lang.Small"
+[sys.core.lang.String]: ../../sys.core/string/sys.core.lang.String.api.md "sys.core.lang.String"
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"
-[sys.core.lang.Bool]: ..\..\sys.core\numeric\sys.core.lang.Bool.api.md "sys.core.lang.Bool"
+[sys.core.lang.Bool]: ../../sys.core/numeric/sys.core.lang.Bool.api.md "sys.core.lang.Bool"

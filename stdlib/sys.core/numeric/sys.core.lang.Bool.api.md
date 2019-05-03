@@ -152,7 +152,7 @@ const IsInteger;
 [true][sys.core.lang.Bool] if the numeric representation is an integer, [false][sys.core.lang.Bool] if it is a floating point.
 ***
 
-[sys.core.lang.Bool]: ..\..\sys.core\numeric\sys.core.lang.Bool.api.md "sys.core.lang.Bool"
-[sys.core.lang.String]: ..\..\sys.core\string\sys.core.lang.String.api.md "sys.core.lang.String"
+[sys.core.lang.Bool]: ../../sys.core/numeric/sys.core.lang.Bool.api.md "sys.core.lang.Bool"
+[sys.core.lang.String]: ../../sys.core/string/sys.core.lang.String.api.md "sys.core.lang.String"
 [sys.core.Stream]: sys.core.Stream.api.md "sys.core.Stream"
 [sys.core.OutputFormat]: sys.core.OutputFormat.api.md "sys.core.OutputFormat"

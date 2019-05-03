@@ -332,4 +332,4 @@ property SysDataPointer: Ptr<T>; get;
 Returns a pointer to the data.
 ***
 
-[sys.core.lang.PtrSize]: ..\..\sys.core\numeric\sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
+[sys.core.lang.PtrSize]: ../../sys.core/numeric/sys.core.lang.PtrSize.api.md "sys.core.lang.PtrSize"
