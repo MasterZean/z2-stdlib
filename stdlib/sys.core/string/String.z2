@@ -1,0 +1,5 @@
+namespace sys.core.lang;
+
+class String {
+	val text: Ptr<Byte>;
+}

@@ -1,0 +1,127 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Byte {
+	const Zero: Byte = 0;
+	const One: Byte = 1;
+
+	const Min: Byte = 0;
+	const Max: Byte = 255;
+
+	const IsSigned = false;
+	const IsInteger = true;
+	
+	const MaxDigitsLow = 2;
+	const MaxDigitsHigh = 3;
+
+	property Abs: Byte {
+		return this;
+	}
+	
+	property Sqr: Byte {
+		return this * this;
+	}
+
+	property Sqrt: Byte {
+		return Byte{Double{this}.Sqrt};
+	}
+
+	property Floor: Byte {
+		return this;
+	}
+
+	property Ceil: Byte {
+		return this;
+	}
+
+	property Round: Byte {
+		return this;
+	}
+	
+	property Trunc: Byte {
+		return this;
+	}
+	
+	def Clamp(min: Byte, max: Byte) = Intrinsic.Clamp;
+	
+	func Clamped(min: Byte, max: Byte): Byte = Intrinsic.Clamped;
+
+	this(string: String) {
+		val s = ReadSlice<Byte>{string};
+		this = Byte{ConvertUtf8.ParseUns<DWord>(s)};
+	}
+	
+	func ToString(): String {
+		val buf: CArray<Byte, ConvertUtf8.MaxByteBuffer> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.DWordAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Int) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Byte{value};
+	}
+
+	this Saturated(value: DWord) {
+		this = value > DWord{Max} ? Max : Byte{value};
+	}
+
+	this Saturated(value: Long) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Byte{value};
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Byte{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Byte{value};
+	}
+	
+	this Saturated(value: String) {
+		val s = ReadSlice<Byte>{value};
+		this.Saturated{ConvertUtf8.ParseUnsSaturated<DWord>(s)};
+	}
+
+#endregion
+
+#region IO
+
+	func @write(ref stream: Stream) {
+		stream.RawWrite(this);
+	}
+	
+	/*func @write(ref stream: Stream, format: OutputFormat) {
+		stream.RawWrite(this, format);
+	}*/
+
+	func @put(ref stream: Stream) {
+		stream.RawPutU8(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetU8();
+	}
+
+#endregion
+}

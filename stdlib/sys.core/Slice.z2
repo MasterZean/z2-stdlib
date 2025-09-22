@@ -1,0 +1,132 @@
+namespace sys.core.lang;
+
+class Slice<T: Class> {
+	@[unsafe]
+	this(aPtr: Ptr<T>, aLen: PtrSize) {
+		ptr = aPtr;
+		length = aLen;
+	}
+	
+	protected this() {
+	}
+	
+#region operations
+
+	def Fill(value: T) {
+		for (val i = 0; i < length; i++)
+			this[i] = value;
+	}
+	
+	def Fill(value: T, start: PtrSize) {
+		val s = start < length ? start: length;
+		
+		for (val i = s; i < length; i++)
+			this[i] = value;
+	}
+	
+	def Fill(value: T, start: PtrSize, end: PtrSize) {
+		val s = start < length ? start: length;
+		val e = end < length ? end: length;
+		
+		for (val i = s; i <= e; i++)
+			this[i] = value;
+	}
+	
+	def Construct() {
+		for (val i = 0; i < length; i++)
+			this[i].!{};
+	}
+	
+	def Insert(move? item: T, pos: PtrSize) {
+		Intrinsic.Assert(pos < length);
+		
+		this[length - 1].~{};
+		
+		if (T.class.HasTrait("nostdlibmove")) {
+			for (val i = length - 1; i >= pos + 1; i--)
+			    this[i] = move(this[i - 1]);
+		}
+		else
+			Intrinsic.MemMove(Ptr<Byte>{ptr + pos + 1}, Ptr<Byte>{ptr + pos}, (length - pos - 1) * T.@size);
+			
+		this[pos].!{move?(item)};
+	}
+	
+	def DeleteIndex(pos: PtrSize): PtrSize {
+		Intrinsic.Assert(pos < length);
+		
+		if (T.class.HasTrait("nostdlibmove")) {
+			for (val i = pos; i < length - 1; i++)
+				this[i] = move(this[i + 1]);
+		}
+		else {
+			this[pos].~{};
+			Intrinsic.MemMove(Ptr<Byte>{ptr + pos}, Ptr<Byte>{ptr + pos + 1}, (length - pos - 1) * T.@size);
+		}
+		
+		this[length - 1].!{};
+		
+		return 1;
+	}
+	
+	def Delete(item: T): PtrSize {
+		val index = FindIndex(item);
+		
+		if (index == -1)
+			return 0;
+		
+		return DeleteIndex(index);
+	}
+		
+	def DeleteAll(item: T): PtrSize {
+	    val count = 0p;
+		
+		val index = 0p;
+		val limit = length - 1;
+		
+		while (index <= limit) {
+			index = FindIndex(item);
+			
+			if (index == -1)
+				return count;
+			
+			DeleteIndex(index);
+			limit--;
+			
+			count++;
+		}
+		
+		return count;
+	}
+	
+	func FindIndex(item: T): PtrSize {
+		for (val i = 0p; i < length; i++)
+			if (this[i] == item)
+				return i;
+			
+		return PtrSize{-1};
+	}
+	
+	func RFindIndex(item: T): PtrSize {
+		for (val i = length - 1; i != -1; i--)
+			if (this[i] == item)
+				return i;
+		
+		return PtrSize{-1};
+	}
+	
+#endregion
+
+	property Length: PtrSize {
+		return length;
+	}
+	
+	@[unsafe]
+	property SysDataPointer: Ptr<T> {
+		return ptr;
+	}
+	
+	protected val ptr: Ptr<T>;
+	protected val length: PtrSize;
+	
+}

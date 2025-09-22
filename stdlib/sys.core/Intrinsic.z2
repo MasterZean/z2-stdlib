@@ -1,0 +1,23 @@
+namespace sys.core.lang;
+
+static class Intrinsic {
+	@[intrinsic]
+	def Assert(cond: Bool) {
+		if (cond == false)
+			throw sys.exception.AssertionFailed{};
+	}
+	
+	@[intrinsic]
+	def DebugAssert(cond: Bool) {
+	}
+	
+	@[intrinsic]
+	def MemCopy(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) {
+		bind.c.string.memcpy(destination, source, bytes);
+	}
+	
+	@[intrinsic]
+	def MemMove(destination: Ptr<Byte>, source: Ptr<Byte>, bytes: PtrSize) {
+		bind.c.string.memmove(destination, source, bytes);
+	}
+}

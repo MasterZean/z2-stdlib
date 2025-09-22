@@ -1,0 +1,231 @@
+namespace raylib;
+
+class ConfigFlags {
+    const FLAG_VSYNC_HINT         = 0x00000040u;   // Set to try enabling V-Sync on GPU
+    const FLAG_FULLSCREEN_MODE    = 0x00000002u;   // Set to run program in fullscreen
+    const FLAG_WINDOW_RESIZABLE   = 0x00000004u;   // Set to allow resizable window
+    const FLAG_WINDOW_UNDECORATED = 0x00000008u;   // Set to disable window decoration (frame and buttons)
+    const FLAG_WINDOW_HIDDEN      = 0x00000080u;   // Set to hide window
+    const FLAG_WINDOW_MINIMIZED   = 0x00000200u;   // Set to minimize window (iconify)
+    const FLAG_WINDOW_MAXIMIZED   = 0x00000400u;   // Set to maximize window (expanded to monitor)
+    const FLAG_WINDOW_UNFOCUSED   = 0x00000800u;   // Set to window non focused
+    const FLAG_WINDOW_TOPMOST     = 0x00001000u;   // Set to window always on top
+    const FLAG_WINDOW_ALWAYS_RUN  = 0x00000100u;   // Set to allow windows running while minimized
+    const FLAG_WINDOW_TRANSPARENT = 0x00000010u;   // Set to allow transparent framebuffer
+    const FLAG_WINDOW_HIGHDPI     = 0x00002000u;   // Set to support HighDPI
+    const FLAG_WINDOW_MOUSE_PASSTHROUGH = 0x00004000u; // Set to support mouse passthrough, only supported when FLAG_WINDOW_UNDECORATED
+    const FLAG_BORDERLESS_WINDOWED_MODE = 0x00008000u; // Set to run program in borderless windowed mode
+    const FLAG_MSAA_4X_HINT       = 0x00000020u;   // Set to try enabling MSAA 4X
+    const FLAG_INTERLACED_HINT    = 0x00010000u;   // Set to try enabling interlaced video format (for V3D)
+}
+
+class BlendMode {
+	const BLEND_ALPHA = 0;                // Blend textures considering alpha (default)
+	const BLEND_ADDITIVE = 1;                 // Blend textures adding colors
+	const BLEND_MULTIPLIED = 2;               // Blend textures multiplying colors
+	const BLEND_ADD_COLORS = 3;               // Blend textures adding colors (alternative)
+	const BLEND_SUBTRACT_COLORS = 4;          // Blend textures subtracting colors (alternative)
+	const BLEND_ALPHA_PREMULTIPLY = 5;        // Blend premultiplied textures considering alpha
+	const BLEND_CUSTOM = 6;                   // Blend textures using custom src/dst factors (use rlSetBlendFactors())
+	const BLEND_CUSTOM_SEPARATE = 7;          // Blend textures using custom rgb/alpha separate src/dst factors (use rlSetBlendFactorsSeparate())
+}
+
+class KeyboardKey {
+	const     KEY_SPACE           = 32;       // Key: Space
+}
+
+class Color {
+	val R = Byte{0};
+	val G = Byte{0};
+	val B = Byte{0};
+	val A = Byte{255};
+
+	this() {
+	}
+	
+	this(value: Int) {
+		R = Byte{value};
+		G = R;
+		B = R;
+		A = R;
+	}
+	
+	this(red: Int, green: Int, blue: Int) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = 255;
+	}
+	
+	this(red: DWord, green: DWord, blue: DWord) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = 255;
+	}
+	
+	this(red: Int, green: Int, blue: Int, alpha: Int) {
+		R = Byte{red};
+		G = Byte{green};
+		B = Byte{blue};
+		A = Byte{alpha};
+	}
+}
+
+class Vector2f {
+    val x: Float;                // Vector x component
+    val y: Float;                // Vector y component
+    
+    this() {
+    }
+        
+    this(ax: Float, ay: Float) {
+        x = ax;
+        y = ay;
+    }
+    
+    this(ax: Int, ay: Int) {
+        x = Float{ax};
+        y = Float{ay};
+    }
+}
+
+class Vector2i {
+    val x: Int;                // Vector x component
+    val y: Int;                // Vector y component
+    
+    this() {
+    }
+        
+    this(ax: Int, ay: Int) {
+        x = ax;
+        y = ay;
+    }
+}
+
+class Camera2D {
+    val offset: Vector2f;         // Camera offset (displacement from target)
+    val target: Vector2f;         // Camera target (rotation and zoom origin)
+    val rotation: Float;         // Camera rotation in degrees
+    val zoom : Float = 1.0f;             // Camera zoom (scaling), should be 1.0f by default
+    
+    this() {
+    }
+}
+
+class Texture2D {
+    val id: DWord;        // OpenGL texture id
+    val width: Int;              // Texture base width
+    val height: Int;             // Texture base height
+    val mipmaps: Int;            // Mipmap levels, 1 by default
+    val format: Int;             // Data format (PixelFormat type)
+    
+    this() {
+    }
+}
+
+class Rectangle {
+    val x: Float;                // Rectangle top-left corner position x
+    val y: Float;                // Rectangle top-left corner position y
+    val width: Float;            // Rectangle width
+    val height: Float;           // Rectangle height
+    
+    this() {
+    }
+    
+    this(ax: Float, ay: Float, aw: Float, ah: Float) {
+        x = ax;
+        y = ay;
+        width = aw;
+        height = ah;
+    }
+    
+    this(ax: Int, ay: Int, aw: Int, ah: Int) {
+        x = Float{ax};
+        y = Float{ay};
+        width = Float{aw};
+        height = Float{ah};
+    }
+}
+
+class Font {
+    val baseSize: Int;           // Base size (default chars height)
+    val glyphCount: Int;         // Number of glyph characters
+    val glyphPadding: Int;       // Padding around the glyph characters
+    val texture: Texture2D;      // Texture atlas containing the glyphs
+    val recs: Ptr<Byte>;        // Rectangles in texture for the glyphs
+    val glyphs: Ptr<Byte>;      // Glyphs info data
+}
+
+@[liblink="raylib", liblink="opengl32", liblink="gdi32", liblink="winmm", liblink="shell32"]
+static class Raylib {
+	const KEY_P               = 80;
+	const KEY_LEFT_ALT        = 342;
+	const KEY_RIGHT_ALT       = 346;
+	const KEY_ENTER           = 257;
+	
+	@[bindc] def SetConfigFlags(flags: DWord);
+	@[bindc] def SetTargetFPS(fps: Int);
+	@[bindc] def InitWindow(width: Int, height: Int, title: Ptr<Byte>);
+	
+	/*def InitWindow(width: Int, height: Int, title: String) {
+		Raylib.InitWindow(width, height, Ptr{title});
+	}*/
+	
+	@[bindc] def CloseWindow();
+	@[bindc] def WindowShouldClose(): Bool;
+	@[bindc] def ClearBackground(color: Color);
+	@[bindc] def BeginDrawing();
+	@[bindc] def EndDrawing();
+	@[bindc] def BeginMode2D(camera: Camera2D );                          // Begin 2D mode with custom camera (2D)
+	@[bindc] def EndMode2D();
+	
+	@[bindc] def DrawText(text: Ptr<Byte>, posX: Int, posY: Int, fontSize: Int, color: Color);
+	@[bindc] def DrawTextEx(font: Font, text: Ptr<Byte>, position: Vector2f, fontSize: Float, spacing: Float, tint: Color);
+	@[bindc] def DrawRectangle(posX: Int, posY: Int, width: Int, height: Int, color: Color);
+	@[bindc] def DrawRectangleLines(posX: Int, posY: Int, width: Int, height: Int, color: Color);
+	@[bindc] def DrawPixel(posX: Int, posY: Int, color: Color);
+	
+	@[bindc] def GetMousePosition(): Vector2f;
+
+	@[bindc] def GetMouseWheelMove(): Float;
+	@[bindc] def IsMouseButtonDown(button: Int): Bool;
+	@[bindc] def GetMouseDelta(): Vector2f;
+	
+	@[bindc] def LoadTexture(fileName: Ptr<Byte>): Texture2D;
+	@[bindc] def UnloadTexture(texture: Texture2D);
+	
+	@[bindc] def DrawLine(startPosX: Int, startPosY: Int, endPosX: Int, endPosY: Int, color: Color);
+	
+	@[bindc] def DrawTexture(texture: Texture2D, posX: Int, posY: Int, tint: Color);
+	@[bindc] def DrawTextureRec(texture: Texture2D, source: Rectangle, position: Vector2f, tint: Color);
+	@[bindc] def DrawTexturePro(texture: Texture2D, source: Rectangle, dest: Rectangle, origin: Vector2f, rotation: Float, tint: Color);
+	@[bindc] def DrawTextureEx(texture: Texture2D, position: Vector2f, rotation: Float, scale: Float, tint: Color);
+	@[bindc] def SetTextureFilter(texture: Texture2D, filter: Int);
+	
+	@[bindc] def SetRandomSeed(seed: DWord);                      // Set the seed for the random number generator
+	@[bindc] def GetRandomValue(min: Int, max: Int): Int;
+	@[bindc] def IsKeyPressed(key: Int): Bool;
+	@[bindc] def IsKeyDown(key: Int): Bool;
+	
+	@[bindc] def GetWorldToScreen2D(position: Vector2f, camera: Camera2D): Vector2f;
+	@[bindc] def GetScreenToWorld2D(position: Vector2f, camera: Camera2D): Vector2f;
+	
+	@[bindc] def BeginBlendMode(mode: Int);                              // Begin blending mode (alpha, additive, multiplied, subtract, custom)
+	@[bindc] def EndBlendMode();
+	
+	@[bindc] def GenTextureMipmaps(texture: Ptr<Texture2D>);
+	@[bindc] def Fade(color: Color, alpha: Float): Color ;
+	
+	@[bindc] def LoadFont(fileName: Ptr<Byte>): Font;
+	@[bindc] def GetFontDefault(): Font;
+	@[bindc] def MeasureTextEx(font: Font, text: Ptr<Byte>, fontSize: Float, spacing: Float): Vector2f;    // Measure string size for Font
+	
+	@[bindc] def GetMouseX(): Int;                                    // Get mouse position X
+	@[bindc] def GetMouseY(): Int;
+	@[bindc] def IsMouseButtonPressed(button: Int): Bool;
+	@[bindc] def IsMouseButtonReleased(button: Int): Bool;
+	
+	@[bindc] def ToggleBorderlessWindowed();
+	@[bindc] def ToggleFullscreen();
+}

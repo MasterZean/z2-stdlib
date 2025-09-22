@@ -1,0 +1,56 @@
+namespace sys.core.lang;
+
+class CArray<T: Class>: Slice<T> {
+	this() {
+		Construct();
+	}
+	
+	this(value: T) {
+		for (val i = 0p; i < length; i++)
+			this[i].!{value};
+	}
+	
+	def Copy(array: CArray<T>) {
+		if (length != array.length)
+			return;
+		
+		for (val i = 0p; i < length; i++)
+			this[i].!{array[i]};
+	}
+	
+	def Emplace(array: CArray<T>) {
+		val limit = array.Length;
+		if (limit > length)
+			limit = length;
+		
+		for (val i = 0p; i < limit; i++)
+			this[i].!{array[i]};
+			
+		for (val i = length; i < length; i++)
+			this[i].!{};
+	}
+	
+	def Emplace(array: CArray<T>, value: T) {
+		val limit = array.Length;
+		if (limit > length)
+			limit = length;
+		
+		for (val i = 0p; i < limit; i++)
+			this[i].!{array[i]};
+			
+		for (val i = length; i < length; i++)
+			this[i].!{value};
+	}
+				
+	func Print() {
+		for (val i = 0p; i < length; i++) {
+			System.Out << this[i];
+			if (i < length - 1)
+				System.Out << ' ';
+		}
+	}
+	
+	func Slice(): Slice<T> {
+		return this;
+	}
+}

@@ -1,0 +1,14 @@
+namespace sys.core;
+
+class DynBlock<T: Class> {
+	this() {
+	}
+	
+	this(aSize: PtrSize) {
+		Length = aSize;
+	}
+	
+	property Length: PtrSize;
+	
+	@[unsafe] property SysDataPointer: Ptr<Int>;
+}

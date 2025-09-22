@@ -1,0 +1,109 @@
+namespace sys.core.lang;
+
+using sys.core.Stream;
+using sys.core.OutputFormat;
+using sys.core.ConvertUtf8;
+
+class Long {
+	const Zero: Long = 0;
+	const One: Long = 1;
+
+	const Min: Long = -9'223'372'036'854'775'808l;
+	const Max: Long = 9'223'372'036'854'775'807l;
+
+	const IsSigned = true;
+	const IsInteger = true;
+	
+	const MaxDigitsLow = 19;
+	const MaxDigitsHigh = 19;
+
+	property Abs: Long {
+		return this > 0 ? this : -this;
+	}
+	
+	property Sqr: Long {
+		return this * this;
+	}
+
+	property Sqrt: Long {
+		return Long{Double{this}.Sqrt};
+	}
+
+	property Floor: Long {
+		return this;
+	}
+
+	property Ceil: Long {
+		return this;
+	}
+
+	property Round: Long {
+		return this;
+	}
+	
+	property Trunc: Long {
+		return this;
+	}
+	
+	def Clamp(min: Long, max: Long) = Intrinsic.Clamp;
+	
+	func Clamped(min: Long, max: Long): Long = Intrinsic.Clamped;
+
+	this(string: String) {
+		val s = ReadSlice<Byte>{string};
+		this = ConvertUtf8.ParseSig<Long>(s);
+	}
+	
+	func ToString(): String {
+		val buf: CArray<Byte, ConvertUtf8.MaxLongBuffer> = void;
+		val s = Slice<Byte>{buf};
+		ConvertUtf8.LongAsText(s, this);
+		return String{s};
+	}
+
+#region Saturation
+
+	this Saturated(value: Long) {
+		this = value;
+	}
+
+	this Saturated(value: QWord) {
+		this = value > QWord{Max} ? Max : Long{value};
+	}
+
+	this Saturated(value: Double) {
+		if (value > Max)
+			this = Max;
+		else if (value < Min)
+			this = Min;
+		else
+			this = Long{value};
+	}
+	
+	this Saturated(value: String) {
+		val s = ReadSlice<Byte>{value};
+		this = ConvertUtf8.ParseSigSaturated<Long>(s);
+	}
+
+#endregion
+
+#region IO
+
+	func @write(ref stream: Stream) {
+		stream.RawWrite(this);
+	}
+
+	/*func @write(ref stream: Stream, format: OutputFormat) {
+		stream.RawWrite(this, format);
+	}*/
+	
+	func @put(ref stream: Stream) {
+		stream.RawPutS64(this);
+	}
+
+	def @get(ref stream: Stream) {
+		this = stream.RawGetS64();
+	}
+
+#endregion
+}

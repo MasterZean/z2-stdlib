@@ -1,0 +1,119 @@
+namespace bind.c;
+
+static class math {
+	@[bindc] func round(d: Double): Double;
+	
+	func round(value: Float): Float {
+		return Float{round(Double{value})};
+	}
+	
+	@[bindc] func trunc(d: Double): Double;
+	
+	func trunc(value: Float): Float {
+		return Float{trunc(Double{value})};
+	}
+	
+	@[bindc] func sqrt(d: Double): Double;
+	
+	func sqrt(value: Float): Float {
+		return Float{sqrt(Double{value})};
+	}
+	
+	@[bindc] func pow(base: Double, exponenet: Double): Double;
+	
+	func pow(base: Float, exponenet: Float): Float {
+		return Float{pow(Double{base}, Double{exponenet})};
+	}
+	
+	@[bindc] func log(d: Double): Double;
+	
+	func log(value: Float): Float {
+		return Float{log(Double{value})};
+	}
+	
+	@[bindc] func log10(d: Double): Double;
+	
+	func log10(value: Float): Float {
+		return Float{log10(Double{value})};
+	}
+	
+	@[bindc] func log2(d: Double): Double;
+	
+	func log2(value: Float): Float {
+		return Float{log2(Double{value})};
+	}
+	
+	@[bindc] func sin(d: Double): Double;
+	
+	func sin(value: Float): Float {
+		return Float{sin(Double{value})};
+	}
+	
+	@[bindc] func cos(d: Double): Double;
+	
+	func cos(value: Float): Float {
+		return Float{cos(Double{value})};
+	}
+	
+	@[bindc] func tan(d: Double): Double;
+	
+	func tan(value: Float): Float {
+		return Float{tan(Double{value})};
+	}
+	
+	@[bindc] func asin(d: Double): Double;
+	
+	func asin(value: Float): Float {
+		return Float{asin(Double{value})};
+	}
+	
+	@[bindc] func acos(d: Double): Double;
+	
+	func acos(value: Float): Float {
+		return Float{acos(Double{value})};
+	}
+	
+	@[bindc] func atan(d: Double): Double;
+	
+	func atan(value: Float): Float {
+		return Float{atan(Double{value})};
+	}
+	
+	@[bindc] func sinh(d: Double): Double;
+	
+	func sinh(value: Float): Float {
+		return Float{sinh(Double{value})};
+	}
+	
+	@[bindc] func cosh(d: Double): Double;
+	
+	func cosh(value: Float): Float {
+		return Float{cosh(Double{value})};
+	}
+	
+	@[bindc] func tanh(d: Double): Double;
+	
+	func tanh(value: Float): Float {
+		return Float{tanh(Double{value})};
+	}
+	
+	@[bindc] func asinh(d: Double): Double;
+	
+	func asinh(value: Float): Float {
+		return Float{asinh(Double{value})};
+	}
+	
+	@[bindc] func acosh(d: Double): Double;
+	
+	func acosh(value: Float): Float {
+		return Float{acosh(Double{value})};
+	}
+	
+	@[bindc] func atanh(d: Double): Double;
+	
+	func atanh(value: Float): Float {
+		return Float{atanh(Double{value})};
+	}
+	
+	@[bindc] func rand(): Int;
+}

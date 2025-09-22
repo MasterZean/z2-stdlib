@@ -1,0 +1,28 @@
+namespace sys.exception;
+
+class Exception {
+}
+
+class AssertionFailed: Exception {
+}
+
+class BufferOverflow: Exception {
+}
+
+class IllegalArgument: Exception {
+}
+
+class IllegalConversion: Exception {
+}
+
+class NullReference: Exception {
+}
+
+class WrongAlignment: Exception {
+}
+
+class OutOfMemory: Exception {
+}
+
+class IndexOutOfBounds: Exception {
+}

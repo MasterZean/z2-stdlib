@@ -1,0 +1,35 @@
+// Bridge
+
+namespace wi.renderer {
+	@[bindcpp] def SetTemporalAAEnabled(enabled: Bool);
+	@[bindcpp] def SetToDrawGridHelper(enabled: Bool);
+	@[bindcpp] def SetVSync(enabled: Bool);
+	@[bindcpp] def ClearWorld();
+}
+
+namespace wi.bridge {
+	@[bindcpp] def LoadModel(title: Ptr<Byte>);
+	@[bindcpp] def Press(button: Int): Bool;
+	@[bindcpp] def CreateCube(x: Float, y: Float, z: Float): DWord;
+}
+
+namespace wi.profiler {
+	@[bindcpp] def SetEnabled(enabled: Bool);
+}
+
+namespace wi.ray;
+
+class Texture2D {
+	val data: Ptr<Byte>;
+	
+	this() {
+	}
+}
+
+static class Raylib {
+	@[bindc] def SetRandomSeed(seed: DWord);                      // Set the seed for the random number generator
+	@[bindc] def GetRandomValue(min: Int, max: Int): Int;
+	
+	@[bindc] def LoadTexture(fileName: Ptr<Byte>): Texture2D;
+	@[bindc] def DrawTextureRec(texture: Texture2D, source: raylib.Rectangle, position: raylib.Vector2f, tint: raylib.Color);
+}

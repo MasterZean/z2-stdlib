@@ -1,0 +1,23 @@
+namespace sys.core;
+
+class HeapBlock<T: Class>: Slice<T> {
+	private this() {
+	}
+	
+	this(aSize: PtrSize) {
+		length = aSize;
+		
+		if (length > 0) {
+			ptr = Ptr<T>{bind.c.string.malloc(aSize * T.@size)};
+			if (ptr == null)
+				length = 0;
+		}
+	}
+	
+	~this() {
+	}
+	
+	func Slice(): Slice<T> {
+		return ::Slice<T>{ptr, length};
+	}
+}
